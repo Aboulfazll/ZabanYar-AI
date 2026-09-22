@@ -14,6 +14,7 @@ import com.zabanyar.ai.ui.screens.BookDetailScreen
 import com.zabanyar.ai.ui.screens.HomeScreen
 import com.zabanyar.ai.ui.screens.LessonDetailScreen
 import com.zabanyar.ai.ui.screens.LibraryScreen
+import com.zabanyar.ai.ui.screens.ProfileScreen
 
 object Routes {
     const val LOGIN = "login"
@@ -24,6 +25,7 @@ object Routes {
     const val LESSON_DETAIL = "lesson_detail/{bookId}/{chapterNumber}"
     const val AI_CHAT = "ai_chat"
     const val API_KEY = "api_key"
+    const val PROFILE = "profile"
 
     fun bookDetail(bookId: String) = "book_detail/$bookId"
     fun lessonDetail(bookId: String, chapterNumber: Int) =
@@ -78,7 +80,9 @@ fun AppNavHost(
                 },
                 onNavigateToSpeaking = {},
                 onNavigateToVocabulary = {},
-                onNavigateToProfile = {},
+                onNavigateToProfile = {
+                    navController.navigate(Routes.PROFILE)
+                },
                 onLogout = {
                     navController.navigate(Routes.LOGIN) {
                         popUpTo(Routes.HOME) { inclusive = true }
@@ -147,6 +151,21 @@ fun AppNavHost(
         composable(Routes.API_KEY) {
             ApiKeyScreen(
                 onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== پروفایل ====================
+        composable(Routes.PROFILE) {
+            ProfileScreen(
+                onBack = { navController.popBackStack() },
+                onNavigateToApiKey = {
+                    navController.navigate(Routes.API_KEY)
+                },
+                onLogout = {
+                    navController.navigate(Routes.LOGIN) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                    }
+                }
             )
         }
     }
