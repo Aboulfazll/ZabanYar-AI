@@ -34,7 +34,9 @@ object BookRepository {
 
     fun getAllBooks(): List<Book> = listOf(
 
-        // ==================== 💬 مکالمه - Top Notch ====================
+        // ==================== 💬 مکالمه ====================
+
+        // ---------- Top Notch ----------
         Book(
             id = "top_notch_1", title = "Top Notch 1", titlePersian = "تاپ ناچ ۱",
             author = "Joan Saslow", category = BookCategory.CONVERSATION,
@@ -70,16 +72,17 @@ object BookRepository {
             )
         ),
 
-        // ==================== 💬 مکالمه - Four Corners ====================
+        // ---------- Four Corners ----------
         Book(
             id = "four_corners_1", title = "Four Corners 1", titlePersian = "فور کورنرز ۱",
             author = "Jack C. Richards", category = BookCategory.CONVERSATION,
             level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
             gradientStart = 0xFFE65100, gradientEnd = 0xFFFFB74D,
             chapterTitles = listOf(
-                "Welcome!", "Everyday Activities", "People", "Clothes",
-                "Food and Drinks", "Around Town", "Daily Routine",
-                "Shopping", "Weather", "Travel", "Health", "Hobbies"
+                "Welcome to Class", "Daily Activities", "People Around Us",
+                "What Are You Wearing?", "Food and Drinks", "Places in Town",
+                "Daily Routine", "Shopping Time", "Weather and Seasons",
+                "Travel Plans", "Health and Body", "Free Time"
             )
         ),
         Book(
@@ -91,7 +94,7 @@ object BookRepository {
                 "Life Stories", "Hobbies and Interests", "At Home",
                 "Food and Health", "Looking Back", "Traveling",
                 "School Days", "Memories", "Plans and Dreams",
-                "Work and Jobs", "Around the World", "Future"
+                "Work and Jobs", "Around the World", "The Future"
             )
         ),
         Book(
@@ -101,94 +104,94 @@ object BookRepository {
             gradientStart = 0xFF00838F, gradientEnd = 0xFF4DD0E1,
             chapterTitles = listOf(
                 "New Friends", "Everyday Life", "Entertainment",
-                "Getting Around", "Shopping", "Food",
-                "Jobs", "Travel", "Health", "Technology",
-                "Culture", "Success"
+                "Getting Around", "Shopping Trends", "Food Culture",
+                "Career Paths", "Travel Stories", "Health & Wellness",
+                "Technology Today", "Cultural Differences", "Success Stories"
             )
         ),
 
-        // ==================== 💬 مکالمه - English File ====================
+        // ---------- English File ----------
         Book(
             id = "english_file_1", title = "English File 1", titlePersian = "اینگلیش فایل ۱",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
             level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
-            gradientStart = 0xFF01579B, gradientEnd = 0xFF4FC3F7,
+            gradientStart = 0xFF0D47A1, gradientEnd = 0xFF4FC3F7,
             chapterTitles = listOf(
-                "Hello!", "Your World", "All About You", "Family and Friends",
-                "The Way We Live", "Places and Things", "Your Time",
-                "Food and Drinks", "Activities", "The Past", "Work and Study", "Future Plans"
+                "First Day at School", "My World", "All About Me",
+                "Family and Friends", "How We Live", "Things and Places",
+                "My Time", "Food and Drink", "Free Time", "Past Events", "Work and Study", "Future Plans"
             )
         ),
         Book(
             id = "english_file_2", title = "English File 2", titlePersian = "اینگلیش فایل ۲",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
             level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
-            gradientStart = 0xFF1565C0, gradientEnd = 0xFF42A5F5,
+            gradientStart = 0xFF1976D2, gradientEnd = 0xFF64B5F6,
             chapterTitles = listOf(
                 "Where Are You From?", "Everyday Life", "Past Events",
-                "Clothes and Shopping", "Food and Restaurants", "Around Town",
-                "Holidays", "Health", "Relationships", "Education", "Travel", "Future"
+                "Clothes and Fashion", "Food and Restaurants", "Around Town",
+                "Holidays", "Health Issues", "Relationships", "Education", "Travel Plans", "Future Plans"
             )
         ),
         Book(
             id = "english_file_3", title = "English File 3", titlePersian = "اینگلیش فایل ۳",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
             level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
-            gradientStart = 0xFF283593, gradientEnd = 0xFF5C6BC0,
+            gradientStart = 0xFF512DA8, gradientEnd = 0xFF9575CD,
             chapterTitles = listOf(
-                "Fashion and Shopping", "Daily Life", "Personal Stories",
-                "The Environment", "Art and Music", "Books and Reading",
-                "Work and Career", "Travel Experiences", "Health and Fitness",
-                "Technology", "Society", "Future Plans"
+                "Fashion & Shopping", "Modern Life", "Personal Stories",
+                "Environmental Issues", "Art and Music", "Books and Literature",
+                "Career Development", "Travel Experiences", "Health & Fitness",
+                "Technology & Innovation", "Society & Culture", "Future Goals"
             )
         ),
         Book(
             id = "english_file_4", title = "English File 4", titlePersian = "اینگلیش فایل ۴",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
             level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
-            gradientStart = 0xFF4A148C, gradientEnd = 0xFF9C27B0,
+            gradientStart = 0xFF6A1B9A, gradientEnd = 0xFFBA68C8,
             chapterTitles = listOf(
-                "Communication", "Modern Life", "Money and Shopping",
-                "Travel and Adventure", "Food and Culture", "Health Matters",
-                "Education", "Relationships", "Work-Life Balance",
-                "Environment", "Politics", "Global Issues"
+                "Communication", "Modern Life", "Money Matters",
+                "Adventure Travel", "Food & Culture", "Health & Lifestyle",
+                "Education Systems", "Relationships", "Work-Life Balance",
+                "Environment", "Politics & Society", "Global Issues"
             )
         ),
         Book(
             id = "english_file_5", title = "English File 5", titlePersian = "اینگلیش فایل ۵",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
             level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
-            gradientStart = 0xFFB71C1C, gradientEnd = 0xFFE57373,
+            gradientStart = 0xFFB71C1C, gradientEnd = 0xFFEF9A9A,
             chapterTitles = listOf(
-                "Cultural Differences", "Urban Life", "Ethics and Values",
-                "Innovation", "Global Economy", "Art and Society",
-                "Media and Technology", "Politics", "Philosophy",
-                "Science and Future", "Environment", "Human Nature"
+                "Cultural Awareness", "Urban Stories", "Ethics & Morality",
+                "Innovation & Change", "Global Economy", "Arts & Society",
+                "Media & Technology", "Political Discourse", "Philosophy",
+                "Science & Future", "Environmental Ethics", "Human Nature"
             )
         ),
 
-        // ==================== 💬 مکالمه - Evolve ====================
+        // ---------- Evolve ----------
         Book(
             id = "evolve_1", title = "Evolve 1", titlePersian = "ایوولو ۱",
             author = "Leslie Anne Hendra", category = BookCategory.CONVERSATION,
             level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
-            gradientStart = 0xFF1B5E20, gradientEnd = 0xFF66BB6A,
+            gradientStart = 0xFF1B5E20, gradientEnd = 0xFF81C784,
             chapterTitles = listOf(
-                "Nice to Meet You", "Everyday Life", "Family",
-                "Free Time", "At Home", "Food",
-                "Shopping", "Travel", "Health",
-                "Work and Study", "People and Places", "Future"
+                "Nice to Meet You", "Everyday Life", "Family Ties",
+                "Free Time", "At Home", "Food and Drinks",
+                "Shopping", "Travel", "Health Basics",
+                "Work and Study", "People and Places", "Future Plans"
             )
         ),
         Book(
             id = "evolve_2", title = "Evolve 2", titlePersian = "ایوولو ۲",
             author = "Leslie Anne Hendra", category = BookCategory.CONVERSATION,
             level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
-            gradientStart = 0xFF004D40, gradientEnd = 0xFF26A69A,
+            gradientStart = 0xFF00695C, gradientEnd = 0xFF4DB6AC,
             chapterTitles = listOf(
-                "New Experiences", "Daily Routine", "Relationships",
-                "Entertainment", "Food and Health", "Around the City",
-                "Sports and Fitness", "Travel", "Memories",
+                "New Experiences", "Daily Routines", "Relationships",
+                "Entertainment", "Food & Health", "City Life",
+                "Sports & Fitness", "Travel Stories", "Memories",
                 "Technology", "Plans", "Dreams"
             )
         ),
@@ -196,23 +199,23 @@ object BookRepository {
             id = "evolve_3", title = "Evolve 3", titlePersian = "ایوولو ۳",
             author = "Leslie Anne Hendra", category = BookCategory.CONVERSATION,
             level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
-            gradientStart = 0xFF0D47A1, gradientEnd = 0xFF42A5F5,
+            gradientStart = 0xFF0277BD, gradientEnd = 0xFF4FC3F7,
             chapterTitles = listOf(
                 "Communication", "Lifestyle", "Modern Society",
-                "Career", "Cultural Diversity", "Education",
-                "Media", "Environment", "Relationships",
-                "Personal Growth", "Future Trends", "Success"
+                "Career Paths", "Cultural Diversity", "Education",
+                "Media & News", "Environment", "Relationships",
+                "Personal Growth", "Future Trends", "Success Stories"
             )
         ),
         Book(
             id = "evolve_5", title = "Evolve 5", titlePersian = "ایوولو ۵",
             author = "Leslie Anne Hendra", category = BookCategory.CONVERSATION,
             level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
-            gradientStart = 0xFFE65100, gradientEnd = 0xFFFFB74D,
+            gradientStart = 0xFFE65100, gradientEnd = 0xFFFFCC80,
             chapterTitles = listOf(
-                "Identity", "Society and Culture", "Innovation",
-                "Ethics", "Globalization", "Sustainability",
-                "Psychology", "Politics", "Art and Media",
+                "Identity", "Society & Culture", "Innovation",
+                "Ethics & Values", "Globalization", "Sustainability",
+                "Psychology", "Politics", "Art & Media",
                 "Science", "Philosophy", "Future"
             )
         ),
@@ -220,9 +223,9 @@ object BookRepository {
             id = "evolve_6", title = "Evolve 6", titlePersian = "ایوولو ۶",
             author = "Ben Goldstein", category = BookCategory.CONVERSATION,
             level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
-            gradientStart = 0xFF4527A0, gradientEnd = 0xFF7E57C2,
+            gradientStart = 0xFF4527A0, gradientEnd = 0xFF9C27B0,
             chapterTitles = listOf(
-                "Human Behavior", "Cultural Trends", "Technology and Future",
+                "Human Behavior", "Cultural Trends", "Technology & Future",
                 "Ethical Dilemmas", "World Issues", "Artistic Expression",
                 "Scientific Discovery", "Economic Systems", "Political Theory",
                 "Human Potential", "Global Challenges", "Tomorrow"
@@ -319,12 +322,12 @@ object BookRepository {
             gradientStart = 0xFFD84315, gradientEnd = 0xFFFF8A65
         ),
 
-        // ==================== 🎧 مهارت شنیداری ====================
+        // ==================== 🎧 شنیداری ====================
         Book(
             id = "basic_tactics", title = "Basic Tactics for Listening", titlePersian = "تاکتیکس پایه",
             author = "Jack C. Richards", category = BookCategory.LISTENING,
             level = "مبتدی", levelEmoji = "🌱", totalChapters = 24,
-            gradientStart = 0xFF827717, gradientEnd = 0xFFC0CA33
+            gradientStart = 0xFF827717, gradientEnd = 0xFFD4E157
         ),
         Book(
             id = "developing_tactics", title = "Developing Tactics for Listening", titlePersian = "تاکتیکس پیشرفته",
@@ -363,7 +366,7 @@ object BookRepository {
             gradientStart = 0xFF0D47A1, gradientEnd = 0xFF42A5F5
         ),
 
-        // ==================== 📖 مهارت خواندن ====================
+        // ==================== 📖 خواندن ====================
         Book(
             id = "inside_reading", title = "Inside Reading", titlePersian = "اینساید ریدینگ",
             author = "Arline Burgmeier", category = BookCategory.READING,
