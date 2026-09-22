@@ -58,13 +58,28 @@ object LessonContentRepository {
                 ),
                 grammar = listOf(
                     GrammarSection("📌 a / an + Occupations",
-                        "برای شغل‌ها از a یا an استفاده می‌کنیم:\n\n• a قبل از حروف بی‌صدا: a teacher, a doctor\n• an قبل از حروف صدادار (a,e,i,o,u): an architect, an engineer\n• استثنا: an hour"),
+                        "برای شغل‌ها از a یا an استفاده می‌کنیم:\n\n" +
+                        "• a قبل از حروف بی‌صدا: a teacher, a doctor\n" +
+                        "• an قبل از حروف صدادار (a,e,i,o,u): an architect, an engineer\n" +
+                        "• استثنا: an hour\n\n" +
+                        "ساختار: Subject + be + a/an + job\n" +
+                        "• I am a teacher.\n" +
+                        "• She is an architect."),
                     GrammarSection("📌 do / does در سوال",
-                        "• I / You / We / They → do\n  What DO you do? → I'm a teacher.\n\n• He / She / It → does\n  What DOES he do? → He's a doctor."),
+                        "برای پرسیدن شغل:\n\n" +
+                        "• I / You / We / They → do\n" +
+                        "  What DO you do? → I'm a teacher.\n\n" +
+                        "• He / She / It → does\n" +
+                        "  What DOES he do? → He's a doctor.\n" +
+                        "  What DOES she do? → She's an architect."),
                     GrammarSection("📌 پاسخ کوتاه",
-                        "• Are you a teacher? → Yes, I am. / No, I'm not.\n• Is he a doctor? → Yes, he is. / No, he isn't."),
+                        "• Are you a teacher? → Yes, I am. / No, I'm not.\n" +
+                        "• Is he a doctor? → Yes, he is. / No, he isn't.\n" +
+                        "• Are they students? → Yes, they are. / No, they aren't."),
                     GrammarSection("❌ اشتباهات رایج",
-                        "❌ What do he do? → ✅ What does he do?\n❌ She's a engineer. → ✅ She's an engineer.\n❌ I'm teacher. → ✅ I'm a teacher.")
+                        "❌ What do he do? → ✅ What does he do?\n" +
+                        "❌ She's a engineer. → ✅ She's an engineer.\n" +
+                        "❌ I'm teacher. → ✅ I'm a teacher.")
                 ),
                 conversation = listOf(
                     DialogueLine("Sara", "Hi! I'm Sara. Nice to meet you.", "سلام! من سارا هستم. از آشنایی خوشحالم."),
@@ -91,20 +106,29 @@ object LessonContentRepository {
                     QuizQuestion("معنی «Nurse» چیست؟", listOf("دکتر", "پرستار", "مهندس", "معلم"), 1)
                 )
             )
+
             2 -> LessonContent("top_notch_1", 2, "About People", "درباره مردم",
                 vocabulary = listOf(
                     VocabWord("Tall", "قدبلند", "tɔːl"), VocabWord("Short", "کوتاه", "ʃɔːrt"),
                     VocabWord("Young", "جوان", "jʌŋ"), VocabWord("Old", "پیر", "oʊld"),
                     VocabWord("Nice", "مهربان", "naɪs"), VocabWord("Funny", "بامزه", "ˈfʌni"),
                     VocabWord("Serious", "جدی", "ˈsɪriəs"), VocabWord("Friendly", "خوش‌برخورد", "ˈfrendli"),
-                    VocabWord("Quiet", "ساکت", "ˈkwaɪət"), VocabWord("Talkative", "پرحرف", "ˈtɔːkətɪv"),
-                    VocabWord("Smart", "باهوش", "smɑːrt"), VocabWord("Kind", "مهربان", "kaɪnd")
+                    VocabWord("Quiet", "ساکت", "ˈkwaɪət"), VocabWord("Talkative", "پرحرف", "ˈtɔːkətɪv")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 جای صفت در جمله", "صفت بعد از be یا قبل از اسم:\n\n• She is tall.\n• She is a tall girl.\n• ❌ She tall is. → ✅ She is tall."),
-                    GrammarSection("📌 پرسیدن شخصیت و ظاهر", "• What is he like? → He's kind and funny. (شخصیت)\n• What does he look like? → He's tall and thin. (ظاهر)"),
-                    GrammarSection("📌 صفت‌های متضاد", "tall ↔ short / young ↔ old / nice ↔ mean\nquiet ↔ talkative / serious ↔ funny"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ She very nice. → ✅ She is very nice.\n❌ He is a man tall. → ✅ He is a tall man.")
+                    GrammarSection("📌 جای صفت در جمله",
+                        "صفت بعد از be یا قبل از اسم:\n\n" +
+                        "• She is tall.\n" +
+                        "• She is a tall girl.\n" +
+                        "• ❌ She tall is. → ✅ She is tall."),
+                    GrammarSection("📌 پرسیدن شخصیت و ظاهر",
+                        "• What is he like? → He's kind and funny. (شخصیت)\n" +
+                        "• What does he look like? → He's tall and thin. (ظاهر)"),
+                    GrammarSection("📌 صفت‌های متضاد",
+                        "tall ↔ short\nyoung ↔ old\nnice ↔ mean\nquiet ↔ talkative"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ She very nice. → ✅ She is very nice.\n" +
+                        "❌ He is a man tall. → ✅ He is a tall man.")
                 ),
                 conversation = listOf(
                     DialogueLine("Anna", "Who is your best friend?", "بهترین دوستت کیه؟"),
@@ -131,6 +155,7 @@ object LessonContentRepository {
                     QuizQuestion("«او خجالتی است.»", listOf("He is shy.", "He are shy.", "He shy.", "Shy he."), 0)
                 )
             )
+
             3 -> LessonContent("top_notch_1", 3, "Places and Things", "مکان‌ها و اشیا",
                 vocabulary = listOf(
                     VocabWord("Book", "کتاب", "bʊk"), VocabWord("Table", "میز", "ˈteɪbəl"),
@@ -140,10 +165,23 @@ object LessonContentRepository {
                     VocabWord("Park", "پارک", "pɑːrk"), VocabWord("Hospital", "بیمارستان", "ˈhɑːspɪtəl")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 جمع اسم‌ها", "• +s: book → books\n• +es (بعد از s,x,ch,sh,o): box → boxes\n• y → ies: city → cities\n• بی‌قاعده: man → men / child → children"),
-                    GrammarSection("📌 There is / There are", "• There is + مفرد: There is a book.\n• There are + جمع: There are two books.\n• سوال: Is there a bank? / Are there any parks?"),
-                    GrammarSection("📌 حروف اضافه مکان", "• in (داخل): in the room\n• on (روی): on the table\n• under (زیر): under the bed\n• next to (کنار): next to the door"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ There is two books. → ✅ There are two books.\n❌ two childs → ✅ two children")
+                    GrammarSection("📌 جمع اسم‌ها",
+                        "• +s: book → books\n" +
+                        "• +es (بعد از s,x,ch,sh,o): box → boxes\n" +
+                        "• y → ies: city → cities\n" +
+                        "• بی‌قاعده: man → men / child → children"),
+                    GrammarSection("📌 There is / There are",
+                        "• There is + مفرد: There is a book.\n" +
+                        "• There are + جمع: There are two books.\n" +
+                        "• سوال: Is there a bank? / Are there any parks?"),
+                    GrammarSection("📌 حروف اضافه مکان",
+                        "• in (داخل): in the room\n" +
+                        "• on (روی): on the table\n" +
+                        "• under (زیر): under the bed\n" +
+                        "• next to (کنار): next to the door"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ There is two books. → ✅ There are two books.\n" +
+                        "❌ two childs → ✅ two children")
                 ),
                 conversation = listOf(
                     DialogueLine("David", "Where are you from?", "اهل کجایی؟"),
@@ -168,19 +206,29 @@ object LessonContentRepository {
                     QuizQuestion("جمع «box» چیست؟", listOf("boxs", "box", "boxes", "boxies"), 2)
                 )
             )
+
             4 -> LessonContent("top_notch_1", 4, "Family", "خانواده",
                 vocabulary = listOf(
                     VocabWord("Father", "پدر", "ˈfɑːðər"), VocabWord("Mother", "مادر", "ˈmʌðər"),
                     VocabWord("Brother", "برادر", "ˈbrʌðər"), VocabWord("Sister", "خواهر", "ˈsɪstər"),
                     VocabWord("Son", "پسر", "sʌn"), VocabWord("Daughter", "دختر", "ˈdɔːtər"),
                     VocabWord("Grandfather", "پدربزرگ", "ˈɡrænfɑːðər"), VocabWord("Grandmother", "مادربزرگ", "ˈɡrænmʌðər"),
-                    VocabWord("Uncle", "عمو/دایی", "ˈʌŋkəl"), VocabWord("Aunt", "عمه/خاله", "ænt"),
-                    VocabWord("Cousin", "پسرعمو/دخترعمو", "ˈkʌzən"), VocabWord("Parents", "والدین", "ˈperənts")
+                    VocabWord("Uncle", "عمو/دایی", "ˈʌŋkəl"), VocabWord("Aunt", "عمه/خاله", "ænt")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 مالکیت با 's", "• Ali's book = کتاب علی\n• My father's car = ماشین پدرم\n• Sara's mother = مادر سارا\n\nبرای جمع: The students' classroom"),
-                    GrammarSection("📌 Have / Has", "• I / You / We / They → have\n  I have two brothers.\n\n• He / She / It → has\n  She has one sister."),
-                    GrammarSection("❌ اشتباهات رایج", "❌ Ali book → ✅ Ali's book\n❌ She have a brother. → ✅ She has a brother.")
+                    GrammarSection("📌 مالکیت با 's",
+                        "• Ali's book = کتاب علی\n" +
+                        "• My father's car = ماشین پدرم\n" +
+                        "• Sara's mother = مادر سارا\n\n" +
+                        "برای جمع: The students' classroom"),
+                    GrammarSection("📌 Have / Has",
+                        "• I / You / We / They → have\n" +
+                        "  I have two brothers.\n\n" +
+                        "• He / She / It → has\n" +
+                        "  She has one sister."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ Ali book → ✅ Ali's book\n" +
+                        "❌ She have a brother. → ✅ She has a brother.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Do you have a big family?", "خانواده بزرگی داری؟"),
@@ -205,19 +253,27 @@ object LessonContentRepository {
                     QuizQuestion("«The students' classroom»؟", listOf("کلاس یک دانش‌آموز", "کلاس دانش‌آموزان", "دانش‌آموز کلاس", "معلم کلاس"), 1)
                 )
             )
+
             5 -> LessonContent("top_notch_1", 5, "Events and Times", "رویدادها و زمان‌ها",
                 vocabulary = listOf(
                     VocabWord("Today", "امروز", "təˈdeɪ"), VocabWord("Tomorrow", "فردا", "təˈmɑːroʊ"),
                     VocabWord("Yesterday", "دیروز", "ˈjestərdeɪ"), VocabWord("Morning", "صبح", "ˈmɔːrnɪŋ"),
                     VocabWord("Afternoon", "بعدازظهر", "ˌæftərˈnuːn"), VocabWord("Evening", "عصر", "ˈiːvnɪŋ"),
                     VocabWord("Night", "شب", "naɪt"), VocabWord("Week", "هفته", "wiːk"),
-                    VocabWord("Month", "ماه", "mʌnθ"), VocabWord("Year", "سال", "jɪr"),
-                    VocabWord("Meeting", "جلسه", "ˈmiːtɪŋ"), VocabWord("Appointment", "قرار ملاقات", "əˈpɔɪntmənt")
+                    VocabWord("Month", "ماه", "mʌnθ"), VocabWord("Year", "سال", "jɪr")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 at / on / in", "• at + ساعت: at 7 AM, at 3 PM, at noon\n• on + روز: on Monday, on July 5th\n• in + ماه/سال/فصل: in May, in 2024, in summer"),
-                    GrammarSection("📌 قیود زمان", "• today, tomorrow, yesterday\n• now, later, soon"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ in Monday → ✅ on Monday\n❌ at the morning → ✅ in the morning\n❌ on 2024 → ✅ in 2024")
+                    GrammarSection("📌 at / on / in",
+                        "• at + ساعت: at 7 AM, at 3 PM, at noon\n" +
+                        "• on + روز: on Monday, on July 5th\n" +
+                        "• in + ماه/سال/فصل: in May, in 2024, in summer"),
+                    GrammarSection("📌 قیود زمان",
+                        "• today, tomorrow, yesterday\n" +
+                        "• now, later, soon"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ in Monday → ✅ on Monday\n" +
+                        "❌ at the morning → ✅ in the morning\n" +
+                        "❌ on 2024 → ✅ in 2024")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "What time is the meeting?", "جلسه چه ساعتیه؟"),
@@ -242,6 +298,7 @@ object LessonContentRepository {
                     QuizQuestion("معنی «Yesterday» چیست؟", listOf("امروز", "فردا", "دیروز", "پریروز"), 2)
                 )
             )
+
             6 -> LessonContent("top_notch_1", 6, "Cities and Countries", "شهرها و کشورها",
                 vocabulary = listOf(
                     VocabWord("Country", "کشور", "ˈkʌntri"), VocabWord("City", "شهر", "ˈsɪti"),
@@ -251,9 +308,17 @@ object LessonContentRepository {
                     VocabWord("Tourist", "توریست", "ˈtʊrɪst"), VocabWord("Citizen", "شهروند", "ˈsɪtɪzən")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Where are you from?", "• Where are you from? — I'm from Iran.\n• Where is she from? — She's from France."),
-                    GrammarSection("📌 ملیت‌ها", "• Iran → Iranian\n• France → French\n• Japan → Japanese\n• USA → American"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ Where you from? → ✅ Where are you from?\n❌ I from Iran. → ✅ I'm from Iran.")
+                    GrammarSection("📌 Where are you from?",
+                        "• Where are you from? — I'm from Iran.\n" +
+                        "• Where is she from? — She's from France."),
+                    GrammarSection("📌 ملیت‌ها",
+                        "• Iran → Iranian\n" +
+                        "• France → French\n" +
+                        "• Japan → Japanese\n" +
+                        "• USA → American"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ Where you from? → ✅ Where are you from?\n" +
+                        "❌ I from Iran. → ✅ I'm from Iran.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Where are you from?", "اهل کجایی؟"),
@@ -278,6 +343,7 @@ object LessonContentRepository {
                     QuizQuestion("کدام درست است؟", listOf("I from Iran.", "I'm from Iran.", "I is from Iran.", "From Iran I."), 1)
                 )
             )
+
             7 -> LessonContent("top_notch_1", 7, "Clothes", "لباس‌ها",
                 vocabulary = listOf(
                     VocabWord("Shirt", "پیراهن", "ʃɜːrt"), VocabWord("Pants", "شلوار", "pænts"),
@@ -288,8 +354,12 @@ object LessonContentRepository {
                 ),
                 grammar = listOf(
                     GrammarSection("📌 ترتیب رنگ + اسم", "a red shirt | blue pants"),
-                    GrammarSection("📌 This / These", "• This + مفرد: This is my shirt.\n• These + جمع: These are my shoes."),
-                    GrammarSection("❌ اشتباهات رایج", "❌ a shirt red → ✅ a red shirt\n❌ This shoes → ✅ These shoes")
+                    GrammarSection("📌 This / These",
+                        "• This + مفرد: This is my shirt.\n" +
+                        "• These + جمع: These are my shoes."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ a shirt red → ✅ a red shirt\n" +
+                        "❌ This shoes → ✅ These shoes")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "What are you wearing today?", "امروز چی پوشیدی؟"),
@@ -314,6 +384,7 @@ object LessonContentRepository {
                     QuizQuestion("معنی «Sweater» چیست؟", listOf("پالتو", "پلیور", "کاپشن", "جلیقه"), 1)
                 )
             )
+
             8 -> LessonContent("top_notch_1", 8, "Daily Life", "زندگی روزمره",
                 vocabulary = listOf(
                     VocabWord("Wake up", "بیدار شدن", "weɪk ʌp"), VocabWord("Get dressed", "لباس پوشیدن", "ɡet drest"),
@@ -322,9 +393,16 @@ object LessonContentRepository {
                     VocabWord("Watch TV", "تلویزیون تماشا کردن", "wɑːtʃ ˌtiːˈviː"), VocabWord("Go to bed", "به رختخواب رفتن", "ɡoʊ tə bed")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 حال ساده برای عادت‌ها", "• I wake up at 7 every day.\n• She gets dressed after breakfast."),
-                    GrammarSection("📌 سوم شخص مفرد", "• He/She/It → فعل + s\n• I wake up → She wakes up\n• I go → He goes"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I wake up 7. → ✅ I wake up at 7.\n❌ She wake up early. → ✅ She wakes up early.")
+                    GrammarSection("📌 حال ساده برای عادت‌ها",
+                        "• I wake up at 7 every day.\n" +
+                        "• She gets dressed after breakfast."),
+                    GrammarSection("📌 سوم شخص مفرد",
+                        "• He/She/It → فعل + s\n" +
+                        "• I wake up → She wakes up\n" +
+                        "• I go → He goes"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I wake up 7. → ✅ I wake up at 7.\n" +
+                        "❌ She wake up early. → ✅ She wakes up early.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "What time do you wake up?", "ساعت چند بیدار می‌شی؟"),
@@ -349,6 +427,7 @@ object LessonContentRepository {
                     QuizQuestion("«هرگز» به انگلیسی؟", listOf("always", "usually", "never", "often"), 2)
                 )
             )
+
             9 -> LessonContent("top_notch_1", 9, "Shopping", "خرید",
                 vocabulary = listOf(
                     VocabWord("Store", "فروشگاه", "stɔːr"), VocabWord("Price", "قیمت", "praɪs"),
@@ -358,9 +437,17 @@ object LessonContentRepository {
                     VocabWord("Sale", "حراج", "seɪl"), VocabWord("Expensive", "گران", "ɪkˈspensɪv")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 How much?", "• How much is this? — It's 10 dollars.\n• How much are these? — They're 20 dollars."),
-                    GrammarSection("📌 This / That / These / Those", "• This (این - نزدیک مفرد)\n• That (آن - دور مفرد)\n• These (این‌ها - نزدیک جمع)\n• Those (آنها - دور جمع)"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ How much these? → ✅ How much are these?\n❌ How many is this? → ✅ How much is this?")
+                    GrammarSection("📌 How much?",
+                        "• How much is this? — It's 10 dollars.\n" +
+                        "• How much are these? — They're 20 dollars."),
+                    GrammarSection("📌 This / That / These / Those",
+                        "• This (این - نزدیک مفرد)\n" +
+                        "• That (آن - دور مفرد)\n" +
+                        "• These (این‌ها - نزدیک جمع)\n" +
+                        "• Those (آنها - دور جمع)"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ How much these? → ✅ How much are these?\n" +
+                        "❌ How many is this? → ✅ How much is this?")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Excuse me, how much is this jacket?", "ببخشید، این کاپشن چنده؟"),
@@ -385,6 +472,7 @@ object LessonContentRepository {
                     QuizQuestion("معنی «Customer» چیست؟", listOf("فروشنده", "مشتری", "مدیر", "کارمند"), 1)
                 )
             )
+
             10 -> LessonContent("top_notch_1", 10, "Food", "غذا",
                 vocabulary = listOf(
                     VocabWord("Bread", "نان", "bred"), VocabWord("Cheese", "پنیر", "tʃiːz"),
@@ -394,9 +482,15 @@ object LessonContentRepository {
                     VocabWord("Chicken", "مرغ", "ˈtʃɪkɪn"), VocabWord("Fish", "ماهی", "fɪʃ")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Some / Any", "• Some در جملات مثبت: I have some cheese.\n• Any در منفی و سوال: I don't have any milk. / Do you have any eggs?"),
-                    GrammarSection("📌 Countable / Uncountable", "• قابل شمارش: egg → eggs / apple → apples\n• غیرقابل شمارش: milk, water, rice (بدون s)"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I have any bread. → ✅ I have some bread.\n❌ two breads → ✅ two loaves of bread")
+                    GrammarSection("📌 Some / Any",
+                        "• Some در جملات مثبت: I have some cheese.\n" +
+                        "• Any در منفی و سوال: I don't have any milk. / Do you have any eggs?"),
+                    GrammarSection("📌 Countable / Uncountable",
+                        "• قابل شمارش: egg → eggs / apple → apples\n" +
+                        "• غیرقابل شمارش: milk, water, rice (بدون s)"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I have any bread. → ✅ I have some bread.\n" +
+                        "❌ two breads → ✅ two loaves of bread")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Do we have any bread?", "نان داریم؟"),
@@ -421,6 +515,7 @@ object LessonContentRepository {
                     QuizQuestion("معنی «Juice» چیست؟", listOf("آب", "چای", "آبمیوه", "شیر"), 2)
                 )
             )
+
             11 -> LessonContent("top_notch_1", 11, "Health", "سلامتی",
                 vocabulary = listOf(
                     VocabWord("Headache", "سردرد", "ˈhedeɪk"), VocabWord("Stomachache", "دل‌درد", "ˈstʌməkeɪk"),
@@ -430,9 +525,17 @@ object LessonContentRepository {
                     VocabWord("Doctor", "دکتر", "ˈdɑːktər"), VocabWord("Sore throat", "گلودرد", "sɔːr θroʊt")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Should / Shouldn't", "• Should = باید (توصیه)\n  You should rest.\n  You should drink water.\n\n• Shouldn't = نباید\n  You shouldn't eat too much."),
-                    GrammarSection("📌 ساختار", "Subject + should + verb (بدون to)"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ You should to rest. → ✅ You should rest.\n❌ You should resting. → ✅ You should rest.")
+                    GrammarSection("📌 Should / Shouldn't",
+                        "• Should = باید (توصیه)\n" +
+                        "  You should rest.\n" +
+                        "  You should drink water.\n\n" +
+                        "• Shouldn't = نباید\n" +
+                        "  You shouldn't eat too much."),
+                    GrammarSection("📌 ساختار",
+                        "Subject + should + verb (بدون to)"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ You should to rest. → ✅ You should rest.\n" +
+                        "❌ You should resting. → ✅ You should rest.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Good morning. How can I help you?", "صبح بخیر. چطور کمکتون کنم؟"),
@@ -457,6 +560,7 @@ object LessonContentRepository {
                     QuizQuestion("معنی «Healthy» چیست؟", listOf("بیمار", "سالم", "خسته", "ضعیف"), 1)
                 )
             )
+
             12 -> LessonContent("top_notch_1", 12, "Weekend Activities", "آخر هفته",
                 vocabulary = listOf(
                     VocabWord("Go out", "بیرون رفتن", "ɡoʊ aʊt"), VocabWord("Stay home", "خونه موندن", "steɪ hoʊm"),
@@ -465,9 +569,16 @@ object LessonContentRepository {
                     VocabWord("Read books", "کتاب خواندن", "riːd bʊks"), VocabWord("Relax", "استراحت کردن", "rɪˈlæks")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Going to (Future Plans)", "am/is/are + going to + verb\n\n• I'm going to visit my family.\n• She's going to travel."),
-                    GrammarSection("📌 سوال با Going to", "• What are you going to do?\n• Where is she going to go?"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I going to stay. → ✅ I'm going to stay.\n❌ I'm go to stay. → ✅ I'm going to stay.")
+                    GrammarSection("📌 Going to (Future Plans)",
+                        "am/is/are + going to + verb\n\n" +
+                        "• I'm going to visit my family.\n" +
+                        "• She's going to travel."),
+                    GrammarSection("📌 سوال با Going to",
+                        "• What are you going to do?\n" +
+                        "• Where is she going to go?"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I going to stay. → ✅ I'm going to stay.\n" +
+                        "❌ I'm go to stay. → ✅ I'm going to stay.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "What are you going to do this weekend?", "این آخر هفته چیکار می‌کنی؟"),
@@ -492,6 +603,7 @@ object LessonContentRepository {
                     QuizQuestion("«What are you going to do?» یعنی؟", listOf("چیکار کردی؟", "چیکار می‌کنی؟", "چیکار می‌خوای بکنی؟", "چیکار نمی‌کنی؟"), 2)
                 )
             )
+
             13 -> LessonContent("top_notch_1", 13, "Home and Neighborhood", "خانه و محله",
                 vocabulary = listOf(
                     VocabWord("House", "خانه", "haʊs"), VocabWord("Apartment", "آپارتمان", "əˈpɑːrtmənt"),
@@ -500,8 +612,15 @@ object LessonContentRepository {
                     VocabWord("Garden", "باغ", "ˈɡɑːrdən"), VocabWord("Balcony", "بالکن", "ˈbælkəni")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 There is / There are + Prepositions", "• There is a sofa in the living room.\n• There are two bedrooms.\n\n• in (داخل): in the kitchen\n• on (روی): on the table\n• under (زیر): under the bed\n• next to (کنار): next to the door"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ There is two beds. → ✅ There are two beds.")
+                    GrammarSection("📌 There is / There are + Prepositions",
+                        "• There is a sofa in the living room.\n" +
+                        "• There are two bedrooms.\n\n" +
+                        "• in (داخل): in the kitchen\n" +
+                        "• on (روی): on the table\n" +
+                        "• under (زیر): under the bed\n" +
+                        "• next to (کنار): next to the door"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ There is two beds. → ✅ There are two beds.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Do you live in a house or an apartment?", "خونه زندگی می‌کنی یا آپارتمان؟"),
@@ -526,6 +645,7 @@ object LessonContentRepository {
                     QuizQuestion("معنی «Elevator» چیست؟", listOf("پله", "آسانسور", "راهرو", "بالکن"), 1)
                 )
             )
+
             14 -> LessonContent("top_notch_1", 14, "Review", "مرور",
                 vocabulary = listOf(
                     VocabWord("Remember", "به یاد آوردن", "rɪˈmembər"), VocabWord("Practice", "تمرین", "ˈpræktɪs"),
@@ -535,8 +655,16 @@ object LessonContentRepository {
                 ),
                 grammar = listOf(
                     GrammarSection("📌 مرور مهم‌ترین ساختارها",
-                        "۱. a / an + شغل\n۲. do / does\n۳. جمع اسم‌ها\n۴. 's مالکیت\n۵. at / on / in\n۶. some / any\n۷. There is / There are\n۸. Going to"),
-                    GrammarSection("📌 تمرین نهایی", "همه ساختارها رو با مثال تمرین کن و با صدای بلند تکرار کن.")
+                        "۱. a / an + شغل\n" +
+                        "۲. do / does\n" +
+                        "۳. جمع اسم‌ها\n" +
+                        "۴. 's مالکیت\n" +
+                        "۵. at / on / in\n" +
+                        "۶. some / any\n" +
+                        "۷. There is / There are\n" +
+                        "۸. Going to"),
+                    GrammarSection("📌 تمرین نهایی",
+                        "همه ساختارها رو با مثال تمرین کن و با صدای بلند تکرار کن.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Hello! How are you?", "سلام! حالت چطوره؟"),
@@ -561,6 +689,7 @@ object LessonContentRepository {
                     QuizQuestion("کدام درست است؟", listOf("There is two books.", "There are two books.", "There have two books.", "There has two."), 1)
                 )
             )
+
             else -> getDefaultContent("top_notch_1", chapter)
         }
     }
@@ -577,9 +706,17 @@ object LessonContentRepository {
                     VocabWord("Background", "پیشینه", "ˈbækɡraʊnd"), VocabWord("Impression", "تصور", "ɪmˈpreʃən")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Present Perfect با How long", "ساختار: have/has + p.p.\n\n• How long have you known him?\n• I've known him for two years.\n• I've known her since 2020."),
-                    GrammarSection("📌 for vs since", "• for + مدت زمان: for two years, for a month\n• since + نقطه شروع: since 2020, since Monday"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I've known him since 2 years. → ✅ I've known him for 2 years.\n❌ I know him since 2020. → ✅ I've known him since 2020.")
+                    GrammarSection("📌 Present Perfect با How long",
+                        "ساختار: have/has + p.p.\n\n" +
+                        "• How long have you known him?\n" +
+                        "• I've known him for two years.\n" +
+                        "• I've known her since 2020."),
+                    GrammarSection("📌 for vs since",
+                        "• for + مدت زمان: for two years, for a month\n" +
+                        "• since + نقطه شروع: since 2020, since Monday"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I've known him since 2 years. → ✅ I've known him for 2 years.\n" +
+                        "❌ I know him since 2020. → ✅ I've known him since 2020.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "How long have you known your best friend?", "چقدره بهترین دوستت رو می‌شناسی؟"),
@@ -613,9 +750,16 @@ object LessonContentRepository {
                     VocabWord("Quality", "کیفیت", "ˈkwɑːləti"), VocabWord("Brand", "برند", "brænd")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Comparative", "• cheap → cheaper than\n• expensive → more expensive than\n• good → better than"),
-                    GrammarSection("📌 Superlative", "• cheap → the cheapest\n• expensive → the most expensive\n• good → the best"),
-                    GrammarSection("📌 اشتباهات رایج", "❌ This is more cheap. → ✅ This is cheaper.")
+                    GrammarSection("📌 Comparative",
+                        "• cheap → cheaper than\n" +
+                        "• expensive → more expensive than\n" +
+                        "• good → better than"),
+                    GrammarSection("📌 Superlative",
+                        "• cheap → the cheapest\n" +
+                        "• expensive → the most expensive\n" +
+                        "• good → the best"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ This is more cheap. → ✅ This is cheaper.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "I'd like to exchange this shirt.", "می‌خوام این پیراهن رو تعویض کنم."),
@@ -649,9 +793,18 @@ object LessonContentRepository {
                     VocabWord("Flight", "پرواز", "flaɪt"), VocabWord("Delay", "تأخیر", "dɪˈleɪ")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Will vs Going to", "• Will: تصمیم لحظه‌ای / پیش‌بینی\n  I'll help you.\n  It will rain tomorrow.\n\n• Going to: برنامه قبلی\n  I'm going to travel to Turkey next summer."),
-                    GrammarSection("📌 سوال و منفی", "• Will you come? — No, I won't.\n• Are you going to come? — No, I'm not."),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I will to travel. → ✅ I will travel.\n❌ She will travels. → ✅ She will travel.")
+                    GrammarSection("📌 Will vs Going to",
+                        "• Will: تصمیم لحظه‌ای / پیش‌بینی\n" +
+                        "  I'll help you.\n" +
+                        "  It will rain tomorrow.\n\n" +
+                        "• Going to: برنامه قبلی\n" +
+                        "  I'm going to travel to Turkey next summer."),
+                    GrammarSection("📌 سوال و منفی",
+                        "• Will you come? — No, I won't.\n" +
+                        "• Are you going to come? — No, I'm not."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I will to travel. → ✅ I will travel.\n" +
+                        "❌ She will travels. → ✅ She will travel.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Where are you going to travel this year?", "امسال کجا می‌خوای سفر کنی؟"),
@@ -685,9 +838,17 @@ object LessonContentRepository {
                     VocabWord("Recommend", "پیشنهاد کردن", "ˌrekəˈmend"), VocabWord("Delicious", "خوشمزه", "dɪˈlɪʃəs")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 درخواست مؤدبانه", "I would like (I'd like) + اسم\n• I'd like a coffee.\n• I'd like to make a reservation.\n\nWould you like + اسم؟\n• Would you like some dessert?"),
-                    GrammarSection("📌 تفاوت want و would like", "• I want coffee. (مستقیم)\n• I'd like coffee. (مؤدبانه ✅)"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I want to make reservation. → ✅ I'd like to make a reservation.")
+                    GrammarSection("📌 درخواست مؤدبانه",
+                        "I would like (I'd like) + اسم\n" +
+                        "• I'd like a coffee.\n" +
+                        "• I'd like to make a reservation.\n\n" +
+                        "Would you like + اسم؟\n" +
+                        "• Would you like some dessert?"),
+                    GrammarSection("📌 تفاوت want و would like",
+                        "• I want coffee. (مستقیم)\n" +
+                        "• I'd like coffee. (مؤدبانه ✅)"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I want to make reservation. → ✅ I'd like to make a reservation.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Good evening. Do you have a reservation?", "شب بخیر. رزرو دارید؟"),
@@ -721,9 +882,20 @@ object LessonContentRepository {
                     VocabWord("Roundabout", "میدان", "ˈraʊndəbaʊt"), VocabWord("Block", "بلوک", "blɑːk")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Imperatives (امری)", "• Turn left / Turn right\n• Go straight\n• Go past the bank\n• It's on your left / right"),
-                    GrammarSection("📌 حروف اضافه مکان", "• on: on the corner\n• at: at the traffic light\n• next to: next to the bank\n• between: between the bank and the park\n• opposite: opposite the museum"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ Turn in the left. → ✅ Turn left.\n❌ It's in your right. → ✅ It's on your right.")
+                    GrammarSection("📌 Imperatives (امری)",
+                        "• Turn left / Turn right\n" +
+                        "• Go straight\n" +
+                        "• Go past the bank\n" +
+                        "• It's on your left / right"),
+                    GrammarSection("📌 حروف اضافه مکان",
+                        "• on: on the corner\n" +
+                        "• at: at the traffic light\n" +
+                        "• next to: next to the bank\n" +
+                        "• between: between the bank and the park\n" +
+                        "• opposite: opposite the museum"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ Turn in the left. → ✅ Turn left.\n" +
+                        "❌ It's in your right. → ✅ It's on your right.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Excuse me, how do I get to the museum?", "ببخشید، چطور به موزه برم؟"),
@@ -757,9 +929,19 @@ object LessonContentRepository {
                     VocabWord("Tailor", "خیاط", "ˈteɪlər"), VocabWord("Outfit", "ست لباس", "ˈaʊtfɪt")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Too / Enough", "• too + صفت (خیلی زیاد - منفی)\n  This dress is too expensive.\n\n• صفت + enough (به اندازه کافی)\n  The shirt is big enough.\n\n• not + صفت + enough (کافی نیست)\n  The jacket is not warm enough."),
-                    GrammarSection("📌 So / Such", "• This dress is so beautiful!\n• It's such a beautiful dress!"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ This shirt is too much small. → ✅ This shirt is too small.\n❌ It's so a beautiful dress. → ✅ It's such a beautiful dress.")
+                    GrammarSection("📌 Too / Enough",
+                        "• too + صفت (خیلی زیاد - منفی)\n" +
+                        "  This dress is too expensive.\n\n" +
+                        "• صفت + enough (به اندازه کافی)\n" +
+                        "  The shirt is big enough.\n\n" +
+                        "• not + صفت + enough (کافی نیست)\n" +
+                        "  The jacket is not warm enough."),
+                    GrammarSection("📌 So / Such",
+                        "• This dress is so beautiful!\n" +
+                        "• It's such a beautiful dress!"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ This shirt is too much small. → ✅ This shirt is too small.\n" +
+                        "❌ It's so a beautiful dress. → ✅ It's such a beautiful dress.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "How does it fit?", "چطور اندازه‌ست؟"),
@@ -792,9 +974,17 @@ object LessonContentRepository {
                     VocabWord("Enjoyable", "لذت‌بخش", "ɪnˈdʒɔɪəbəl"), VocabWord("Boring", "خسته‌کننده", "ˈbɔːrɪŋ")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Gerunds بعد از حروف اضافه", "بعد از حرف اضافه، فعل + ing:\n\n• interested in learning\n• good at singing\n• think about going"),
-                    GrammarSection("📌 Like / Enjoy / Love / Hate + -ing", "• I enjoy watching movies.\n• She loves playing the piano."),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I'm interested in watch movies. → ✅ I'm interested in watching movies.\n❌ I enjoy to watch movies. → ✅ I enjoy watching movies.")
+                    GrammarSection("📌 Gerunds بعد از حروف اضافه",
+                        "بعد از حرف اضافه، فعل + ing:\n\n" +
+                        "• interested in learning\n" +
+                        "• good at singing\n" +
+                        "• think about going"),
+                    GrammarSection("📌 Like / Enjoy / Love / Hate + -ing",
+                        "• I enjoy watching movies.\n" +
+                        "• She loves playing the piano."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I'm interested in watch movies. → ✅ I'm interested in watching movies.\n" +
+                        "❌ I enjoy to watch movies. → ✅ I enjoy watching movies.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "What do you do for fun?", "برای تفریح چیکار می‌کنی؟"),
@@ -827,9 +1017,15 @@ object LessonContentRepository {
                     VocabWord("Treatment", "درمان", "ˈtriːtmənt"), VocabWord("Recovery", "بهبودی", "rɪˈkʌvəri")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Should have + p.p.", "باید (ولی انجام ندادی):\n• You should have taken your medicine.\n• I should have gone to the doctor earlier."),
-                    GrammarSection("📌 Could have + p.p.", "می‌توانستی (ولی نکردی):\n• She could have gone to the hospital earlier."),
-                    GrammarSection("❌ اشتباهات رایج", "❌ You should saw a doctor. → ✅ You should have seen a doctor.")
+                    GrammarSection("📌 Should have + p.p.",
+                        "باید (ولی انجام ندادی):\n" +
+                        "• You should have taken your medicine.\n" +
+                        "• I should have gone to the doctor earlier."),
+                    GrammarSection("📌 Could have + p.p.",
+                        "می‌توانستی (ولی نکردی):\n" +
+                        "• She could have gone to the hospital earlier."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ You should saw a doctor. → ✅ You should have seen a doctor.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Good morning. What brings you here today?", "صبح بخیر. امروز چی شما رو آورد؟"),
@@ -862,9 +1058,17 @@ object LessonContentRepository {
                     VocabWord("Roommate", "هم‌اتاقی", "ˈruːmmeɪt"), VocabWord("Move in", "اسباب‌کشی کردن", "muːv ɪn")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Present Perfect vs Past Simple", "• Past Simple: زمان مشخص\n  I moved here last year.\n\n• Present Perfect: زمان نامشخص\n  I've lived here for two years."),
-                    GrammarSection("📌 کلمات نشانه", "• Past Simple: yesterday, last week, in 2020, ago\n• Present Perfect: for, since, ever, never, just, already, yet"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I've moved here in 2020. → ✅ I moved here in 2020.\n❌ When have you moved? → ✅ When did you move?")
+                    GrammarSection("📌 Present Perfect vs Past Simple",
+                        "• Past Simple: زمان مشخص\n" +
+                        "  I moved here last year.\n\n" +
+                        "• Present Perfect: زمان نامشخص\n" +
+                        "  I've lived here for two years."),
+                    GrammarSection("📌 کلمات نشانه",
+                        "• Past Simple: yesterday, last week, in 2020, ago\n" +
+                        "• Present Perfect: for, since, ever, never, just, already, yet"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I've moved here in 2020. → ✅ I moved here in 2020.\n" +
+                        "❌ When have you moved? → ✅ When did you move?")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Hi, I'm calling about the apartment for rent.", "سلام، برای آپارتمان اجاره‌ای تماس گرفتم."),
@@ -897,9 +1101,17 @@ object LessonContentRepository {
                     VocabWord("Get along", "کنار آمدن", "ɡet əˈlɔːŋ"), VocabWord("Misunderstanding", "سوءتفاهم", "ˌmɪsʌndərˈstændɪŋ")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Reported Speech", "• Say + (that) + جمله:\n  She said she was tired.\n\n• Tell + شخص + (that) + جمله:\n  She told me she was tired."),
-                    GrammarSection("📌 تغییر زمان در نقل قول", "• Present → Past: \"I am busy.\" → He said he was busy.\n• Will → Would: \"I will come.\" → She said she would come."),
-                    GrammarSection("❌ اشتباهات رایج", "❌ He said me he was tired. → ✅ He told me he was tired.\n❌ She told that she was tired. → ✅ She said she was tired.")
+                    GrammarSection("📌 Reported Speech",
+                        "• Say + (that) + جمله:\n" +
+                        "  She said she was tired.\n\n" +
+                        "• Tell + شخص + (that) + جمله:\n" +
+                        "  She told me she was tired."),
+                    GrammarSection("📌 تغییر زمان در نقل قول",
+                        "• Present → Past: \"I am busy.\" → He said he was busy.\n" +
+                        "• Will → Would: \"I will come.\" → She said she would come."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ He said me he was tired. → ✅ He told me he was tired.\n" +
+                        "❌ She told that she was tired. → ✅ She said she was tired.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "I'm upset about yesterday.", "از دیروز ناراحتم."),
@@ -939,9 +1151,16 @@ object LessonContentRepository {
                     VocabWord("Etiquette", "آداب معاشرت", "ˈetɪket"), VocabWord("Taboo", "تابو", "təˈbuː")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Present Perfect Continuous", "have/has + been + verb-ing\n\n• I've been studying English for three years.\n• She's been living in Tokyo since 2019."),
-                    GrammarSection("📌 تفاوت با Present Perfect ساده", "• I've read the book. (تمام شد)\n• I've been reading the book. (ادامه دارد)"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I've studying English. → ✅ I've been studying English.\n❌ I has been studying. → ✅ I have been studying.")
+                    GrammarSection("📌 Present Perfect Continuous",
+                        "have/has + been + verb-ing\n\n" +
+                        "• I've been studying English for three years.\n" +
+                        "• She's been living in Tokyo since 2019."),
+                    GrammarSection("📌 تفاوت با Present Perfect ساده",
+                        "• I've read the book. (تمام شد)\n" +
+                        "• I've been reading the book. (ادامه دارد)"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I've studying English. → ✅ I've been studying English.\n" +
+                        "❌ I has been studying. → ✅ I have been studying.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Have you noticed cultural differences here?", "تفاوت‌های فرهنگی‌ای اینجا متوجه شدی؟"),
@@ -974,10 +1193,19 @@ object LessonContentRepository {
                     VocabWord("Warranty", "گارانتی", "ˈwɔːrənti"), VocabWord("Sustainable", "پایدار", "səˈsteɪnəbəl")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 too + صفت/قید", "خیلی زیاد (منفی):\n• This watch is too expensive.\n• He drives too fast."),
-                    GrammarSection("📌 صفت + enough / not enough", "• The car is small enough for the city.\n• This apartment is not big enough."),
-                    GrammarSection("📌 تفاوت too و very", "• too = بیش از حد (منفی)\n• very = خیلی (خنثی)"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ It's too much expensive. → ✅ It's too expensive.\n❌ It's enough big. → ✅ It's big enough.")
+                    GrammarSection("📌 too + صفت/قید",
+                        "خیلی زیاد (منفی):\n" +
+                        "• This watch is too expensive.\n" +
+                        "• He drives too fast."),
+                    GrammarSection("📌 صفت + enough / not enough",
+                        "• The car is small enough for the city.\n" +
+                        "• This apartment is not big enough."),
+                    GrammarSection("📌 تفاوت too و very",
+                        "• too = بیش از حد (منفی)\n" +
+                        "• very = خیلی (خنثی)"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ It's too much expensive. → ✅ It's too expensive.\n" +
+                        "❌ It's enough big. → ✅ It's big enough.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "I've become a smart shopper recently.", "اخیراً خریدار باهوشی شده‌ام."),
@@ -1010,9 +1238,16 @@ object LessonContentRepository {
                     VocabWord("Makeover", "تغییر چهره", "ˈmeɪkoʊvər"), VocabWord("Confidence", "اعتماد به نفس", "ˈkɑːnfɪdəns")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Causative: Have / Get Something Done", "have/get + مفعول + past participle\n\n• I had my hair cut yesterday.\n• She gets her nails done every week.\n• We had our house painted last month."),
-                    GrammarSection("📌 تفاوت با ساختار عادی", "• I cut my hair. (خودم)\n• I had my hair cut. (کسی دیگر)"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I had cut my hair. → ✅ I had my hair cut.")
+                    GrammarSection("📌 Causative: Have / Get Something Done",
+                        "have/get + مفعول + past participle\n\n" +
+                        "• I had my hair cut yesterday.\n" +
+                        "• She gets her nails done every week.\n" +
+                        "• We had our house painted last month."),
+                    GrammarSection("📌 تفاوت با ساختار عادی",
+                        "• I cut my hair. (خودم)\n" +
+                        "• I had my hair cut. (کسی دیگر)"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I had cut my hair. → ✅ I had my hair cut.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "You look great today!", "امروز عالی به نظر می‌رسی!"),
@@ -1049,8 +1284,13 @@ object LessonContentRepository {
                     VocabWord("Automation", "اتوماسیون", "ˌɔːtəˈmeɪʃən")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Modals of Deduction", "• must be = قطعاً هست: The data must be encrypted.\n• might be = ممکنه باشه: AI might replace some jobs.\n• can't be = غیرممکنه: That can't be true!"),
-                    GrammarSection("❌ اشتباهات رایج", "❌ That must to be true. → ✅ That must be true.\n❌ He can't be knows. → ✅ He can't know.")
+                    GrammarSection("📌 Modals of Deduction",
+                        "• must be = قطعاً هست: The data must be encrypted.\n" +
+                        "• might be = ممکنه باشه: AI might replace some jobs.\n" +
+                        "• can't be = غیرممکنه: That can't be true!"),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ That must to be true. → ✅ That must be true.\n" +
+                        "❌ He can't be knows. → ✅ He can't know.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "Will AI change our lives dramatically?", "آیا AI زندگی ما رو به‌شدت تغییر می‌ده؟"),
@@ -1083,9 +1323,16 @@ object LessonContentRepository {
                     VocabWord("Tradition", "سنت", "trəˈdɪʃən"), VocabWord("Gathering", "گردهمایی", "ˈɡæðərɪŋ")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Passive Voice (حال ساده)", "is/are + p.p.\n\n• Nowruz is celebrated in many countries.\n• The gifts are opened on Christmas morning."),
-                    GrammarSection("📌 Passive Voice (گذشته ساده)", "was/were + p.p.\n\n• The party was organized by my sister.\n• The fireworks were set off at midnight."),
-                    GrammarSection("❌ اشتباهات رایج", "❌ Nowruz celebrated in Iran. → ✅ Nowruz is celebrated in Iran.")
+                    GrammarSection("📌 Passive Voice (حال ساده)",
+                        "is/are + p.p.\n\n" +
+                        "• Nowruz is celebrated in many countries.\n" +
+                        "• The gifts are opened on Christmas morning."),
+                    GrammarSection("📌 Passive Voice (گذشته ساده)",
+                        "was/were + p.p.\n\n" +
+                        "• The party was organized by my sister.\n" +
+                        "• The fireworks were set off at midnight."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ Nowruz celebrated in Iran. → ✅ Nowruz is celebrated in Iran.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "How is Nowruz celebrated in Iran?", "نوروز در ایران چطور جشن گرفته می‌شه؟"),
@@ -1118,9 +1365,15 @@ object LessonContentRepository {
                     VocabWord("Processed food", "غذای فرآوری‌شده", "ˈprɑːsest fuːd"), VocabWord("Portion", "سهم", "ˈpɔːrʃən")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Quantifiers", "• a few + اسم قابل شمارش: I eat a few vegetables.\n• a little + اسم غیرقابل شمارش: She drinks a little coffee.\n• a lot of + هر دو: They consume a lot of processed food."),
-                    GrammarSection("📌 few / little (بدون a) = منفی", "• Few people eat a balanced diet.\n• He has little time."),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I eat a little vegetables. → ✅ I eat a few vegetables.")
+                    GrammarSection("📌 Quantifiers",
+                        "• a few + اسم قابل شمارش: I eat a few vegetables.\n" +
+                        "• a little + اسم غیرقابل شمارش: She drinks a little coffee.\n" +
+                        "• a lot of + هر دو: They consume a lot of processed food."),
+                    GrammarSection("📌 few / little (بدون a) = منفی",
+                        "• Few people eat a balanced diet.\n" +
+                        "• He has little time."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I eat a little vegetables. → ✅ I eat a few vegetables.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "I'm trying to eat healthier these days.", "این روزها سعی می‌کنم سالم‌تر بخورم."),
@@ -1153,9 +1406,16 @@ object LessonContentRepository {
                     VocabWord("Ecosystem", "اکوسیستم", "ˈiːkoʊsɪstəm"), VocabWord("Biodiversity", "تنوع زیستی", "ˌbaɪoʊdaɪˈvɜːrsəti")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Third Conditional", "If + had + p.p., would have + p.p.\n\n• If we had acted sooner, we would have prevented the damage.\n• If governments had invested in renewable energy, emissions would have decreased."),
-                    GrammarSection("📌 تفاوت شرطی‌ها", "• نوع ۱: If it rains, I will stay home.\n• نوع ۲: If I were rich, I would travel.\n• نوع ۳: If I had studied, I would have passed."),
-                    GrammarSection("❌ اشتباهات رایج", "❌ If I would have known, I would have helped. → ✅ If I had known, I would have helped.")
+                    GrammarSection("📌 Third Conditional",
+                        "If + had + p.p., would have + p.p.\n\n" +
+                        "• If we had acted sooner, we would have prevented the damage.\n" +
+                        "• If governments had invested in renewable energy, emissions would have decreased."),
+                    GrammarSection("📌 تفاوت شرطی‌ها",
+                        "• نوع ۱: If it rains, I will stay home.\n" +
+                        "• نوع ۲: If I were rich, I would travel.\n" +
+                        "• نوع ۳: If I had studied, I would have passed."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ If I would have known, I would have helped. → ✅ If I had known, I would have helped.")
                 ),
                 conversation = listOf(
                     DialogueLine("A", "What's the biggest environmental challenge?", "بزرگ‌ترین چالش زیست‌محیطی چیه؟"),
@@ -1188,34 +1448,22 @@ object LessonContentRepository {
                     VocabWord("Dissertation", "پایان‌نامه", "ˌdɪsərˈteɪʃən"), VocabWord("Critical thinking", "تفکر انتقادی", "ˈkrɪtɪkəl ˈθɪŋkɪŋ")
                 ),
                 grammar = listOf(
-                    GrammarSection("📌 Wish + Past Perfect", "آرزو در مورد گذشته (پشیمانی):\n• I wish I had studied harder.\n• I wish I hadn't quit."),
-                    GrammarSection("📌 Wish + Past Simple", "آرزو در مورد حال:\n• I wish I spoke French.\n• I wish I were rich."),
-                    GrammarSection("❌ اشتباهات رایج", "❌ I wish I studied harder. → ✅ I wish I had studied harder.\n❌ I wish I would have studied. → ✅ I wish I had studied.")
+                    GrammarSection("📌 Wish + Past Perfect",
+                        "آرزو در مورد گذشته (پشیمانی):\n" +
+                        "• I wish I had studied harder.\n" +
+                        "• I wish I hadn't quit."),
+                    GrammarSection("📌 Wish + Past Simple",
+                        "آرزو در مورد حال:\n" +
+                        "• I wish I spoke French.\n" +
+                        "• I wish I were rich."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I wish I studied harder. → ✅ I wish I had studied harder.\n" +
+                        "❌ I wish I would have studied. → ✅ I wish I had studied.")
                 ),
                 conversation = listOf(
-                    DialogueLine("A", "Any regrets about your education?", "پشیمانی‌ای از تحصیلاتت داری؟"),
+                    DialogueLine("A", "Any regrets about your education?", "پشیمانی‌ای از تحصیلاتت داری؟"),8
                     DialogueLine("B", "I wish I had studied abroad.", "کاش خارج درس خوانده بودم."),
                     DialogueLine("A", "Why didn't you?", "چرا نخوندی؟"),
                     DialogueLine("B", "I didn't have enough money for tuition.", "شهریه‌اش رو نداشتم."),
                     DialogueLine("A", "Could you have gotten a scholarship?", "می‌تونستی بورسیه بگیری؟"),
-                    DialogueLine("B", "I wish I had applied for one.", "کاش برای یکی درخواست داده بودم."),
-                    DialogueLine("A", "It's never too late to learn.", "هرگز برای یادگیری دیر نیست."),
-                    DialogueLine("B", "You're right. I could still take online courses.", "حق داری. هنوز می‌تونم دوره‌های آنلاین بگیرم."),
-                    DialogueLine("A", "That's the spirit!", "همین روحیه رو دوست دارم!"),
-                    DialogueLine("B", "Better late than never.", "دیر رسیدن بهتر از هرگز نرسیدنه.")
-                ),
-                quiz = listOf(
-                    QuizQuestion("معنی «Critical thinking» چیست؟", listOf("تفکر ساده", "تفکر انتقادی", "حفظ کردن", "نوشتن"), 1),
-                    QuizQuestion("کدام درست است؟", listOf("I wish I studied harder.", "I wish I had studied harder.", "I wish I study harder.", "I wish I will study."), 1),
-                    QuizQuestion("«Wish + Past Perfect» برای چه زمانی؟", listOf("حال", "آینده", "گذشته", "همیشه"), 2),
-                    QuizQuestion("معنی «Scholarship» چیست؟", listOf("شهریه", "بورسیه", "مدرک", "دانشگاه"), 1),
-                    QuizQuestion("کدام درست است؟", listOf("I wish I would have studied.", "I wish I had studied.", "I wish I study.", "I wish I will study."), 1),
-                    QuizQuestion("معنی «Dissertation» چیست؟", listOf("تکلیف", "پایان‌نامه", "سخنرانی", "سمینار"), 1),
-                    QuizQuestion("«I wish I spoke French» یعنی؟", listOf("کاش فرانسه صحبت می‌کردم (حال)", "کاش فرانسه صحبت کرده بودم (گذشته)", "فرانسه صحبت می‌کنم", "فرانسه یاد خواهم گرفت"), 0),
-                    QuizQuestion("معنی «Tuition» چیست؟", listOf("بورسیه", "شهریه", "مدرک", "کلاس"), 1)
-                )
-            )
-            9 -> LessonContent("top_notch_3", 9, "Jobs and Careers", "شغل‌ها و حرفه‌ها",
-                vocabulary = listOf(
-                    VocabWord("Entrepreneur", "کارآفرین", "ˌɑːntrəprəˈnɜːr"), VocabWord("Freelancer", "فریلنسر", "ˈfriːlænsər"),
-                    VocabWord("Networking", "شبکه‌سازی", "ˈnetwɜːrkɪŋ"), VocabWord("Interview", "مصاحبه", "ˈɪnt
+                    DialogueLine("B", "I wish I had applied for
