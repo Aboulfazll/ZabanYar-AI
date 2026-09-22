@@ -1,7 +1,5 @@
 package com.zabanyar.ai.ui.screens
 
-import android.speech.tts.TextToSpeech
-import android.speech.tts.UtteranceProgressListener
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -22,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -29,11 +28,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.SpeechHelper
-
-data class HighlightedWord(
-    val word: String,
-    val isCurrent: Boolean
-)
+import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,29 +37,30 @@ fun ReadingModeScreen(
     text: String,
     onBack: () -> Unit
 ) {
-    val speechHelper = remember { SpeechHelper(androidx.compose.ui.platform.LocalContext.current) }
-    val context = androidx.compose.ui.platform.LocalContext.current
+    // ✅ اول context رو بگیر، بعد remember
+    val context = LocalContext.current
+    val speechHelper = remember { SpeechHelper(context) }
 
     // تقسیم متن به کلمات
-    val words = remember { text.split(" ").filter { it.isNotBlank() } }
+    val words = remember(text) { text.split(" ").filter { it.isNotBlank() } }
 
     var currentWordIndex by remember { mutableIntStateOf(-1) }
     var isPlaying by remember { mutableStateOf(false) }
     var isPaused by remember { mutableStateOf(false) }
     var playbackSpeed by remember { mutableFloatStateOf(1.0f) }
 
-    // Listener برای آپدیت ایندکس کلمه
-    LaunchedEffect(isPlaying) {
-        if (isPlaying) {
-            // شبیه‌سازی پخش کلمه‌به‌کلمه
-            // در نسخه واقعی با UtteranceProgressListener کار می‌کنه
-            var index = currentWordIndex.coerceAtLeast(0)
-            while (isPlaying && index < words.size) {
-                currentWordIndex = index
+    // ✅ LaunchedEffect برای پخش کلمه‌به‌کلمه
+    LaunchedEffect(isPlaying, currentWordIndex, playbackSpeed) {
+        if (isPlaying && currentWordIndex >= 0 && currentWordIndex < words.size) {
+            while (isPlaying && currentWordIndex < words.size) {
                 delay((600 / playbackSpeed).toLong())
-                index++
+                if (isPlaying) {
+                    currentWordIndex++
+                } else {
+                    break
+                }
             }
-            if (index >= words.size) {
+            if (currentWordIndex >= words.size) {
                 isPlaying = false
                 isPaused = false
                 currentWordIndex = -1
@@ -73,7 +69,7 @@ fun ReadingModeScreen(
     }
 
     // ساخت متن با هایلایت
-    val annotatedText = remember(currentWordIndex) {
+    val annotatedText = remember(currentWordIndex, words) {
         buildAnnotatedString {
             words.forEachIndexed { index, word ->
                 if (index == currentWordIndex) {
@@ -98,6 +94,13 @@ fun ReadingModeScreen(
                 }
                 if (index < words.size - 1) append(" ")
             }
+        }
+    }
+
+    // ✅ آزاد کردن حافظه
+    DisposableEffect(Unit) {
+        onDispose {
+            speechHelper.shutdown()
         }
     }
 
@@ -147,13 +150,13 @@ fun ReadingModeScreen(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            "کلمه ${currentWordIndex + 1} از ${words.size}",
+                            "کلمه ${(currentWordIndex + 1).coerceAtLeast(1)} از ${words.size}",
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Bold,
                             color = PrimaryColor
                         )
                         Text(
-                            "${((currentWordIndex + 1) * 100 / words.size)}%",
+                            "${(((currentWordIndex + 1).coerceAtLeast(1)) * 100 / words.size)}%",
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Bold,
                             color = PrimaryColor
@@ -161,7 +164,7 @@ fun ReadingModeScreen(
                     }
                     Spacer(Modifier.height(8.dp))
                     LinearProgressIndicator(
-                        progress = { (currentWordIndex + 1).toFloat() / words.size },
+                        progress = { ((currentWordIndex + 1).coerceAtLeast(0)).toFloat() / words.size },
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(6.dp)
@@ -237,7 +240,7 @@ fun ReadingModeScreen(
                             Spacer(Modifier.height(4.dp))
                             Text(
                                 "با دکمه پخش، کلمه‌به‌کلمه بخون و تکرار کن. " +
-                                "می‌تونی روی هر کلمه هم بزنی تا تلفظش رو بشنوی.",
+                                "می‌تونی سرعت پخش رو هم تغییر بدی.",
                                 fontSize = 11.sp,
                                 color = Color(0xFF424242),
                                 lineHeight = 18.sp
@@ -279,7 +282,10 @@ fun ReadingModeScreen(
                         ).forEach { (speed, label) ->
                             FilterChip(
                                 selected = playbackSpeed == speed,
-                                onClick = { playbackSpeed = speed },
+                                onClick = {
+                                    playbackSpeed = speed
+                                    speechHelper.setSpeed(speed)
+                                },
                                 label = {
                                     Text(
                                         label,
@@ -399,15 +405,4 @@ fun ReadingModeScreen(
             }
         }
     }
-
-    DisposableEffect(Unit) {
-        onDispose {
-            speechHelper.shutdown()
-        }
-    }
-}
-
-// تابع کمکی برای delay
-private suspend fun delay(millis: Long) {
-    kotlinx.coroutines.delay(millis)
 }
