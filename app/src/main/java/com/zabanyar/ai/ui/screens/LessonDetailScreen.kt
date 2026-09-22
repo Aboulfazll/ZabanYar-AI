@@ -10,6 +10,11 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.BookmarkBorder
+import androidx.compose.material.icons.filled.Headphones
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -19,11 +24,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zabanyar.ai.data.BookRepository
+import com.zabanyar.ai.data.ProgressManager
 import com.zabanyar.ai.data.SpeechHelper
 
-// ==================== مدل‌های محتوا ====================
 data class VocabWord(
     val english: String,
     val persian: String,
@@ -41,9 +48,12 @@ data class DialogueLine(
 fun LessonDetailScreen(
     bookId: String,
     chapterNumber: Int,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    onNavigateToReadingMode: (String, String) -> Unit = { _, _ -> }
 ) {
-    val book = allBooks.firstOrNull { it.id == bookId }
+    val context = LocalContext.current
+    val book = BookRepository.getBookById(bookId)
+
     if (book == null) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text("درس پیدا نشد")
@@ -52,7 +62,6 @@ fun LessonDetailScreen(
     }
 
     val accent = Color(book.gradientStart)
-    val context = LocalContext.current
     val speechHelper = remember { SpeechHelper(context) }
 
     DisposableEffect(Unit) {
@@ -61,6 +70,13 @@ fun LessonDetailScreen(
 
     var selectedTab by remember { mutableIntStateOf(0) }
     val tabs = listOf("لغات", "گرامر", "مکالمه", "کوییز")
+
+    // تنظیمات سرعت
+    var voiceSpeed by remember { mutableFloatStateOf(ProgressManager.getVoiceSpeed(context)) }
+
+    LaunchedEffect(voiceSpeed) {
+        speechHelper.setSpeed(voiceSpeed)
+    }
 
     Scaffold(
         topBar = {
@@ -123,10 +139,22 @@ fun LessonDetailScreen(
             }
 
             when (selectedTab) {
-                0 -> VocabularyTabContent(speechHelper, accent)
+                0 -> VocabularyTabContent(speechHelper, accent, voiceSpeed, onSpeedChange = {
+                    voiceSpeed = it
+                    speechHelper.setSpeed(it)
+                    ProgressManager.setVoiceSpeed(context, it)
+                })
                 1 -> GrammarTabContent(accent)
-                2 -> ConversationTabContent(speechHelper, accent)
-                3 -> QuizTabContent(accent)
+                2 -> ConversationTabContent(speechHelper, accent, book.title, onNavigateToReadingMode)
+                3 -> QuizTabContent(
+                    accent = accent,
+                    bookId = bookId,
+                    chapterNumber = chapterNumber,
+                    onComplete = {
+                        ProgressManager.markLessonCompleted(context, "${bookId}_$chapterNumber")
+                        ProgressManager.addStars(context, 50)
+                    }
+                )
             }
         }
     }
@@ -134,7 +162,12 @@ fun LessonDetailScreen(
 
 // ==================== تب لغات ====================
 @Composable
-private fun VocabularyTabContent(speechHelper: SpeechHelper, accent: Color) {
+private fun VocabularyTabContent(
+    speechHelper: SpeechHelper,
+    accent: Color,
+    voiceSpeed: Float,
+    onSpeedChange: (Float) -> Unit
+) {
     val words = remember {
         listOf(
             VocabWord("Teacher", "معلم", "ˈtiːtʃər"),
@@ -156,6 +189,43 @@ private fun VocabularyTabContent(speechHelper: SpeechHelper, accent: Color) {
             .verticalScroll(rememberScrollState())
             .padding(16.dp)
     ) {
+        // کنترل سرعت
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(12.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.White),
+            elevation = CardDefaults.cardElevation(2.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(10.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text("🎙️", fontSize = 18.sp)
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    "سرعت:",
+                    fontSize = 11.sp,
+                    color = Color.Gray,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Spacer(Modifier.width(6.dp))
+                listOf(0.75f to "آهسته", 1.0f to "معمولی", 1.25f to "سریع").forEach { (speed, label) ->
+                    FilterChip(
+                        selected = voiceSpeed == speed,
+                        onClick = { onSpeedChange(speed) },
+                        label = { Text(label, fontSize = 10.sp, fontWeight = FontWeight.Bold) },
+                        colors = FilterChipDefaults.filterChipColors(
+                            selectedContainerColor = accent,
+                            selectedLabelColor = Color.White
+                        ),
+                        modifier = Modifier.padding(end = 4.dp)
+                    )
+                }
+            }
+        }
+
+        Spacer(Modifier.height(12.dp))
+
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
                 "📖 ${words.size} لغت این درس",
@@ -179,9 +249,7 @@ private fun VocabularyTabContent(speechHelper: SpeechHelper, accent: Color) {
                 colors = CardDefaults.cardColors(containerColor = Color.White)
             ) {
                 Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(14.dp),
+                    modifier = Modifier.fillMaxWidth().padding(14.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Box(
@@ -207,11 +275,7 @@ private fun VocabularyTabContent(speechHelper: SpeechHelper, accent: Color) {
                             color = Color(0xFF1A237E)
                         )
                         if (word.pronunciation.isNotEmpty()) {
-                            Text(
-                                "/${word.pronunciation}/",
-                                fontSize = 11.sp,
-                                color = Color.Gray
-                            )
+                            Text("/${word.pronunciation}/", fontSize = 11.sp, color = Color.Gray)
                         }
                         Spacer(Modifier.height(3.dp))
                         Text(
@@ -258,11 +322,7 @@ private fun GrammarTabContent(accent: Color) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(
-                        Brush.linearGradient(
-                            listOf(accent, accent.copy(alpha = 0.7f))
-                        )
-                    )
+                    .background(Brush.linearGradient(listOf(accent, accent.copy(alpha = 0.7f))))
                     .padding(20.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -298,34 +358,31 @@ private fun GrammarTabContent(accent: Color) {
 
         GrammarCard(
             title = "📌 قانون ۱: a و an",
-            accent = accent,
             content = "• a قبل از حروف بی‌صدا: a teacher, a doctor\n" +
                     "• an قبل از حروف صدادار (a,e,i,o,u): an architect, an engineer\n" +
-                    "• استثنا: an hour (h صدا نداره)"
+                    "• استثنا: an hour (h صدا نداره)",
+            accent = accent
         )
 
         Spacer(Modifier.height(12.dp))
 
         GrammarCard(
             title = "📌 قانون ۲: do یا does؟",
-            accent = accent,
             content = "• I / You / We / They → do\n" +
                     "  What DO you do? → I'm a teacher.\n\n" +
                     "• He / She / It → does\n" +
-                    "  What DOES he do? → He's a doctor."
+                    "  What DOES he do? → He's a doctor.",
+            accent = accent
         )
 
         Spacer(Modifier.height(12.dp))
 
         GrammarCard(
             title = "❌ اشتباهات رایج",
-            accent = Color(0xFFE53935),
-            content = "❌ What do he do?\n" +
-                    "✅ What does he do?\n\n" +
-                    "❌ She's a engineer.\n" +
-                    "✅ She's an engineer.\n\n" +
-                    "❌ I'm teacher.\n" +
-                    "✅ I'm a teacher."
+            content = "❌ What do he do?\n✅ What does he do?\n\n" +
+                    "❌ She's a engineer.\n✅ She's an engineer.\n\n" +
+                    "❌ I'm teacher.\n✅ I'm a teacher.",
+            accent = Color(0xFFE53935)
         )
 
         Spacer(Modifier.height(20.dp))
@@ -333,14 +390,9 @@ private fun GrammarTabContent(accent: Color) {
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFE8F5E9)
-            )
+            colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9))
         ) {
-            Row(
-                modifier = Modifier.padding(14.dp),
-                verticalAlignment = Alignment.Top
-            ) {
+            Row(modifier = Modifier.padding(14.dp), verticalAlignment = Alignment.Top) {
                 Text("💡", fontSize = 20.sp)
                 Spacer(Modifier.width(10.dp))
                 Column {
@@ -364,11 +416,7 @@ private fun GrammarTabContent(accent: Color) {
 }
 
 @Composable
-private fun GrammarCard(
-    title: String,
-    content: String,
-    accent: Color
-) {
+private fun GrammarCard(title: String, content: String, accent: Color) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
@@ -376,26 +424,21 @@ private fun GrammarCard(
         elevation = CardDefaults.cardElevation(3.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                title,
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Bold,
-                color = accent
-            )
+            Text(title, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = accent)
             Spacer(Modifier.height(10.dp))
-            Text(
-                content,
-                fontSize = 13.sp,
-                color = Color(0xFF424242),
-                lineHeight = 22.sp
-            )
+            Text(content, fontSize = 13.sp, color = Color(0xFF424242), lineHeight = 22.sp)
         }
     }
 }
 
 // ==================== تب مکالمه ====================
 @Composable
-private fun ConversationTabContent(speechHelper: SpeechHelper, accent: Color) {
+private fun ConversationTabContent(
+    speechHelper: SpeechHelper,
+    accent: Color,
+    bookTitle: String,
+    onNavigateToReadingMode: (String, String) -> Unit
+) {
     val lines = remember {
         listOf(
             DialogueLine("Sara", "Hi! I'm Sara. Nice to meet you.", "سلام! من سارا هستم. از آشنایی خوشحالم."),
@@ -409,25 +452,28 @@ private fun ConversationTabContent(speechHelper: SpeechHelper, accent: Color) {
         )
     }
 
+    val fullText = lines.joinToString(" ") { it.english }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
             .padding(16.dp)
     ) {
+        // دکمه حالت خوانش
         Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(18.dp),
-            elevation = CardDefaults.cardElevation(4.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable {
+                    onNavigateToReadingMode("$bookTitle - مکالمه", fullText)
+                },
+            shape = RoundedCornerShape(16.dp),
+            elevation = CardDefaults.cardElevation(6.dp)
         ) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(
-                        Brush.linearGradient(
-                            listOf(accent, accent.copy(alpha = 0.7f))
-                        )
-                    )
+                    .background(Brush.linearGradient(listOf(accent, accent.copy(alpha = 0.7f))))
                     .padding(16.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -438,36 +484,55 @@ private fun ConversationTabContent(speechHelper: SpeechHelper, accent: Color) {
                             .background(Color.White.copy(alpha = 0.25f)),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text("💬", fontSize = 22.sp)
+                        Icon(
+                            Icons.Filled.Headphones,
+                            null,
+                            tint = Color.White,
+                            modifier = Modifier.size(24.dp)
+                        )
                     }
                     Spacer(Modifier.width(12.dp))
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            "مکالمه این درس",
+                            "🎧 حالت خوانش تعاملی",
                             fontSize = 15.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.White
                         )
                         Text(
-                            "${lines.size} جمله - روی هر جمله بزن",
+                            "کلمه‌به‌کلمه با هایلایت گوش کن",
                             fontSize = 11.sp,
                             color = Color.White.copy(alpha = 0.9f)
                         )
                     }
+                    Text("→", color = Color.White, fontSize = 22.sp, fontWeight = FontWeight.Bold)
                 }
             }
         }
 
         Spacer(Modifier.height(16.dp))
 
+        // دکمه پخش کل مکالمه
+        Button(
+            onClick = { speechHelper.speak(fullText) },
+            modifier = Modifier.fillMaxWidth().height(50.dp),
+            shape = RoundedCornerShape(14.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = PrimaryColor)
+        ) {
+            Icon(Icons.Filled.PlayArrow, null, modifier = Modifier.size(20.dp))
+            Spacer(Modifier.width(8.dp))
+            Text("پخش کل مکالمه", color = Color.White, fontWeight = FontWeight.Bold)
+        }
+
+        Spacer(Modifier.height(16.dp))
+
+        // حباب‌های مکالمه
         lines.forEachIndexed { index, line ->
             val isA = index % 2 == 0
             val bubbleAccent = if (isA) accent else Color(0xFF7B1FA2)
 
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 4.dp),
+                modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
                 horizontalArrangement = if (isA) Arrangement.Start else Arrangement.End
             ) {
                 Card(
@@ -475,8 +540,7 @@ private fun ConversationTabContent(speechHelper: SpeechHelper, accent: Color) {
                         .widthIn(max = 300.dp)
                         .clickable { speechHelper.speak(line.english) },
                     shape = RoundedCornerShape(
-                        topStart = 18.dp,
-                        topEnd = 18.dp,
+                        topStart = 18.dp, topEnd = 18.dp,
                         bottomStart = if (isA) 4.dp else 18.dp,
                         bottomEnd = if (isA) 18.dp else 4.dp
                     ),
@@ -528,11 +592,17 @@ private fun ConversationTabContent(speechHelper: SpeechHelper, accent: Color) {
 
 // ==================== تب کوییز ====================
 @Composable
-private fun QuizTabContent(accent: Color) {
+private fun QuizTabContent(
+    accent: Color,
+    bookId: String,
+    chapterNumber: Int,
+    onComplete: () -> Unit
+) {
     var currentQuestion by remember { mutableIntStateOf(0) }
     var selectedOption by remember { mutableStateOf<Int?>(null) }
     var score by remember { mutableIntStateOf(0) }
     var showResult by remember { mutableStateOf(false) }
+    var completed by remember { mutableStateOf(false) }
 
     val questions = remember {
         listOf(
@@ -552,6 +622,13 @@ private fun QuizTabContent(accent: Color) {
             else -> Color(0xFFE53935)
         }
 
+        LaunchedEffect(Unit) {
+            if (!completed && percentage >= 50) {
+                onComplete()
+                completed = true
+            }
+        }
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -568,11 +645,7 @@ private fun QuizTabContent(accent: Color) {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(
-                            Brush.verticalGradient(
-                                listOf(resultColor, resultColor.copy(alpha = 0.75f))
-                            )
-                        )
+                        .background(Brush.verticalGradient(listOf(resultColor, resultColor.copy(alpha = 0.75f))))
                         .padding(28.dp)
                 ) {
                     Column(
@@ -619,6 +692,36 @@ private fun QuizTabContent(accent: Color) {
                                     color = Color.White.copy(alpha = 0.9f)
                                 )
                             }
+                        }
+                    }
+                }
+            }
+
+            if (percentage >= 50) {
+                Spacer(Modifier.height(16.dp))
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(14.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9))
+                ) {
+                    Row(
+                        modifier = Modifier.padding(14.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text("⭐", fontSize = 22.sp)
+                        Spacer(Modifier.width(10.dp))
+                        Column {
+                            Text(
+                                "+۵۰ امتیاز گرفتی!",
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF2E7D32)
+                            )
+                            Text(
+                                "درس تکمیل شد",
+                                fontSize = 11.sp,
+                                color = Color(0xFF5D4037)
+                            )
                         }
                     }
                 }
@@ -689,11 +792,7 @@ private fun QuizTabContent(accent: Color) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(
-                        Brush.verticalGradient(
-                            listOf(accent.copy(alpha = 0.1f), Color.White)
-                        )
-                    )
+                    .background(Brush.verticalGradient(listOf(accent.copy(alpha = 0.1f), Color.White)))
                     .padding(20.dp)
             ) {
                 Text(
@@ -743,9 +842,7 @@ private fun QuizTabContent(accent: Color) {
                 elevation = CardDefaults.cardElevation(2.dp)
             ) {
                 Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(14.dp),
+                    modifier = Modifier.fillMaxWidth().padding(14.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Box(
