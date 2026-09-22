@@ -8,7 +8,10 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.ChevronLeft
+import androidx.compose.material.icons.filled.Logout
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -21,6 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zabanyar.ai.data.ProgressManager
 import com.zabanyar.ai.data.UserManager
 
 // ==================== رنگ‌ها ====================
@@ -39,16 +43,16 @@ fun HomeScreen(
     onNavigateToSpeaking: () -> Unit = {},
     onNavigateToVocabulary: () -> Unit = {},
     onNavigateToProfile: () -> Unit = {},
+    onNavigateToSettings: () -> Unit = {},
     onLogout: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val user = remember { UserManager.getLoggedInUser(context) }
 
-    // ==================== حالت‌های تنظیمات ====================
-    var showSettingsSheet by remember { mutableStateOf(false) }
-    var voiceSpeed by remember { mutableFloatStateOf(1.0f) }
-    var isDarkMode by remember { mutableStateOf(false) }
-    var notificationsEnabled by remember { mutableStateOf(true) }
+    // آمار از ProgressManager
+    val totalStars = remember { ProgressManager.getTotalStars(context) }
+    val lessonsCompleted = remember { ProgressManager.getLessonsCompleted(context) }
+    val dailyStreak = remember { ProgressManager.getDailyStreak(context) }
 
     Scaffold(
         topBar = {
@@ -81,7 +85,7 @@ fun HomeScreen(
                     }
                 },
                 actions = {
-                    IconButton(onClick = { showSettingsSheet = true }) {
+                    IconButton(onClick = onNavigateToSettings) {
                         Icon(
                             Icons.Filled.Settings,
                             contentDescription = "تنظیمات",
@@ -89,9 +93,7 @@ fun HomeScreen(
                         )
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = PrimaryColor
-                )
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = PrimaryColor)
             )
         }
     ) { padding ->
@@ -146,21 +148,21 @@ fun HomeScreen(
                         .padding(vertical = 18.dp),
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    StatItem("📚", "۱۲", "درس", AccentBlue)
+                    StatItem("📚", "$lessonsCompleted", "درس", AccentBlue)
                     Divider(
                         modifier = Modifier
                             .height(40.dp)
                             .width(1.dp),
                         color = Color.LightGray.copy(alpha = 0.5f)
                     )
-                    StatItem("🔥", "۵", "روز پیوسته", AccentOrange)
+                    StatItem("🔥", "$dailyStreak", "روز پیوسته", AccentOrange)
                     Divider(
                         modifier = Modifier
                             .height(40.dp)
                             .width(1.dp),
                         color = Color.LightGray.copy(alpha = 0.5f)
                     )
-                    StatItem("⭐", "۲۴۰", "امتیاز", AccentPink)
+                    StatItem("⭐", "$totalStars", "امتیاز", AccentPink)
                 }
             }
 
@@ -212,7 +214,7 @@ fun HomeScreen(
                 QuickAccessCard(
                     emoji = "📝",
                     title = "واژگان",
-                    subtitle = "۵۰۴ لغت",
+                    subtitle = "بانک لغات",
                     gradient = listOf(Color(0xFFE91E63), Color(0xFFF06292)),
                     modifier = Modifier.weight(1f),
                     onClick = onNavigateToVocabulary
@@ -226,8 +228,8 @@ fun HomeScreen(
 
             ContinueLearningCard(
                 bookTitle = "Top Notch 1",
-                chapter = "فصل ۳ - مکان‌ها و اشیا",
-                progress = 0.35f,
+                chapter = "فصل ۱ - نام‌ها و شغل‌ها",
+                progress = 0.15f,
                 color = PrimaryColor,
                 onClick = onNavigateToLibrary
             )
@@ -235,11 +237,11 @@ fun HomeScreen(
             Spacer(Modifier.height(10.dp))
 
             ContinueLearningCard(
-                bookTitle = "Vocabulary in Use",
-                chapter = "درس ۵ - خانواده",
-                progress = 0.60f,
+                bookTitle = "Basic Grammar",
+                chapter = "درس ۲ - a / an",
+                progress = 0.40f,
                 color = AccentGreen,
-                onClick = onNavigateToVocabulary
+                onClick = onNavigateToLibrary
             )
 
             Spacer(Modifier.height(24.dp))
@@ -253,10 +255,10 @@ fun HomeScreen(
                     .padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                AchievementBadge("🥇", "اولین درس", true, Modifier.weight(1f))
-                AchievementBadge("🔥", "۷ روز پیوسته", false, Modifier.weight(1f))
-                AchievementBadge("📚", "۱۰ کتاب", false, Modifier.weight(1f))
-                AchievementBadge("⭐", "۱۰۰۰ امتیاز", false, Modifier.weight(1f))
+                AchievementBadge("🥇", "شروع", lessonsCompleted > 0, Modifier.weight(1f))
+                AchievementBadge("🔥", "۷ روز", dailyStreak >= 7, Modifier.weight(1f))
+                AchievementBadge("📚", "۱۰ درس", lessonsCompleted >= 10, Modifier.weight(1f))
+                AchievementBadge("⭐", "۱۰۰۰", totalStars >= 1000, Modifier.weight(1f))
             }
 
             Spacer(Modifier.height(24.dp))
@@ -340,223 +342,6 @@ fun HomeScreen(
             }
 
             Spacer(Modifier.height(30.dp))
-        }
-    }
-
-    // ==================== شیت تنظیمات ====================
-    if (showSettingsSheet) {
-        ModalBottomSheet(
-            onDismissRequest = { showSettingsSheet = false },
-            shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp),
-            containerColor = Color.White
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(20.dp)
-            ) {
-                // هدر
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Box(
-                        modifier = Modifier
-                            .size(44.dp)
-                            .clip(CircleShape)
-                            .background(PrimaryColor.copy(alpha = 0.1f)),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Icon(Icons.Filled.Settings, null, tint = PrimaryColor)
-                    }
-                    Spacer(Modifier.width(12.dp))
-                    Column {
-                        Text(
-                            "تنظیمات",
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = PrimaryColor
-                        )
-                        Text(
-                            "تنظیمات اپلیکیشن",
-                            fontSize = 11.sp,
-                            color = Color.Gray
-                        )
-                    }
-                }
-
-                Spacer(Modifier.height(24.dp))
-
-                // ==================== سرعت صوت ====================
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(16.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFF8F9FF)
-                    )
-                ) {
-                    Column(modifier = Modifier.padding(16.dp)) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("🎙️", fontSize = 22.sp)
-                            Spacer(Modifier.width(10.dp))
-                            Column(modifier = Modifier.weight(1f)) {
-                                Text(
-                                    "سرعت پخش صوت",
-                                    fontSize = 14.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = PrimaryColor
-                                )
-                                Text(
-                                    "سرعت خواندن متن‌ها و پادکست‌ها",
-                                    fontSize = 11.sp,
-                                    color = Color.Gray
-                                )
-                            }
-                            Box(
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(8.dp))
-                                    .background(PrimaryColor.copy(alpha = 0.1f))
-                                    .padding(horizontal = 8.dp, vertical = 3.dp)
-                            ) {
-                                Text(
-                                    "${voiceSpeed}x",
-                                    fontSize = 12.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = PrimaryColor
-                                )
-                            }
-                        }
-                        Spacer(Modifier.height(14.dp))
-
-                        Slider(
-                            value = voiceSpeed,
-                            onValueChange = { voiceSpeed = it },
-                            valueRange = 0.5f..1.5f,
-                            steps = 3,
-                            colors = SliderDefaults.colors(
-                                thumbColor = PrimaryColor,
-                                activeTrackColor = PrimaryColor
-                            )
-                        )
-
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            Text("🐢 آهسته", fontSize = 10.sp, color = Color.Gray)
-                            Text("⚡ معمولی", fontSize = 10.sp, color = Color.Gray)
-                            Text("🚀 سریع", fontSize = 10.sp, color = Color.Gray)
-                        }
-
-                        Spacer(Modifier.height(10.dp))
-
-                        // دکمه‌های سریع
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(6.dp)
-                        ) {
-                            listOf(0.5f to "0.5x", 0.75f to "0.75x", 1.0f to "1.0x", 1.25f to "1.25x", 1.5f to "1.5x")
-                                .forEach { (speed, label) ->
-                                    FilterChip(
-                                        selected = voiceSpeed == speed,
-                                        onClick = { voiceSpeed = speed },
-                                        label = {
-                                            Text(
-                                                label,
-                                                fontSize = 10.sp,
-                                                fontWeight = FontWeight.Bold
-                                            )
-                                        },
-                                        colors = FilterChipDefaults.filterChipColors(
-                                            selectedContainerColor = PrimaryColor,
-                                            selectedLabelColor = Color.White
-                                        ),
-                                        modifier = Modifier.weight(1f)
-                                    )
-                                }
-                        }
-                    }
-                }
-
-                Spacer(Modifier.height(12.dp))
-
-                // ==================== حالت شب ====================
-                SettingToggle(
-                    emoji = "🌙",
-                    title = "حالت شب",
-                    subtitle = "استفاده در محیط کم‌نور",
-                    checked = isDarkMode,
-                    onCheckedChange = { isDarkMode = it }
-                )
-
-                Spacer(Modifier.height(10.dp))
-
-                // ==================== اعلان‌ها ====================
-                SettingToggle(
-                    emoji = "🔔",
-                    title = "اعلان‌ها",
-                    subtitle = "یادآوری تمرین روزانه",
-                    checked = notificationsEnabled,
-                    onCheckedChange = { notificationsEnabled = it }
-                )
-
-                Spacer(Modifier.height(12.dp))
-
-                // ==================== زبان ====================
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(14.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFF8F9FF)
-                    )
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(14.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text("🌐", fontSize = 22.sp)
-                        Spacer(Modifier.width(10.dp))
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                "زبان اپلیکیشن",
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = PrimaryColor
-                            )
-                            Text(
-                                "فارسی",
-                                fontSize = 11.sp,
-                                color = Color.Gray
-                            )
-                        }
-                        Icon(
-                            Icons.Filled.ChevronLeft,
-                            null,
-                            tint = Color.Gray
-                        )
-                    }
-                }
-
-                Spacer(Modifier.height(20.dp))
-
-                Button(
-                    onClick = { showSettingsSheet = false },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(50.dp),
-                    shape = RoundedCornerShape(14.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = PrimaryColor
-                    )
-                ) {
-                    Text(
-                        "ذخیره تنظیمات",
-                        fontWeight = FontWeight.Bold,
-                        color = Color.White
-                    )
-                }
-
-                Spacer(Modifier.height(20.dp))
-            }
         }
     }
 }
@@ -775,53 +560,6 @@ private fun AchievementBadge(
                 color = if (unlocked) PrimaryColor else Color.Gray,
                 textAlign = TextAlign.Center,
                 lineHeight = 12.sp
-            )
-        }
-    }
-}
-
-@Composable
-private fun SettingToggle(
-    emoji: String,
-    title: String,
-    subtitle: String,
-    checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit
-) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(14.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFF8F9FF)
-        )
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(14.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(emoji, fontSize = 22.sp)
-            Spacer(Modifier.width(10.dp))
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    title,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = PrimaryColor
-                )
-                Text(
-                    subtitle,
-                    fontSize = 11.sp,
-                    color = Color.Gray
-                )
-            }
-            Switch(
-                checked = checked,
-                onCheckedChange = onCheckedChange,
-                colors = SwitchDefaults.colors(
-                    checkedTrackColor = PrimaryColor
-                )
             )
         }
     }
