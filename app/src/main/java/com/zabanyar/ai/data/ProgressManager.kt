@@ -99,6 +99,11 @@ object ProgressManager {
         getPrefs(context).edit().putBoolean("notifications", enabled).apply()
     }
 
+    // ============ پاک کردن تمام پیشرفت ============
+    fun resetAllProgress(context: Context) {
+        getPrefs(context).edit().clear().apply()
+    }
+
     // ============ تاریخ‌ها ============
     private fun getToday(): String {
         val sdf = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
