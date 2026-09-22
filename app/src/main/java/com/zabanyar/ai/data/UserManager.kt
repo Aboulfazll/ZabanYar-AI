@@ -11,7 +11,6 @@ object UserManager {
     private const val PREFS_NAME = "zabanyar_prefs"
     private const val KEY_USERS = "users_list"
     private const val KEY_LOGGED_IN_EMAIL = "logged_in_email"
-    private const val KEY_API_KEY = "api_key"
 
     private fun getPrefs(context: Context): SharedPreferences {
         return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -36,13 +35,37 @@ object UserManager {
         prefs.edit().putString(KEY_USERS, json).apply()
     }
 
+    // ============ اعتبارسنجی ایمیل (ساده و مطمئن) ============
+    private fun isValidEmail(email: String): Boolean {
+        val cleanEmail = email.trim()
+        if (cleanEmail.length < 5) return false
+        if (!cleanEmail.contains("@")) return false
+        if (!cleanEmail.contains(".")) return false
+
+        val parts = cleanEmail.split("@")
+        if (parts.size != 2) return false
+        if (parts[0].isEmpty() || parts[1].isEmpty()) return false
+        if (!parts[1].contains(".")) return false
+
+        val domainParts = parts[1].split(".")
+        if (domainParts.any { it.isEmpty() }) return false
+        if (domainParts.last().length < 2) return false
+
+        return true
+    }
+
     // ============ ثبت‌نام ============
     fun register(context: Context, name: String, email: String, password: String): Result<User> {
-        val users = getAllUsers(context)
+        val cleanName = name.trim()
+        val cleanEmail = email.trim().lowercase()
 
-        // چک کن ایمیل تکراری نباشه
-        if (users.any { it.email.equals(email, ignoreCase = true) }) {
-            return Result.failure(Exception("این ایمیل قبلاً ثبت شده است"))
+        // چک کن فیلدها خالی نباشن
+        if (cleanName.isEmpty()) {
+            return Result.failure(Exception("نام نمی‌تواند خالی باشد"))
+        }
+
+        if (cleanEmail.isEmpty()) {
+            return Result.failure(Exception("ایمیل نمی‌تواند خالی باشد"))
         }
 
         // چک کن رمز حداقل ۶ کاراکتر باشه
@@ -51,13 +74,19 @@ object UserManager {
         }
 
         // چک کن ایمیل معتبر باشه
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (!isValidEmail(cleanEmail)) {
             return Result.failure(Exception("ایمیل معتبر نیست"))
         }
 
+        // چک کن ایمیل تکراری نباشه
+        val users = getAllUsers(context)
+        if (users.any { it.email.equals(cleanEmail, ignoreCase = true) }) {
+            return Result.failure(Exception("این ایمیل قبلاً ثبت شده است"))
+        }
+
         val newUser = User(
-            email = email.lowercase().trim(),
-            name = name.trim(),
+            email = cleanEmail,
+            name = cleanName,
             password = password
         )
         users.add(newUser)
@@ -73,9 +102,10 @@ object UserManager {
 
     // ============ ورود ============
     fun login(context: Context, email: String, password: String): Result<User> {
+        val cleanEmail = email.trim().lowercase()
         val users = getAllUsers(context)
         val user = users.firstOrNull {
-            it.email.equals(email.lowercase().trim(), ignoreCase = true)
+            it.email.equals(cleanEmail, ignoreCase = true)
         }
 
         if (user == null) {
