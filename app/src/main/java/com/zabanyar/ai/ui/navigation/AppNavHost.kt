@@ -1,6 +1,16 @@
 package com.zabanyar.ai.ui.navigation
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -52,34 +62,31 @@ fun AppNavHost(
 
         // ==================== صفحه اصلی ====================
         composable(Routes.HOME) {
-            HomeScreen()
+            HomeScreenTemp()
         }
     }
 }
 
 // ==================== صفحه اصلی موقت ====================
 @Composable
-private fun HomeScreen() {
-    androidx.compose.foundation.layout.Box(
-        modifier = androidx.compose.ui.Modifier
+private fun HomeScreenTemp() {
+    Box(
+        modifier = Modifier
             .fillMaxSize()
-            .androidx.compose.foundation.background(
-                androidx.compose.ui.graphics.Color(0xFFF5F7FA)
-            ),
-        contentAlignment = androidx.compose.ui.Alignment.Center
+            .background(Color(0xFFF5F7FA)),
+        contentAlignment = Alignment.Center
     ) {
-        androidx.compose.foundation.layout.Column(
-            horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally
-        ) {
-            androidx.compose.material3.Text("🎉", fontSize = androidx.compose.ui.unit.TextUnit(64f, androidx.compose.ui.unit.TextUnitType.Sp))
-            androidx.compose.material3.Text(
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text("🎉", fontSize = 64.sp)
+            Text(
                 "خوش آمدید!",
-                fontSize = androidx.compose.ui.unit.TextUnit(22f, androidx.compose.ui.unit.TextUnitType.Sp),
-                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold
             )
-            androidx.compose.material3.Text(
+            Text(
                 "صفحه اصلی به‌زودی ساخته می‌شود",
-                fontSize = androidx.compose.ui.unit.TextUnit(13f, androidx.compose.ui.unit.TextUnitType.Sp)
+                fontSize = 13.sp,
+                color = Color.Gray
             )
         }
     }
