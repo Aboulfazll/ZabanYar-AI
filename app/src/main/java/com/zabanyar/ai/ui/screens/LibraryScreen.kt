@@ -27,55 +27,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
-// ==================== مدل کتاب (موقت) ====================
-data class BookItem(
-    val id: String,
-    val title: String,
-    val titlePersian: String,
-    val author: String,
-    val category: String,
-    val categoryEmoji: String,
-    val level: String,
-    val levelEmoji: String,
-    val totalChapters: Int,
-    val gradientStart: Long,
-    val gradientEnd: Long
-)
-
-// ==================== داده کتاب‌ها ====================
-val allBooks = listOf(
-    // مکالمه
-    BookItem("tn1", "Top Notch 1", "تاپ ناچ ۱", "Joan Saslow", "مکالمه", "💬", "مبتدی", "🌱", 8, 0xFF6A1B9A, 0xFFAB47BC),
-    BookItem("tn2", "Top Notch 2", "تاپ ناچ ۲", "Joan Saslow", "مکالمه", "💬", "متوسط", "🚀", 10, 0xFF1565C0, 0xFF42A5F5),
-    BookItem("tn3", "Top Notch 3", "تاپ ناچ ۳", "Joan Saslow", "مکالمه", "💬", "پیشرفته", "🏆", 10, 0xFFC62828, 0xFFEF5350),
-
-    // گرامر
-    BookItem("bg1", "Basic Grammar", "گرامر پایه", "Raymond Murphy", "گرامر", "📝", "مبتدی", "🌱", 45, 0xFF00695C, 0xFF26A69A),
-    BookItem("ug1", "Understanding Grammar", "درک گرامر", "Betty Azar", "گرامر", "📝", "متوسط", "🚀", 30, 0xFF0277BD, 0xFF4FC3F7),
-    BookItem("ag1", "Advanced Grammar", "گرامر پیشرفته", "Martin Hewings", "گرامر", "📝", "پیشرفته", "🏆", 31, 0xFF4527A0, 0xFF7E57C2),
-
-    // واژگان
-    BookItem("v1", "Vocabulary Elementary", "واژگان پایه", "McCarthy", "واژگان", "📚", "مبتدی", "🌱", 60, 0xFFE91E63, 0xFFF06292),
-    BookItem("v2", "Vocabulary Intermediate", "واژگان متوسط", "Stuart Redman", "واژگان", "📚", "متوسط", "🚀", 100, 0xFF00897B, 0xFF4DB6AC),
-    BookItem("b504", "504 Essential Words", "۵۰۴ واژه ضروری", "Murray Bromberg", "واژگان", "📚", "متوسط", "🚀", 42, 0xFFFF6F00, 0xFFFFB300),
-
-    // IELTS
-    BookItem("i16", "IELTS 16", "آیلتس ۱۶", "Cambridge", "آیلتس", "🎯", "پیشرفته", "🏆", 4, 0xFF1A237E, 0xFF3F51B5),
-    BookItem("i17", "IELTS 17", "آیلتس ۱۷", "Cambridge", "آیلتس", "🎯", "پیشرفته", "🏆", 4, 0xFF283593, 0xFF5C6BC0),
-    BookItem("m2", "Mindset for IELTS 2", "مایندست ۲", "Cambridge", "آیلتس", "🎯", "متوسط", "🚀", 8, 0xFFAD1457, 0xFFEC407A),
-
-    // داستان
-    BookItem("gm", "The Gift of the Magi", "هدیه مغان", "O. Henry", "داستان", "📖", "متوسط", "🚀", 3, 0xFF880E4F, 0xFFC2185B),
-    BookItem("sh", "Sleepy Hollow", "دره خواب‌آلود", "Washington Irving", "داستان", "📖", "متوسط", "🚀", 6, 0xFF37474F, 0xFF78909C),
-    BookItem("hh", "Halloween Horror", "وحشت هالووین", "Gina Clemen", "داستان", "📖", "مبتدی", "🌱", 5, 0xFF4A148C, 0xFF9C27B0),
-
-    // اصطلاحات
-    BookItem("ee1", "Everyday Expressions 1", "اصطلاحات روزمره ۱", "Casey Malarcher", "اصطلاحات", "💡", "مبتدی", "🌱", 20, 0xFF33691E, 0xFF8BC34A),
-    BookItem("ee2", "Everyday Expressions 2", "اصطلاحات روزمره ۲", "Casey Malarcher", "اصطلاحات", "💡", "متوسط", "🚀", 20, 0xFF01579B, 0xFF039BE5)
-)
-
-val allCategories = listOf("همه", "مکالمه", "گرامر", "واژگان", "آیلتس", "داستان", "اصطلاحات")
+import com.zabanyar.ai.data.Book
+import com.zabanyar.ai.data.BookCategory
+import com.zabanyar.ai.data.BookRepository
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -83,15 +37,16 @@ fun LibraryScreen(
     onBack: () -> Unit = {},
     onBookClick: (String) -> Unit = {}
 ) {
+    val allBooks = remember { BookRepository.getAllBooks() }
     var searchQuery by remember { mutableStateOf("") }
-    var selectedCategory by remember { mutableStateOf("همه") }
+    var selectedCategory by remember { mutableStateOf<BookCategory?>(null) }
 
     val filteredBooks = allBooks.filter { book ->
         val matchesSearch = searchQuery.isEmpty() ||
                 book.title.contains(searchQuery, true) ||
                 book.titlePersian.contains(searchQuery, true) ||
                 book.author.contains(searchQuery, true)
-        val matchesCategory = selectedCategory == "همه" || book.category == selectedCategory
+        val matchesCategory = selectedCategory == null || book.category == selectedCategory
         matchesSearch && matchesCategory
     }
 
@@ -122,9 +77,7 @@ fun LibraryScreen(
                         )
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = PrimaryColor
-                )
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = PrimaryColor)
             )
         }
     ) { padding ->
@@ -149,9 +102,7 @@ fun LibraryScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(6.dp),
-                    placeholder = {
-                        Text("جستجوی کتاب...", fontSize = 13.sp)
-                    },
+                    placeholder = { Text("جستجوی کتاب...", fontSize = 13.sp) },
                     leadingIcon = {
                         Icon(Icons.Filled.Search, null, tint = PrimaryColor)
                     },
@@ -176,20 +127,36 @@ fun LibraryScreen(
                 contentPadding = PaddingValues(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                items(allCategories) { category ->
+                item {
+                    FilterChip(
+                        selected = selectedCategory == null,
+                        onClick = { selectedCategory = null },
+                        label = {
+                            Text("✨ همه", fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                        },
+                        colors = FilterChipDefaults.filterChipColors(
+                            selectedContainerColor = PrimaryColor,
+                            selectedLabelColor = Color.White
+                        )
+                    )
+                }
+                items(BookCategory.values().toList()) { category ->
                     FilterChip(
                         selected = selectedCategory == category,
-                        onClick = { selectedCategory = category },
+                        onClick = {
+                            selectedCategory =
+                                if (selectedCategory == category) null else category
+                        },
                         label = {
                             Text(
-                                category,
+                                "${category.emoji} ${category.persianName}",
                                 fontSize = 12.sp,
                                 fontWeight = if (selectedCategory == category) FontWeight.Bold
                                 else FontWeight.Normal
                             )
                         },
                         colors = FilterChipDefaults.filterChipColors(
-                            selectedContainerColor = PrimaryColor,
+                            selectedContainerColor = Color(category.color),
                             selectedLabelColor = Color.White
                         )
                     )
@@ -217,11 +184,7 @@ fun LibraryScreen(
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text("📭", fontSize = 64.sp)
                         Spacer(Modifier.height(16.dp))
-                        Text(
-                            "کتابی یافت نشد",
-                            fontSize = 15.sp,
-                            color = Color.Gray
-                        )
+                        Text("کتابی یافت نشد", fontSize = 15.sp, color = Color.Gray)
                     }
                 }
             } else {
@@ -242,7 +205,7 @@ fun LibraryScreen(
 }
 
 @Composable
-private fun BookCard(book: BookItem, onClick: () -> Unit) {
+private fun BookCard(book: Book, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -278,7 +241,7 @@ private fun BookCard(book: BookItem, onClick: () -> Unit) {
                             .background(Color.White.copy(alpha = 0.25f)),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(book.categoryEmoji, fontSize = 28.sp)
+                        Text(book.category.emoji, fontSize = 28.sp)
                     }
                     Spacer(Modifier.height(8.dp))
                     Text(
@@ -326,7 +289,7 @@ private fun BookCard(book: BookItem, onClick: () -> Unit) {
                 )
                 Spacer(Modifier.height(8.dp))
 
-                // تعداد فصل + دسته
+                // تعداد فصل + سطح
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -342,6 +305,13 @@ private fun BookCard(book: BookItem, onClick: () -> Unit) {
                         "${book.totalChapters} فصل",
                         fontSize = 10.sp,
                         color = Color(book.gradientStart),
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    Spacer(Modifier.weight(1f))
+                    Text(
+                        book.level,
+                        fontSize = 9.sp,
+                        color = Color.Gray,
                         fontWeight = FontWeight.SemiBold
                     )
                 }
