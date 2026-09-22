@@ -25,27 +25,39 @@ import com.zabanyar.ai.ui.screens.SpeakingScreen
 import com.zabanyar.ai.ui.screens.VocabularyScreen
 
 object Routes {
+    // ==================== احراز هویت ====================
     const val LOGIN = "login"
     const val REGISTER = "register"
+
+    // ==================== صفحات اصلی ====================
     const val HOME = "home"
+    const val PROFILE = "profile"
+    const val SETTINGS = "settings"
+
+    // ==================== کتابخانه ====================
     const val LIBRARY = "library"
     const val BOOK_DETAIL = "book_detail/{bookId}"
     const val LESSON_DETAIL = "lesson_detail/{bookId}/{chapterNumber}"
+    const val READING_MODE = "reading_mode/{title}/{text}"
+
+    // ==================== AI Chat ====================
     const val AI_CHAT = "ai_chat"
     const val API_KEY = "api_key"
-    const val PROFILE = "profile"
+
+    // ==================== بخش‌ها ====================
     const val VOCABULARY = "vocabulary"
     const val SPEAKING = "speaking"
-    const val SETTINGS = "settings"
     const val PODCAST = "podcast"
     const val DAILY_SENTENCES = "daily_sentences"
     const val LEVEL_TEST = "level_test"
     const val ACHIEVEMENTS = "achievements"
-    const val READING_MODE = "reading_mode/{title}/{text}"
 
+    // ==================== توابع کمکی ====================
     fun bookDetail(bookId: String) = "book_detail/$bookId"
+
     fun lessonDetail(bookId: String, chapterNumber: Int) =
         "lesson_detail/$bookId/$chapterNumber"
+
     fun readingMode(title: String, text: String) =
         "reading_mode/${android.net.Uri.encode(title)}/${android.net.Uri.encode(text)}"
 }
@@ -59,6 +71,7 @@ fun AppNavHost(
         navController = navController,
         startDestination = startDestination
     ) {
+        // ==================== صفحه ورود ====================
         composable(Routes.LOGIN) {
             LoginScreen(
                 onLoginSuccess = {
@@ -66,10 +79,13 @@ fun AppNavHost(
                         popUpTo(Routes.LOGIN) { inclusive = true }
                     }
                 },
-                onNavigateToRegister = { navController.navigate(Routes.REGISTER) }
+                onNavigateToRegister = {
+                    navController.navigate(Routes.REGISTER)
+                }
             )
         }
 
+        // ==================== صفحه ثبت‌نام ====================
         composable(Routes.REGISTER) {
             RegisterScreen(
                 onRegisterSuccess = {
@@ -77,22 +93,45 @@ fun AppNavHost(
                         popUpTo(Routes.LOGIN) { inclusive = true }
                     }
                 },
-                onNavigateToLogin = { navController.popBackStack() }
+                onNavigateToLogin = {
+                    navController.popBackStack()
+                }
             )
         }
 
+        // ==================== صفحه اصلی ====================
         composable(Routes.HOME) {
             HomeScreen(
-                onNavigateToLibrary = { navController.navigate(Routes.LIBRARY) },
-                onNavigateToAIChat = { navController.navigate(Routes.AI_CHAT) },
-                onNavigateToSpeaking = { navController.navigate(Routes.SPEAKING) },
-                onNavigateToVocabulary = { navController.navigate(Routes.VOCABULARY) },
-                onNavigateToProfile = { navController.navigate(Routes.PROFILE) },
-                onNavigateToSettings = { navController.navigate(Routes.SETTINGS) },
-                onNavigateToPodcast = { navController.navigate(Routes.PODCAST) },
-                onNavigateToDailySentences = { navController.navigate(Routes.DAILY_SENTENCES) },
-                onNavigateToLevelTest = { navController.navigate(Routes.LEVEL_TEST) },
-                onNavigateToAchievements = { navController.navigate(Routes.ACHIEVEMENTS) },
+                onNavigateToLibrary = {
+                    navController.navigate(Routes.LIBRARY)
+                },
+                onNavigateToAIChat = {
+                    navController.navigate(Routes.AI_CHAT)
+                },
+                onNavigateToSpeaking = {
+                    navController.navigate(Routes.SPEAKING)
+                },
+                onNavigateToVocabulary = {
+                    navController.navigate(Routes.VOCABULARY)
+                },
+                onNavigateToProfile = {
+                    navController.navigate(Routes.PROFILE)
+                },
+                onNavigateToSettings = {
+                    navController.navigate(Routes.SETTINGS)
+                },
+                onNavigateToPodcast = {
+                    navController.navigate(Routes.PODCAST)
+                },
+                onNavigateToDailySentences = {
+                    navController.navigate(Routes.DAILY_SENTENCES)
+                },
+                onNavigateToLevelTest = {
+                    navController.navigate(Routes.LEVEL_TEST)
+                },
+                onNavigateToAchievements = {
+                    navController.navigate(Routes.ACHIEVEMENTS)
+                },
                 onLogout = {
                     navController.navigate(Routes.LOGIN) {
                         popUpTo(Routes.HOME) { inclusive = true }
@@ -101,27 +140,36 @@ fun AppNavHost(
             )
         }
 
+        // ==================== کتابخانه ====================
         composable(Routes.LIBRARY) {
             LibraryScreen(
                 onBack = { navController.popBackStack() },
-                onBookClick = { bookId -> navController.navigate(Routes.bookDetail(bookId)) }
+                onBookClick = { bookId ->
+                    navController.navigate(Routes.bookDetail(bookId))
+                }
             )
         }
 
+        // ==================== جزئیات کتاب ====================
         composable(
             route = Routes.BOOK_DETAIL,
-            arguments = listOf(navArgument("bookId") { type = NavType.StringType })
+            arguments = listOf(
+                navArgument("bookId") { type = NavType.StringType }
+            )
         ) { entry ->
             val bookId = entry.arguments?.getString("bookId") ?: ""
             BookDetailScreen(
                 bookId = bookId,
                 onBack = { navController.popBackStack() },
                 onChapterClick = { chapterNumber ->
-                    navController.navigate(Routes.lessonDetail(bookId, chapterNumber))
+                    navController.navigate(
+                        Routes.lessonDetail(bookId, chapterNumber)
+                    )
                 }
             )
         }
 
+        // ==================== محتوای درس ====================
         composable(
             route = Routes.LESSON_DETAIL,
             arguments = listOf(
@@ -134,67 +182,14 @@ fun AppNavHost(
             LessonDetailScreen(
                 bookId = bookId,
                 chapterNumber = chapterNumber,
-                onBack = { navController.popBackStack() }
-            )
-        }
-
-        composable(Routes.AI_CHAT) {
-            AIChatScreen(
                 onBack = { navController.popBackStack() },
-                onOpenSettings = { navController.navigate(Routes.API_KEY) }
-            )
-        }
-
-        composable(Routes.API_KEY) {
-            ApiKeyScreen(onBack = { navController.popBackStack() })
-        }
-
-        composable(Routes.PROFILE) {
-            ProfileScreen(
-                onBack = { navController.popBackStack() },
-                onNavigateToApiKey = { navController.navigate(Routes.API_KEY) },
-                onLogout = {
-                    navController.navigate(Routes.LOGIN) {
-                        popUpTo(Routes.HOME) { inclusive = true }
-                    }
+                onNavigateToReadingMode = { title, text ->
+                    navController.navigate(Routes.readingMode(title, text))
                 }
             )
         }
 
-        composable(Routes.VOCABULARY) {
-            VocabularyScreen(onBack = { navController.popBackStack() })
-        }
-
-        composable(Routes.SPEAKING) {
-            SpeakingScreen(onBack = { navController.popBackStack() })
-        }
-
-        composable(Routes.SETTINGS) {
-            SettingsScreen(
-                onBack = { navController.popBackStack() },
-                onNavigateToApiKey = { navController.navigate(Routes.API_KEY) }
-            )
-        }
-
-        composable(Routes.PODCAST) {
-            PodcastScreen(onBack = { navController.popBackStack() })
-        }
-
-        composable(Routes.DAILY_SENTENCES) {
-            DailySentencesScreen(onBack = { navController.popBackStack() })
-        }
-
-        composable(Routes.LEVEL_TEST) {
-            LevelTestScreen(
-                onBack = { navController.popBackStack() },
-                onTestComplete = { }
-            )
-        }
-
-        composable(Routes.ACHIEVEMENTS) {
-            AchievementsScreen(onBack = { navController.popBackStack() })
-        }
-
+        // ==================== حالت خوانش ====================
         composable(
             route = Routes.READING_MODE,
             arguments = listOf(
@@ -211,6 +206,91 @@ fun AppNavHost(
             ReadingModeScreen(
                 title = title,
                 text = text,
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== چت با AI ====================
+        composable(Routes.AI_CHAT) {
+            AIChatScreen(
+                onBack = { navController.popBackStack() },
+                onOpenSettings = {
+                    navController.navigate(Routes.API_KEY)
+                }
+            )
+        }
+
+        // ==================== کلید API ====================
+        composable(Routes.API_KEY) {
+            ApiKeyScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== پروفایل ====================
+        composable(Routes.PROFILE) {
+            ProfileScreen(
+                onBack = { navController.popBackStack() },
+                onNavigateToApiKey = {
+                    navController.navigate(Routes.API_KEY)
+                },
+                onLogout = {
+                    navController.navigate(Routes.LOGIN) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        // ==================== تنظیمات ====================
+        composable(Routes.SETTINGS) {
+            SettingsScreen(
+                onBack = { navController.popBackStack() },
+                onNavigateToApiKey = {
+                    navController.navigate(Routes.API_KEY)
+                }
+            )
+        }
+
+        // ==================== بانک واژگان ====================
+        composable(Routes.VOCABULARY) {
+            VocabularyScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== اسپیکینگ ====================
+        composable(Routes.SPEAKING) {
+            SpeakingScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== پادکست‌ها ====================
+        composable(Routes.PODCAST) {
+            PodcastScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== جملات روزمره ====================
+        composable(Routes.DAILY_SENTENCES) {
+            DailySentencesScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== تست سطح ====================
+        composable(Routes.LEVEL_TEST) {
+            LevelTestScreen(
+                onBack = { navController.popBackStack() },
+                onTestComplete = { }
+            )
+        }
+
+        // ==================== دستاوردها ====================
+        composable(Routes.ACHIEVEMENTS) {
+            AchievementsScreen(
                 onBack = { navController.popBackStack() }
             )
         }
