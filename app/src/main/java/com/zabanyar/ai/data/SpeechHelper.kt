@@ -1,9 +1,10 @@
 package com.zabanyar.ai.data
 
+import android.content.Context
 import android.speech.tts.TextToSpeech
 import java.util.Locale
 
-class SpeechHelper : TextToSpeech.OnInitListener {
+class SpeechHelper(context: Context) : TextToSpeech.OnInitListener {
 
     private var tts: TextToSpeech? = null
     private var isReady = false
@@ -11,7 +12,7 @@ class SpeechHelper : TextToSpeech.OnInitListener {
     private var currentPitch = 1.0f
 
     init {
-        tts = TextToSpeech(com.zabanyar.ai.data.AppContextProvider.context, this)
+        tts = TextToSpeech(context.applicationContext, this)
     }
 
     override fun onInit(status: Int) {
