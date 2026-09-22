@@ -1,0 +1,807 @@
+package com.zabanyar.ai.ui.screens
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.zabanyar.ai.data.SpeechHelper
+
+// ==================== مدل‌های محتوا ====================
+data class VocabWord(
+    val english: String,
+    val persian: String,
+    val pronunciation: String = ""
+)
+
+data class DialogueLine(
+    val speaker: String,
+    val english: String,
+    val persian: String
+)
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun LessonDetailScreen(
+    bookId: String,
+    chapterNumber: Int,
+    onBack: () -> Unit
+) {
+    val book = allBooks.firstOrNull { it.id == bookId }
+    if (book == null) {
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text("درس پیدا نشد")
+        }
+        return
+    }
+
+    val accent = Color(book.gradientStart)
+    val speechHelper = remember { SpeechHelper() }
+
+    DisposableEffect(Unit) {
+        onDispose { speechHelper.shutdown() }
+    }
+
+    var selectedTab by remember { mutableIntStateOf(0) }
+    val tabs = listOf("لغات", "گرامر", "مکالمه", "کوییز")
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Column {
+                        Text(
+                            "فصل $chapterNumber",
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White,
+                            fontSize = 15.sp
+                        )
+                        Text(
+                            book.titlePersian,
+                            fontSize = 11.sp,
+                            color = Color.White.copy(alpha = 0.85f)
+                        )
+                    }
+                },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            "Back",
+                            tint = Color.White
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = accent)
+            )
+        }
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xFFF5F7FA))
+                .padding(padding)
+        ) {
+            ScrollableTabRow(
+                selectedTabIndex = selectedTab,
+                containerColor = Color.White,
+                contentColor = accent,
+                edgePadding = 8.dp,
+                divider = {}
+            ) {
+                tabs.forEachIndexed { index, title ->
+                    Tab(
+                        selected = selectedTab == index,
+                        onClick = { selectedTab = index },
+                        text = {
+                            Text(
+                                title,
+                                fontWeight = if (selectedTab == index) FontWeight.Bold
+                                else FontWeight.Normal,
+                                fontSize = 12.sp
+                            )
+                        }
+                    )
+                }
+            }
+
+            when (selectedTab) {
+                0 -> VocabularyTabContent(speechHelper, accent)
+                1 -> GrammarTabContent(accent)
+                2 -> ConversationTabContent(speechHelper, accent)
+                3 -> QuizTabContent(accent)
+            }
+        }
+    }
+}
+
+// ==================== تب لغات ====================
+@Composable
+private fun VocabularyTabContent(speechHelper: SpeechHelper, accent: Color) {
+    val words = remember {
+        listOf(
+            VocabWord("Teacher", "معلم", "ˈtiːtʃər"),
+            VocabWord("Student", "دانش‌آموز", "ˈstuːdənt"),
+            VocabWord("Doctor", "دکتر", "ˈdɑːktər"),
+            VocabWord("Nurse", "پرستار", "nɜːrs"),
+            VocabWord("Engineer", "مهندس", "ˌendʒɪˈnɪr"),
+            VocabWord("Architect", "معمار", "ˈɑːrkɪtekt"),
+            VocabWord("Actor", "بازیگر", "ˈæktər"),
+            VocabWord("Singer", "خواننده", "ˈsɪŋər"),
+            VocabWord("Chef", "سرآشپز", "ʃef"),
+            VocabWord("Pilot", "خلبان", "ˈpaɪlət")
+        )
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(16.dp)
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                "📖 ${words.size} لغت این درس",
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+                color = accent
+            )
+            Spacer(Modifier.weight(1f))
+            Text("👆 برای شنیدن بزن", fontSize = 10.sp, color = Color.Gray)
+        }
+        Spacer(Modifier.height(12.dp))
+
+        words.forEach { word ->
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 5.dp)
+                    .clickable { speechHelper.speak(word.english) },
+                shape = RoundedCornerShape(14.dp),
+                elevation = CardDefaults.cardElevation(3.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.White)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(14.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(44.dp)
+                            .clip(CircleShape)
+                            .background(accent.copy(alpha = 0.15f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            word.english.first().uppercase(),
+                            color = accent,
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    Spacer(Modifier.width(12.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            word.english,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 16.sp,
+                            color = Color(0xFF1A237E)
+                        )
+                        if (word.pronunciation.isNotEmpty()) {
+                            Text(
+                                "/${word.pronunciation}/",
+                                fontSize = 11.sp,
+                                color = Color.Gray
+                            )
+                        }
+                        Spacer(Modifier.height(3.dp))
+                        Text(
+                            word.persian,
+                            color = accent,
+                            fontSize = 13.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
+                    IconButton(
+                        onClick = { speechHelper.speak(word.english) },
+                        modifier = Modifier
+                            .size(42.dp)
+                            .clip(CircleShape)
+                            .background(accent.copy(alpha = 0.12f))
+                    ) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.VolumeUp,
+                            "Play",
+                            tint = accent,
+                            modifier = Modifier.size(22.dp)
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ==================== تب گرامر ====================
+@Composable
+private fun GrammarTabContent(accent: Color) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(20.dp)
+    ) {
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(20.dp),
+            elevation = CardDefaults.cardElevation(6.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        Brush.linearGradient(
+                            listOf(accent, accent.copy(alpha = 0.7f))
+                        )
+                    )
+                    .padding(20.dp)
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier
+                            .size(56.dp)
+                            .clip(CircleShape)
+                            .background(Color.White.copy(alpha = 0.25f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text("📝", fontSize = 28.sp)
+                    }
+                    Spacer(Modifier.width(14.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            "درس گرامر",
+                            fontSize = 12.sp,
+                            color = Color.White.copy(alpha = 0.9f),
+                            fontWeight = FontWeight.SemiBold
+                        )
+                        Text(
+                            "a / an + Occupations",
+                            fontSize = 17.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                    }
+                }
+            }
+        }
+
+        Spacer(Modifier.height(20.dp))
+
+        GrammarCard(
+            title = "📌 قانون ۱: a و an",
+            accent = accent,
+            content = "• a قبل از حروف بی‌صدا: a teacher, a doctor\n" +
+                    "• an قبل از حروف صدادار (a,e,i,o,u): an architect, an engineer\n" +
+                    "• استثنا: an hour (h صدا نداره)"
+        )
+
+        Spacer(Modifier.height(12.dp))
+
+        GrammarCard(
+            title = "📌 قانون ۲: do یا does؟",
+            accent = accent,
+            content = "• I / You / We / They → do\n" +
+                    "  What DO you do? → I'm a teacher.\n\n" +
+                    "• He / She / It → does\n" +
+                    "  What DOES he do? → He's a doctor."
+        )
+
+        Spacer(Modifier.height(12.dp))
+
+        GrammarCard(
+            title = "❌ اشتباهات رایج",
+            accent = Color(0xFFE53935),
+            content = "❌ What do he do?\n" +
+                    "✅ What does he do?\n\n" +
+                    "❌ She's a engineer.\n" +
+                    "✅ She's an engineer.\n\n" +
+                    "❌ I'm teacher.\n" +
+                    "✅ I'm a teacher."
+        )
+
+        Spacer(Modifier.height(20.dp))
+
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFFE8F5E9)
+            )
+        ) {
+            Row(
+                modifier = Modifier.padding(14.dp),
+                verticalAlignment = Alignment.Top
+            ) {
+                Text("💡", fontSize = 20.sp)
+                Spacer(Modifier.width(10.dp))
+                Column {
+                    Text(
+                        "نکته یادگیری",
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF2E7D32)
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        "هر روز ۱۰ دقیقه این گرامر رو مرور کن. مثال‌ها رو با صدای بلند بخون.",
+                        fontSize = 11.sp,
+                        color = Color(0xFF424242),
+                        lineHeight = 18.sp
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun GrammarCard(
+    title: String,
+    content: String,
+    accent: Color
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        elevation = CardDefaults.cardElevation(3.dp)
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                title,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+                color = accent
+            )
+            Spacer(Modifier.height(10.dp))
+            Text(
+                content,
+                fontSize = 13.sp,
+                color = Color(0xFF424242),
+                lineHeight = 22.sp
+            )
+        }
+    }
+}
+
+// ==================== تب مکالمه ====================
+@Composable
+private fun ConversationTabContent(speechHelper: SpeechHelper, accent: Color) {
+    val lines = remember {
+        listOf(
+            DialogueLine("Sara", "Hi! I'm Sara. Nice to meet you.", "سلام! من سارا هستم. از آشنایی خوشحالم."),
+            DialogueLine("Ali", "Nice to meet you too. I'm Ali.", "من هم خوشحالم. من علی هستم."),
+            DialogueLine("Sara", "Are you new here?", "اینجا تازه‌وارد هستی؟"),
+            DialogueLine("Ali", "Yes, I just moved here last week.", "بله، هفته پیش اومدم."),
+            DialogueLine("Sara", "Welcome! What do you do?", "خوش اومدی! شغلت چیه؟"),
+            DialogueLine("Ali", "I'm an engineer. And you?", "من مهندسم. تو چطور؟"),
+            DialogueLine("Sara", "I'm a teacher. I teach English.", "من معلمم. انگلیسی درس می‌دم."),
+            DialogueLine("Ali", "That's great! Maybe you can teach me.", "عالیه! شاید بتونی به من یاد بدی.")
+        )
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(16.dp)
+    ) {
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(18.dp),
+            elevation = CardDefaults.cardElevation(4.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        Brush.linearGradient(
+                            listOf(accent, accent.copy(alpha = 0.7f))
+                        )
+                    )
+                    .padding(16.dp)
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier
+                            .size(46.dp)
+                            .clip(CircleShape)
+                            .background(Color.White.copy(alpha = 0.25f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text("💬", fontSize = 22.sp)
+                    }
+                    Spacer(Modifier.width(12.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            "مکالمه این درس",
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                        Text(
+                            "${lines.size} جمله - روی هر جمله بزن",
+                            fontSize = 11.sp,
+                            color = Color.White.copy(alpha = 0.9f)
+                        )
+                    }
+                }
+            }
+        }
+
+        Spacer(Modifier.height(16.dp))
+
+        lines.forEachIndexed { index, line ->
+            val isA = index % 2 == 0
+            val bubbleAccent = if (isA) accent else Color(0xFF7B1FA2)
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                horizontalArrangement = if (isA) Arrangement.Start else Arrangement.End
+            ) {
+                Card(
+                    modifier = Modifier
+                        .widthIn(max = 300.dp)
+                        .clickable { speechHelper.speak(line.english) },
+                    shape = RoundedCornerShape(
+                        topStart = 18.dp,
+                        topEnd = 18.dp,
+                        bottomStart = if (isA) 4.dp else 18.dp,
+                        bottomEnd = if (isA) 18.dp else 4.dp
+                    ),
+                    colors = CardDefaults.cardColors(
+                        containerColor = if (isA) accent.copy(alpha = 0.12f)
+                        else Color(0xFFF3E5F5)
+                    ),
+                    elevation = CardDefaults.cardElevation(2.dp)
+                ) {
+                    Column(modifier = Modifier.padding(12.dp)) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(
+                                line.speaker,
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = bubbleAccent
+                            )
+                            Spacer(Modifier.weight(1f))
+                            Icon(
+                                Icons.AutoMirrored.Filled.VolumeUp,
+                                null,
+                                tint = bubbleAccent,
+                                modifier = Modifier.size(14.dp)
+                            )
+                        }
+                        Spacer(Modifier.height(6.dp))
+                        Text(
+                            line.english,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = Color(0xFF1A237E),
+                            lineHeight = 20.sp
+                        )
+                        Spacer(Modifier.height(6.dp))
+                        Divider(color = bubbleAccent.copy(alpha = 0.2f))
+                        Spacer(Modifier.height(6.dp))
+                        Text(
+                            line.persian,
+                            fontSize = 12.sp,
+                            color = Color(0xFF616161),
+                            lineHeight = 18.sp
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ==================== تب کوییز ====================
+@Composable
+private fun QuizTabContent(accent: Color) {
+    var currentQuestion by remember { mutableIntStateOf(0) }
+    var selectedOption by remember { mutableStateOf<Int?>(null) }
+    var score by remember { mutableIntStateOf(0) }
+    var showResult by remember { mutableStateOf(false) }
+
+    val questions = remember {
+        listOf(
+            Pair("کدام درست است؟", listOf("I'm a architect.", "I'm an architect.", "I'm architect.", "I architect.")),
+            Pair("معنی «What do you do?» چیست؟", listOf("کجایی؟", "چیکار می‌کنی؟", "شغلت چیه؟", "چطوری؟")),
+            Pair("کدام برای سوم شخص درست است؟", listOf("What do he do?", "What does he do?", "What he does?", "What do he does?")),
+            Pair("پاسخ به «Is she a doctor?»", listOf("Yes, she does.", "Yes, she is.", "Yes, she do.", "Yes, she are."))
+        )
+    }
+    val correctAnswers = listOf(1, 2, 1, 1)
+
+    if (showResult) {
+        val percentage = (score.toFloat() / questions.size * 100).toInt()
+        val resultColor = when {
+            percentage >= 90 -> Color(0xFF11998E)
+            percentage >= 70 -> Color(0xFFFF9800)
+            else -> Color(0xFFE53935)
+        }
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(Modifier.height(20.dp))
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(24.dp),
+                elevation = CardDefaults.cardElevation(12.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(
+                            Brush.verticalGradient(
+                                listOf(resultColor, resultColor.copy(alpha = 0.75f))
+                            )
+                        )
+                        .padding(28.dp)
+                ) {
+                    Column(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            when {
+                                percentage >= 90 -> "🏆"
+                                percentage >= 70 -> "🎯"
+                                else -> "💪"
+                            },
+                            fontSize = 72.sp
+                        )
+                        Spacer(Modifier.height(12.dp))
+                        Text(
+                            when {
+                                percentage >= 90 -> "عالی! فوق‌العاده!"
+                                percentage >= 70 -> "خوب بود!"
+                                else -> "نیاز به تمرین بیشتر"
+                            },
+                            fontSize = 22.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                        Spacer(Modifier.height(16.dp))
+                        Box(
+                            modifier = Modifier
+                                .size(130.dp)
+                                .clip(CircleShape)
+                                .background(Color.White.copy(alpha = 0.2f)),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                Text(
+                                    "$percentage%",
+                                    fontSize = 36.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.White
+                                )
+                                Text(
+                                    "$score از ${questions.size}",
+                                    fontSize = 12.sp,
+                                    color = Color.White.copy(alpha = 0.9f)
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+
+            Spacer(Modifier.height(20.dp))
+
+            Button(
+                onClick = {
+                    currentQuestion = 0
+                    selectedOption = null
+                    score = 0
+                    showResult = false
+                },
+                modifier = Modifier.fillMaxWidth().height(54.dp),
+                shape = RoundedCornerShape(14.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = accent)
+            ) {
+                Text("🔄 تلاش مجدد", color = Color.White, fontWeight = FontWeight.Bold)
+            }
+        }
+        return
+    }
+
+    val q = questions[currentQuestion]
+    val correctIndex = correctAnswers[currentQuestion]
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(20.dp)
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                "سوال ${currentQuestion + 1} از ${questions.size}",
+                fontSize = 13.sp,
+                color = Color.Gray,
+                fontWeight = FontWeight.SemiBold
+            )
+            Text(
+                "امتیاز: $score",
+                fontSize = 13.sp,
+                color = accent,
+                fontWeight = FontWeight.Bold
+            )
+        }
+
+        Spacer(Modifier.height(8.dp))
+        LinearProgressIndicator(
+            progress = { (currentQuestion + 1).toFloat() / questions.size },
+            modifier = Modifier.fillMaxWidth().height(8.dp).clip(RoundedCornerShape(4.dp)),
+            color = accent,
+            trackColor = accent.copy(alpha = 0.15f)
+        )
+
+        Spacer(Modifier.height(20.dp))
+
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(16.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.White),
+            elevation = CardDefaults.cardElevation(4.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        Brush.verticalGradient(
+                            listOf(accent.copy(alpha = 0.1f), Color.White)
+                        )
+                    )
+                    .padding(20.dp)
+            ) {
+                Text(
+                    q.first,
+                    fontSize = 17.sp,
+                    fontWeight = FontWeight.Bold,
+                    lineHeight = 26.sp,
+                    color = Color(0xFF1A237E)
+                )
+            }
+        }
+
+        Spacer(Modifier.height(20.dp))
+
+        q.second.forEachIndexed { index, option ->
+            val isSelected = selectedOption == index
+            val isCorrect = index == correctIndex
+            val showFeedback = selectedOption != null
+
+            val bgColor = when {
+                !showFeedback -> Color.White
+                isCorrect -> Color(0xFFE8F5E9)
+                isSelected -> Color(0xFFFFEBEE)
+                else -> Color.White
+            }
+
+            val borderColor = when {
+                !showFeedback -> Color(0xFFE0E0E0)
+                isCorrect -> Color(0xFF43A047)
+                isSelected -> Color(0xFFE53935)
+                else -> Color(0xFFE0E0E0)
+            }
+
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 5.dp)
+                    .clickable {
+                        if (selectedOption == null) {
+                            selectedOption = index
+                            if (isCorrect) score++
+                        }
+                    },
+                shape = RoundedCornerShape(14.dp),
+                colors = CardDefaults.cardColors(containerColor = bgColor),
+                border = androidx.compose.foundation.BorderStroke(2.dp, borderColor),
+                elevation = CardDefaults.cardElevation(2.dp)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(14.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(34.dp)
+                            .clip(CircleShape)
+                            .background(accent.copy(alpha = 0.15f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            when {
+                                showFeedback && isCorrect -> "✓"
+                                showFeedback && isSelected -> "✗"
+                                else -> listOf("A", "B", "C", "D")[index]
+                            },
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = when {
+                                showFeedback && isCorrect -> Color(0xFF43A047)
+                                showFeedback && isSelected -> Color(0xFFE53935)
+                                else -> accent
+                            }
+                        )
+                    }
+                    Spacer(Modifier.width(12.dp))
+                    Text(
+                        option,
+                        fontSize = 14.sp,
+                        color = Color(0xFF333333),
+                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                    )
+                }
+            }
+        }
+
+        Spacer(Modifier.height(20.dp))
+
+        if (selectedOption != null) {
+            Button(
+                onClick = {
+                    if (currentQuestion < questions.size - 1) {
+                        currentQuestion++
+                        selectedOption = null
+                    } else {
+                        showResult = true
+                    }
+                },
+                modifier = Modifier.fillMaxWidth().height(56.dp),
+                shape = RoundedCornerShape(16.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = accent)
+            ) {
+                Text(
+                    if (currentQuestion < questions.size - 1) "سوال بعدی ←" else "دیدن نتیجه 🎉",
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 15.sp
+                )
+            }
+        }
+    }
+}
