@@ -10,7 +10,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -21,9 +21,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zabanyar.ai.data.NotificationHelper
+import com.zabanyar.ai.data.NotificationScheduler
 import com.zabanyar.ai.data.ProgressManager
 import com.zabanyar.ai.data.UserManager
 
@@ -37,7 +38,6 @@ fun SettingsScreen(
     val uriHandler = LocalUriHandler.current
     val user = remember { UserManager.getLoggedInUser(context) }
 
-    // تنظیمات قابل ذخیره
     var voiceSpeed by remember { mutableFloatStateOf(ProgressManager.getVoiceSpeed(context)) }
     var notificationsEnabled by remember { mutableStateOf(ProgressManager.isNotificationsEnabled(context)) }
     var darkModeEnabled by remember { mutableStateOf(false) }
@@ -49,7 +49,6 @@ fun SettingsScreen(
     var showAboutDialog by remember { mutableStateOf(false) }
     var savedMessage by remember { mutableStateOf(false) }
 
-    // آمار
     val totalStars = remember { ProgressManager.getTotalStars(context) }
     val lessonsCompleted = remember { ProgressManager.getLessonsCompleted(context) }
     val dailyStreak = remember { ProgressManager.getDailyStreak(context) }
@@ -67,11 +66,7 @@ fun SettingsScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            "Back",
-                            tint = Color.White
-                        )
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
                     }
                 },
                 actions = {
@@ -80,11 +75,7 @@ fun SettingsScreen(
                         ProgressManager.setNotificationsEnabled(context, notificationsEnabled)
                         savedMessage = true
                     }) {
-                        Icon(
-                            Icons.Filled.Check,
-                            "Save",
-                            tint = Color.White
-                        )
+                        Icon(Icons.Filled.Check, "Save", tint = Color.White)
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = PrimaryColor)
@@ -102,9 +93,7 @@ fun SettingsScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(
-                        Brush.linearGradient(listOf(PrimaryColor, SecondaryColor))
-                    )
+                    .background(Brush.linearGradient(listOf(PrimaryColor, SecondaryColor)))
                     .padding(20.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -139,7 +128,6 @@ fun SettingsScreen(
             // ==================== 🔊 صدا و پخش ====================
             SectionHeader("🔊 صدا و پخش")
 
-            // سرعت صوت
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -212,29 +200,18 @@ fun SettingsScreen(
 
                     Spacer(Modifier.height(14.dp))
 
-                    // دکمه‌های سریع
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(6.dp)
                     ) {
                         listOf(
-                            0.5f to "0.5x",
-                            0.75f to "0.75x",
-                            1.0f to "1.0x",
-                            1.25f to "1.25x",
-                            1.5f to "1.5x",
-                            2.0f to "2.0x"
+                            0.5f to "0.5x", 0.75f to "0.75x", 1.0f to "1.0x",
+                            1.25f to "1.25x", 1.5f to "1.5x", 2.0f to "2.0x"
                         ).forEach { (speed, label) ->
                             FilterChip(
                                 selected = voiceSpeed == speed,
                                 onClick = { voiceSpeed = speed },
-                                label = {
-                                    Text(
-                                        label,
-                                        fontSize = 10.sp,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                },
+                                label = { Text(label, fontSize = 10.sp, fontWeight = FontWeight.Bold) },
                                 colors = FilterChipDefaults.filterChipColors(
                                     selectedContainerColor = PrimaryColor,
                                     selectedLabelColor = Color.White
@@ -248,7 +225,6 @@ fun SettingsScreen(
 
             Spacer(Modifier.height(8.dp))
 
-            // پخش خودکار
             SettingsToggle(
                 emoji = "▶️",
                 title = "پخش خودکار",
@@ -259,7 +235,6 @@ fun SettingsScreen(
 
             Spacer(Modifier.height(8.dp))
 
-            // جلوه‌های صوتی
             SettingsToggle(
                 emoji = "🔊",
                 title = "جلوه‌های صوتی",
@@ -276,9 +251,17 @@ fun SettingsScreen(
             SettingsToggle(
                 emoji = "🔔",
                 title = "اعلان‌ها",
-                subtitle = "یادآوری تمرین روزانه",
+                subtitle = "یادآوری تمرین روزانه (ساعت ۲۰:۰۰)",
                 checked = notificationsEnabled,
-                onCheckedChange = { notificationsEnabled = it }
+                onCheckedChange = { enabled ->
+                    notificationsEnabled = enabled
+                    ProgressManager.setNotificationsEnabled(context, enabled)
+                    if (enabled) {
+                        NotificationScheduler.scheduleDailyNotification(context)
+                    } else {
+                        NotificationScheduler.cancelDailyNotification(context)
+                    }
+                }
             )
 
             Spacer(Modifier.height(8.dp))
@@ -291,12 +274,20 @@ fun SettingsScreen(
                 onCheckedChange = { darkModeEnabled = it }
             )
 
+            Spacer(Modifier.height(8.dp))
+
+            SettingsRow(
+                emoji = "🧪",
+                title = "تست اعلان",
+                subtitle = "یه اعلان نمونه نمایش بده",
+                onClick = { NotificationHelper.showDailyReminder(context) }
+            )
+
             Spacer(Modifier.height(20.dp))
 
             // ==================== 🔑 حساب کاربری ====================
             SectionHeader("🔑 حساب کاربری")
 
-            // کلید API
             SettingsRow(
                 emoji = "🗝️",
                 title = "کلید API Groq",
@@ -307,7 +298,6 @@ fun SettingsScreen(
 
             Spacer(Modifier.height(8.dp))
 
-            // اطلاعات حساب
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -322,11 +312,7 @@ fun SettingsScreen(
                             modifier = Modifier
                                 .size(46.dp)
                                 .clip(CircleShape)
-                                .background(
-                                    Brush.linearGradient(
-                                        listOf(PrimaryColor, SecondaryColor)
-                                    )
-                                ),
+                                .background(Brush.linearGradient(listOf(PrimaryColor, SecondaryColor))),
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
@@ -396,13 +382,7 @@ fun SettingsScreen(
                             FilterChip(
                                 selected = selectedLanguage == lang,
                                 onClick = { selectedLanguage = lang },
-                                label = {
-                                    Text(
-                                        lang,
-                                        fontSize = 12.sp,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                },
+                                label = { Text(lang, fontSize = 12.sp, fontWeight = FontWeight.Bold) },
                                 colors = FilterChipDefaults.filterChipColors(
                                     selectedContainerColor = PrimaryColor,
                                     selectedLabelColor = Color.White
@@ -419,7 +399,6 @@ fun SettingsScreen(
             // ==================== 📊 داده‌ها ====================
             SectionHeader("📊 مدیریت داده‌ها")
 
-            // پاک کردن پیشرفت
             SettingsRow(
                 emoji = "🗑️",
                 title = "پاک کردن پیشرفت",
@@ -430,7 +409,6 @@ fun SettingsScreen(
 
             Spacer(Modifier.height(8.dp))
 
-            // پاک کردن تاریخچه چت
             SettingsRow(
                 emoji = "💬",
                 title = "پاک کردن تاریخچه چت",
@@ -490,12 +468,7 @@ fun SettingsScreen(
             ) {
                 Icon(Icons.Filled.Check, null, modifier = Modifier.size(20.dp))
                 Spacer(Modifier.width(8.dp))
-                Text(
-                    "ذخیره تنظیمات",
-                    color = Color.White,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 15.sp
-                )
+                Text("ذخیره تنظیمات", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 15.sp)
             }
 
             if (savedMessage) {
@@ -527,7 +500,7 @@ fun SettingsScreen(
         }
     }
 
-    // ==================== دیالوگ تأیید پاک کردن ====================
+    // ==================== دیالوگ پاک کردن ====================
     if (showResetDialog) {
         AlertDialog(
             onDismissRequest = { showResetDialog = false },
@@ -535,17 +508,12 @@ fun SettingsScreen(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text("⚠️", fontSize = 24.sp)
                     Spacer(Modifier.width(8.dp))
-                    Text(
-                        "پاک کردن پیشرفت",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 16.sp
-                    )
+                    Text("پاک کردن پیشرفت", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                 }
             },
             text = {
                 Text(
-                    "آیا مطمئنی می‌خوای تمام پیشرفتت رو پاک کنی؟\n\n" +
-                    "این عمل قابل بازگشت نیست!",
+                    "آیا مطمئنی می‌خوای تمام پیشرفتت رو پاک کنی؟\n\nاین عمل قابل بازگشت نیست!",
                     fontSize = 13.sp,
                     lineHeight = 20.sp
                 )
@@ -578,28 +546,14 @@ fun SettingsScreen(
                     Text("🎓", fontSize = 28.sp)
                     Spacer(Modifier.width(8.dp))
                     Column {
-                        Text(
-                            "زبان‌یار AI",
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 17.sp,
-                            color = PrimaryColor
-                        )
-                        Text(
-                            "نسخه ۱.۰.۰",
-                            fontSize = 11.sp,
-                            color = Color.Gray
-                        )
+                        Text("زبان‌یار AI", fontWeight = FontWeight.Bold, fontSize = 17.sp, color = PrimaryColor)
+                        Text("نسخه ۱.۰.۰", fontSize = 11.sp, color = Color.Gray)
                     }
                 }
             },
             text = {
                 Column {
-                    Text(
-                        "دستیار هوشمند یادگیری زبان انگلیسی",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = PrimaryColor
-                    )
+                    Text("دستیار هوشمند یادگیری زبان انگلیسی", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
                     Spacer(Modifier.height(10.dp))
                     Text(
                         "با استفاده از هوش مصنوعی Groq، به شما در یادگیری گرامر، لغات، مکالمه و تلفظ کمک می‌کند.",
@@ -610,12 +564,7 @@ fun SettingsScreen(
                     Spacer(Modifier.height(14.dp))
                     Divider()
                     Spacer(Modifier.height(14.dp))
-                    Text(
-                        "✨ امکانات:",
-                        fontSize = 13.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = PrimaryColor
-                    )
+                    Text("✨ امکانات:", fontSize = 13.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
                     Spacer(Modifier.height(6.dp))
                     listOf(
                         "📚 ۴۵+ کتاب آموزشی",
@@ -625,12 +574,7 @@ fun SettingsScreen(
                         "📝 بانک واژگان",
                         "🏆 سیستم امتیازدهی"
                     ).forEach { feature ->
-                        Text(
-                            feature,
-                            fontSize = 12.sp,
-                            color = Color(0xFF424242),
-                            lineHeight = 20.sp
-                        )
+                        Text(feature, fontSize = 12.sp, color = Color(0xFF424242), lineHeight = 20.sp)
                     }
                 }
             },
@@ -646,8 +590,6 @@ fun SettingsScreen(
     }
 }
 
-// ==================== کامپوزبل‌های کمکی ====================
-
 @Composable
 private fun SectionHeader(text: String) {
     Text(
@@ -655,12 +597,7 @@ private fun SectionHeader(text: String) {
         fontSize = 15.sp,
         fontWeight = FontWeight.Bold,
         color = PrimaryColor,
-        modifier = Modifier.padding(
-            start = 20.dp,
-            end = 20.dp,
-            top = 8.dp,
-            bottom = 12.dp
-        )
+        modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 8.dp, bottom = 12.dp)
     )
 }
 
@@ -697,17 +634,8 @@ private fun SettingsToggle(
             }
             Spacer(Modifier.width(12.dp))
             Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    title,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = PrimaryColor
-                )
-                Text(
-                    subtitle,
-                    fontSize = 11.sp,
-                    color = Color.Gray
-                )
+                Text(title, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
+                Text(subtitle, fontSize = 11.sp, color = Color.Gray)
             }
             Switch(
                 checked = checked,
@@ -763,11 +691,7 @@ private fun SettingsRow(
                     fontWeight = FontWeight.Bold,
                     color = if (danger) Color(0xFFC62828) else PrimaryColor
                 )
-                Text(
-                    subtitle,
-                    fontSize = 11.sp,
-                    color = Color.Gray
-                )
+                Text(subtitle, fontSize = 11.sp, color = Color.Gray)
             }
             Icon(
                 Icons.AutoMirrored.Filled.KeyboardArrowRight,
@@ -783,12 +707,7 @@ private fun MiniStat(emoji: String, value: String, label: String) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(emoji, fontSize = 20.sp)
         Spacer(Modifier.height(4.dp))
-        Text(
-            value,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold,
-            color = PrimaryColor
-        )
+        Text(value, fontSize = 16.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
         Text(label, fontSize = 10.sp, color = Color.Gray)
     }
 }
