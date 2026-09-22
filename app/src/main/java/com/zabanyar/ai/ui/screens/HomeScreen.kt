@@ -44,6 +44,10 @@ fun HomeScreen(
     onNavigateToVocabulary: () -> Unit = {},
     onNavigateToProfile: () -> Unit = {},
     onNavigateToSettings: () -> Unit = {},
+    onNavigateToPodcast: () -> Unit = {},
+    onNavigateToDailySentences: () -> Unit = {},
+    onNavigateToLevelTest: () -> Unit = {},
+    onNavigateToAchievements: () -> Unit = {},
     onLogout: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -171,6 +175,7 @@ fun HomeScreen(
             // ==================== دسترسی سریع ====================
             SectionTitle("🚀 دسترسی سریع")
 
+            // ردیف ۱: کتابخانه + AI Chat
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -180,7 +185,7 @@ fun HomeScreen(
                 QuickAccessCard(
                     emoji = "📚",
                     title = "کتابخانه",
-                    subtitle = "۱۷ کتاب",
+                    subtitle = "۴۵+ کتاب",
                     gradient = listOf(Color(0xFF6A1B9A), Color(0xFFAB47BC)),
                     modifier = Modifier.weight(1f),
                     onClick = onNavigateToLibrary
@@ -197,6 +202,7 @@ fun HomeScreen(
 
             Spacer(Modifier.height(12.dp))
 
+            // ردیف ۲: اسپیکینگ + واژگان
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -218,6 +224,60 @@ fun HomeScreen(
                     gradient = listOf(Color(0xFFE91E63), Color(0xFFF06292)),
                     modifier = Modifier.weight(1f),
                     onClick = onNavigateToVocabulary
+                )
+            }
+
+            Spacer(Modifier.height(12.dp))
+
+            // ردیف ۳: پادکست + جملات روزمره
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                QuickAccessCard(
+                    emoji = "🎧",
+                    title = "پادکست‌ها",
+                    subtitle = "۲۴ پادکست",
+                    gradient = listOf(Color(0xFF6A1B9A), Color(0xFFBA68C8)),
+                    modifier = Modifier.weight(1f),
+                    onClick = onNavigateToPodcast
+                )
+                QuickAccessCard(
+                    emoji = "💬",
+                    title = "جملات روزمره",
+                    subtitle = "۳۰ جمله",
+                    gradient = listOf(Color(0xFF00695C), Color(0xFF4DB6AC)),
+                    modifier = Modifier.weight(1f),
+                    onClick = onNavigateToDailySentences
+                )
+            }
+
+            Spacer(Modifier.height(12.dp))
+
+            // ردیف ۴: تست سطح + دستاوردها
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                QuickAccessCard(
+                    emoji = "🎯",
+                    title = "تست سطح",
+                    subtitle = "سطحت رو بسنج",
+                    gradient = listOf(Color(0xFFC62828), Color(0xFFEF5350)),
+                    modifier = Modifier.weight(1f),
+                    onClick = onNavigateToLevelTest
+                )
+                QuickAccessCard(
+                    emoji = "🏆",
+                    title = "دستاوردها",
+                    subtitle = "۱۳ نشان",
+                    gradient = listOf(Color(0xFFFF6F00), Color(0xFFFFB300)),
+                    modifier = Modifier.weight(1f),
+                    onClick = onNavigateToAchievements
                 )
             }
 
