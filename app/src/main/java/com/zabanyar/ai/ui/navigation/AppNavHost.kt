@@ -93,6 +93,9 @@ fun AppNavHost(
                 onNavigateToProfile = {
                     navController.navigate(Routes.PROFILE)
                 },
+                onNavigateToSettings = {
+                    navController.navigate(Routes.SETTINGS)
+                },
                 onLogout = {
                     navController.navigate(Routes.LOGIN) {
                         popUpTo(Routes.HOME) { inclusive = true }
