@@ -10,11 +10,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
-import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.Headphones
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -24,24 +21,12 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.BookRepository
+import com.zabanyar.ai.data.LessonContentRepository
 import com.zabanyar.ai.data.ProgressManager
 import com.zabanyar.ai.data.SpeechHelper
-
-data class VocabWord(
-    val english: String,
-    val persian: String,
-    val pronunciation: String = ""
-)
-
-data class DialogueLine(
-    val speaker: String,
-    val english: String,
-    val persian: String
-)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -53,6 +38,9 @@ fun LessonDetailScreen(
 ) {
     val context = LocalContext.current
     val book = BookRepository.getBookById(bookId)
+    val lessonContent = remember(bookId, chapterNumber) {
+        LessonContentRepository.getLessonContent(bookId, chapterNumber)
+    }
 
     if (book == null) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -71,7 +59,6 @@ fun LessonDetailScreen(
     var selectedTab by remember { mutableIntStateOf(0) }
     val tabs = listOf("لغات", "گرامر", "مکالمه", "کوییز")
 
-    // تنظیمات سرعت
     var voiceSpeed by remember { mutableFloatStateOf(ProgressManager.getVoiceSpeed(context)) }
 
     LaunchedEffect(voiceSpeed) {
@@ -90,7 +77,7 @@ fun LessonDetailScreen(
                             fontSize = 15.sp
                         )
                         Text(
-                            book.titlePersian,
+                            lessonContent.titlePersian,
                             fontSize = 11.sp,
                             color = Color.White.copy(alpha = 0.85f)
                         )
@@ -98,11 +85,7 @@ fun LessonDetailScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            "Back",
-                            tint = Color.White
-                        )
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = accent)
@@ -129,8 +112,7 @@ fun LessonDetailScreen(
                         text = {
                             Text(
                                 title,
-                                fontWeight = if (selectedTab == index) FontWeight.Bold
-                                else FontWeight.Normal,
+                                fontWeight = if (selectedTab == index) FontWeight.Bold else FontWeight.Normal,
                                 fontSize = 12.sp
                             )
                         }
@@ -139,14 +121,27 @@ fun LessonDetailScreen(
             }
 
             when (selectedTab) {
-                0 -> VocabularyTabContent(speechHelper, accent, voiceSpeed, onSpeedChange = {
-                    voiceSpeed = it
-                    speechHelper.setSpeed(it)
-                    ProgressManager.setVoiceSpeed(context, it)
-                })
-                1 -> GrammarTabContent(accent)
-                2 -> ConversationTabContent(speechHelper, accent, book.title, onNavigateToReadingMode)
+                0 -> VocabularyTabContent(
+                    words = lessonContent.vocabulary,
+                    speechHelper = speechHelper,
+                    accent = accent,
+                    voiceSpeed = voiceSpeed,
+                    onSpeedChange = {
+                        voiceSpeed = it
+                        speechHelper.setSpeed(it)
+                        ProgressManager.setVoiceSpeed(context, it)
+                    }
+                )
+                1 -> GrammarTabContent(lessonContent.grammar, accent)
+                2 -> ConversationTabContent(
+                    lines = lessonContent.conversation,
+                    speechHelper = speechHelper,
+                    accent = accent,
+                    bookTitle = lessonContent.title,
+                    onNavigateToReadingMode = onNavigateToReadingMode
+                )
                 3 -> QuizTabContent(
+                    questions = lessonContent.quiz,
                     accent = accent,
                     bookId = bookId,
                     chapterNumber = chapterNumber,
@@ -163,26 +158,12 @@ fun LessonDetailScreen(
 // ==================== تب لغات ====================
 @Composable
 private fun VocabularyTabContent(
+    words: List<com.zabanyar.ai.data.VocabWord>,
     speechHelper: SpeechHelper,
     accent: Color,
     voiceSpeed: Float,
     onSpeedChange: (Float) -> Unit
 ) {
-    val words = remember {
-        listOf(
-            VocabWord("Teacher", "معلم", "ˈtiːtʃər"),
-            VocabWord("Student", "دانش‌آموز", "ˈstuːdənt"),
-            VocabWord("Doctor", "دکتر", "ˈdɑːktər"),
-            VocabWord("Nurse", "پرستار", "nɜːrs"),
-            VocabWord("Engineer", "مهندس", "ˌendʒɪˈnɪr"),
-            VocabWord("Architect", "معمار", "ˈɑːrkɪtekt"),
-            VocabWord("Actor", "بازیگر", "ˈæktər"),
-            VocabWord("Singer", "خواننده", "ˈsɪŋər"),
-            VocabWord("Chef", "سرآشپز", "ʃef"),
-            VocabWord("Pilot", "خلبان", "ˈpaɪlət")
-        )
-    }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -202,12 +183,7 @@ private fun VocabularyTabContent(
             ) {
                 Text("🎙️", fontSize = 18.sp)
                 Spacer(Modifier.width(8.dp))
-                Text(
-                    "سرعت:",
-                    fontSize = 11.sp,
-                    color = Color.Gray,
-                    fontWeight = FontWeight.SemiBold
-                )
+                Text("سرعت:", fontSize = 11.sp, color = Color.Gray, fontWeight = FontWeight.SemiBold)
                 Spacer(Modifier.width(6.dp))
                 listOf(0.75f to "آهسته", 1.0f to "معمولی", 1.25f to "سریع").forEach { (speed, label) ->
                     FilterChip(
@@ -307,7 +283,10 @@ private fun VocabularyTabContent(
 
 // ==================== تب گرامر ====================
 @Composable
-private fun GrammarTabContent(accent: Color) {
+private fun GrammarTabContent(
+    grammar: List<com.zabanyar.ai.data.GrammarSection>,
+    accent: Color
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -344,7 +323,7 @@ private fun GrammarTabContent(accent: Color) {
                             fontWeight = FontWeight.SemiBold
                         )
                         Text(
-                            "a / an + Occupations",
+                            "نکات کلیدی این فصل",
                             fontSize = 17.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.White
@@ -356,34 +335,32 @@ private fun GrammarTabContent(accent: Color) {
 
         Spacer(Modifier.height(20.dp))
 
-        GrammarCard(
-            title = "📌 قانون ۱: a و an",
-            content = "• a قبل از حروف بی‌صدا: a teacher, a doctor\n" +
-                    "• an قبل از حروف صدادار (a,e,i,o,u): an architect, an engineer\n" +
-                    "• استثنا: an hour (h صدا نداره)",
-            accent = accent
-        )
-
-        Spacer(Modifier.height(12.dp))
-
-        GrammarCard(
-            title = "📌 قانون ۲: do یا does؟",
-            content = "• I / You / We / They → do\n" +
-                    "  What DO you do? → I'm a teacher.\n\n" +
-                    "• He / She / It → does\n" +
-                    "  What DOES he do? → He's a doctor.",
-            accent = accent
-        )
-
-        Spacer(Modifier.height(12.dp))
-
-        GrammarCard(
-            title = "❌ اشتباهات رایج",
-            content = "❌ What do he do?\n✅ What does he do?\n\n" +
-                    "❌ She's a engineer.\n✅ She's an engineer.\n\n" +
-                    "❌ I'm teacher.\n✅ I'm a teacher.",
-            accent = Color(0xFFE53935)
-        )
+        grammar.forEach { section ->
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 6.dp),
+                shape = RoundedCornerShape(16.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.White),
+                elevation = CardDefaults.cardElevation(3.dp)
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text(
+                        section.title,
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = accent
+                    )
+                    Spacer(Modifier.height(10.dp))
+                    Text(
+                        section.content,
+                        fontSize = 13.sp,
+                        color = Color(0xFF424242),
+                        lineHeight = 22.sp
+                    )
+                }
+            }
+        }
 
         Spacer(Modifier.height(20.dp))
 
@@ -415,43 +392,15 @@ private fun GrammarTabContent(accent: Color) {
     }
 }
 
-@Composable
-private fun GrammarCard(title: String, content: String, accent: Color) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(3.dp)
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(title, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = accent)
-            Spacer(Modifier.height(10.dp))
-            Text(content, fontSize = 13.sp, color = Color(0xFF424242), lineHeight = 22.sp)
-        }
-    }
-}
-
 // ==================== تب مکالمه ====================
 @Composable
 private fun ConversationTabContent(
+    lines: List<com.zabanyar.ai.data.DialogueLine>,
     speechHelper: SpeechHelper,
     accent: Color,
     bookTitle: String,
     onNavigateToReadingMode: (String, String) -> Unit
 ) {
-    val lines = remember {
-        listOf(
-            DialogueLine("Sara", "Hi! I'm Sara. Nice to meet you.", "سلام! من سارا هستم. از آشنایی خوشحالم."),
-            DialogueLine("Ali", "Nice to meet you too. I'm Ali.", "من هم خوشحالم. من علی هستم."),
-            DialogueLine("Sara", "Are you new here?", "اینجا تازه‌وارد هستی؟"),
-            DialogueLine("Ali", "Yes, I just moved here last week.", "بله، هفته پیش اومدم."),
-            DialogueLine("Sara", "Welcome! What do you do?", "خوش اومدی! شغلت چیه؟"),
-            DialogueLine("Ali", "I'm an engineer. And you?", "من مهندسم. تو چطور؟"),
-            DialogueLine("Sara", "I'm a teacher. I teach English.", "من معلمم. انگلیسی درس می‌دم."),
-            DialogueLine("Ali", "That's great! Maybe you can teach me.", "عالیه! شاید بتونی به من یاد بدی.")
-        )
-    }
-
     val fullText = lines.joinToString(" ") { it.english }
 
     Column(
@@ -484,12 +433,7 @@ private fun ConversationTabContent(
                             .background(Color.White.copy(alpha = 0.25f)),
                         contentAlignment = Alignment.Center
                     ) {
-                        Icon(
-                            Icons.Filled.Headphones,
-                            null,
-                            tint = Color.White,
-                            modifier = Modifier.size(24.dp)
-                        )
+                        Icon(Icons.Filled.Headphones, null, tint = Color.White, modifier = Modifier.size(24.dp))
                     }
                     Spacer(Modifier.width(12.dp))
                     Column(modifier = Modifier.weight(1f)) {
@@ -512,7 +456,6 @@ private fun ConversationTabContent(
 
         Spacer(Modifier.height(16.dp))
 
-        // دکمه پخش کل مکالمه
         Button(
             onClick = { speechHelper.speak(fullText) },
             modifier = Modifier.fillMaxWidth().height(50.dp),
@@ -526,7 +469,6 @@ private fun ConversationTabContent(
 
         Spacer(Modifier.height(16.dp))
 
-        // حباب‌های مکالمه
         lines.forEachIndexed { index, line ->
             val isA = index % 2 == 0
             val bubbleAccent = if (isA) accent else Color(0xFF7B1FA2)
@@ -593,6 +535,7 @@ private fun ConversationTabContent(
 // ==================== تب کوییز ====================
 @Composable
 private fun QuizTabContent(
+    questions: List<com.zabanyar.ai.data.QuizQuestion>,
     accent: Color,
     bookId: String,
     chapterNumber: Int,
@@ -604,18 +547,9 @@ private fun QuizTabContent(
     var showResult by remember { mutableStateOf(false) }
     var completed by remember { mutableStateOf(false) }
 
-    val questions = remember {
-        listOf(
-            Pair("کدام درست است؟", listOf("I'm a architect.", "I'm an architect.", "I'm architect.", "I architect.")),
-            Pair("معنی «What do you do?» چیست؟", listOf("کجایی؟", "چیکار می‌کنی؟", "شغلت چیه؟", "چطوری؟")),
-            Pair("کدام برای سوم شخص درست است؟", listOf("What do he do?", "What does he do?", "What he does?", "What do he does?")),
-            Pair("پاسخ به «Is she a doctor?»", listOf("Yes, she does.", "Yes, she is.", "Yes, she do.", "Yes, she are."))
-        )
-    }
-    val correctAnswers = listOf(1, 2, 1, 1)
-
     if (showResult) {
-        val percentage = (score.toFloat() / questions.size * 100).toInt()
+        val percentage = if (questions.isNotEmpty())
+            (score.toFloat() / questions.size * 100).toInt() else 0
         val resultColor = when {
             percentage >= 90 -> Color(0xFF11998E)
             percentage >= 70 -> Color(0xFFFF9800)
@@ -680,17 +614,8 @@ private fun QuizTabContent(
                             contentAlignment = Alignment.Center
                         ) {
                             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                Text(
-                                    "$percentage%",
-                                    fontSize = 36.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = Color.White
-                                )
-                                Text(
-                                    "$score از ${questions.size}",
-                                    fontSize = 12.sp,
-                                    color = Color.White.copy(alpha = 0.9f)
-                                )
+                                Text("$percentage%", fontSize = 36.sp, fontWeight = FontWeight.Bold, color = Color.White)
+                                Text("$score از ${questions.size}", fontSize = 12.sp, color = Color.White.copy(alpha = 0.9f))
                             }
                         }
                     }
@@ -704,24 +629,12 @@ private fun QuizTabContent(
                     shape = RoundedCornerShape(14.dp),
                     colors = CardDefaults.cardColors(containerColor = Color(0xFFE8F5E9))
                 ) {
-                    Row(
-                        modifier = Modifier.padding(14.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
+                    Row(modifier = Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
                         Text("⭐", fontSize = 22.sp)
                         Spacer(Modifier.width(10.dp))
                         Column {
-                            Text(
-                                "+۵۰ امتیاز گرفتی!",
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color(0xFF2E7D32)
-                            )
-                            Text(
-                                "درس تکمیل شد",
-                                fontSize = 11.sp,
-                                color = Color(0xFF5D4037)
-                            )
+                            Text("+۵۰ امتیاز گرفتی!", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Color(0xFF2E7D32))
+                            Text("درس تکمیل شد", fontSize = 11.sp, color = Color(0xFF5D4037))
                         }
                     }
                 }
@@ -746,8 +659,14 @@ private fun QuizTabContent(
         return
     }
 
+    if (questions.isEmpty()) {
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text("کوییز موجود نیست")
+        }
+        return
+    }
+
     val q = questions[currentQuestion]
-    val correctIndex = correctAnswers[currentQuestion]
 
     Column(
         modifier = Modifier
@@ -759,18 +678,8 @@ private fun QuizTabContent(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(
-                "سوال ${currentQuestion + 1} از ${questions.size}",
-                fontSize = 13.sp,
-                color = Color.Gray,
-                fontWeight = FontWeight.SemiBold
-            )
-            Text(
-                "امتیاز: $score",
-                fontSize = 13.sp,
-                color = accent,
-                fontWeight = FontWeight.Bold
-            )
+            Text("سوال ${currentQuestion + 1} از ${questions.size}", fontSize = 13.sp, color = Color.Gray, fontWeight = FontWeight.SemiBold)
+            Text("امتیاز: $score", fontSize = 13.sp, color = accent, fontWeight = FontWeight.Bold)
         }
 
         Spacer(Modifier.height(8.dp))
@@ -796,7 +705,7 @@ private fun QuizTabContent(
                     .padding(20.dp)
             ) {
                 Text(
-                    q.first,
+                    q.question,
                     fontSize = 17.sp,
                     fontWeight = FontWeight.Bold,
                     lineHeight = 26.sp,
@@ -807,9 +716,9 @@ private fun QuizTabContent(
 
         Spacer(Modifier.height(20.dp))
 
-        q.second.forEachIndexed { index, option ->
+        q.options.forEachIndexed { index, option ->
             val isSelected = selectedOption == index
-            val isCorrect = index == correctIndex
+            val isCorrect = index == q.correctIndex
             val showFeedback = selectedOption != null
 
             val bgColor = when {
