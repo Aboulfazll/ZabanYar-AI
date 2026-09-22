@@ -68,4 +68,7 @@ dependencies {
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+
+    // Gson (برای ذخیره کاربر به صورت JSON)
+    implementation("com.google.code.gson:gson:2.10.1")
 }
