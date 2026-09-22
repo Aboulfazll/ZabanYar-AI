@@ -72,7 +72,18 @@ object BookRepository {
             )
         ),
 
-        // ---------- Four Corners ----------
+        // ---------- Four Corners (۵ کتاب) ----------
+        Book(
+            id = "four_corners_intro", title = "Four Corners Intro", titlePersian = "فور کورنرز مقدماتی",
+            author = "Jack C. Richards", category = BookCategory.CONVERSATION,
+            level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
+            gradientStart = 0xFFBF360C, gradientEnd = 0xFFFF8A65,
+            chapterTitles = listOf(
+                "Hello!", "My Things", "My Family", "At Home",
+                "Everyday Activities", "Food", "Shopping", "Clothes",
+                "Around Town", "Weather", "Health", "Free Time"
+            )
+        ),
         Book(
             id = "four_corners_1", title = "Four Corners 1", titlePersian = "فور کورنرز ۱",
             author = "Jack C. Richards", category = BookCategory.CONVERSATION,
@@ -107,6 +118,18 @@ object BookRepository {
                 "Getting Around", "Shopping Trends", "Food Culture",
                 "Career Paths", "Travel Stories", "Health & Wellness",
                 "Technology Today", "Cultural Differences", "Success Stories"
+            )
+        ),
+        Book(
+            id = "four_corners_4", title = "Four Corners 4", titlePersian = "فور کورنرز ۴",
+            author = "Jack C. Richards", category = BookCategory.CONVERSATION,
+            level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
+            gradientStart = 0xFF00695C, gradientEnd = 0xFF4DB6AC,
+            chapterTitles = listOf(
+                "Getting Along", "Personal Style", "Making Changes",
+                "In the News", "Modern Life", "Around the World",
+                "Education Today", "Career Goals", "Healthy Living",
+                "Technology & Media", "Cultural Differences", "The Future"
             )
         ),
 
