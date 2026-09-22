@@ -9,7 +9,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -21,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zabanyar.ai.data.BookRepository
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,7 +29,7 @@ fun BookDetailScreen(
     onBack: () -> Unit,
     onChapterClick: (Int) -> Unit
 ) {
-    val book = allBooks.firstOrNull { it.id == bookId }
+    val book = BookRepository.getBookById(bookId)
 
     if (book == null) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -79,6 +79,7 @@ fun BookDetailScreen(
                 .padding(padding),
             contentPadding = PaddingValues(bottom = 20.dp)
         ) {
+            // هدر کتاب
             item {
                 Box(
                     modifier = Modifier
@@ -101,7 +102,7 @@ fun BookDetailScreen(
                                 .background(Color.White.copy(alpha = 0.25f)),
                             contentAlignment = Alignment.Center
                         ) {
-                            Text(book.categoryEmoji, fontSize = 40.sp)
+                            Text(book.category.emoji, fontSize = 40.sp)
                         }
                         Spacer(Modifier.width(16.dp))
                         Column(modifier = Modifier.weight(1f)) {
@@ -120,13 +121,14 @@ fun BookDetailScreen(
                             Spacer(Modifier.height(8.dp))
                             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                                 InfoChip("${book.levelEmoji} ${book.level}")
-                                InfoChip("${book.categoryEmoji} ${book.category}")
+                                InfoChip("${book.category.emoji} ${book.category.persianName}")
                             }
                         }
                     }
                 }
             }
 
+            // نوار پیشرفت
             item {
                 Card(
                     modifier = Modifier
@@ -146,7 +148,7 @@ fun BookDetailScreen(
                                 "پیشرفت شما",
                                 fontSize = 13.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF1A237E)
+                                color = PrimaryColor
                             )
                             Text(
                                 "۰ از ${book.totalChapters}",
@@ -168,6 +170,7 @@ fun BookDetailScreen(
                 }
             }
 
+            // عنوان فصل‌ها
             item {
                 Row(
                     modifier = Modifier
@@ -186,16 +189,16 @@ fun BookDetailScreen(
                         "فصل‌های کتاب (${book.totalChapters})",
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF1A237E)
+                        color = PrimaryColor
                     )
                 }
             }
 
+            // لیست فصل‌ها
             items((1..book.totalChapters).toList()) { chapterNumber ->
                 ChapterItem(
                     number = chapterNumber,
-                    title = getChapterTitle(book.id, chapterNumber),
-                    isLocked = chapterNumber > 3,
+                    title = getChapterTitle(bookId, chapterNumber),
                     accentColor = accentColor,
                     onClick = { onChapterClick(chapterNumber) }
                 )
@@ -225,7 +228,6 @@ private fun InfoChip(text: String) {
 private fun ChapterItem(
     number: Int,
     title: String,
-    isLocked: Boolean,
     accentColor: Color,
     onClick: () -> Unit
 ) {
@@ -233,12 +235,10 @@ private fun ChapterItem(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 5.dp)
-            .clickable { if (!isLocked) onClick() },
+            .clickable { onClick() },
         shape = RoundedCornerShape(14.dp),
-        elevation = CardDefaults.cardElevation(if (isLocked) 1.dp else 3.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isLocked) Color(0xFFEDEDED) else Color.White
-        )
+        elevation = CardDefaults.cardElevation(3.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Row(
             modifier = Modifier
@@ -250,27 +250,15 @@ private fun ChapterItem(
                 modifier = Modifier
                     .size(42.dp)
                     .clip(CircleShape)
-                    .background(
-                        if (isLocked) Color.Gray.copy(alpha = 0.2f)
-                        else accentColor.copy(alpha = 0.15f)
-                    ),
+                    .background(accentColor.copy(alpha = 0.15f)),
                 contentAlignment = Alignment.Center
             ) {
-                if (isLocked) {
-                    Icon(
-                        Icons.Filled.Lock,
-                        null,
-                        tint = Color.Gray,
-                        modifier = Modifier.size(20.dp)
-                    )
-                } else {
-                    Text(
-                        "$number",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = accentColor
-                    )
-                }
+                Text(
+                    "$number",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = accentColor
+                )
             }
 
             Spacer(Modifier.width(12.dp))
@@ -286,46 +274,25 @@ private fun ChapterItem(
                     title,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Bold,
-                    color = if (isLocked) Color.Gray else Color(0xFF1A237E)
+                    color = Color(0xFF1A237E)
                 )
             }
 
-            if (isLocked) {
-                Icon(
-                    Icons.Filled.Lock,
-                    null,
-                    tint = Color.Gray,
-                    modifier = Modifier.size(20.dp)
-                )
-            } else {
-                Icon(
-                    Icons.Filled.PlayArrow,
-                    null,
-                    tint = accentColor,
-                    modifier = Modifier.size(28.dp)
-                )
-            }
+            Icon(
+                Icons.Filled.PlayArrow,
+                null,
+                tint = accentColor,
+                modifier = Modifier.size(28.dp)
+            )
         }
     }
 }
 
 private fun getChapterTitle(bookId: String, chapterNumber: Int): String {
-    return when (bookId) {
-        "tn1" -> when (chapterNumber) {
-            1 -> "Names and Occupations"
-            2 -> "About People"
-            3 -> "Places and Things"
-            4 -> "Family"
-            5 -> "Events and Times"
-            6 -> "Cities and Countries"
-            7 -> "Clothes"
-            8 -> "Daily Life"
-            else -> "درس $chapterNumber"
-        }
-        "tn2" -> "درس $chapterNumber"
-        "tn3" -> "درس $chapterNumber"
-        "bg1" -> "گرامر پایه - درس $chapterNumber"
-        "v1" -> "واژگان پایه - درس $chapterNumber"
-        else -> "درس $chapterNumber"
+    val book = BookRepository.getBookById(bookId) ?: return "درس $chapterNumber"
+    return if (book.chapterTitles.isNotEmpty() && chapterNumber <= book.chapterTitles.size) {
+        book.chapterTitles[chapterNumber - 1]
+    } else {
+        "درس $chapterNumber"
     }
 }
