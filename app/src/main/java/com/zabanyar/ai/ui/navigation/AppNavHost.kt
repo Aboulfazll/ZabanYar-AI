@@ -9,8 +9,10 @@ import androidx.navigation.navArgument
 import com.zabanyar.ai.ui.auth.LoginScreen
 import com.zabanyar.ai.ui.auth.RegisterScreen
 import com.zabanyar.ai.ui.screens.AIChatScreen
+import com.zabanyar.ai.ui.screens.ApiKeyScreen
 import com.zabanyar.ai.ui.screens.BookDetailScreen
 import com.zabanyar.ai.ui.screens.HomeScreen
+import com.zabanyar.ai.ui.screens.LessonDetailScreen
 import com.zabanyar.ai.ui.screens.LibraryScreen
 
 object Routes {
@@ -19,9 +21,13 @@ object Routes {
     const val HOME = "home"
     const val LIBRARY = "library"
     const val BOOK_DETAIL = "book_detail/{bookId}"
+    const val LESSON_DETAIL = "lesson_detail/{bookId}/{chapterNumber}"
     const val AI_CHAT = "ai_chat"
+    const val API_KEY = "api_key"
 
     fun bookDetail(bookId: String) = "book_detail/$bookId"
+    fun lessonDetail(bookId: String, chapterNumber: Int) =
+        "lesson_detail/$bookId/$chapterNumber"
 }
 
 @Composable
@@ -70,15 +76,9 @@ fun AppNavHost(
                 onNavigateToAIChat = {
                     navController.navigate(Routes.AI_CHAT)
                 },
-                onNavigateToSpeaking = {
-                    // بعداً صفحه اسپیکینگ اضافه میشه
-                },
-                onNavigateToVocabulary = {
-                    // بعداً صفحه واژگان اضافه میشه
-                },
-                onNavigateToProfile = {
-                    // بعداً صفحه پروفایل اضافه میشه
-                },
+                onNavigateToSpeaking = {},
+                onNavigateToVocabulary = {},
+                onNavigateToProfile = {},
                 onLogout = {
                     navController.navigate(Routes.LOGIN) {
                         popUpTo(Routes.HOME) { inclusive = true }
@@ -109,14 +109,43 @@ fun AppNavHost(
                 bookId = bookId,
                 onBack = { navController.popBackStack() },
                 onChapterClick = { chapterNumber ->
-                    // بعداً به صفحه فصل می‌ریم
+                    navController.navigate(
+                        Routes.lessonDetail(bookId, chapterNumber)
+                    )
                 }
+            )
+        }
+
+        // ==================== محتوای درس ====================
+        composable(
+            route = Routes.LESSON_DETAIL,
+            arguments = listOf(
+                navArgument("bookId") { type = NavType.StringType },
+                navArgument("chapterNumber") { type = NavType.IntType }
+            )
+        ) { entry ->
+            val bookId = entry.arguments?.getString("bookId") ?: ""
+            val chapterNumber = entry.arguments?.getInt("chapterNumber") ?: 1
+            LessonDetailScreen(
+                bookId = bookId,
+                chapterNumber = chapterNumber,
+                onBack = { navController.popBackStack() }
             )
         }
 
         // ==================== چت با AI ====================
         composable(Routes.AI_CHAT) {
             AIChatScreen(
+                onBack = { navController.popBackStack() },
+                onOpenSettings = {
+                    navController.navigate(Routes.API_KEY)
+                }
+            )
+        }
+
+        // ==================== کلید API ====================
+        composable(Routes.API_KEY) {
+            ApiKeyScreen(
                 onBack = { navController.popBackStack() }
             )
         }
