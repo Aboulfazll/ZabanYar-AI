@@ -13,4 +13,4 @@ class NotificationReceiver : BroadcastReceiver() {
         // زمان‌بندی مجدد برای فردا
         NotificationScheduler.scheduleDailyNotification(context)
     }
-}
+}اال
