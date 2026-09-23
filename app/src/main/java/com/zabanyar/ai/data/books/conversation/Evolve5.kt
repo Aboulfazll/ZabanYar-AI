@@ -1064,7 +1064,8 @@ object Evolve5 {
                     listOf("National loyalty only", "Responsibility beyond borders", "Local politics", "Economic growth"), 1)
             )
         )
-    }// ============================================================
+    }
+// ============================================================
 // UNIT 5 — Success and Failure
 // ============================================================
 private fun chapter5(): LessonContent {
@@ -2015,7 +2016,8 @@ private fun chapter8(): LessonContent {
                     "The right to work remotely", "The right to overtime"), 1)
         )
     )
-}    // ============================================================
+
+     ‌//============================================================
     // UNIT 9 — Migration and Identity
     // ============================================================
     private fun chapter9(): LessonContent {
