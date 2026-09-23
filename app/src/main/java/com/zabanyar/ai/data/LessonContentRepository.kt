@@ -1139,8 +1139,7 @@ object LessonContentRepository {
             else -> getDefaultContent("top_notch_2", chapter)
         }
     }
-
-    // ==================== Top Notch 3 ====================
+}    // ==================== Top Notch 3 ====================
     private fun getTopNotch3(chapter: Int): LessonContent {
         return when (chapter) {
             1 -> LessonContent("top_notch_3", 1, "Cultural Literacy", "آگاهی فرهنگی",
@@ -1407,4 +1406,188 @@ object LessonContentRepository {
                 ),
                 grammar = listOf(
                     GrammarSection("📌 Third Conditional",
-                        "If + had + p.p., would have + p
+                        "If + had + p.p., would have + p.p.\n\n" +
+                        "• If we had acted sooner, we would have prevented the damage.\n" +
+                        "• If governments had invested in renewable energy, emissions would have decreased."),
+                    GrammarSection("📌 تفاوت شرطی‌ها",
+                        "• نوع ۱: If it rains, I will stay home.\n" +
+                        "• نوع ۲: If I were rich, I would travel.\n" +
+                        "• نوع ۳: If I had studied, I would have passed."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ If I would have known, I would have helped. → ✅ If I had known, I would have helped.")
+                ),
+                conversation = listOf(
+                    DialogueLine("A", "What's the biggest environmental challenge?", "بزرگ‌ترین چالش زیست‌محیطی چیه؟"),
+                    DialogueLine("B", "Climate change, without a doubt.", "تغییرات اقلیمی، بدون شک."),
+                    DialogueLine("A", "If we had started earlier, what would have happened?", "اگه زودتر شروع کرده بودیم، چی می‌شد؟"),
+                    DialogueLine("B", "We would have slowed it down significantly.", "خیلی کندش کرده بودیم."),
+                    DialogueLine("A", "What can we do now?", "الان چیکار می‌تونیم بکنیم؟"),
+                    DialogueLine("B", "Reduce our carbon footprint and use renewable energy.", "ردپای کربنیمون رو کم کنیم و از انرژی تجدیدپذیر استفاده کنیم."),
+                    DialogueLine("A", "Do you think it's too late?", "فکر می‌کنی خیلی دیره؟"),
+                    DialogueLine("B", "It's never too late to make a difference.", "هرگز برای ایجاد تفاوت دیر نیست."),
+                    DialogueLine("A", "I'll start recycling more.", "منم بازیافت رو بیشتر می‌کنم."),
+                    DialogueLine("B", "Every small action counts.", "هر اقدام کوچکی مهمه.")
+                ),
+                quiz = listOf(
+                    QuizQuestion("معنی «Renewable energy» چیست؟", listOf("انرژی فسیلی", "انرژی تجدیدپذیر", "آلودگی", "حفاظت"), 1),
+                    QuizQuestion("کدام درست است؟", listOf("If we acted, we would have prevented.", "If we had acted, we would have prevented.", "If we had acted, we prevent.", "If we act, we would prevent."), 1),
+                    QuizQuestion("ساختار شرطی نوع سوم؟", listOf("If + present, will + verb", "If + past, would + verb", "If + had + p.p., would have + p.p.", "If + present, would + verb"), 2),
+                    QuizQuestion("معنی «Deforestation» چیست؟", listOf("جنگل‌کاری", "جنگل‌زدایی", "کشاورزی", "آبیاری"), 1),
+                    QuizQuestion("کدام درست است؟", listOf("If I would have known, I would have helped.", "If I had known, I would have helped.", "If I knew, I would help.", "If I know, I will help."), 1),
+                    QuizQuestion("معنی «Biodiversity» چیست؟", listOf("تنوع زیستی", "آلودگی", "جنگل‌زدایی", "گرمایش"), 0),
+                    QuizQuestion("معنی «Carbon footprint» چیست؟", listOf("گاز کربن", "ردپای کربنی", "سوخت فسیلی", "آلودگی هوا"), 1),
+                    QuizQuestion("«If I had studied» یعنی چه زمانی؟", listOf("حال", "آینده", "گذشته", "همیشه"), 2)
+                )
+            )
+            8 -> LessonContent("top_notch_3", 8, "Education and Learning", "آموزش و یادگیری",
+                vocabulary = listOf(
+                    VocabWord("Curriculum", "برنامه درسی", "kəˈrɪkjələm"), VocabWord("Scholarship", "بورسیه", "ˈskɑːlərʃɪp"),
+                    VocabWord("Degree", "مدرک", "dɪˈɡriː"), VocabWord("Lecture", "سخنرانی", "ˈlektʃər"),
+                    VocabWord("Assignment", "تکلیف", "əˈsaɪnmənt"), VocabWord("Seminar", "سمینار", "ˈsemɪnɑːr"),
+                    VocabWord("Dissertation", "پایان‌نامه", "ˌdɪsərˈteɪʃən"), VocabWord("Critical thinking", "تفکر انتقادی", "ˈkrɪtɪkəl ˈθɪŋkɪŋ")
+                ),
+                grammar = listOf(
+                    GrammarSection("📌 Wish + Past Perfect",
+                        "آرزو در مورد گذشته (پشیمانی):\n" +
+                        "• I wish I had studied harder.\n" +
+                        "• I wish I hadn't quit."),
+                    GrammarSection("📌 Wish + Past Simple",
+                        "آرزو در مورد حال:\n" +
+                        "• I wish I spoke French.\n" +
+                        "• I wish I were rich."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ I wish I studied harder. → ✅ I wish I had studied harder.\n" +
+                        "❌ I wish I would have studied. → ✅ I wish I had studied.")
+                ),
+                conversation = listOf(
+                    DialogueLine("A", "Any regrets about your education?", "پشیمانی‌ای از تحصیلاتت داری؟"),
+                    DialogueLine("B", "I wish I had studied abroad.", "کاش خارج درس خوانده بودم."),
+                    DialogueLine("A", "Why didn't you?", "چرا نخوندی؟"),
+                    DialogueLine("B", "I didn't have enough money for tuition.", "شهریه‌اش رو نداشتم."),
+                    DialogueLine("A", "Could you have gotten a scholarship?", "می‌تونستی بورسیه بگیری؟"),
+                    DialogueLine("B", "I wish I had applied for one.", "کاش برای یکی درخواست داده بودم."),
+                    DialogueLine("A", "It's never too late to learn.", "هرگز برای یادگیری دیر نیست."),
+                    DialogueLine("B", "You're right. I could still take online courses.", "حق داری. هنوز می‌تونم دوره‌های آنلاین بگیرم."),
+                    DialogueLine("A", "That's the spirit!", "همین روحیه رو دوست دارم!"),
+                    DialogueLine("B", "Better late than never.", "دیر رسیدن بهتر از هرگز نرسیدنه.")
+                ),
+                quiz = listOf(
+                    QuizQuestion("معنی «Critical thinking» چیست؟", listOf("تفکر ساده", "تفکر انتقادی", "حفظ کردن", "نوشتن"), 1),
+                    QuizQuestion("کدام درست است؟", listOf("I wish I studied harder.", "I wish I had studied harder.", "I wish I study harder.", "I wish I will study."), 1),
+                    QuizQuestion("«Wish + Past Perfect» برای چه زمانی؟", listOf("حال", "آینده", "گذشته", "همیشه"), 2),
+                    QuizQuestion("معنی «Scholarship» چیست؟", listOf("شهریه", "بورسیه", "مدرک", "دانشگاه"), 1),
+                    QuizQuestion("کدام درست است؟", listOf("I wish I would have studied.", "I wish I had studied.", "I wish I study.", "I wish I will study."), 1),
+                    QuizQuestion("معنی «Dissertation» چیست؟", listOf("تکلیف", "پایان‌نامه", "سخنرانی", "سمینار"), 1),
+                    QuizQuestion("«I wish I spoke French» یعنی؟", listOf("کاش فرانسه صحبت می‌کردم (حال)", "کاش فرانسه صحبت کرده بودم (گذشته)", "فرانسه صحبت می‌کنم", "فرانسه یاد خواهم گرفت"), 0),
+                    QuizQuestion("معنی «Tuition» چیست؟", listOf("بورسیه", "شهریه", "مدرک", "کلاس"), 1)
+                )
+            )
+            9 -> LessonContent("top_notch_3", 9, "Jobs and Careers", "شغل‌ها و حرفه‌ها",
+                vocabulary = listOf(
+                    VocabWord("Entrepreneur", "کارآفرین", "ˌɑːntrəprəˈnɜːr"),
+                    VocabWord("Freelancer", "فریلنسر", "ˈfriːlænsər"),
+                    VocabWord("Networking", "شبکه‌سازی", "ˈnetwɜːrkɪŋ"),
+                    VocabWord("Interview", "مصاحبه", "ˈɪntərvjuː"),
+                    VocabWord("Resume", "رزومه", "ˈrezəmeɪ"),
+                    VocabWord("Salary", "حقوق", "ˈsæləri"),
+                    VocabWord("Promotion", "ترفیع", "prəˈmoʊʃən"),
+                    VocabWord("Work-life balance", "تعادل کار و زندگی", "wɜːrk laɪf ˈbæləns")
+                ),
+                grammar = listOf(
+                    GrammarSection("📌 Relative Clauses",
+                        "• who برای افراد: She's the manager who hired me.\n" +
+                        "• which / that برای اشیا: That's the job which I applied for.\n" +
+                        "• whose برای مالکیت: He's the colleague whose advice helped me."),
+                    GrammarSection("📌 Defining vs Non-defining",
+                        "• Defining (ضروری): The man who called is my boss.\n" +
+                        "• Non-defining (اضافی): Mr. Smith, who is my boss, called."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ She's the manager which hired me. → ✅ She's the manager who hired me.")
+                ),
+                conversation = listOf(
+                    DialogueLine("A", "What career path do you want to follow?", "چه مسیر شغلی می‌خوای دنبال کنی؟"),
+                    DialogueLine("B", "I want to be an entrepreneur who builds startups.", "می‌خوام کارآفرینی باشم که استارتاپ می‌سازه."),
+                    DialogueLine("A", "Do you have a mentor?", "مربی داری؟"),
+                    DialogueLine("B", "Yes, a businessman whose company went global.", "بله، تاجری که شرکتش جهانی شد."),
+                    DialogueLine("A", "How important is networking?", "شبکه‌سازی چقدر مهمه؟"),
+                    DialogueLine("B", "It's the key to success.", "کلید موفقیته."),
+                    DialogueLine("A", "What about work-life balance?", "تعادل کار و زندگی چطور؟"),
+                    DialogueLine("B", "It's essential to avoid burnout.", "برای جلوگیری از فرسودگی ضروریه."),
+                    DialogueLine("A", "Any advice for negotiation?", "برای مذاکره توصیه‌ای داری؟"),
+                    DialogueLine("B", "Know your value and don't be afraid to ask.", "ارزشت رو بدون و از پرسیدن نترس.")
+                ),
+                quiz = listOf(
+                    QuizQuestion("معنی «Entrepreneur» چیست؟", listOf("کارمند", "کارآفرین", "مدیر", "فریلنسر"), 1),
+                    QuizQuestion("کدام درست است؟", listOf("She's the manager who hired me.", "She's the manager which hired me.", "She's the manager whose hired me.", "She's the manager what hired me."), 0),
+                    QuizQuestion("«whose» برای چه استفاده می‌شود؟", listOf("افراد", "اشیا", "مالکیت", "زمان"), 2),
+                    QuizQuestion("معنی «Mentor» چیست؟", listOf("شاگرد", "مربی", "مدیر", "همکار"), 1),
+                    QuizQuestion("کدام درست است؟", listOf("This is the job which I applied.", "This is the job which I applied for.", "This is the job who I applied.", "This is the job what I applied."), 1),
+                    QuizQuestion("معنی «Work-life balance» چیست؟", listOf("تعادل کار و زندگی", "کار تمام وقت", "استراحت", "تعطیلات"), 0),
+                    QuizQuestion("«who» برای چه استفاده می‌شود؟", listOf("اشیا", "افراد", "مکان", "زمان"), 1),
+                    QuizQuestion("معنی «Burnout» چیست؟", listOf("موفقیت", "فرسودگی شغلی", "ترفیع", "استعفا"), 1)
+                )
+            )
+            10 -> LessonContent("top_notch_3", 10, "Life Changes", "تغییرات زندگی",
+                vocabulary = listOf(
+                    VocabWord("Transition", "گذار", "trænˈzɪʃən"),
+                    VocabWord("Milestone", "نقطه عطف", "ˈmaɪlstoʊn"),
+                    VocabWord("Adapt", "سازگار شدن", "əˈdæpt"),
+                    VocabWord("Overcome", "غلبه کردن", "ˌoʊvərˈkʌm"),
+                    VocabWord("Significant", "قابل توجه", "sɪɡˈnɪfɪkənt"),
+                    VocabWord("Challenge", "چالش", "ˈtʃælɪndʒ"),
+                    VocabWord("Growth", "رشد", "ɡroʊθ"),
+                    VocabWord("Perspective", "چشم‌انداز", "pərˈspektɪv")
+                ),
+                grammar = listOf(
+                    GrammarSection("📌 Cleft Sentences for Emphasis",
+                        "• It-cleft: It is/was + ... that/who ...\n" +
+                        "  It was the birth of my child that changed me.\n" +
+                        "  It is challenges that make us stronger.\n\n" +
+                        "• Wh-cleft: What + clause + is/was ...\n" +
+                        "  What I value most is family."),
+                    GrammarSection("❌ اشتباهات رایج",
+                        "❌ It challenges that make us stronger. → ✅ It is challenges that make us stronger.\n" +
+                        "❌ What I value most family is. → ✅ What I value most is family.")
+                ),
+                conversation = listOf(
+                    DialogueLine("A", "What was a significant milestone in your life?", "نقطه عطف مهم زندگی‌ت چی بود؟"),
+                    DialogueLine("B", "It was moving abroad that changed my perspective.", "مهاجرت بود که چشم‌اندازم رو تغییر داد."),
+                    DialogueLine("A", "How did you adapt?", "چطور سازگار شدی؟"),
+                    DialogueLine("B", "I overcame it step by step.", "قدم به قدم غلبه کردم."),
+                    DialogueLine("A", "What would you tell others?", "به دیگران چی می‌گی؟"),
+                    DialogueLine("B", "What matters most is resilience.", "چیزی که مهمه تاب‌آوریه."),
+                    DialogueLine("A", "Did you ever feel like giving up?", "حس کردی می‌خوای تسلیم بشی؟"),
+                    DialogueLine("B", "Many times. But what kept me going was hope.", "خیلی وقت‌ها. ولی چیزی که منو جلو برد امید بود."),
+                    DialogueLine("A", "You've grown so much!", "خیلی رشد کردی!"),
+                    DialogueLine("B", "Growth comes from discomfort.", "رشد از ناراحتی میاد.")
+                ),
+                quiz = listOf(
+                    QuizQuestion("معنی «Transition» چیست؟", listOf("توقف", "گذار", "شروع", "پایان"), 1),
+                    QuizQuestion("کدام cleft درست است؟", listOf("It challenges that make us stronger.", "It is challenges that make us stronger.", "Challenges is that make us stronger.", "It that challenges make us stronger."), 1),
+                    QuizQuestion("معنی «Overcome» چیست؟", listOf("شکست خوردن", "غلبه کردن", "فرار کردن", "تسلیم شدن"), 1),
+                    QuizQuestion("ساختار It-cleft؟", listOf("It + is/was + ... + that/who", "What + verb + is", "It + verb + that", "That + it + is"), 0),
+                    QuizQuestion("معنی «Resilience» چیست؟", listOf("ضعف", "تاب‌آوری", "ترس", "خستگی"), 1),
+                    QuizQuestion("«What I value most is family» یعنی؟", listOf("چیزی که بیشتر ارزشش رو دارم خانواده‌ست", "خانواده‌ام چیه؟", "خانواده ارزش داره", "من خانواده رو دوست دارم"), 0),
+                    QuizQuestion("معنی «Embrace» چیست؟", listOf("رد کردن", "پذیرفتن", "ترک کردن", "فراموش کردن"), 1),
+                    QuizQuestion("معنی «Wisdom» چیست؟", listOf("ثروت", "خرد", "قدرت", "جوانی"), 1)
+                )
+            )
+
+            else -> getDefaultContent("top_notch_3", chapter)
+        }
+    }
+
+    // ==================== Default Content ====================
+    private fun getDefaultContent(bookId: String, chapter: Int): LessonContent {
+        return LessonContent(
+            bookId = bookId,
+            chapterNumber = chapter,
+            title = "Coming Soon",
+            titlePersian = "به زودی...",
+            vocabulary = emptyList(),
+            grammar = emptyList(),
+            conversation = emptyList(),
+            quiz = emptyList()
+        )
+    }
+}
