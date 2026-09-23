@@ -119,13 +119,8 @@ fun getDefaultContent(bookId: String, chapter: Int): LessonContent {
 object LessonContentRepository {
     fun getLessonContent(bookId: String, chapterNumber: Int): LessonContent {
         return when (bookId) {
-            "top_notch_1", "top_notch_2", "top_notch_3" -> 
+            "top_notch_1", "top_notch_2", "top_notch_3" ->
                 TopNotchRepository.getContent(bookId, chapterNumber)
-
-            "four_corners_1", "four_corners_2", "four_corners_3",
-            "english_file_1", "english_file_2", "english_file_3", "english_file_4", "english_file_5",
-            "evolve_1", "evolve_2", "evolve_3", "evolve_5", "evolve_6" -> 
-                AdditionalLessonContentRepository.getAdditionalContent(bookId, chapterNumber)
 
             else -> getDefaultContent(bookId, chapterNumber)
         }
