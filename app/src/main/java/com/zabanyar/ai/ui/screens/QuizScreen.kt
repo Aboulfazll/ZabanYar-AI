@@ -29,6 +29,8 @@ import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.LessonContentRepository
 import com.zabanyar.ai.data.ProgressManager
 import com.zabanyar.ai.data.QuizQuestion
+import com.zabanyar.ai.ui.theme.PrimaryColor      // 👈 اضافه شد
+import com.zabanyar.ai.ui.theme.SecondaryColor    // 👈 اضافه شد
 import kotlinx.coroutines.delay
 
 // ============================================================
