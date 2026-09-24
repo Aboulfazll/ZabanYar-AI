@@ -34,9 +34,8 @@ import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import com.zabanyar.ai.data.Podcast
 import com.zabanyar.ai.data.PodcastRepository
+import com.zabanyar.ai.ui.theme.PrimaryColor   // 👈 ایمپورت جدید
 import kotlinx.coroutines.delay
-
-val PrimaryColor = Color(0xFF1A237E)
 
 enum class ViewMode { LIST, GRID }
 enum class SortType(val label: String) {
@@ -56,7 +55,6 @@ fun PodcastScreen(onBack: () -> Unit = {}) {
         }
     }
 
-    // آزادسازی منابع هنگام خروج از صفحه
     DisposableEffect(Unit) {
         onDispose {
             exoPlayer.release()
@@ -339,7 +337,7 @@ fun FeaturedCarousel(podcasts: List<Podcast>, onPodcastClick: (Podcast) -> Unit)
 @Composable
 fun PodcastListItem(podcast: Podcast, isPlaying: Boolean, isFavorite: Boolean, onFavoriteClick: () -> Unit, onClick: () -> Unit) {
     Card(
-        modifier = Modifier.fillMaxWidth().animateItem().clickable { onClick() },
+        modifier = Modifier.fillMaxWidth().clickable { onClick() },   // 👈 animateItem حذف شد
         shape = RoundedCornerShape(20.dp), elevation = CardDefaults.cardElevation(4.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
@@ -387,7 +385,7 @@ fun PodcastListItem(podcast: Podcast, isPlaying: Boolean, isFavorite: Boolean, o
 @Composable
 fun PodcastGridItem(podcast: Podcast, isPlaying: Boolean, onClick: () -> Unit) {
     Card(
-        modifier = Modifier.fillMaxWidth().height(200.dp).animateItem().clickable { onClick() },
+        modifier = Modifier.fillMaxWidth().height(200.dp).clickable { onClick() },   // 👈 animateItem حذف شد
         shape = RoundedCornerShape(20.dp), elevation = CardDefaults.cardElevation(4.dp)
     ) {
         Box(modifier = Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color(podcast.gradientStart), Color(podcast.gradientEnd))))) {
@@ -441,7 +439,6 @@ fun MiniPlayer(
                 }
             }
             Spacer(Modifier.height(8.dp))
-            // نوار پیشرفت (Seekbar)
             Slider(
                 value = if (duration > 0) currentPosition.toFloat() / duration else 0f,
                 onValueChange = { progress -> onSeek((progress * duration).toLong()) },
@@ -452,7 +449,6 @@ fun MiniPlayer(
                     inactiveTrackColor = Color.White.copy(alpha = 0.2f)
                 )
             )
-            // زمان
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 Text(formatTime(currentPosition), color = Color.White.copy(alpha = 0.7f), fontSize = 10.sp)
                 Text(formatTime(duration), color = Color.White.copy(alpha = 0.7f), fontSize = 10.sp)
