@@ -31,7 +31,6 @@ import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.ProgressManager
 import com.zabanyar.ai.data.UserManager
-import com.zabanyar.ai.ui.theme.*   // 👈 ایمپورت جدید رنگ‌ها
 import java.text.SimpleDateFormat
 import java.util.*
 
