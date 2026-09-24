@@ -30,7 +30,7 @@ object ProgressManager {
     private const val KEY_DARK_MODE = "dark_mode"
     private const val KEY_SOUND_ENABLED = "sound_enabled"
     private const val KEY_AUTO_PLAY = "auto_play"
-    private const val KEY_NOTIFICATIONS_ENABLED = "notifications_enabled"   // 👈 اضافه شد
+    private const val KEY_NOTIFICATIONS_ENABLED = "notifications_enabled"
 
     private fun getProgressPrefs(context: Context): SharedPreferences =
         context.getSharedPreferences(PROGRESS_PREFS, Context.MODE_PRIVATE)
@@ -69,12 +69,16 @@ object ProgressManager {
         val totalGroups: Int
     )
 
+    // 👈 آپدیت شد: percent، bestScore، attempts اضافه شدند
     data class QuizResult(
         val bookId: String,
         val quizIndex: Int,
         val score: Int,
         val total: Int,
+        val percent: Int,
         val passed: Boolean,
+        val bestScore: Int,
+        val attempts: Int,
         val attemptDate: Long = System.currentTimeMillis()
     )
 
@@ -120,17 +124,26 @@ object ProgressManager {
         return getProgressPrefs(context).getBoolean("${KEY_QUIZ_PREFIX}passed_${bookId}_$quizIndex", false)
     }
 
-    fun saveQuizResult(context: Context, bookId: String, quizIndex: Int, score: Int, total: Int) {
-        val percent = (score.toFloat() / total.toFloat()) * 100
+    // 👈 آپدیت شد: حالا QuizResult برمی‌گردونه
+    fun saveQuizResult(
+        context: Context,
+        bookId: String,
+        quizIndex: Int,
+        score: Int,
+        total: Int
+    ): QuizResult {
+        val percent = if (total > 0) ((score.toFloat() / total.toFloat()) * 100).toInt() else 0
         val passed = percent >= PASS_THRESHOLD_PERCENT
         val wasPassed = isQuizPassed(context, bookId, quizIndex)
         val oldAttempts = getQuizAttempts(context, bookId, quizIndex)
         val oldBest = getQuizBestScore(context, bookId, quizIndex)
+        val newBest = maxOf(percent, oldBest)
+        val newAttempts = oldAttempts + 1
 
         getProgressPrefs(context).edit().apply {
             putBoolean("${KEY_QUIZ_PREFIX}passed_${bookId}_$quizIndex", passed || wasPassed)
-            putInt("${KEY_QUIZ_PREFIX}score_${bookId}_$quizIndex", maxOf(score, oldBest))
-            putInt("${KEY_QUIZ_PREFIX}attempts_${bookId}_$quizIndex", oldAttempts + 1)
+            putInt("${KEY_QUIZ_PREFIX}score_${bookId}_$quizIndex", newBest)
+            putInt("${KEY_QUIZ_PREFIX}attempts_${bookId}_$quizIndex", newAttempts)
         }.apply()
 
         recordDailyActivity(context)
@@ -141,6 +154,17 @@ object ProgressManager {
         } else if (!passed) {
             addStars(context, STARS_PER_QUIZ_ATTEMPT)
         }
+
+        return QuizResult(
+            bookId = bookId,
+            quizIndex = quizIndex,
+            score = score,
+            total = total,
+            percent = percent,
+            passed = passed,
+            bestScore = newBest,
+            attempts = newAttempts
+        )
     }
 
     fun getQuizBestScore(context: Context, bookId: String, quizIndex: Int): Int =
@@ -346,7 +370,6 @@ object ProgressManager {
     fun isAutoPlay(context: Context): Boolean =
         getSettingsPrefs(context).getBoolean(KEY_AUTO_PLAY, true)
 
-    // 👇 جدید: تنظیمات اعلان‌ها
     fun setNotificationsEnabled(context: Context, enabled: Boolean) {
         getSettingsPrefs(context).edit().putBoolean(KEY_NOTIFICATIONS_ENABLED, enabled).apply()
     }
