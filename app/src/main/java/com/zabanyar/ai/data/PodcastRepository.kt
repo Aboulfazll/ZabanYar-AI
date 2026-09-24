@@ -1,104 +1,683 @@
-package com.zabanyar.ai.data
+package com.zabanyar.ai.ui.screens
 
-data class Podcast(
-    val id: String,
-    val title: String,
-    val titlePersian: String,
-    val description: String,
-    val level: String,
-    val levelEmoji: String,
-    val category: String,
-    val categoryEmoji: String,
-    val duration: String,
-    val gradientStart: Long,
-    val gradientEnd: Long
-)
+import androidx.compose.animation.*
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.zabanyar.ai.data.Podcast
+import com.zabanyar.ai.data.PodcastRepository
 
-object PodcastRepository {
+// اگر PrimaryColor رو در تم پروژه داری، این خط رو حذف کن و از تم خودت استفاده کن
+val PrimaryColor = Color(0xFF1A237E)
 
-    fun getAllPodcasts(): List<Podcast> = listOf(
-        // مبتدی
-        Podcast("p1", "Greetings and Introductions", "احوالپرسی و معرفی",
-            "یاد بگیر چطور به انگلیسی احوالپرسی کنی", "مبتدی", "🌱", "مکالمه", "💬", "۵:۳۰",
-            0xFF6A1B9A, 0xFFAB47BC),
-        Podcast("p2", "Numbers and Counting", "اعداد و شمارش",
-            "یادگیری اعداد از یک تا بیست", "مبتدی", "🌱", "واژگان", "📚", "۴:۱۵",
-            0xFF00897B, 0xFF4DB6AC),
-        Podcast("p3", "Colors Around Us", "رنگ‌های اطراف ما",
-            "نام رنگ‌ها به انگلیسی", "مبتدی", "🌱", "واژگان", "📚", "۳:۵۰",
-            0xFFE91E63, 0xFFF06292),
-        Podcast("p4", "Days of the Week", "روزهای هفته",
-            "هفت روز هفته به انگلیسی", "مبتدی", "🌱", "واژگان", "📚", "۴:۳۰",
-            0xFF0277BD, 0xFF4FC3F7),
-        Podcast("p5", "At the Supermarket", "در سوپرمارکت",
-            "جمله‌های کاربردی خرید", "مبتدی", "🌱", "مکالمه", "💬", "۶:۲۰",
-            0xFFE65100, 0xFFFFB74D),
-        Podcast("p6", "Family Members", "اعضای خانواده",
-            "نام اعضای خانواده به انگلیسی", "مبتدی", "🌱", "واژگان", "📚", "۵:۱۰",
-            0xFF33691E, 0xFF8BC34A),
-        Podcast("p7", "Weather Talk", "صحبت از آب و هوا",
-            "چطور درباره آب و هوا حرف بزنیم", "مبتدی", "🌱", "مکالمه", "💬", "۴:۴۰",
-            0xFF0288D1, 0xFF4FC3F7),
-        Podcast("p8", "At the Restaurant", "در رستوران",
-            "سفارش غذا به انگلیسی", "مبتدی", "🌱", "مکالمه", "💬", "۷:۰۰",
-            0xFFC62828, 0xFFEF5350),
-        Podcast("p9", "My Daily Routine", "روتین روزانه من",
-            "توصیف فعالیت‌های روزانه", "مبتدی", "🌱", "مکالمه", "💬", "۵:۵۰",
-            0xFF6A1B9A, 0xFFAB47BC),
-        Podcast("p10", "Telling Time", "گفتن ساعت",
-            "چطور ساعت رو بگیم", "مبتدی", "🌱", "واژگان", "📚", "۴:۲۵",
-            0xFFE91E63, 0xFFF06292),
+enum class ViewMode { LIST, GRID }
+enum class SortType(val label: String) {
+    TITLE("عنوان"),
+    LEVEL("سطح"),
+    DURATION("مدت زمان")
+}
 
-        // متوسط
-        Podcast("p11", "Present Simple Grammar", "گرامر حال ساده",
-            "آموزش کامل حال ساده", "متوسط", "🚀", "گرامر", "📝", "۸:۳۰",
-            0xFF00695C, 0xFF26A69A),
-        Podcast("p12", "Common Idioms", "اصطلاحات رایج",
-            "پرتکرارترین اصطلاحات انگلیسی", "متوسط", "🚀", "اصطلاحات", "💡", "۹:۱۵",
-            0xFFFF6F00, 0xFFFFB300),
-        Podcast("p13", "Making Small Talk", "گپ کوتاه",
-            "چطور با غریبه‌ها صحبت کنیم", "متوسط", "🚀", "مکالمه", "💬", "۸:۴۵",
-            0xFF7B1FA2, 0xFFBA68C8),
-        Podcast("p14", "Phrasal Verbs", "افعال عبارتی",
-            "افعال عبارتی پرکاربرد", "متوسط", "🚀", "گرامر", "📝", "۱۰:۲۰",
-            0xFF01579B, 0xFF039BE5),
-        Podcast("p15", "Job Interview Tips", "نکات مصاحبه شغلی",
-            "موفقیت در مصاحبه شغلی", "متوسط", "🚀", "مکالمه", "💬", "۱۱:۳۰",
-            0xFF1B5E20, 0xFF4CAF50),
-        Podcast("p16", "Past Tense", "زمان گذشته",
-            "آموزش کامل گذشته ساده", "متوسط", "🚀", "گرامر", "📝", "۹:۰۰",
-            0xFFBF360C, 0xFFFF7043),
-        Podcast("p17", "Health and Fitness", "سلامتی و تناسب اندام",
-            "لغات مربوط به سلامتی", "متوسط", "🚀", "واژگان", "📚", "۸:۲۰",
-            0xFF880E4F, 0xFFC2185B),
-        Podcast("p18", "At the Airport", "در فرودگاه",
-            "انگلیسی در سفر هوایی", "متوسط", "🚀", "مکالمه", "💬", "۷:۴۵",
-            0xFF01579B, 0xFF42A5F5),
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun PodcastScreen(
+    onBack: () -> Unit = {}
+) {
+    val allPodcasts = remember { PodcastRepository.getAllPodcasts() }
+    
+    // استیت‌های پیشرفته
+    var searchQuery by remember { mutableStateOf("") }
+    var selectedLevel by remember { mutableStateOf("همه") }
+    var selectedCategory by remember { mutableStateOf("همه") }
+    var viewMode by remember { mutableStateOf(ViewMode.LIST) }
+    var sortType by remember { mutableStateOf(SortType.TITLE) }
+    
+    // استیت پلیر
+    var currentlyPlaying by remember { mutableStateOf<Podcast?>(null) }
+    var isPlaying by remember { mutableStateOf(false) }
+    var playerProgress by remember { mutableFloatStateOf(0.35f) } // فقط برای نمایش ظاهری
+    
+    // استیت علاقه‌مندی‌ها (در حافظه موقت)
+    val favoriteIds = remember { mutableStateListOf<String>() }
 
-        // پیشرفته
-        Podcast("p19", "Climate Change", "تغییرات اقلیمی",
-            "بحث درباره محیط زیست", "پیشرفته", "🏆", "علمی", "🔬", "۱۲:۳۰",
-            0xFF1A237E, 0xFF3F51B5),
-        Podcast("p20", "Future of AI", "آینده هوش مصنوعی",
-            "تکنولوژی و آینده", "پیشرفته", "🏆", "علمی", "🔬", "۱۳:۱۵",
-            0xFF283593, 0xFF5C6BC0),
-        Podcast("p21", "Public Speaking", "سخنرانی در جمع",
-            "مهارت‌های سخنرانی", "پیشرفته", "🏆", "مهارت", "🎯", "۱۱:۴۵",
-            0xFF4A148C, 0xFF9C27B0),
-        Podcast("p22", "Global Economy", "اقتصاد جهانی",
-            "بحث اقتصادی", "پیشرفته", "🏆", "اقتصادی", "💼", "۱۴:۰۰",
-            0xFF37474F, 0xFF78909C),
-        Podcast("p23", "Philosophy of Happiness", "فلسفه شادی",
-            "تفکر عمیق درباره شادی", "پیشرفته", "🏆", "فلسفی", "🤔", "۱۲:۵۰",
-            0xFFD84315, 0xFFFF8A65),
-        Podcast("p24", "Future of Work", "آینده کار",
-            "تغییرات بازار کار", "پیشرفته", "🏆", "اقتصادی", "💼", "۱۳:۲۰",
-            0xFF006064, 0xFF00BCD4)
-    )
+    // استخراج دسته‌بندی‌ها و سطوح
+    val categories = remember { listOf("همه") + allPodcasts.map { it.category }.distinct() }
+    val levels = listOf("همه", "مبتدی", "متوسط", "پیشرفته")
 
-    fun getPodcastsByLevel(level: String): List<Podcast> =
-        getAllPodcasts().filter { it.level == level }
+    // فیلتر و مرتب‌سازی پیشرفته
+    val filteredPodcasts by remember(searchQuery, selectedLevel, selectedCategory, sortType) {
+        derivedStateOf {
+            allPodcasts.filter { podcast ->
+                val matchesSearch = searchQuery.isEmpty() ||
+                        podcast.title.contains(searchQuery, true) ||
+                        podcast.titlePersian.contains(searchQuery)
+                val matchesLevel = selectedLevel == "همه" || podcast.level == selectedLevel
+                val matchesCategory = selectedCategory == "همه" || podcast.category == selectedCategory
+                matchesSearch && matchesLevel && matchesCategory
+            }.sortedWith(
+                when (sortType) {
+                    SortType.TITLE -> compareBy { it.title }
+                    SortType.LEVEL -> compareBy { it.level }
+                    SortType.DURATION -> compareBy { it.duration }
+                }
+            )
+        }
+    }
 
-    fun getPodcastById(id: String): Podcast? =
-        getAllPodcasts().firstOrNull { it.id == id }
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Column {
+                        Text(
+                            "🎧 پادکست‌های فوق پیشرفته",
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White,
+                            fontSize = 17.sp
+                        )
+                        Text(
+                            "${filteredPodcasts.size} پادکست آموزشی",
+                            fontSize = 11.sp,
+                            color = Color.White.copy(alpha = 0.85f)
+                        )
+                    }
+                },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { 
+                        viewMode = if (viewMode == ViewMode.LIST) ViewMode.GRID else ViewMode.LIST 
+                    }) {
+                        Icon(
+                            if (viewMode == ViewMode.LIST) Icons.Filled.GridView else Icons.Filled.ViewList,
+                            "Toggle View",
+                            tint = Color.White
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = PrimaryColor)
+            )
+        },
+        bottomBar = {
+            // مینی پلیر چسبان پایین صفحه
+            AnimatedVisibility(
+                visible = currentlyPlaying != null,
+                enter = slideInVertically(initialOffsetY = { it }),
+                exit = slideOutVertically(targetOffsetY = { it })
+            ) {
+                currentlyPlaying?.let { podcast ->
+                    MiniPlayer(
+                        podcast = podcast,
+                        isPlaying = isPlaying,
+                        progress = playerProgress,
+                        onPlayPauseClick = { isPlaying = !isPlaying },
+                        onCloseClick = { currentlyPlaying = null; isPlaying = false }
+                    )
+                }
+            }
+        }
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xFFF8F9FC))
+                .padding(padding)
+        ) {
+            // ==================== نوار جستجو و فیلترها ====================
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(PrimaryColor)
+                    .padding(bottom = 16.dp)
+            ) {
+                Column {
+                    // جستجو
+                    OutlinedTextField(
+                        value = searchQuery,
+                        onValueChange = { searchQuery = it },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp)
+                            .padding(top = 8.dp),
+                        placeholder = { Text("جستجوی پیشرفته...", fontSize = 13.sp) },
+                        leadingIcon = { Icon(Icons.Filled.Search, null, tint = PrimaryColor) },
+                        trailingIcon = {
+                            if (searchQuery.isNotEmpty()) {
+                                IconButton(onClick = { searchQuery = "" }) {
+                                    Icon(Icons.Filled.Clear, "Clear", tint = Color.Gray)
+                                }
+                            }
+                        },
+                        singleLine = true,
+                        shape = RoundedCornerShape(16.dp),
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedContainerColor = Color.White,
+                            unfocusedContainerColor = Color.White,
+                            focusedBorderColor = Color.Transparent,
+                            unfocusedBorderColor = Color.Transparent
+                        )
+                    )
+
+                    Spacer(Modifier.height(12.dp))
+
+                    // فیلترهای سطح و مرتب‌سازی
+                    LazyRow(
+                        contentPadding = PaddingValues(horizontal = 16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        item {
+                            SortDropdown(currentSort = sortType, onSortChange = { sortType = it })
+                        }
+                        items(levels) { level ->
+                            FilterChip(
+                                selected = selectedLevel == level,
+                                onClick = { selectedLevel = level },
+                                label = { Text(level, fontSize = 11.sp) },
+                                colors = FilterChipDefaults.filterChipColors(
+                                    containerColor = Color.White.copy(alpha = 0.2f),
+                                    labelColor = Color.White,
+                                    selectedContainerColor = Color.White,
+                                    selectedLabelColor = PrimaryColor
+                                )
+                            )
+                        }
+                    }
+                    
+                    Spacer(Modifier.height(8.dp))
+                    
+                    // دسته‌بندی‌ها
+                    LazyRow(
+                        contentPadding = PaddingValues(horizontal = 16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        items(categories) { category ->
+                            FilterChip(
+                                selected = selectedCategory == category,
+                                onClick = { selectedCategory = category },
+                                label = { Text(category, fontSize = 11.sp) },
+                                colors = FilterChipDefaults.filterChipColors(
+                                    containerColor = Color.Transparent,
+                                    labelColor = Color.White.copy(alpha = 0.7f),
+                                    selectedContainerColor = Color.White.copy(alpha = 0.2f),
+                                    selectedLabelColor = Color.White
+                                ),
+                                border = null
+                            )
+                        }
+                    }
+                }
+            }
+
+            // ==================== محتوای اصلی ====================
+            if (filteredPodcasts.isEmpty()) {
+                EmptyState()
+            } else {
+                if (viewMode == ViewMode.LIST) {
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        item {
+                            Text(
+                                "✨ ویژه و پیشنهادی",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 14.sp,
+                                color = PrimaryColor,
+                                modifier = Modifier.padding(bottom = 8.dp)
+                            )
+                            FeaturedCarousel(
+                                podcasts = filteredPodcasts.take(3),
+                                onPodcastClick = { 
+                                    currentlyPlaying = it
+                                    isPlaying = true
+                                }
+                            )
+                            Spacer(Modifier.height(16.dp))
+                            Text(
+                                "📚 همه پادکست‌ها",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 14.sp,
+                                color = PrimaryColor,
+                                modifier = Modifier.padding(bottom = 8.dp)
+                            )
+                        }
+                        
+                        items(filteredPodcasts, key = { it.id }) { podcast ->
+                            PodcastListItem(
+                                podcast = podcast,
+                                isPlaying = currentlyPlaying?.id == podcast.id && isPlaying,
+                                isFavorite = favoriteIds.contains(podcast.id),
+                                onFavoriteClick = {
+                                    if (favoriteIds.contains(podcast.id)) favoriteIds.remove(podcast.id)
+                                    else favoriteIds.add(podcast.id)
+                                },
+                                onClick = {
+                                    currentlyPlaying = podcast
+                                    isPlaying = true
+                                    playerProgress = 0f
+                                }
+                            )
+                        }
+                    }
+                } else {
+                    LazyVerticalGrid(
+                        columns = GridCells.Fixed(2),
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp),
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        items(filteredPodcasts, key = { it.id }) { podcast ->
+                            PodcastGridItem(
+                                podcast = podcast,
+                                isPlaying = currentlyPlaying?.id == podcast.id && isPlaying,
+                                onClick = {
+                                    currentlyPlaying = podcast
+                                    isPlaying = true
+                                }
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ==================== کامپوننت‌های کمکی ====================
+
+@Composable
+fun SortDropdown(currentSort: SortType, onSortChange: (SortType) -> Unit) {
+    var expanded by remember { mutableStateOf(false) }
+    
+    Box {
+        FilterChip(
+            selected = false,
+            onClick = { expanded = true },
+            label = { 
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(Icons.Filled.Sort, null, modifier = Modifier.size(14.dp), tint = Color.White)
+                    Spacer(Modifier.width(4.dp))
+                    Text("مرتب‌سازی", fontSize = 11.sp, color = Color.White)
+                }
+            },
+            colors = FilterChipDefaults.filterChipColors(containerColor = Color.White.copy(alpha = 0.2f))
+        )
+        DropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+            SortType.values().forEach { sort ->
+                DropdownMenuItem(
+                    text = { Text(sort.label, fontSize = 13.sp) },
+                    onClick = { onSortChange(sort); expanded = false }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun FeaturedCarousel(
+    podcasts: List<Podcast>,
+    onPodcastClick: (Podcast) -> Unit
+) {
+    LazyRow(
+        horizontalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        items(podcasts) { podcast ->
+            Card(
+                modifier = Modifier
+                    .width(280.dp)
+                    .height(140.dp)
+                    .clickable { onPodcastClick(podcast) },
+                shape = RoundedCornerShape(20.dp),
+                elevation = CardDefaults.cardElevation(8.dp)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(
+                            Brush.linearGradient(
+                                listOf(Color(podcast.gradientStart), Color(podcast.gradientEnd))
+                            )
+                        )
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(16.dp),
+                        verticalArrangement = Arrangement.Bottom
+                    ) {
+                        Text(
+                            podcast.title,
+                            color = Color.White,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 16.sp,
+                            maxLines = 1
+                        )
+                        Text(
+                            podcast.titlePersian,
+                            color = Color.White.copy(alpha = 0.8f),
+                            fontSize = 12.sp
+                        )
+                    }
+                    Icon(
+                        Icons.Filled.PlayCircle,
+                        null,
+                        tint = Color.White,
+                        modifier = Modifier
+                            .align(Alignment.TopEnd)
+                            .padding(12.dp)
+                            .size(36.dp)
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun PodcastListItem(
+    podcast: Podcast,
+    isPlaying: Boolean,
+    isFavorite: Boolean,
+    onFavoriteClick: () -> Unit,
+    onClick: () -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .animateItem()
+            .clickable { onClick() },
+        shape = RoundedCornerShape(20.dp),
+        elevation = CardDefaults.cardElevation(4.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White)
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // کاور
+            Box(
+                modifier = Modifier
+                    .size(72.dp)
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(
+                        Brush.linearGradient(
+                            listOf(Color(podcast.gradientStart), Color(podcast.gradientEnd))
+                        )
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(podcast.levelEmoji, fontSize = 20.sp)
+                    Text(podcast.categoryEmoji, fontSize = 12.sp)
+                }
+            }
+
+            Spacer(Modifier.width(12.dp))
+
+            Column(modifier = Modifier.weight(1f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        podcast.title,
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF1A237E),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f)
+                    )
+                    IconButton(onClick = onFavoriteClick, modifier = Modifier.size(24.dp)) {
+                        Icon(
+                            if (isFavorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+                            null,
+                            tint = if (isFavorite) Color(0xFFE91E63) else Color.Gray,
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                }
+                Text(
+                    podcast.titlePersian,
+                    fontSize = 12.sp,
+                    color = Color.Gray
+                )
+                Spacer(Modifier.height(6.dp))
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(6.dp))
+                            .background(Color(podcast.gradientStart).copy(alpha = 0.15f))
+                            .padding(horizontal = 6.dp, vertical = 2.dp)
+                    ) {
+                        Text(
+                            podcast.category,
+                            fontSize = 9.sp,
+                            color = Color(podcast.gradientStart),
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    Spacer(Modifier.width(8.dp))
+                    Icon(Icons.Filled.Headphones, null, tint = Color.Gray, modifier = Modifier.size(12.dp))
+                    Spacer(Modifier.width(4.dp))
+                    Text(podcast.duration, fontSize = 10.sp, color = Color.Gray)
+                }
+            }
+
+            Spacer(Modifier.width(8.dp))
+
+            // دکمه پخش
+            IconButton(
+                onClick = onClick,
+                modifier = Modifier
+                    .size(44.dp)
+                    .clip(CircleShape)
+                    .background(if (isPlaying) Color(0xFFE91E63) else Color(podcast.gradientStart))
+            ) {
+                Icon(
+                    if (isPlaying) Icons.Filled.Pause else Icons.Filled.PlayArrow,
+                    "Play",
+                    tint = Color.White,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun PodcastGridItem(
+    podcast: Podcast,
+    isPlaying: Boolean,
+    onClick: () -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(200.dp)
+            .animateItem()
+            .clickable { onClick() },
+        shape = RoundedCornerShape(20.dp),
+        elevation = CardDefaults.cardElevation(4.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        listOf(Color(podcast.gradientStart), Color(podcast.gradientEnd))
+                    )
+                )
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(12.dp),
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(podcast.levelEmoji, fontSize = 20.sp)
+                    if (isPlaying) {
+                        Icon(Icons.Filled.GraphicEq, null, tint = Color.White, modifier = Modifier.size(18.dp))
+                    }
+                }
+                
+                Column {
+                    Text(
+                        podcast.title,
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 14.sp,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Text(
+                        podcast.duration,
+                        color = Color.White.copy(alpha = 0.8f),
+                        fontSize = 11.sp
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun MiniPlayer(
+    podcast: Podcast,
+    isPlaying: Boolean,
+    progress: Float,
+    onPlayPauseClick: () -> Unit,
+    onCloseClick: () -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .shadow(12.dp, RoundedCornerShape(20.dp)),
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF1A237E).copy(alpha = 0.95f))
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(Brush.linearGradient(listOf(Color(podcast.gradientStart), Color(podcast.gradientEnd)))),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(podcast.levelEmoji, fontSize = 16.sp)
+                }
+                
+                Spacer(Modifier.width(12.dp))
+                
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        podcast.title,
+                        color = Color.White,
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Text(
+                        podcast.titlePersian,
+                        color = Color.White.copy(alpha = 0.7f),
+                        fontSize = 11.sp,
+                        maxLines = 1
+                    )
+                }
+                
+                IconButton(onClick = onPlayPauseClick) {
+                    Icon(
+                        if (isPlaying) Icons.Filled.Pause else Icons.Filled.PlayArrow,
+                        null,
+                        tint = Color.White
+                    )
+                }
+                
+                IconButton(onClick = onCloseClick) {
+                    Icon(Icons.Filled.Close, null, tint = Color.White.copy(alpha = 0.7f))
+                }
+            }
+            
+            Spacer(Modifier.height(8.dp))
+            
+            // نوار پیشرفت (شبیه‌سازی شده)
+            LinearProgressIndicator(
+                progress = { progress },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(4.dp)
+                    .clip(RoundedCornerShape(2.dp)),
+                color = Color.White,
+                trackColor = Color.White.copy(alpha = 0.2f),
+            )
+        }
+    }
+}
+
+@Composable
+fun EmptyState() {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Icon(
+                Icons.Filled.SearchOff,
+                null,
+                modifier = Modifier.size(64.dp),
+                tint = Color.LightGray
+            )
+            Spacer(Modifier.height(16.dp))
+            Text(
+                "پادکستی یافت نشد!",
+                color = Color.Gray,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                "فیلترها را تغییر دهید یا عبارت دیگری جستجو کنید.",
+                color = Color.LightGray,
+                fontSize = 12.sp
+            )
+        }
+    }
 }
