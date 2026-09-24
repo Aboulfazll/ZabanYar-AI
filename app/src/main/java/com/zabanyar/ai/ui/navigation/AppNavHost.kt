@@ -19,6 +19,7 @@ import com.zabanyar.ai.ui.screens.LevelTestScreen
 import com.zabanyar.ai.ui.screens.LibraryScreen
 import com.zabanyar.ai.ui.screens.PodcastScreen
 import com.zabanyar.ai.ui.screens.ProfileScreen
+import com.zabanyar.ai.ui.screens.QuizScreen
 import com.zabanyar.ai.ui.screens.ReadingModeScreen
 import com.zabanyar.ai.ui.screens.SettingsScreen
 import com.zabanyar.ai.ui.screens.SpeakingScreen
@@ -39,6 +40,7 @@ object Routes {
     const val BOOK_DETAIL = "book_detail/{bookId}"
     const val LESSON_DETAIL = "lesson_detail/{bookId}/{chapterNumber}"
     const val READING_MODE = "reading_mode/{title}/{text}"
+    const val QUIZ = "quiz/{bookId}/{quizIndex}/{totalChapters}/{bookTitle}"
 
     // ==================== AI Chat ====================
     const val AI_CHAT = "ai_chat"
@@ -60,6 +62,9 @@ object Routes {
 
     fun readingMode(title: String, text: String) =
         "reading_mode/${android.net.Uri.encode(title)}/${android.net.Uri.encode(text)}"
+
+    fun quiz(bookId: String, quizIndex: Int, totalChapters: Int, bookTitle: String) =
+        "quiz/$bookId/$quizIndex/$totalChapters/${android.net.Uri.encode(bookTitle)}"
 }
 
 @Composable
@@ -165,6 +170,45 @@ fun AppNavHost(
                     navController.navigate(
                         Routes.lessonDetail(bookId, chapterNumber)
                     )
+                },
+                onQuizClick = { quizIndex ->
+                    val book = com.zabanyar.ai.data.BookRepository.getBookById(bookId)
+                    val totalChapters = book?.totalChapters ?: 12
+                    val bookTitle = book?.title ?: ""
+                    navController.navigate(
+                        Routes.quiz(bookId, quizIndex, totalChapters, bookTitle)
+                    )
+                }
+            )
+        }
+
+        // ==================== آزمون ====================
+        composable(
+            route = Routes.QUIZ,
+            arguments = listOf(
+                navArgument("bookId") { type = NavType.StringType },
+                navArgument("quizIndex") { type = NavType.IntType },
+                navArgument("totalChapters") { type = NavType.IntType },
+                navArgument("bookTitle") { type = NavType.StringType }
+            )
+        ) { entry ->
+            val bookId = entry.arguments?.getString("bookId") ?: ""
+            val quizIndex = entry.arguments?.getInt("quizIndex") ?: 0
+            val totalChapters = entry.arguments?.getInt("totalChapters") ?: 12
+            val bookTitle = java.net.URLDecoder.decode(
+                entry.arguments?.getString("bookTitle") ?: "", "UTF-8"
+            )
+            QuizScreen(
+                bookId = bookId,
+                quizIndex = quizIndex,
+                totalChapters = totalChapters,
+                bookTitle = bookTitle,
+                onBack = { navController.popBackStack() },
+                onQuizCompleted = { passed ->
+                    if (passed) {
+                        // بعد از قبولی، برگرد به جزئیات کتاب
+                        navController.popBackStack()
+                    }
                 }
             )
         }
