@@ -1,304 +1,249 @@
-package com.zabanyar.ai.ui.screens
-
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Headphones
-import androidx.compose.material.icons.filled.Visibility
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.zabanyar.ai.data.Book
-import com.zabanyar.ai.data.BookCategory
+package com.zabanyar.ai.ui.navigation import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.zabanyar.ai.data.BookRepository
+import com.zabanyar.ai.data.LessonContentRepository
+import com.zabanyar.ai.ui.auth.LoginScreen
+import com.zabanyar.ai.ui.auth.RegisterScreen
+import com.zabanyar.ai.ui.screens.AIChatScreen
+import com.zabanyar.ai.ui.screens.AchievementsScreen
+import com.zabanyar.ai.ui.screens.ApiKeyScreen
+import com.zabanyar.ai.ui.screens.BookDetailScreen
+import com.zabanyar.ai.ui.screens.DailySentencesScreen
+import com.zabanyar.ai.ui.screens.HomeScreen
+import com.zabanyar.ai.ui.screens.LessonDetailScreen
+import com.zabanyar.ai.ui.screens.LevelTestScreen
+import com.zabanyar.ai.ui.screens.LibraryScreen
+import com.zabanyar.ai.ui.screens.PodcastScreen
+import com.zabanyar.ai.ui.screens.ProfileScreen
+import com.zabanyar.ai.ui.screens.QuizScreen
+import com.zabanyar.ai.ui.screens.ReadingModeScreen
+import com.zabanyar.ai.ui.screens.SettingsScreen
+import com.zabanyar.ai.ui.screens.SpeakingScreen
+import com.zabanyar.ai.ui.screens.VocabularyScreen
 
-@OptIn(ExperimentalMaterial3Api::class)
+object Routes {
+    const val LOGIN = "login"
+    const val REGISTER = "register"
+    const val HOME = "home"
+    const val PROFILE = "profile"
+    const val SETTINGS = "settings"
+    const val LIBRARY = "library"
+    const val BOOK_DETAIL = "book_detail/{bookId}"
+    const val LESSON_DETAIL = "lesson_detail/{bookId}/{chapterNumber}"
+    const val READING_MODE = "reading_mode/{title}/{text}"
+    const val QUIZ = "quiz/{bookId}/{quizIndex}/{totalChapters}/{bookTitle}"
+    const val AI_CHAT = "ai_chat"
+    const val API_KEY = "api_key"
+    const val VOCABULARY = "vocabulary"
+    const val SPEAKING = "speaking"
+    const val PODCAST = "podcast"
+    const val DAILY_SENTENCES = "daily_sentences"
+    const val LEVEL_TEST = "level_test"
+    const val ACHIEVEMENTS = "achievements"
+
+    fun bookDetail(bookId: String) = "book_detail/$bookId"
+    fun lessonDetail(bookId: String, chapterNumber: Int) = "lesson_detail/$bookId/$chapterNumber"
+    fun readingMode(title: String, text: String) =
+        "reading_mode/${android.net.Uri.encode(title)}/${android.net.Uri.encode(text)}"
+    fun quiz(bookId: String, quizIndex: Int, totalChapters: Int, bookTitle: String) =
+        "quiz/$bookId/$quizIndex/$totalChapters/${android.net.Uri.encode(bookTitle)}"
+}
+
 @Composable
-fun LibraryScreen(
-    onBack: () -> Unit = {},
-    onBookClick: (String) -> Unit = {}
+fun AppNavHost(
+    navController: NavHostController,
+    startDestination: String = Routes.LOGIN
 ) {
-    val addedBooks = remember { mutableStateListOf<String>() }
-    var selectedTab by remember { mutableStateOf("کتاب‌های ساده") }
+    NavHost(navController = navController, startDestination = startDestination) {
 
-    val allBooks = remember { BookRepository.getAllBooks() }
-
-    val simpleBooks = allBooks.filter { it.level == "مبتدی" }
-    val mediumBooks = allBooks.filter { it.level == "متوسط" }
-    val advancedBooks = allBooks.filter { it.level == "پیشرفته" }
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Column {
-                        Text("📚 کتابخانه", color = Color.White, fontSize = 17.sp, fontWeight = FontWeight.Bold)
-                        Text("${allBooks.size} کتاب در ۸ دسته‌بندی", color = Color.White.copy(alpha = 0.8f), fontSize = 11.sp)
+        composable(Routes.LOGIN) {
+            LoginScreen(
+                onLoginSuccess = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.LOGIN) { inclusive = true }
                     }
                 },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFF2E4A9E))
+                onNavigateToRegister = { navController.navigate(Routes.REGISTER) }
             )
         }
-    ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color.White)
-                .padding(padding)
-        ) {
-            LazyRow(
-                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                val tabs = listOf("کتاب‌های ساده", "کتاب‌های متوسط", "کتاب‌های پیشرفته")
-                items(tabs) { tab ->
-                    Button(
-                        onClick = { selectedTab = tab },
-                        shape = RoundedCornerShape(20.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = if (selectedTab == tab) Color(0xFF2E4A9E)
-                            else Color(0xFF2E4A9E).copy(alpha = 0.6f),
-                            contentColor = Color.White
-                        ),
-                        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 8.dp)
-                    ) {
-                        Text(tab, fontSize = 13.sp, fontWeight = FontWeight.Bold)
+
+        composable(Routes.REGISTER) {
+            RegisterScreen(
+                onRegisterSuccess = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.LOGIN) { inclusive = true }
                     }
-                }
-            }
-
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(bottom = 32.dp),
-                verticalArrangement = Arrangement.spacedBy(28.dp)
-            ) {
-                when (selectedTab) {
-                    "کتاب‌های ساده" -> {
-                        items(simpleBooks.chunked(10)) { chunk ->
-                            BookSectionByCategory(
-                                books = chunk,
-                                addedBooks = addedBooks,
-                                onAddClick = { id ->
-                                    if (addedBooks.contains(id)) addedBooks.remove(id)
-                                    else addedBooks.add(id)
-                                },
-                                onBookClick = onBookClick
-                            )
-                        }
-                    }
-                    "کتاب‌های متوسط" -> {
-                        items(mediumBooks.chunked(10)) { chunk ->
-                            BookSectionByCategory(
-                                books = chunk,
-                                addedBooks = addedBooks,
-                                onAddClick = { id ->
-                                    if (addedBooks.contains(id)) addedBooks.remove(id)
-                                    else addedBooks.add(id)
-                                },
-                                onBookClick = onBookClick
-                            )
-                        }
-                    }
-                    "کتاب‌های پیشرفته" -> {
-                        items(advancedBooks.chunked(10)) { chunk ->
-                            BookSectionByCategory(
-                                books = chunk,
-                                addedBooks = addedBooks,
-                                onAddClick = { id ->
-                                    if (addedBooks.contains(id)) addedBooks.remove(id)
-                                    else addedBooks.add(id)
-                                },
-                                onBookClick = onBookClick
-                            )
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun BookSectionByCategory(
-    books: List<Book>,
-    addedBooks: List<String>,
-    onAddClick: (String) -> Unit,
-    onBookClick: (String) -> Unit
-) {
-    if (books.isEmpty()) return
-
-    val grouped = books.groupBy { it.category }
-
-    grouped.forEach { (category, booksInCategory) ->
-        Column(modifier = Modifier.padding(bottom = 16.dp)) {
-            Row(
-                modifier = Modifier.padding(horizontal = 16.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(category.emoji, fontSize = 18.sp)
-                Spacer(Modifier.width(8.dp))
-                Column {
-                    Text(
-                        category.persianName,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 18.sp,
-                        color = Color(0xFF1A237E)
-                    )
-                    Text(
-                        "${booksInCategory.size} کتاب",
-                        fontSize = 12.sp,
-                        color = Color.Gray
-                    )
-                }
-            }
-
-            Spacer(Modifier.height(12.dp))
-
-            LazyRow(
-                contentPadding = PaddingValues(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                items(booksInCategory) { book ->
-                    BookCardReal(
-                        book = book,
-                        isAdded = addedBooks.contains(book.id),
-                        onAddClick = { onAddClick(book.id) },
-                        onBookClick = { onBookClick(book.id) }
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun BookCardReal(
-    book: Book,
-    isAdded: Boolean,
-    onAddClick: () -> Unit,
-    onBookClick: () -> Unit
-) {
-    Column(modifier = Modifier.width(200.dp)) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(290.dp)
-                .clip(RoundedCornerShape(24.dp))
-                .clickable { onBookClick() }
-                .background(
-                    Brush.linearGradient(
-                        listOf(
-                            Color(book.gradientStart),
-                            Color(book.gradientEnd)
-                        )
-                    )
-                )
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp),
-                verticalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(book.levelEmoji, fontSize = 32.sp)
-
-                Column {
-                    Text(
-                        book.title,
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 14.sp,
-                        maxLines = 3,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        book.titlePersian,
-                        color = Color.White.copy(alpha = 0.8f),
-                        fontSize = 12.sp,
-                        maxLines = 2
-                    )
-                }
-            }
-
-            if (book.category == BookCategory.LISTENING) {
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .padding(12.dp)
-                        .size(32.dp)
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(Color.Black.copy(alpha = 0.4f)),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(Icons.Filled.Headphones, null, tint = Color.White, modifier = Modifier.size(18.dp))
-                }
-            }
-
-            Box(
-                modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .padding(10.dp)
-                    .size(48.dp)
-                    .clip(RoundedCornerShape(14.dp))
-                    .background(Color.White)
-                    .clickable { onAddClick() },
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = if (isAdded) Icons.Filled.Check else Icons.Filled.Add,
-                    contentDescription = "Add",
-                    tint = if (isAdded) Color(0xFF4CAF50) else Color.Black,
-                    modifier = Modifier.size(26.dp)
-                )
-            }
+                },
+                onNavigateToLogin = { navController.popBackStack() }
+            )
         }
 
-        Spacer(Modifier.height(10.dp))
+        composable(Routes.HOME) {
+            HomeScreen(
+                onNavigateToLibrary = { navController.navigate(Routes.LIBRARY) },
+                onNavigateToAIChat = { navController.navigate(Routes.AI_CHAT) },
+                onNavigateToSpeaking = { navController.navigate(Routes.SPEAKING) },
+                onNavigateToVocabulary = { navController.navigate(Routes.VOCABULARY) },
+                onNavigateToProfile = { navController.navigate(Routes.PROFILE) },
+                onNavigateToSettings = { navController.navigate(Routes.SETTINGS) },
+                onNavigateToPodcast = { navController.navigate(Routes.PODCAST) },
+                onNavigateToDailySentences = { navController.navigate(Routes.DAILY_SENTENCES) },
+                onNavigateToLevelTest = { navController.navigate(Routes.LEVEL_TEST) },
+                onNavigateToAchievements = { navController.navigate(Routes.ACHIEVEMENTS) },
+                onLogout = {
+                    navController.navigate(Routes.LOGIN) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                    }
+                }
+            )
+        }
 
-        Text(
-            book.title,
-            fontWeight = FontWeight.Bold,
-            fontSize = 14.sp,
-            color = Color(0xFF1A237E),
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
-        )
-        Text(
-            book.titlePersian,
-            fontSize = 12.sp,
-            color = Color.Gray,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
-        )
+        composable(Routes.LIBRARY) {
+            LibraryScreen(
+                onBack = { navController.popBackStack() },
+                onBookClick = { bookId -> navController.navigate(Routes.bookDetail(bookId)) }
+            )
+        }
 
-        Spacer(Modifier.height(6.dp))
+        composable(
+            route = Routes.BOOK_DETAIL,
+            arguments = listOf(navArgument("bookId") { type = NavType.StringType })
+        ) { entry ->
+            val bookId = entry.arguments?.getString("bookId") ?: ""
+            BookDetailScreen(
+                bookId = bookId,
+                onBack = { navController.popBackStack() },
+                onChapterClick = { ch -> navController.navigate(Routes.lessonDetail(bookId, ch)) },
+                onQuizClick = { idx ->
+                    val book = BookRepository.getBookById(bookId)
+                    navController.navigate(
+                        Routes.quiz(bookId, idx, book?.totalChapters ?: 12, book?.title ?: "")
+                    )
+                }
+            )
+        }
 
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Icon(Icons.Filled.Visibility, null, tint = Color.Gray, modifier = Modifier.size(14.dp))
-            Spacer(Modifier.width(4.dp))
-            Text("${book.totalChapters} فصل", fontSize = 11.sp, color = Color.Gray)
+        composable(
+            route = Routes.QUIZ,
+            arguments = listOf(
+                navArgument("bookId") { type = NavType.StringType },
+                navArgument("quizIndex") { type = NavType.IntType },
+                navArgument("totalChapters") { type = NavType.IntType },
+                navArgument("bookTitle") { type = NavType.StringType }
+            )
+        ) { entry ->
+            val bookId = entry.arguments?.getString("bookId") ?: ""
+            val quizIndex = entry.arguments?.getInt("quizIndex") ?: 0
+            val totalChapters = entry.arguments?.getInt("totalChapters") ?: 12
+            val bookTitle = java.net.URLDecoder.decode(
+                entry.arguments?.getString("bookTitle") ?: "", "UTF-8"
+            )
+            QuizScreen(
+                bookId = bookId,
+                quizIndex = quizIndex,
+                totalChapters = totalChapters,
+                bookTitle = bookTitle,
+                onBack = { navController.popBackStack() },
+                onQuizCompleted = { if (it) navController.popBackStack() }
+            )
+        }
+
+        composable(
+            route = Routes.LESSON_DETAIL,
+            arguments = listOf(
+                navArgument("bookId") { type = NavType.StringType },
+                navArgument("chapterNumber") { type = NavType.IntType }
+            )
+        ) { entry ->
+            val bookId = entry.arguments?.getString("bookId") ?: ""
+            val chapterNumber = entry.arguments?.getInt("chapterNumber") ?: 1
+            val lesson = LessonContentRepository.getLessonContent(bookId, chapterNumber)
+            val book = BookRepository.getBookById(bookId)
+            LessonDetailScreen(
+                lesson = lesson,
+                bookTitle = book?.title ?: "",
+                bookCoverGradientStart = book?.gradientStart ?: 0xFF1A237E,
+                bookCoverGradientEnd = book?.gradientEnd ?: 0xFF3949AB,
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable(
+            route = Routes.READING_MODE,
+            arguments = listOf(
+                navArgument("title") { type = NavType.StringType },
+                navArgument("text") { type = NavType.StringType }
+            )
+        ) { entry ->
+            val title = java.net.URLDecoder.decode(
+                entry.arguments?.getString("title") ?: "", "UTF-8"
+            )
+            val text = java.net.URLDecoder.decode(
+                entry.arguments?.getString("text") ?: "", "UTF-8"
+            )
+            ReadingModeScreen(
+                title = title,
+                text = text,
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable(Routes.AI_CHAT) {
+            AIChatScreen(
+                onBack = { navController.popBackStack() },
+                onOpenSettings = { navController.navigate(Routes.API_KEY) }
+            )
+        }
+
+        composable(Routes.API_KEY) {
+            ApiKeyScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(Routes.PROFILE) {
+            ProfileScreen(
+                onBack = { navController.popBackStack() },
+                onNavigateToApiKey = { navController.navigate(Routes.API_KEY) },
+                onLogout = {
+                    navController.navigate(Routes.LOGIN) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        composable(Routes.SETTINGS) {
+            SettingsScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(Routes.VOCABULARY) {
+            VocabularyScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(Routes.SPEAKING) {
+            SpeakingScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(Routes.PODCAST) {
+            PodcastScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(Routes.DAILY_SENTENCES) {
+            DailySentencesScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(Routes.LEVEL_TEST) {
+            LevelTestScreen(
+                onBack = { navController.popBackStack() },
+                onTestComplete = { }
+            )
+        }
+
+        composable(Routes.ACHIEVEMENTS) {
+            AchievementsScreen(onBack = { navController.popBackStack() })
         }
     }
 }
