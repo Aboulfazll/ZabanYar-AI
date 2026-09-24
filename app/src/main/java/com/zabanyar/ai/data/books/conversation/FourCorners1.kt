@@ -9,17 +9,30 @@ object FourCorners1 {
     fun getChapter(chapterNumber: Int): LessonContent {
         return when (chapterNumber) {
             1 -> chapter1()
+            2 -> chapter2()
+            3 -> chapter3()
+            4 -> chapter4()
+            5 -> chapter5()
+            6 -> chapter6()
+            7 -> chapter7()
+            8 -> chapter8()
+            9 -> chapter9()
+            10 -> chapter10()
+            11 -> chapter11()
+            12 -> chapter12()
             else -> getDefaultContent(BOOK_ID, chapterNumber)
         }
     }
 
+    // ═══════════════════════════════════════════════════════════
+    // CHAPTER 1 — Welcome to Class
+    // ═══════════════════════════════════════════════════════════
     private fun chapter1(): LessonContent {
         return LessonContent(
             bookId = BOOK_ID,
             chapterNumber = 1,
             title = "Welcome to Class",
             titlePersian = "به کلاس خوش آمدید",
-
             objectives = listOf(
                 "Introduce yourself and other people",
                 "Ask for and give personal information",
@@ -28,492 +41,2509 @@ object FourCorners1 {
                 "Use common classroom expressions",
                 "Have a short conversation with a new classmate"
             ),
-
             vocabulary = listOf(
-                VocabWord(
-                    english = "classmate",
-                    persian = "همکلاسی",
-                    pronunciation = "/ˈklæsmeɪt/",
-                    partOfSpeech = "noun",
-                    example = "My new classmate is very friendly.",
-                    examplePersian = "همکلاسی جدید من خیلی صمیمی است."
-                ),
-                VocabWord(
-                    english = "class",
-                    persian = "کلاس",
-                    pronunciation = "/klæs/",
-                    partOfSpeech = "noun",
-                    example = "Our English class starts at nine.",
-                    examplePersian = "کلاس انگلیسی ما ساعت نه شروع می‌شود."
-                ),
-                VocabWord(
-                    english = "student",
-                    persian = "دانش‌آموز / دانشجو",
-                    pronunciation = "/ˈstuːdənt/",
-                    partOfSpeech = "noun",
-                    example = "I'm a new student.",
-                    examplePersian = "من دانش‌آموز جدید هستم."
-                ),
-                VocabWord(
-                    english = "teacher",
-                    persian = "معلم",
-                    pronunciation = "/ˈtiːtʃər/",
-                    partOfSpeech = "noun",
-                    example = "Our teacher is from Canada.",
-                    examplePersian = "معلم ما اهل کانادا است."
-                ),
-                VocabWord(
-                    english = "classroom",
-                    persian = "کلاس درس",
-                    pronunciation = "/ˈklæsruːm/",
-                    partOfSpeech = "noun",
-                    example = "The classroom is on the second floor.",
-                    examplePersian = "کلاس درس در طبقه دوم است."
-                ),
-                VocabWord(
-                    english = "country",
-                    persian = "کشور",
-                    pronunciation = "/ˈkʌntri/",
-                    partOfSpeech = "noun",
-                    example = "What country are you from?",
-                    examplePersian = "اهل کدام کشور هستی؟"
-                ),
-                VocabWord(
-                    english = "city",
-                    persian = "شهر",
-                    pronunciation = "/ˈsɪti/",
-                    partOfSpeech = "noun",
-                    example = "I live in a small city.",
-                    examplePersian = "من در یک شهر کوچک زندگی می‌کنم."
-                ),
-                VocabWord(
-                    english = "language",
-                    persian = "زبان",
-                    pronunciation = "/ˈlæŋɡwɪdʒ/",
-                    partOfSpeech = "noun",
-                    example = "English is an international language.",
-                    examplePersian = "انگلیسی یک زبان بین‌المللی است."
-                ),
-                VocabWord(
-                    english = "partner",
-                    persian = "هم‌گروهی / شریک",
-                    pronunciation = "/ˈpɑːrtnər/",
-                    partOfSpeech = "noun",
-                    example = "Work with your partner.",
-                    examplePersian = "با هم‌گروهی خود کار کنید."
-                ),
-                VocabWord(
-                    english = "repeat",
-                    persian = "تکرار کردن",
-                    pronunciation = "/rɪˈpiːt/",
-                    partOfSpeech = "verb",
-                    example = "Please repeat the question.",
-                    examplePersian = "لطفاً سؤال را تکرار کنید."
-                ),
-                VocabWord(
-                    english = "spell",
-                    persian = "هجی کردن",
-                    pronunciation = "/spel/",
-                    partOfSpeech = "verb",
-                    example = "How do you spell your name?",
-                    examplePersian = "اسمت را چطور هجی می‌کنی؟"
-                ),
-                VocabWord(
-                    english = "practice",
-                    persian = "تمرین کردن",
-                    pronunciation = "/ˈpræktɪs/",
-                    partOfSpeech = "verb/noun",
-                    example = "We practice English every day.",
-                    examplePersian = "ما هر روز انگلیسی تمرین می‌کنیم."
-                )
+                VocabWord("classmate", "همکلاسی", "/ˈklæsmeɪt/", "noun",
+                    "My new classmate is very friendly.",
+                    "همکلاسی جدید من خیلی صمیمی است.",
+                    collocations = "new classmate, my classmate"),
+                VocabWord("class", "کلاس", "/klæs/", "noun",
+                    "Our English class starts at nine.",
+                    "کلاس انگلیسی ما ساعت نه شروع می‌شود.",
+                    collocations = "English class, first class"),
+                VocabWord("student", "دانش‌آموز / دانشجو", "/ˈstuːdənt/", "noun",
+                    "I'm a new student.",
+                    "من دانش‌آموز جدید هستم.",
+                    collocations = "new student, good student"),
+                VocabWord("teacher", "معلم", "/ˈtiːtʃər/", "noun",
+                    "Our teacher is from Canada.",
+                    "معلم ما اهل کانادا است.",
+                    collocations = "English teacher, favorite teacher"),
+                VocabWord("classroom", "کلاس درس", "/ˈklæsruːm/", "noun",
+                    "The classroom is on the second floor.",
+                    "کلاس درس در طبقه دوم است.",
+                    collocations = "big classroom, quiet classroom"),
+                VocabWord("country", "کشور", "/ˈkʌntri/", "noun",
+                    "What country are you from?",
+                    "اهل کدام کشور هستی؟",
+                    collocations = "home country, foreign country"),
+                VocabWord("city", "شهر", "/ˈsɪti/", "noun",
+                    "I live in a small city.",
+                    "من در یک شهر کوچک زندگی می‌کنم.",
+                    collocations = "big city, small city"),
+                VocabWord("language", "زبان", "/ˈlæŋɡwɪdʒ/", "noun",
+                    "English is an international language.",
+                    "انگلیسی یک زبان بین‌المللی است.",
+                    collocations = "first language, foreign language"),
+                VocabWord("partner", "هم‌گروهی", "/ˈpɑːrtnər/", "noun",
+                    "Work with your partner.",
+                    "با هم‌گروهی خود کار کنید.",
+                    collocations = "class partner, work partner"),
+                VocabWord("repeat", "تکرار کردن", "/rɪˈpiːt/", "verb",
+                    "Please repeat the question.",
+                    "لطفاً سؤال را تکرار کنید.",
+                    collocations = "repeat the question, repeat after me"),
+                VocabWord("spell", "هجی کردن", "/spel/", "verb",
+                    "How do you spell your name?",
+                    "اسمت را چطور هجی می‌کنی؟",
+                    collocations = "spell a word, spell your name"),
+                VocabWord("practice", "تمرین کردن", "/ˈpræktɪs/", "verb",
+                    "We practice English every day.",
+                    "ما هر روز انگلیسی تمرین می‌کنیم.",
+                    collocations = "practice English, daily practice")
             ),
-
             idioms = listOf(
-                IdiomExpression(
-                    english = "Nice to meet you.",
-                    persian = "از آشنایی با شما خوشحالم.",
-                    example = "Hi, I'm David. Nice to meet you.",
-                    examplePersian = "سلام، من دیوید هستم. از آشنایی با شما خوشحالم.",
-                    register = "polite"
-                ),
-                IdiomExpression(
-                    english = "See you later.",
-                    persian = "بعداً می‌بینمت.",
-                    example = "Thanks for your help. See you later.",
-                    examplePersian = "ممنون از کمکت. بعداً می‌بینمت.",
-                    register = "informal"
-                )
+                IdiomExpression("Nice to meet you.", "از آشنایی با شما خوشحالم.",
+                    "Hi, I'm David. Nice to meet you.",
+                    "سلام، من دیوید هستم. از آشنایی با شما خوشحالم.",
+                    register = "polite"),
+                IdiomExpression("See you later.", "بعداً می‌بینمت.",
+                    "Thanks for your help. See you later.",
+                    "ممنون از کمکت. بعداً می‌بینمت.",
+                    register = "informal"),
+                IdiomExpression("How are you?", "حالت چطوره؟",
+                    "Hello! How are you?",
+                    "سلام! حالت چطوره؟",
+                    register = "neutral")
             ),
-
+            phrasalVerbs = listOf(
+                PhrasalVerb("come from", "اهل جایی بودن",
+                    "اهل جایی بودن",
+                    "I come from Turkey.",
+                    "من اهل ترکیه هستم.",
+                    separable = "No"),
+                PhrasalVerb("live in", "زندگی کردن در",
+                    "زندگی کردن در جایی",
+                    "I live in Baku.",
+                    "من در باکو زندگی می‌کنم.",
+                    separable = "No")
+            ),
             pronunciationTips = listOf(
-                PronunciationTip(
-                    title = "I'm و You're",
-                    content = "در مکالمه طبیعی I am معمولاً به I'm و You are به You're کوتاه می‌شوند."
-                ),
-                PronunciationTip(
-                    title = "تلفظ student",
-                    content = "در student صدای /st/ در ابتدای کلمه باید واضح باشد."
-                ),
-                PronunciationTip(
-                    title = "سؤال‌های کوتاه",
-                    content = "در سؤال‌هایی مانند What's your name? روی کلمات اصلی مثل name تأکید بیشتری قرار می‌گیرد."
-                )
+                PronunciationTip("I'm و You're",
+                    "در مکالمه طبیعی I am معمولاً به I'm و You are به You're کوتاه می‌شوند."),
+                PronunciationTip("تلفظ student",
+                    "در student صدای /st/ در ابتدای کلمه باید واضح باشد."),
+                PronunciationTip("سؤال‌های کوتاه",
+                    "در سؤال‌هایی مانند What's your name? روی کلمات اصلی مثل name تأکید بیشتری قرار می‌گیرد.")
             ),
-
             culturalNotes = listOf(
-                CulturalNote(
-                    title = "Introducing yourself",
-                    content = "در اولین دیدار معمولاً گفتن نام و استفاده از عبارتی مانند Nice to meet you یک روش طبیعی و مؤدبانه برای شروع آشنایی است."
-                ),
-                CulturalNote(
-                    title = "Using first names",
-                    content = "در بسیاری از محیط‌های آموزشی انگلیسی‌زبان، دانش‌آموزان و معلمان ممکن است از نام کوچک یکدیگر استفاده کنند؛ اما این موضوع به فرهنگ و محیط بستگی دارد."
-                )
+                CulturalNote("Introducing yourself",
+                    "در اولین دیدار معمولاً گفتن نام و استفاده از عبارتی مانند Nice to meet you یک روش طبیعی و مؤدبانه برای شروع آشنایی است."),
+                CulturalNote("Using first names",
+                    "در بسیاری از محیط‌های آموزشی انگلیسی‌زبان، دانش‌آموزان و معلمان ممکن است از نام کوچک یکدیگر استفاده کنند؛ اما این موضوع به فرهنگ و محیط بستگی دارد.")
             ),
-
             grammar = listOf(
-                GrammarSection(
-                    title = "Subject Pronouns",
-                    content = """
-                        ضمایر فاعلی اصلی:
-
-                        I = من
-                        You = تو / شما
-                        He = او، مذکر
-                        She = او، مؤنث
-                        We = ما
-                        They = آنها
-
-                        مثال:
-
-                        I am a student.
-                        She is my teacher.
-                        They are classmates.
-                    """.trimIndent()
-                ),
-                GrammarSection(
-                    title = "The Verb Be",
-                    content = """
-                        شکل‌های فعل be در زمان حال:
-
-                        I am
-                        You are
-                        He is
-                        She is
-                        We are
-                        They are
-
-                        مثال:
-
-                        I am from Iran.
-                        You are a student.
-                        He is my friend.
-                        She is a teacher.
-                        We are classmates.
-                        They are from Turkey.
-                    """.trimIndent()
-                ),
-                GrammarSection(
-                    title = "Negative Forms",
-                    content = """
-                        برای منفی کردن فعل be از not استفاده می‌کنیم:
-
-                        I am not a teacher.
-                        You are not from Canada.
-                        He is not a student.
-
-                        شکل کوتاه:
-
-                        is not → isn't
-                        are not → aren't
-
-                        مثال:
-
-                        She isn't a student.
-                        They aren't from Spain.
-                    """.trimIndent()
-                ),
-                GrammarSection(
-                    title = "Basic Questions",
-                    content = """
-                        با جابه‌جایی فعل be و فاعل سؤال می‌سازیم:
-
-                        Are you a student?
-                        Yes, I am.
-
-                        Is she your teacher?
-                        Yes, she is.
-
-                        برای سؤال‌های اطلاعاتی:
-
-                        What's your name?
-                        Where are you from?
-                        Who is he?
-                    """.trimIndent()
-                )
+                GrammarSection("Subject Pronouns",
+                    "I = من / You = تو / He = او (مذکر) / She = او (مؤنث) / We = ما / They = آنها. مثال: I am a student. She is my teacher. They are classmates."),
+                GrammarSection("The Verb Be",
+                    "I am / You are / He is / She is / We are / They are. مثال: I am from Iran. You are a student. He is my friend."),
+                GrammarSection("Negative Forms",
+                    "برای منفی کردن فعل be از not استفاده می‌کنیم: I am not a teacher. She isn't a student. They aren't from Spain. شکل کوتاه: is not → isn't, are not → aren't."),
+                GrammarSection("Basic Questions",
+                    "با جابه‌جایی فعل be و فاعل سؤال می‌سازیم: Are you a student? — Yes, I am. / What's your name? / Where are you from? / Who is he?")
             ),
-
             commonMistakes = listOf(
-                CommonMistake(
-                    wrong = "I are a student.",
-                    correct = "I am a student.",
-                    explanation = "با I از am استفاده می‌کنیم."
-                ),
-                CommonMistake(
-                    wrong = "She are my teacher.",
-                    correct = "She is my teacher.",
-                    explanation = "با he و she از is استفاده می‌کنیم."
-                ),
-                CommonMistake(
-                    wrong = "They is students.",
-                    correct = "They are students.",
-                    explanation = "با they از are استفاده می‌کنیم."
-                ),
-                CommonMistake(
-                    wrong = "Are she a student?",
-                    correct = "Is she a student?",
-                    explanation = "با she باید از is استفاده کنیم."
-                ),
-                CommonMistake(
-                    wrong = "Where you are from?",
-                    correct = "Where are you from?",
-                    explanation = "در سؤال با فعل be، فعل قبل از فاعل می‌آید."
-                )
+                CommonMistake("I are a student.", "I am a student.", "با I از am استفاده می‌کنیم."),
+                CommonMistake("She are my teacher.", "She is my teacher.", "با he و she از is استفاده می‌کنیم."),
+                CommonMistake("They is students.", "They are students.", "با they از are استفاده می‌کنیم."),
+                CommonMistake("Where you are from?", "Where are you from?", "در سؤال با فعل be، فعل قبل از فاعل می‌آید.")
             ),
-
             conversation = listOf(
-                DialogueLine(
-                    speaker = "Teacher",
-                    english = "Good morning, everyone. Welcome to the English class.",
-                    persian = "صبح بخیر، همه. به کلاس انگلیسی خوش آمدید."
-                ),
-                DialogueLine(
-                    speaker = "Teacher",
-                    english = "My name is Mr. Brown. I'm your English teacher.",
-                    persian = "اسم من آقای براون است. من معلم انگلیسی شما هستم."
-                ),
-                DialogueLine(
-                    speaker = "Emma",
-                    english = "Good morning. I'm Emma.",
-                    persian = "صبح بخیر. من اِما هستم."
-                ),
-                DialogueLine(
-                    speaker = "Teacher",
-                    english = "Nice to meet you, Emma. Are you a new student?",
-                    persian = "از آشنایی با تو خوشحالم، اِما. آیا دانش‌آموز جدیدی هستی؟"
-                ),
-                DialogueLine(
-                    speaker = "Emma",
-                    english = "Yes, I am. This is my first English class here.",
-                    persian = "بله. این اولین کلاس انگلیسی من اینجاست."
-                ),
-                DialogueLine(
-                    speaker = "Teacher",
-                    english = "Great. Where are you from?",
-                    persian = "عالی. اهل کجا هستی؟"
-                ),
-                DialogueLine(
-                    speaker = "Emma",
-                    english = "I'm from Turkey. I live in Baku now.",
-                    persian = "من اهل ترکیه هستم. الان در باکو زندگی می‌کنم."
-                ),
-                DialogueLine(
-                    speaker = "Teacher",
-                    english = "That's interesting. Please meet Daniel. He's your classmate.",
-                    persian = "جالب است. با دنیل آشنا شو. او همکلاسی توست."
-                ),
-                DialogueLine(
-                    speaker = "Daniel",
-                    english = "Hi, Emma. I'm Daniel.",
-                    persian = "سلام اِما. من دنیل هستم."
-                ),
-                DialogueLine(
-                    speaker = "Emma",
-                    english = "Hi, Daniel. Nice to meet you.",
-                    persian = "سلام دنیل. از آشنایی با تو خوشحالم."
-                ),
-                DialogueLine(
-                    speaker = "Daniel",
-                    english = "Nice to meet you, too. Where are you from?",
-                    persian = "من هم از آشنایی با تو خوشحالم. اهل کجا هستی؟"
-                ),
-                DialogueLine(
-                    speaker = "Emma",
-                    english = "I'm from Turkey. How about you?",
-                    persian = "من اهل ترکیه هستم. تو چطور؟"
-                ),
-                DialogueLine(
-                    speaker = "Daniel",
-                    english = "I'm from Azerbaijan. I live near the city center.",
-                    persian = "من اهل آذربایجان هستم. نزدیک مرکز شهر زندگی می‌کنم."
-                ),
-                DialogueLine(
-                    speaker = "Emma",
-                    english = "Oh, nice. Are you a university student?",
-                    persian = "آهان، خوبه. دانشجوی دانشگاه هستی؟"
-                ),
-                DialogueLine(
-                    speaker = "Daniel",
-                    english = "Yes, I am. I'm studying computer science.",
-                    persian = "بله. من علوم کامپیوتر می‌خوانم."
-                ),
-                DialogueLine(
-                    speaker = "Emma",
-                    english = "That's interesting. I'm studying business.",
-                    persian = "جالب است. من مدیریت بازرگانی می‌خوانم."
-                ),
-                DialogueLine(
-                    speaker = "Teacher",
-                    english = "Okay, everyone. Now work with your partner and introduce yourselves.",
-                    persian = "خب، همه. حالا با هم‌گروهی خود کار کنید و خودتان را معرفی کنید."
-                ),
-                DialogueLine(
-                    speaker = "Daniel",
-                    english = "Emma, can you spell your last name?",
-                    persian = "اِما، می‌توانی نام خانوادگی‌ات را هجی کنی؟"
-                ),
-                DialogueLine(
-                    speaker = "Emma",
-                    english = "Sure. It's K-A-R-I-M-I.",
-                    persian = "حتماً. K-A-R-I-M-I است."
-                ),
-                DialogueLine(
-                    speaker = "Daniel",
-                    english = "Thanks. And what's your phone number?",
-                    persian = "ممنون. شماره تلفنت چیست؟"
-                ),
-                DialogueLine(
-                    speaker = "Emma",
-                    english = "I'll write it down for you.",
-                    persian = "آن را برایت می‌نویسم."
-                ),
-                DialogueLine(
-                    speaker = "Daniel",
-                    english = "Thanks. I think we're going to be good classmates.",
-                    persian = "ممنون. فکر می‌کنم همکلاسی‌های خوبی برای هم خواهیم بود."
-                )
+                DialogueLine("Teacher", "Good morning, everyone. Welcome to the English class.",
+                    "صبح بخیر، همه. به کلاس انگلیسی خوش آمدید."),
+                DialogueLine("Teacher", "My name is Mr. Brown. I'm your English teacher.",
+                    "اسم من آقای براون است. من معلم انگلیسی شما هستم."),
+                DialogueLine("Emma", "Good morning. I'm Emma.",
+                    "صبح بخیر. من اِما هستم."),
+                DialogueLine("Teacher", "Nice to meet you, Emma. Are you a new student?",
+                    "از آشنایی با تو خوشحالم، اِما. آیا دانش‌آموز جدیدی هستی؟"),
+                DialogueLine("Emma", "Yes, I am. This is my first English class here.",
+                    "بله. این اولین کلاس انگلیسی من اینجاست."),
+                DialogueLine("Teacher", "Great. Where are you from?",
+                    "عالی. اهل کجا هستی؟"),
+                DialogueLine("Emma", "I'm from Turkey. I live in Baku now.",
+                    "من اهل ترکیه هستم. الان در باکو زندگی می‌کنم."),
+                DialogueLine("Teacher", "That's interesting. Please meet Daniel. He's your classmate.",
+                    "جالب است. با دنیل آشنا شو. او همکلاسی توست."),
+                DialogueLine("Daniel", "Hi, Emma. I'm Daniel.",
+                    "سلام اِما. من دنیل هستم."),
+                DialogueLine("Emma", "Hi, Daniel. Nice to meet you.",
+                    "سلام دنیل. از آشنایی با تو خوشحالم."),
+                DialogueLine("Daniel", "Nice to meet you, too. Where are you from?",
+                    "من هم از آشنایی با تو خوشحالم. اهل کجا هستی؟"),
+                DialogueLine("Emma", "I'm from Turkey. How about you?",
+                    "من اهل ترکیه هستم. تو چطور؟"),
+                DialogueLine("Daniel", "I'm from Azerbaijan. I live near the city center.",
+                    "من اهل آذربایجان هستم. نزدیک مرکز شهر زندگی می‌کنم."),
+                DialogueLine("Emma", "Are you a university student?",
+                    "دانشجوی دانشگاه هستی؟"),
+                DialogueLine("Daniel", "Yes, I am. I'm studying computer science.",
+                    "بله. من علوم کامپیوتر می‌خوانم."),
+                DialogueLine("Emma", "That's interesting. I'm studying business.",
+                    "جالب است. من مدیریت بازرگانی می‌خوانم."),
+                DialogueLine("Daniel", "Emma, can you spell your last name?",
+                    "اِما، می‌توانی نام خانوادگی‌ات را هجی کنی؟"),
+                DialogueLine("Emma", "Sure. It's K-A-R-I-M-I.",
+                    "حتماً. K-A-R-I-M-I است."),
+                DialogueLine("Daniel", "Thanks. I think we're going to be good classmates.",
+                    "ممنون. فکر می‌کنم همکلاسی‌های خوبی برای هم خواهیم بود.")
             ),
-
             comprehensionQuestions = listOf(
-                ComprehensionQuestion(
-                    question = "Who is Mr. Brown?",
-                    answer = "He is the English teacher."
-                ),
-                ComprehensionQuestion(
-                    question = "Is Emma a new student?",
-                    answer = "Yes, she is."
-                ),
-                ComprehensionQuestion(
-                    question = "Where is Emma from?",
-                    answer = "She is from Turkey."
-                ),
-                ComprehensionQuestion(
-                    question = "Where does Emma live now?",
-                    answer = "She lives in Baku."
-                ),
-                ComprehensionQuestion(
-                    question = "Where is Daniel from?",
-                    answer = "He is from Azerbaijan."
-                ),
-                ComprehensionQuestion(
-                    question = "What is Daniel studying?",
-                    answer = "He is studying computer science."
-                ),
-                ComprehensionQuestion(
-                    question = "What is Emma studying?",
-                    answer = "She is studying business."
-                )
+                ComprehensionQuestion("Who is Mr. Brown?", "He is the English teacher."),
+                ComprehensionQuestion("Is Emma a new student?", "Yes, she is."),
+                ComprehensionQuestion("Where is Emma from?", "She is from Turkey."),
+                ComprehensionQuestion("What is Daniel studying?", "He is studying computer science."),
+                ComprehensionQuestion("What is Emma studying?", "She is studying business.")
             ),
-
             speakingTasks = listOf(
-                SpeakingTask(
-                    prompt = "Introduce yourself to a new classmate.",
-                    promptPersian = "خودت را به یک همکلاسی جدید معرفی کن.",
-                    hints = "My name is... / I'm from... / I live in... / I'm a student..."
-                ),
-                SpeakingTask(
-                    prompt = "Ask your partner about their name, country, city, and studies.",
-                    promptPersian = "درباره نام، کشور، شهر و تحصیلات دوستت سؤال بپرس.",
-                    hints = "What's your name? / Where are you from? / Where do you live? / Are you a student?"
-                ),
-                SpeakingTask(
-                    prompt = "Spell your first and last name in English.",
-                    promptPersian = "نام و نام خانوادگی خودت را به انگلیسی هجی کن.",
-                    hints = "My first name is... / That's... / My last name is..."
-                )
+                SpeakingTask("Introduce yourself to a new classmate.",
+                    "خودت را به یک همکلاسی جدید معرفی کن.",
+                    "My name is... / I'm from... / I live in... / I'm a student..."),
+                SpeakingTask("Ask your partner about their name, country, city, and studies.",
+                    "درباره نام، کشور، شهر و تحصیلات دوستت سؤال بپرس.",
+                    "What's your name? / Where are you from? / Where do you live? / Are you a student?"),
+                SpeakingTask("Spell your first and last name in English.",
+                    "نام و نام خانوادگی خودت را به انگلیسی هجی کن.",
+                    "My first name is... / That's... / My last name is...")
             ),
-
             writingTasks = listOf(
-                WritingTask(
-                    prompt = "Write a short introduction about yourself for your new English classmates.",
-                    promptPersian = "یک معرفی کوتاه برای همکلاسی‌های جدید انگلیسی‌ات بنویس.",
-                    wordCount = 70,
-                    hints = "name, country, city, student/job, language"
-                )
+                WritingTask("Write a short introduction about yourself for your new English classmates.",
+                    "یک معرفی کوتاه برای همکلاسی‌های جدید انگلیسی‌ات بنویس.",
+                    70,
+                    "name, country, city, student/job, language")
             ),
-
             quiz = listOf(
-                QuizQuestion(
-                    question = "Complete: I ___ a student.",
-                    options = listOf("is", "are", "am", "be"),
-                    correctIndex = 2
-                ),
-                QuizQuestion(
-                    question = "Complete: She ___ my teacher.",
-                    options = listOf("am", "are", "is", "be"),
-                    correctIndex = 2
-                ),
-                QuizQuestion(
-                    question = "Choose the correct question.",
-                    options = listOf(
-                        "Where you are from?",
-                        "Where are you from?",
-                        "Where from are you?",
-                        "Where you from?"
-                    ),
-                    correctIndex = 1
-                ),
-                QuizQuestion(
-                    question = "Complete: They ___ classmates.",
-                    options = listOf("is", "am", "are", "be"),
-                    correctIndex = 2
-                ),
-                QuizQuestion(
-                    question = "Choose the correct negative sentence.",
-                    options = listOf(
-                        "She not is a teacher.",
-                        "She isn't a teacher.",
-                        "She aren't a teacher.",
-                        "She don't a teacher."
-                    ),
-                    correctIndex = 1
-                ),
-                QuizQuestion(
-                    question = "What does 'classmate' mean?",
-                    options = listOf(
-                        "A teacher",
-                        "A person in the same class",
-                        "A family member",
-                        "A school building"
-                    ),
-                    correctIndex = 1
-                ),
-                QuizQuestion(
-                    question = "Choose the correct response: Nice to meet you.",
-                    options = listOf(
-                        "Nice to meet you, too.",
-                        "I'm from Iran.",
-                        "Yes, I am.",
-                        "Good night."
-                    ),
-                    correctIndex = 0
-                ),
-                QuizQuestion(
-                    question = "Complete: ___ she a student?",
-                    options = listOf("Am", "Are", "Is", "Be"),
-                    correctIndex = 2
-                )
+                QuizQuestion("Complete: I ___ a student.",
+                    listOf("is", "are", "am", "be"), 2),
+                QuizQuestion("Complete: She ___ my teacher.",
+                    listOf("am", "are", "is", "be"), 2),
+                QuizQuestion("Choose the correct question.",
+                    listOf("Where you are from?", "Where are you from?",
+                        "Where from are you?", "Where you from?"), 1),
+                QuizQuestion("Complete: They ___ classmates.",
+                    listOf("is", "am", "are", "be"), 2),
+                QuizQuestion("Choose the correct negative sentence.",
+                    listOf("She not is a teacher.", "She isn't a teacher.",
+                        "She aren't a teacher.", "She don't a teacher."), 1),
+                QuizQuestion("What does 'classmate' mean?",
+                    listOf("A teacher", "A person in the same class",
+                        "A family member", "A school building"), 1),
+                QuizQuestion("Choose the correct response: Nice to meet you.",
+                    listOf("Nice to meet you, too.", "I'm from Iran.",
+                        "Yes, I am.", "Good night."), 0),
+                QuizQuestion("Complete: ___ she a student?",
+                    listOf("Am", "Are", "Is", "Be"), 2)
             )
         )
     }
+
+    // ═══════════════════════════════════════════════════════════
+    // CHAPTER 2 — My Family and Friends
+    // ═══════════════════════════════════════════════════════════
+    private fun chapter2(): LessonContent {
+        return LessonContent(
+            bookId = BOOK_ID,
+            chapterNumber = 2,
+            title = "My Family and Friends",
+            titlePersian = "خانواده و دوستان من",
+            objectives = listOf(
+                "Talk about family members and friends",
+                "Use have and has for possession",
+                "Use possessive adjectives correctly",
+                "Describe people's personality",
+                "Use this and these for introductions",
+                "Talk about family relationships"
+            ),
+            vocabulary = listOf(
+                VocabWord("family", "خانواده", "/ˈfæməli/", "noun",
+                    "I have a big family.",
+                    "من خانواده بزرگی دارم.",
+                    collocations = "big family, close family"),
+                VocabWord("parents", "والدین", "/ˈperənts/", "noun",
+                    "My parents live in Iran.",
+                    "والدینم در ایران زندگی می‌کنند.",
+                    collocations = "my parents, both parents"),
+                VocabWord("brother", "برادر", "/ˈbrʌðər/", "noun",
+                    "My brother is a doctor.",
+                    "برادرم دکتر است.",
+                    collocations = "older brother, younger brother"),
+                VocabWord("sister", "خواهر", "/ˈsɪstər/", "noun",
+                    "She has one sister.",
+                    "او یک خواهر دارد.",
+                    collocations = "older sister, younger sister"),
+                VocabWord("friend", "دوست", "/frend/", "noun",
+                    "He's my best friend.",
+                    "او بهترین دوست من است.",
+                    collocations = "best friend, close friend"),
+                VocabWord("friendly", "خوش‌برخورد", "/ˈfrendli/", "adjective",
+                    "My friend is very friendly.",
+                    "دوست من خیلی خوش‌برخورد است.",
+                    collocations = "very friendly, friendly person"),
+                VocabWord("kind", "مهربان", "/kaɪnd/", "adjective",
+                    "She's a kind person.",
+                    "او آدم مهربانی است.",
+                    collocations = "very kind, kind-hearted"),
+                VocabWord("funny", "بامزه", "/ˈfʌni/", "adjective",
+                    "My brother is very funny.",
+                    "برادرم خیلی بامزه است.",
+                    collocations = "very funny, really funny"),
+                VocabWord("shy", "خجالتی", "/ʃaɪ/", "adjective",
+                    "My sister is a bit shy.",
+                    "خواهرم کمی خجالتی است.",
+                    collocations = "a bit shy, very shy"),
+                VocabWord("married", "متأهل", "/ˈmerid/", "adjective",
+                    "My brother is married.",
+                    "برادرم متأهل است.",
+                    collocations = "newly married, happily married"),
+                VocabWord("single", "مجرد", "/ˈsɪŋɡəl/", "adjective",
+                    "My sister is single.",
+                    "خواهرم مجرد است.",
+                    collocations = "still single, young and single"),
+                VocabWord("husband", "شوهر", "/ˈhʌzbənd/", "noun",
+                    "Her husband is a teacher.",
+                    "شوهرش معلم است.",
+                    collocations = "her husband, my husband")
+            ),
+            idioms = listOf(
+                IdiomExpression("get along", "کنار آمدن",
+                    "I get along well with my sister.",
+                    "من با خواهرم خوب کنار میام.",
+                    register = "neutral"),
+                IdiomExpression("look like", "شبیه بودن",
+                    "He looks like his father.",
+                    "او شبیه پدرش است.",
+                    register = "neutral"),
+                IdiomExpression("take after", "شبیه بودن به",
+                    "She takes after her mother.",
+                    "او شبیه مادرش است.",
+                    register = "neutral")
+            ),
+            phrasalVerbs = listOf(
+                PhrasalVerb("grow up", "بزرگ شدن",
+                    "بزرگ شدن، بزرگ شدن در جایی",
+                    "I grew up in a small town.",
+                    "در شهر کوچکی بزرگ شدم.",
+                    separable = "No"),
+                PhrasalVerb("look after", "مراقبت کردن از",
+                    "مراقبت کردن",
+                    "I look after my little brother.",
+                    "از برادر کوچکم مراقبت می‌کنم.",
+                    separable = "No")
+            ),
+            pronunciationTips = listOf(
+                PronunciationTip("th in brother",
+                    "کلمه brother صدای /ð/ دارد. زبان را بین دندان‌ها قرار بده."),
+                PronunciationTip("Possessive 's",
+                    "در گفتار طبیعی، 's بعد از اسم‌ها کوتاه و پیوسته تلفظ می‌شود."),
+                PronunciationTip("Family words stress",
+                    "کلمات mother, father, brother, sister استرس روی بخش اول دارند.")
+            ),
+            culturalNotes = listOf(
+                CulturalNote("Family structure",
+                    "در بسیاری از جوامع انگلیسی‌زبان، خانواده‌های هسته‌ای (nuclear families) رایج‌تر از خانواده‌های گسترده هستند."),
+                CulturalNote("Talking about family",
+                    "سؤال کردن درباره خانواده در اولین ملاقات معمولاً مؤدبانه و طبیعی است، مگر اینکه طرف مقابل نشان دهد راحت نیست.")
+            ),
+            grammar = listOf(
+                GrammarSection("have / has",
+                    "I/You/We/They + have. He/She/It + has. مثال: I have two brothers. She has one sister. They have a small family."),
+                GrammarSection("Possessive adjectives",
+                    "my, your, his, her, our, their. مثال: My brother is a doctor. Her parents live in Tehran. Their house is big."),
+                GrammarSection("Possessive 's",
+                    "برای نشان دادن مالکیت: Ali's brother, my father's car. مثال: Sara's sister is a teacher. My mother's name is Maryam."),
+                GrammarSection("Questions about family",
+                    "Do you have any brothers or sisters? How many brothers do you have? What does your father do? Who do you look like?")
+            ),
+            commonMistakes = listOf(
+                CommonMistake("She have two brothers.", "She has two brothers.", "با she از has استفاده می‌کنیم."),
+                CommonMistake("I have a big family. / Ali car is new.", "Ali's car is new.", "برای مالکیت از 's استفاده می‌کنیم."),
+                CommonMistake("His name is Ali. His 25 years old.", "His name is Ali. He is 25 years old.", "برای سن از He/She نه His/Her.")
+            ),
+            conversation = listOf(
+                DialogueLine("Sara", "Do you have a big family, Ali?",
+                    "خانواده بزرگی داری، علی؟"),
+                DialogueLine("Ali", "Not really. I have one brother and one sister.",
+                    "نه واقعاً. یک برادر و یک خواهر دارم."),
+                DialogueLine("Sara", "Are they older or younger than you?",
+                    "از تو بزرگ‌ترند یا کوچک‌تر؟"),
+                DialogueLine("Ali", "My brother is older, and my sister is younger.",
+                    "برادرم بزرگ‌تر و خواهرم کوچک‌تر است."),
+                DialogueLine("Sara", "What does your brother do?",
+                    "برادرت چه کاره است؟"),
+                DialogueLine("Ali", "He's a doctor. He works at a hospital.",
+                    "او دکتر است. در بیمارستان کار می‌کند."),
+                DialogueLine("Sara", "That's nice. What about your sister?",
+                    "خوبه. خواهرت چطور؟"),
+                DialogueLine("Ali", "She's a student. She's studying English.",
+                    "او دانشجو است. دارد انگلیسی می‌خواند."),
+                DialogueLine("Sara", "Do you get along well with them?",
+                    "با آن‌ها خوب کنار می‌آیی؟"),
+                DialogueLine("Ali", "Yes, we get along very well.",
+                    "بله، خیلی خوب کنار می‌آییم."),
+                DialogueLine("Sara", "Who do you look like in your family?",
+                    "در خانواده‌ات شبیه کی هستی؟"),
+                DialogueLine("Ali", "I take after my father. We have similar personalities.",
+                    "من شبیه پدرم هستم. شخصیت‌های مشابهی داریم."),
+                DialogueLine("Sara", "What's he like?",
+                    "او چه جور آدمیه؟"),
+                DialogueLine("Ali", "He's very kind and patient. He's also funny.",
+                    "خیلی مهربان و صبور است. همچنین بامزه است."),
+                DialogueLine("Sara", "And your mother?",
+                    "و مادرت؟"),
+                DialogueLine("Ali", "She's a bit shy, but very warm.",
+                    "کمی خجالتی است، ولی خیلی گرم."),
+                DialogueLine("Sara", "You have a wonderful family!",
+                    "خانواده فوق‌العاده‌ای داری!"),
+                DialogueLine("Ali", "Thanks. What about your family?",
+                    "ممنون. خانواده تو چطور؟"),
+                DialogueLine("Sara", "I have a small family. Just my parents and me.",
+                    "خانواده کوچکی دارم. فقط والدینم و خودم."),
+                DialogueLine("Ali", "That's still special. Family is important.",
+                    "همین هم خاصه. خانواده مهمه.")
+            ),
+            comprehensionQuestions = listOf(
+                ComprehensionQuestion("Ali چند خواهر و برادر دارد؟", "یک برادر و یک خواهر."),
+                ComprehensionQuestion("برادر Ali چه شغلی دارد؟", "دکتر است."),
+                ComprehensionQuestion("خواهر Ali چه می‌خواند؟", "انگلیسی."),
+                ComprehensionQuestion("Ali شبیه کی است؟", "شبیه پدرش."),
+                ComprehensionQuestion("خانواده Sara چه شکلی است؟", "خانواده کوچکی دارد — فقط والدینش و خودش.")
+            ),
+            speakingTasks = listOf(
+                SpeakingTask("Describe your family.",
+                    "خانواده‌ات را توصیف کن.",
+                    "I have... / My father is... / My mother is... / We get along..."),
+                SpeakingTask("Talk about your best friend.",
+                    "درباره بهترین دوستت صحبت کن.",
+                    "My best friend is... / He/She is... / We like to..."),
+                SpeakingTask("Talk about family resemblances.",
+                    "درباره شباهت‌های خانوادگی صحبت کن.",
+                    "I take after... / He looks like... / We have similar...")
+            ),
+            writingTasks = listOf(
+                WritingTask("Write about your family.",
+                    "درباره خانواده‌ات بنویس.",
+                    80,
+                    "Include three family members and use have/has and possessive 's.")
+            ),
+            quiz = listOf(
+                QuizQuestion("Complete: She ___ one sister.",
+                    listOf("have", "has", "haves", "having"), 1),
+                QuizQuestion("Complete: I ___ a big family.",
+                    listOf("has", "have", "haves", "having"), 1),
+                QuizQuestion("Choose correct possessive:",
+                    listOf("Ali car", "Ali's car", "Alis car", "Car Ali"), 1),
+                QuizQuestion("What does 'get along' mean?",
+                    listOf("دعوا کردن", "کنار آمدن", "جدا شدن", "سفر کردن"), 1),
+                QuizQuestion("Complete: They ___ two children.",
+                    listOf("has", "have", "haves", "having"), 1),
+                QuizQuestion("Complete: ___ name is Sara.",
+                    listOf("She", "Her", "Hers", "She's"), 1),
+                QuizQuestion("Complete: My brother ___ 25 years old.",
+                    listOf("have", "has", "is", "are"), 2),
+                QuizQuestion("Complete: I have two ___.",
+                    listOf("brother", "brothers", "brother's", "brotheres"), 1)
+            )
+        )
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // CHAPTER 3 — Daily Life
+    // ═══════════════════════════════════════════════════════════
+    private fun chapter3(): LessonContent {
+        return LessonContent(
+            bookId = BOOK_ID,
+            chapterNumber = 3,
+            title = "Daily Life",
+            titlePersian = "زندگی روزمره",
+            objectives = listOf(
+                "Talk about daily routines and schedules",
+                "Tell the time accurately",
+                "Use the present simple",
+                "Use adverbs of frequency",
+                "Talk about days of the week",
+                "Ask questions about routines"
+            ),
+            vocabulary = listOf(
+                VocabWord("wake up", "بیدار شدن", "/weɪk ʌp/", "phrasal verb",
+                    "I wake up at 7 every morning.",
+                    "هر صبح ساعت ۷ بیدار می‌شوم.",
+                    collocations = "wake up early, wake up late"),
+                VocabWord("get up", "بلند شدن", "/ɡet ʌp/", "phrasal verb",
+                    "I get up at 7:30.",
+                    "ساعت ۷:۳۰ بلند می‌شوم.",
+                    collocations = "get up early, get up quickly"),
+                VocabWord("breakfast", "صبحانه", "/ˈbrekfəst/", "noun",
+                    "I have breakfast at 8.",
+                    "ساعت ۸ صبحانه می‌خورم.",
+                    collocations = "have breakfast, eat breakfast"),
+                VocabWord("lunch", "ناهار", "/lʌntʃ/", "noun",
+                    "We have lunch at noon.",
+                    "ظهر ناهار می‌خوریم.",
+                    collocations = "have lunch, lunch break"),
+                VocabWord("dinner", "شام", "/ˈdɪnər/", "noun",
+                    "We have dinner at 7.",
+                    "ساعت ۷ شام می‌خوریم.",
+                    collocations = "have dinner, family dinner"),
+                VocabWord("work", "کار کردن", "/wɜːrk/", "verb",
+                    "I work from 9 to 5.",
+                    "از ۹ تا ۵ کار می‌کنم.",
+                    collocations = "go to work, start work"),
+                VocabWord("study", "درس خواندن", "/ˈstʌdi/", "verb",
+                    "I study every evening.",
+                    "هر عصر درس می‌خوانم.",
+                    collocations = "study English, study hard"),
+                VocabWord("always", "همیشه", "/ˈɔːlweɪz/", "adverb",
+                    "I always drink tea in the morning.",
+                    "من همیشه صبح‌ها چای می‌نوشم.",
+                    collocations = "almost always, always on time"),
+                VocabWord("usually", "معمولاً", "/ˈjuːʒuəli/", "adverb",
+                    "I usually walk to work.",
+                    "معمولاً پیاده به سر کار می‌روم.",
+                    collocations = "usually do, usually go"),
+                VocabWord("sometimes", "گاهی اوقات", "/ˈsʌmtaɪmz/", "adverb",
+                    "I sometimes read at night.",
+                    "گاهی شب‌ها می‌خوانم.",
+                    collocations = "sometimes do, only sometimes"),
+                VocabWord("never", "هرگز", "/ˈnevər/", "adverb",
+                    "I never watch TV in the morning.",
+                    "صبح‌ها هرگز تلویزیون تماشا نمی‌کنم.",
+                    collocations = "never again, almost never"),
+                VocabWord("early", "زود", "/ˈɜːrli/", "adjective/adverb",
+                    "I get up early on weekdays.",
+                    "روزهای هفته زود بیدار می‌شوم.",
+                    collocations = "get up early, arrive early")
+            ),
+            idioms = listOf(
+                IdiomExpression("early bird", "سحرخیز",
+                    "My dad is an early bird.",
+                    "بابام سحرخیزه.",
+                    register = "informal"),
+                IdiomExpression("night owl", "شب‌زنده‌دار",
+                    "I'm a night owl — I work best at night.",
+                    "من شب‌زنده‌دارم — شب‌ها بهترین کار را می‌کنم.",
+                    register = "informal"),
+                IdiomExpression("on time", "سر وقت",
+                    "I always arrive on time.",
+                    "من همیشه سر وقت می‌رسم.",
+                    register = "neutral")
+            ),
+            phrasalVerbs = listOf(
+                PhrasalVerb("get up", "بلند شدن",
+                    "از تخت بلند شدن",
+                    "I get up at 6:30 every day.",
+                    "هر روز ساعت ۶:۳۰ بلند می‌شوم.",
+                    separable = "No"),
+                PhrasalVerb("come back", "برگشتن",
+                    "برگشتن به خانه",
+                    "I come back home at 6.",
+                    "ساعت ۶ به خانه برمی‌گردم.",
+                    separable = "No")
+            ),
+            pronunciationTips = listOf(
+                PronunciationTip("Third-person -s",
+                    "در زمان حال ساده، فعل با he/she/it -s می‌گیرد: works, studies, watches. صدای -s می‌تواند /s/, /z/ یا /ɪz/ باشد."),
+                PronunciationTip("Telling time",
+                    "در انگلیسی آمریکایی، ۷:۱۵ معمولاً 'seven fifteen' یا 'quarter past seven' گفته می‌شود."),
+                PronunciationTip("Frequency word stress",
+                    "در جمله تأکید روی قید تکرار می‌آید: I ALWAYS drink tea.")
+            ),
+            culturalNotes = listOf(
+                CulturalNote("Talking about routines",
+                    "پرسیدن درباره برنامه روزانه یکی از موضوعات رایج مکالمه است و راهی برای آشنایی با سبک زندگی افراد است."),
+                CulturalNote("Punctuality",
+                    "در بسیاری از کشورهای انگلیسی‌زبان، وقت‌شناسی اهمیت زیادی دارد. 'On time' بودن یک ویژگی مثبت تلقی می‌شود.")
+            ),
+            grammar = listOf(
+                GrammarSection("Present simple",
+                    "I/You/We/They + verb. He/She/It + verb + s. مثال: I work every day. She works at a hospital. He studies English."),
+                GrammarSection("Negative with don't / doesn't",
+                    "I don't work on weekends. He doesn't like coffee. She doesn't study at night."),
+                GrammarSection("Questions with do / does",
+                    "Do you work here? Does she study English? — Yes, I do. / No, she doesn't. What time does she start work?"),
+                GrammarSection("Adverbs of frequency",
+                    "always → usually → often → sometimes → never. قبل از فعل اصلی، بعد از فعل be: I always eat breakfast. She is always on time.")
+            ),
+            commonMistakes = listOf(
+                CommonMistake("She work every day.", "She works every day.", "برای he/she/it از s سوم‌شخص استفاده می‌کنیم."),
+                CommonMistake("He doesn't works here.", "He doesn't work here.", "بعد از doesn't، فعل ساده می‌آید."),
+                CommonMistake("I go usually to work.", "I usually go to work.", "قید تکرار قبل از فعل اصلی می‌آید."),
+                CommonMistake("What time is it? It's 7 hours.", "What time is it? It's 7 o'clock.", "برای ساعت از o'clock استفاده می‌کنیم.")
+            ),
+            conversation = listOf(
+                DialogueLine("Nora", "What time do you usually wake up?",
+                    "معمولاً چه ساعتی بیدار می‌شوی؟"),
+                DialogueLine("Alex", "I usually wake up at 7.",
+                    "معمولاً ساعت ۷ بیدار می‌شوم."),
+                DialogueLine("Nora", "That's early. Do you have breakfast?",
+                    "زوده. صبحانه می‌خوری؟"),
+                DialogueLine("Alex", "Yes, I always have breakfast.",
+                    "بله، همیشه صبحانه می‌خورم."),
+                DialogueLine("Nora", "What do you do after breakfast?",
+                    "بعد از صبحانه چه کار می‌کنی؟"),
+                DialogueLine("Alex", "I go to work by bus.",
+                    "با اتوبوس به کار می‌روم."),
+                DialogueLine("Nora", "What time do you start work?",
+                    "چه ساعتی کارت شروع می‌شود؟"),
+                DialogueLine("Alex", "I start at 9 and finish at 5.",
+                    "ساعت ۹ شروع و ۵ تمام می‌شود."),
+                DialogueLine("Nora", "Do you work on weekends?",
+                    "آخر هفته‌ها کار می‌کنی؟"),
+                DialogueLine("Alex", "No, I don't. I rest and see friends.",
+                    "نه. استراحت می‌کنم و دوستانم را می‌بینم."),
+                DialogueLine("Nora", "What about you? Do you study or work?",
+                    "تو چطور؟ درس می‌خوانی یا کار می‌کنی؟"),
+                DialogueLine("Alex", "I'm a student. I study every day.",
+                    "من دانشجو هستم. هر روز درس می‌خوانم."),
+                DialogueLine("Nora", "Do you study at night?",
+                    "شب‌ها درس می‌خوانی؟"),
+                DialogueLine("Alex", "Sometimes. I'm a night owl.",
+                    "گاهی. من شب‌زنده‌دارم."),
+                DialogueLine("Nora", "I'm an early bird!",
+                    "من سحرخیزم!"),
+                DialogueLine("Alex", "That's funny — we're so different!",
+                    "جالبه — ما خیلی متفاوتیم!"),
+                DialogueLine("Nora", "But we're both on time!",
+                    "ولی هر دو سر وقتم!"),
+                DialogueLine("Alex", "That's the most important thing.",
+                    "این مهم‌ترین چیزه.")
+            ),
+            comprehensionQuestions = listOf(
+                ComprehensionQuestion("Alex چه ساعتی بیدار می‌شود؟", "ساعت ۷."),
+                ComprehensionQuestion("Alex چه ساعتی کارش تمام می‌شود؟", "ساعت ۵."),
+                ComprehensionQuestion("Alex آخر هفته‌ها چیکار می‌کند؟", "استراحت می‌کند و دوستانش را می‌بیند."),
+                ComprehensionQuestion("آیا Alex شب‌زنده‌دار است یا سحرخیز؟", "شب‌زنده‌دار."),
+                ComprehensionQuestion("Nora سحرخیز است یا شب‌زنده‌دار؟", "سحرخیز.")
+            ),
+            speakingTasks = listOf(
+                SpeakingTask("Describe your daily routine.",
+                    "روتین روزانه‌ات را توصیف کن.",
+                    "I wake up at... / I usually... / I never..."),
+                SpeakingTask("Ask a partner about their routine.",
+                    "درباره برنامه روزانه یک دوست بپرس.",
+                    "What time do you...? / Do you...? / How often do you...?"),
+                SpeakingTask("Talk about the difference between your weekday and weekend routines.",
+                    "درباره تفاوت برنامه روزهای هفته و آخر هفته‌ات صحبت کن.",
+                    "On weekdays I... / But on weekends I...")
+            ),
+            writingTasks = listOf(
+                WritingTask("Write about your typical weekday.",
+                    "درباره یک روز معمولی هفته‌ات بنویس.",
+                    80,
+                    "Use present simple, time expressions, and frequency adverbs.")
+            ),
+            quiz = listOf(
+                QuizQuestion("Complete: She ___ to work every day.",
+                    listOf("go", "goes", "going", "went"), 1),
+                QuizQuestion("Complete: I ___ drink coffee.",
+                    listOf("doesn't", "don't", "isn't", "aren't"), 1),
+                QuizQuestion("Complete: ___ he study English?",
+                    listOf("Do", "Does", "Is", "Are"), 1),
+                QuizQuestion("Where does 'usually' go?",
+                    listOf("Before main verb", "After main verb",
+                        "At end of sentence", "After subject only"), 0),
+                QuizQuestion("What does 'night owl' mean?",
+                    listOf("پرنده شب", "شب‌زنده‌دار", "خواب‌آلود", "شب‌کار"), 1),
+                QuizQuestion("Complete: He ___ work on Sundays.",
+                    listOf("don't", "doesn't", "isn't", "aren't"), 1),
+                QuizQuestion("What time is 7:30?",
+                    listOf("Seven thirty", "Seven thirteen",
+                        "Thirteen seven", "Half seven"), 0),
+                QuizQuestion("Complete: I ___ watch TV in the morning.",
+                    listOf("always", "usually", "never", "often"), 2)
+            )
+        )
+    }// ═══════════════════════════════════════════════════════════
+// CHAPTER 4 — Food and Drink
+// ═══════════════════════════════════════════════════════════
+private fun chapter4(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 4,
+        title = "Food and Drink",
+        titlePersian = "غذا و نوشیدنی",
+        objectives = listOf(
+            "Name common foods and drinks",
+            "Talk about likes and dislikes",
+            "Use countable and uncountable nouns",
+            "Use some and any correctly",
+            "Order food at a café or restaurant",
+            "Ask about prices"
+        ),
+        vocabulary = listOf(
+            VocabWord("food", "غذا", "/fuːd/", "noun",
+                "I love Italian food.",
+                "عاشق غذای ایتالیایی‌ام.",
+                collocations = "healthy food, fast food"),
+            VocabWord("meal", "وعده غذایی", "/miːl/", "noun",
+                "We have three meals a day.",
+                "روزی سه وعده غذا داریم.",
+                collocations = "main meal, heavy meal"),
+            VocabWord("bread", "نان", "/bred/", "noun",
+                "I have bread for breakfast.",
+                "صبحانه نان می‌خورم.",
+                collocations = "fresh bread, slice of bread"),
+            VocabWord("rice", "برنج", "/raɪs/", "noun",
+                "We eat rice every day.",
+                "هر روز برنج می‌خوریم.",
+                collocations = "white rice, cooked rice"),
+            VocabWord("meat", "گوشت", "/miːt/", "noun",
+                "She doesn't eat meat.",
+                "او گوشت نمی‌خورد.",
+                collocations = "red meat, fresh meat"),
+            VocabWord("chicken", "مرغ", "/ˈtʃɪkɪn/", "noun",
+                "Grilled chicken is my favorite.",
+                "مرغ گریل مورد علاقه‌ام است.",
+                collocations = "grilled chicken, fried chicken"),
+            VocabWord("fruit", "میوه", "/fruːt/", "noun",
+                "Eat more fruit!",
+                "میوه بیشتر بخور!",
+                collocations = "fresh fruit, tropical fruit"),
+            VocabWord("vegetable", "سبزیجات", "/ˈvedʒtəbəl/", "noun",
+                "I like green vegetables.",
+                "سبزیجات سبز دوست دارم.",
+                collocations = "fresh vegetables, green vegetables"),
+            VocabWord("water", "آب", "/ˈwɔːtər/", "noun",
+                "Can I have some water?",
+                "می‌توانم کمی آب داشته باشم؟",
+                collocations = "cold water, glass of water"),
+            VocabWord("coffee", "قهوه", "/ˈkɔːfi/", "noun",
+                "I drink coffee every morning.",
+                "هر صبح قهوه می‌خورم.",
+                collocations = "black coffee, cup of coffee"),
+            VocabWord("menu", "منو", "/ˈmenjuː/", "noun",
+                "Can I see the menu?",
+                "می‌توانم منو را ببینم؟",
+                collocations = "see the menu, look at the menu"),
+            VocabWord("order", "سفارش دادن", "/ˈɔːrdər/", "verb",
+                "Are you ready to order?",
+                "آماده سفارش هستید؟",
+                collocations = "order food, take an order")
+        ),
+        idioms = listOf(
+            IdiomExpression("eat out", "بیرون غذا خوردن",
+                "We eat out every Friday.",
+                "هر جمعه بیرون غذا می‌خوریم.",
+                register = "neutral"),
+            IdiomExpression("have a sweet tooth", "شیرینی‌دوست بودن",
+                "She has a sweet tooth.",
+                "او شیرینی‌دوست است.",
+                register = "idiom"),
+            IdiomExpression("I'm starving", "دارم از گرسنگی می‌میرم",
+                "Let's eat — I'm starving!",
+                "بیا غذا بخوریم — دارم از گرسنگی می‌میرم!",
+                register = "informal")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("eat out", "بیرون غذا خوردن",
+                "در رستوران غذا خوردن",
+                "We eat out on weekends.",
+                "آخر هفته‌ها بیرون غذا می‌خوریم.",
+                separable = "No"),
+            PhrasalVerb("take out", "غذا بیرون بردن",
+                "غذا را از رستوران بیرون بردن",
+                "Let's take out some pizza.",
+                "بیا کمی پیتزا بیرون ببریم.",
+                separable = "Yes")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("Count vs non-count nouns",
+                "کلمات rice, water, bread غیرقابل شمارش هستند و a/an نمی‌گیرند."),
+            PronunciationTip("th in thirsty",
+                "کلمه thirsty صدای /θ/ دارد — زبان بین دندان‌ها."),
+            PronunciationTip("vegetable stress",
+                "vegetable /ˈvedʒtəbəl/ — استرس روی بخش اول.")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("Eating habits",
+                "در بسیاری از فرهنگ‌های انگلیسی‌زبان، سه وعده اصلی وجود دارد: صبحانه، ناهار و شام. برای ناهار معمولاً سریع‌تر و سبک‌تر غذا می‌خورند."),
+            CulturalNote("Tipping in restaurants",
+                "در آمریکا و کانادا، انعام دادن ۱۵-۲۰٪ رایج است. در اروپا معمولاً ۵-۱۰٪ کافی است.")
+        ),
+        grammar = listOf(
+            GrammarSection("Countable vs uncountable nouns",
+                "قابل شمارش: an apple, two apples, an egg. غیرقابل شمارش: water, rice, bread, milk. برای غیرقابل شمارش از واحدها استفاده می‌کنیم: a glass of water, a bowl of rice."),
+            GrammarSection("some and any",
+                "some در جملات مثبت: I have some bread. any در سؤالات و منفی: Do you have any milk? I don't have any sugar."),
+            GrammarSection("Like / don't like",
+                "I like tea. I don't like coffee. She likes juice. Do you like...? — Yes, I do. / No, I don't."),
+            GrammarSection("Would like for ordering",
+                "برای سفارش مؤدبانه: I'd like a coffee, please. Would you like some tea? — Yes, please. / No, thank you.")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("I'd like a water.", "I'd like some water.", "water غیرقابل شمارش است."),
+            CommonMistake("I don't have some bread.", "I don't have any bread.", "در منفی از any استفاده می‌کنیم."),
+            CommonMistake("I like apple.", "I like apples. / I like an apple.", "برای جمع از جمع اسم استفاده می‌کنیم."),
+            CommonMistake("I very like pizza.", "I really like pizza.", "very با فعل مستقیم نمی‌آید.")
+        ),
+        conversation = listOf(
+            DialogueLine("Waiter", "Good evening. Are you ready to order?",
+                "عصر بخیر. آماده سفارش هستید؟"),
+            DialogueLine("Customer", "Yes, I'd like a chicken sandwich, please.",
+                "بله، یک ساندویچ مرغ می‌خواهم، لطفاً."),
+            DialogueLine("Waiter", "Would you like anything to drink?",
+                "نوشیدنی چیزی میل دارید؟"),
+            DialogueLine("Customer", "Yes, some water, please.",
+                "بله، کمی آب، لطفاً."),
+            DialogueLine("Waiter", "Anything else?",
+                "چیز دیگری؟"),
+            DialogueLine("Customer", "No, thanks. That's all.",
+                "نه، ممنون. همین."),
+            DialogueLine("Waiter", "Great. Your food will be ready soon.",
+                "عالی. غذایتان به‌زودی آماده می‌شود."),
+            DialogueLine("Customer", "Thank you. Could I have the bill after?",
+                "ممنون. می‌توانم بعدش صورت‌حساب بگیرم؟"),
+            DialogueLine("Waiter", "Of course. Cash or card?",
+                "البته. نقد یا کارت؟"),
+            DialogueLine("Customer", "Card, please.",
+                "کارت، لطفاً."),
+            DialogueLine("Waiter", "Here's your bill. Have a nice meal!",
+                "این هم صورت‌حساب. غذای خوبی داشته باشید!"),
+            DialogueLine("Customer", "Thanks. Do you have dessert?",
+                "ممنون. دسر دارید؟"),
+            DialogueLine("Waiter", "Yes, we have cake and ice cream.",
+                "بله، کیک و بستنی داریم."),
+            DialogueLine("Customer", "I'll have some chocolate cake.",
+                "کمی کیک شکلاتی می‌خورم."),
+            DialogueLine("Waiter", "Excellent choice!",
+                "انتخاب عالی!"),
+            DialogueLine("Customer", "One more thing — do you have any tea?",
+                "یک چیز دیگر — چای هم دارید؟"),
+            DialogueLine("Waiter", "Yes, we do. Green or black?",
+                "بله. سبز یا سیاه؟"),
+            DialogueLine("Customer", "Black tea, please.",
+                "چای سیاه، لطفاً."),
+            DialogueLine("Waiter", "Coming right up!",
+                "همین الان می‌آورم!"),
+            DialogueLine("Customer", "Thank you so much.",
+                "خیلی ممنون.")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("مشتری چه غذایی سفارش داد؟", "ساندویچ مرغ."),
+            ComprehensionQuestion("مشتری چه نوشیدنی سفارش داد؟", "آب و بعداً چای سیاه."),
+            ComprehensionQuestion("مشتری چطور پرداخت کرد؟", "با کارت."),
+            ComprehensionQuestion("مشتری چه دسری سفارش داد؟", "کیک شکلاتی."),
+            ComprehensionQuestion("آیا رستوران چای داشت؟", "بله، سبز و سیاه.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Order food at a restaurant.",
+                "نقش‌بازی: در رستوران غذا سفارش بده.",
+                "I'd like... / Can I have...? / Anything else?"),
+            SpeakingTask("Talk about your favorite food.",
+                "درباره غذای مورد علاقه‌ات صحبت کن.",
+                "I love... / My favorite is... / I usually eat..."),
+            SpeakingTask("Discuss healthy and unhealthy food.",
+                "درباره غذای سالم و ناسالم صحبت کن.",
+                "I try to eat... / I shouldn't eat... / Healthy food is...")
+        ),
+        writingTasks = listOf(
+            WritingTask("Write about your favorite meal and why you like it.",
+                "درباره غذای مورد علاقه‌ات و دلیل علاقه‌ات بنویس.",
+                90,
+                "Use some/any, count/non-count nouns, and food vocabulary.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: I'd like ___ water.",
+                listOf("a", "an", "some", "many"), 2),
+            QuizQuestion("Complete: Do you have ___ bread?",
+                listOf("some", "any", "a", "many"), 1),
+            QuizQuestion("Complete: I have ___ apple.",
+                listOf("a", "an", "some", "any"), 1),
+            QuizQuestion("Complete: She ___ eat meat.",
+                listOf("don't", "doesn't", "isn't", "aren't"), 1),
+            QuizQuestion("What does 'eat out' mean?",
+                listOf("بیرون غذا خوردن", "داخل غذا خوردن", "آشپزی کردن", "خرید کردن"), 0),
+            QuizQuestion("Complete: I ___ vegetables.",
+                listOf("like", "likes", "liking", "liked"), 0),
+            QuizQuestion("Complete: I'd like ___ coffee, please.",
+                listOf("a", "an", "some", "any"), 0),
+            QuizQuestion("What does 'have a sweet tooth' mean?",
+                listOf("دندان شیرین", "شیرینی‌دوست بودن", "دندان‌درد", "شکر خوردن"), 1)
+        )
+    )
 }
+
+// ═══════════════════════════════════════════════════════════
+// CHAPTER 5 — Places in My Town
+// ═══════════════════════════════════════════════════════════
+private fun chapter5(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 5,
+        title = "Places in My Town",
+        titlePersian = "مکان‌ها در شهر من",
+        objectives = listOf(
+            "Name common places in a town",
+            "Use there is / there are",
+            "Ask for and give directions",
+            "Use prepositions of place",
+            "Describe your neighborhood",
+            "Talk about where things are located"
+        ),
+        vocabulary = listOf(
+            VocabWord("bank", "بانک", "/bæŋk/", "noun",
+                "The bank is on the main street.",
+                "بانک در خیابان اصلی است.",
+                collocations = "go to the bank, near the bank"),
+            VocabWord("hospital", "بیمارستان", "/ˈhɑːspɪtəl/", "noun",
+                "The hospital is near my house.",
+                "بیمارستان نزدیک خانه‌ام است.",
+                collocations = "go to the hospital, city hospital"),
+            VocabWord("school", "مدرسه", "/skuːl/", "noun",
+                "My school is big.",
+                "مدرسه‌ام بزرگ است.",
+                collocations = "go to school, primary school"),
+            VocabWord("park", "پارک", "/pɑːrk/", "noun",
+                "The park is beautiful.",
+                "پارک زیباست.",
+                collocations = "city park, in the park"),
+            VocabWord("restaurant", "رستوران", "/ˈrestərɑːnt/", "noun",
+                "This restaurant is very good.",
+                "این رستوران خیلی خوب است.",
+                collocations = "good restaurant, Italian restaurant"),
+            VocabWord("supermarket", "سوپرمارکت", "/ˈsuːpərmɑːrkɪt/", "noun",
+                "The supermarket is open late.",
+                "سوپرمارکت تا دیروقت باز است.",
+                collocations = "local supermarket, go to the supermarket"),
+            VocabWord("hotel", "هتل", "/hoʊˈtel/", "noun",
+                "We stayed in a nice hotel.",
+                "در هتل خوبی ماندیم.",
+                collocations = "nice hotel, book a hotel"),
+            VocabWord("street", "خیابان", "/striːt/", "noun",
+                "This street is very busy.",
+                "این خیابان خیلی شلوغ است.",
+                collocations = "main street, quiet street"),
+            VocabWord("corner", "گوشه / سر خیابان", "/ˈkɔːrnər/", "noun",
+                "It's on the corner.",
+                "سر خیابان است.",
+                collocations = "on the corner, street corner"),
+            VocabWord("near", "نزدیک", "/nɪr/", "preposition",
+                "It's near here.",
+                "نزدیک اینجاست.",
+                collocations = "near here, near the station"),
+            VocabWord("far", "دور", "/fɑːr/", "adjective",
+                "The airport is far.",
+                "فرودگاه دور است.",
+                collocations = "far away, not far"),
+            VocabWord("left", "چپ", "/left/", "noun",
+                "Turn left at the corner.",
+                "سر خیابان به چپ بپیچ.",
+                collocations = "turn left, on the left")
+        ),
+        idioms = listOf(
+            IdiomExpression("around the corner", "سر کوچه",
+                "The pharmacy is around the corner.",
+                "داروخانه سر کوچه است.",
+                register = "neutral"),
+            IdiomExpression("Excuse me", "ببخشید",
+                "Excuse me, where is the bank?",
+                "ببخشید، بانک کجاست؟",
+                register = "polite"),
+            IdiomExpression("go straight", "مستقیم برو",
+                "Go straight for two blocks.",
+                "دو بلوک مستقیم برو.",
+                register = "neutral")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("get to", "رسیدن به",
+                "رسیدن به جایی",
+                "How do I get to the station?",
+                "چطور به ایستگاه برسم؟",
+                separable = "No"),
+            PhrasalVerb("turn left / turn right", "به چپ / راست پیچیدن",
+                "تغییر جهت دادن",
+                "Turn left at the traffic light.",
+                "پشت چراغ راهنما به چپ بپیچ.",
+                separable = "No")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("there is / there are",
+                "there is به شکل /ðer ɪz/ و there are به شکل /ðer ər/ تلفظ می‌شود."),
+            PronunciationTip("Compound place names",
+                "در supermarket استرس روی بخش اول است: SU-per-mar-ket."),
+            PronunciationTip("Question intonation",
+                "در سؤال‌های Where...؟ لحن در انتها پایین می‌آید: Where is the bank? ↘")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("Asking for directions",
+                "در فرهنگ‌های انگلیسی‌زبان، پرسیدن مسیر از غریبه‌ها کاملاً عادی است. با 'Excuse me' شروع کردن مؤدبانه است."),
+            CulturalNote("Street layouts",
+                "در بسیاری از شهرهای آمریکایی، خیابان‌ها به صورت شبکه‌ای (grid) طراحی شده‌اند و 'blocks' معیار فاصله‌اند.")
+        ),
+        grammar = listOf(
+            GrammarSection("There is / There are",
+                "There is + مفرد: There is a bank. There are + جمع: There are two shops. منفی: There isn't / There aren't. سؤال: Is there...? Are there...?"),
+            GrammarSection("Prepositions of place",
+                "in, on, next to, across from, between, behind, in front of. مثال: The bank is next to the hotel. The park is across from the school."),
+            GrammarSection("Imperatives for directions",
+                "Go straight. Turn left. Turn right. Stop at the corner. Walk one block."),
+            GrammarSection("Questions about location",
+                "Where is the bank? Is there a park near here? How do I get to the station?")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("There is two banks.", "There are two banks.", "برای جمع از there are استفاده می‌کنیم."),
+            CommonMistake("Where is bank?", "Where is the bank?", "قبل از اسم مشخص از the استفاده می‌کنیم."),
+            CommonMistake("Turn to left.", "Turn left.", "بدون to."),
+            CommonMistake("The bank is in the corner.", "The bank is on the corner.", "برای سر خیابان از on استفاده می‌کنیم.")
+        ),
+        conversation = listOf(
+            DialogueLine("A", "Excuse me, where is the bank?",
+                "ببخشید، بانک کجاست؟"),
+            DialogueLine("B", "Go straight for two blocks.",
+                "دو بلوک مستقیم برو."),
+            DialogueLine("A", "Then what?",
+                "بعدش چی؟"),
+            DialogueLine("B", "Turn left at the traffic light.",
+                "پشت چراغ راهنما به چپ بپیچ."),
+            DialogueLine("A", "Left at the light. Got it.",
+                "چپ پشت چراغ. فهمیدم."),
+            DialogueLine("B", "The bank is on your right, next to the pharmacy.",
+                "بانک سمت راستت است، کنار داروخانه."),
+            DialogueLine("A", "Is it far from here?",
+                "از اینجا دوره؟"),
+            DialogueLine("B", "No, about 5 minutes on foot.",
+                "نه، حدود ۵ دقیقه پیاده."),
+            DialogueLine("A", "Is there a park near the bank?",
+                "پارک نزدیک بانک هست؟"),
+            DialogueLine("B", "Yes, there's a park across from it.",
+                "بله، روبروش یه پارک هست."),
+            DialogueLine("A", "Great. And a coffee shop?",
+                "عالی. کافه هم هست؟"),
+            DialogueLine("B", "Yes, there are two on that street.",
+                "بله، دو تا توی اون خیابون هست."),
+            DialogueLine("A", "Perfect. Thank you so much!",
+                "عالی. خیلی ممنون!"),
+            DialogueLine("B", "You're welcome. Have a nice day!",
+                "خواهش می‌کنم. روز خوبی داشته باشی!"),
+            DialogueLine("A", "One more thing — where's the station?",
+                "یه چیز دیگه — ایستگاه کجاست؟"),
+            DialogueLine("B", "It's far. You should take a taxi.",
+                "دوره. باید تاکسی بگیری."),
+            DialogueLine("A", "OK, I'll do that. Thanks again!",
+                "باشه، همین کار رو می‌کنم. بازم ممنون!"),
+            DialogueLine("B", "Anytime. Good luck!",
+                "هر وقت. موفق باشی!")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("بانک کجاست؟", "سمت راست، کنار داروخانه."),
+            ComprehensionQuestion("بانک چقدر دور است؟", "حدود ۵ دقیقه پیاده."),
+            ComprehensionQuestion("پارک کجاست؟", "روبروی بانک."),
+            ComprehensionQuestion("چند کافه در آن خیابان هست؟", "دو تا."),
+            ComprehensionQuestion("ایستگاه چطور؟", "دور است، باید تاکسی بگیرد.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Ask for directions to a place in town.",
+                "مسیر یک مکان در شهر را بپرس.",
+                "Excuse me, where is...? / How do I get to...?"),
+            SpeakingTask("Give directions to a nearby place.",
+                "به یک مکان نزدیک مسیر بده.",
+                "Go straight... / Turn left... / It's on your right..."),
+            SpeakingTask("Describe your neighborhood.",
+                "محله‌ات را توصیف کن.",
+                "There is... / There are... / It's near...")
+        ),
+        writingTasks = listOf(
+            WritingTask("Write directions from your home to a nearby place.",
+                "از خانه به یک مکان نزدیک مسیر بنویس.",
+                90,
+                "Use there is/are, prepositions, and imperatives.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: There ___ two banks.",
+                listOf("is", "are", "have", "has"), 1),
+            QuizQuestion("Complete: Turn ___ at the corner.",
+                listOf("left", "the left", "to left", "lefts"), 0),
+            QuizQuestion("Complete: The bank is ___ the hotel.",
+                listOf("next to", "next", "near of", "close"), 0),
+            QuizQuestion("What does 'around the corner' mean?",
+                listOf("سر کوچه", "گوشه", "دور", "کنار"), 0),
+            QuizQuestion("Complete: Where ___ the bank?",
+                listOf("are", "is", "have", "has"), 1),
+            QuizQuestion("Complete: Is there a park ___ here?",
+                listOf("near", "next", "close", "at"), 0),
+            QuizQuestion("Complete: Go ___ for two blocks.",
+                listOf("straight", "left", "right", "corner"), 0),
+            QuizQuestion("Complete: The bank is ___ your right.",
+                listOf("in", "at", "on", "from"), 2)
+        )
+    )
+}
+
+// ═══════════════════════════════════════════════════════════
+// CHAPTER 6 — My Free Time
+// ═══════════════════════════════════════════════════════════
+private fun chapter6(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 6,
+        title = "My Free Time",
+        titlePersian = "اوقات فراغت من",
+        objectives = listOf(
+            "Talk about hobbies and free-time activities",
+            "Use can / can't for ability",
+            "Use like / love / enjoy + verb-ing",
+            "Talk about sports and games",
+            "Invite someone to do something",
+            "Accept and refuse invitations"
+        ),
+        vocabulary = listOf(
+            VocabWord("hobby", "سرگرمی", "/ˈhɑːbi/", "noun",
+                "My hobby is reading.",
+                "سرگرمی من کتاب خواندن است.",
+                collocations = "favorite hobby, take up a hobby"),
+            VocabWord("read", "خواندن", "/riːd/", "verb",
+                "I like reading books.",
+                "دوست دارم کتاب بخوانم.",
+                collocations = "read books, read a magazine"),
+            VocabWord("play", "بازی کردن", "/pleɪ/", "verb",
+                "I play football.",
+                "فوتبال بازی می‌کنم.",
+                collocations = "play football, play video games"),
+            VocabWord("watch", "تماشا کردن", "/wɑːtʃ/", "verb",
+                "I watch movies on weekends.",
+                "آخر هفته‌ها فیلم تماشا می‌کنم.",
+                collocations = "watch movies, watch TV"),
+            VocabWord("listen", "گوش دادن", "/ˈlɪsən/", "verb",
+                "I listen to music.",
+                "به موسیقی گوش می‌دهم.",
+                collocations = "listen to music, listen carefully"),
+            VocabWord("cook", "آشپزی کردن", "/kʊk/", "verb",
+                "I love cooking.",
+                "عاشق آشپزی هستم.",
+                collocations = "cook dinner, cook pasta"),
+            VocabWord("swim", "شنا کردن", "/swɪm/", "verb",
+                "Can you swim?",
+                "می‌توانی شنا کنی؟",
+                collocations = "go swimming, swim well"),
+            VocabWord("draw", "نقاشی کشیدن", "/drɔː/", "verb",
+                "She draws very well.",
+                "او خیلی خوب نقاشی می‌کشد.",
+                collocations = "draw pictures, draw well"),
+            VocabWord("dance", "رقصیدن", "/dæns/", "verb",
+                "I love dancing!",
+                "عاشق رقصیدنم!",
+                collocations = "love dancing, go dancing"),
+            VocabWord("travel", "سفر کردن", "/ˈtrævəl/", "verb",
+                "We travel every summer.",
+                "هر تابستان سفر می‌کنیم.",
+                collocations = "travel abroad, love traveling"),
+            VocabWord("meet friends", "دیدن دوستان", "/miːt frendz/", "phrase",
+                "I meet friends on Fridays.",
+                "جمعه‌ها دوستانم را می‌بینم.",
+                collocations = "meet friends, meet up with friends"),
+            VocabWord("relax", "استراحت کردن", "/rɪˈlæks/", "verb",
+                "I relax on weekends.",
+                "آخر هفته‌ها استراحت می‌کنم.",
+                collocations = "relax at home, need to relax")
+        ),
+        idioms = listOf(
+            IdiomExpression("hang out", "وقت گذراندن",
+                "I hang out with friends on weekends.",
+                "آخر هفته‌ها با دوستانم وقت می‌گذرانم.",
+                register = "informal"),
+            IdiomExpression("have a blast", "خیلی خوش گذراندن",
+                "We had a blast at the party.",
+                "در مهمانی خیلی خوش گذراندیم.",
+                register = "informal"),
+            IdiomExpression("kill time", "وقت کشتن",
+                "I read to kill time.",
+                "برای کشتن وقت می‌خوانم.",
+                register = "informal")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("hang out", "وقت گذراندن",
+                "با کسی وقت گذراندن",
+                "I hang out with friends on Fridays.",
+                "جمعه‌ها با دوستانم وقت می‌گذرانم.",
+                separable = "No"),
+            PhrasalVerb("work out", "ورزش کردن",
+                "تمرین ورزشی انجام دادن",
+                "I work out three times a week.",
+                "هفته‌ای سه بار ورزش می‌کنم.",
+                separable = "No")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("-ing form",
+                "swimming /ˈswɪmɪŋ/، dancing /ˈdænsɪŋ/. در گفتار سریع، صدای /ɪŋ/ طبیعی است."),
+            PronunciationTip("can / can't",
+                "can معمولاً کوتاه و بدون تأکید: /kən/. can't با تأکید و صدای /æ/ یا /ɑː/: /kænt/ یا /kɑːnt/."),
+            PronunciationTip("like + verb-ing",
+                "در I like reading، صدای -ing با کلمه قبل به هم می‌چسبد: /laɪk ˈriːdɪŋ/.")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("Weekend activities",
+                "در غرب، آخر هفته‌ها برای تفریح، ورزش و وقت گذراندن با دوستان است. پیاده‌روی، پیک‌نیک و ورزش‌های گروهی رایجند."),
+            CulturalNote("Talking about hobbies",
+                "پرسیدن درباره سرگرمی‌ها راه خوبی برای شروع مکالمه است. اگر طرف مقابل علاقه مشابهی داشته باشد، به راحتی می‌توان موضوع را ادامه داد.")
+        ),
+        grammar = listOf(
+            GrammarSection("can / can't for ability",
+                "I can swim. She can cook. They can't speak French. Can you drive? — Yes, I can. / No, I can't."),
+            GrammarSection("like / love / enjoy + verb-ing",
+                "I like reading. I love cooking. I enjoy swimming. بعد از این افعال از -ing استفاده می‌کنیم."),
+            GrammarSection("go + verb-ing for activities",
+                "go swimming, go shopping, go dancing, go hiking. مثال: I go swimming every Sunday."),
+            GrammarSection("Inviting someone",
+                "Do you want to...? / Would you like to...? / How about...? / Let's... — Sure! / I'd love to. / Sorry, I can't.")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("I like read books.", "I like reading books.", "بعد از like از verb-ing استفاده می‌کنیم."),
+            CommonMistake("I can to swim.", "I can swim.", "بعد از can فعل ساده بدون to."),
+            CommonMistake("She cans cook.", "She can cook.", "can در all persons ثابت است."),
+            CommonMistake("I go to swimming.", "I go swimming.", "بعد از go از -ing بدون to.")
+        ),
+        conversation = listOf(
+            DialogueLine("A", "What do you do in your free time?",
+                "وقت آزادت چه کار می‌کنی؟"),
+            DialogueLine("B", "I love reading and watching movies. What about you?",
+                "عاشق کتاب خواندن و فیلم دیدنم. تو چطور؟"),
+            DialogueLine("A", "I enjoy cooking. I try new recipes every weekend.",
+                "از آشپزی لذت می‌برم. هر آخر هفته دستور پخت جدید امتحان می‌کنم."),
+            DialogueLine("B", "That's cool! Can you cook Persian food?",
+                "باحاله! می‌توانی غذای ایرانی بپزی؟"),
+            DialogueLine("A", "Yes, I can! My mother taught me.",
+                "بله! مادرم یادم داد."),
+            DialogueLine("B", "What's your favorite dish to cook?",
+                "غذای مورد علاقه‌ات برای پختن چیه؟"),
+            DialogueLine("A", "I love making ghormeh sabzi.",
+                "عاشق درست کردن قرمه سبزی هستم."),
+            DialogueLine("B", "I've never tried it. Maybe you can teach me!",
+                "تا حالا امتحانش نکردم. شاید بتونی یادم بدی!"),
+            DialogueLine("A", "Sure! What sports do you play?",
+                "حتماً! چه ورزشی می‌کنی؟"),
+            DialogueLine("B", "I play tennis. I go swimming too.",
+                "تنیس بازی می‌کنم. شنا هم می‌رم."),
+            DialogueLine("A", "Can you swim well?",
+                "خوب شنا می‌کنی؟"),
+            DialogueLine("B", "Yes, I can. I learned when I was five.",
+                "بله. پنج سالگی یاد گرفتم."),
+            DialogueLine("A", "Do you play any instruments?",
+                "ساز هم می‌زنی؟"),
+            DialogueLine("B", "I play the guitar, but not very well.",
+                "گیتار می‌زنم، ولی نه خیلی خوب."),
+            DialogueLine("A", "That's still impressive! I can't play anything.",
+                "این هم قابل تحسینه! من هیچی نمی‌تونم بزنم."),
+            DialogueLine("B", "You could learn! It's never too late.",
+                "می‌تونی یاد بگیری! هیچ‌وقت دیر نیست."),
+            DialogueLine("A", "Maybe I will. Do you want to hang out this weekend?",
+                "شاید یاد بگیرم. می‌خوای این آخر هفته وقت بگذرونیم؟"),
+            DialogueLine("B", "Sure! That sounds fun.",
+                "حتماً! خوش می‌گذره."),
+            DialogueLine("A", "Let's meet on Saturday at 5.",
+                "بیا شنبه ساعت ۵ قرار بذاریم."),
+            DialogueLine("B", "Perfect. See you then!",
+                "عالی. اون موقع می‌بینمت!")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("B وقت آزادش چیکار می‌کنه؟", "کتاب خواندن و فیلم دیدن."),
+            ComprehensionQuestion("A چه غذایی دوست داره بپزه؟", "قرمه سبزی."),
+            ComprehensionQuestion("B چه ورزش‌هایی می‌کنه؟", "تنیس و شنا."),
+            ComprehensionQuestion("B چه سازی می‌زنه؟", "گیتار."),
+            ComprehensionQuestion("قرارشون چیه؟", "شنبه ساعت ۵ با هم وقت بگذرونن.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Talk about your hobbies and free-time activities.",
+                "درباره سرگرمی‌ها و فعالیت‌های اوقات فراغتت صحبت کن.",
+                "I like... / I love... / I usually..."),
+            SpeakingTask("Invite a friend to do something.",
+                "یک دوست را به انجام کاری دعوت کن.",
+                "Do you want to...? / Would you like to...? / How about...?"),
+            SpeakingTask("Talk about what you can and can't do.",
+                "درباره چیزهایی که می‌تونی و نمی‌تونی انجام بدی صحبت کن.",
+                "I can... / I can't... / I'm good at...")
+        ),
+        writingTasks = listOf(
+            WritingTask("Write about your favorite hobby and why you enjoy it.",
+                "درباره سرگرمی مورد علاقه‌ات و دلیل علاقه‌ات بنویس.",
+                90,
+                "Use like/love/enjoy + verb-ing, can, and frequency adverbs.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: I like ___ books.",
+                listOf("read", "reading", "to read", "reads"), 1),
+            QuizQuestion("Complete: She can ___ very well.",
+                listOf("to cook", "cooks", "cook", "cooking"), 2),
+            QuizQuestion("Complete: I go ___ on Sundays.",
+                listOf("to swim", "swimming", "swim", "swims"), 1),
+            QuizQuestion("What does 'hang out' mean?",
+                listOf("آویزون شدن", "وقت گذراندن", "بیرون رفتن", "خرید کردن"), 1),
+            QuizQuestion("Complete: ___ you play tennis?",
+                listOf("Are", "Do", "Is", "Does"), 1),
+            QuizQuestion("Complete: She ___ play the piano.",
+                listOf("can", "cans", "is can", "to can"), 0),
+            QuizQuestion("Complete: I ___ cooking.",
+                listOf("enjoy", "enjoys", "enjoying", "enjoyed"), 0),
+            QuizQuestion("What does 'have a blast' mean?",
+                listOf("انفجار", "خیلی خوش گذروندن", "بیرون رفتن", "دویدن"), 1)
+        )
+    )
+}// ═══════════════════════════════════════════════════════════
+// CHAPTER 7 — Shopping and Clothes
+// ═══════════════════════════════════════════════════════════
+private fun chapter7(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 7,
+        title = "Shopping and Clothes",
+        titlePersian = "خرید و لباس",
+        objectives = listOf(
+            "Talk about shopping and clothes",
+            "Ask about prices and sizes",
+            "Use this / that / these / those",
+            "Use the present continuous for wearing",
+            "Describe what people are wearing",
+            "Shop for clothes politely"
+        ),
+        vocabulary = listOf(
+            VocabWord("shirt", "پیراهن", "/ʃɜːrt/", "noun",
+                "This shirt is nice.",
+                "این پیراهن قشنگ است.",
+                collocations = "blue shirt, white shirt"),
+            VocabWord("pants", "شلوار", "/pænts/", "noun",
+                "These pants are comfortable.",
+                "این شلوار راحت است.",
+                collocations = "black pants, jeans pants"),
+            VocabWord("shoes", "کفش", "/ʃuːz/", "noun",
+                "My shoes are new.",
+                "کفش‌هایم جدید هستند.",
+                collocations = "new shoes, running shoes"),
+            VocabWord("dress", "لباس زنانه", "/dres/", "noun",
+                "Her dress is beautiful.",
+                "لباسش زیباست.",
+                collocations = "red dress, evening dress"),
+            VocabWord("jacket", "کت / ژاکت", "/ˈdʒækɪt/", "noun",
+                "This jacket is warm.",
+                "این کت گرم است.",
+                collocations = "leather jacket, winter jacket"),
+            VocabWord("hat", "کلاه", "/hæt/", "noun",
+                "His hat is brown.",
+                "کلاهش قهوه‌ای است.",
+                collocations = "winter hat, sun hat"),
+            VocabWord("price", "قیمت", "/praɪs/", "noun",
+                "What's the price?",
+                "قیمتش چقدره؟",
+                collocations = "good price, high price"),
+            VocabWord("cheap", "ارزان", "/tʃiːp/", "adjective",
+                "This shirt is cheap.",
+                "این پیراهن ارزان است.",
+                collocations = "very cheap, quite cheap"),
+            VocabWord("expensive", "گران", "/ɪkˈspensɪv/", "adjective",
+                "That's too expensive.",
+                "آن خیلی گران است.",
+                collocations = "very expensive, too expensive"),
+            VocabWord("size", "سایز", "/saɪz/", "noun",
+                "What size are you?",
+                "چه سایزی هستی؟",
+                collocations = "small size, medium size"),
+            VocabWord("color", "رنگ", "/ˈkʌlər/", "noun",
+                "What color is it?",
+                "چه رنگی است؟",
+                collocations = "bright color, favorite color"),
+            VocabWord("wear", "پوشیدن", "/wer/", "verb",
+                "I'm wearing a blue shirt.",
+                "پیراهن آبی پوشیده‌ام.",
+                collocations = "wear clothes, wear a dress")
+        ),
+        idioms = listOf(
+            IdiomExpression("on sale", "حراج",
+                "The shoes are on sale.",
+                "کفش‌ها حراج هستند.",
+                register = "neutral"),
+            IdiomExpression("try on", "پرو کردن",
+                "Can I try on this jacket?",
+                "می‌توانم این کت را پرو کنم؟",
+                register = "neutral"),
+            IdiomExpression("fit well", "خوب اندازه بودن",
+                "These shoes fit well.",
+                "این کفش‌ها خوب اندازه هستند.",
+                register = "neutral")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("try on", "پرو کردن",
+                "پوشیدن لباس برای امتحان کردن",
+                "Can I try on this jacket?",
+                "می‌توانم این کت را پرو کنم؟",
+                separable = "Yes"),
+            PhrasalVerb("put on", "پوشیدن",
+                "پوشیدن لباس",
+                "Put on your jacket. It's cold.",
+                "کتت را بپوش. سرد است.",
+                separable = "Yes")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("this / these",
+                "this /ðɪs/ برای مفرد، these /ðiːz/ برای جمع. تفاوت صدا مهم است."),
+            PronunciationTip("clothes",
+                "clothes /kloʊðz/ — th صدادار و s در پایان."),
+            PronunciationTip("shopping intonation",
+                "در سؤال‌های How much is...؟ لحن در انتها پایین می‌آید.")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("Shopping culture",
+                "در غرب، خرید در فروشگاه‌ها و مال‌ها بسیار رایج است. Black Friday و Boxing Day روزهای تخفیف بزرگ هستند."),
+            CulturalNote("Return policies",
+                "بسیاری از فروشگاه‌ها سیاست بازگشت ۳۰ روزه دارند. نگه داشتن رسید مهم است.")
+        ),
+        grammar = listOf(
+            GrammarSection("this / that / these / those",
+                "this = این (مفرد نزدیک), that = آن (مفرد دور), these = این‌ها (جمع نزدیک), those = آن‌ها (جمع دور). مثال: This shirt is nice. Those shoes are new."),
+            GrammarSection("Present continuous for wearing",
+                "I'm wearing a blue shirt. She's wearing a red dress. — am/is/are + verb-ing برای نشان دادن چیزی که الان پوشیده شده."),
+            GrammarSection("How much is / are...?",
+                "How much is this shirt? (مفرد). How much are these shoes? (جمع)."),
+            GrammarSection("Polite shopping questions",
+                "Can I try this on? / Do you have a bigger size? / Can I pay by card? / Could I have a bag?")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("How much are this shirt?", "How much is this shirt?", "برای مفرد از is استفاده می‌کنیم."),
+            CommonMistake("This shoes are nice.", "These shoes are nice.", "برای جمع از these استفاده می‌کنیم."),
+            CommonMistake("a shirt red", "a red shirt", "صفت قبل از اسم می‌آید."),
+            CommonMistake("I wear a blue shirt now.", "I'm wearing a blue shirt now.", "برای الان از present continuous.")
+        ),
+        conversation = listOf(
+            DialogueLine("A", "Excuse me, how much is this shirt?",
+                "ببخشید، این پیراهن چنده؟"),
+            DialogueLine("B", "It's 25 dollars.",
+                "۲۵ دلار است."),
+            DialogueLine("A", "And these shoes?",
+                "و این کفش‌ها؟"),
+            DialogueLine("B", "Those are 40 dollars.",
+                "آن‌ها ۴۰ دلار هستند."),
+            DialogueLine("A", "That's a bit expensive. Do you have anything cheaper?",
+                "کمی گران است. چیز ارزان‌تری دارید؟"),
+            DialogueLine("B", "Yes, these are on sale for 30 dollars.",
+                "بله، این‌ها ۳۰ دلار حراج هستند."),
+            DialogueLine("A", "That's better. What sizes do you have?",
+                "این بهتره. چه سایزهایی دارید؟"),
+            DialogueLine("B", "We have small, medium, and large.",
+                "اسمال، مدیوم و لارج داریم."),
+            DialogueLine("A", "I'll take the medium. Can I try them on?",
+                "مدیوم می‌خواهم. می‌توانم پرو کنم؟"),
+            DialogueLine("B", "Of course. The fitting room is over there.",
+                "البته. اتاق پرو آنجاست."),
+            DialogueLine("A", "Thanks. They fit well. I'll take them.",
+                "ممنون. اندازه هستند. این‌ها را می‌خرم."),
+            DialogueLine("B", "Great! Cash or card?",
+                "عالی! نقد یا کارت؟"),
+            DialogueLine("A", "Card, please. And could I have a bag?",
+                "کارت، لطفاً. و می‌توانم یک کیسه بگیرم؟"),
+            DialogueLine("B", "Of course. Here you go.",
+                "البته. بفرمایید."),
+            DialogueLine("A", "Thank you. Do you have a return policy?",
+                "ممنون. سیاست بازگشت دارید؟"),
+            DialogueLine("B", "Yes, 30 days with the receipt.",
+                "بله، ۳۰ روز با رسید."),
+            DialogueLine("A", "Great. What color is this dress?",
+                "عالی. این لباس چه رنگیه؟"),
+            DialogueLine("B", "It's dark blue. Would you like to see it?",
+                "آبی تیره است. می‌خواهی ببینیش؟"),
+            DialogueLine("A", "Yes, please. And I'm also looking for a hat.",
+                "بله، لطفاً. و کلاه هم می‌خواهم."),
+            DialogueLine("B", "We have some nice hats over there.",
+                "کلاه‌های خوبی آنجا داریم.")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("پیراهن چقدر بود؟", "۲۵ دلار."),
+            ComprehensionQuestion("کفش‌های حراج چقدر بودند؟", "۳۰ دلار."),
+            ComprehensionQuestion("مشتری چه سایزی خرید؟", "مدیوم."),
+            ComprehensionQuestion("سیاست بازگشت چقدر است؟", "۳۰ روز با رسید."),
+            ComprehensionQuestion("لباس چه رنگی بود؟", "آبی تیره.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Role-play shopping for clothes.",
+                "نقش‌بازی: خرید لباس.",
+                "How much is...? / Can I try...? / I'll take it."),
+            SpeakingTask("Describe what you're wearing today.",
+                "توصیف کن امروز چی پوشیده‌ای.",
+                "I'm wearing... / My... is..."),
+            SpeakingTask("Talk about your favorite clothes.",
+                "درباره لباس‌های مورد علاقه‌ات صحبت کن.",
+                "My favorite... is... / I like wearing...")
+        ),
+        writingTasks = listOf(
+            WritingTask("Describe your favorite outfit.",
+                "ست لباس مورد علاقه‌ات را توصیف کن.",
+                90,
+                "Use colors, sizes, and present continuous.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: How much ___ these shoes?",
+                listOf("is", "are", "have", "has"), 1),
+            QuizQuestion("Complete: ___ shirt is nice.",
+                listOf("This", "These", "Those", "Them"), 0),
+            QuizQuestion("Complete: I'm ___ a blue shirt.",
+                listOf("wear", "wears", "wearing", "wore"), 2),
+            QuizQuestion("Complete: What color ___ it?",
+                listOf("is", "are", "have", "has"), 0),
+            QuizQuestion("Complete: ___ shoes are new.",
+                listOf("This", "That", "These", "Them"), 2),
+            QuizQuestion("Complete: I want to ___ this shirt.",
+                listOf("buy", "buys", "buying", "bought"), 0),
+            QuizQuestion("What does 'on sale' mean?",
+                listOf("حراج", "گران", "خرید", "فروشگاه"), 0),
+            QuizQuestion("Complete: How much did you ___?",
+                listOf("buy", "pay", "cost", "spend"), 1)
+        )
+    )
+}
+
+// ═══════════════════════════════════════════════════════════
+// CHAPTER 8 — Health and Body
+// ═══════════════════════════════════════════════════════════
+private fun chapter8(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 8,
+        title = "Health and Body",
+        titlePersian = "سلامت و بدن",
+        objectives = listOf(
+            "Name parts of the body",
+            "Talk about health problems",
+            "Use have / has for symptoms",
+            "Give advice with should / shouldn't",
+            "Make a doctor's appointment",
+            "Show concern for others"
+        ),
+        vocabulary = listOf(
+            VocabWord("head", "سر", "/hed/", "noun",
+                "My head hurts.",
+                "سرم درد می‌کند.",
+                collocations = "my head, shake your head"),
+            VocabWord("stomach", "شکم", "/ˈstʌmək/", "noun",
+                "I have a stomachache.",
+                "دل‌درد دارم.",
+                collocations = "empty stomach, full stomach"),
+            VocabWord("arm", "بازو", "/ɑːrm/", "noun",
+                "My arm hurts.",
+                "بازویم درد می‌کند.",
+                collocations = "left arm, broken arm"),
+            VocabWord("leg", "پا", "/leɡ/", "noun",
+                "I broke my leg last year.",
+                "پارسال پام شکست.",
+                collocations = "left leg, strong legs"),
+            VocabWord("fever", "تب", "/ˈfiːvər/", "noun",
+                "She has a fever.",
+                "او تب دارد.",
+                collocations = "high fever, slight fever"),
+            VocabWord("headache", "سردرد", "/ˈhedeɪk/", "noun",
+                "I have a headache.",
+                "سردرد دارم.",
+                collocations = "terrible headache, get a headache"),
+            VocabWord("cold", "سرماخوردگی", "/koʊld/", "noun",
+                "I have a cold.",
+                "سرماخورده‌ام.",
+                collocations = "bad cold, catch a cold"),
+            VocabWord("medicine", "دارو", "/ˈmedɪsɪn/", "noun",
+                "Take this medicine.",
+                "این دارو را بخور.",
+                collocations = "take medicine, strong medicine"),
+            VocabWord("doctor", "پزشک", "/ˈdɑːktər/", "noun",
+                "You should see a doctor.",
+                "باید دکتر بروی.",
+                collocations = "see a doctor, family doctor"),
+            VocabWord("hospital", "بیمارستان", "/ˈhɑːspɪtəl/", "noun",
+                "She's in the hospital.",
+                "او در بیمارستان است.",
+                collocations = "go to the hospital, in the hospital"),
+            VocabWord("pain", "درد", "/peɪn/", "noun",
+                "I have pain in my back.",
+                "کمرم درد می‌کند.",
+                collocations = "back pain, sharp pain"),
+            VocabWord("healthy", "سالم", "/ˈhelθi/", "adjective",
+                "Eat healthy food.",
+                "غذای سالم بخور.",
+                collocations = "healthy food, stay healthy")
+        ),
+        idioms = listOf(
+            IdiomExpression("under the weather", "حالش خوب نبودن",
+                "I'm feeling under the weather today.",
+                "امروز حالم خوب نیست.",
+                register = "informal"),
+            IdiomExpression("as fit as a fiddle", "خیلی سالم",
+                "My grandfather is as fit as a fiddle.",
+                "پدربزرگم خیلی سالم است.",
+                register = "idiom"),
+            IdiomExpression("take it easy", "سخت نگیر",
+                "You should take it easy for a few days.",
+                "باید چند روز سخت نگیری.",
+                register = "informal")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("get over", "بهبود یافتن",
+                "از بیماری بهبود یافتن",
+                "It took a week to get over the cold.",
+                "یک هفته طول کشید تا از سرماخوردگی بهبود یابم.",
+                separable = "No"),
+            PhrasalVerb("lie down", "دراز کشیدن",
+                "استراحت کردن با دراز کشیدن",
+                "You should lie down and rest.",
+                "باید دراز بکشی و استراحت کنی.",
+                separable = "No")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("th in health",
+                "health /helθ/ — صدای /θ/ بی‌صدا."),
+            PronunciationTip("silent h in hour",
+                "در hour حرف h تلفظ نمی‌شود: /ˈaʊər/."),
+            PronunciationTip("body parts stress",
+                "head /hed/, stomach /ˈstʌmək/, arm /ɑːrm/ — استرس در stomach روی بخش اول.")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("Health systems",
+                "در کشورهای انگلیسی‌زبان، سیستم‌های درمانی متفاوت هستند: NHS در بریتانیا رایگان است، در آمریکا بیمه درمانی خصوصی رایج‌تر است."),
+            CulturalNote("Doctor visits",
+                "در بسیاری از کشورها، برای دیدن پزشک متخصص باید از GP (پزشک عمومی) ارجاع بگیرید.")
+        ),
+        grammar = listOf(
+            GrammarSection("should / shouldn't for advice",
+                "You should rest. You shouldn't eat too much sugar. You should see a doctor."),
+            GrammarSection("have / has for symptoms",
+                "I have a headache. She has a cold. They have the flu. My head hurts. — برای علائم از have و hurt استفاده می‌کنیم."),
+            GrammarSection("Questions about health",
+                "What's the matter? What's wrong? Are you OK? Do you have a fever?"),
+            GrammarSection("Imperatives for advice",
+                "Take this medicine. Drink more water. Get some rest. Don't work too hard.")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("I have headache.", "I have a headache.", "قبل از headache از a استفاده می‌کنیم."),
+            CommonMistake("You should to rest.", "You should rest.", "بعد از should فعل ساده بدون to."),
+            CommonMistake("My head is pain.", "My head hurts.", "برای درد از hurt استفاده می‌کنیم، نه pain."),
+            CommonMistake("She have a fever.", "She has a fever.", "برای she از has استفاده می‌کنیم.")
+        ),
+        conversation = listOf(
+            DialogueLine("A", "Hi Sara, you don't look well. Are you OK?",
+                "سلام سارا، خوب به نظر نمی‌رسی. حالت خوبه؟"),
+            DialogueLine("B", "Not really. I have a terrible headache and a fever.",
+                "نه واقعاً. سردرد وحشتناک و تب دارم."),
+            DialogueLine("A", "Oh no. How long have you felt like this?",
+                "اوه نه. چقدر این‌طوری؟"),
+            DialogueLine("B", "Since yesterday evening. I think I have the flu.",
+                "از دیشب. فکر کنم آنفلوانزا گرفتم."),
+            DialogueLine("A", "You should see a doctor.",
+                "باید دکتر بروی."),
+            DialogueLine("B", "I know. Can you take me to the clinic?",
+                "می‌دانم. می‌توانی منو ببری کلینیک؟"),
+            DialogueLine("A", "Of course. Let me make an appointment first.",
+                "البته. بذار اول وقت بگیرم."),
+            DialogueLine("B", "Thank you so much. I really appreciate it.",
+                "خیلی ممنون. واقعاً قدردانی می‌کنم."),
+            DialogueLine("A", "That's what friends are for. Rest until we go.",
+                "دوست برای همین است. تا وقتی بریم استراحت کن."),
+            DialogueLine("B", "I will. Thanks again.",
+                "می‌کنم. بازم ممنون."),
+            DialogueLine("A", "No problem. Do you have a sore throat too?",
+                "مشکلی نیست. گلودرد هم داری؟"),
+            DialogueLine("B", "Yes, a little. And I feel very tired.",
+                "بله، یه کم. و خیلی خسته‌ام."),
+            DialogueLine("A", "Have you taken any medicine?",
+                "دارویی خوردی؟"),
+            DialogueLine("B", "Just some tea with honey. Nothing else.",
+                "فقط چای با عسل. چیز دیگه‌ای نه."),
+            DialogueLine("A", "OK, we'll ask the doctor. Let's go.",
+                "باشه، از دکتر می‌پرسیم. بریم."),
+            DialogueLine("B", "Thanks for everything.",
+                "ممنون برای همه چیز."),
+            DialogueLine("A", "Anytime. Take care.",
+                "هر وقت. مراقب خودت باش."),
+            DialogueLine("B", "You too!",
+                "تو هم!")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("Sara چه علائمی دارد؟", "سردرد شدید، تب و گلودرد."),
+            ComprehensionQuestion("Sara چه بیماری‌ای فکر می‌کند دارد؟", "آنفلوانزا."),
+            ComprehensionQuestion("دوستم چه کاری می‌کند؟", "قرار ملاقات با دکتر می‌گیرد و او را می‌برد."),
+            ComprehensionQuestion("Sara چه دارویی خورده؟", "فقط چای با عسل."),
+            ComprehensionQuestion("دوستم چه توصیه‌ای دارد؟", "دکتر ببیند و استراحت کند.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Describe your symptoms to a doctor.",
+                "علائم‌ت را به دکتر بگو.",
+                "I have... / My ... hurts. / I feel..."),
+            SpeakingTask("Give advice to a sick friend.",
+                "به یک دوست بیمار توصیه کن.",
+                "You should... / You shouldn't... / Take..."),
+            SpeakingTask("Talk about what you do to stay healthy.",
+                "درباره کارهایی که برای سالم موندن انجام می‌دی صحبت کن.",
+                "I exercise... / I eat... / I try to...")
+        ),
+        writingTasks = listOf(
+            WritingTask("Write about what you do to stay healthy.",
+                "درباره کارهایی که برای سالم موندن انجام می‌دی بنویس.",
+                90,
+                "Use should/shouldn't and health vocabulary.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: You ___ rest.",
+                listOf("should", "should to", "shoulds", "shoulding"), 0),
+            QuizQuestion("Complete: I have ___ headache.",
+                listOf("a", "an", "the", "-"), 0),
+            QuizQuestion("Complete: My back ___.",
+                listOf("hurt", "hurts", "is hurt", "hurting"), 1),
+            QuizQuestion("Complete: You should ___ more water.",
+                listOf("drink", "drinks", "drinking", "drank"), 0),
+            QuizQuestion("Complete: She ___ a cold.",
+                listOf("have", "has", "haves", "having"), 1),
+            QuizQuestion("What does 'under the weather' mean?",
+                listOf("زیر بارون", "حالش خوب نیست", "خوشحال", "سلامت"), 1),
+            QuizQuestion("Complete: You shouldn't ___ junk food.",
+                listOf("eat", "eats", "eating", "ate"), 0),
+            QuizQuestion("What does 'take it easy' mean?",
+                listOf("سخت بگیر", "سخت نگیر", "سریع برو", "بخواب"), 1)
+        )
+    )
+}
+
+// ═══════════════════════════════════════════════════════════
+// CHAPTER 9 — Travel Plans
+// ═══════════════════════════════════════════════════════════
+private fun chapter9(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 9,
+        title = "Travel Plans",
+        titlePersian = "برنامه‌های سفر",
+        objectives = listOf(
+            "Talk about travel plans",
+            "Use going to and will",
+            "Book hotels and tickets",
+            "Ask for information about travel",
+            "Make arrangements",
+            "Talk about future intentions"
+        ),
+        vocabulary = listOf(
+            VocabWord("travel", "سفر کردن", "/ˈtrævəl/", "verb",
+                "I love traveling.",
+                "عاشق سفرم.",
+                collocations = "travel abroad, travel alone"),
+            VocabWord("trip", "سفر", "/trɪp/", "noun",
+                "How was your trip?",
+                "سفرت چطور بود؟",
+                collocations = "business trip, family trip"),
+            VocabWord("ticket", "بلیط", "/ˈtɪkɪt/", "noun",
+                "I bought a ticket online.",
+                "بلیط را آنلاین خریدم.",
+                collocations = "plane ticket, train ticket"),
+            VocabWord("hotel", "هتل", "/hoʊˈtel/", "noun",
+                "We stayed in a nice hotel.",
+                "در هتل خوبی ماندیم.",
+                collocations = "book a hotel, luxury hotel"),
+            VocabWord("airport", "فرودگاه", "/ˈerpɔːrt/", "noun",
+                "The airport is far from here.",
+                "فرودگاه از اینجا دور است.",
+                collocations = "go to the airport, airport shuttle"),
+            VocabWord("passport", "پاسپورت", "/ˈpæspɔːrt/", "noun",
+                "Don't forget your passport!",
+                "پاسپورتت را فراموش نکن!",
+                collocations = "valid passport, renew passport"),
+            VocabWord("luggage", "چمدان", "/ˈlʌɡɪdʒ/", "noun",
+                "My luggage is heavy.",
+                "چمدانم سنگین است.",
+                collocations = "pack luggage, carry-on luggage"),
+            VocabWord("sightseeing", "بازدید",
+                "/ˈsaɪtsiːɪŋ/", "noun",
+                "We went sightseeing all day.",
+                "تمام روز رفتیم بازدید.",
+                collocations = "go sightseeing, sightseeing tour"),
+            VocabWord("abroad", "خارج از کشور", "/əˈbrɔːd/", "adverb",
+                "She lives abroad.",
+                "او در خارج زندگی می‌کند.",
+                collocations = "study abroad, travel abroad"),
+            VocabWord("reservation", "رزرو", "/ˌrezərˈveɪʃən/", "noun",
+                "I have a reservation.",
+                "رزرو دارم.",
+                collocations = "make a reservation, hotel reservation"),
+            VocabWord("map", "نقشه", "/mæp/", "noun",
+                "Check the map.",
+                "نقشه را چک کن.",
+                collocations = "read a map, city map"),
+            VocabWord("guide", "راهنما", "/ɡaɪd/", "noun",
+                "The guide was helpful.",
+                "راهنما کمک‌کننده بود.",
+                collocations = "tour guide, travel guide")
+        ),
+        idioms = listOf(
+            IdiomExpression("catch a flight", "به پرواز رسیدن",
+                "We need to catch a flight at 6.",
+                "باید ساعت ۶ به پرواز برسیم.",
+                register = "neutral"),
+            IdiomExpression("hit the road", "راه افتادن",
+                "Let's hit the road early.",
+                "بیا زود راه بیفتیم.",
+                register = "informal"),
+            IdiomExpression("look forward to", "بی‌صبرانه منتظر بودن",
+                "I'm looking forward to the trip.",
+                "بی‌صبرانه منتظر سفرم.",
+                register = "neutral")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("check in", "پذیرش گرفتن",
+                "پذیرش در هتل یا فرودگاه",
+                "We checked in at 3 PM.",
+                "ساعت ۳ پذیرش گرفتیم.",
+                separable = "No"),
+            PhrasalVerb("set off", "راه افتادن",
+                "شروع سفر کردن",
+                "We set off early in the morning.",
+                "صبح زود راه افتادیم.",
+                separable = "No")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("going to → gonna",
+                "در مکالمه سریع، going to به gonna تبدیل می‌شود: I'm gonna travel."),
+            PronunciationTip("passport stress",
+                "passport /ˈpæspɔːrt/ — استرس روی بخش اول."),
+            PronunciationTip("Contractions with will",
+                "I'll /aɪl/، you'll /juːl/، we'll /wiːl/.")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("Travel tips",
+                "در غرب، خرید بیمه سفر و رزرو آنلاین بلیط رایج است. توصیه می‌شود چند کپی از پاسپورت همراه داشته باشید."),
+            CulturalNote("Airport customs",
+                "در فرودگاه‌ها، customs (گمرک) و immigration (کنترل گذرنامه) از هم جدا هستند.")
+        ),
+        grammar = listOf(
+            GrammarSection("going to for future plans",
+                "am/is/are + going to + verb. I'm going to travel to Japan. She's going to start a new job. — برای برنامه‌های از قبل تصمیم‌گیری‌شده."),
+            GrammarSection("will for decisions and predictions",
+                "will + verb. I'll help you. It will rain tomorrow. — برای تصمیم‌های لحظه‌ای و پیش‌بینی‌ها."),
+            GrammarSection("Present continuous for future arrangements",
+                "I'm meeting Ali tomorrow at 5. We're flying to Paris next week. — برای قرارهای قطعی."),
+            GrammarSection("Time expressions for future",
+                "tomorrow, next week, next month, this weekend, soon. — I'll see you next week.")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("I will to travel.", "I will travel.", "بعد از will فعل ساده بدون to."),
+            CommonMistake("I'm go to travel.", "I'm going to travel.", "شکل درست going to است."),
+            CommonMistake("She will travels.", "She will travel.", "بعد از will فعل ساده."),
+            CommonMistake("next the week", "next week", "بدون the.")
+        ),
+        conversation = listOf(
+            DialogueLine("A", "Do you have any plans for the summer?",
+                "برای تابستان برنامه‌ای داری؟"),
+            DialogueLine("B", "Yes! I'm going to travel to Turkey.",
+                "بله! می‌خواهم به ترکیه سفر کنم."),
+            DialogueLine("A", "That sounds amazing! How long will you stay?",
+                "فوق‌العاده به نظر می‌رسد! چقدر می‌مانی؟"),
+            DialogueLine("B", "About two weeks. I'll visit Istanbul and Antalya.",
+                "حدود دو هفته. استانبول و آنتالیا را می‌بینم."),
+            DialogueLine("A", "Have you booked your tickets yet?",
+                "بلیط‌ها را رزرو کردی؟"),
+            DialogueLine("B", "Not yet. I'm going to book them next week.",
+                "هنوز نه. می‌خواهم هفته بعد رزرو کنم."),
+            DialogueLine("A", "Who are you going with?",
+                "با کی می‌روی؟"),
+            DialogueLine("B", "With my brother. He's never been abroad.",
+                "با برادرم. او هرگز خارج نبوده."),
+            DialogueLine("A", "That's exciting. Will you stay in hotels?",
+                "هیجان‌انگیزه. در هتل می‌مانید؟"),
+            DialogueLine("B", "Yes, we're going to stay in small hotels near the center.",
+                "بله، در هتل‌های کوچک نزدیک مرکز می‌مانیم."),
+            DialogueLine("A", "Nice. What will you do there?",
+                "خوبه. آنجا چه کار می‌کنید؟"),
+            DialogueLine("B", "We'll visit historical sites and relax on the beach.",
+                "از جاهای تاریخی بازدید می‌کنیم و در ساحل استراحت می‌کنیم."),
+            DialogueLine("A", "Sounds perfect. Have you packed yet?",
+                "بی‌نقص به نظر می‌رسد. چمدان بستی؟"),
+            DialogueLine("B", "Not yet. I'll pack a few days before we leave.",
+                "هنوز نه. چند روز قبل از رفتن چمدان می‌بندم."),
+            DialogueLine("A", "Good idea. Don't forget your passport!",
+                "فکر خوبی است. پاسپورتت را فراموش نکن!"),
+            DialogueLine("B", "Of course not. I'll keep it safe.",
+                "البته که نه. امن نگهش می‌دارم."),
+            DialogueLine("A", "Are you looking forward to the trip?",
+                "بی‌صبرانه منتظر سفر هستی؟"),
+            DialogueLine("B", "Absolutely! I can't wait.",
+                "قطعاً! نمی‌تونم صبر کنم."),
+            DialogueLine("A", "Have a great trip!",
+                "سفر خوبی داشته باشی!"),
+            DialogueLine("B", "Thanks! I'll send you photos.",
+                "ممنون! عکس‌ها را برات می‌فرستم.")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("B برای تابستان چه برنامه‌ای دارد؟", "به ترکیه سفر می‌کند."),
+            ComprehensionQuestion("B با کی سفر می‌کند؟", "با برادرش."),
+            ComprehensionQuestion("B چه کارهایی در ترکیه انجام می‌دهد؟", "بازدید تاریخی و استراحت در ساحل."),
+            ComprehensionQuestion("B چه زمانی چمدان می‌بندد؟", "چند روز قبل از رفتن."),
+            ComprehensionQuestion("A چه توصیه‌ای به B می‌کند؟", "پاسپورتت را فراموش نکن.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Talk about your summer plans.",
+                "درباره برنامه‌های تابستانی‌ات صحبت کن.",
+                "I'm going to... / I'll... / Next week I'm..."),
+            SpeakingTask("Make plans with a friend.",
+                "با یک دوست برنامه بذار.",
+                "Are you free...? / Let's... / What about...?"),
+            SpeakingTask("Role-play booking a hotel.",
+                "نقش‌بازی: رزرو هتل.",
+                "I'd like to book... / How much...? / Do you have...?")
+        ),
+        writingTasks = listOf(
+            WritingTask("Write about your future travel plans.",
+                "درباره برنامه‌های سفر آینده‌ات بنویس.",
+                100,
+                "Use going to and will.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: I ___ going to travel.",
+                listOf("is", "am", "are", "be"), 1),
+            QuizQuestion("Complete: She ___ help you.",
+                listOf("will", "wills", "is will", "to will"), 0),
+            QuizQuestion("Complete: I'm ___ Ali tomorrow.",
+                listOf("meet", "meeting", "meets", "met"), 1),
+            QuizQuestion("What does 'look forward to' mean?",
+                listOf("منتظر بودن", "ترسیدن", "فراموش کردن", "لغو کردن"), 0),
+            QuizQuestion("Complete: They ___ going to visit us.",
+                listOf("is", "am", "are", "be"), 2),
+            QuizQuestion("Complete: I ___ call you tonight.",
+                listOf("will", "wills", "am will", "to will"), 0),
+            QuizQuestion("Complete: What ___ you do tomorrow?",
+                listOf("are", "will", "is", "do"), 1),
+            QuizQuestion("Complete: She ___ travel next week.",
+                listOf("going to", "is going to", "are going to", "will to"), 1)
+        )
+    )
+}    // ═══════════════════════════════════════════════════════════
+    // CHAPTER 10 — Weather and Seasons
+    // ═══════════════════════════════════════════════════════════
+    private fun chapter10(): LessonContent {
+        return LessonContent(
+            bookId = BOOK_ID,
+            chapterNumber = 10,
+            title = "Weather and Seasons",
+            titlePersian = "آب و هوا و فصل‌ها",
+            objectives = listOf(
+                "Talk about weather and seasons",
+                "Use present continuous for weather",
+                "Use going to for weather predictions",
+                "Describe seasonal activities",
+                "Talk about preferences for weather",
+                "Make small talk about weather"
+            ),
+            vocabulary = listOf(
+                VocabWord("weather", "آب و هوا", "/ˈweðər/", "noun",
+                    "The weather is nice today.",
+                    "امروز هوا خوب است.",
+                    collocations = "good weather, bad weather"),
+                VocabWord("sunny", "آفتابی", "/ˈsʌni/", "adjective",
+                    "It's sunny today.",
+                    "امروز آفتابی است.",
+                    collocations = "very sunny, sunny day"),
+                VocabWord("rainy", "بارانی", "/ˈreɪni/", "adjective",
+                    "It's rainy in spring.",
+                    "بهار بارانی است.",
+                    collocations = "rainy day, rainy season"),
+                VocabWord("cloudy", "ابری", "/ˈklaʊdi/", "adjective",
+                    "It's cloudy today.",
+                    "امروز ابری است.",
+                    collocations = "cloudy sky, quite cloudy"),
+                VocabWord("snowy", "برفی", "/ˈsnoʊi/", "adjective",
+                    "It's snowy in winter.",
+                    "زمستان برفی است.",
+                    collocations = "snowy day, snowy mountains"),
+                VocabWord("windy", "بادی", "/ˈwɪndi/", "adjective",
+                    "It's windy today.",
+                    "امروز بادی است.",
+                    collocations = "very windy, windy weather"),
+                VocabWord("hot", "گرم", "/hɑːt/", "adjective",
+                    "Summer is hot.",
+                    "تابستان گرم است.",
+                    collocations = "very hot, hot day"),
+                VocabWord("cold", "سرد", "/koʊld/", "adjective",
+                    "Winter is cold.",
+                    "زمستان سرد است.",
+                    collocations = "very cold, cold weather"),
+                VocabWord("warm", "ملایم", "/wɔːrm/", "adjective",
+                    "Spring is warm.",
+                    "بهار ملایم است.",
+                    collocations = "nice and warm, warm weather"),
+                VocabWord("spring", "بهار", "/sprɪŋ/", "noun",
+                    "Flowers bloom in spring.",
+                    "بهار گل‌ها شکوفه می‌دهند.",
+                    collocations = "early spring, spring flowers"),
+                VocabWord("summer", "تابستان", "/ˈsʌmər/", "noun",
+                    "We swim in summer.",
+                    "تابستان شنا می‌کنیم.",
+                    collocations = "hot summer, summer vacation"),
+                VocabWord("winter", "زمستان", "/ˈwɪntər/", "noun",
+                    "It snows in winter.",
+                    "زمستان برف می‌آید.",
+                    collocations = "cold winter, winter clothes")
+            ),
+            idioms = listOf(
+                IdiomExpression("under the weather", "حالش خوب نبودن",
+                    "I'm feeling under the weather today.",
+                    "امروز حالم خوب نیست.",
+                    register = "informal"),
+                IdiomExpression("rain or shine", "در هر شرایطی",
+                    "We'll go, rain or shine.",
+                    "در هر شرایطی می‌ریم.",
+                    register = "idiom"),
+                IdiomExpression("save for a rainy day", "برای روز مبادا پس‌انداز کردن",
+                    "Save money for a rainy day.",
+                    "برای روز مبادا پول پس‌انداز کن.",
+                    register = "idiom")
+            ),
+            phrasalVerbs = listOf(
+                PhrasalVerb("warm up", "گرم شدن",
+                    "گرم شدن هوا",
+                    "It's warming up in spring.",
+                    "بهار هوا گرم می‌شود.",
+                    separable = "No"),
+                PhrasalVerb("cool down", "خنک شدن",
+                    "خنک شدن هوا",
+                    "It cools down in the evening.",
+                    "عصرها هوا خنک می‌شود.",
+                    separable = "No")
+            ),
+            pronunciationTips = listOf(
+                PronunciationTip("th in weather",
+                    "weather /ˈweðər/ — th صدادار."),
+                PronunciationTip("seasons",
+                    "spring /sprɪŋ/، summer /ˈsʌmər/، autumn /ˈɔːtəm/، winter /ˈwɪntər/."),
+                PronunciationTip("weather vs whether",
+                    "weather و whether تلفظ یکسان دارند — /ˈweðər/. تفاوت در معنای آن‌هاست.")
+            ),
+            culturalNotes = listOf(
+                CulturalNote("Weather small talk",
+                    "در فرهنگ‌های انگلیسی‌زبان، صحبت درباره آب و هوا موضوع رایج Small Talk است. این روشی امن و مؤدبانه برای شروع مکالمه است."),
+                CulturalNote("Seasons in different countries",
+                    "در نیم‌کره جنوبی، فصل‌ها برعکس نیم‌کره شمالی هستند. کریسمس در استرالیا در تابستان است!")
+            ),
+            grammar = listOf(
+                GrammarSection("Present continuous for weather",
+                    "It's raining now. The sun is shining. — برای آب و هوای در حال وقوع."),
+                GrammarSection("going to for weather predictions",
+                    "It's going to rain. It's going to be sunny tomorrow. — برای پیش‌بینی نزدیک."),
+                GrammarSection("will for weather predictions",
+                    "It will be cold tomorrow. I'll bring an umbrella. — برای پیش‌بینی‌های عمومی."),
+                GrammarSection("Questions about weather",
+                    "What's the weather like? How's the weather today? Is it going to rain?")
+            ),
+            commonMistakes = listOf(
+                CommonMistake("How is the weather like?", "What's the weather like?", "ساختار صحیح: What's the weather like?"),
+                CommonMistake("Weather is nice.", "The weather is nice.", "قبل از weather از the استفاده می‌کنیم."),
+                CommonMistake("It rain today.", "It's raining today.", "برای آب و هوای در حال وقوع از present continuous."),
+                CommonMistake("It will rain tomorrow.", "It's going to rain tomorrow.", "برای پیش‌بینی نزدیک از going to.")
+            ),
+            conversation = listOf(
+                DialogueLine("A", "What's the weather like today?",
+                    "امروز هوا چطوره؟"),
+                DialogueLine("B", "It's sunny and warm. Perfect for a walk.",
+                    "آفتابی و ملایمه. عالی برای پیاده‌روی."),
+                DialogueLine("A", "Nice! What's your favorite season?",
+                    "خوبه! فصل مورد علاقه‌ات چیه؟"),
+                DialogueLine("B", "I love spring. The flowers bloom everywhere.",
+                    "عاشق بهارم. گل‌ها همه‌جا شکوفه می‌دن."),
+                DialogueLine("A", "Me too! What about summer?",
+                    "منم! تابستون چطور؟"),
+                DialogueLine("B", "It's too hot for me. I prefer cooler weather.",
+                    "برام خیلی گرمه. هوای خنک‌تر رو ترجیح می‌دم."),
+                DialogueLine("A", "Do you like winter?",
+                    "زمستون دوست داری؟"),
+                DialogueLine("B", "Yes, especially when it snows.",
+                    "بله، خصوصاً وقتی برف میاد."),
+                DialogueLine("A", "Do you do any winter sports?",
+                    "ورزش زمستانی می‌کنی؟"),
+                DialogueLine("B", "Yes, I ski sometimes. What about you?",
+                    "بله، گاهی اسکی می‌رم. تو چطور؟"),
+                DialogueLine("A", "I mostly stay indoors in winter.",
+                    "من زمستون بیشتر خونه می‌مونم."),
+                DialogueLine("B", "That's understandable. It's cold outside.",
+                    "قابل درکه. بیرون سرده."),
+                DialogueLine("A", "What are you going to do this weekend?",
+                    "این آخر هفته چیکار می‌کنی؟"),
+                DialogueLine("B", "I'm going to visit my grandparents if the weather is good.",
+                    "اگه هوا خوب باشه، می‌رم دیدن پدربزرگ و مادربزرگم."),
+                DialogueLine("A", "The forecast says it's going to be sunny.",
+                    "پیش‌بینی می‌گه آفتابی می‌شه."),
+                DialogueLine("B", "Perfect! I'll definitely go.",
+                    "عالی! حتماً می‌رم."),
+                DialogueLine("A", "Do you need an umbrella?",
+                    "چتر لازم داری؟"),
+                DialogueLine("B", "No, I don't think so. It's going to be clear.",
+                    "نه فکر نمی‌کنم. هوا صاف می‌شه."),
+                DialogueLine("A", "Have a nice weekend!",
+                    "آخر هفته خوبی داشته باشی!"),
+                DialogueLine("B", "You too! Thanks!",
+                    "تو هم! ممنون!")
+            ),
+            comprehensionQuestions = listOf(
+                ComprehensionQuestion("امروز هوا چطور است؟", "آفتابی و ملایم."),
+                ComprehensionQuestion("فصل مورد علاقه B چیست؟", "بهار."),
+                ComprehensionQuestion("B چه ورزش زمستانی می‌کند؟", "اسکی."),
+                ComprehensionQuestion("B این آخر هفته چیکار می‌کند؟", "به دیدن پدربزرگ و مادربزرگش می‌رود."),
+                ComprehensionQuestion("آیا B چتر لازم دارد؟", "نه، هوا صاف می‌شود.")
+            ),
+            speakingTasks = listOf(
+                SpeakingTask("Talk about weather in your city.",
+                    "درباره آب و هوای شهرت صحبت کن.",
+                    "It's usually... in summer. / It's often... in winter."),
+                SpeakingTask("Describe your favorite season.",
+                    "فصل مورد علاقه‌ات را توصیف کن.",
+                    "I love... because... / During this season, I..."),
+                SpeakingTask("Talk about seasonal activities.",
+                    "درباره فعالیت‌های فصلی صحبت کن.",
+                    "In summer, I... / In winter, I...")
+            ),
+            writingTasks = listOf(
+                WritingTask("Write about your favorite season and the activities you do.",
+                    "درباره فصل مورد علاقه‌ات و فعالیت‌هایی که انجام می‌دهی بنویس.",
+                    90,
+                    "Use weather vocabulary and present simple.")
+            ),
+            quiz = listOf(
+                QuizQuestion("Complete: What's the weather ___?",
+                    listOf("like", "as", "than", "of"), 0),
+                QuizQuestion("Complete: It's ___ rain.",
+                    listOf("going to", "will", "go to", "goes"), 0),
+                QuizQuestion("Complete: It's ___ today.",
+                    listOf("sun", "sunny", "sunshine", "sunny day"), 1),
+                QuizQuestion("What does 'under the weather' mean?",
+                    listOf("زیر بارون", "حالش خوب نیست", "خوشحال", "سلامت"), 1),
+                QuizQuestion("Complete: ___ weather is nice.",
+                    listOf("A", "An", "The", "-"), 2),
+                QuizQuestion("Complete: Flowers bloom in ___.",
+                    listOf("winter", "spring", "summer", "autumn"), 1),
+                QuizQuestion("Complete: It's ___ in winter.",
+                    listOf("hot", "warm", "cold", "cool"), 2),
+                QuizQuestion("What does 'rain or shine' mean?",
+                    listOf("بارون یا آفتاب", "در هر شرایطی", "بارونی", "آفتابی"), 1)
+            )
+        )
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // CHAPTER 11 — School and Work
+    // ═══════════════════════════════════════════════════════════
+    private fun chapter11(): LessonContent {
+        return LessonContent(
+            bookId = BOOK_ID,
+            chapterNumber = 11,
+            title = "School and Work",
+            titlePersian = "مدرسه و کار",
+            objectives = listOf(
+                "Talk about school and work",
+                "Use present simple and present continuous",
+                "Discuss jobs and occupations",
+                "Talk about daily schedules",
+                "Describe future career plans",
+                "Use time expressions for schedules"
+            ),
+            vocabulary = listOf(
+                VocabWord("job", "شغل", "/dʒɑːb/", "noun",
+                    "What's your job?",
+                    "شغلت چیه؟",
+                    collocations = "full-time job, part-time job"),
+                VocabWord("work", "کار", "/wɜːrk/", "noun/verb",
+                    "I start work at 9.",
+                    "ساعت ۹ کارم شروع می‌شه.",
+                    collocations = "go to work, start work"),
+                VocabWord("office", "دفتر", "/ˈɔːfɪs/", "noun",
+                    "The office is downtown.",
+                    "دفتر در مرکز شهره.",
+                    collocations = "office job, go to the office"),
+                VocabWord("school", "مدرسه", "/skuːl/", "noun",
+                    "The school is near my house.",
+                    "مدرسه نزدیک خونه‌امه.",
+                    collocations = "go to school, high school"),
+                VocabWord("university", "دانشگاه", "/ˌjuːnɪˈvɜːrsəti/", "noun",
+                    "He studies at university.",
+                    "در دانشگاه درس می‌خونه.",
+                    collocations = "go to university, university student"),
+                VocabWord("teacher", "معلم", "/ˈtiːtʃər/", "noun",
+                    "She's a teacher.",
+                    "او معلمه.",
+                    collocations = "English teacher, favorite teacher"),
+                VocabWord("doctor", "پزشک", "/ˈdɑːktər/", "noun",
+                    "My brother is a doctor.",
+                    "برادرم دکتره.",
+                    collocations = "see a doctor, family doctor"),
+                VocabWord("engineer", "مهندس", "/ˌendʒɪˈnɪr/", "noun",
+                    "He's an engineer.",
+                    "او مهندسه.",
+                    collocations = "software engineer, civil engineer"),
+                VocabWord("student", "دانش‌آموز / دانشجو", "/ˈstuːdənt/", "noun",
+                    "I'm a student.",
+                    "من دانشجو هستم.",
+                    collocations = "good student, university student"),
+                VocabWord("busy", "مشغول", "/ˈbɪzi/", "adjective",
+                    "I'm very busy this week.",
+                    "این هفته خیلی مشغولم.",
+                    collocations = "very busy, busy schedule"),
+                VocabWord("meeting", "جلسه", "/ˈmiːtɪŋ/", "noun",
+                    "I have a meeting at 10.",
+                    "ساعت ۱۰ جلسه دارم.",
+                    collocations = "have a meeting, attend a meeting"),
+                VocabWord("schedule", "برنامه", "/ˈskedʒuːl/", "noun",
+                    "My schedule is full.",
+                    "برنامه‌ام پره.",
+                    collocations = "busy schedule, daily schedule")
+            ),
+            idioms = listOf(
+                IdiomExpression("on time", "سر وقت",
+                    "I always arrive on time.",
+                    "همیشه سر وقت می‌رسم.",
+                    register = "neutral"),
+                IdiomExpression("busy as a bee", "خیلی مشغول",
+                    "She's busy as a bee today.",
+                    "امروز خیلی مشغوله.",
+                    register = "idiom"),
+                IdiomExpression("nine to five", "ساعت کاری معمول",
+                    "He works nine to five.",
+                    "او از ۹ تا ۵ کار می‌کنه.",
+                    register = "informal")
+            ),
+            phrasalVerbs = listOf(
+                PhrasalVerb("work on", "روی چیزی کار کردن",
+                    "روی یک پروژه یا کار کار کردن",
+                    "I'm working on a new project.",
+                    "دارم روی یه پروژه جدید کار می‌کنم.",
+                    separable = "No"),
+                PhrasalVerb("get off", "تعطیل شدن",
+                    "پایان کار روز",
+                    "I get off work at 6.",
+                    "ساعت ۶ از کارم تعطیل می‌شم.",
+                    separable = "No")
+            ),
+            pronunciationTips = listOf(
+                PronunciationTip("Job and work",
+                    "job /dʒɑːb/ و work /wɜːrk/ — تفاوت در معنی و صدا."),
+                PronunciationTip("university stress",
+                    "university /ˌjuːnɪˈvɜːrsəti/ — پنج سیلاب با استرس روی ver."),
+                PronunciationTip("Present simple vs continuous",
+                    "I work every day (عادت). I'm working now (الان).")
+            ),
+            culturalNotes = listOf(
+                CulturalNote("Work culture",
+                    "در غرب، 'nine to five' (۹ تا ۵) به عنوان ساعت کاری معمول شناخته می‌شود. تعادل کار و زندگی (work-life balance) مهم است."),
+                CulturalNote("Talking about jobs",
+                    "'What do you do?' یکی از رایج‌ترین سؤالات هنگام آشنایی است. پاسخ به این سؤال می‌تواند شغل، تحصیل یا حتی خانه‌دار بودن باشد.")
+            ),
+            grammar = listOf(
+                GrammarSection("Present simple for routines",
+                    "I work from 9 to 5. She studies at university. They live in the city. — برای عادت‌ها و برنامه‌های ثابت."),
+                GrammarSection("Present continuous for current actions",
+                    "I'm working on a project. She's studying for an exam. — برای کارهای در حال انجام."),
+                GrammarSection("Questions about work and school",
+                    "What do you do? Where do you work? What are you studying? Do you like your job?"),
+                GrammarSection("Future plans for career",
+                    "I'm going to apply for a new job. I'll study abroad next year. I want to become a doctor.")
+            ),
+            commonMistakes = listOf(
+                CommonMistake("What do you do? I'm work in a bank.", "I work in a bank.", "بعد از I'm نمی‌توان فعل ساده آورد."),
+                CommonMistake("She work at a hospital.", "She works at a hospital.", "برای he/she/it از -s سوم‌شخص."),
+                CommonMistake("I am work right now.", "I am working right now.", "برای حال استمراری از am/is/are + verb-ing."),
+                CommonMistake("He is study at university.", "He is studying at university.", "بعد از is فعل با -ing.")
+            ),
+            conversation = listOf(
+                DialogueLine("A", "What do you do, Mark?",
+                    "شغلت چیه، مارک؟"),
+                DialogueLine("B", "I'm a teacher. I teach English at a school.",
+                    "من معلمم. در یک مدرسه انگلیسی درس می‌دم."),
+                DialogueLine("A", "Nice. How long have you worked there?",
+                    "خوبه. چند وقته اونجا کار می‌کنی؟"),
+                DialogueLine("B", "For about five years now.",
+                    "حدود پنج سال."),
+                DialogueLine("A", "Do you enjoy it?",
+                    "لذت می‌بری؟"),
+                DialogueLine("B", "Mostly yes. But sometimes it's very busy.",
+                    "بیشتر بله. ولی گاهی خیلی شلوغه."),
+                DialogueLine("A", "What about you? What do you do?",
+                    "تو چطور؟ شغلت چیه؟"),
+                DialogueLine("B", "I'm a student. I study computer science.",
+                    "من دانشجو هستم. علوم کامپیوتر می‌خونم."),
+                DialogueLine("A", "That's a great field. What year are you in?",
+                    "رشته عالیه. ترم چندی؟"),
+                DialogueLine("B", "I'm in my third year. Next year I'll graduate.",
+                    "ترم سوم. سال بعد فارغ‌التحصیل می‌شم."),
+                DialogueLine("A", "Do you have a part-time job?",
+                    "شغل پاره‌وقت داری؟"),
+                DialogueLine("B", "Yes, I work at a café on weekends.",
+                    "بله، آخر هفته‌ها در یه کافه کار می‌کنم."),
+                DialogueLine("A", "That's impressive. How do you balance school and work?",
+                    "تحسین‌برانگیزه. چطور تحصیل و کار رو متعادل می‌کنی؟"),
+                DialogueLine("B", "I organize my time carefully.",
+                    "زمانم رو با دقت سازمان می‌دم."),
+                DialogueLine("A", "That's a useful skill. What are your plans after graduation?",
+                    "مهارت مفیدیه. بعد از فارغ‌التحصیلی چه برنامه‌ای داری؟"),
+                DialogueLine("B", "I'm going to look for a job in tech. Maybe abroad.",
+                    "می‌خوام دنبال کار در فناوری بگردم. شاید خارج."),
+                DialogueLine("A", "That sounds exciting!",
+                    "هیجان‌انگیزه!"),
+                DialogueLine("B", "I hope so. It's a bit scary too.",
+                    "امیدوارم. یه کم ترسناک هم هست."),
+                DialogueLine("A", "You'll do great! Good luck!",
+                    "عالی عمل می‌کنی! موفق باشی!"),
+                DialogueLine("B", "Thanks! Same to you!",
+                    "ممنون! تو هم همین‌طور!")
+            ),
+            comprehensionQuestions = listOf(
+                ComprehensionQuestion("Mark چه شغلی دارد؟", "معلم انگلیسی."),
+                ComprehensionQuestion("چند وقت است که Mark در مدرسه کار می‌کند؟", "حدود پنج سال."),
+                ComprehensionQuestion("B چه رشته‌ای می‌خواند؟", "علوم کامپیوتر."),
+                ComprehensionQuestion("B چه شغل پاره‌وقتی دارد؟", "کار در کافه در آخر هفته‌ها."),
+                ComprehensionQuestion("برنامه B بعد از فارغ‌التحصیلی چیست؟", "دنبال کار در فناوری می‌رود، شاید خارج.")
+            ),
+            speakingTasks = listOf(
+                SpeakingTask("Talk about your job or studies.",
+                    "درباره شغلت یا تحصیلت صحبت کن.",
+                    "I work... / I study... / I'm in my... year."),
+                SpeakingTask("Role-play talking about jobs.",
+                    "نقش‌بازی: صحبت درباره شغل‌ها.",
+                    "What do you do? / Where do you work? / Do you like your job?"),
+                SpeakingTask("Talk about your future career plans.",
+                    "درباره برنامه‌های حرفه‌ای آینده‌ات صحبت کن.",
+                    "I'm going to... / I want to... / In the future, I'll...")
+            ),
+            writingTasks = listOf(
+                WritingTask("Write about your job or studies and your future plans.",
+                    "درباره شغلت یا تحصیلت و برنامه‌های آینده‌ات بنویس.",
+                    100,
+                    "Use present simple, present continuous, and future forms.")
+            ),
+            quiz = listOf(
+                QuizQuestion("Complete: What ___ you do?",
+                    listOf("do", "does", "are", "is"), 0),
+                QuizQuestion("Complete: She ___ at a hospital.",
+                    listOf("work", "works", "working", "worked"), 1),
+                QuizQuestion("Complete: I'm ___ on a project now.",
+                    listOf("work", "works", "working", "worked"), 2),
+                QuizQuestion("What does 'nine to five' mean?",
+                    listOf("۹ تا ۵", "شبانه‌روزی", "پاره‌وقت", "تعطیلات"), 0),
+                QuizQuestion("Complete: He is ___ at university.",
+                    listOf("study", "studies", "studying", "studied"), 2),
+                QuizQuestion("Complete: What are you ___?",
+                    listOf("study", "studies", "studying", "studied"), 2),
+                QuizQuestion("Complete: I ___ go to work at 9.",
+                    listOf("am", "is", "do", "does"), 2),
+                QuizQuestion("What does 'busy as a bee' mean?",
+                    listOf("مثل زنبور", "خیلی مشغول", "زحمت‌کش", "بیکار"), 1)
+            )
+        )
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // CHAPTER 12 — Review
+    // ═══════════════════════════════════════════════════════════
+    private fun chapter12(): LessonContent {
+        return LessonContent(
+            bookId = BOOK_ID,
+            chapterNumber = 12,
+            title = "Review",
+            titlePersian = "مرور",
+            objectives = listOf(
+                "Review all grammar structures",
+                "Practice everyday conversations",
+                "Use all tenses accurately",
+                "Build confidence in English",
+                "Reflect on progress",
+                "Prepare for the next level"
+            ),
+            vocabulary = listOf(
+                VocabWord("review", "مرور", "/rɪˈvjuː/", "noun",
+                    "Let's review the lesson.",
+                    "بیا درس را مرور کنیم.",
+                    collocations = "quick review, final review"),
+                VocabWord("practice", "تمرین", "/ˈpræktɪs/", "noun",
+                    "Practice makes perfect.",
+                    "تمرین باعث پیشرفت.",
+                    collocations = "daily practice, speaking practice"),
+                VocabWord("improve", "بهتر کردن", "/ɪmˈpruːv/", "verb",
+                    "I want to improve my English.",
+                    "می‌خواهم انگلیسی‌ام را بهتر کنم.",
+                    collocations = "improve skills, improve fluency"),
+                VocabWord("confident", "با اعتماد به نفس", "/ˈkɑːnfɪdənt/", "adjective",
+                    "I feel more confident now.",
+                    "الان با اعتماد به نفس‌ترم.",
+                    collocations = "feel confident, become confident"),
+                VocabWord("progress", "پیشرفت", "/ˈprɑːɡres/", "noun",
+                    "You're making great progress.",
+                    "داری پیشرفت خوبی می‌کنی.",
+                    collocations = "make progress, good progress"),
+                VocabWord("challenge", "چالش", "/ˈtʃælɪndʒ/", "noun",
+                    "English is a fun challenge.",
+                    "انگلیسی چالش سرگرم‌کننده است.",
+                    collocations = "fun challenge, big challenge"),
+                VocabWord("mistake", "اشتباه", "/mɪˈsteɪk/", "noun",
+                    "It's OK to make mistakes.",
+                    "اشتباه کردن اشکالی ندارد.",
+                    collocations = "make a mistake, learn from mistakes"),
+                VocabWord("continue", "ادامه دادن", "/kənˈtɪnjuː/", "verb",
+                    "Continue practicing every day.",
+                    "هر روز تمرین را ادامه بده.",
+                    collocations = "continue learning, continue to improve"),
+                VocabWord("succeed", "موفق شدن", "/səkˈsiːd/", "verb",
+                    "You will succeed if you try.",
+                    "اگر تلاش کنی موفق می‌شوی.",
+                    collocations = "succeed in life, succeed at work"),
+                VocabWord("journey", "سفر", "/ˈdʒɜːrni/", "noun",
+                    "Learning a language is a journey.",
+                    "یادگیری زبان یک سفر است.",
+                    collocations = "long journey, learning journey"),
+                VocabWord("goal", "هدف", "/ɡoʊl/", "noun",
+                    "My goal is to speak English well.",
+                    "هدفم خوب صحبت کردن انگلیسی است.",
+                    collocations = "achieve a goal, set a goal"),
+                VocabWord("future", "آینده", "/ˈfjuːtʃər/", "noun",
+                    "The future is bright.",
+                    "آینده روشن است.",
+                    collocations = "bright future, near future")
+            ),
+            idioms = listOf(
+                IdiomExpression("practice makes perfect", "تمرین باعث پیشرفت",
+                    "Practice makes perfect — keep going!",
+                    "تمرین باعث پیشرفت — ادامه بده!",
+                    register = "idiom"),
+                IdiomExpression("Rome wasn't built in a day", "رم در یک روز ساخته نشد",
+                    "Don't give up. Rome wasn't built in a day.",
+                    "تسلیم نشو. رم در یک روز ساخته نشد.",
+                    register = "idiom"),
+                IdiomExpression("break a leg", "موفق باشی",
+                    "Break a leg on your exam!",
+                    "در امتحانت موفق باشی!",
+                    register = "idiom")
+            ),
+            phrasalVerbs = listOf(
+                PhrasalVerb("keep up", "ادامه دادن",
+                    "ادامه دادن بدون توقف",
+                    "Keep up the good work!",
+                    "کار خوبت را ادامه بده!",
+                    separable = "No"),
+                PhrasalVerb("look back", "به عقب نگاه کردن",
+                    "به گذشته نگاه کردن",
+                    "Looking back, I've learned so much.",
+                    "به عقب که نگاه می‌کنم، چیزهای زیادی یاد گرفته‌ام.",
+                    separable = "No")
+            ),
+            pronunciationTips = listOf(
+                PronunciationTip("Intonation in questions",
+                    "Yes/No questions: rising (Are you a student? ↗). Wh- questions: falling (What's your name? ↘)."),
+                PronunciationTip("Contractions",
+                    "I'm, you're, he's, she's, we're, they're — همه در گفتار طبیعی کاهش می‌یابند."),
+                PronunciationTip("Word stress in content words",
+                    "در جمله‌های عادی، تأکید روی کلمات محتوایی است: I WANT to LEARN ENGlish.")
+            ),
+            culturalNotes = listOf(
+                CulturalNote("Language learning journey",
+                    "در غرب، یادگیری زبان یک فرآیند طولانی و ارزشمند تلقی می‌شود. اشتباه کردن بخش طبیعی این فرآیند است و اشتباهات معمولاً با نگاه مثبت دیده می‌شوند."),
+                CulturalNote("Building confidence",
+                    "صحبت کردن با اعتماد به نفس حتی با اشتباه، در فرهنگ‌های انگلیسی‌زبان ارزشمندتر از سکوت کامل است. 'Just go for it!' یک عبارت رایج تشویقی است.")
+            ),
+            grammar = listOf(
+                GrammarSection("Review: Present simple",
+                    "I work every day. She studies English. — برای عادت‌ها و واقعیت‌ها."),
+                GrammarSection("Review: Present continuous",
+                    "I'm working now. She's studying. — برای کارهای در حال انجام."),
+                GrammarSection("Review: Past simple",
+                    "I went to Paris last year. She saw a movie. — برای کارهای تمام‌شده در گذشته."),
+                GrammarSection("Review: Future (going to / will)",
+                    "I'm going to travel. I'll help you. — برنامه‌های از قبل و تصمیم‌های لحظه‌ای."),
+                GrammarSection("Review: can / should for ability and advice",
+                    "I can swim. You should rest. — ability with can، advice with should.")
+            ),
+            commonMistakes = listOf(
+                CommonMistake("I am agree.", "I agree.", "agree فعل است، نیازی به am نیست."),
+                CommonMistake("I didn't went.", "I didn't go.", "بعد از didn't فعل ساده."),
+                CommonMistake("He don't like it.", "He doesn't like it.", "برای he/she/it از doesn't."),
+                CommonMistake("I have seen him yesterday.", "I saw him yesterday.", "با زمان مشخص، از past simple.")
+            ),
+            conversation = listOf(
+                DialogueLine("A", "How's your English going?",
+                    "انگلیسی‌ت چطور پیش می‌ره؟"),
+                DialogueLine("B", "Pretty well! I've been practicing every day.",
+                    "خیلی خوب! هر روز تمرین کرده‌ام."),
+                DialogueLine("A", "That's great. Do you feel more confident?",
+                    "عالیه. با اعتماد به نفس‌تری؟"),
+                DialogueLine("B", "Yes, much more. I can have basic conversations.",
+                    "بله، خیلی بیشتر. می‌تونم مکالمات پایه داشته باشم."),
+                DialogueLine("A", "Awesome! What was the hardest part?",
+                    "عالی! سخت‌ترین قسمت چی بود؟"),
+                DialogueLine("B", "Probably the tenses. There are so many!",
+                    "احتمالاً زمان‌ها. خیلی زیادن!"),
+                DialogueLine("A", "Yeah, tenses are tricky. What helped you most?",
+                    "آره، زمان‌ها پیچیدن. چی بیشتر کمک کرد؟"),
+                DialogueLine("B", "Watching movies and talking to people.",
+                    "فیلم دیدن و صحبت با مردم."),
+                DialogueLine("A", "That makes sense. What's your next goal?",
+                    "منطقیه. هدف بعدی‌ت چیه؟"),
+                DialogueLine("B", "I want to speak more fluently in six months.",
+                    "می‌خوام در شش ماه روان‌تر صحبت کنم."),
+                DialogueLine("A", "That's a great goal. How will you get there?",
+                    "هدف عالیه. چطور بهش می‌رسی؟"),
+                DialogueLine("B", "Practice every day, take more classes, and read books.",
+                    "هر روز تمرین، کلاس بیشتر، و کتاب خوندن."),
+                DialogueLine("A", "Sounds like a good plan. Good luck!",
+                    "برنامه خوبی به نظر می‌رسه. موفق باشی!"),
+                DialogueLine("B", "Thanks! Practice makes perfect, right?",
+                    "ممنون! تمرین باعث پیشرفت، درسته؟"),
+                DialogueLine("A", "Exactly. Rome wasn't built in a day.",
+                    "دقیقاً. رم در یک روز ساخته نشد."),
+                DialogueLine("B", "True. I'll be patient and consistent.",
+                    "درسته. صبور و پیوسته خواهم بود."),
+                DialogueLine("A", "You've come a long way already!",
+                    "تا حالا خیلی پیشرفت کرده‌ای!"),
+                DialogueLine("B", "Thanks for the encouragement!",
+                    "ممنون برای تشویق!"),
+                DialogueLine("A", "Anytime. Let's keep improving together.",
+                    "هر وقت. بیا با هم به بهبود ادامه بدیم."),
+                DialogueLine("B", "Deal! See you next week!",
+                    "قبول! هفته بعد می‌بینمت!")
+            ),
+            comprehensionQuestions = listOf(
+                ComprehensionQuestion("B چطور انگلیسی‌اش را تقویت کرده؟", "تمرین روزانه، فیلم دیدن، صحبت با مردم."),
+                ComprehensionQuestion("سخت‌ترین بخش برای B چه بود؟", "زمان‌ها."),
+                ComprehensionQuestion("هدف B چیست؟", "روان‌تر صحبت کردن در شش ماه."),
+                ComprehensionQuestion("B چطور به هدفش می‌رسد؟", "تمرین روزانه، کلاس، کتاب خواندن."),
+                ComprehensionQuestion("پیام نهایی چه بود؟", "تمرین باعث پیشرفت — رم در یک روز ساخته نشد.")
+            ),
+            speakingTasks = listOf(
+                SpeakingTask("Talk about your English learning journey.",
+                    "درباره مسیر یادگیری انگلیسی‌ات صحبت کن.",
+                    "I started... / I've learned... / My goal is..."),
+                SpeakingTask("Give advice to a beginner learning English.",
+                    "به یک مبتدی در یادگیری انگلیسی توصیه کن.",
+                    "You should... / Don't give up... / Practice every day."),
+                SpeakingTask("Reflect on your progress and set new goals.",
+                    "درباره پیشرفتت بازنگری کن و اهداف جدید تعیین کن.",
+                    "I've improved... / My next goal is... / I'll keep working on...")
+            ),
+            writingTasks = listOf(
+                WritingTask("Write about your English learning journey and goals.",
+                    "درباره سفر یادگیری انگلیسی و اهدافت بنویس.",
+                    120,
+                    "Use all tenses you've learned. Include at least two idioms.")
+            ),
+            quiz = listOf(
+                QuizQuestion("What does 'practice makes perfect' mean?",
+                    listOf("تمرین سخت است", "تمرین باعث پیشرفت", "تمرین بی‌فایده", "تمرین طولانی"), 1),
+                QuizQuestion("Complete: I ___ him yesterday.",
+                    listOf("see", "saw", "seen", "seeing"), 1),
+                QuizQuestion("Complete: She ___ English every day.",
+                    listOf("study", "studies", "studying", "studied"), 1),
+                QuizQuestion("Complete: I ___ going to travel.",
+                    listOf("is", "am", "are", "be"), 1),
+                QuizQuestion("What does 'break a leg' mean?",
+                    listOf("شکستن پا", "موفق باشی", "شکست خوردن", "دویدن"), 1),
+                QuizQuestion("Complete: I ___ help you tomorrow.",
+                    listOf("will", "am", "do", "have"), 0),
+                QuizQuestion("Complete: You should ___ more.",
+                    listOf("study", "studies", "studying", "studied"), 0),
+                QuizQuestion("Complete: ___ you a student?",
+                    listOf("Do", "Does", "Are", "Is"), 2)
+            )
+        )
+    }
+
+    private fun getDefaultContent(bookId: String, chapterNumber: Int): LessonContent {
+        return LessonContent(
+            bookId = bookId,
+            chapterNumber = chapterNumber,
+            title = "Coming Soon",
+            titlePersian = "به زودی...",
+            vocabulary = emptyList(),
+            grammar = emptyList(),
+            conversation = emptyList(),
+            quiz = emptyList()
+        )
+    }
+}
+
+
