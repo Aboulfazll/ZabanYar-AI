@@ -30,6 +30,7 @@ object ProgressManager {
     private const val KEY_DARK_MODE = "dark_mode"
     private const val KEY_SOUND_ENABLED = "sound_enabled"
     private const val KEY_AUTO_PLAY = "auto_play"
+    private const val KEY_NOTIFICATIONS_ENABLED = "notifications_enabled"   // 👈 اضافه شد
 
     private fun getProgressPrefs(context: Context): SharedPreferences =
         context.getSharedPreferences(PROGRESS_PREFS, Context.MODE_PRIVATE)
@@ -90,11 +91,10 @@ object ProgressManager {
             .putBoolean("${KEY_CHAPTER_PREFIX}${bookId}_$chapterNumber", true)
             .apply()
 
-        // اگه تازه خونده شد، آمار کلی رو زیاد کن
         if (!wasRead) {
             incrementLessonsCompleted(context)
             recordDailyActivity(context)
-            addStars(context, 5) // ۵ ستاره برای هر درس
+            addStars(context, 5)
         }
     }
 
@@ -136,10 +136,10 @@ object ProgressManager {
         recordDailyActivity(context)
 
         if (passed && !wasPassed) {
-            addStars(context, STARS_PER_QUIZ_PASS) // پاداش قبولی: ۲۰ ستاره
+            addStars(context, STARS_PER_QUIZ_PASS)
             unlockNextGroup(context, bookId)
         } else if (!passed) {
-            addStars(context, STARS_PER_QUIZ_ATTEMPT) // پاداش تلاش: ۲ ستاره
+            addStars(context, STARS_PER_QUIZ_ATTEMPT)
         }
     }
 
@@ -235,7 +235,6 @@ object ProgressManager {
     }
 
     fun isBookStarted(context: Context, bookId: String): Boolean {
-        // اگه حداقل یک درس از این کتاب خونده شده باشه، یعنی شروع شده
         return getUnlockedGroupsCount(context, bookId) > 1 ||
                 isChapterRead(context, bookId, 1)
     }
@@ -283,7 +282,7 @@ object ProgressManager {
         val today = getTodayDateString()
         val lastDate = prefs.getString(KEY_LAST_ACTIVITY_DATE, "") ?: ""
 
-        if (lastDate == today) return // امروز قبلاً ثبت شده
+        if (lastDate == today) return
 
         val yesterday = getYesterdayDateString()
         val currentStreak = getDailyStreak(context)
@@ -346,6 +345,13 @@ object ProgressManager {
     }
     fun isAutoPlay(context: Context): Boolean =
         getSettingsPrefs(context).getBoolean(KEY_AUTO_PLAY, true)
+
+    // 👇 جدید: تنظیمات اعلان‌ها
+    fun setNotificationsEnabled(context: Context, enabled: Boolean) {
+        getSettingsPrefs(context).edit().putBoolean(KEY_NOTIFICATIONS_ENABLED, enabled).apply()
+    }
+    fun isNotificationsEnabled(context: Context): Boolean =
+        getSettingsPrefs(context).getBoolean(KEY_NOTIFICATIONS_ENABLED, true)
 
 
     // ============================================================
