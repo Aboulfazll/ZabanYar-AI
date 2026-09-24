@@ -28,6 +28,8 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.SpeechHelper
+import com.zabanyar.ai.ui.theme.PrimaryColor    // 👈 ایمپورت جدید
+import com.zabanyar.ai.ui.theme.SecondaryColor // 👈 ایمپورت جدید
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -37,33 +39,41 @@ fun ReadingModeScreen(
     text: String,
     onBack: () -> Unit
 ) {
-    // ✅ اول context رو بگیر، بعد remember
     val context = LocalContext.current
     val speechHelper = remember { SpeechHelper(context) }
 
-    // تقسیم متن به کلمات
     val words = remember(text) { text.split(" ").filter { it.isNotBlank() } }
 
     var currentWordIndex by remember { mutableIntStateOf(-1) }
     var isPlaying by remember { mutableStateOf(false) }
     var isPaused by remember { mutableStateOf(false) }
     var playbackSpeed by remember { mutableFloatStateOf(1.0f) }
+    var ttsReady by remember { mutableStateOf(false) }
 
-    // ✅ LaunchedEffect برای پخش کلمه‌به‌کلمه
-    LaunchedEffect(isPlaying, currentWordIndex, playbackSpeed) {
-        if (isPlaying && currentWordIndex >= 0 && currentWordIndex < words.size) {
-            while (isPlaying && currentWordIndex < words.size) {
-                delay((600 / playbackSpeed).toLong())
-                if (isPlaying) {
-                    currentWordIndex++
-                } else {
-                    break
-                }
-            }
-            if (currentWordIndex >= words.size) {
+    // ✅ چک کردن آماده بودن TTS
+    LaunchedEffect(Unit) {
+        while (!speechHelper.isInitialized()) {
+            delay(100)
+        }
+        ttsReady = true
+    }
+
+    // ✅ پخش متن با TTS + هایلایت
+    LaunchedEffect(isPlaying) {
+        if (isPlaying && ttsReady) {
+            speechHelper.speak(text) {
                 isPlaying = false
                 isPaused = false
                 currentWordIndex = -1
+            }
+
+            val wordsPerSecond = 2.5f * playbackSpeed
+            val delayPerWord = (1000 / wordsPerSecond).toLong()
+
+            for (i in 0 until words.size) {
+                if (!isPlaying) break
+                currentWordIndex = i
+                delay(delayPerWord)
             }
         }
     }
@@ -97,9 +107,9 @@ fun ReadingModeScreen(
         }
     }
 
-    // ✅ آزاد کردن حافظه
     DisposableEffect(Unit) {
         onDispose {
+            speechHelper.stop()
             speechHelper.shutdown()
         }
     }
@@ -216,7 +226,6 @@ fun ReadingModeScreen(
 
                 Spacer(Modifier.height(16.dp))
 
-                // راهنما
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(14.dp),
@@ -262,7 +271,6 @@ fun ReadingModeScreen(
                         .fillMaxWidth()
                         .padding(20.dp)
                 ) {
-                    // کنترل سرعت
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically
@@ -304,15 +312,14 @@ fun ReadingModeScreen(
 
                     Spacer(Modifier.height(16.dp))
 
-                    // دکمه‌های پخش
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        // دکمه بازگشت به اول
                         IconButton(
                             onClick = {
+                                speechHelper.stop()
                                 currentWordIndex = 0
                                 isPlaying = true
                                 isPaused = false
@@ -330,7 +337,6 @@ fun ReadingModeScreen(
                             )
                         }
 
-                        // دکمه پخش/توقف اصلی
                         Box(
                             modifier = Modifier
                                 .size(70.dp)
@@ -342,11 +348,10 @@ fun ReadingModeScreen(
                                 )
                                 .clickable {
                                     if (isPlaying) {
-                                        // توقف موقت
+                                        speechHelper.stop()
                                         isPlaying = false
                                         isPaused = true
                                     } else {
-                                        // شروع پخش
                                         if (currentWordIndex < 0) {
                                             currentWordIndex = 0
                                         }
@@ -365,9 +370,9 @@ fun ReadingModeScreen(
                             )
                         }
 
-                        // دکمه توقف کامل
                         IconButton(
                             onClick = {
+                                speechHelper.stop()
                                 isPlaying = false
                                 isPaused = false
                                 currentWordIndex = -1
@@ -388,9 +393,9 @@ fun ReadingModeScreen(
 
                     Spacer(Modifier.height(12.dp))
 
-                    // وضعیت
                     Text(
                         text = when {
+                            !ttsReady -> "⏳ در حال آماده‌سازی..."
                             isPlaying -> "🔊 در حال پخش..."
                             isPaused -> "⏸️ متوقف شده - برای ادامه دکمه پخش را بزن"
                             else -> "👆 برای شروع، دکمه پخش را بزن"
