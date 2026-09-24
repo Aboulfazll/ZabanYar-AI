@@ -77,4 +77,14 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    // 👇👇👇 این ۲ خط جدید اضافه شد 👇👇👇
+
+    // 🖼️ Coil - برای نمایش عکس‌های آنلاین (در LibraryScreen و LessonDetailScreen)
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    // 🎧 Media3 - برای پخش صدا در پس‌زمینه (در PodcastScreen)
+    implementation("androidx.media3:media3-exoplayer:1.3.1")
+    implementation("androidx.media3:media3-common:1.3.1")
+    implementation("androidx.media3:media3-session:1.3.1")
 }
