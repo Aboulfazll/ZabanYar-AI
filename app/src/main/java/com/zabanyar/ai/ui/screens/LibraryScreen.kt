@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Headphones
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -22,35 +23,53 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage // 👈 نیاز به کتابخانه Coil برای نمایش عکس
+import coil.compose.AsyncImage
 
-// ⚠️ این دیتاکلاس نمونه است. باید با دیتاکلاس واقعی Book خودت جایگزین بشه.
+// ⚠️ دیتاکلاس نمونه (فیلد badgeText اضافه شد)
 data class BookItem(
     val id: String,
     val title: String,
     val titlePersian: String,
     val imageUrl: String,
     val views: String,
-    val isNew: Boolean = false
+    val badgeText: String? = null, // 👈 برای نمایش تگ US
+    val isAudio: Boolean = false
 )
 
 @Composable
 fun LibraryScreen() {
-    // 👈 استیت برای نگه‌داشتن کتاب‌های اضافه شده
     val addedBooks = remember { mutableStateListOf<String>() }
-    var selectedTab by remember { mutableStateOf("کتاب‌های ساده") }
+    var selectedTab by remember { mutableStateOf("کتاب‌های شنیداری") } // پیش‌فرض روی شنیداری
 
-    // دیتای نمونه (عکس‌ها تستی هستند)
-    val simpleBooks = listOf(
-        BookItem("b1", "Love or Money?", "عشق یا پول", "https://picsum.photos/seed/book1/300/450", "43.2K"),
-        BookItem("b2", "The Curse of the Mummy", "نفرین مومیایی", "https://picsum.photos/seed/book2/300/450", "32.2K"),
-        BookItem("b3", "Sherlock Holmes: The Blue Diamond", "الماس آبی", "https://picsum.photos/seed/book3/300/450", "67", isNew = true)
-    )
-
-    val mediumBooks = listOf(
-        BookItem("b4", "Gladiator", "گلادیاتور", "https://picsum.photos/seed/book4/300/450", "15.7K"),
-        BookItem("b5", "The Secret Garden", "باغ اسرارآمیز", "https://picsum.photos/seed/book5/300/450", "15.0K"),
-        BookItem("b6", "The Swiss Family Robinson", "خانواده رابینسون", "https://picsum.photos/seed/book6/300/450", "12.4K")
+    // ==================== دیتای کتاب‌های شنیداری (طبق تصویر) ====================
+    val listeningBooks = listOf(
+        BookItem(
+            id = "l1",
+            title = "Basic Tactics for Listening",
+            titlePersian = "تاکتیک‌های پایه گوش دادن",
+            imageUrl = "https://picsum.photos/seed/basic/400/600", // 👈 عکس واقعی رو اینجا بذار
+            views = "55.3K",
+            badgeText = "US",
+            isAudio = true
+        ),
+        BookItem(
+            id = "l2",
+            title = "Developing Tactics for Listening",
+            titlePersian = "تاکتیک‌های متوسط گوش دادن",
+            imageUrl = "https://picsum.photos/seed/developing/400/600", // 👈 عکس واقعی رو اینجا بذار
+            views = "20.3K",
+            badgeText = "US",
+            isAudio = true
+        ),
+        BookItem(
+            id = "l3",
+            title = "Expanding Tactics for Listening",
+            titlePersian = "تاکتیک‌های پیشرفته گوش دادن",
+            imageUrl = "https://picsum.photos/seed/expanding/400/600", // 👈 عکس واقعی رو اینجا بذار
+            views = "12.6K",
+            badgeText = "US",
+            isAudio = true
+        )
     )
 
     Column(
@@ -63,13 +82,13 @@ fun LibraryScreen() {
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            val tabs = listOf("کتاب‌های ساده", "کتاب‌های متوسط", "کتاب‌های پیشرفته")
+            val tabs = listOf("کتاب‌های ساده", "کتاب‌های متوسط", "کتاب‌های پیشرفته", "کتاب‌های شنیداری")
             items(tabs) { tab ->
                 Button(
                     onClick = { selectedTab = tab },
                     shape = RoundedCornerShape(20.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = if (selectedTab == tab) Color(0xFF2E4A9E) else Color(0xFF2E4A9E).copy(alpha = 0.7f),
+                        containerColor = if (selectedTab == tab) Color(0xFF2E4A9E) else Color(0xFF2E4A9E).copy(alpha = 0.6f),
                         contentColor = Color.White
                     ),
                     contentPadding = PaddingValues(horizontal = 20.dp, vertical = 8.dp)
@@ -79,36 +98,32 @@ fun LibraryScreen() {
             }
         }
 
-        // ==================== لیست اصلی کتاب‌ها ====================
+        // ==================== لیست اصلی ====================
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(bottom = 24.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-            // --- بخش کتاب‌های ساده ---
-            item {
-                BookSection(
-                    title = "کتاب‌های ساده",
-                    subtitle = "اگر تازه کارید از اینجا شروع کنید",
-                    books = simpleBooks,
-                    addedBooks = addedBooks,
-                    onAddClick = { id ->
-                        if (addedBooks.contains(id)) addedBooks.remove(id) else addedBooks.add(id)
+            when (selectedTab) {
+                "کتاب‌های شنیداری" -> {
+                    item {
+                        BookSection(
+                            title = "دوره‌های آموزشی",
+                            subtitle = "دوره‌های متداول در آموزش زبان‌های زبان",
+                            books = listeningBooks,
+                            addedBooks = addedBooks,
+                            onAddClick = { id -> if (addedBooks.contains(id)) addedBooks.remove(id) else addedBooks.add(id) }
+                        )
                     }
-                )
-            }
-
-            // --- بخش کتاب‌های متوسط ---
-            item {
-                BookSection(
-                    title = "کتاب‌های متوسط",
-                    subtitle = "زبان سطح دبیرستان",
-                    books = mediumBooks,
-                    addedBooks = addedBooks,
-                    onAddClick = { id ->
-                        if (addedBooks.contains(id)) addedBooks.remove(id) else addedBooks.add(id)
+                }
+                // 👈 بقیه تب‌ها (ساده، متوسط، پیشرفته) رو می‌تونی اینجا اضافه کنی
+                else -> {
+                    item {
+                        Box(modifier = Modifier.fillMaxSize().padding(32.dp), contentAlignment = Alignment.Center) {
+                            Text("به زودی...", color = Color.Gray)
+                        }
                     }
-                )
+                }
             }
         }
     }
@@ -124,14 +139,13 @@ fun BookSection(
     onAddClick: (String) -> Unit
 ) {
     Column {
-        // هدر بخش
+        // هدر (دقیقاً مثل تصویر: عنوان بزرگ و زیرعنوان خاکستری)
         Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-            Text(title, fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Color(0xFF1A237E))
-            Text(subtitle, fontSize = 12.sp, color = Color.Gray)
+            Text(title, fontWeight = FontWeight.Bold, fontSize = 20.sp, color = Color(0xFF1A237E))
+            Text(subtitle, fontSize = 13.sp, color = Color.Gray)
         }
-        Spacer(Modifier.height(12.dp))
+        Spacer(Modifier.height(16.dp))
 
-        // لیست افقی کتاب‌ها
         LazyRow(
             contentPadding = PaddingValues(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -147,23 +161,23 @@ fun BookSection(
     }
 }
 
-// ==================== کارت کتاب دقیقاً طبق تصویر ====================
+// ==================== کارت کتاب (دقیقاً طبق تصاویر) ====================
 @Composable
 fun BookCardDesign(
     book: BookItem,
     isAdded: Boolean,
     onAddClick: () -> Unit
 ) {
-    Column(modifier = Modifier.width(140.dp)) { // عرض کارت
-        // --- بخش عکس و دکمه + ---
+    // 👈 عرض و ارتفاع بزرگ (مثل تصویر)
+    Column(modifier = Modifier.width(170.dp)) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp) // ارتفاع عکس
-                .clip(RoundedCornerShape(16.dp)) // گوشه‌های گرد عکس
-                .background(Color.LightGray) // رنگ پس‌زمینه قبل از لود عکس
+                .height(240.dp) // ارتفاع بزرگ برای کاور
+                .clip(RoundedCornerShape(20.dp))
+                .background(Color.LightGray)
         ) {
-            // عکس کاور (نیاز به کتابخانه Coil دارد)
+            // عکس کاور
             AsyncImage(
                 model = book.imageUrl,
                 contentDescription = book.title,
@@ -171,54 +185,61 @@ fun BookCardDesign(
                 modifier = Modifier.fillMaxSize()
             )
 
-            // نشان NEW (اگر کتاب جدید باشد)
-            if (book.isNew) {
+            // 👈 آیکون هدفون (چون کتاب صوتیه)
+            if (book.isAudio) {
                 Box(
                     modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .padding(8.dp)
-                        .background(Color(0xFFB0BEC5).copy(alpha = 0.8f), RoundedCornerShape(8.dp))
-                        .padding(horizontal = 8.dp, vertical = 4.dp)
+                        .align(Alignment.TopStart)
+                        .padding(10.dp)
+                        .size(30.dp)
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(Color.Black.copy(alpha = 0.5f)),
+                    contentAlignment = Alignment.Center
                 ) {
-                    Text("NEW", color = Color.White, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                    Icon(
+                        Icons.Filled.Headphones,
+                        null,
+                        tint = Color.White,
+                        modifier = Modifier.size(18.dp)
+                    )
                 }
             }
 
-            // دکمه + (دقیقاً روی لبه پایین راست عکس)
+            // 👈 دکمه + سفید در گوشه پایین راست (دقیقاً مثل عکس)
             Box(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
                     .padding(8.dp)
-                    .size(36.dp)
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(Color.White)
+                    .size(44.dp) // دکمه بزرگ
+                    .clip(RoundedCornerShape(14.dp)) // گوشه‌های گرد
+                    .background(Color.White) // پس‌زمینه سفید
                     .clickable { onAddClick() },
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = if (isAdded) Icons.Filled.Check else Icons.Filled.Add,
                     contentDescription = "Add",
-                    tint = if (isAdded) Color(0xFF4CAF50) else Color(0xFF1A237E),
-                    modifier = Modifier.size(20.dp)
+                    tint = Color.Black, // آیکون مشکی
+                    modifier = Modifier.size(24.dp)
                 )
             }
         }
 
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(10.dp))
 
-        // --- عنوان فارسی ---
+        // 👈 عنوان انگلیسی (زیر عکس)
         Text(
-            book.titlePersian,
+            book.title,
             fontWeight = FontWeight.Bold,
             fontSize = 13.sp,
-            color = Color(0xFF1A237E),
+            color = Color.Black,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis
         )
 
-        Spacer(Modifier.height(4.dp))
+        Spacer(Modifier.height(6.dp))
 
-        // --- تعداد بازدید ---
+        // 👈 ردیف پایین: تعداد بازدید + تگ US (مثل تصویر)
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
                 Icons.Filled.Visibility,
@@ -227,7 +248,25 @@ fun BookCardDesign(
                 modifier = Modifier.size(14.dp)
             )
             Spacer(Modifier.width(4.dp))
-            Text(book.views, fontSize = 11.sp, color = Color.Gray)
+            Text(book.views, fontSize = 12.sp, color = Color.Gray)
+
+            // تگ US (اگر وجود داشته باشه)
+            if (book.badgeText != null) {
+                Spacer(Modifier.width(8.dp))
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(6.dp))
+                        .background(Color(0xFF607D8B)) // رنگ خاکستری تیره
+                        .padding(horizontal = 6.dp, vertical = 2.dp)
+                ) {
+                    Text(
+                        book.badgeText,
+                        color = Color.White,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
         }
     }
 }
