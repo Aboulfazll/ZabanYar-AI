@@ -11,7 +11,6 @@ object ProgressManager {
     private const val KEY_QUIZ_PREFIX = "quiz_"
     private const val KEY_UNLOCKED_GROUPS = "unlocked_groups_"
 
-    // ثابت‌های کلیدی (طبق یادداشت‌های پروژه)
     const val CHAPTERS_PER_GROUP = 3
     const val QUESTIONS_PER_QUIZ = 20
     const val PASS_THRESHOLD_PERCENT = 90
@@ -76,7 +75,6 @@ object ProgressManager {
     private const val SETTINGS_PREFS = "zabanyar_settings"
     private const val KEY_SHOW_TRANSLATION = "show_translation"
     private const val KEY_DARK_MODE = "dark_mode"
-    private const val KEY_FONT_SIZE = "font_size"
     private const val KEY_SOUND_ENABLED = "sound_enabled"
     private const val KEY_AUTO_PLAY = "auto_play"
 
@@ -84,7 +82,6 @@ object ProgressManager {
         return context.getSharedPreferences(SETTINGS_PREFS, Context.MODE_PRIVATE)
     }
 
-    // نمایش ترجمه (پیش‌فرض: روشن)
     fun setShowTranslation(context: Context, show: Boolean) {
         getSettingsPrefs(context).edit().putBoolean(KEY_SHOW_TRANSLATION, show).apply()
     }
@@ -92,7 +89,6 @@ object ProgressManager {
         return getSettingsPrefs(context).getBoolean(KEY_SHOW_TRANSLATION, true)
     }
 
-    // حالت شب (پیش‌فرض: خاموش)
     fun setDarkMode(context: Context, enabled: Boolean) {
         getSettingsPrefs(context).edit().putBoolean(KEY_DARK_MODE, enabled).apply()
     }
@@ -100,7 +96,6 @@ object ProgressManager {
         return getSettingsPrefs(context).getBoolean(KEY_DARK_MODE, false)
     }
 
-    // جلوه‌های صوتی (پیش‌فرض: روشن)
     fun setSoundEnabled(context: Context, enabled: Boolean) {
         getSettingsPrefs(context).edit().putBoolean(KEY_SOUND_ENABLED, enabled).apply()
     }
@@ -108,7 +103,6 @@ object ProgressManager {
         return getSettingsPrefs(context).getBoolean(KEY_SOUND_ENABLED, true)
     }
 
-    // پخش خودکار (پیش‌فرض: روشن)
     fun setAutoPlay(context: Context, enabled: Boolean) {
         getSettingsPrefs(context).edit().putBoolean(KEY_AUTO_PLAY, enabled).apply()
     }
