@@ -21,15 +21,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.ProgressManager
-import com.zabanyar.ai.ui.theme.PrimaryColor
-import com.zabanyar.ai.ui.theme.SecondaryColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(onBack: () -> Unit = {}) {
     val context = LocalContext.current
 
-    // استیت‌های تنظیمات (متصل به ProgressManager)
     var showTranslation by remember { mutableStateOf(ProgressManager.isShowTranslation(context)) }
     var isDarkMode by remember { mutableStateOf(ProgressManager.isDarkMode(context)) }
     var isSoundEnabled by remember { mutableStateOf(ProgressManager.isSoundEnabled(context)) }
