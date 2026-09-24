@@ -1,28 +1,325 @@
-composable(
-    route = Routes.LESSON_DETAIL,
-    arguments = listOf(
-        navArgument("bookId") { type = NavType.StringType },
-        navArgument("chapterNumber") { type = NavType.IntType }
-    )
-) { entry ->
-    val bookId = entry.arguments?.getString("bookId") ?: ""
-    val chapterNumber = entry.arguments?.getInt("chapterNumber") ?: 1
+package com.zabanyar.ai.ui.navigation
 
-    // 👈 دریافت محتوای درس از ریپازیتوری
-    val lessons = com.zabanyar.ai.data.LessonContentRepository.getLessons(bookId)
-    val lesson = lessons.firstOrNull { it.chapterNumber == chapterNumber }
-    val book = com.zabanyar.ai.data.BookRepository.getAllBooks()
-        .firstOrNull { it.id == bookId }
+import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
+import com.zabanyar.ai.data.BookRepository
+import com.zabanyar.ai.data.LessonContentRepository
+import com.zabanyar.ai.ui.auth.LoginScreen
+import com.zabanyar.ai.ui.auth.RegisterScreen
+import com.zabanyar.ai.ui.screens.AIChatScreen
+import com.zabanyar.ai.ui.screens.AchievementsScreen
+import com.zabanyar.ai.ui.screens.ApiKeyScreen
+import com.zabanyar.ai.ui.screens.BookDetailScreen
+import com.zabanyar.ai.ui.screens.DailySentencesScreen
+import com.zabanyar.ai.ui.screens.HomeScreen
+import com.zabanyar.ai.ui.screens.LessonDetailScreen
+import com.zabanyar.ai.ui.screens.LevelTestScreen
+import com.zabanyar.ai.ui.screens.LibraryScreen
+import com.zabanyar.ai.ui.screens.PodcastScreen
+import com.zabanyar.ai.ui.screens.ProfileScreen
+import com.zabanyar.ai.ui.screens.QuizScreen
+import com.zabanyar.ai.ui.screens.ReadingModeScreen
+import com.zabanyar.ai.ui.screens.SettingsScreen
+import com.zabanyar.ai.ui.screens.SpeakingScreen
+import com.zabanyar.ai.ui.screens.VocabularyScreen
 
-    if (lesson != null) {
-        LessonDetailScreen(
-            lesson = lesson,
-            bookCover = book?.coverUrl ?: "",
-            bookTitle = book?.title ?: "",
-            onBack = { navController.popBackStack() }
-        )
-    } else {
-        // اگه درس پیدا نشد، برگرد
-        LaunchedEffect(Unit) { navController.popBackStack() }
+object Routes {
+    // ==================== احراز هویت ====================
+    const val LOGIN = "login"
+    const val REGISTER = "register"
+
+    // ==================== صفحات اصلی ====================
+    const val HOME = "home"
+    const val PROFILE = "profile"
+    const val SETTINGS = "settings"
+
+    // ==================== کتابخانه ====================
+    const val LIBRARY = "library"
+    const val BOOK_DETAIL = "book_detail/{bookId}"
+    const val LESSON_DETAIL = "lesson_detail/{bookId}/{chapterNumber}"
+    const val READING_MODE = "reading_mode/{title}/{text}"
+    const val QUIZ = "quiz/{bookId}/{quizIndex}/{totalChapters}/{bookTitle}"
+
+    // ==================== AI Chat ====================
+    const val AI_CHAT = "ai_chat"
+    const val API_KEY = "api_key"
+
+    // ==================== بخش‌ها ====================
+    const val VOCABULARY = "vocabulary"
+    const val SPEAKING = "speaking"
+    const val PODCAST = "podcast"
+    const val DAILY_SENTENCES = "daily_sentences"
+    const val LEVEL_TEST = "level_test"
+    const val ACHIEVEMENTS = "achievements"
+
+    // ==================== توابع کمکی ====================
+    fun bookDetail(bookId: String) = "book_detail/$bookId"
+
+    fun lessonDetail(bookId: String, chapterNumber: Int) =
+        "lesson_detail/$bookId/$chapterNumber"
+
+    fun readingMode(title: String, text: String) =
+        "reading_mode/${android.net.Uri.encode(title)}/${android.net.Uri.encode(text)}"
+
+    fun quiz(bookId: String, quizIndex: Int, totalChapters: Int, bookTitle: String) =
+        "quiz/$bookId/$quizIndex/$totalChapters/${android.net.Uri.encode(bookTitle)}"
+}
+
+@Composable
+fun AppNavHost(
+    navController: NavHostController,
+    startDestination: String = Routes.LOGIN
+) {
+    NavHost(
+        navController = navController,
+        startDestination = startDestination
+    ) {
+        // ==================== صفحه ورود ====================
+        composable(Routes.LOGIN) {
+            LoginScreen(
+                onLoginSuccess = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.LOGIN) { inclusive = true }
+                    }
+                },
+                onNavigateToRegister = {
+                    navController.navigate(Routes.REGISTER)
+                }
+            )
+        }
+
+        // ==================== صفحه ثبت‌نام ====================
+        composable(Routes.REGISTER) {
+            RegisterScreen(
+                onRegisterSuccess = {
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.LOGIN) { inclusive = true }
+                    }
+                },
+                onNavigateToLogin = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        // ==================== صفحه اصلی ====================
+        composable(Routes.HOME) {
+            HomeScreen(
+                onNavigateToLibrary = { navController.navigate(Routes.LIBRARY) },
+                onNavigateToAIChat = { navController.navigate(Routes.AI_CHAT) },
+                onNavigateToSpeaking = { navController.navigate(Routes.SPEAKING) },
+                onNavigateToVocabulary = { navController.navigate(Routes.VOCABULARY) },
+                onNavigateToProfile = { navController.navigate(Routes.PROFILE) },
+                onNavigateToSettings = { navController.navigate(Routes.SETTINGS) },
+                onNavigateToPodcast = { navController.navigate(Routes.PODCAST) },
+                onNavigateToDailySentences = { navController.navigate(Routes.DAILY_SENTENCES) },
+                onNavigateToLevelTest = { navController.navigate(Routes.LEVEL_TEST) },
+                onNavigateToAchievements = { navController.navigate(Routes.ACHIEVEMENTS) },
+                onLogout = {
+                    navController.navigate(Routes.LOGIN) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        // ==================== کتابخانه ====================
+        composable(Routes.LIBRARY) {
+            LibraryScreen(
+                onBack = { navController.popBackStack() },
+                onBookClick = { bookId ->
+                    navController.navigate(Routes.bookDetail(bookId))
+                }
+            )
+        }
+
+        // ==================== جزئیات کتاب ====================
+        composable(
+            route = Routes.BOOK_DETAIL,
+            arguments = listOf(
+                navArgument("bookId") { type = NavType.StringType }
+            )
+        ) { entry ->
+            val bookId = entry.arguments?.getString("bookId") ?: ""
+            BookDetailScreen(
+                bookId = bookId,
+                onBack = { navController.popBackStack() },
+                onChapterClick = { chapterNumber ->
+                    navController.navigate(
+                        Routes.lessonDetail(bookId, chapterNumber)
+                    )
+                },
+                onQuizClick = { quizIndex ->
+                    val book = BookRepository.getBookById(bookId)
+                    val totalChapters = book?.totalChapters ?: 12
+                    val bookTitle = book?.title ?: ""
+                    navController.navigate(
+                        Routes.quiz(bookId, quizIndex, totalChapters, bookTitle)
+                    )
+                }
+            )
+        }
+
+        // ==================== آزمون ====================
+        composable(
+            route = Routes.QUIZ,
+            arguments = listOf(
+                navArgument("bookId") { type = NavType.StringType },
+                navArgument("quizIndex") { type = NavType.IntType },
+                navArgument("totalChapters") { type = NavType.IntType },
+                navArgument("bookTitle") { type = NavType.StringType }
+            )
+        ) { entry ->
+            val bookId = entry.arguments?.getString("bookId") ?: ""
+            val quizIndex = entry.arguments?.getInt("quizIndex") ?: 0
+            val totalChapters = entry.arguments?.getInt("totalChapters") ?: 12
+            val bookTitle = java.net.URLDecoder.decode(
+                entry.arguments?.getString("bookTitle") ?: "", "UTF-8"
+            )
+            QuizScreen(
+                bookId = bookId,
+                quizIndex = quizIndex,
+                totalChapters = totalChapters,
+                bookTitle = bookTitle,
+                onBack = { navController.popBackStack() },
+                onQuizCompleted = { passed ->
+                    if (passed) {
+                        navController.popBackStack()
+                    }
+                }
+            )
+        }
+
+        // ==================== محتوای درس (✅ اصلاح شده) ====================
+        composable(
+            route = Routes.LESSON_DETAIL,
+            arguments = listOf(
+                navArgument("bookId") { type = NavType.StringType },
+                navArgument("chapterNumber") { type = NavType.IntType }
+            )
+        ) { entry ->
+            val bookId = entry.arguments?.getString("bookId") ?: ""
+            val chapterNumber = entry.arguments?.getInt("chapterNumber") ?: 1
+
+            // ✅ استفاده از تابع واقعی تو
+            val lesson = LessonContentRepository.getLessonContent(bookId, chapterNumber)
+
+            // 👈 گرفتن اطلاعات کتاب از ریپازیتوری
+            val book = BookRepository.getBookById(bookId)
+
+            LessonDetailScreen(
+                lesson = lesson,
+                bookCover = book?.coverUrl ?: "",
+                bookTitle = book?.title ?: "",
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== حالت خوانش ====================
+        composable(
+            route = Routes.READING_MODE,
+            arguments = listOf(
+                navArgument("title") { type = NavType.StringType },
+                navArgument("text") { type = NavType.StringType }
+            )
+        ) { entry ->
+            val title = java.net.URLDecoder.decode(
+                entry.arguments?.getString("title") ?: "", "UTF-8"
+            )
+            val text = java.net.URLDecoder.decode(
+                entry.arguments?.getString("text") ?: "", "UTF-8"
+            )
+            ReadingModeScreen(
+                title = title,
+                text = text,
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== چت با AI ====================
+        composable(Routes.AI_CHAT) {
+            AIChatScreen(
+                onBack = { navController.popBackStack() },
+                onOpenSettings = {
+                    navController.navigate(Routes.API_KEY)
+                }
+            )
+        }
+
+        // ==================== کلید API ====================
+        composable(Routes.API_KEY) {
+            ApiKeyScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== پروفایل ====================
+        composable(Routes.PROFILE) {
+            ProfileScreen(
+                onBack = { navController.popBackStack() },
+                onNavigateToApiKey = {
+                    navController.navigate(Routes.API_KEY)
+                },
+                onLogout = {
+                    navController.navigate(Routes.LOGIN) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        // ==================== تنظیمات ====================
+        composable(Routes.SETTINGS) {
+            SettingsScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== بانک واژگان ====================
+        composable(Routes.VOCABULARY) {
+            VocabularyScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== اسپیکینگ ====================
+        composable(Routes.SPEAKING) {
+            SpeakingScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== پادکست‌ها ====================
+        composable(Routes.PODCAST) {
+            PodcastScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== جملات روزمره ====================
+        composable(Routes.DAILY_SENTENCES) {
+            DailySentencesScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==================== تست سطح ====================
+        composable(Routes.LEVEL_TEST) {
+            LevelTestScreen(
+                onBack = { navController.popBackStack() },
+                onTestComplete = { }
+            )
+        }
+
+        // ==================== دستاوردها ====================
+        composable(Routes.ACHIEVEMENTS) {
+            AchievementsScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
     }
 }
