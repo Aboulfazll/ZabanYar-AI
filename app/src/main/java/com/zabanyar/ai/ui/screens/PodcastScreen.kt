@@ -34,7 +34,6 @@ import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import com.zabanyar.ai.data.Podcast
 import com.zabanyar.ai.data.PodcastRepository
-import com.zabanyar.ai.ui.theme.PrimaryColor   // 👈 ایمپورت جدید
 import kotlinx.coroutines.delay
 
 enum class ViewMode { LIST, GRID }
@@ -337,7 +336,7 @@ fun FeaturedCarousel(podcasts: List<Podcast>, onPodcastClick: (Podcast) -> Unit)
 @Composable
 fun PodcastListItem(podcast: Podcast, isPlaying: Boolean, isFavorite: Boolean, onFavoriteClick: () -> Unit, onClick: () -> Unit) {
     Card(
-        modifier = Modifier.fillMaxWidth().clickable { onClick() },   // 👈 animateItem حذف شد
+        modifier = Modifier.fillMaxWidth().clickable { onClick() },
         shape = RoundedCornerShape(20.dp), elevation = CardDefaults.cardElevation(4.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
@@ -385,7 +384,7 @@ fun PodcastListItem(podcast: Podcast, isPlaying: Boolean, isFavorite: Boolean, o
 @Composable
 fun PodcastGridItem(podcast: Podcast, isPlaying: Boolean, onClick: () -> Unit) {
     Card(
-        modifier = Modifier.fillMaxWidth().height(200.dp).clickable { onClick() },   // 👈 animateItem حذف شد
+        modifier = Modifier.fillMaxWidth().height(200.dp).clickable { onClick() },
         shape = RoundedCornerShape(20.dp), elevation = CardDefaults.cardElevation(4.dp)
     ) {
         Box(modifier = Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color(podcast.gradientStart), Color(podcast.gradientEnd))))) {
