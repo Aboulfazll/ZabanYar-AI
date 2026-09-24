@@ -1129,7 +1129,7 @@ object EnglishFile1 {
                 CommonMistake("I didn't went.", "I didn't go.", "بعد از didn't فعل ساده."),
                 CommonMistake("He don't like it.", "He doesn't like it.", "برای he/she/it از doesn't.")
             ),
-        طتتی    conversation = listOf(
+            conversation = listOf(
                 DialogueLine("A", "How's your English going?", "انگلیسی‌ت چطور پیش می‌ره؟"),
                 DialogueLine("B", "Pretty well! I've been practicing every day.", "خیلی خوب! هر روز تمرین کرده‌ام."),
                 DialogueLine("A", "That's great. Do you feel more confident?", "عالیه. با اعتماد به نفس‌تری؟"),
