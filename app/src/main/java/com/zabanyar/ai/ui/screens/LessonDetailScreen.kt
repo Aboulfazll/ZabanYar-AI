@@ -26,15 +26,14 @@ import com.zabanyar.ai.data.DialogueLine
 import com.zabanyar.ai.data.LessonContent
 import com.zabanyar.ai.data.ProgressManager
 import com.zabanyar.ai.data.VocabWord
-import com.zabanyar.ai.ui.theme.PrimaryColor   // 👈 ایمپورت جدید
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LessonDetailScreen(
     lesson: LessonContent,
     bookTitle: String = "",
-    bookCoverGradientStart: Long = 0xFF1A237E,   // 👈 پارامتر جدید
-    bookCoverGradientEnd: Long = 0xFF3949AB,     // 👈 پارامتر جدید
+    bookCoverGradientStart: Long = 0xFF1A237E,
+    bookCoverGradientEnd: Long = 0xFF3949AB,
     onBack: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -68,7 +67,6 @@ fun LessonDetailScreen(
                     }
                 },
                 actions = {
-                    // ✅ دکمه سریع نمایش/مخفی ترجمه
                     IconButton(
                         onClick = {
                             showTranslation = !showTranslation
@@ -110,7 +108,6 @@ fun LessonDetailScreen(
                             .padding(14.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        // کاور گرادیانی کتاب (به جای عکس)
                         Box(
                             modifier = Modifier
                                 .size(110.dp, 150.dp)
@@ -141,7 +138,6 @@ fun LessonDetailScreen(
                                 )
                             }
 
-                            // ✅ دکمه + در گوشه پایین راست
                             Box(
                                 modifier = Modifier
                                     .align(Alignment.BottomEnd)
@@ -165,7 +161,6 @@ fun LessonDetailScreen(
 
                         Spacer(Modifier.width(14.dp))
 
-                        // اطلاعات درس
                         Column(modifier = Modifier.weight(1f)) {
                             if (bookTitle.isNotEmpty()) {
                                 Text(
