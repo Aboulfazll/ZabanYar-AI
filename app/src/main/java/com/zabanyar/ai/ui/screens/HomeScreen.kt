@@ -31,17 +31,9 @@ import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.ProgressManager
 import com.zabanyar.ai.data.UserManager
+import com.zabanyar.ai.ui.theme.*   // 👈 ایمپورت جدید رنگ‌ها
 import java.text.SimpleDateFormat
 import java.util.*
-
-// ==================== رنگ‌ها ====================
-val PrimaryColor = Color(0xFF1A237E)
-val SecondaryColor = Color(0xFF6200EE)
-val AccentGreen = Color(0xFF11998E)
-val AccentPink = Color(0xFFE91E63)
-val AccentOrange = Color(0xFFFF6F00)
-val AccentBlue = Color(0xFF0288D1)
-val AccentRed = Color(0xFFC62828)
 
 // ==================== Motivational Quotes ====================
 private val motivationalQuotes = listOf(
@@ -73,18 +65,14 @@ fun HomeScreen(
     val context = LocalContext.current
     val user = remember { UserManager.getLoggedInUser(context) }
 
-    // ============ State ============
     var refreshKey by remember { mutableIntStateOf(0) }
-    val refresh = { refreshKey++ }
 
-    // ============ Stats ============
     val totalStars = remember(refreshKey) { ProgressManager.getTotalStars(context) }
     val lessonsCompleted = remember(refreshKey) { ProgressManager.getLessonsCompleted(context) }
     val dailyStreak = remember(refreshKey) { ProgressManager.getDailyStreak(context) }
     val quizzesPassed = remember(refreshKey) { ProgressManager.getTotalQuizzesPassed(context) }
     val quizAttempts = remember(refreshKey) { ProgressManager.getTotalQuizAttempts(context) }
 
-    // ============ Continue Learning (از کتاب‌های در حال یادگیری) ============
     val continueBooks = remember(refreshKey) {
         BookRepository.getAllBooks()
             .filter { ProgressManager.isBookStarted(context, it.id) }
@@ -98,15 +86,12 @@ fun HomeScreen(
             .take(3)
     }
 
-    // ============ Daily Goal ============
     val dailyGoalMinutes = 10
     val todayMinutes = remember(refreshKey) {
-        // محاسبه تخمینی از درس‌های امروز
         minOf((lessonsCompleted % 10) * 3, dailyGoalMinutes)
     }
     val dailyGoalProgress = todayMinutes.toFloat() / dailyGoalMinutes
 
-    // ============ Weekly Activity (شبیه‌سازی) ============
     val weeklyActivity = remember(refreshKey) {
         val calendar = Calendar.getInstance()
         val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
@@ -116,13 +101,11 @@ fun HomeScreen(
         }
     }
 
-    // ============ Quote of the day ============
     val todayQuote = remember {
         val dayOfYear = Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
         motivationalQuotes[dayOfYear % motivationalQuotes.size]
     }
 
-    // ============ Time-based greeting ============
     val greeting = remember {
         val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
         when {
@@ -133,7 +116,6 @@ fun HomeScreen(
         }
     }
 
-    // ============ Avatar animation ============
     val infiniteTransition = rememberInfiniteTransition(label = "home")
     val glowScale by infiniteTransition.animateFloat(
         initialValue = 1f,
@@ -177,7 +159,6 @@ fun HomeScreen(
                     }
                 },
                 actions = {
-                    // Notification badge
                     Box {
                         IconButton(onClick = { /* notifications */ }) {
                             Icon(
@@ -216,7 +197,7 @@ fun HomeScreen(
                 .padding(padding)
                 .verticalScroll(rememberScrollState())
         ) {
-            // ==================== هدر خوش‌آمدگویی پیشرفته ====================
+            // ==================== هدر خوش‌آمدگویی ====================
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -247,7 +228,6 @@ fun HomeScreen(
                                 color = Color.White.copy(alpha = 0.9f)
                             )
                         }
-                        // تاریخ امروز
                         Column(horizontalAlignment = Alignment.End) {
                             val dateStr = remember {
                                 val fmt = SimpleDateFormat("EEEE", Locale("fa"))
@@ -271,7 +251,6 @@ fun HomeScreen(
 
                     Spacer(Modifier.height(16.dp))
 
-                    // Quote of the day
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -294,7 +273,7 @@ fun HomeScreen(
                 }
             }
 
-            // ==================== کارت آماری شناور پیشرفته ====================
+            // ==================== کارت آماری شناور ====================
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -305,7 +284,6 @@ fun HomeScreen(
                 colors = CardDefaults.cardColors(containerColor = Color.White)
             ) {
                 Column(modifier = Modifier.padding(18.dp)) {
-                    // Header
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -329,7 +307,6 @@ fun HomeScreen(
                                 color = PrimaryColor
                             )
                         }
-                        // سطح
                         Box(
                             modifier = Modifier
                                 .clip(RoundedCornerShape(8.dp))
@@ -356,7 +333,6 @@ fun HomeScreen(
 
                     Spacer(Modifier.height(16.dp))
 
-                    // Stats grid
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly
@@ -376,7 +352,6 @@ fun HomeScreen(
 
                     Spacer(Modifier.height(14.dp))
 
-                    // Daily Goal
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically
@@ -424,7 +399,6 @@ fun HomeScreen(
 
                     Spacer(Modifier.height(14.dp))
 
-                    // Weekly Activity Chart
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically
@@ -493,17 +467,13 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 QuickAccessCardAdvanced(
-                    emoji = "📚",
-                    title = "کتابخانه",
-                    subtitle = "۵۳+ کتاب",
+                    emoji = "📚", title = "کتابخانه", subtitle = "۵۳+ کتاب",
                     gradient = listOf(Color(0xFF6A1B9A), Color(0xFFAB47BC)),
                     modifier = Modifier.weight(1f),
                     onClick = onNavigateToLibrary
                 )
                 QuickAccessCardAdvanced(
-                    emoji = "🤖",
-                    title = "AI Chat",
-                    subtitle = "معلم هوشمند",
+                    emoji = "🤖", title = "AI Chat", subtitle = "معلم هوشمند",
                     gradient = listOf(Color(0xFF00695C), Color(0xFF26A69A)),
                     modifier = Modifier.weight(1f),
                     onClick = onNavigateToAIChat
@@ -519,17 +489,13 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 QuickAccessCardAdvanced(
-                    emoji = "🗣️",
-                    title = "اسپیکینگ",
-                    subtitle = "تمرین گفتار",
+                    emoji = "🗣️", title = "اسپیکینگ", subtitle = "تمرین گفتار",
                     gradient = listOf(Color(0xFFC62828), Color(0xFFEF5350)),
                     modifier = Modifier.weight(1f),
                     onClick = onNavigateToSpeaking
                 )
                 QuickAccessCardAdvanced(
-                    emoji = "📝",
-                    title = "واژگان",
-                    subtitle = "بانک لغات",
+                    emoji = "📝", title = "واژگان", subtitle = "بانک لغات",
                     gradient = listOf(Color(0xFFE91E63), Color(0xFFF06292)),
                     modifier = Modifier.weight(1f),
                     onClick = onNavigateToVocabulary
@@ -545,17 +511,13 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 QuickAccessCardAdvanced(
-                    emoji = "🎧",
-                    title = "پادکست‌ها",
-                    subtitle = "۲۴ پادکست",
+                    emoji = "🎧", title = "پادکست‌ها", subtitle = "۲۴ پادکست",
                     gradient = listOf(Color(0xFF6A1B9A), Color(0xFFBA68C8)),
                     modifier = Modifier.weight(1f),
                     onClick = onNavigateToPodcast
                 )
                 QuickAccessCardAdvanced(
-                    emoji = "💬",
-                    title = "جملات روزمره",
-                    subtitle = "۴۰ جمله",
+                    emoji = "💬", title = "جملات روزمره", subtitle = "۴۰ جمله",
                     gradient = listOf(Color(0xFF00695C), Color(0xFF4DB6AC)),
                     modifier = Modifier.weight(1f),
                     onClick = onNavigateToDailySentences
@@ -571,17 +533,13 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 QuickAccessCardAdvanced(
-                    emoji = "🎯",
-                    title = "تست سطح",
-                    subtitle = "سطحت رو بسنج",
+                    emoji = "🎯", title = "تست سطح", subtitle = "سطحت رو بسنج",
                     gradient = listOf(Color(0xFFC62828), Color(0xFFEF5350)),
                     modifier = Modifier.weight(1f),
                     onClick = onNavigateToLevelTest
                 )
                 QuickAccessCardAdvanced(
-                    emoji = "🏆",
-                    title = "دستاوردها",
-                    subtitle = "۱۳ نشان",
+                    emoji = "🏆", title = "دستاوردها", subtitle = "۱۳ نشان",
                     gradient = listOf(Color(0xFFFF6F00), Color(0xFFFFB300)),
                     modifier = Modifier.weight(1f),
                     onClick = onNavigateToAchievements
@@ -593,7 +551,6 @@ fun HomeScreen(
             // ==================== ادامه یادگیری ====================
             if (continueBooks.isNotEmpty()) {
                 SectionTitle("📖 ادامه یادگیری")
-
                 continueBooks.forEach { (book, chaptersRead, progressPercent) ->
                     ContinueLearningCardAdvanced(
                         bookTitle = book.title,
@@ -609,7 +566,6 @@ fun HomeScreen(
                 }
             } else {
                 SectionTitle("📖 شروع یادگیری")
-
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -658,18 +614,9 @@ fun HomeScreen(
                             colors = ButtonDefaults.buttonColors(containerColor = PrimaryColor),
                             shape = RoundedCornerShape(12.dp)
                         ) {
-                            Text(
-                                "شروع کن",
-                                color = Color.White,
-                                fontWeight = FontWeight.Bold
-                            )
+                            Text("شروع کن", color = Color.White, fontWeight = FontWeight.Bold)
                             Spacer(Modifier.width(4.dp))
-                            Icon(
-                                Icons.Filled.ArrowForward,
-                                null,
-                                tint = Color.White,
-                                modifier = Modifier.size(16.dp)
-                            )
+                            Icon(Icons.Filled.ArrowForward, null, tint = Color.White, modifier = Modifier.size(16.dp))
                         }
                     }
                 }
@@ -679,74 +626,36 @@ fun HomeScreen(
 
             // ==================== دستاوردها ====================
             SectionTitle("🏆 دستاوردهای شما")
-
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                AchievementBadgeAdvanced(
-                    emoji = "🥇",
-                    title = "شروع",
-                    unlocked = lessonsCompleted > 0,
-                    progressText = if (lessonsCompleted > 0) "کامل" else "0/1",
-                    modifier = Modifier.weight(1f)
-                )
-                AchievementBadgeAdvanced(
-                    emoji = "🔥",
-                    title = "۷ روز",
-                    unlocked = dailyStreak >= 7,
-                    progressText = "$dailyStreak/7",
-                    modifier = Modifier.weight(1f)
-                )
-                AchievementBadgeAdvanced(
-                    emoji = "📚",
-                    title = "۱۰ درس",
-                    unlocked = lessonsCompleted >= 10,
-                    progressText = "$lessonsCompleted/10",
-                    modifier = Modifier.weight(1f)
-                )
-                AchievementBadgeAdvanced(
-                    emoji = "🏆",
-                    title = "۵ آزمون",
-                    unlocked = quizzesPassed >= 5,
-                    progressText = "$quizzesPassed/5",
-                    modifier = Modifier.weight(1f)
-                )
+                AchievementBadgeAdvanced("🥇", "شروع", lessonsCompleted > 0, if (lessonsCompleted > 0) "کامل" else "0/1", Modifier.weight(1f))
+                AchievementBadgeAdvanced("🔥", "۷ روز", dailyStreak >= 7, "$dailyStreak/7", Modifier.weight(1f))
+                AchievementBadgeAdvanced("📚", "۱۰ درس", lessonsCompleted >= 10, "$lessonsCompleted/10", Modifier.weight(1f))
+                AchievementBadgeAdvanced("🏆", "۵ آزمون", quizzesPassed >= 5, "$quizzesPassed/5", Modifier.weight(1f))
             }
 
             Spacer(Modifier.height(24.dp))
 
             // ==================== پیشرفت کلی ====================
             SectionTitle("📊 پیشرفت کلی")
-
             Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
                 shape = RoundedCornerShape(18.dp),
                 elevation = CardDefaults.cardElevation(4.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.White)
             ) {
                 Column(modifier = Modifier.padding(18.dp)) {
-                    // Circular progress
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Box(
-                            modifier = Modifier.size(80.dp),
-                            contentAlignment = Alignment.Center
-                        ) {
+                        Box(modifier = Modifier.size(80.dp), contentAlignment = Alignment.Center) {
                             val totalChapters = BookRepository.getAllBooks().sumOf { it.totalChapters }
-                            val progress = if (totalChapters > 0) {
-                                lessonsCompleted.toFloat() / totalChapters
-                            } else 0f
-
+                            val progress = if (totalChapters > 0) lessonsCompleted.toFloat() / totalChapters else 0f
                             val animatedProgress by animateFloatAsState(
                                 targetValue = progress,
                                 animationSpec = tween(1500, easing = FastOutSlowInEasing),
                                 label = "circular"
                             )
-
                             CircularProgressIndicator(
                                 progress = { 1f },
                                 modifier = Modifier.fillMaxSize(),
@@ -770,12 +679,7 @@ fun HomeScreen(
                         }
                         Spacer(Modifier.width(18.dp))
                         Column {
-                            Text(
-                                "مسیر یادگیری شما",
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = PrimaryColor
-                            )
+                            Text("مسیر یادگیری شما", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
                             Spacer(Modifier.height(6.dp))
                             ProgressText("📖 $lessonsCompleted درس خوانده‌شده", AccentBlue)
                             Spacer(Modifier.height(2.dp))
@@ -791,29 +695,20 @@ fun HomeScreen(
 
             // ==================== دکمه پروفایل ====================
             Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-                    .clickable { onNavigateToProfile() },
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).clickable { onNavigateToProfile() },
                 shape = RoundedCornerShape(16.dp),
                 elevation = CardDefaults.cardElevation(3.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.White)
             ) {
                 Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
+                    modifier = Modifier.fillMaxWidth().padding(16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Box(
                         modifier = Modifier
                             .size(50.dp)
                             .clip(CircleShape)
-                            .background(
-                                Brush.linearGradient(
-                                    listOf(PrimaryColor, SecondaryColor)
-                                )
-                            ),
+                            .background(Brush.linearGradient(listOf(PrimaryColor, SecondaryColor))),
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
@@ -825,42 +720,23 @@ fun HomeScreen(
                     }
                     Spacer(Modifier.width(12.dp))
                     Column(modifier = Modifier.weight(1f)) {
-                        Text(
-                            user?.name ?: "کاربر",
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = PrimaryColor
-                        )
-                        Text(
-                            user?.email ?: "",
-                            fontSize = 11.sp,
-                            color = Color.Gray
-                        )
+                        Text(user?.name ?: "کاربر", fontSize = 15.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
+                        Text(user?.email ?: "", fontSize = 11.sp, color = Color.Gray)
                     }
-                    Icon(
-                        Icons.Filled.ChevronLeft,
-                        null,
-                        tint = Color.Gray
-                    )
+                    Icon(Icons.Filled.ChevronLeft, null, tint = Color.Gray)
                 }
             }
 
             Spacer(Modifier.height(20.dp))
 
-            // ==================== دکمه خروج ====================
             OutlinedButton(
                 onClick = {
                     UserManager.logout(context)
                     onLogout()
                 },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-                    .height(52.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).height(52.dp),
                 shape = RoundedCornerShape(14.dp),
-                colors = ButtonDefaults.outlinedButtonColors(
-                    contentColor = AccentRed
-                )
+                colors = ButtonDefaults.outlinedButtonColors(contentColor = AccentRed)
             ) {
                 Icon(Icons.Filled.Logout, null, modifier = Modifier.size(20.dp))
                 Spacer(Modifier.width(8.dp))
@@ -872,7 +748,7 @@ fun HomeScreen(
     }
 }
 
-// ==================== کامپوزبل‌های کمکی پیشرفته ====================
+// ==================== کامپوزبل‌های کمکی ====================
 
 @Composable
 private fun SectionTitle(title: String) {
@@ -881,48 +757,24 @@ private fun SectionTitle(title: String) {
         fontSize = 16.sp,
         fontWeight = FontWeight.Bold,
         color = PrimaryColor,
-        modifier = Modifier.padding(
-            start = 20.dp,
-            end = 20.dp,
-            top = 8.dp,
-            bottom = 12.dp
-        )
+        modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 8.dp, bottom = 12.dp)
     )
 }
 
 @Composable
-private fun StatItemAdvanced(
-    emoji: String,
-    value: String,
-    label: String,
-    color: Color
-) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+private fun StatItemAdvanced(emoji: String, value: String, label: String, color: Color) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(emoji, fontSize = 20.sp)
         Spacer(Modifier.height(3.dp))
-        Text(
-            value,
-            fontSize = 17.sp,
-            fontWeight = FontWeight.Bold,
-            color = color
-        )
-        Text(
-            label,
-            fontSize = 9.sp,
-            color = Color.Gray,
-            textAlign = TextAlign.Center
-        )
+        Text(value, fontSize = 17.sp, fontWeight = FontWeight.Bold, color = color)
+        Text(label, fontSize = 9.sp, color = Color.Gray, textAlign = TextAlign.Center)
     }
 }
 
 @Composable
 private fun VerticalDividerSmall() {
     Divider(
-        modifier = Modifier
-            .height(40.dp)
-            .width(1.dp),
+        modifier = Modifier.height(40.dp).width(1.dp),
         color = Color.LightGray.copy(alpha = 0.4f)
     )
 }
@@ -948,18 +800,12 @@ private fun QuickAccessCardAdvanced(
     )
 
     Card(
-        modifier = modifier
-            .height(120.dp)
-            .scale(scale)
-            .clickable { onClick() },
+        modifier = modifier.height(120.dp).scale(scale).clickable { onClick() },
         shape = RoundedCornerShape(18.dp),
         elevation = CardDefaults.cardElevation(6.dp)
     ) {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Brush.linearGradient(gradient))
-                .padding(14.dp)
+            modifier = Modifier.fillMaxSize().background(Brush.linearGradient(gradient)).padding(14.dp)
         ) {
             Column(
                 modifier = Modifier.fillMaxSize(),
@@ -979,7 +825,6 @@ private fun QuickAccessCardAdvanced(
                     ) {
                         Text(emoji, fontSize = 22.sp)
                     }
-                    // Arrow indicator
                     Box(
                         modifier = Modifier
                             .size(20.dp)
@@ -987,27 +832,13 @@ private fun QuickAccessCardAdvanced(
                             .background(Color.White.copy(alpha = 0.2f)),
                         contentAlignment = Alignment.Center
                     ) {
-                        Icon(
-                            Icons.Filled.ArrowForward,
-                            null,
-                            tint = Color.White,
-                            modifier = Modifier.size(12.dp)
-                        )
+                        Icon(Icons.Filled.ArrowForward, null, tint = Color.White, modifier = Modifier.size(12.dp))
                     }
                 }
                 Column {
-                    Text(
-                        title,
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color.White
-                    )
+                    Text(title, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Color.White)
                     Spacer(Modifier.height(2.dp))
-                    Text(
-                        subtitle,
-                        fontSize = 10.sp,
-                        color = Color.White.copy(alpha = 0.85f)
-                    )
+                    Text(subtitle, fontSize = 10.sp, color = Color.White.copy(alpha = 0.85f))
                 }
             }
         }
@@ -1026,70 +857,39 @@ private fun ContinueLearningCardAdvanced(
     onClick: () -> Unit
 ) {
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp)
-            .clickable { onClick() },
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).clickable { onClick() },
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(3.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(14.dp),
+            modifier = Modifier.fillMaxWidth().padding(14.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Box(
                 modifier = Modifier
                     .size(54.dp)
                     .clip(RoundedCornerShape(12.dp))
-                    .background(
-                        Brush.linearGradient(
-                            listOf(color, gradientEnd)
-                        )
-                    ),
+                    .background(Brush.linearGradient(listOf(color, gradientEnd))),
                 contentAlignment = Alignment.Center
             ) {
                 Text(emoji, fontSize = 26.sp)
             }
             Spacer(Modifier.width(12.dp))
             Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    bookTitle,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = PrimaryColor
-                )
-                Text(
-                    bookTitlePersian,
-                    fontSize = 10.sp,
-                    color = SecondaryColor,
-                    fontWeight = FontWeight.SemiBold
-                )
+                Text(bookTitle, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
+                Text(bookTitlePersian, fontSize = 10.sp, color = SecondaryColor, fontWeight = FontWeight.SemiBold)
                 Spacer(Modifier.height(4.dp))
-                Text(
-                    chapter,
-                    fontSize = 10.sp,
-                    color = Color.Gray
-                )
+                Text(chapter, fontSize = 10.sp, color = Color.Gray)
                 Spacer(Modifier.height(6.dp))
                 LinearProgressIndicator(
                     progress = { progress },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(6.dp)
-                        .clip(RoundedCornerShape(3.dp)),
+                    modifier = Modifier.fillMaxWidth().height(6.dp).clip(RoundedCornerShape(3.dp)),
                     color = color,
                     trackColor = color.copy(alpha = 0.15f)
                 )
                 Spacer(Modifier.height(3.dp))
-                Text(
-                    "${(progress * 100).toInt()}% تکمیل",
-                    fontSize = 9.sp,
-                    color = color,
-                    fontWeight = FontWeight.Bold
-                )
+                Text("${(progress * 100).toInt()}% تکمیل", fontSize = 9.sp, color = color, fontWeight = FontWeight.Bold)
             }
             Box(
                 modifier = Modifier
@@ -1098,12 +898,7 @@ private fun ContinueLearningCardAdvanced(
                     .background(color.copy(alpha = 0.15f)),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    Icons.Filled.PlayArrow,
-                    null,
-                    tint = color,
-                    modifier = Modifier.size(22.dp)
-                )
+                Icon(Icons.Filled.PlayArrow, null, tint = color, modifier = Modifier.size(22.dp))
             }
         }
     }
@@ -1126,9 +921,7 @@ private fun AchievementBadgeAdvanced(
         )
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
+            modifier = Modifier.fillMaxWidth().padding(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Box(
@@ -1141,10 +934,7 @@ private fun AchievementBadgeAdvanced(
                     ),
                 contentAlignment = Alignment.Center
             ) {
-                Text(
-                    emoji,
-                    fontSize = 18.sp
-                )
+                Text(emoji, fontSize = 18.sp)
             }
             Spacer(Modifier.height(4.dp))
             Text(
@@ -1167,10 +957,5 @@ private fun AchievementBadgeAdvanced(
 
 @Composable
 private fun ProgressText(text: String, color: Color) {
-    Text(
-        text,
-        fontSize = 11.sp,
-        color = color,
-        fontWeight = FontWeight.SemiBold
-    )
+    Text(text, fontSize = 11.sp, color = color, fontWeight = FontWeight.SemiBold)
 }
