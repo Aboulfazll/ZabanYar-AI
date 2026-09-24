@@ -34,142 +34,205 @@ object FourCorners3 {
             title = "New Friends",
             titlePersian = "دوستان جدید",
             objectives = listOf(
-                "Talk about relationships",
-                "Describe personality",
-                "Use present perfect for experiences",
-                "Distinguish present perfect from simple past"
+                "Talk about relationships and friendships",
+                "Describe personality traits",
+                "Use the present perfect for experiences",
+                "Distinguish present perfect from simple past",
+                "Discuss what makes a good friend",
+                "Use for and since correctly"
             ),
             vocabulary = listOf(
                 VocabWord("personality", "شخصیت", "/ˌpɜːrsəˈnæləti/", "noun",
-                    "Her personality is very friendly.", "شخصیتش خیلی دوستانه‌ست."),
-                VocabWord("outgoing", "اجتماعی", "/ˈaʊtɡoʊɪŋ/", "adjective",
-                    "He's very outgoing.", "او خیلی اجتماعیه."),
+                    "Her personality is very friendly.",
+                    "شخصیتش خیلی دوستانه‌ست.",
+                    collocations = "strong personality, warm personality"),
+                VocabWord("outgoing", "اجتماعی / برون‌گرا", "/ˈaʊtɡoʊɪŋ/", "adjective",
+                    "He's very outgoing and loves meeting people.",
+                    "او خیلی اجتماعیه و عاشق ملاقات با مردمه.",
+                    collocations = "naturally outgoing, very outgoing"),
                 VocabWord("reliable", "قابل اعتماد", "/rɪˈlaɪəbəl/", "adjective",
-                    "A good friend should be reliable.", "دوست خوب باید قابل اعتماد باشه."),
+                    "A good friend should be reliable.",
+                    "دوست خوب باید قابل اعتماد باشه.",
+                    collocations = "highly reliable, completely reliable"),
                 VocabWord("patient", "صبور", "/ˈpeɪʃənt/", "adjective",
-                    "My sister is patient.", "خواهرم صبوره."),
-                VocabWord("confident", "بااعتمادبه‌نفس", "/ˈkɑːnfɪdənt/", "adjective",
-                    "She sounds confident.", "بااعتمادبه‌نفس به نظر می‌رسه."),
+                    "My sister is very patient with children.",
+                    "خواهرم با بچه‌ها خیلی صبوره.",
+                    collocations = "extremely patient, patient teacher"),
+                VocabWord("confident", "با اعتماد به نفس", "/ˈkɑːnfɪdənt/", "adjective",
+                    "She sounds confident when she speaks English.",
+                    "وقتی انگلیسی صحبت می‌کنه با اعتماد به نفس به نظر می‌رسه.",
+                    collocations = "quietly confident, feel confident"),
                 VocabWord("impression", "برداشت", "/ɪmˈpreʃən/", "noun",
-                    "He made a good impression.", "برداشت خوبی ایجاد کرد."),
+                    "He made a good impression on everyone.",
+                    "او روی همه برداشت خوبی ایجاد کرد.",
+                    collocations = "first impression, lasting impression"),
                 VocabWord("similar", "مشابه", "/ˈsɪmələr/", "adjective",
-                    "We have similar interests.", "علایق مشابهی داریم."),
+                    "We have similar interests and hobbies.",
+                    "ما علایق و سرگرمی‌های مشابهی داریم.",
+                    collocations = "very similar to, strikingly similar"),
                 VocabWord("different", "متفاوت", "/ˈdɪfrənt/", "adjective",
-                    "Our personalities are different.", "شخصیت‌هامون متفاوته."),
+                    "Our personalities are quite different.",
+                    "شخصیت‌هایمان کاملاً متفاوته.",
+                    collocations = "completely different, different from"),
                 VocabWord("relationship", "رابطه", "/rɪˈleɪʃənʃɪp/", "noun",
-                    "Trust is important in a relationship.", "اعتماد در رابطه مهمه."),
+                    "Trust is important in any relationship.",
+                    "اعتماد در هر رابطه‌ای مهمه.",
+                    collocations = "close relationship, build a relationship"),
                 VocabWord("trust", "اعتماد", "/trʌst/", "noun",
-                    "It takes time to trust someone.", "اعتماد کردن زمان می‌بره."),
+                    "It takes time to build trust.",
+                    "ساختن اعتماد زمان می‌بره.",
+                    collocations = "mutual trust, build trust"),
                 VocabWord("supportive", "حمایتگر", "/səˈpɔːrtɪv/", "adjective",
-                    "My friends are supportive.", "دوستام حمایتگرن."),
+                    "My friends are very supportive.",
+                    "دوستام خیلی حمایتگرن.",
+                    collocations = "emotionally supportive, supportive friend"),
                 VocabWord("acquaintance", "آشنا", "/əˈkweɪntəns/", "noun",
-                    "He's an old acquaintance.", "او یه آشنای قدیمیه.")
+                    "He's an old acquaintance from college.",
+                    "او یه آشنای قدیمی از دانشگاهه.",
+                    collocations = "old acquaintance, casual acquaintance"),
+                VocabWord("honest", "صادق", "/ˈɑːnɪst/", "adjective",
+                    "Honest friends tell you the truth.",
+                    "دوستان صادق حقیقت را بهت می‌گن.",
+                    collocations = "completely honest, brutally honest")
             ),
             idioms = listOf(
                 IdiomExpression("get along", "کنار آمدن",
-                    "We get along very well.", "خیلی خوب کنار میایم.", "informal"),
+                    "We get along very well.",
+                    "خیلی خوب کنار میایم.",
+                    register = "informal"),
                 IdiomExpression("hit it off", "از اول جور شدن",
-                    "We met and immediately hit it off.", "آشنا شدیم و از اول جور شدیم.", "informal"),
+                    "We met and immediately hit it off.",
+                    "آشنا شدیم و از اول جور شدیم.",
+                    register = "informal"),
                 IdiomExpression("first impression", "برداشت اول",
-                    "First impressions can be misleading.", "برداشت‌های اول گمراه‌کننده‌اند.", "neutral")
+                    "First impressions can be misleading.",
+                    "برداشت‌های اول گمراه‌کننده‌اند.",
+                    register = "neutral")
             ),
             phrasalVerbs = listOf(
-                PhrasalVerb("get to know", "شناختن تدریجی", "به‌تدریج شناختن",
-                    "It takes time to get to know someone.", "شناختن یه نفر زمان می‌بره.", "No"),
-                PhrasalVerb("open up", "درد دل کردن", "راحت‌تر صحبت کردن",
-                    "She slowly opened up about her experience.", "کم‌کم راحت‌تر صحبت کرد.", "No")
+                PhrasalVerb("get to know", "شناختن تدریجی",
+                    "به‌تدریج شناختن",
+                    "It takes time to get to know someone.",
+                    "شناختن یه نفر زمان می‌بره.",
+                    separable = "No"),
+                PhrasalVerb("open up", "درد دل کردن",
+                    "راحت‌تر صحبت کردن",
+                    "She slowly opened up about her experience.",
+                    "کم‌کم راحت‌تر صحبت کرد.",
+                    separable = "No")
             ),
             pronunciationTips = listOf(
-                PronunciationTip("Present Perfect contractions",
-                    "have → 've، has → 's در مکالمه."),
-                PronunciationTip("Reliable",
-                    "reliable /rɪˈlaɪəbəl/ — استرس روی li."),
-                PronunciationTip("Word stress",
-                    "personality /ˌpɜːrsəˈnæləti/ — استرس روی nal.")
+                PronunciationTip("Present perfect contractions",
+                    "In natural speech, have becomes 've and has becomes 's: I've known her, She's been here."),
+                PronunciationTip("Word stress in reliable",
+                    "reliable /rɪˈlaɪəbəl/ — stress on LAI. Similarly: dependent /dɪˈpendənt/."),
+                PronunciationTip("Personality adjective stress",
+                    "personality /ˌpɜːrsəˈnæləti/ — main stress on NAL, secondary on PER.")
             ),
             culturalNotes = listOf(
-                CulturalNote("First impressions",
-                    "برداشت اول مهمه ولی شناخت واقعی زمان می‌بره."),
+                CulturalNote("First impressions and friendship",
+                    "In many English-speaking cultures, first impressions matter, but people often say that real friendship develops over time. Asking about hobbies and interests is a common way to start building a friendship."),
                 CulturalNote("Friendship and privacy",
-                    "میزان اشتراک‌گذاری شخصی در فرهنگ‌ها متفاوته.")
+                    "The amount of personal information people share varies across cultures. In general, Western cultures value personal space and privacy, so it's polite to let friendships develop gradually.")
             ),
             grammar = listOf(
-                GrammarSection("Present Perfect for experiences",
-                    """
-                        have/has + past participle
-
-                        I have visited Italy.
-                        She has met many people.
-                        We have tried that restaurant.
-                    """.trimIndent()),
-                GrammarSection("Ever and Never",
-                    """
-                        Have you ever traveled alone?
-                        I've never traveled alone.
-                    """.trimIndent()),
-                GrammarSection("Present Perfect vs Simple Past",
-                    """
-                        Past: I visited Paris last year.
-                        Present Perfect: I have visited Paris.
-
-                        Have you ever been to London?
-                        When did you go? — In 2023.
-                    """.trimIndent()),
-                GrammarSection("For and Since",
-                    """
-                        for + مدت: for five years
-                        since + نقطه شروع: since 2021
-
-                        I've known her for five years.
-                    """.trimIndent())
+                GrammarSection("Present perfect for experiences",
+                    "have/has + past participle. Use it to talk about life experiences without specifying when. I've visited Italy. She has met many people."),
+                GrammarSection("Ever and never",
+                    "Have you ever traveled alone? / I've never traveled alone. — Use ever in questions and never in negative statements for experiences."),
+                GrammarSection("Present perfect vs simple past",
+                    "Present perfect: I've visited Paris (experience, no time). / Simple past: I visited Paris last year (specific time). Never use the present perfect with specific past time expressions."),
+                GrammarSection("For and since",
+                    "for + a period of time (for five years, for two months). / since + a point in time (since 2021, since last summer). I've known her for five years.")
             ),
             commonMistakes = listOf(
-                CommonMistake("I have visited Paris last year.", "I visited Paris last year.", "زمان مشخص = simple past."),
-                CommonMistake("Did you ever visit London?", "Have you ever visited London?", "ever با present perfect."),
-                CommonMistake("She have met him.", "She has met him.", "برای she از has."),
-                CommonMistake("I know him since 2020.", "I've known him since 2020.", "از گذشته تا حالا = present perfect.")
+                CommonMistake("I have visited Paris last year.", "I visited Paris last year.",
+                    "With specific time expressions, use the simple past."),
+                CommonMistake("Did you ever visit London?", "Have you ever visited London?",
+                    "Use 'ever' with the present perfect, not the simple past."),
+                CommonMistake("She have met him.", "She has met him.",
+                    "Use 'has' with she/he/it in the present perfect."),
+                CommonMistake("I know him since 2020.", "I've known him since 2020.",
+                    "For actions continuing from the past to now, use the present perfect.")
             ),
             conversation = listOf(
-                DialogueLine("Mina", "Have you been here before?", "قبلاً اینجا بوده‌ای؟"),
-                DialogueLine("Adam", "Yes, I've been here a few times. I used to work with one of the organizers.", "بله، چند بار بوده‌ام. با یکی از برگزارکنندگان کار می‌کردم."),
-                DialogueLine("Mina", "That's probably why you look so comfortable.", "احتمالاً به همین دلیل راحت به نظر می‌رسی."),
-                DialogueLine("Adam", "Most people here are meeting for the first time.", "بیشتر افراد اینجا برای اولین بار همدیگه رو می‌بینن."),
-                DialogueLine("Mina", "I've already met two people who seem really interesting.", "من تا حالا با دو نفر آشنا شده‌ام که جالب به نظر می‌رسن."),
-                DialogueLine("Adam", "Who are they?", "کی هستن؟"),
-                DialogueLine("Mina", "One is a photographer, the other works at a tech company.", "یکی عکاسه، دیگری در شرکت فناوری کار می‌کنه."),
-                DialogueLine("Adam", "Have you talked to them about their work?", "درباره کارشون صحبت کردی؟"),
-                DialogueLine("Mina", "Yes. The photographer has traveled to more than twenty countries.", "بله. عکاس به بیش از بیست کشور سفر کرده."),
-                DialogueLine("Adam", "That's impressive. Have you ever traveled for work?", "جالب. تو تا حالا برای کار سفر کرده‌ای؟"),
-                DialogueLine("Mina", "A few times, but I've never traveled outside my region for work.", "چند بار، ولی هرگز خارج از منطقه‌ام برای کار سفر نکرده‌ام."),
-                DialogueLine("Adam", "I think traveling for work changes how you see people.", "فکر می‌کنم سفر کاری نگاهت به مردم رو تغییر می‌ده."),
-                DialogueLine("Mina", "I agree. People have very different ideas about good workplaces.", "موافقم. مردم دیدگاه‌های متفاوتی درباره محیط کاری خوب دارن."),
-                DialogueLine("Adam", "Some prefer quiet, others enjoy large teams.", "بعضی آرام رو ترجیح می‌دن، بعضی تیم بزرگ رو دوست دارن."),
-                DialogueLine("Mina", "What kind of people do you get along with?", "با چه نوع آدم‌هایی کنار میای؟"),
-                DialogueLine("Adam", "People who are open-minded and reliable.", "افرادی که روشن‌فکر و قابل اعتمادن."),
-                DialogueLine("Mina", "That's a healthy attitude.", "نگرش سالمیه."),
-                DialogueLine("Adam", "Thanks. Have you made any new friends today?", "ممنون. امروز دوست جدید پیدا کردی؟"),
-                DialogueLine("Mina", "Yes, I think I've met a few possible new friends.", "بله، فکر می‌کنم با چند دوست جدید احتمالی آشنا شده‌ام."),
-                DialogueLine("Adam", "That's great! Let's stay in touch.", "عالیه! در تماس باشیم.")
+                DialogueLine("Mina", "Have you been to this club before?",
+                    "قبلاً این باشگاه بوده‌ای؟"),
+                DialogueLine("Adam", "Yes, I've been here a few times.",
+                    "بله، چند بار اینجا بوده‌ام."),
+                DialogueLine("Mina", "Oh really? I've never been here.",
+                    "واقعاً؟ من هرگز اینجا نبوده‌ام."),
+                DialogueLine("Adam", "It's a nice place. I used to work with one of the organizers.",
+                    "جای خوبیه. قبلاً با یکی از برگزارکنندگان کار می‌کردم."),
+                DialogueLine("Mina", "That's probably why you look so comfortable here.",
+                    "احتمالاً به همین دلیل اینقدر راحت به نظر می‌رسی."),
+                DialogueLine("Adam", "Most people here are meeting for the first time tonight.",
+                    "بیشتر افراد اینجا امشب برای اولین بار همدیگه رو می‌بینن."),
+                DialogueLine("Mina", "I've already met two people who seem really interesting.",
+                    "من تا حالا با دو نفر آشنا شده‌ام که جالب به نظر می‌رسن."),
+                DialogueLine("Adam", "Who are they?",
+                    "کی هستن؟"),
+                DialogueLine("Mina", "One is a photographer, the other works at a tech company.",
+                    "یکی عکاسه، دیگری در شرکت فناوری کار می‌کنه."),
+                DialogueLine("Adam", "Have you talked to them about their work?",
+                    "درباره کارشون صحبت کردی؟"),
+                DialogueLine("Mina", "Yes. The photographer has traveled to more than twenty countries.",
+                    "بله. عکاس به بیش از بیست کشور سفر کرده."),
+                DialogueLine("Adam", "That's impressive. Have you ever traveled for work?",
+                    "جالب. تو تا حالا برای کار سفر کرده‌ای؟"),
+                DialogueLine("Mina", "A few times, but I've never traveled outside my region for work.",
+                    "چند بار، ولی هرگز خارج از منطقه‌ام برای کار سفر نکرده‌ام."),
+                DialogueLine("Adam", "I think traveling for work changes how you see people.",
+                    "فکر می‌کنم سفر کاری نگاهت به مردم رو تغییر می‌ده."),
+                DialogueLine("Mina", "I agree. People have very different ideas about good workplaces.",
+                    "موافقم. مردم دیدگاه‌های متفاوتی درباره محیط کاری خوب دارن."),
+                DialogueLine("Adam", "Some prefer quiet environments, others enjoy large teams.",
+                    "بعضی محیط‌های آرام رو ترجیح می‌دن، بعضی تیم‌های بزرگ رو دوست دارن."),
+                DialogueLine("Mina", "What kind of people do you get along with?",
+                    "با چه نوع آدم‌هایی کنار میای؟"),
+                DialogueLine("Adam", "People who are open-minded and reliable.",
+                    "افرادی که روشن‌فکر و قابل اعتمادن."),
+                DialogueLine("Mina", "That's a healthy attitude.",
+                    "نگرش سالمیه."),
+                DialogueLine("Adam", "Thanks. Have you made any new friends today?",
+                    "ممنون. امروز دوست جدید پیدا کردی؟"),
+                DialogueLine("Mina", "Yes, I think I've met a few possible new friends.",
+                    "بله، فکر می‌کنم با چند دوست جدید احتمالی آشنا شده‌ام."),
+                DialogueLine("Adam", "That's great! Let's stay in touch.",
+                    "عالیه! در تماس باشیم."),
+                DialogueLine("Mina", "Of course. Here's my number.",
+                    "حتماً. این شماره منه."),
+                DialogueLine("Adam", "Perfect. I'll text you tomorrow.",
+                    "عالی. فردا بهت پیام می‌دم.")
             ),
             comprehensionQuestions = listOf(
-                ComprehensionQuestion("Adam چند بار اینجا بوده؟", "چند بار."),
-                ComprehensionQuestion("Mina با چه کسانی آشنا شده؟", "یک عکاس و یک کارمند شرکت فناوری."),
-                ComprehensionQuestion("عکاس به چند کشور سفر کرده؟", "بیش از بیست کشور."),
-                ComprehensionQuestion("Adam با چه نوع آدم‌هایی کنار میاد؟", "روشن‌فکر و قابل اعتماد.")
+                ComprehensionQuestion("Adam چند بار در این باشگاه بوده است؟",
+                    "چند بار."),
+                ComprehensionQuestion("Mina با چه کسانی آشنا شده است؟",
+                    "یک عکاس و یک کارمند شرکت فناوری."),
+                ComprehensionQuestion("عکاس به چند کشور سفر کرده است؟",
+                    "بیش از بیست کشور."),
+                ComprehensionQuestion("Adam با چه نوع آدم‌هایی کنار می‌آید؟",
+                    "افراد روشن‌فکر و قابل اعتماد."),
+                ComprehensionQuestion("Adam و Mina چه تصمیمی می‌گیرند؟",
+                    "شماره‌ها را رد و بدل می‌کنند تا در تماس باشند.")
             ),
             speakingTasks = listOf(
-                SpeakingTask("Talk about your personality.",
-                    "درباره شخصیتت صحبت کن.",
-                    "I'm... / I usually..."),
-                SpeakingTask("Talk about a friend.",
-                    "درباره یه دوست صحبت کن.",
-                    "We've known each other for...")
+                SpeakingTask("Talk about your personality and describe yourself.",
+                    "درباره شخصیتت صحبت کن و خودت را توصیف کن.",
+                    "I'm... / I usually... / I tend to..."),
+                SpeakingTask("Talk about your best friend and why you get along.",
+                    "درباره بهترین دوستت و دلیل کنار آمدنتان صحبت کن.",
+                    "We've known each other for... / We get along because..."),
+                SpeakingTask("Discuss what makes a good friend.",
+                    "درباره ویژگی‌های یک دوست خوب صحبت کن.",
+                    "A good friend should be... / I think...")
             ),
             writingTasks = listOf(
-                WritingTask("Write about your best friend.",
-                    "درباره بهترین دوستت بنویس.",
-                    120,
-                    "Use present perfect and personality adjectives.")
+                WritingTask("Write about your best friend and your friendship.",
+                    "درباره بهترین دوستت و دوستی‌تان بنویس.",
+                    150,
+                    "Use present perfect and personality adjectives. Include at least one idiom.")
             ),
             quiz = listOf(
                 QuizQuestion("Complete: I ___ visited Italy.",
@@ -202,123 +265,205 @@ object FourCorners3 {
             title = "Working Life",
             titlePersian = "زندگی کاری",
             objectives = listOf(
-                "Talk about work and jobs",
+                "Talk about work and jobs in depth",
                 "Use present perfect with for/since",
-                "Discuss career goals",
-                "Talk about workplace skills"
+                "Discuss career goals and ambitions",
+                "Talk about workplace skills and experience",
+                "Compare jobs and workplaces",
+                "Discuss future career plans"
             ),
             vocabulary = listOf(
                 VocabWord("career", "حرفه", "/kəˈrɪr/", "noun",
-                    "I want a successful career.", "حرفه موفقی می‌خوام."),
+                    "I want to build a successful career.",
+                    "می‌خوام حرفه موفقی بسازم.",
+                    collocations = "successful career, change careers"),
                 VocabWord("colleague", "همکار", "/ˈkɑːliːɡ/", "noun",
-                    "My colleagues are helpful.", "همکارام کمک‌کننده‌ن."),
+                    "My colleagues are helpful and friendly.",
+                    "همکارام کمک‌کننده و خوش‌برخوردن.",
+                    collocations = "close colleague, former colleague"),
                 VocabWord("salary", "حقوق", "/ˈsæləri/", "noun",
-                    "The salary is competitive.", "حقوق رقابتیه."),
+                    "The salary is quite competitive.",
+                    "حقوق نسبتاً رقابتیه.",
+                    collocations = "competitive salary, annual salary"),
                 VocabWord("promotion", "ترفیع", "/prəˈmoʊʃən/", "noun",
-                    "She got a promotion.", "ترفیع گرفت."),
-                VocabWord("experience", "تجربه", "/ɪkˈspɪəriəns/", "noun",
-                    "I have five years of experience.", "پنج سال تجربه دارم."),
+                    "She got a promotion last month.",
+                    "ماه پیش ترفیع گرفت.",
+                    collocations = "get a promotion, deserve a promotion"),
+                VocabWord("experience", "تجربه", "/ɪkˈspɪriəns/", "noun",
+                    "I have five years of experience in marketing.",
+                    "پنج سال تجربه در بازاریابی دارم.",
+                    collocations = "work experience, valuable experience"),
                 VocabWord("skill", "مهارت", "/skɪl/", "noun",
-                    "Communication is an important skill.", "ارتباطات مهارت مهمیه."),
+                    "Communication is an important skill.",
+                    "ارتباطات مهارت مهمیه.",
+                    collocations = "key skill, develop a skill"),
                 VocabWord("interview", "مصاحبه", "/ˈɪntərvjuː/", "noun",
-                    "I have an interview tomorrow.", "فردا مصاحبه دارم."),
+                    "I have a job interview tomorrow.",
+                    "فردا مصاحبه شغلی دارم.",
+                    collocations = "job interview, prepare for an interview"),
                 VocabWord("resume", "رزومه", "/ˈrezəmeɪ/", "noun",
-                    "Send me your resume.", "رزومه‌ات رو بفرست."),
+                    "Please send me your resume.",
+                    "لطفاً رزومه‌ات رو برام بفرست.",
+                    collocations = "update your resume, submit a resume"),
                 VocabWord("apply", "درخواست دادن", "/əˈplaɪ/", "verb",
-                    "I applied for the job.", "برای شغل درخواست دادم."),
+                    "I applied for the job yesterday.",
+                    "دیروز برای شغل درخواست دادم.",
+                    collocations = "apply for a job, apply online"),
                 VocabWord("hire", "استخدام کردن", "/ˈhaɪər/", "verb",
-                    "They hired three people.", "سه نفر استخدام کردن."),
+                    "They hired three new people.",
+                    "سه نفر جدید استخدام کردند.",
+                    collocations = "hire a candidate, hire staff"),
                 VocabWord("resign", "استعفا دادن", "/rɪˈzaɪn/", "verb",
-                    "He resigned last week.", "هفته پیش استعفا داد."),
+                    "He resigned from his position last week.",
+                    "هفته پیش از سمتش استعفا داد.",
+                    collocations = "resign from a job, resign formally"),
                 VocabWord("retire", "بازنشسته شدن", "/rɪˈtaɪər/", "verb",
-                    "My father retired last year.", "پدرم سال پیش بازنشسته شد.")
+                    "My father retired last year.",
+                    "پدرم سال پیش بازنشسته شد.",
+                    collocations = "retire early, retire from work"),
+                VocabWord("deadline", "ضرب‌الاجل", "/ˈdedlaɪn/", "noun",
+                    "The deadline is next Friday.",
+                    "ضرب‌الاجل جمعه آینده‌ست.",
+                    collocations = "meet a deadline, tight deadline")
             ),
             idioms = listOf(
                 IdiomExpression("climb the ladder", "پیشرفت کردن",
-                    "He's climbing the career ladder.", "داره در حرفه‌اش پیشرفت می‌کنه.", "idiom"),
+                    "He's climbing the career ladder quickly.",
+                    "او سریع در حرفه‌اش پیشرفت می‌کنه.",
+                    register = "idiom"),
                 IdiomExpression("work like a dog", "مثل سگ کار کردن",
-                    "She works like a dog.", "مثل سگ کار می‌کنه.", "informal"),
+                    "She works like a dog every day.",
+                    "او هر روز مثل سگ کار می‌کنه.",
+                    register = "informal"),
                 IdiomExpression("dead-end job", "شغل بی‌آینده",
-                    "He's stuck in a dead-end job.", "در شغل بی‌آینده گیر افتاده.", "informal")
+                    "He's stuck in a dead-end job.",
+                    "او در یه شغل بی‌آینده گیر افتاده.",
+                    register = "informal")
+            ),
+            phrasalVerbs = listOf(
+                PhrasalVerb("take on", "بر عهده گرفتن",
+                    "پذیرفتن مسئولیت",
+                    "She took on a new project last month.",
+                    "ماه پیش یه پروژه جدید بر عهده گرفت.",
+                    separable = "Yes"),
+                PhrasalVerb("fill in for", "جانشین کسی شدن",
+                    "موقتاً جای کسی را پر کردن",
+                    "I'm filling in for my colleague today.",
+                    "امروز جانشین همکارم هستم.",
+                    separable = "No")
             ),
             pronunciationTips = listOf(
-                PronunciationTip("career",
-                    "career /kəˈrɪr/ — استرس روی rir."),
-                PronunciationTip("colleague",
-                    "colleague /ˈkɑːliːɡ/ — ue تلفظ نمی‌شود.")
+                PronunciationTip("Career stress",
+                    "career /kəˈrɪr/ — stress on RIR. In American English, the second syllable is stressed."),
+                PronunciationTip("Colleague pronunciation",
+                    "colleague /ˈkɑːliːɡ/ — the 'ue' is silent. Stress on first syllable."),
+                PronunciationTip("Contractions in present perfect",
+                    "I've worked, she's worked, they've worked. In natural speech, 'have' reduces to /v/.")
             ),
             culturalNotes = listOf(
-                CulturalNote("CV vs Resume",
-                    "آمریکا resume، بریتانیا CV."),
+                CulturalNote("Resume vs CV",
+                    "In the US, a 'resume' is typically 1-2 pages. In the UK and Europe, a 'CV' (curriculum vitae) is common and can be longer. Both are used for job applications."),
                 CulturalNote("Job interviews",
-                    "مصاحبه‌ها در غرب رسمی و ساختارمندن.")
+                    "Job interviews in Western cultures are usually formal and structured. Common questions include 'Tell me about yourself' and 'What are your strengths and weaknesses?'")
             ),
             grammar = listOf(
-                GrammarSection("Present Perfect with for/since",
-                    """
-                        I've worked here for five years.
-                        I've been in this role since 2020.
-                    """.trimIndent()),
-                GrammarSection("Present Perfect for experience",
-                    """
-                        I've worked in three companies.
-                        She's never had a promotion.
-                    """.trimIndent()),
-                GrammarSection("Want to / Would like to",
-                    """
-                        I want to change my career.
-                        I'd like to work abroad.
-                    """.trimIndent()),
-                GrammarSection("Future plans",
-                    """
-                        I'm going to apply for a new job.
-                        I'll ask for a promotion next year.
-                    """.trimIndent())
+                GrammarSection("Present perfect with for/since",
+                    "I've worked here for five years. / I've been in this role since 2020. — For describes a duration, since describes a starting point."),
+                GrammarSection("Present perfect for experience",
+                    "I've worked in three companies. / She's never had a promotion. — Use the present perfect for experiences that are relevant to now."),
+                GrammarSection("Want to / would like to",
+                    "I want to change my career. / I'd like to work abroad. — 'Would like' is more polite than 'want'."),
+                GrammarSection("Future plans with going to and will",
+                    "I'm going to apply for a new job. / I'll ask for a promotion next year. — Going to for plans, will for decisions or predictions.")
             ),
             commonMistakes = listOf(
-                CommonMistake("I have 5 years experience.", "I have 5 years of experience.", "of لازمه."),
-                CommonMistake("I am work here for 3 years.", "I have worked here for 3 years.", "برای مدت، present perfect."),
-                CommonMistake("I applied the job.", "I applied for the job.", "apply for.")
+                CommonMistake("I have 5 years experience.", "I have 5 years of experience.",
+                    "The preposition 'of' is needed between 'years' and 'experience'."),
+                CommonMistake("I am work here for 3 years.", "I have worked here for 3 years.",
+                    "For a duration continuing to now, use the present perfect, not present simple."),
+                CommonMistake("I applied the job.", "I applied for the job.",
+                    "The verb 'apply' takes the preposition 'for' before a position."),
+                CommonMistake("She is working here since 2020.", "She has worked here since 2020.",
+                    "With 'since', use the present perfect, not the present continuous.")
             ),
             conversation = listOf(
-                DialogueLine("A", "How long have you worked at your company?", "چند وقته در شرکتت کار می‌کنی؟"),
-                DialogueLine("B", "I've worked there for five years now.", "پنج ساله اونجا کار می‌کنم."),
-                DialogueLine("A", "Do you enjoy it?", "لذت می‌بری؟"),
-                DialogueLine("B", "Mostly yes. But I'm thinking about a change.", "بیشتر بله. ولی به تغییر فکر می‌کنم."),
-                DialogueLine("A", "What kind of change?", "چه نوع تغییری؟"),
-                DialogueLine("B", "I'd like to work abroad for a while.", "دوست دارم مدتی در خارج کار کنم."),
-                DialogueLine("A", "Have you applied anywhere?", "جایی درخواست دادی؟"),
-                DialogueLine("B", "Not yet. I'm updating my resume first.", "هنوز نه. اول رزومه‌ام رو آپدیت می‌کنم."),
-                DialogueLine("A", "What skills do you have?", "چه مهارت‌هایی داری؟"),
-                DialogueLine("B", "Communication and project management.", "ارتباطات و مدیریت پروژه."),
-                DialogueLine("A", "Those are valuable. What about languages?", "ارزشمندن. زبان چطور؟"),
-                DialogueLine("B", "I speak English and a bit of French.", "انگلیسی و کمی فرانسه."),
-                DialogueLine("A", "What's your dream job?", "شغل رویایی‌ات چیه؟"),
-                DialogueLine("B", "I'd love to work for an international company.", "دوست دارم برای شرکت بین‌المللی کار کنم."),
-                DialogueLine("A", "That's a great goal. Good luck!", "هدف عالیه. موفق باشی!"),
-                DialogueLine("B", "Thanks! I'll need it.", "ممنون! لازمش دارم."),
-                DialogueLine("A", "Let me know if you need help.", "اگه کمک خواستی خبرم کن."),
-                DialogueLine("B", "I will. Thanks so much!", "می‌کنم. خیلی ممنون!")
+                DialogueLine("Ella", "How long have you worked at your company?",
+                    "چند وقته در شرکتت کار می‌کنی؟"),
+                DialogueLine("Raj", "I've worked there for five years now.",
+                    "پنج ساله اونجا کار می‌کنم."),
+                DialogueLine("Ella", "Do you enjoy it?",
+                    "لذت می‌بری؟"),
+                DialogueLine("Raj", "Mostly yes. But I'm thinking about a change.",
+                    "بیشتر بله. ولی به تغییر فکر می‌کنم."),
+                DialogueLine("Ella", "What kind of change?",
+                    "چه نوع تغییری؟"),
+                DialogueLine("Raj", "I'd like to work abroad for a while.",
+                    "دوست دارم مدتی در خارج کار کنم."),
+                DialogueLine("Ella", "Have you applied anywhere?",
+                    "جایی درخواست دادی؟"),
+                DialogueLine("Raj", "Not yet. I'm updating my resume first.",
+                    "هنوز نه. اول رزومه‌ام رو آپدیت می‌کنم."),
+                DialogueLine("Ella", "What skills do you have?",
+                    "چه مهارت‌هایی داری؟"),
+                DialogueLine("Raj", "Communication, project management, and teamwork.",
+                    "ارتباطات، مدیریت پروژه، و کار تیمی."),
+                DialogueLine("Ella", "Those are valuable. What about languages?",
+                    "ارزشمندن. زبان چطور؟"),
+                DialogueLine("Raj", "I speak English and a bit of French.",
+                    "انگلیسی و کمی فرانسه صحبت می‌کنم."),
+                DialogueLine("Ella", "What's your dream job?",
+                    "شغل رویایی‌ات چیه؟"),
+                DialogueLine("Raj", "I'd love to work for an international company.",
+                    "دوست دارم برای شرکت بین‌المللی کار کنم."),
+                DialogueLine("Ella", "That's a great goal. Have you always worked in this field?",
+                    "هدف عالیه. همیشه در این زمینه کار کرده‌ای؟"),
+                DialogueLine("Raj", "No, I used to work in sales. I changed careers three years ago.",
+                    "نه، قبلاً در فروش کار می‌کردم. سه سال پیش حرفه‌ام رو عوض کردم."),
+                DialogueLine("Ella", "That must have been a big decision.",
+                    "این باید تصمیم بزرگی بوده باشه."),
+                DialogueLine("Raj", "It was, but I don't regret it.",
+                    "بود، ولی پشیمان نیستم."),
+                DialogueLine("Ella", "Good luck with your search!",
+                    "برای جستجوت موفق باشی!"),
+                DialogueLine("Raj", "Thanks! I'll need it.",
+                    "ممنون! لازمش دارم."),
+                DialogueLine("Ella", "Let me know if you need help with your resume.",
+                    "اگه برای رزومه‌ات کمک خواستی خبرم کن."),
+                DialogueLine("Raj", "I will. Thanks so much!",
+                    "می‌کنم. خیلی ممنون!"),
+                DialogueLine("Ella", "Anytime. We're colleagues, after all.",
+                    "هر وقت. بالاخره همکاریم."),
+                DialogueLine("Raj", "True. That's what makes work better.",
+                    "درسته. همین کار رو بهتر می‌کنه.")
             ),
             comprehensionQuestions = listOf(
-                ComprehensionQuestion("B چند وقت است که در شرکتش کار می‌کند؟", "پنج سال."),
-                ComprehensionQuestion("B چه تغییری می‌خواهد؟", "کار در خارج."),
-                ComprehensionQuestion("B چه مهارت‌هایی دارد؟", "ارتباطات و مدیریت پروژه."),
-                ComprehensionQuestion("شغل رویایی B چیست؟", "کار برای شرکت بین‌المللی.")
+                ComprehensionQuestion("Raj چند وقت است که در شرکتش کار می‌کند؟",
+                    "پنج سال."),
+                ComprehensionQuestion("Raj چه تغییری می‌خواهد؟",
+                    "کار در خارج از کشور."),
+                ComprehensionQuestion("Raj چه مهارت‌هایی دارد؟",
+                    "ارتباطات، مدیریت پروژه، کار تیمی."),
+                ComprehensionQuestion("شغل رویایی Raj چیست؟",
+                    "کار برای شرکت بین‌المللی."),
+                ComprehensionQuestion("Raj قبلاً در چه زمینه‌ای کار می‌کرد؟",
+                    "فروش، تا سه سال پیش که حرفه‌اش را عوض کرد.")
             ),
             speakingTasks = listOf(
-                SpeakingTask("Talk about your job.",
-                    "درباره شغلت صحبت کن.",
-                    "I've worked... / I want to..."),
+                SpeakingTask("Talk about your job or studies.",
+                    "درباره شغلت یا تحصیلت صحبت کن.",
+                    "I've worked... / I want to... / I'd like to..."),
                 SpeakingTask("Practice a job interview.",
                     "نقش‌بازی: مصاحبه شغلی.",
-                    "Tell me about yourself.")
+                    "Tell me about yourself. / What are your skills? / Why do you want this job?"),
+                SpeakingTask("Discuss your career goals.",
+                    "درباره اهداف حرفه‌ای‌ات صحبت کن.",
+                    "In five years, I hope to... / I'm planning to...")
             ),
             writingTasks = listOf(
-                WritingTask("Write about your career goals.",
-                    "درباره اهداف حرفه‌ای‌ات بنویس.",
-                    150,
-                    "Use present perfect and future.")
+                WritingTask("Write about your career goals and plans.",
+                    "درباره اهداف و برنامه‌های حرفه‌ای‌ات بنویس.",
+                    180,
+                    "Use present perfect with for/since and future forms. Include at least one idiom.")
             ),
             quiz = listOf(
                 QuizQuestion("Complete: I've worked here ___ 5 years.",
@@ -353,123 +498,201 @@ object FourCorners3 {
             objectives = listOf(
                 "Talk about health and lifestyle",
                 "Use modal verbs for advice",
-                "Discuss healthy habits",
-                "Use gerunds after prepositions"
+                "Discuss healthy habits and routines",
+                "Use gerunds after prepositions",
+                "Talk about stress management",
+                "Give advice about well-being"
             ),
             vocabulary = listOf(
                 VocabWord("lifestyle", "سبک زندگی", "/ˈlaɪfstaɪl/", "noun",
-                    "She has a healthy lifestyle.", "سبک زندگی سالمی داره."),
+                    "She has a very healthy lifestyle.",
+                    "او سبک زندگی خیلی سالمی داره.",
+                    collocations = "healthy lifestyle, change your lifestyle"),
                 VocabWord("diet", "رژیم غذایی", "/ˈdaɪət/", "noun",
-                    "I'm on a diet.", "رژیم دارم."),
+                    "I'm on a balanced diet.",
+                    "من رژیم غذایی متعادلی دارم.",
+                    collocations = "balanced diet, strict diet"),
                 VocabWord("exercise", "ورزش", "/ˈeksərsaɪz/", "noun",
-                    "Exercise is important.", "ورزش مهمه."),
+                    "Regular exercise is important.",
+                    "ورزش منظم مهمه.",
+                    collocations = "regular exercise, take exercise"),
                 VocabWord("stress", "استرس", "/stres/", "noun",
-                    "Work gives me stress.", "کار بهم استرس می‌ده."),
+                    "Work gives me a lot of stress.",
+                    "کار بهم استرس زیادی می‌ده.",
+                    collocations = "reduce stress, stress levels"),
                 VocabWord("relax", "استراحت کردن", "/rɪˈlæks/", "verb",
-                    "I relax by reading.", "با کتاب خوندن استراحت می‌کنم."),
+                    "I relax by reading in the evening.",
+                    "عصرها با کتاب خوندن استراحت می‌کنم.",
+                    collocations = "relax completely, learn to relax"),
                 VocabWord("sleep", "خواب", "/sliːp/", "noun",
-                    "I need more sleep.", "خواب بیشتری لازم دارم."),
+                    "I need more sleep.",
+                    "خواب بیشتری لازم دارم.",
+                    collocations = "get enough sleep, quality sleep"),
                 VocabWord("balance", "تعادل", "/ˈbæləns/", "noun",
-                    "Work-life balance is important.", "تعادل کار و زندگی مهمه."),
+                    "Work-life balance is important.",
+                    "تعادل کار و زندگی مهمه.",
+                    collocations = "work-life balance, achieve balance"),
                 VocabWord("mental health", "سلامت روان", "/ˈmentl helθ/", "noun",
-                    "Mental health matters.", "سلامت روان مهمه."),
+                    "Mental health matters as much as physical health.",
+                    "سلامت روان به اندازه سلامت جسمی مهمه.",
+                    collocations = "mental health issues, take care of mental health"),
                 VocabWord("habit", "عادت", "/ˈhæbɪt/", "noun",
-                    "I have a bad habit.", "یه عادت بد دارم."),
+                    "I have a bad habit of eating late.",
+                    "یه عادت بد دارم که دیر غذا می‌خورم.",
+                    collocations = "bad habit, break a habit"),
                 VocabWord("routine", "روتین", "/ruːˈtiːn/", "noun",
-                    "I have a morning routine.", "یه روتین صبحگاهی دارم."),
+                    "I have a morning routine.",
+                    "یه روتین صبحگاهی دارم.",
+                    collocations = "daily routine, morning routine"),
                 VocabWord("energetic", "پرانرژی", "/ˌenərˈdʒetɪk/", "adjective",
-                    "I feel energetic today.", "امروز پرانرژی‌ام."),
+                    "I feel energetic after a good sleep.",
+                    "بعد از خواب خوب احساس پرانرژی می‌کنم.",
+                    collocations = "feel energetic, look energetic"),
                 VocabWord("tired", "خسته", "/ˈtaɪərd/", "adjective",
-                    "I'm always tired.", "همیشه خسته‌ام.")
+                    "I'm always tired after work.",
+                    "بعد از کار همیشه خسته‌ام.",
+                    collocations = "feel tired, constantly tired"),
+                VocabWord("well-being", "سلامتی و رفاه", "/ˈwel biːɪŋ/", "noun",
+                    "Sleep is important for well-being.",
+                    "خواب برای سلامت و رفاه مهمه.",
+                    collocations = "physical well-being, overall well-being")
             ),
             idioms = listOf(
                 IdiomExpression("burn out", "فرسوده شدن",
-                    "Many people burn out from work.", "بسیاری از افراد از کار فرسوده می‌شن.", "informal"),
+                    "Many people burn out from work.",
+                    "بسیاری از افراد از کار فرسوده می‌شن.",
+                    register = "informal"),
                 IdiomExpression("under the weather", "حالش خوب نبودن",
-                    "I'm feeling under the weather.", "امروز حالم خوب نیست.", "informal"),
+                    "I'm feeling under the weather today.",
+                    "امروز حالم خوب نیست.",
+                    register = "informal"),
                 IdiomExpression("take it easy", "سخت نگیر",
-                    "Take it easy this weekend.", "این آخر هفته سخت نگیر.", "informal")
+                    "Take it easy this weekend.",
+                    "این آخر هفته سخت نگیر.",
+                    register = "informal")
+            ),
+            phrasalVerbs = listOf(
+                PhrasalVerb("cut down on", "کم کردن مصرف",
+                    "کاهش دادن میزان چیزی",
+                    "I should cut down on sugar.",
+                    "باید مصرف شکرم رو کم کنم.",
+                    separable = "No"),
+                PhrasalVerb("work out", "ورزش کردن",
+                    "تمرین ورزشی انجام دادن",
+                    "I try to work out three times a week.",
+                    "سعی می‌کنم هفته‌ای سه بار ورزش کنم.",
+                    separable = "No")
             ),
             pronunciationTips = listOf(
-                PronunciationTip("stress",
-                    "stress /stres/ — ترکیب st+r سخته."),
-                PronunciationTip("lifestyle",
-                    "lifestyle /ˈlaɪfstaɪl/ — استرس روی first syllable.")
+                PronunciationTip("Stress in 'stress'",
+                    "stress /stres/ — includes the tricky st+r cluster. Practice: street, strong, stress."),
+                PronunciationTip("Lifestyle stress",
+                    "lifestyle /ˈlaɪfstaɪl/ — main stress on the first syllable: LIFE-style."),
+                PronunciationTip("Modal reduction in natural speech",
+                    "You should → /ju ʃʊd/ in fast speech; You shouldn't → /ju ˈʃʊdnt/.")
             ),
             culturalNotes = listOf(
-                CulturalNote("Mental health",
-                    "سلامت روان در غرب مهمه."),
+                CulturalNote("Mental health awareness",
+                    "In Western cultures, mental health is increasingly discussed openly. Therapy, meditation, and work-life balance are common topics in everyday conversation."),
                 CulturalNote("Gym culture",
-                    "عضویت در باشگاه رایجه.")
+                    "Gym membership and fitness routines are popular in many English-speaking countries. Discussing exercise habits is a common small-talk topic.")
             ),
             grammar = listOf(
                 GrammarSection("Modal verbs for advice",
-                    """
-                        You should exercise more.
-                        You shouldn't eat junk food.
-                        You ought to sleep more.
-                    """.trimIndent()),
+                    "You should exercise more. / You shouldn't eat junk food. / You ought to sleep more. — Modals are followed by the base verb."),
                 GrammarSection("Present perfect for lifestyle changes",
-                    """
-                        I've started going to the gym.
-                        She's quit smoking.
-                    """.trimIndent()),
+                    "I've started going to the gym. / She's quit smoking. — Use the present perfect for changes that are relevant to now."),
                 GrammarSection("Gerunds after prepositions",
-                    """
-                        I'm good at relaxing.
-                        She's interested in yoga.
-                        He's thinking about changing jobs.
-                    """.trimIndent()),
+                    "I'm good at relaxing. / She's interested in yoga. / He's thinking about changing jobs. — After any preposition (in, at, of, about, etc.), use the gerund (-ing form)."),
                 GrammarSection("Want to / need to",
-                    """
-                        I want to lose weight.
-                        I need to sleep more.
-                    """.trimIndent())
+                    "I want to lose weight. / I need to sleep more. — Both 'want' and 'need' are followed by the infinitive with 'to'.")
             ),
             commonMistakes = listOf(
-                CommonMistake("You should to exercise.", "You should exercise.", "بعد از should فعل ساده."),
-                CommonMistake("I'm interesting in yoga.", "I'm interested in yoga.", "interested نه interesting."),
-                CommonMistake("I want lose weight.", "I want to lose weight.", "بعد از want از to.")
+                CommonMistake("You should to exercise.", "You should exercise.",
+                    "After 'should', use the base verb without 'to'."),
+                CommonMistake("I'm interesting in yoga.", "I'm interested in yoga.",
+                    "'Interested' is the correct adjective for people who have interest. 'Interesting' describes things."),
+                CommonMistake("I want lose weight.", "I want to lose weight.",
+                    "After 'want', use the infinitive with 'to'."),
+                CommonMistake("I'm good at to cook.", "I'm good at cooking.",
+                    "After a preposition like 'at', use the gerund (-ing form).")
             ),
             conversation = listOf(
-                DialogueLine("A", "You look tired. Are you OK?", "خسته به نظر می‌رسی. حالت خوبه؟"),
-                DialogueLine("B", "I'm stressed. I've been working too much.", "استرس دارم. خیلی کار کرده‌ام."),
-                DialogueLine("A", "You should take a break.", "باید استراحت کنی."),
-                DialogueLine("B", "I know, but I have deadlines.", "می‌دونم، ولی ضرب‌الاجل دارم."),
-                DialogueLine("A", "Try to find balance.", "سعی کن تعادل پیدا کنی."),
-                DialogueLine("B", "What do you do to relax?", "تو برای استراحت چیکار می‌کنی؟"),
-                DialogueLine("A", "I go for walks and do yoga.", "پیاده‌روی می‌رم و یوگا می‌کنم."),
-                DialogueLine("B", "That sounds nice. I've never tried yoga.", "خوبه. یوگا امتحان نکرده‌ام."),
-                DialogueLine("A", "You should try it.", "باید امتحان کنی."),
-                DialogueLine("B", "Maybe I will. Do you exercise often?", "شاید امتحان کنم. زیاد ورزش می‌کنی؟"),
-                DialogueLine("A", "Yes, three times a week.", "بله، هفته‌ای سه بار."),
-                DialogueLine("B", "That's great. I need to start too.", "عالیه. منم باید شروع کنم."),
-                DialogueLine("A", "It's never too late. What about your diet?", "هیچ‌وقت دیر نیست. رژیمت چطور؟"),
-                DialogueLine("B", "Not great. I eat too much fast food.", "خوب نیست. فست‌فود زیاد می‌خورم."),
-                DialogueLine("A", "You should eat more fruits and vegetables.", "باید میوه و سبزیجات بیشتری بخوری."),
-                DialogueLine("B", "I know. I'll try.", "می‌دونم. تلاش می‌کنم."),
-                DialogueLine("A", "Take care of yourself.", "از خودت مراقبت کن."),
-                DialogueLine("B", "I will. You too!", "می‌کنم. تو هم!")
+                DialogueLine("Dana", "You look tired. Are you OK?",
+                    "خسته به نظر می‌رسی. حالت خوبه؟"),
+                DialogueLine("Marco", "I'm stressed. I've been working too much lately.",
+                    "استرس دارم. اخیراً خیلی کار کرده‌ام."),
+                DialogueLine("Dana", "You should take a break.",
+                    "باید استراحت کنی."),
+                DialogueLine("Marco", "I know, but I have so many deadlines.",
+                    "می‌دونم، ولی ضرب‌الاجل‌های زیادی دارم."),
+                DialogueLine("Dana", "Try to find a better balance.",
+                    "سعی کن تعادل بهتری پیدا کنی."),
+                DialogueLine("Marco", "What do you do to relax?",
+                    "تو برای استراحت چیکار می‌کنی؟"),
+                DialogueLine("Dana", "I go for walks and do yoga.",
+                    "پیاده‌روی می‌رم و یوگا می‌کنم."),
+                DialogueLine("Marco", "That sounds nice. I've never tried yoga.",
+                    "خوبه. یوگا امتحان نکرده‌ام."),
+                DialogueLine("Dana", "You should try it. It helps with stress.",
+                    "باید امتحان کنی. به کاهش استرس کمک می‌کنه."),
+                DialogueLine("Marco", "Maybe I will. Do you exercise often?",
+                    "شاید امتحان کنم. زیاد ورزش می‌کنی؟"),
+                DialogueLine("Dana", "Yes, three times a week. I work out at a gym near my office.",
+                    "بله، هفته‌ای سه بار. در باشگاه نزدیک دفترم ورزش می‌کنم."),
+                DialogueLine("Marco", "That's great. I need to start too.",
+                    "عالیه. منم باید شروع کنم."),
+                DialogueLine("Dana", "It's never too late. What about your diet?",
+                    "هیچ‌وقت دیر نیست. رژیمت چطور؟"),
+                DialogueLine("Marco", "Not great. I eat too much fast food.",
+                    "خوب نیست. فست‌فود زیاد می‌خورم."),
+                DialogueLine("Dana", "You should cut down on fast food and eat more vegetables.",
+                    "باید فست‌فود رو کم کنی و سبزیجات بیشتری بخوری."),
+                DialogueLine("Marco", "I know. I've been meaning to change.",
+                    "می‌دونم. قصد داشتم تغییر بدم."),
+                DialogueLine("Dana", "Start small. Small changes make a big difference.",
+                    "کوچیک شروع کن. تغییرات کوچک تفاوت بزرگی می‌سازن."),
+                DialogueLine("Marco", "You're right. I'll try starting this week.",
+                    "حق داری. این هفته تلاش می‌کنم شروع کنم."),
+                DialogueLine("Dana", "Take care of yourself.",
+                    "از خودت مراقبت کن."),
+                DialogueLine("Marco", "I will. Thanks for the advice.",
+                    "می‌کنم. ممنون برای توصیه."),
+                DialogueLine("Dana", "Anytime. Let me know how it goes!",
+                    "هر وقت. خبرم کن چطور شد!"),
+                DialogueLine("Marco", "I will. You're a good friend.",
+                    "می‌کنم. تو دوست خوبی هستی."),
+                DialogueLine("Dana", "That's what friends are for.",
+                    "دوست برای همین است.")
             ),
             comprehensionQuestions = listOf(
-                ComprehensionQuestion("B چرا استرس دارد؟", "چون زیاد کار کرده."),
-                ComprehensionQuestion("A چه راه‌حل‌هایی پیشنهاد می‌کند؟", "استراحت، یوگا، پیاده‌روی، تغذیه سالم."),
-                ComprehensionQuestion("A هفته‌ای چند بار ورزش می‌کند؟", "سه بار."),
-                ComprehensionQuestion("رژیم B چطور است؟", "خوب نیست.")
+                ComprehensionQuestion("Marco چرا استرس دارد؟",
+                    "چون اخیراً زیاد کار کرده و ضرب‌الاجل‌های زیادی دارد."),
+                ComprehensionQuestion("Dana چه راه‌حل‌هایی پیشنهاد می‌کند؟",
+                    "استراحت، یوگا، پیاده‌روی، ورزش، تغذیه سالم."),
+                ComprehensionQuestion("Dana هفته‌ای چند بار ورزش می‌کند؟",
+                    "سه بار."),
+                ComprehensionQuestion("رژیم Marco چطور است؟",
+                    "خوب نیست — فست‌فود زیاد می‌خورد."),
+                ComprehensionQuestion("توصیه نهایی Dana چیست؟",
+                    "کوچیک شروع کند — تغییرات کوچک تفاوت بزرگی می‌سازند.")
             ),
             speakingTasks = listOf(
-                SpeakingTask("Talk about your lifestyle.",
-                    "درباره سبک زندگی‌ات صحبت کن.",
-                    "I usually... / I've started..."),
+                SpeakingTask("Talk about your lifestyle and daily habits.",
+                    "درباره سبک زندگی و عادات روزانه‌ات صحبت کن.",
+                    "I usually... / I've started... / I'm trying to..."),
                 SpeakingTask("Give advice about reducing stress.",
                     "درباره کاهش استرس توصیه کن.",
-                    "You should...")
+                    "You should... / You might try... / Have you thought about...?"),
+                SpeakingTask("Discuss the balance between work and health.",
+                    "درباره تعادل بین کار و سلامتی صحبت کن.",
+                    "I find it hard to... / What helps me is...")
             ),
             writingTasks = listOf(
-                WritingTask("Write about a healthy lifestyle.",
-                    "درباره سبک زندگی سالم بنویس.",
-                    150,
-                    "Use modal verbs and gerunds.")
+                WritingTask("Write about a healthy lifestyle and how to achieve it.",
+                    "درباره یک سبک زندگی سالم و چگونگی رسیدن به آن بنویس.",
+                    180,
+                    "Use modal verbs for advice and gerunds after prepositions. Include at least one idiom.")
             ),
             quiz = listOf(
                 QuizQuestion("Complete: You ___ exercise more.",
@@ -490,914 +713,1387 @@ object FourCorners3 {
                     listOf("سخت بگیر", "سخت نگیر", "سریع برو", "کار کن"), 1)
             )
         )
-    }
-
-    // ═══════════════════════════════════════════════════════════
-    // CHAPTER 4 — The Future
-    // ═══════════════════════════════════════════════════════════
-    private fun chapter4(): LessonContent {
-        return LessonContent(
-            bookId = BOOK_ID,
-            chapterNumber = 4,
-            title = "The Future",
-            titlePersian = "آینده",
-            objectives = listOf(
-                "Talk about future plans",
-                "Use will and going to",
-                "Make predictions",
-                "Talk about technology and the future"
-            ),
-            vocabulary = listOf(
-                VocabWord("future", "آینده", "/ˈfjuːtʃər/", "noun",
-                    "The future is uncertain.", "آینده نامعلومه."),
-                VocabWord("prediction", "پیش‌بینی", "/prɪˈdɪkʃən/", "noun",
-                    "Making predictions is difficult.", "پیش‌بینی سخته."),
-                VocabWord("technology", "تکنولوژی", "/tekˈnɑːlədʒi/", "noun",
-                    "Technology is changing fast.", "تکنولوژی سریع تغییر می‌کنه."),
-                VocabWord("develop", "توسعه دادن", "/dɪˈveləp/", "verb",
-                    "They're developing new tech.", "تکنولوژی جدید توسعه می‌دن."),
-                VocabWord("improve", "بهبود دادن", "/ɪmˈpruːv/", "verb",
-                    "AI will improve healthcare.", "هوش مصنوعی سلامت رو بهتر می‌کنه."),
-                VocabWord("predict", "پیش‌بینی کردن", "/prɪˈdɪkt/", "verb",
-                    "It's hard to predict the future.", "پیش‌بینی آینده سخته."),
-                VocabWord("change", "تغییر", "/tʃeɪndʒ/", "noun/verb",
-                    "Change is coming.", "تغییر در راهه."),
-                VocabWord("opportunity", "فرصت", "/ˌɑːpərˈtuːnəti/", "noun",
-                    "It's a great opportunity.", "فرصت عالیه."),
-                VocabWord("challenge", "چالش", "/ˈtʃælɪndʒ/", "noun",
-                    "We face many challenges.", "با چالش‌های زیادی روبرویم."),
-                VocabWord("optimistic", "خوش‌بین", "/ˌɑːptɪˈmɪstɪk/", "adjective",
-                    "I'm optimistic about the future.", "درباره آینده خوش‌بینم."),
-                VocabWord("pessimistic", "بدبین", "/ˌpesɪˈmɪstɪk/", "adjective",
-                    "Don't be so pessimistic.", "اینقدر بدبین نباش."),
-                VocabWord("innovation", "نوآوری", "/ˌɪnəˈveɪʃən/", "noun",
-                    "Innovation drives progress.", "نوآوری پیشرفت رو هدایت می‌کنه.")
-            ),
-            idioms = listOf(
-                IdiomExpression("the sky's the limit", "محدودیتی وجود ندارد",
-                    "With AI, the sky's the limit.", "با هوش مصنوعی محدودیتی وجود نداره.", "idiom"),
-                IdiomExpression("bright future", "آینده روشن",
-                    "She has a bright future.", "آینده روشنی داره.", "neutral"),
-                IdiomExpression("change of pace", "تغییر سرعت",
-                    "A change of pace is good.", "تغییر سرعت خوبه.", "neutral")
-            ),
-            pronunciationTips = listOf(
-                PronunciationTip("technology",
-                    "technology /tekˈnɑːlədʒi/ — استرس روی no."),
-                PronunciationTip("going to → gonna",
-                    "در مکالمه سریع gonna.")
-            ),
-            culturalNotes = listOf(
-                CulturalNote("Tech optimism",
-                    "در سیلیکون ولی، خوش‌بینی به تکنولوژی رایجه."),
-                CulturalNote("AI debate",
-                    "بحث درباره هوش مصنوعی در غرب داغه.")
-            ),
-            grammar = listOf(
-                GrammarSection("will for predictions",
-                    """
-                        AI will change everything.
-                        It will be different.
-                        People will live longer.
-                    """.trimIndent()),
-                GrammarSection("going to for plans",
-                    """
-                        I'm going to study AI.
-                        She's going to start a business.
-                    """.trimIndent()),
-                GrammarSection("may / might / could",
-                    """
-                        AI might replace some jobs.
-                        We may see flying cars.
-                        It could happen soon.
-                    """.trimIndent()),
-                GrammarSection("If clauses for future",
-                    """
-                        If we invest in AI, we will see results.
-                        If technology continues to grow, life will change.
-                    """.trimIndent())
-            ),
-            commonMistakes = listOf(
-                CommonMistake("AI will changes.", "AI will change.", "بعد از will فعل ساده."),
-                CommonMistake("It might to happen.", "It might happen.", "بعد از might فعل ساده."),
-                CommonMistake("If it will rain, we will stay.", "If it rains, we will stay.", "in if-clause: present simple.")
-            ),
-            conversation = listOf(
-                DialogueLine("A", "What do you think the future will be like?", "فکر می‌کنی آینده چطور خواهد بود؟"),
-                DialogueLine("B", "I'm optimistic. Technology will improve our lives.", "خوش‌بینم. تکنولوژی زندگی‌مون رو بهتر می‌کنه."),
-                DialogueLine("A", "What about AI?", "هوش مصنوعی چطور؟"),
-                DialogueLine("B", "AI will change everything — work, education, health.", "همه چیز رو تغییر می‌ده — کار، آموزش، سلامت."),
-                DialogueLine("A", "Do you worry about job losses?", "نگران از دست رفتن شغل‌ها هستی؟"),
-                DialogueLine("B", "Some jobs will disappear, but new ones will appear.", "بعضی شغل‌ها از بین می‌رن، ولی جدیدها ظاهر می‌شن."),
-                DialogueLine("A", "What should we do?", "چیکار باید بکنیم؟"),
-                DialogueLine("B", "Learn continuously and adapt.", "مداوم یاد بگیریم و سازگار شیم."),
-                DialogueLine("A", "Will AI replace teachers?", "هوش مصنوعی جایگزین معلم‌ها می‌شه؟"),
-                DialogueLine("B", "It might help them, but not replace them.", "ممکنه کمکشون کنه، ولی جایگزین نشه."),
-                DialogueLine("A", "What about health?", "سلامت چطور؟"),
-                DialogueLine("B", "AI could discover new treatments faster.", "می‌تونه سریع‌تر درمان‌های جدید کشف کنه."),
-                DialogueLine("A", "That sounds promising.", "امیدوارکننده به نظر می‌رسه."),
-                DialogueLine("B", "If we use it wisely, the future is bright.", "اگه عاقلانه استفاده کنیم، آینده روشنه."),
-                DialogueLine("A", "What worries you most?", "چی بیشتر نگرانت می‌کنه؟"),
-                DialogueLine("B", "Inequality. Not everyone will benefit equally.", "نابرابری. همه به یه اندازه بهره نمی‌برن."),
-                DialogueLine("A", "True. We need to make sure it helps everyone.", "درسته. باید مطمئن شیم به همه کمک می‌کنه."),
-                DialogueLine("B", "That's the challenge of our time.", "چالش زمان ما همینه.")
-            ),
-            comprehensionQuestions = listOf(
-                ComprehensionQuestion("B درباره آینده چه احساسی دارد؟", "خوش‌بین."),
-                ComprehensionQuestion("AI چه چیزهایی را تغییر می‌دهد؟", "کار، آموزش، سلامت."),
-                ComprehensionQuestion("B درباره از دست رفتن شغل‌ها چه نظری دارد؟", "بعضی از بین می‌روند ولی جدید ظاهر می‌شوند."),
-                ComprehensionQuestion("بزرگ‌ترین نگرانی B چیست؟", "نابرابری.")
-            ),
-            speakingTasks = listOf(
-                SpeakingTask("Talk about the future.",
-                    "درباره آینده صحبت کن.",
-                    "I think... will... / It might..."),
-                SpeakingTask("Predict future technology.",
-                    "تکنولوژی آینده رو پیش‌بینی کن.",
-                    "AI will... / We may...")
-            ),
-            writingTasks = listOf(
-                WritingTask("Write about your predictions for the future.",
-                    "درباره پیش‌بینی‌هایت از آینده بنویس.",
-                    180,
-                    "Use will, going to, might.")
-            ),
-            quiz = listOf(
-                QuizQuestion("Complete: AI ___ change everything.",
-                    listOf("will", "wills", "is will", "to will"), 0),
-                QuizQuestion("Complete: It ___ happen soon.",
-                    listOf("might", "mights", "is might", "to might"), 0),
-                QuizQuestion("Complete: She ___ going to start a business.",
-                    listOf("is", "am", "are", "be"), 0),
-                QuizQuestion("Complete: If it ___, we will stay home.",
-                    listOf("will rain", "rains", "rained", "raining"), 1),
-                QuizQuestion("What does 'the sky's the limit' mean?",
-                    listOf("آسمان محدوده", "محدودیتی وجود ندارد", "بالا رفتن", "پرواز کردن"), 1),
-                QuizQuestion("Complete: Technology ___ our lives.",
-                    listOf("improve", "improves", "improving", "improved"), 1),
-                QuizQuestion("Complete: People ___ live longer.",
-                    listOf("will", "wills", "is will", "to will"), 0),
-                QuizQuestion("What does 'bright future' mean?",
-                    listOf("آینده تاریک", "آینده روشن", "آینده نامعلوم", "آینده دور"), 1)
-            )
+    }// ═══════════════════════════════════════════════════════════
+// CHAPTER 4 — The Future
+// ═══════════════════════════════════════════════════════════
+private fun chapter4(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 4,
+        title = "The Future",
+        titlePersian = "آینده",
+        objectives = listOf(
+            "Talk about future plans and predictions",
+            "Use will and going to accurately",
+            "Make predictions about technology",
+            "Express hopes and concerns about the future",
+            "Use first conditional for future possibilities",
+            "Discuss the impact of technology"
+        ),
+        vocabulary = listOf(
+            VocabWord("future", "آینده", "/ˈfjuːtʃər/", "noun",
+                "The future is uncertain but exciting.",
+                "آینده نامعلوم ولی هیجان‌انگیزه.",
+                collocations = "near future, distant future"),
+            VocabWord("prediction", "پیش‌بینی", "/prɪˈdɪkʃən/", "noun",
+                "Making predictions is difficult.",
+                "پیش‌بینی کردن سخته.",
+                collocations = "accurate prediction, make a prediction"),
+            VocabWord("technology", "تکنولوژی", "/tekˈnɑːlədʒi/", "noun",
+                "Technology is changing very fast.",
+                "تکنولوژی خیلی سریع تغییر می‌کنه.",
+                collocations = "modern technology, advanced technology"),
+            VocabWord("develop", "توسعه دادن", "/dɪˈveləp/", "verb",
+                "They're developing new technologies.",
+                "دارن تکنولوژی‌های جدید توسعه می‌دن.",
+                collocations = "develop software, develop a plan"),
+            VocabWord("improve", "بهبود دادن", "/ɪmˈpruːv/", "verb",
+                "AI will improve healthcare.",
+                "هوش مصنوعی سلامت رو بهتر می‌کنه.",
+                collocations = "improve quality, improve performance"),
+            VocabWord("predict", "پیش‌بینی کردن", "/prɪˈdɪkt/", "verb",
+                "It's hard to predict the future.",
+                "پیش‌بینی آینده سخته.",
+                collocations = "predict the future, hard to predict"),
+            VocabWord("change", "تغییر", "/tʃeɪndʒ/", "noun",
+                "Change is coming quickly.",
+                "تغییر سریع داره میاد.",
+                collocations = "big change, sudden change"),
+            VocabWord("opportunity", "فرصت", "/ˌɑːpərˈtuːnəti/", "noun",
+                "It's a great opportunity for us.",
+                "فرصت عالی‌ایه برای ما.",
+                collocations = "great opportunity, seize an opportunity"),
+            VocabWord("challenge", "چالش", "/ˈtʃælɪndʒ/", "noun",
+                "We face many challenges ahead.",
+                "با چالش‌های زیادی روبرویم.",
+                collocations = "big challenge, face a challenge"),
+            VocabWord("optimistic", "خوش‌بین", "/ˌɑːptɪˈmɪstɪk/", "adjective",
+                "I'm optimistic about the future.",
+                "درباره آینده خوش‌بینم.",
+                collocations = "cautiously optimistic, overly optimistic"),
+            VocabWord("pessimistic", "بدبین", "/ˌpesɪˈmɪstɪk/", "adjective",
+                "Don't be so pessimistic.",
+                "اینقدر بدبین نباش.",
+                collocations = "deeply pessimistic, unnecessarily pessimistic"),
+            VocabWord("innovation", "نوآوری", "/ˌɪnəˈveɪʃən/", "noun",
+                "Innovation drives progress.",
+                "نوآوری پیشرفت رو هدایت می‌کنه.",
+                collocations = "technological innovation, encourage innovation"),
+            VocabWord("artificial intelligence", "هوش مصنوعی", "/ˌɑːrtɪˈfɪʃəl ɪnˈtelɪdʒəns/", "noun",
+                "AI is changing many industries.",
+                "هوش مصنوعی صنایع زیادی رو تغییر می‌ده.",
+                collocations = "AI technology, AI systems")
+        ),
+        idioms = listOf(
+            IdiomExpression("the sky's the limit", "محدودیتی وجود ندارد",
+                "With this technology, the sky's the limit.",
+                "با این تکنولوژی، محدودیتی وجود نداره.",
+                register = "idiom"),
+            IdiomExpression("bright future", "آینده روشن",
+                "She has a bright future ahead.",
+                "آینده روشنی پیش رو داره.",
+                register = "neutral"),
+            IdiomExpression("change of pace", "تغییر سرعت",
+                "A change of pace is good sometimes.",
+                "گاهی تغییر سرعت خوبه.",
+                register = "neutral")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("come up with", "به فکر رسیدن",
+                "ایده یا راه‌حل پیدا کردن",
+                "Scientists will come up with new solutions.",
+                "دانشمندان راه‌حل‌های جدید به فکرشان می‌رسه.",
+                separable = "No"),
+            PhrasalVerb("look ahead", "به جلو نگاه کردن",
+                "به آینده فکر کردن",
+                "We need to look ahead and plan.",
+                "باید به جلو نگاه کنیم و برنامه‌ریزی کنیم.",
+                separable = "No")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("technology word stress",
+                "technology /tekˈnɑːlədʒi/ — main stress on NOL. Compare: technological /ˌteknəˈlɑːdʒɪkəl/ (stress shifts)."),
+            PronunciationTip("Going to → gonna",
+                "In fast conversation, 'going to' often reduces to 'gonna': I'm gonna be late. Only use in informal speech."),
+            PronunciationTip("Will contractions",
+                "I'll /aɪl/, you'll /juːl/, she'll /ʃiːl/, we'll /wiːl/, they'll /ðeɪl/.")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("Tech optimism vs caution",
+                "In Western cultures, there's a lively debate between tech optimists (who believe technology will solve problems) and those who are more cautious (who worry about jobs, privacy, and inequality). Both viewpoints are common."),
+            CulturalNote("AI in daily conversation",
+                "AI (artificial intelligence) has become a common topic in everyday conversation. People discuss everything from job automation to ethical questions about AI. It's a popular subject in news and popular culture.")
+        ),
+        grammar = listOf(
+            GrammarSection("Will for predictions and spontaneous decisions",
+                "AI will change everything. / I'll help you with that. — Use 'will' for predictions about the future and decisions made at the moment of speaking."),
+            GrammarSection("Going to for plans",
+                "I'm going to study AI. / She's going to start a business. — Use 'going to' for plans or intentions decided before speaking."),
+            GrammarSection("May / might / could",
+                "AI might replace some jobs. / We may see flying cars. / It could happen soon. — Use these modals to express possibility about the future."),
+            GrammarSection("First conditional for future",
+                "If we invest in AI, we will see results. / If technology continues to grow, life will change. — If + present simple, will + base verb.")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("AI will changes.", "AI will change.",
+                "After 'will', use the base verb without -s."),
+            CommonMistake("It might to happen.", "It might happen.",
+                "After 'might', use the base verb without 'to'."),
+            CommonMistake("If it will rain, we will stay.", "If it rains, we will stay.",
+                "In the if-clause of a first conditional, use the present simple, not 'will'."),
+            CommonMistake("I'm going study AI.", "I'm going to study AI.",
+                "Don't forget 'to' in 'going to' constructions.")
+        ),
+        conversation = listOf(
+            DialogueLine("Priya", "What do you think the future will be like?",
+                "فکر می‌کنی آینده چطور خواهد بود؟"),
+            DialogueLine("Kai", "I'm optimistic. Technology will improve our lives in many ways.",
+                "خوش‌بینم. تکنولوژی زندگی‌مون رو به روش‌های زیادی بهتر می‌کنه."),
+            DialogueLine("Priya", "What about AI?",
+                "هوش مصنوعی چطور؟"),
+            DialogueLine("Kai", "AI will change everything — work, education, health.",
+                "هوش مصنوعی همه چیز رو تغییر می‌ده — کار، آموزش، سلامت."),
+            DialogueLine("Priya", "Do you worry about job losses?",
+                "نگران از دست رفتن شغل‌ها هستی؟"),
+            DialogueLine("Kai", "Some jobs will disappear, but new ones will appear.",
+                "بعضی شغل‌ها از بین می‌رن، ولی جدیدها ظاهر می‌شن."),
+            DialogueLine("Priya", "What should we do to prepare?",
+                "برای آماده شدن چیکار باید بکنیم؟"),
+            DialogueLine("Kai", "Learn continuously and adapt to change.",
+                "مداوم یاد بگیریم و با تغییر سازگار شیم."),
+            DialogueLine("Priya", "Will AI replace teachers?",
+                "هوش مصنوعی جایگزین معلم‌ها می‌شه؟"),
+            DialogueLine("Kai", "It might help them, but I don't think it'll replace them.",
+                "ممکنه کمکشون کنه، ولی فکر نمی‌کنم جایگزینشون بشه."),
+            DialogueLine("Priya", "What about healthcare?",
+                "سلامت چطور؟"),
+            DialogueLine("Kai", "AI could discover new treatments much faster.",
+                "هوش مصنوعی می‌تونه سریع‌تر درمان‌های جدید کشف کنه."),
+            DialogueLine("Priya", "That sounds promising.",
+                "امیدوارکننده به نظر می‌رسه."),
+            DialogueLine("Kai", "If we use it wisely, the future is bright.",
+                "اگه عاقلانه استفاده کنیم، آینده روشنه."),
+            DialogueLine("Priya", "What worries you most about the future?",
+                "چی بیشتر درباره آینده نگرانت می‌کنه؟"),
+            DialogueLine("Kai", "Inequality. Not everyone will benefit equally from technology.",
+                "نابرابری. همه به یه اندازه از تکنولوژی بهره نمی‌برن."),
+            DialogueLine("Priya", "True. We need to make sure it helps everyone.",
+                "درسته. باید مطمئن شیم به همه کمک می‌کنه."),
+            DialogueLine("Kai", "That's the challenge of our time.",
+                "چالش زمان ما همینه."),
+            DialogueLine("Priya", "What would you like to see in the future?",
+                "دوست داری در آینده چی ببینی؟"),
+            DialogueLine("Kai", "Clean energy, better healthcare, and more equality.",
+                "انرژی پاک، سلامت بهتر، و برابری بیشتر."),
+            DialogueLine("Priya", "Those are great goals.",
+                "اهداف عالی‌ای هستن."),
+            DialogueLine("Kai", "We all have a role to play in creating that future.",
+                "همه ما در ساختن اون آینده نقشی داریم."),
+            DialogueLine("Priya", "Agreed. Let's do our part.",
+                "موافقم. بیا نقش خودمون رو ایفا کنیم.")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("Kai درباره آینده چه احساسی دارد؟",
+                "خوش‌بین است."),
+            ComprehensionQuestion("AI چه چیزهایی را تغییر می‌دهد؟",
+                "کار، آموزش، و سلامت."),
+            ComprehensionQuestion("Kai درباره از دست رفتن شغل‌ها چه نظری دارد؟",
+                "بعضی شغل‌ها از بین می‌روند ولی شغل‌های جدید ظاهر می‌شوند."),
+            ComprehensionQuestion("بزرگ‌ترین نگرانی Kai چیست؟",
+                "نابرابری."),
+            ComprehensionQuestion("Kai دوست دارد در آینده چه چیزی ببیند؟",
+                "انرژی پاک، سلامت بهتر، و برابری بیشتر.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Talk about your vision of the future.",
+                "درباره تصور خودت از آینده صحبت کن.",
+                "I think... will... / It might... / We may see..."),
+            SpeakingTask("Predict future technology and its impact.",
+                "تکنولوژی آینده و تأثیرش را پیش‌بینی کن.",
+                "AI will... / This could change... / If we develop..., ..."),
+            SpeakingTask("Discuss whether the future will be better than today.",
+                "بحث کن که آیا آینده بهتر از امروز خواهد بود.",
+                "I believe... / On one hand... on the other hand...")
+        ),
+        writingTasks = listOf(
+            WritingTask("Write about your predictions for the future.",
+                "درباره پیش‌بینی‌هایت از آینده بنویس.",
+                200,
+                "Use will, going to, and might. Include at least two idioms.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: AI ___ change everything.",
+                listOf("will", "wills", "is will", "to will"), 0),
+            QuizQuestion("Complete: It ___ happen soon.",
+                listOf("might", "mights", "is might", "to might"), 0),
+            QuizQuestion("Complete: She ___ going to start a business.",
+                listOf("is", "am", "are", "be"), 0),
+            QuizQuestion("Complete: If it ___, we will stay home.",
+                listOf("will rain", "rains", "rained", "raining"), 1),
+            QuizQuestion("What does 'the sky's the limit' mean?",
+                listOf("آسمان محدوده", "محدودیتی وجود ندارد", "بالا رفتن", "پرواز کردن"), 1),
+            QuizQuestion("Complete: Technology ___ our lives.",
+                listOf("improve", "improves", "improving", "improved"), 1),
+            QuizQuestion("Complete: People ___ live longer in the future.",
+                listOf("will", "wills", "is will", "to will"), 0),
+            QuizQuestion("What does 'bright future' mean?",
+                listOf("آینده تاریک", "آینده روشن", "آینده نامعلوم", "آینده دور"), 1)
         )
-    }
+    )
+}
 
-    // ═══════════════════════════════════════════════════════════
-    // CHAPTER 5 — Travel and Culture
-    // ═══════════════════════════════════════════════════════════
-    private fun chapter5(): LessonContent {
-        return LessonContent(
-            bookId = BOOK_ID,
-            chapterNumber = 5,
-            title = "Travel and Culture",
-            titlePersian = "سفر و فرهنگ",
-            objectives = listOf(
-                "Talk about travel experiences",
-                "Use the passive voice",
-                "Discuss cultural differences",
-                "Describe places"
-            ),
-            vocabulary = listOf(
-                VocabWord("culture", "فرهنگ", "/ˈkʌltʃər/", "noun",
-                    "I love new cultures.", "عاشق فرهنگ‌های جدیدم."),
-                VocabWord("custom", "رسم", "/ˈkʌstəm/", "noun",
-                    "Every country has customs.", "هر کشوری رسوم خودش رو داره."),
-                VocabWord("traditional", "سنتی", "/trəˈdɪʃənl/", "adjective",
-                    "This is a traditional dish.", "این یه غذای سنتیه."),
-                VocabWord("modern", "مدرن", "/ˈmɑːdərn/", "adjective",
-                    "The city is modern.", "شهر مدرنه."),
-                VocabWord("souvenir", "سوغات", "/ˌsuːvəˈnɪr/", "noun",
-                    "I bought souvenirs.", "سوغات خریدم."),
-                VocabWord("landmark", "نقطه دیدنی", "/ˈlændmɑːrk/", "noun",
-                    "The Eiffel Tower is a landmark.", "برج ایفل یه نقطه دیدنیه."),
-                VocabWord("sightseeing", "بازدید", "/ˈsaɪtsiːɪŋ/", "noun",
-                    "We went sightseeing.", "رفتیم بازدید."),
-                VocabWord("guide", "راهنما", "/ɡaɪd/", "noun",
-                    "The guide was helpful.", "راهنما کمک‌کننده بود."),
-                VocabWord("landscape", "منظره", "/ˈlændskeɪp/", "noun",
-                    "The landscape is beautiful.", "منظره زیباست."),
-                VocabWord("adapt", "سازگار شدن", "/əˈdæpt/", "verb",
-                    "It takes time to adapt.", "سازگاری زمان می‌بره."),
-                VocabWord("hospitality", "مهمان‌نوازی", "/ˌhɑːspɪˈtæləti/", "noun",
-                    "Their hospitality was amazing.", "مهمان‌نوازیشون عالی بود."),
-                VocabWord("perspective", "دیدگاه", "/pərˈspektɪv/", "noun",
-                    "Travel changes your perspective.", "سفر دیدگاهت رو تغییر می‌ده.")
-            ),
-            idioms = listOf(
-                IdiomExpression("when in Rome", "با مردم شهر هم‌رنگ شو",
-                    "When in Rome, do as the Romans do.", "با مردم شهر هم‌رنگ شو.", "idiom"),
-                IdiomExpression("culture shock", "شوک فرهنگی",
-                    "I had culture shock in Japan.", "در ژاپن شوک فرهنگی خوردم.", "neutral"),
-                IdiomExpression("off the beaten path", "دور از مسیر معمول",
-                    "We visited places off the beaten path.", "از مکان‌های دور از مسیر معمول بازدید کردیم.", "idiom")
-            ),
-            pronunciationTips = listOf(
-                PronunciationTip("culture",
-                    "culture /ˈkʌltʃər/ — استرس روی cul."),
-                PronunciationTip("traditional",
-                    "traditional /trəˈdɪʃənl/ — چهار سیلاب.")
-            ),
-            culturalNotes = listOf(
-                CulturalNote("Cultural differences",
-                    "آداب و رسوم در فرهنگ‌ها متفاوته."),
-                CulturalNote("Globalization",
-                    "جهانی شدن فرهنگ‌ها رو نزدیک کرده.")
-            ),
-            grammar = listOf(
-                GrammarSection("Passive voice",
-                    """
-                        Present: The city is visited by millions.
-                        Past: The temple was built in 1400.
-                        Perfect: It has been restored recently.
-                    """.trimIndent()),
-                GrammarSection("Passive with modals",
-                    """
-                        The museum can be visited for free.
-                        The tickets must be booked online.
-                    """.trimIndent()),
-                GrammarSection("Present perfect for travel",
-                    """
-                        I've visited 20 countries.
-                        She's been to Japan three times.
-                    """.trimIndent()),
-                GrammarSection("Describing places",
-                    """
-                        It's famous for...
-                        It's known as...
-                        It's considered one of the...
-                    """.trimIndent())
-            ),
-            commonMistakes = listOf(
-                CommonMistake("The temple built in 1400.", "The temple was built in 1400.", "passive: was + pp."),
-                CommonMistake("English is speak here.", "English is spoken here.", "past participle لازمه."),
-                CommonMistake("I've been to Japan last year.", "I went to Japan last year.", "زمان مشخص = past simple.")
-            ),
-            conversation = listOf(
-                DialogueLine("A", "Have you traveled abroad?", "خارج سفر کرده‌ای؟"),
-                DialogueLine("B", "Yes, I've been to several countries.", "بله، به چندین کشور رفته‌ام."),
-                DialogueLine("A", "Which was the most interesting?", "کدومش جالب‌تر بود؟"),
-                DialogueLine("B", "Japan, I think. It has a fascinating culture.", "ژاپن، فکر کنم. فرهنگ جذابی داره."),
-                DialogueLine("A", "What did you like most?", "چی بیشتر دوست داشتی؟"),
-                DialogueLine("B", "The temples and gardens.", "معابد و باغ‌ها."),
-                DialogueLine("A", "Did you have any problems?", "مشکلی داشتی؟"),
-                DialogueLine("B", "A bit of culture shock at first.", "اولش یه کم شوک فرهنگی."),
-                DialogueLine("A", "How did you adapt?", "چطور سازگار شدی؟"),
-                DialogueLine("B", "I learned a few words and followed local customs.", "چند کلمه یاد گرفتم و رسوم محلی رو رعایت کردم."),
-                DialogueLine("A", "What's your favorite place?", "مکان مورد علاقه‌ات کجاست؟"),
-                DialogueLine("B", "Kyoto. It's a mix of traditional and modern.", "کیوتو. ترکیبی از سنتی و مدرن."),
-                DialogueLine("A", "Any tips?", "توصیه‌ای داری؟"),
-                DialogueLine("B", "Learn some Japanese phrases and try local food.", "چند عبارت ژاپنی یاد بگیر و غذای محلی امتحان کن."),
-                DialogueLine("A", "What about food?", "غذا چطور؟"),
-                DialogueLine("B", "Amazing! Sushi and ramen were the best.", "فوق‌العاده! سوشی و رامن بهترین بودن."),
-                DialogueLine("A", "You're making me hungry!", "داری گشنه‌ام می‌کنی!"),
-                DialogueLine("B", "Ha! You should go. It's worth it.", "ها! باید بری. ارزشش رو داره.")
-            ),
-            comprehensionQuestions = listOf(
-                ComprehensionQuestion("B کجاها سفر کرده؟", "چندین کشور، از جمله ژاپن."),
-                ComprehensionQuestion("B چه چیزی در ژاپن را دوست داشت؟", "معابد و باغ‌ها."),
-                ComprehensionQuestion("B چطور با فرهنگ جدید سازگار شد؟", "چند کلمه یاد گرفت و رسوم محلی را رعایت کرد."),
-                ComprehensionQuestion("غذای مورد علاقه B در ژاپن چه بود؟", "سوشی و رامن.")
-            ),
-            speakingTasks = listOf(
-                SpeakingTask("Talk about a place you've visited.",
-                    "درباره جایی که رفتی صحبت کن.",
-                    "I've been to... / It was..."),
-                SpeakingTask("Discuss cultural differences.",
-                    "درباره تفاوت‌های فرهنگی صحبت کن.",
-                    "In my culture...")
-            ),
-            writingTasks = listOf(
-                WritingTask("Write about a memorable travel experience.",
-                    "درباره یک تجربه سفر بنویس.",
-                    180,
-                    "Use passive voice and present perfect.")
-            ),
-            quiz = listOf(
-                QuizQuestion("Complete: The temple ___ built in 1400.",
-                    listOf("is", "was", "were", "been"), 1),
-                QuizQuestion("Complete: English ___ spoken here.",
-                    listOf("is", "are", "was", "were"), 0),
-                QuizQuestion("Complete: The tickets must ___ booked online.",
-                    listOf("be", "is", "was", "been"), 0),
-                QuizQuestion("What does 'culture shock' mean?",
-                    listOf("شوک برقی", "شوک فرهنگی", "تغییر فرهنگ", "فرهنگ غنی"), 1),
-                QuizQuestion("Complete: I've ___ to 20 countries.",
-                    listOf("be", "being", "been", "was"), 2),
-                QuizQuestion("Complete: This dish ___ in the traditional way.",
-                    listOf("is cooked", "cooks", "cooking", "cook"), 0),
-                QuizQuestion("What does 'off the beaten path' mean?",
-                    listOf("دور از مسیر معمول", "توی مسیر", "کنار جاده", "توی شهر"), 0),
-                QuizQuestion("Complete: English is ___ all over the world.",
-                    listOf("speak", "spoke", "spoken", "speaking"), 2)
-            )
+// ═══════════════════════════════════════════════════════════
+// CHAPTER 5 — Travel and Culture
+// ═══════════════════════════════════════════════════════════
+private fun chapter5(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 5,
+        title = "Travel and Culture",
+        titlePersian = "سفر و فرهنگ",
+        objectives = listOf(
+            "Talk about travel experiences in depth",
+            "Use the passive voice accurately",
+            "Discuss cultural differences respectfully",
+            "Describe places and landmarks",
+            "Talk about adapting to new cultures",
+            "Compare customs across countries"
+        ),
+        vocabulary = listOf(
+            VocabWord("culture", "فرهنگ", "/ˈkʌltʃər/", "noun",
+                "I love learning about new cultures.",
+                "عاشق یادگیری درباره فرهنگ‌های جدیدم.",
+                collocations = "local culture, ancient culture"),
+            VocabWord("custom", "رسم", "/ˈkʌstəm/", "noun",
+                "Every country has its own customs.",
+                "هر کشوری رسوم خودش رو داره.",
+                collocations = "local custom, follow a custom"),
+            VocabWord("traditional", "سنتی", "/trəˈdɪʃənl/", "adjective",
+                "This is a traditional dish.",
+                "این یه غذای سنتیه.",
+                collocations = "traditional food, traditional values"),
+            VocabWord("modern", "مدرن", "/ˈmɑːdərn/", "adjective",
+                "The city is very modern.",
+                "شهر خیلی مدرنه.",
+                collocations = "modern city, modern lifestyle"),
+            VocabWord("souvenir", "سوغات", "/ˌsuːvəˈnɪr/", "noun",
+                "I bought some souvenirs for my family.",
+                "برای خانواده‌ام چند سوغات خریدم.",
+                collocations = "buy souvenirs, souvenir shop"),
+            VocabWord("landmark", "نقطه دیدنی", "/ˈlændmɑːrk/", "noun",
+                "The Eiffel Tower is a famous landmark.",
+                "برج ایفل یه نقطه دیدنی معروفه.",
+                collocations = "famous landmark, historical landmark"),
+            VocabWord("sightseeing", "بازدید از جاهای دیدنی", "/ˈsaɪtsiːɪŋ/", "noun",
+                "We went sightseeing all day.",
+                "تمام روز رفتیم بازدید.",
+                collocations = "go sightseeing, sightseeing tour"),
+            VocabWord("guide", "راهنما", "/ɡaɪd/", "noun",
+                "The guide was very helpful.",
+                "راهنما خیلی کمک‌کننده بود.",
+                collocations = "tour guide, travel guide"),
+            VocabWord("landscape", "منظره", "/ˈlændskeɪp/", "noun",
+                "The landscape was breathtaking.",
+                "منظره نفس‌گیر بود.",
+                collocations = "beautiful landscape, mountain landscape"),
+            VocabWord("adapt", "سازگار شدن", "/əˈdæpt/", "verb",
+                "It takes time to adapt to a new culture.",
+                "سازگاری با فرهنگ جدید زمان می‌بره.",
+                collocations = "adapt to change, adapt quickly"),
+            VocabWord("hospitality", "مهمان‌نوازی", "/ˌhɑːspɪˈtæləti/", "noun",
+                "Their hospitality was amazing.",
+                "مهمان‌نوازیشون فوق‌العاده بود.",
+                collocations = "warm hospitality, generous hospitality"),
+            VocabWord("perspective", "دیدگاه", "/pərˈspektɪv/", "noun",
+                "Travel changes your perspective on life.",
+                "سفر دیدگاهت رو به زندگی تغییر می‌ده.",
+                collocations = "new perspective, broad perspective"),
+            VocabWord("native", "بومی", "/ˈneɪtɪv/", "adjective",
+                "I tried to learn a few native phrases.",
+                "سعی کردم چند عبارت بومی یاد بگیرم.",
+                collocations = "native language, native speaker")
+        ),
+        idioms = listOf(
+            IdiomExpression("when in Rome", "با مردم شهر هم‌رنگ شو",
+                "When in Rome, do as the Romans do.",
+                "با مردم شهر هم‌رنگ شو.",
+                register = "idiom"),
+            IdiomExpression("culture shock", "شوک فرهنگی",
+                "I had culture shock when I moved abroad.",
+                "وقتی به خارج نقل مکان کردم شوک فرهنگی خوردم.",
+                register = "neutral"),
+            IdiomExpression("off the beaten path", "دور از مسیر معمول",
+                "We visited places off the beaten path.",
+                "از مکان‌های دور از مسیر معمول بازدید کردیم.",
+                register = "idiom")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("set off", "راه افتادن",
+                "شروع سفر کردن",
+                "We set off early in the morning.",
+                "صبح زود راه افتادیم.",
+                separable = "No"),
+            PhrasalVerb("check out", "تسویه کردن هتل",
+                "ترک کردن هتل با تسویه",
+                "We checked out of the hotel yesterday.",
+                "دیروز از هتل تسویه کردیم.",
+                separable = "No")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("Culture word stress",
+                "culture /ˈkʌltʃər/ — stress on CUL. Similarly: cultural /ˈkʌltʃərəl/."),
+            PronunciationTip("Traditional stress",
+                "traditional /trəˈdɪʃənl/ — main stress on DI, four syllables."),
+            PronunciationTip("Passive voice rhythm",
+                "In passive sentences, the past participle carries the main stress: The temple was BUILT in 1400.")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("Cultural differences and respect",
+                "In Western cultures, respecting cultural differences and avoiding value judgments is very important. Asking curious questions ('Why do people do that?') with a polite tone is more acceptable than direct judgments."),
+            CulturalNote("Globalization and culture",
+                "Globalization has brought cultures closer together. English speakers often discuss how local traditions adapt to modern global influences, and how to preserve cultural heritage.")
+        ),
+        grammar = listOf(
+            GrammarSection("Passive voice",
+                "Present passive: The city is visited by millions. / Past passive: The temple was built in 1400. / Perfect passive: It has been restored recently. — Use the passive when the action is more important than the doer."),
+            GrammarSection("Passive with modals",
+                "The museum can be visited for free. / The tickets must be booked online. — Modal + be + past participle."),
+            GrammarSection("Present perfect for travel",
+                "I've visited 20 countries. / She's been to Japan three times. — Use the present perfect for experiences without specific times."),
+            GrammarSection("Describing places",
+                "It's famous for... / It's known as... / It's considered one of the... — Useful structures for describing landmarks and cities.")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("The temple built in 1400.", "The temple was built in 1400.",
+                "Passive needs 'was/were' + past participle."),
+            CommonMistake("English is speak here.", "English is spoken here.",
+                "Use the past participle 'spoken', not 'speak'."),
+            CommonMistake("I've been to Japan last year.", "I went to Japan last year.",
+                "With specific times, use the simple past, not the present perfect."),
+            CommonMistake("The city is visited by million tourists.", "The city is visited by millions of tourists.",
+                "Use 'millions of' (with 'of') before a noun.")
+        ),
+        conversation = listOf(
+            DialogueLine("Sara", "Have you traveled abroad before?",
+                "قبلاً به خارج سفر کرده‌ای؟"),
+            DialogueLine("Tom", "Yes, I've been to several countries.",
+                "بله، به چندین کشور رفته‌ام."),
+            DialogueLine("Sara", "Which was the most interesting?",
+                "کدومش جالب‌تر بود؟"),
+            DialogueLine("Tom", "Japan, I think. It has a fascinating culture.",
+                "ژاپن، فکر کنم. فرهنگ جذابی داره."),
+            DialogueLine("Sara", "What did you like most about it?",
+                "چی بیشتر درباره‌اش دوست داشتی؟"),
+            DialogueLine("Tom", "The temples and gardens. They're incredibly beautiful.",
+                "معابد و باغ‌ها. باورنکردنی زیبان."),
+            DialogueLine("Sara", "Did you have any problems adapting?",
+                "برای سازگاری مشکلی داشتی؟"),
+            DialogueLine("Tom", "A bit of culture shock at first. I didn't know the customs.",
+                "اولش یه کم شوک فرهنگی. رسوم رو نمی‌دونستم."),
+            DialogueLine("Sara", "How did you adapt?",
+                "چطور سازگار شدی؟"),
+            DialogueLine("Tom", "I learned a few words and followed local customs.",
+                "چند کلمه یاد گرفتم و رسوم محلی رو رعایت کردم."),
+            DialogueLine("Sara", "What's your favorite place in Japan?",
+                "مکان مورد علاقه‌ات در ژاپن کجاست؟"),
+            DialogueLine("Tom", "Kyoto. It's a perfect mix of traditional and modern.",
+                "کیوتو. ترکیب کامل سنتی و مدرن."),
+            DialogueLine("Sara", "Any travel tips?",
+                "توصیه سفر داری؟"),
+            DialogueLine("Tom", "Learn some local phrases and try the food.",
+                "چند عبارت محلی یاد بگیر و غذا رو امتحان کن."),
+            DialogueLine("Sara", "What about the food?",
+                "غذا چطور؟"),
+            DialogueLine("Tom", "Amazing! Sushi and ramen were the best I've ever had.",
+                "فوق‌العاده! سوشی و رامن بهترین چیزی بود که تا حالا خورده‌ام."),
+            DialogueLine("Sara", "You're making me hungry!",
+                "داری گشنه‌ام می‌کنی!"),
+            DialogueLine("Tom", "Ha! You should go. It's worth it.",
+                "ها! باید بری. ارزشش رو داره."),
+            DialogueLine("Sara", "How long were you there?",
+                "چقدر اونجا بودی؟"),
+            DialogueLine("Tom", "Two weeks. I wish I had stayed longer.",
+                "دو هفته. ای کاش بیشتر مونده بودم."),
+            DialogueLine("Sara", "Maybe next time!",
+                "شاید دفعه بعد!"),
+            DialogueLine("Tom", "Definitely. Japan is a place I'd visit again and again.",
+                "قطعاً. ژاپن جاییه که بارها و بارها می‌رم."),
+            DialogueLine("Sara", "Thanks for sharing your experience!",
+                "ممنون که تجربه‌ات رو به اشتراک گذاشتی!"),
+            DialogueLine("Tom", "Anytime. You should go — it'll change your perspective.",
+                "هر وقت. باید بری — دیدگاهت رو تغییر می‌ده.")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("Tom به کدام کشورها سفر کرده است؟",
+                "چندین کشور، از جمله ژاپن."),
+            ComprehensionQuestion("Tom چه چیزی در ژاپن را بیشتر دوست داشت؟",
+                "معابد و باغ‌ها."),
+            ComprehensionQuestion("Tom چطور با فرهنگ جدید سازگار شد؟",
+                "چند کلمه یاد گرفت و رسوم محلی را رعایت کرد."),
+            ComprehensionQuestion("مکان مورد علاقه Tom در ژاپن کجاست؟",
+                "کیوتو."),
+            ComprehensionQuestion("Tom چه توصیه‌ای برای سفر دارد؟",
+                "چند عبارت محلی یاد بگیر و غذا را امتحان کن.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Talk about a country you've visited and its culture.",
+                "درباره کشوری که رفتی و فرهنگش صحبت کن.",
+                "I've been to... / The culture is... / What surprised me was..."),
+            SpeakingTask("Discuss cultural differences you've experienced.",
+                "درباره تفاوت‌های فرهنگی که تجربه کردی صحبت کن.",
+                "In my culture... / In other cultures... / I noticed that..."),
+            SpeakingTask("Describe a landmark you've seen.",
+                "یک نقطه دیدنی که دیدی را توصیف کن.",
+                "It was built in... / It's famous for... / It's known as...")
+        ),
+        writingTasks = listOf(
+            WritingTask("Write about a memorable travel experience.",
+                "درباره یک تجربه سفر به‌یادماندنی بنویس.",
+                200,
+                "Use passive voice and present perfect. Include at least two idioms.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: The temple ___ built in 1400.",
+                listOf("is", "was", "were", "been"), 1),
+            QuizQuestion("Complete: English ___ spoken here.",
+                listOf("is", "are", "was", "were"), 0),
+            QuizQuestion("Complete: The tickets must ___ booked online.",
+                listOf("be", "is", "was", "been"), 0),
+            QuizQuestion("What does 'culture shock' mean?",
+                listOf("شوک برقی", "شوک فرهنگی", "تغییر فرهنگ", "فرهنگ غنی"), 1),
+            QuizQuestion("Complete: I've ___ to 20 countries.",
+                listOf("be", "being", "been", "was"), 2),
+            QuizQuestion("Complete: This dish ___ in the traditional way.",
+                listOf("is cooked", "cooks", "cooking", "cook"), 0),
+            QuizQuestion("What does 'off the beaten path' mean?",
+                listOf("دور از مسیر معمول", "توی مسیر", "کنار جاده", "توی شهر"), 0),
+            QuizQuestion("Complete: English is ___ all over the world.",
+                listOf("speak", "spoke", "spoken", "speaking"), 2)
         )
-    }
+    )
+}
 
-    // ═══════════════════════════════════════════════════════════
-    // CHAPTER 6 — In the City
-    // ═══════════════════════════════════════════════════════════
-    private fun chapter6(): LessonContent {
-        return LessonContent(
-            bookId = BOOK_ID,
-            chapterNumber = 6,
-            title = "In the City",
-            titlePersian = "در شهر",
-            objectives = listOf(
-                "Talk about city life",
-                "Use comparatives and superlatives",
-                "Discuss pros and cons of city living",
-                "Describe your city"
-            ),
-            vocabulary = listOf(
-                VocabWord("city", "شهر", "/ˈsɪti/", "noun",
-                    "I love the city.", "عاشق شهرم."),
-                VocabWord("suburb", "حومه", "/ˈsʌbɜːrb/", "noun",
-                    "They live in the suburbs.", "در حومه زندگی می‌کنن."),
-                VocabWord("downtown", "مرکز شهر", "/ˌdaʊnˈtaʊn/", "noun",
-                    "Let's go downtown.", "بیا بریم مرکز شهر."),
-                VocabWord("crowded", "شلوغ", "/ˈkraʊdɪd/", "adjective",
-                    "The city is crowded.", "شهر شلوغه."),
-                VocabWord("noisy", "پرسروصدا", "/ˈnɔɪzi/", "adjective",
-                    "It's too noisy.", "خیلی پرسروصداست."),
-                VocabWord("peaceful", "آرام", "/ˈpiːsfəl/", "adjective",
-                    "The suburbs are peaceful.", "حومه آرامه."),
-                VocabWord("transport", "حمل و نقل", "/ˈtrænspɔːrt/", "noun",
-                    "Public transport is convenient.", "حمل و نقل عمومی راحته."),
-                VocabWord("convenient", "راحت", "/kənˈviːniənt/", "adjective",
-                    "The location is convenient.", "موقعیت راحته."),
-                VocabWord("pollution", "آلودگی", "/pəˈluːʃən/", "noun",
-                    "City pollution is a problem.", "آلودگی شهر مشکلسازه."),
-                VocabWord("cost of living", "هزینه زندگی", "/kɔːst əv ˈlɪvɪŋ/", "noun",
-                    "The cost of living is high.", "هزینه زندگی بالاست."),
-                VocabWord("amenities", "امکانات", "/əˈmenətiz/", "noun",
-                    "The city has many amenities.", "شهر امکانات زیادی داره."),
-                VocabWord("atmosphere", "فضا", "/ˈætməsfɪr/", "noun",
-                    "I love the atmosphere here.", "فضای اینجا رو دوست دارم.")
-            ),
-            idioms = listOf(
-                IdiomExpression("the big city", "شهر بزرگ",
-                    "She moved to the big city.", "به شهر بزرگ نقل مکان کرد.", "informal"),
-                IdiomExpression("concrete jungle", "جنگل بتنی",
-                    "New York is a concrete jungle.", "نیویورک یه جنگل بتنیه.", "idiom"),
-                IdiomExpression("bright lights", "چراغ‌های روشن شهر",
-                    "He was attracted to the bright lights.", "به چراغ‌های روشن شهر جذب شد.", "idiom")
-            ),
-            pronunciationTips = listOf(
-                PronunciationTip("suburb",
-                    "suburb /ˈsʌbɜːrb/ — دو سیلاب."),
-                PronunciationTip("convenient",
-                    "convenient /kənˈviːniənt/.")
-            ),
-            culturalNotes = listOf(
-                CulturalNote("City vs suburb",
-                    "انتخاب بین زندگی شهری و حومه مهمه."),
-                CulturalNote("Urbanization",
-                    "شهرنشینی در حال افزایشه.")
-            ),
-            grammar = listOf(
-                GrammarSection("Comparatives",
-                    """
-                        The city is busier than the suburbs.
-                        The suburbs are quieter than downtown.
-                    """.trimIndent()),
-                GrammarSection("Superlatives",
-                    """
-                        Tokyo is one of the biggest cities.
-                        It's the most crowded city I've visited.
-                    """.trimIndent()),
-                GrammarSection("There is / there are",
-                    """
-                        There are many restaurants downtown.
-                        There isn't much parking.
-                    """.trimIndent()),
-                GrammarSection("Present perfect for experience",
-                    """
-                        I've lived in the city for five years.
-                        She's never lived in the suburbs.
-                    """.trimIndent())
-            ),
-            commonMistakes = listOf(
-                CommonMistake("The city is more busy.", "The city is busier.", "صفت کوتاه: -er."),
-                CommonMistake("There is many shops.", "There are many shops.", "جمع = there are."),
-                CommonMistake("I've lived here since 5 years.", "I've lived here for 5 years.", "for مدت، since نقطه شروع.")
-            ),
-            conversation = listOf(
-                DialogueLine("A", "Do you prefer the city or the suburbs?", "شهر رو ترجیح می‌دی یا حومه؟"),
-                DialogueLine("B", "I prefer the city. There's always something to do.", "شهر. همیشه چیزی برای انجام دادن هست."),
-                DialogueLine("A", "But isn't it too noisy?", "ولی خیلی پرسروصدا نیست؟"),
-                DialogueLine("B", "Sometimes. But the convenience is worth it.", "گاهی. ولی راحتی‌اش ارزشش رو داره."),
-                DialogueLine("A", "What do you like most?", "چی بیشتر دوست داری؟"),
-                DialogueLine("B", "Public transport, restaurants, and cultural events.", "حمل و نقل عمومی، رستوران و رویدادهای فرهنگی."),
-                DialogueLine("A", "What about the cost of living?", "هزینه زندگی چطور؟"),
-                DialogueLine("B", "It's high, honestly. Rent takes most of my salary.", "صادقانه بالاست."),
-                DialogueLine("A", "Do you ever think about the suburbs?", "تا حالا به حومه فکر کرده‌ای؟"),
-                DialogueLine("B", "Sometimes. The suburbs are quieter and more peaceful.", "گاهی. حومه ساکت‌تر و آرام‌تره."),
-                DialogueLine("A", "But then you'd need a car.", "ولی اون موقع ماشین لازم داری."),
-                DialogueLine("B", "True. It's a trade-off.", "درسته. یه معاوضه‌ست."),
-                DialogueLine("A", "Which city do you think is the best?", "کدوم شهر بهترینه؟"),
-                DialogueLine("B", "I've heard Tokyo is amazing.", "شنیده‌ام توکیو فوق‌العاده‌ست."),
-                DialogueLine("A", "Me too. It's one of the biggest cities.", "منم. یکی از بزرگ‌ترین شهرهای جهانه."),
-                DialogueLine("B", "Maybe one day. For now, I'm happy here.", "شاید یه روز. فعلاً اینجا خوشحالم."),
-                DialogueLine("A", "That's what matters.", "همین مهمه."),
-                DialogueLine("B", "Exactly.", "دقیقاً.")
-            ),
-            comprehensionQuestions = listOf(
-                ComprehensionQuestion("B شهر یا حومه را ترجیح می‌دهد؟", "شهر."),
-                ComprehensionQuestion("B چه چیزی در شهر بیشتر دوست دارد؟", "حمل و نقل، رستوران، رویدادهای فرهنگی."),
-                ComprehensionQuestion("چالش اصلی زندگی شهری چیست؟", "هزینه بالای زندگی."),
-                ComprehensionQuestion("B کدام شهر را دوست دارد ببیند؟", "توکیو.")
-            ),
-            speakingTasks = listOf(
-                SpeakingTask("Describe your city.",
-                    "شهرت رو توصیف کن.",
-                    "It's... / There are..."),
-                SpeakingTask("Compare city and country life.",
-                    "زندگی شهری و روستایی رو مقایسه کن.",
-                    "City is... / Country is...")
-            ),
-            writingTasks = listOf(
-                WritingTask("Write about the pros and cons of city life.",
-                    "درباره مزایا و معایب زندگی شهری بنویس.",
-                    150,
-                    "Use comparatives and superlatives.")
-            ),
-            quiz = listOf(
-                QuizQuestion("Complete: The city is ___ than the suburbs.",
-                    listOf("busy", "busier", "busiest", "more busy"), 1),
-                QuizQuestion("Complete: There ___ many restaurants downtown.",
-                    listOf("is", "are", "was", "has"), 1),
-                QuizQuestion("Complete: I've lived here ___ 5 years.",
-                    listOf("since", "for", "in", "at"), 1),
-                QuizQuestion("What does 'concrete jungle' mean?",
-                    listOf("جنگل بتنی", "پارک", "باغ", "روستا"), 0),
-                QuizQuestion("Complete: Tokyo is ___ of the biggest cities.",
-                    listOf("one", "first", "a", "the"), 0),
-                QuizQuestion("Complete: The suburbs are ___ than downtown.",
-                    listOf("quiet", "quieter", "quietest", "more quiet"), 1),
-                QuizQuestion("Complete: I've never ___ in the suburbs.",
-                    listOf("live", "lived", "living", "lives"), 1),
-                QuizQuestion("What does 'bright lights' mean?",
-                    listOf("چراغ‌های روشن شهر", "نور خورشید", "برق", "آتش"), 0)
-            )
+// ═══════════════════════════════════════════════════════════
+// CHAPTER 6 — In the City
+// ═══════════════════════════════════════════════════════════
+private fun chapter6(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 6,
+        title = "In the City",
+        titlePersian = "در شهر",
+        objectives = listOf(
+            "Talk about city life in depth",
+            "Use comparatives and superlatives accurately",
+            "Discuss pros and cons of city living",
+            "Describe your city and neighborhood",
+            "Compare urban and suburban life",
+            "Talk about changes in your city"
+        ),
+        vocabulary = listOf(
+            VocabWord("city", "شهر", "/ˈsɪti/", "noun",
+                "I love the energy of the city.",
+                "عاشق انرژی شهرم.",
+                collocations = "big city, modern city"),
+            VocabWord("suburb", "حومه", "/ˈsʌbɜːrb/", "noun",
+                "They live in a quiet suburb.",
+                "آن‌ها در حومه ساکتی زندگی می‌کنن.",
+                collocations = "quiet suburb, outer suburb"),
+            VocabWord("downtown", "مرکز شهر", "/ˌdaʊnˈtaʊn/", "noun",
+                "Let's go downtown for dinner.",
+                "بیا برای شام بریم مرکز شهر.",
+                collocations = "downtown area, downtown restaurant"),
+            VocabWord("crowded", "شلوغ", "/ˈkraʊdɪd/", "adjective",
+                "The city is always crowded.",
+                "شهر همیشه شلوغه.",
+                collocations = "overly crowded, crowded streets"),
+            VocabWord("noisy", "پرسروصدا", "/ˈnɔɪzi/", "adjective",
+                "It's too noisy here at night.",
+                "شب‌ها اینجا خیلی پرسروصداست.",
+                collocations = "extremely noisy, noisy neighbors"),
+            VocabWord("peaceful", "آرام", "/ˈpiːsfəl/", "adjective",
+                "The suburbs are more peaceful.",
+                "حومه آرام‌تره.",
+                collocations = "peaceful environment, peaceful atmosphere"),
+            VocabWord("transport", "حمل و نقل", "/ˈtrænspɔːrt/", "noun",
+                "Public transport is convenient.",
+                "حمل و نقل عمومی راحته.",
+                collocations = "public transport, transport system"),
+            VocabWord("convenient", "راحت و در دسترس", "/kənˈviːniənt/", "adjective",
+                "The location is very convenient.",
+                "موقعیت خیلی راحته.",
+                collocations = "highly convenient, convenient location"),
+            VocabWord("pollution", "آلودگی", "/pəˈluːʃən/", "noun",
+                "City pollution is a serious problem.",
+                "آلودگی شهر مسئله جدیه.",
+                collocations = "air pollution, reduce pollution"),
+            VocabWord("cost of living", "هزینه زندگی", "/kɔːst əv ˈlɪvɪŋ/", "noun",
+                "The cost of living is very high.",
+                "هزینه زندگی خیلی بالاست.",
+                collocations = "high cost of living, rising cost of living"),
+            VocabWord("amenities", "امکانات رفاهی", "/əˈmenətiz/", "noun",
+                "The city has many amenities.",
+                "شهر امکانات رفاهی زیادی داره.",
+                collocations = "local amenities, public amenities"),
+            VocabWord("atmosphere", "فضا / جو", "/ˈætməsfɪr/", "noun",
+                "I love the atmosphere here.",
+                "فضای اینجا رو دوست دارم.",
+                collocations = "relaxed atmosphere, lively atmosphere"),
+            VocabWord("resident", "ساکن", "/ˈrezɪdənt/", "noun",
+                "City residents often complain about noise.",
+                "ساکنان شهر اغلب از سر و صدا شکایت می‌کنن.",
+                collocations = "local residents, city residents")
+        ),
+        idioms = listOf(
+            IdiomExpression("the big city", "شهر بزرگ",
+                "She moved to the big city last year.",
+                "سال پیش به شهر بزرگ نقل مکان کرد.",
+                register = "informal"),
+            IdiomExpression("concrete jungle", "جنگل بتنی",
+                "New York is often called a concrete jungle.",
+                "نیویورک اغلب جنگل بتنی نامیده می‌شه.",
+                register = "idiom"),
+            IdiomExpression("bright lights", "چراغ‌های روشن شهر",
+                "He was attracted to the bright lights of the city.",
+                "به چراغ‌های روشن شهر جذب شد.",
+                register = "idiom")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("move in", "اسباب‌کشی کردن به",
+                "شروع زندگی در جایی جدید",
+                "They moved in last weekend.",
+                "آخر هفته پیش اسباب‌کشی کردند.",
+                separable = "No"),
+            PhrasalVerb("settle down", "ساکن شدن",
+                "زندگی باثبات در یک جا",
+                "They decided to settle down in the suburbs.",
+                "تصمیم گرفتند در حومه ساکن بشن.",
+                separable = "No")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("Suburb pronunciation",
+                "suburb /ˈsʌbɜːrb/ — two syllables, stress on SUB. Plural: suburbs /ˈsʌbɜːrbz/."),
+            PronunciationTip("Convenient stress",
+                "convenient /kənˈviːniənt/ — main stress on VE, four syllables."),
+            PronunciationTip("Comparative stress in speech",
+                "The city is BUSier than the suburbs. The suburbs are QUIEter. Stress the comparative adjective.")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("City vs suburb in Western culture",
+                "In the US and Canada, the debate between city and suburban life is very common. Suburbs are often seen as more family-oriented and quieter, but require a car. Cities are more dynamic, diverse, but more expensive and crowded. The word 'suburbia' has specific cultural connotations."),
+            CulturalNote("Public transportation culture",
+                "In cities like New York, London, and Tokyo, public transport is central to city identity. In American cities like Los Angeles, the personal car still dominates. This difference shows up frequently in everyday conversation.")
+        ),
+        grammar = listOf(
+            GrammarSection("Comparatives",
+                "The city is busier than the suburbs. / The suburbs are quieter than downtown. — For short adjectives, add -er + than. For longer adjectives, use more + adjective + than."),
+            GrammarSection("Superlatives",
+                "Tokyo is one of the biggest cities. / It's the most crowded city I've visited. — Use the + -est for short adjectives, the most + adjective for longer ones."),
+            GrammarSection("There is / There are",
+                "There are many restaurants downtown. / There isn't much parking. — Use 'there is' with singular, 'there are' with plural."),
+            GrammarSection("Present perfect for experience",
+                "I've lived in the city for five years. / She's never lived in the suburbs. — Use the present perfect for experiences that continue to now.")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("The city is more busy.", "The city is busier.",
+                "For short adjectives, use -er, not 'more'."),
+            CommonMistake("There is many shops.", "There are many shops.",
+                "With plural nouns, use 'there are'."),
+            CommonMistake("I've lived here since 5 years.", "I've lived here for 5 years.",
+                "Use 'for' with periods of time and 'since' with points in time."),
+            CommonMistake("The most crowded city I visit.", "The most crowded city I've visited.",
+                "For the experience up to now, use the present perfect.")
+        ),
+        conversation = listOf(
+            DialogueLine("Jack", "Do you prefer the city or the suburbs?",
+                "شهر رو ترجیح می‌دی یا حومه؟"),
+            DialogueLine("Maya", "I prefer the city. There's always something to do.",
+                "شهر. همیشه چیزی برای انجام دادن هست."),
+            DialogueLine("Jack", "But isn't it too noisy?",
+                "ولی خیلی پرسروصدا نیست؟"),
+            DialogueLine("Maya", "Sometimes. But the convenience is worth it.",
+                "گاهی. ولی راحتی‌اش ارزشش رو داره."),
+            DialogueLine("Jack", "What do you like most about it?",
+                "چی بیشتر درباره‌اش دوست داری؟"),
+            DialogueLine("Maya", "Public transport, restaurants, and cultural events.",
+                "حمل و نقل عمومی، رستوران، و رویدادهای فرهنگی."),
+            DialogueLine("Jack", "What about the cost of living?",
+                "هزینه زندگی چطور؟"),
+            DialogueLine("Maya", "It's high, honestly. Rent takes most of my salary.",
+                "صادقانه بالاست. اجاره بیشتر حقوقم رو می‌بره."),
+            DialogueLine("Jack", "Do you ever think about the suburbs?",
+                "تا حالا به حومه فکر کرده‌ای؟"),
+            DialogueLine("Maya", "Sometimes. The suburbs are quieter and more peaceful.",
+                "گاهی. حومه ساکت‌تر و آرام‌تره."),
+            DialogueLine("Jack", "But then you'd need a car.",
+                "ولی اون موقع ماشین لازم داری."),
+            DialogueLine("Maya", "True. It's a trade-off.",
+                "درسته. یه معاوضه‌ست."),
+            DialogueLine("Jack", "Which city do you think is the best?",
+                "کدوم شهر بهترینه به نظرت؟"),
+            DialogueLine("Maya", "I've heard Tokyo is amazing.",
+                "شنیده‌ام توکیو فوق‌العاده‌ست."),
+            DialogueLine("Jack", "Me too. It's one of the biggest cities in the world.",
+                "منم همین‌طور. یکی از بزرگ‌ترین شهرهای جهانه."),
+            DialogueLine("Maya", "Maybe one day. For now, I'm happy here.",
+                "شاید یه روز. فعلاً اینجا خوشحالم."),
+            DialogueLine("Jack", "That's what matters. How long have you lived here?",
+                "همین مهمه. چند وقته اینجا زندگی می‌کنی؟"),
+            DialogueLine("Maya", "For about seven years now.",
+                "حدود هفت ساله."),
+            DialogueLine("Jack", "Wow, that's a long time. Have you seen many changes?",
+                "واو، زمان زیادی. تغییرات زیادی دیدی؟"),
+            DialogueLine("Maya", "Yes. The city has become more crowded and expensive.",
+                "بله. شهر شلوغ‌تر و گران‌تر شده."),
+            DialogueLine("Jack", "But there are more amenities too, right?",
+                "ولی امکانات بیشتری هم هست، درسته؟"),
+            DialogueLine("Maya", "Definitely. Better transport, more restaurants, more parks.",
+                "قطعاً. حمل و نقل بهتر، رستوران بیشتر، پارک بیشتر."),
+            DialogueLine("Jack", "Sounds like it's improving overall.",
+                "به نظر میاد در کل داره بهتر می‌شه."),
+            DialogueLine("Maya", "Overall, yes. I wouldn't live anywhere else.",
+                "در کل بله. جای دیگه‌ای زندگی نمی‌کردم.")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("Maya شهر یا حومه را ترجیح می‌دهد؟",
+                "شهر."),
+            ComprehensionQuestion("Maya چه چیزی در شهر بیشتر دوست دارد؟",
+                "حمل و نقل عمومی، رستوران‌ها، رویدادهای فرهنگی."),
+            ComprehensionQuestion("چالش اصلی زندگی شهری چیست؟",
+                "هزینه بالای زندگی و اجاره."),
+            ComprehensionQuestion("Maya چند وقت است که در شهر زندگی می‌کند؟",
+                "حدود هفت سال."),
+            ComprehensionQuestion("Maya چه تغییراتی در شهر دیده؟",
+                "شهر شلوغ‌تر و گران‌تر شده، ولی امکانات بهتر شده.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Describe your city and neighborhood.",
+                "شهر و محله‌ات را توصیف کن.",
+                "It's... / There are... / The best thing is..."),
+            SpeakingTask("Compare city and suburban life.",
+                "زندگی شهری و حومه را مقایسه کن.",
+                "The city is... while the suburbs are..."),
+            SpeakingTask("Talk about how your city has changed.",
+                "درباره اینکه شهرت چطور تغییر کرده صحبت کن.",
+                "It has become... / There used to be...")
+        ),
+        writingTasks = listOf(
+            WritingTask("Write about the pros and cons of city life.",
+                "درباره مزایا و معایب زندگی شهری بنویس.",
+                180,
+                "Use comparatives and superlatives. Include at least two idioms.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: The city is ___ than the suburbs.",
+                listOf("busy", "busier", "busiest", "more busy"), 1),
+            QuizQuestion("Complete: There ___ many restaurants downtown.",
+                listOf("is", "are", "was", "has"), 1),
+            QuizQuestion("Complete: I've lived here ___ 5 years.",
+                listOf("since", "for", "in", "at"), 1),
+            QuizQuestion("What does 'concrete jungle' mean?",
+                listOf("جنگل بتنی", "پارک", "باغ", "روستا"), 0),
+            QuizQuestion("Complete: Tokyo is ___ of the biggest cities.",
+                listOf("one", "first", "a", "the"), 0),
+            QuizQuestion("Complete: The suburbs are ___ than downtown.",
+                listOf("quiet", "quieter", "quietest", "more quiet"), 1),
+            QuizQuestion("Complete: I've never ___ in the suburbs.",
+                listOf("live", "lived", "living", "lives"), 1),
+            QuizQuestion("What does 'bright lights' mean?",
+                listOf("چراغ‌های روشن شهر", "نور خورشید", "برق", "آتش"), 0)
         )
-    }
-
-    // ═══════════════════════════════════════════════════════════
-    // CHAPTER 7 — Communication
-    // ═══════════════════════════════════════════════════════════
-    private fun chapter7(): LessonContent {
-        return LessonContent(
-            bookId = BOOK_ID,
-            chapterNumber = 7,
-            title = "Communication",
-            titlePersian = "ارتباطات",
-            objectives = listOf(
-                "Talk about communication",
-                "Use reported speech",
-                "Discuss technology and communication",
-                "Express opinions"
-            ),
-            vocabulary = listOf(
-                VocabWord("communicate", "ارتباط برقرار کردن", "/kəˈmjuːnɪkeɪt/", "verb",
-                    "We communicate in many ways.", "به روش‌های زیادی ارتباط برقرار می‌کنیم."),
-                VocabWord("message", "پیام", "/ˈmesɪdʒ/", "noun",
-                    "I sent you a message.", "بهت پیام فرستادم."),
-                VocabWord("text", "پیامک", "/tekst/", "noun/verb",
-                    "She texted me yesterday.", "دیروز بهم پیام داد."),
-                VocabWord("call", "تماس", "/kɔːl/", "noun/verb",
-                    "I'll call you later.", "بعداً بهت زنگ می‌زنم."),
-                VocabWord("email", "ایمیل", "/ˈiːmeɪl/", "noun",
-                    "Send me an email.", "برام ایمیل بفرست."),
-                VocabWord("social media", "شبکه اجتماعی", "/ˈsoʊʃəl ˈmiːdiə/", "noun",
-                    "Social media is everywhere.", "شبکه‌های اجتماعی همه‌جا هستن."),
-                VocabWord("platform", "پلتفرم", "/ˈplætfɔːrm/", "noun",
-                    "There are many platforms.", "پلتفرم‌های زیادی هست."),
-                VocabWord("privacy", "حریم خصوصی", "/ˈpraɪvəsi/", "noun",
-                    "Privacy is important.", "حریم خصوصی مهمه."),
-                VocabWord("misinformation", "اطلاعات نادرست", "/ˌmɪsɪnfərˈmeɪʃən/", "noun",
-                    "Misinformation spreads fast.", "اطلاعات نادرست سریع پخش می‌شه."),
-                VocabWord("influence", "تأثیر گذاشتن", "/ˈɪnfluəns/", "verb",
-                    "Influencers have big influence.", "اینفلوئنسرها تأثیر بزرگی دارن."),
-                VocabWord("content", "محتوا", "/ˈkɑːntent/", "noun",
-                    "Quality content matters.", "محتوای باکیفیت مهمه."),
-                VocabWord("audience", "مخاطب", "/ˈɔːdiəns/", "noun",
-                    "Know your audience.", "مخاطبت رو بشناس.")
-            ),
-            idioms = listOf(
-                IdiomExpression("word of mouth", "شفاهی",
-                    "The news spread by word of mouth.", "خبر شفاهی پخش شد.", "neutral"),
-                IdiomExpression("get the message", "پیام را گرفتن",
-                    "I got the message clearly.", "پیام را واضح گرفتم.", "informal"),
-                IdiomExpression("break the news", "خبر را گفتن",
-                    "She broke the news gently.", "خبر را با ملایمت گفت.", "idiom")
-            ),
-            pronunciationTips = listOf(
-                PronunciationTip("communication",
-                    "communication /kəˌmjuːnɪˈkeɪʃən/ — استرس روی ca."),
-                PronunciationTip("information",
-                    "information /ˌɪnfərˈmeɪʃən/ — استرس روی ma.")
-            ),
-            culturalNotes = listOf(
-                CulturalNote("Media literacy",
-                    "سواد رسانه‌ای در غرب بخش مهمی از آموزشه."),
-                CulturalNote("Digital privacy",
-                    "حریم خصوصی دیجیتال دغدغه بزرگیه.")
-            ),
-            grammar = listOf(
-                GrammarSection("Reported speech",
-                    """
-                        He said that he was busy.
-                        She told me she would come.
-                        They asked if I was ready.
-                    """.trimIndent()),
-                GrammarSection("Reporting verbs",
-                    """
-                        claim, admit, deny, suggest, promise, warn
-
-                        She admitted that she was wrong.
-                    """.trimIndent()),
-                GrammarSection("Passive in media",
-                    """
-                        The news was reported yesterday.
-                        The article has been published.
-                    """.trimIndent()),
-                GrammarSection("Expressing opinions",
-                    """
-                        I think social media...
-                        In my opinion...
-                        It seems to me that...
-                    """.trimIndent())
-            ),
-            commonMistakes = listOf(
-                CommonMistake("He said me...", "He told me...", "tell + ضمیر مفعولی."),
-                CommonMistake("He said he will come.", "He said he would come.", "will → would."),
-                CommonMistake("The news are important.", "The news is important.", "news غیرقابل شمارش.")
-            ),
-            conversation = listOf(
-                DialogueLine("A", "How do you usually get your news?", "معمولاً اخبار رو از کجا می‌گیری؟"),
-                DialogueLine("B", "Mostly social media. What about you?", "بیشتر شبکه‌های اجتماعی. تو چطور؟"),
-                DialogueLine("A", "I use a mix. I check multiple sources.", "ترکیبی. چند منبع رو چک می‌کنم."),
-                DialogueLine("B", "That's smart. There's so much misinformation.", "هوشمندانه‌ست. اطلاعات نادرست زیاد شده."),
-                DialogueLine("A", "Do you trust social media?", "به شبکه‌های اجتماعی اعتماد داری؟"),
-                DialogueLine("B", "Only partly. I verify things before sharing.", "فقط تا حدی. قبل از به اشتراک گذاشتن تأیید می‌کنم."),
-                DialogueLine("A", "What about influencers?", "اینفلوئنسرها چطور؟"),
-                DialogueLine("B", "Some are great, some spread misinformation.", "بعضی عالی هستن، بعضی اطلاعات نادرست پخش می‌کنن."),
-                DialogueLine("A", "Should governments regulate platforms?", "دولت‌ها باید پلتفرم‌ها رو تنظیم کنن؟"),
-                DialogueLine("B", "Maybe to a degree. Balance is important.", "شاید تا حدی. تعادل مهمه."),
-                DialogueLine("A", "What about privacy?", "حریم خصوصی چطور؟"),
-                DialogueLine("B", "Companies collect too much data.", "شرکت‌ها داده‌های زیادی جمع می‌کنن."),
-                DialogueLine("A", "We should be more careful.", "باید محتاط‌تر باشیم."),
-                DialogueLine("B", "Being aware is the first step.", "آگاه بودن اولین قدمه."),
-                DialogueLine("A", "What advice would you give?", "چه توصیه‌ای می‌کنی؟"),
-                DialogueLine("B", "Check sources, think critically, limit screen time.", "منابع رو چک کن، انتقادی فکر کن، زمان صفحه رو محدود کن."),
-                DialogueLine("A", "Great advice. Thanks for sharing.", "توصیه عالی. ممنون."),
-                DialogueLine("B", "Anytime. Stay informed!", "هر وقت. آگاه بمون!")
-            ),
-            comprehensionQuestions = listOf(
-                ComprehensionQuestion("B اخبار را از کجا می‌گیرد؟", "شبکه‌های اجتماعی."),
-                ComprehensionQuestion("B قبل از به اشتراک گذاشتن چیکار می‌کند؟", "تأیید می‌کند."),
-                ComprehensionQuestion("نگرانی اصلی B چیست؟", "حریم خصوصی و اطلاعات نادرست."),
-                ComprehensionQuestion("توصیه B چیست؟", "چک منابع، تفکر انتقادی، محدود کردن زمان صفحه.")
-            ),
-            speakingTasks = listOf(
-                SpeakingTask("Discuss media in your life.",
-                    "درباره رسانه در زندگی‌ات صحبت کن.",
-                    "I use... / I check..."),
-                SpeakingTask("Express opinions on social media.",
-                    "نظرت را درباره شبکه‌های اجتماعی بیان کن.",
-                    "I think... / In my opinion...")
-            ),
-            writingTasks = listOf(
-                WritingTask("Write about the pros and cons of social media.",
-                    "درباره مزایا و معایب شبکه‌های اجتماعی بنویس.",
-                    180,
-                    "Use reported speech and passive.")
-            ),
-            quiz = listOf(
-                QuizQuestion("Complete: He ___ me he was tired.",
-                    listOf("said", "told", "spoke", "talked"), 1),
-                QuizQuestion("Complete: He said he ___ come.",
-                    listOf("will", "would", "can", "could"), 1),
-                QuizQuestion("Complete: The news ___ important.",
-                    listOf("are", "is", "were", "have"), 1),
-                QuizQuestion("What does 'word of mouth' mean?",
-                    listOf("کلمه دهان", "شفاهی", "نوشتاری", "رسمی"), 1),
-                QuizQuestion("Complete: The article has been ___.",
-                    listOf("publish", "published", "publishing", "publishes"), 1),
-                QuizQuestion("Complete: She ___ that she was wrong.",
-                    listOf("admits", "admitted", "admitting", "admit"), 1),
-                QuizQuestion("What does 'break the news' mean?",
-                    listOf("شکستن خبر", "خبر را گفتن", "خبر را پنهان کردن", "خبر بد"), 1),
-                QuizQuestion("Complete: The video is ___ shared.",
-                    listOf("be", "being", "been", "is"), 1)
-            )
+    )
+}// ═══════════════════════════════════════════════════════════
+// CHAPTER 7 — Communication
+// ═══════════════════════════════════════════════════════════
+private fun chapter7(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 7,
+        title = "Communication",
+        titlePersian = "ارتباطات",
+        objectives = listOf(
+            "Talk about communication methods",
+            "Use reported speech accurately",
+            "Discuss technology and communication",
+            "Express opinions about social media",
+            "Report what others said",
+            "Talk about media literacy"
+        ),
+        vocabulary = listOf(
+            VocabWord("communicate", "ارتباط برقرار کردن", "/kəˈmjuːnɪkeɪt/", "verb",
+                "We communicate in many ways.",
+                "به روش‌های زیادی ارتباط برقرار می‌کنیم.",
+                collocations = "communicate effectively, communicate clearly"),
+            VocabWord("message", "پیام", "/ˈmesɪdʒ/", "noun",
+                "I sent you a message this morning.",
+                "امروز صبح بهت پیام فرستادم.",
+                collocations = "send a message, receive a message"),
+            VocabWord("text", "پیامک", "/tekst/", "noun",
+                "She texted me yesterday.",
+                "دیروز بهم پیام داد.",
+                collocations = "send a text, get a text"),
+            VocabWord("call", "تماس", "/kɔːl/", "noun",
+                "I'll give you a call later.",
+                "بعداً بهت زنگ می‌زنم.",
+                collocations = "phone call, make a call"),
+            VocabWord("email", "ایمیل", "/ˈiːmeɪl/", "noun",
+                "Send me an email with the details.",
+                "برام ایمیل با جزئیات بفرست.",
+                collocations = "send an email, reply to an email"),
+            VocabWord("social media", "شبکه اجتماعی", "/ˈsoʊʃəl ˈmiːdiə/", "noun",
+                "Social media is everywhere these days.",
+                "این روزها شبکه‌های اجتماعی همه‌جا هستن.",
+                collocations = "use social media, social media platform"),
+            VocabWord("platform", "پلتفرم", "/ˈplætfɔːrm/", "noun",
+                "There are many messaging platforms.",
+                "پلتفرم‌های پیام‌رسان زیادی هست.",
+                collocations = "online platform, digital platform"),
+            VocabWord("privacy", "حریم خصوصی", "/ˈpraɪvəsi/", "noun",
+                "Privacy is important online.",
+                "حریم خصوصی آنلاین مهمه.",
+                collocations = "online privacy, protect privacy"),
+            VocabWord("misinformation", "اطلاعات نادرست", "/ˌmɪsɪnfərˈmeɪʃən/", "noun",
+                "Misinformation spreads very quickly.",
+                "اطلاعات نادرست خیلی سریع پخش می‌شه.",
+                collocations = "spread misinformation, fight misinformation"),
+            VocabWord("influence", "تأثیر گذاشتن", "/ˈɪnfluəns/", "verb",
+                "Influencers have a big influence on young people.",
+                "اینفلوئنسرها تأثیر بزرگی روی جوانان دارن.",
+                collocations = "influence people, positive influence"),
+            VocabWord("content", "محتوا", "/ˈkɑːntent/", "noun",
+                "Quality content matters most.",
+                "محتوای باکیفیت بیشترین اهمیت رو داره.",
+                collocations = "create content, quality content"),
+            VocabWord("audience", "مخاطب", "/ˈɔːdiəns/", "noun",
+                "Know your audience before you post.",
+                "قبل از پست کردن مخاطبت رو بشناس.",
+                collocations = "target audience, wide audience"),
+            VocabWord("verify", "تأیید کردن", "/ˈverɪfaɪ/", "verb",
+                "Always verify information before sharing.",
+                "همیشه قبل از اشتراک‌گذاری اطلاعات رو تأیید کن.",
+                collocations = "verify facts, verify information")
+        ),
+        idioms = listOf(
+            IdiomExpression("word of mouth", "شفاهی",
+                "The news spread by word of mouth.",
+                "خبر شفاهی پخش شد.",
+                register = "neutral"),
+            IdiomExpression("get the message", "پیام را گرفتن",
+                "I got the message clearly.",
+                "پیام را واضح گرفتم.",
+                register = "informal"),
+            IdiomExpression("break the news", "خبر را گفتن",
+                "She broke the news gently.",
+                "خبر را با ملایمت گفت.",
+                register = "idiom")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("find out", "فهمیدن",
+                "اطلاعات را کشف کردن",
+                "I found out the truth later.",
+                "بعداً حقیقت رو فهمیدم.",
+                separable = "Yes"),
+            PhrasalVerb("pass on", "منتقل کردن",
+                "به دیگری دادن",
+                "Please pass on the message to her.",
+                "لطفاً پیام رو به او منتقل کن.",
+                separable = "Yes")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("Communication stress",
+                "communication /kəˌmjuːnɪˈkeɪʃən/ — main stress on CA, five syllables."),
+            PronunciationTip("Information stress",
+                "information /ˌɪnfərˈmeɪʃən/ — main stress on MA. Four syllables."),
+            PronunciationTip("Reported speech intonation",
+                "In reported speech, intonation typically falls at the end: He said he was tired. ↘")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("Media literacy",
+                "In Western cultures, media literacy is an important part of education. People are taught to check sources, identify bias, and think critically about what they read and share."),
+            CulturalNote("Digital privacy",
+                "Digital privacy is a major concern in many countries. There are ongoing debates about how much data companies should collect, and how governments should regulate online platforms.")
+        ),
+        grammar = listOf(
+            GrammarSection("Reported speech — tense changes",
+                "He said (that) he was busy. / She told me she would come. / They asked if I was ready. — When reporting, tenses usually shift back: present → past, will → would, can → could."),
+            GrammarSection("Reporting verbs",
+                "claim, admit, deny, suggest, promise, warn. She admitted that she was wrong. / He promised to help. — Different verbs have different patterns."),
+            GrammarSection("Passive in media",
+                "The news was reported yesterday. / The article has been published. — Passive voice is common in news reporting."),
+            GrammarSection("Expressing opinions",
+                "I think social media... / In my opinion... / It seems to me that... — Use these phrases to give your opinion politely.")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("He said me...", "He told me...",
+                "Use 'tell' with an indirect object, not 'say'."),
+            CommonMistake("He said he will come.", "He said he would come.",
+                "In reported speech, 'will' changes to 'would'."),
+            CommonMistake("The news are important.", "The news is important.",
+                "'News' is uncountable, so it takes a singular verb."),
+            CommonMistake("She said she is busy.", "She said she was busy.",
+                "In reported speech, 'is' changes to 'was'.")
+        ),
+        conversation = listOf(
+            DialogueLine("Priya", "How do you usually get your news?",
+                "معمولاً اخبار رو از کجا می‌گیری؟"),
+            DialogueLine("Daniel", "Mostly social media. What about you?",
+                "بیشتر شبکه‌های اجتماعی. تو چطور؟"),
+            DialogueLine("Priya", "I use a mix. I check multiple sources.",
+                "ترکیبی. چند منبع رو چک می‌کنم."),
+            DialogueLine("Daniel", "That's smart. There's so much misinformation.",
+                "هوشمندانه‌ست. اطلاعات نادرست زیاد شده."),
+            DialogueLine("Priya", "Do you trust social media?",
+                "به شبکه‌های اجتماعی اعتماد داری؟"),
+            DialogueLine("Daniel", "Only partly. I verify things before sharing.",
+                "فقط تا حدی. قبل از به اشتراک گذاشتن تأیید می‌کنم."),
+            DialogueLine("Priya", "What about influencers?",
+                "اینفلوئنسرها چطور؟"),
+            DialogueLine("Daniel", "Some are great. Others spread misinformation.",
+                "بعضی عالی هستن. بعضی دیگه اطلاعات نادرست پخش می‌کنن."),
+            DialogueLine("Priya", "Should governments regulate platforms?",
+                "دولت‌ها باید پلتفرم‌ها رو تنظیم کنن؟"),
+            DialogueLine("Daniel", "Maybe to a degree. Balance is important.",
+                "شاید تا حدی. تعادل مهمه."),
+            DialogueLine("Priya", "What about privacy?",
+                "حریم خصوصی چطور؟"),
+            DialogueLine("Daniel", "Companies collect too much data. It's concerning.",
+                "شرکت‌ها داده‌های زیادی جمع می‌کنن. نگران‌کننده‌ست."),
+            DialogueLine("Priya", "We should be more careful with our data.",
+                "باید با داده‌هامون محتاط‌تر باشیم."),
+            DialogueLine("Daniel", "Being aware is the first step.",
+                "آگاه بودن اولین قدمه."),
+            DialogueLine("Priya", "What advice would you give to young people?",
+                "چه توصیه‌ای به جوانان می‌کنی؟"),
+            DialogueLine("Daniel", "Check sources, think critically, and limit screen time.",
+                "منابع رو چک کن، انتقادی فکر کن، و زمان صفحه رو محدود کن."),
+            DialogueLine("Priya", "Great advice. Do you think social media is mostly good?",
+                "توصیه عالی. فکر می‌کنی شبکه‌های اجتماعی بیشتر خوب هستن؟"),
+            DialogueLine("Daniel", "It has pros and cons. It connects us but also distracts us.",
+                "مزایا و معایب داره. ما رو وصل می‌کنه ولی حواسمون رو هم پرت می‌کنه."),
+            DialogueLine("Priya", "True. I try to use it less lately.",
+                "درسته. اخیراً سعی می‌کنم کمتر استفاده کنم."),
+            DialogueLine("Daniel", "Same here. It's better for my mental health.",
+                "منم همین‌طور. برای سلامت روانم بهتره."),
+            DialogueLine("Priya", "Balance is everything.",
+                "تعادل همه چیزه."),
+            DialogueLine("Daniel", "Couldn't agree more.",
+                "کاملاً موافقم."),
+            DialogueLine("Priya", "Let's share this advice with others.",
+                "بیا این توصیه رو با دیگران به اشتراک بذاریم."),
+            DialogueLine("Daniel", "Good idea. Everyone needs to hear it.",
+                "فکر خوبی. همه باید بشنون.")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("Daniel اخبارش را از کجا می‌گیرد؟",
+                "بیشتر از شبکه‌های اجتماعی."),
+            ComprehensionQuestion("Daniel قبل از به اشتراک گذاشتن چیکار می‌کند؟",
+                "اطلاعات را تأیید می‌کند."),
+            ComprehensionQuestion("نگرانی اصلی Daniel درباره پلتفرم‌ها چیست؟",
+                "حریم خصوصی و اطلاعات نادرست."),
+            ComprehensionQuestion("Daniel چه توصیه‌ای به جوانان دارد؟",
+                "چک کردن منابع، تفکر انتقادی، محدود کردن زمان صفحه."),
+            ComprehensionQuestion("نظر Daniel درباره شبکه‌های اجتماعی چیست؟",
+                "مزایا و معایب دارد — ما را وصل می‌کند ولی حواسمان را پرت می‌کند.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Discuss media in your daily life.",
+                "درباره رسانه در زندگی روزانه‌ات صحبت کن.",
+                "I use... / I check... / In my opinion..."),
+            SpeakingTask("Express opinions about social media.",
+                "نظرت را درباره شبکه‌های اجتماعی بیان کن.",
+                "I think... / It seems to me... / In my opinion..."),
+            SpeakingTask("Report a conversation you had recently.",
+                "گفت‌وگویی که اخیراً داشتی را گزارش کن.",
+                "He said... / She told me... / They asked...")
+        ),
+        writingTasks = listOf(
+            WritingTask("Write about the pros and cons of social media.",
+                "درباره مزایا و معایب شبکه‌های اجتماعی بنویس.",
+                200,
+                "Use reported speech and passive voice. Include at least two idioms.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: He ___ me he was tired.",
+                listOf("said", "told", "spoke", "talked"), 1),
+            QuizQuestion("Complete: He said he ___ come.",
+                listOf("will", "would", "can", "could"), 1),
+            QuizQuestion("Complete: The news ___ important.",
+                listOf("are", "is", "were", "have"), 1),
+            QuizQuestion("What does 'word of mouth' mean?",
+                listOf("کلمه دهان", "شفاهی", "نوشتاری", "رسمی"), 1),
+            QuizQuestion("Complete: The article has been ___.",
+                listOf("publish", "published", "publishing", "publishes"), 1),
+            QuizQuestion("Complete: She ___ that she was wrong.",
+                listOf("admits", "admitted", "admitting", "admit"), 1),
+            QuizQuestion("What does 'break the news' mean?",
+                listOf("شکستن خبر", "خبر را گفتن", "خبر را پنهان کردن", "خبر بد"), 1),
+            QuizQuestion("Complete: The video is ___ shared.",
+                listOf("be", "being", "been", "is"), 1)
         )
-    }
+    )
+}
 
-    // ═══════════════════════════════════════════════════════════
-    // CHAPTER 8 — Education
-    // ═══════════════════════════════════════════════════════════
-    private fun chapter8(): LessonContent {
-        return LessonContent(
-            bookId = BOOK_ID,
-            chapterNumber = 8,
-            title = "Education",
-            titlePersian = "آموزش",
-            objectives = listOf(
-                "Talk about education",
-                "Use conditionals",
-                "Discuss learning",
-                "Talk about future education"
-            ),
-            vocabulary = listOf(
-                VocabWord("education", "آموزش", "/ˌedʒuˈkeɪʃən/", "noun",
-                    "Education is important.", "آموزش مهمه."),
-                VocabWord("degree", "مدرک", "/dɪˈɡriː/", "noun",
-                    "She has a degree in law.", "مدرک حقوق داره."),
-                VocabWord("university", "دانشگاه", "/ˌjuːnɪˈvɜːrsəti/", "noun",
-                    "He studies at university.", "در دانشگاه درس می‌خونه."),
-                VocabWord("course", "دوره", "/kɔːrs/", "noun",
-                    "I'm taking an online course.", "دارم یه دوره آنلاین می‌گذرونم."),
-                VocabWord("exam", "امتحان", "/ɪɡˈzæm/", "noun",
-                    "I have an exam tomorrow.", "فردا امتحان دارم."),
-                VocabWord("pass", "قبول شدن", "/pæs/", "verb",
-                    "I passed the exam!", "امتحان رو قبول شدم!"),
-                VocabWord("fail", "رد شدن", "/feɪl/", "verb",
-                    "He failed the test.", "در آزمون رد شد."),
-                VocabWord("graduate", "فارغ‌التحصیل شدن", "/ˈɡrædʒueɪt/", "verb",
-                    "She graduated last year.", "سال پیش فارغ‌التحصیل شد."),
-                VocabWord("scholarship", "بورسیه", "/ˈskɑːlərʃɪp/", "noun",
-                    "He got a scholarship.", "بورسیه گرفت."),
-                VocabWord("knowledge", "دانش", "/ˈnɑːlɪdʒ/", "noun",
-                    "Knowledge is power.", "دانش قدرته."),
-                VocabWord("subject", "درس", "/ˈsʌbdʒɪkt/", "noun",
-                    "Math is my favorite subject.", "ریاضی درس مورد علاقه‌مه."),
-                VocabWord("skill", "مهارت", "/skɪl/", "noun",
-                    "Communication is a key skill.", "ارتباطات یه مهارت کلیدیه.")
-            ),
-            idioms = listOf(
-                IdiomExpression("hit the books", "درس خواندن",
-                    "I need to hit the books tonight.", "امشب باید درس بخونم.", "informal"),
-                IdiomExpression("learn by heart", "حفظ کردن",
-                    "She learned the poem by heart.", "شعر رو حفظ کرد.", "neutral"),
-                IdiomExpression("pass with flying colors", "با نمره عالی قبول شدن",
-                    "He passed with flying colors.", "با نمره عالی قبول شد.", "idiom")
-            ),
-            pronunciationTips = listOf(
-                PronunciationTip("education",
-                    "education /ˌedʒuˈkeɪʃən/ — استرس روی ca."),
-                PronunciationTip("university",
-                    "university /ˌjuːnɪˈvɜːrsəti/ — پنج سیلاب.")
-            ),
-            culturalNotes = listOf(
-                CulturalNote("Education systems",
-                    "سیستم آموزشی در کشورها متفاوته."),
-                CulturalNote("Lifelong learning",
-                    "یادگیری مادام‌العمر در غرب ارزشمنده.")
-            ),
-            grammar = listOf(
-                GrammarSection("First conditional",
-                    """
-                        If + present simple, will + verb
-
-                        If I study hard, I will pass.
-                        If you don't attend, you will fail.
-                    """.trimIndent()),
-                GrammarSection("Second conditional",
-                    """
-                        If + past simple, would + verb
-
-                        If I had more time, I would learn another language.
-                        If I were rich, I would study abroad.
-                    """.trimIndent()),
-                GrammarSection("Present perfect for education",
-                    """
-                        I've graduated from university.
-                        She's studied in three countries.
-                    """.trimIndent()),
-                GrammarSection("Future plans",
-                    """
-                        I'm going to apply for a scholarship.
-                        I'll continue my studies next year.
-                    """.trimIndent())
-            ),
-            commonMistakes = listOf(
-                CommonMistake("If I will study, I pass.", "If I study, I will pass.", "در if از present simple."),
-                CommonMistake("If I was rich...", "If I were rich...", "در second conditional از were."),
-                CommonMistake("I have graduated last year.", "I graduated last year.", "زمان مشخص = simple past.")
-            ),
-            conversation = listOf(
-                DialogueLine("A", "What are you studying?", "چی می‌خونی؟"),
-                DialogueLine("B", "I'm studying economics at university.", "اقتصاد در دانشگاه می‌خونم."),
-                DialogueLine("A", "How's it going?", "چطور پیش می‌ره؟"),
-                DialogueLine("B", "It's challenging but interesting.", "چالش‌برانگیزه ولی جالب."),
-                DialogueLine("A", "What do you want to do after graduation?", "بعد از فارغ‌التحصیلی چیکار می‌خوای بکنی؟"),
-                DialogueLine("B", "I'd like to work in finance or continue studying.", "دوست دارم در مالی کار کنم یا ادامه تحصیل بدم."),
-                DialogueLine("A", "Have you thought about a master's?", "به فوق لیسانس فکر کرده‌ای؟"),
-                DialogueLine("B", "Yes. If I get good grades, I'll apply for a scholarship.", "بله. اگه نمره‌های خوبی بگیرم، برای بورسیه درخواست می‌دم."),
-                DialogueLine("A", "What about languages?", "زبان چطور؟"),
-                DialogueLine("B", "I've been learning English for years.", "سال‌هاست انگلیسی یاد می‌گیرم."),
-                DialogueLine("A", "If I had more time, I'd learn another language too.", "اگه وقت بیشتری داشتم، منم یه زبان دیگه یاد می‌گرفتم."),
-                DialogueLine("B", "You should! It's never too late.", "باید بکنی! هیچ‌وقت دیر نیست."),
-                DialogueLine("A", "What's your favorite subject?", "درس مورد علاقه‌ات چیه؟"),
-                DialogueLine("B", "I love statistics.", "عاشق آمارم."),
-                DialogueLine("A", "What's the hardest?", "سخت‌ترین چیه؟"),
-                DialogueLine("B", "Calculus. I have to hit the books for it.", "حساب دیفرانسیل. باید براش درس بخونم."),
-                DialogueLine("A", "Good luck with your studies!", "برای تحصیلت موفق باشی!"),
-                DialogueLine("B", "Thanks! You too!", "ممنون! تو هم!")
-            ),
-            comprehensionQuestions = listOf(
-                ComprehensionQuestion("B چه رشته‌ای می‌خواند؟", "اقتصاد."),
-                ComprehensionQuestion("B بعد از فارغ‌التحصیلی چه برنامه‌ای دارد؟", "کار در مالی یا ادامه تحصیل."),
-                ComprehensionQuestion("B چه زبانی می‌خواهد بعد یاد بگیرد؟", "احتمالاً اسپانیایی."),
-                ComprehensionQuestion("درس مورد علاقه B چیست؟", "آمار.")
-            ),
-            speakingTasks = listOf(
-                SpeakingTask("Talk about your education.",
-                    "درباره تحصیلاتت صحبت کن.",
-                    "I studied... / I'm studying..."),
-                SpeakingTask("Discuss future education plans.",
-                    "درباره برنامه‌های تحصیلی آینده صحبت کن.",
-                    "I'm going to... / If I..., I'll...")
-            ),
-            writingTasks = listOf(
-                WritingTask("Write about your educational goals.",
-                    "درباره اهداف آموزشی‌ات بنویس.",
-                    150,
-                    "Use conditionals and future forms.")
-            ),
-            quiz = listOf(
-                QuizQuestion("Complete: If I ___ hard, I will pass.",
-                    listOf("study", "will study", "studied", "studying"), 0),
-                QuizQuestion("Complete: If I ___ rich, I would travel.",
-                    listOf("am", "was", "were", "be"), 2),
-                QuizQuestion("Complete: I have ___ from university.",
-                    listOf("graduate", "graduated", "graduating", "graduates"), 1),
-                QuizQuestion("What does 'hit the books' mean?",
-                    listOf("کتاب زدن", "درس خواندن", "کتاب خریدن", "کتاب نوشتن"), 1),
-                QuizQuestion("Complete: She has a degree ___ law.",
-                    listOf("on", "in", "at", "for"), 1),
-                QuizQuestion("Complete: I ___ last year.",
-                    listOf("have graduated", "graduated", "graduate", "graduating"), 1),
-                QuizQuestion("What does 'pass with flying colors' mean?",
-                    listOf("با نمره عالی قبول شدن", "رد شدن", "متوسط بودن", "دیر رسیدن"), 0),
-                QuizQuestion("Complete: If I had time, I ___ another language.",
-                    listOf("will learn", "would learn", "learn", "learned"), 1)
-            )
+// ═══════════════════════════════════════════════════════════
+// CHAPTER 8 — Education
+// ═══════════════════════════════════════════════════════════
+private fun chapter8(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 8,
+        title = "Education",
+        titlePersian = "آموزش",
+        objectives = listOf(
+            "Talk about education and learning",
+            "Use conditionals accurately",
+            "Discuss learning styles and preferences",
+            "Talk about future education plans",
+            "Give advice about studying",
+            "Compare education systems"
+        ),
+        vocabulary = listOf(
+            VocabWord("education", "آموزش", "/ˌedʒuˈkeɪʃən/", "noun",
+                "Education is important for everyone.",
+                "آموزش برای همه مهمه.",
+                collocations = "higher education, quality education"),
+            VocabWord("degree", "مدرک", "/dɪˈɡriː/", "noun",
+                "She has a degree in law.",
+                "او مدرک حقوق داره.",
+                collocations = "university degree, master's degree"),
+            VocabWord("university", "دانشگاه", "/ˌjuːnɪˈvɜːrsəti/", "noun",
+                "He studies at a university.",
+                "در دانشگاه درس می‌خونه.",
+                collocations = "top university, attend university"),
+            VocabWord("course", "دوره", "/kɔːrs/", "noun",
+                "I'm taking an online course.",
+                "دارم یه دوره آنلاین می‌گذرونم.",
+                collocations = "online course, take a course"),
+            VocabWord("exam", "امتحان", "/ɪɡˈzæm/", "noun",
+                "I have an exam tomorrow.",
+                "فردا امتحان دارم.",
+                collocations = "take an exam, pass an exam"),
+            VocabWord("pass", "قبول شدن", "/pæs/", "verb",
+                "I passed the exam!",
+                "امتحان رو قبول شدم!",
+                collocations = "pass with high marks, pass easily"),
+            VocabWord("fail", "رد شدن", "/feɪl/", "verb",
+                "He failed the test last semester.",
+                "ترم پیش در آزمون رد شد.",
+                collocations = "fail an exam, fail a course"),
+            VocabWord("graduate", "فارغ‌التحصیل شدن", "/ˈɡrædʒueɪt/", "verb",
+                "She graduated last year.",
+                "سال پیش فارغ‌التحصیل شد.",
+                collocations = "graduate from university, graduate with honors"),
+            VocabWord("scholarship", "بورسیه", "/ˈskɑːlərʃɪp/", "noun",
+                "He got a scholarship to study abroad.",
+                "بورسیه گرفت که در خارج درس بخونه.",
+                collocations = "full scholarship, apply for a scholarship"),
+            VocabWord("knowledge", "دانش", "/ˈnɑːlɪdʒ/", "noun",
+                "Knowledge is power.",
+                "دانش قدرته.",
+                collocations = "gain knowledge, share knowledge"),
+            VocabWord("subject", "درس", "/ˈsʌbdʒɪkt/", "noun",
+                "Math is my favorite subject.",
+                "ریاضی درس مورد علاقه‌مه.",
+                collocations = "favorite subject, difficult subject"),
+            VocabWord("skill", "مهارت", "/skɪl/", "noun",
+                "Communication is a key skill.",
+                "ارتباطات یه مهارت کلیدیه.",
+                collocations = "key skill, develop a skill"),
+            VocabWord("research", "تحقیق", "/rɪˈsɜːrtʃ/", "noun",
+                "His research focuses on AI.",
+                "تحقیقش روی هوش مصنوعی متمرکزه.",
+                collocations = "do research, scientific research")
+        ),
+        idioms = listOf(
+            IdiomExpression("hit the books", "درس خواندن",
+                "I need to hit the books tonight.",
+                "امشب باید درس بخونم.",
+                register = "informal"),
+            IdiomExpression("learn by heart", "حفظ کردن",
+                "She learned the poem by heart.",
+                "شعر رو حفظ کرد.",
+                register = "neutral"),
+            IdiomExpression("pass with flying colors", "با نمره عالی قبول شدن",
+                "He passed with flying colors.",
+                "با نمره عالی قبول شد.",
+                register = "idiom")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("sign up for", "ثبت‌نام کردن",
+                "نام‌نویسی کردن",
+                "I signed up for an online course.",
+                "برای یه دوره آنلاین ثبت‌نام کردم.",
+                separable = "No"),
+            PhrasalVerb("keep up with", "همگام بودن با",
+                "عقب نماندن از",
+                "It's hard to keep up with the class.",
+                "سخته با کلاس همگام بمونم.",
+                separable = "No")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("Education stress",
+                "education /ˌedʒuˈkeɪʃən/ — main stress on CA. Four syllables."),
+            PronunciationTip("University stress",
+                "university /ˌjuːnɪˈvɜːrsəti/ — main stress on VER. Five syllables."),
+            PronunciationTip("Conditional rhythm",
+                "If I study hard, I'll pass. — Both clauses stress their main verb.")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("Education systems",
+                "Education systems differ across countries. In many English-speaking countries, students choose a major in university. 'Gap year' (a year off before or after university) is common in some places."),
+            CulturalNote("Lifelong learning",
+                "Lifelong learning is valued in Western cultures. Adults often take courses, attend workshops, or learn new skills throughout their lives to stay competitive or pursue passions.")
+        ),
+        grammar = listOf(
+            GrammarSection("First conditional",
+                "If + present simple, will + verb. If I study hard, I will pass. / If you don't attend, you will fail. — Use for real future possibilities."),
+            GrammarSection("Second conditional",
+                "If + past simple, would + verb. If I had more time, I would learn another language. / If I were rich, I would study abroad. — Use for hypothetical situations."),
+            GrammarSection("Present perfect for education",
+                "I've graduated from university. / She's studied in three countries. — Use the present perfect for experiences and achievements relevant to now."),
+            GrammarSection("Future plans",
+                "I'm going to apply for a scholarship. / I'll continue my studies next year. — Going to for plans, will for decisions or promises.")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("If I will study, I pass.", "If I study, I will pass.",
+                "In the if-clause, use present simple, not 'will'."),
+            CommonMistake("If I was rich...", "If I were rich...",
+                "In the second conditional, use 'were' for all persons."),
+            CommonMistake("I have graduated last year.", "I graduated last year.",
+                "With a specific time, use the simple past."),
+            CommonMistake("I'm interesting in learning.", "I'm interested in learning.",
+                "'Interested' describes a person; 'interesting' describes a thing.")
+        ),
+        conversation = listOf(
+            DialogueLine("Nina", "What are you studying?",
+                "چی می‌خونی؟"),
+            DialogueLine("Leo", "I'm studying economics at university.",
+                "اقتصاد در دانشگاه می‌خونم."),
+            DialogueLine("Nina", "How's it going?",
+                "چطور پیش می‌ره؟"),
+            DialogueLine("Leo", "It's challenging but interesting.",
+                "چالش‌برانگیزه ولی جالب."),
+            DialogueLine("Nina", "What do you want to do after graduation?",
+                "بعد از فارغ‌التحصیلی چیکار می‌خوای بکنی؟"),
+            DialogueLine("Leo", "I'd like to work in finance or continue studying.",
+                "دوست دارم در مالی کار کنم یا ادامه تحصیل بدم."),
+            DialogueLine("Nina", "Have you thought about a master's degree?",
+                "به فوق لیسانس فکر کرده‌ای؟"),
+            DialogueLine("Leo", "Yes. If I get good grades, I'll apply for a scholarship.",
+                "بله. اگه نمره‌های خوبی بگیرم، برای بورسیه درخواست می‌دم."),
+            DialogueLine("Nina", "What about languages?",
+                "زبان چطور؟"),
+            DialogueLine("Leo", "I've been learning English for years. Now I'm studying Spanish too.",
+                "سال‌هاست انگلیسی یاد می‌گیرم. الان اسپانیایی هم می‌خونم."),
+            DialogueLine("Nina", "If I had more time, I'd learn another language too.",
+                "اگه وقت بیشتری داشتم، منم یه زبان دیگه یاد می‌گرفتم."),
+            DialogueLine("Leo", "You should! It's never too late.",
+                "باید بکنی! هیچ‌وقت دیر نیست."),
+            DialogueLine("Nina", "What's your favorite subject?",
+                "درس مورد علاقه‌ات چیه؟"),
+            DialogueLine("Leo", "I love statistics. What about you?",
+                "عاشق آمارم. تو چطور؟"),
+            DialogueLine("Nina", "I'm studying literature. I love it.",
+                "دارم ادبیات می‌خونم. عاشقشم."),
+            DialogueLine("Leo", "What's the hardest part?",
+                "سخت‌ترین بخشش چیه؟"),
+            DialogueLine("Nina", "The amount of reading. I have to hit the books every day.",
+                "مقدار مطالعه. باید هر روز درس بخونم."),
+            DialogueLine("Leo", "Same here with calculus. It's tough.",
+                "منم همین‌طور با حساب دیفرانسیل. سخته."),
+            DialogueLine("Nina", "Have you ever failed an exam?",
+                "تا حالا در امتحانی رد شده‌ای؟"),
+            DialogueLine("Leo", "Once, in high school. I learned a lot from it.",
+                "یه بار، در دبیرستان. چیزهای زیادی یاد گرفتم."),
+            DialogueLine("Nina", "Failure teaches us, doesn't it?",
+                "شکست به ما یاد می‌ده، نه؟"),
+            DialogueLine("Leo", "Definitely. I'm more resilient now.",
+                "قطعاً. الان تاب‌آورترم."),
+            DialogueLine("Nina", "Good luck with your studies!",
+                "برای تحصیلت موفق باشی!"),
+            DialogueLine("Leo", "Thanks! You too!",
+                "ممنون! تو هم!")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("Leo چه رشته‌ای می‌خواند؟",
+                "اقتصاد."),
+            ComprehensionQuestion("Leo بعد از فارغ‌التحصیلی چه برنامه‌ای دارد؟",
+                "کار در مالی یا ادامه تحصیل."),
+            ComprehensionQuestion("Leo چه زبانی را شروع کرده؟",
+                "اسپانیایی."),
+            ComprehensionQuestion("درس مورد علاقه Leo چیست؟",
+                "آمار."),
+            ComprehensionQuestion("سخت‌ترین بخش تحصیل Nina چیست؟",
+                "مقدار زیاد مطالعه.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Talk about your education and studies.",
+                "درباره تحصیلات و مطالعاتت صحبت کن.",
+                "I studied... / I'm studying... / I want to..."),
+            SpeakingTask("Discuss future education plans.",
+                "درباره برنامه‌های تحصیلی آینده صحبت کن.",
+                "I'm going to... / If I..., I'll... / I'd like to..."),
+            SpeakingTask("Give advice to a student who is struggling.",
+                "به یک دانش‌آموز که در سختی است توصیه کن.",
+                "You should... / Have you tried...? / It might help to...")
+        ),
+        writingTasks = listOf(
+            WritingTask("Write about your educational goals and plans.",
+                "درباره اهداف و برنامه‌های آموزشی‌ات بنویس.",
+                200,
+                "Use first and second conditionals. Include at least one idiom.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: If I ___ hard, I will pass.",
+                listOf("study", "will study", "studied", "studying"), 0),
+            QuizQuestion("Complete: If I ___ rich, I would travel.",
+                listOf("am", "was", "were", "be"), 2),
+            QuizQuestion("Complete: I have ___ from university.",
+                listOf("graduate", "graduated", "graduating", "graduates"), 1),
+            QuizQuestion("What does 'hit the books' mean?",
+                listOf("کتاب زدن", "درس خواندن", "کتاب خریدن", "کتاب نوشتن"), 1),
+            QuizQuestion("Complete: She has a degree ___ law.",
+                listOf("on", "in", "at", "for"), 1),
+            QuizQuestion("Complete: I ___ last year.",
+                listOf("have graduated", "graduated", "graduate", "graduating"), 1),
+            QuizQuestion("What does 'pass with flying colors' mean?",
+                listOf("با نمره عالی قبول شدن", "رد شدن", "متوسط بودن", "دیر رسیدن"), 0),
+            QuizQuestion("Complete: If I had time, I ___ another language.",
+                listOf("will learn", "would learn", "learn", "learned"), 1)
         )
-    }
+    )
+}
 
-    // ═══════════════════════════════════════════════════════════
-    // CHAPTER 9 — Personal Growth
-    // ═══════════════════════════════════════════════════════════
-    private fun chapter9(): LessonContent {
-        return LessonContent(
-            bookId = BOOK_ID,
-            chapterNumber = 9,
-            title = "Personal Growth",
-            titlePersian = "رشد شخصی",
-            objectives = listOf(
-                "Discuss personal development",
-                "Use wish and regret",
-                "Talk about goals",
-                "Express reflection"
-            ),
-            vocabulary = listOf(
-                VocabWord("growth", "رشد", "/ɡroʊθ/", "noun",
-                    "Personal growth takes time.", "رشد شخصی زمان می‌بره."),
-                VocabWord("self-awareness", "خودآگاهی", "/ˌself əˈwernəs/", "noun",
-                    "Self-awareness is the first step.", "خودآگاهی اولین قدمه."),
-                VocabWord("mindset", "ذهنیت", "/ˈmaɪndset/", "noun",
-                    "A positive mindset helps.", "ذهنیت مثبت کمک می‌کنه."),
-                VocabWord("habit", "عادت", "/ˈhæbɪt/", "noun",
-                    "Good habits change lives.", "عادت‌های خوب زندگی رو تغییر می‌دن."),
-                VocabWord("discipline", "نظم", "/ˈdɪsəplɪn/", "noun",
-                    "Discipline is key.", "نظم کلیدیه."),
-                VocabWord("reflection", "بازنگری", "/rɪˈflekʃən/", "noun",
-                    "Take time for reflection.", "برای بازنگری وقت بذار."),
-                VocabWord("improvement", "بهبود", "/ɪmˈpruːvmənt/", "noun",
-                    "Small improvements matter.", "بهبودهای کوچک مهمن."),
-                VocabWord("failure", "شکست", "/ˈfeɪljər/", "noun",
-                    "Failure teaches us.", "شکست به ما می‌آموزه."),
-                VocabWord("resilience", "تاب‌آوری", "/rɪˈzɪliəns/", "noun",
-                    "Resilience helps us recover.", "تاب‌آوری به بهبودی کمک می‌کنه."),
-                VocabWord("purpose", "هدف", "/ˈpɜːrpəs/", "noun",
-                    "Find your purpose.", "هدفت رو پیدا کن."),
-                VocabWord("balance", "تعادل", "/ˈbæləns/", "noun",
-                    "Life balance is important.", "تعادل زندگی مهمه."),
-                VocabWord("gratitude", "سپاسگزاری", "/ˈɡrætɪtuːd/", "noun",
-                    "Practice gratitude daily.", "هر روز سپاسگزاری کن.")
-            ),
-            idioms = listOf(
-                IdiomExpression("turn over a new leaf", "شروع تازه کردن",
-                    "He turned over a new leaf.", "او یه شروع تازه کرد.", "idiom"),
-                IdiomExpression("grow as a person", "به عنوان یک شخص رشد کردن",
-                    "Travel helps you grow as a person.", "سفر به رشد شخصی کمک می‌کنه.", "neutral"),
-                IdiomExpression("learn the hard way", "با سختی یاد گرفتن",
-                    "I learned the hard way.", "با سختی یاد گرفتم.", "idiom")
-            ),
-            pronunciationTips = listOf(
-                PronunciationTip("resilience",
-                    "resilience /rɪˈzɪliəns/ — استرس روی zi."),
-                PronunciationTip("gratitude",
-                    "gratitude /ˈɡrætɪtuːd/ — سه سیلاب.")
-            ),
-            culturalNotes = listOf(
-                CulturalNote("Self-help culture",
-                    "فرهنگ خودیاری در غرب رایجه."),
-                CulturalNote("Therapy",
-                    "تراپی در غرب عادیه.")
-            ),
-            grammar = listOf(
-                GrammarSection("Wish + past simple",
-                    """
-                        I wish I had more time.
-                        She wishes she could travel more.
-                    """.trimIndent()),
-                GrammarSection("Wish + past perfect",
-                    """
-                        I wish I had studied harder.
-                        He wishes he hadn't quit.
-                    """.trimIndent()),
-                GrammarSection("Regret + verb-ing",
-                    """
-                        I regret not traveling more.
-                        She regrets leaving her job.
-                    """.trimIndent()),
-                GrammarSection("Present perfect for growth",
-                    """
-                        I've grown a lot this year.
-                        She's become more confident.
-                    """.trimIndent())
-            ),
-            commonMistakes = listOf(
-                CommonMistake("I wish I have more time.", "I wish I had more time.", "wish + past simple."),
-                CommonMistake("I regret to leave.", "I regret leaving.", "regret + verb-ing."),
-                CommonMistake("I wish I didn't do that.", "I wish I hadn't done that.", "برای گذشته: past perfect.")
-            ),
-            conversation = listOf(
-                DialogueLine("A", "Have you grown as a person this year?", "امسال به عنوان یه شخص رشد کردی؟"),
-                DialogueLine("B", "Definitely. I've learned so much about myself.", "قطعاً. چیزهای زیادی درباره خودم یاد گرفتم."),
-                DialogueLine("A", "What helped you grow?", "چی به رشدت کمک کرد؟"),
-                DialogueLine("B", "Challenges. A hard year made me stronger.", "چالش‌ها. سال سخت قوی‌ترم کرد."),
-                DialogueLine("A", "What do you wish you had done differently?", "ای کاش چه کاری متفاوت انجام داده بودی؟"),
-                DialogueLine("B", "I wish I had asked for help sooner.", "ای کاش زودتر کمک خواسته بودم."),
-                DialogueLine("A", "Do you regret anything?", "پشیمانی داری؟"),
-                DialogueLine("B", "I regret not starting therapy earlier.", "پشیمانم که زودتر تراپی رو شروع نکردم."),
-                DialogueLine("A", "What are your goals now?", "اهدافت الان چیه؟"),
-                DialogueLine("B", "To be more present and practice gratitude.", "حاضرتر بودن و سپاسگزاری کردن."),
-                DialogueLine("A", "Do you have a routine?", "روتین داری؟"),
-                DialogueLine("B", "Yes. I journal every morning and exercise.", "بله. هر صبح ژورنال می‌نویسم و ورزش می‌کنم."),
-                DialogueLine("A", "What keeps you motivated?", "چی بهت انگیزه می‌ده؟"),
-                DialogueLine("B", "Remembering why I started.", "یادم میاد چرا شروع کردم."),
-                DialogueLine("A", "What would you tell your younger self?", "به خودتِ جوان‌تر چی می‌گفتی؟"),
-                DialogueLine("B", "Don't be afraid to fail.", "از شکست نترس."),
-                DialogueLine("A", "That's powerful.", "این قدرتمنده."),
-                DialogueLine("B", "We all learn the hard way sometimes.", "ما همه گاهی با سختی یاد می‌گیریم.")
-            ),
-            comprehensionQuestions = listOf(
-                ComprehensionQuestion("B چطور رشد کرده؟", "از طریق چالش‌ها."),
-                ComprehensionQuestion("B چه پشیمانی دارد؟", "زودتر کمک نخواستن و تراپی را شروع نکردن."),
-                ComprehensionQuestion("اهداف B چیست؟", "حاضرتر بودن و سپاسگزاری."),
-                ComprehensionQuestion("B به خود جوان‌ترش چه می‌گوید؟", "از شکست نترس.")
-            ),
-            speakingTasks = listOf(
-                SpeakingTask("Talk about personal growth.",
-                    "درباره رشد شخصی صحبت کن.",
-                    "I've grown... / I've learned..."),
-                SpeakingTask("Express wishes and regrets.",
-                    "آرزوها و پشیمانی‌ات را بیان کن.",
-                    "I wish... / I regret...")
-            ),
-            writingTasks = listOf(
-                WritingTask("Write about how you've grown.",
-                    "درباره اینکه چطور رشد کرده‌ای بنویس.",
-                    180,
-                    "Use wish, regret, and present perfect.")
-            ),
-            quiz = listOf(
-                QuizQuestion("Complete: I wish I ___ more time.",
-                    listOf("have", "had", "will have", "having"), 1),
-                QuizQuestion("Complete: I wish I ___ studied harder.",
-                    listOf("have", "had", "will have", "having"), 1),
-                QuizQuestion("Complete: I regret ___ my job.",
-                    listOf("leave", "leaving", "to leave", "left"), 1),
-                QuizQuestion("What does 'turn over a new leaf' mean?",
-                    listOf("برگ زدن", "شروع تازه کردن", "برگ ریختن", "کتاب خواندن"), 1),
-                QuizQuestion("Complete: I've ___ a lot this year.",
-                    listOf("grow", "grew", "grown", "growing"), 2),
-                QuizQuestion("What does 'learn the hard way' mean?",
-                    listOf("با آسانی یاد گرفتن", "با سختی یاد گرفتن", "به کسی یاد دادن", "درس خواندن"), 1),
-                QuizQuestion("Complete: She ___ leaving her job.",
-                    listOf("regret", "regrets", "regretting", "regretted"), 1),
-                QuizQuestion("Complete: He wishes he ___ quit.",
-                    listOf("didn't", "hadn't", "hasn't", "won't"), 1)
-            )
+// ═══════════════════════════════════════════════════════════
+// CHAPTER 9 — Personal Growth
+// ═══════════════════════════════════════════════════════════
+private fun chapter9(): LessonContent {
+    return LessonContent(
+        bookId = BOOK_ID,
+        chapterNumber = 9,
+        title = "Personal Growth",
+        titlePersian = "رشد شخصی",
+        objectives = listOf(
+            "Discuss personal development",
+            "Use wish and regret accurately",
+            "Talk about goals and habits",
+            "Express reflection on life",
+            "Give advice about self-improvement",
+            "Talk about resilience and mindset"
+        ),
+        vocabulary = listOf(
+            VocabWord("growth", "رشد", "/ɡroʊθ/", "noun",
+                "Personal growth takes time.",
+                "رشد شخصی زمان می‌بره.",
+                collocations = "personal growth, continuous growth"),
+            VocabWord("self-awareness", "خودآگاهی", "/ˌself əˈwernəs/", "noun",
+                "Self-awareness is the first step.",
+                "خودآگاهی اولین قدمه.",
+                collocations = "develop self-awareness, increase self-awareness"),
+            VocabWord("mindset", "ذهنیت", "/ˈmaɪndset/", "noun",
+                "A positive mindset helps a lot.",
+                "ذهنیت مثبت خیلی کمک می‌کنه.",
+                collocations = "positive mindset, growth mindset"),
+            VocabWord("habit", "عادت", "/ˈhæbɪt/", "noun",
+                "Good habits change lives.",
+                "عادت‌های خوب زندگی رو تغییر می‌دن.",
+                collocations = "good habit, break a habit"),
+            VocabWord("discipline", "نظم", "/ˈdɪsəplɪn/", "noun",
+                "Discipline is the key to success.",
+                "نظم کلید موفقیت‌ه.",
+                collocations = "self-discipline, daily discipline"),
+            VocabWord("reflection", "بازنگری", "/rɪˈflekʃən/", "noun",
+                "Take time for reflection each day.",
+                "هر روز برای بازنگری وقت بذار.",
+                collocations = "self-reflection, quiet reflection"),
+            VocabWord("improvement", "بهبود", "/ɪmˈpruːvmənt/", "noun",
+                "Small improvements matter.",
+                "بهبودهای کوچک مهمن.",
+                collocations = "personal improvement, continuous improvement"),
+            VocabWord("failure", "شکست", "/ˈfeɪljər/", "noun",
+                "Failure teaches us valuable lessons.",
+                "شکست درس‌های ارزشمندی به ما می‌ده.",
+                collocations = "learn from failure, fear of failure"),
+            VocabWord("resilience", "تاب‌آوری", "/rɪˈzɪliəns/", "noun",
+                "Resilience helps us recover.",
+                "تاب‌آوری به بهبودی کمک می‌کنه.",
+                collocations = "build resilience, remarkable resilience"),
+            VocabWord("purpose", "هدف", "/ˈpɜːrpəs/", "noun",
+                "Find your purpose in life.",
+                "هدف زندگی‌ات رو پیدا کن.",
+                collocations = "sense of purpose, find purpose"),
+            VocabWord("balance", "تعادل", "/ˈbæləns/", "noun",
+                "Life balance is important.",
+                "تعادل زندگی مهمه.",
+                collocations = "work-life balance, find balance"),
+            VocabWord("gratitude", "سپاسگزاری", "/ˈɡrætɪtuːd/", "noun",
+                "Practice gratitude daily.",
+                "هر روز سپاسگزاری کن.",
+                collocations = "express gratitude, show gratitude"),
+            VocabWord("commitment", "تعهد", "/kəˈmɪtmənt/", "noun",
+                "Success requires commitment.",
+                "موفقیت نیازمند تعهده.",
+                collocations = "strong commitment, make a commitment")
+        ),
+        idioms = listOf(
+            IdiomExpression("turn over a new leaf", "شروع تازه کردن",
+                "He turned over a new leaf this year.",
+                "امسال یه شروع تازه کرد.",
+                register = "idiom"),
+            IdiomExpression("grow as a person", "به عنوان یک شخص رشد کردن",
+                "Travel helps you grow as a person.",
+                "سفر به رشد شخصی کمک می‌کنه.",
+                register = "neutral"),
+            IdiomExpression("learn the hard way", "با سختی یاد گرفتن",
+                "I learned the hard way.",
+                "با سختی یاد گرفتم.",
+                register = "idiom")
+        ),
+        phrasalVerbs = listOf(
+            PhrasalVerb("give up", "تسلیم شدن",
+                "رها کردن، دست کشیدن",
+                "Never give up on your dreams.",
+                "هرگز رویاهات رو رها نکن.",
+                separable = "Yes"),
+            PhrasalVerb("stick to", "پایبند ماندن به",
+                "ادامه دادن چیزی",
+                "Stick to your daily routine.",
+                "به روتین روزانه‌ات پایبند بمون.",
+                separable = "No")
+        ),
+        pronunciationTips = listOf(
+            PronunciationTip("Resilience stress",
+                "resilience /rɪˈzɪliəns/ — main stress on ZIL. Four syllables."),
+            PronunciationTip("Gratitude stress",
+                "gratitude /ˈɡrætɪtuːd/ — main stress on GRA. Three syllables."),
+            PronunciationTip("Wish + past rhythm",
+                "I wish I HAD more time. — Stress the past verb in wish clauses.")
+        ),
+        culturalNotes = listOf(
+            CulturalNote("Self-help culture",
+                "Self-help and personal development are huge industries in Western cultures. Books, podcasts, courses, and apps about self-improvement are widely popular."),
+            CulturalNote("Therapy and mental health",
+                "Therapy is increasingly common and de-stigmatized in many Western countries. Talking about mental health, personal challenges, and emotional growth is more accepted than in the past.")
+        ),
+        grammar = listOf(
+            GrammarSection("Wish + past simple",
+                "I wish I had more time. / She wishes she could travel more. — Use for present regrets or desires that are unlikely."),
+            GrammarSection("Wish + past perfect",
+                "I wish I had studied harder. / He wishes he hadn't quit. — Use for regrets about the past."),
+            GrammarSection("Regret + verb-ing",
+                "I regret not traveling more. / She regrets leaving her job. — Use for things you did or didn't do."),
+            GrammarSection("Present perfect for growth",
+                "I've grown a lot this year. / She's become more confident. — Use the present perfect for personal changes over time.")
+        ),
+        commonMistakes = listOf(
+            CommonMistake("I wish I have more time.", "I wish I had more time.",
+                "Use past simple after 'wish' for present situations."),
+            CommonMistake("I regret to leave.", "I regret leaving.",
+                "Use gerund after 'regret' for actions already done."),
+            CommonMistake("I wish I didn't do that.", "I wish I hadn't done that.",
+                "For past regrets, use past perfect after 'wish'."),
+            CommonMistake("I wish I can fly.", "I wish I could fly.",
+                "After 'wish', use past modals like 'could', not 'can'.")
+        ),
+        conversation = listOf(
+            DialogueLine("Ethan", "Have you grown as a person this year?",
+                "امسال به عنوان یه شخص رشد کردی؟"),
+            DialogueLine("Olivia", "Definitely. I've learned so much about myself.",
+                "قطعاً. چیزهای زیادی درباره خودم یاد گرفتم."),
+            DialogueLine("Ethan", "What helped you grow?",
+                "چی به رشدت کمک کرد؟"),
+            DialogueLine("Olivia", "Challenges. A hard year made me stronger.",
+                "چالش‌ها. یه سال سخت قوی‌ترم کرد."),
+            DialogueLine("Ethan", "What do you wish you had done differently?",
+                "ای کاش چه کاری متفاوت انجام داده بودی؟"),
+            DialogueLine("Olivia", "I wish I had asked for help sooner.",
+                "ای کاش زودتر کمک خواسته بودم."),
+            DialogueLine("Ethan", "Do you regret anything?",
+                "پشیمانی داری؟"),
+            DialogueLine("Olivia", "I regret not starting therapy earlier.",
+                "پشیمانم که زودتر تراپی رو شروع نکردم."),
+            DialogueLine("Ethan", "What are your goals now?",
+                "اهدافت الان چیه؟"),
+            DialogueLine("Olivia", "To be more present and practice gratitude.",
+                "حاضرتر بودن و سپاسگزاری کردن."),
+            DialogueLine("Ethan", "Do you have a daily routine?",
+                "روتین روزانه داری؟"),
+            DialogueLine("Olivia", "Yes. I journal every morning and exercise three times a week.",
+                "بله. هر صبح ژورنال می‌نویسم و هفته‌ای سه بار ورزش می‌کنم."),
+            DialogueLine("Ethan", "What keeps you motivated?",
+                "چی بهت انگیزه می‌ده؟"),
+            DialogueLine("Olivia", "Remembering why I started.",
+                "یادم میاد چرا شروع کردم."),
+            DialogueLine("Ethan", "What would you tell your younger self?",
+                "به خودتِ جوان‌تر چی می‌گفتی؟"),
+            DialogueLine("Olivia", "Don't be afraid to fail. Failure teaches us.",
+                "از شکست نترس. شکست به ما یاد می‌ده."),
+            DialogueLine("Ethan", "That's powerful. Have you always been this positive?",
+                "این قدرتمنده. همیشه اینقدر مثبت بودی؟"),
+            DialogueLine("Olivia", "No. It took time and effort. I learned the hard way.",
+                "نه. زمان و تلاش برد. با سختی یاد گرفتم."),
+            DialogueLine("Ethan", "You turned over a new leaf.",
+                "یه شروع تازه کردی."),
+            DialogueLine("Olivia", "Yes. And I'm happier for it.",
+                "بله. و براش خوشحال‌ترم."),
+            DialogueLine("Ethan", "That's inspiring. Thanks for sharing.",
+                "الهام‌بخشه. ممنون که به اشتراک گذاشتی."),
+            DialogueLine("Olivia", "Anytime. We all grow in different ways.",
+                "هر وقت. همه ما به روش‌های مختلفی رشد می‌کنیم."),
+            DialogueLine("Ethan", "True. Good luck on your journey.",
+                "درسته. در مسیرت موفق باشی."),
+            DialogueLine("Olivia", "Thanks! You too!",
+                "ممنون! تو هم!")
+        ),
+        comprehensionQuestions = listOf(
+            ComprehensionQuestion("Olivia چطور رشد کرده است؟",
+                "از طریق چالش‌ها."),
+            ComprehensionQuestion("Olivia چه پشیمانی دارد؟",
+                "زودتر کمک نخواستن و تراپی را شروع نکردن."),
+            ComprehensionQuestion("اهداف Olivia چیست؟",
+                "حاضرتر بودن و سپاسگزاری کردن."),
+            ComprehensionQuestion("روتین روزانه Olivia چیست؟",
+                "هر صبح ژورنال می‌نویسد و هفته‌ای سه بار ورزش می‌کند."),
+            ComprehensionQuestion("Olivia به خود جوان‌ترش چه می‌گوید؟",
+                "از شکست نترس — شکست به ما یاد می‌دهد.")
+        ),
+        speakingTasks = listOf(
+            SpeakingTask("Talk about personal growth and change.",
+                "درباره رشد و تغییر شخصی صحبت کن.",
+                "I've grown... / I've learned... / I've become..."),
+            SpeakingTask("Express wishes and regrets.",
+                "آرزوها و پشیمانی‌هایت را بیان کن.",
+                "I wish... / I regret... / If only..."),
+            SpeakingTask("Give advice about self-improvement.",
+                "درباره خودسازی توصیه کن.",
+                "You should... / Have you tried...? / It might help to...")
+        ),
+        writingTasks = listOf(
+            WritingTask("Write about how you've grown over the past year.",
+                "درباره اینکه در سال گذشته چطور رشد کرده‌ای بنویس.",
+                200,
+                "Use wish, regret, and present perfect. Include at least two idioms.")
+        ),
+        quiz = listOf(
+            QuizQuestion("Complete: I wish I ___ more time.",
+                listOf("have", "had", "will have", "having"), 1),
+            QuizQuestion("Complete: I wish I ___ studied harder.",
+                listOf("have", "had", "will have", "having"), 1),
+            QuizQuestion("Complete: I regret ___ my job.",
+                listOf("leave", "leaving", "to leave", "left"), 1),
+            QuizQuestion("What does 'turn over a new leaf' mean?",
+                listOf("برگ زدن", "شروع تازه کردن", "برگ ریختن", "کتاب خواندن"), 1),
+            QuizQuestion("Complete: I've ___ a lot this year.",
+                listOf("grow", "grew", "grown", "growing"), 2),
+            QuizQuestion("What does 'learn the hard way' mean?",
+                listOf("با آسانی یاد گرفتن", "با سختی یاد گرفتن", "به کسی یاد دادن", "درس خواندن"), 1),
+            QuizQuestion("Complete: She ___ leaving her job.",
+                listOf("regret", "regrets", "regretting", "regretted"), 1),
+            QuizQuestion("Complete: He wishes he ___ quit.",
+                listOf("didn't", "hadn't", "hasn't", "won't"), 1)
         )
-    }
-
-    // ═══════════════════════════════════════════════════════════
+    )
+}    // ═══════════════════════════════════════════════════════════
     // CHAPTER 10 — The Environment
     // ═══════════════════════════════════════════════════════════
     private fun chapter10(): LessonContent {
@@ -1407,127 +2103,205 @@ object FourCorners3 {
             title = "The Environment",
             titlePersian = "محیط زیست",
             objectives = listOf(
-                "Talk about the environment",
-                "Use conditionals",
-                "Discuss sustainability",
-                "Express responsibility"
+                "Talk about environmental issues",
+                "Use conditionals for environmental action",
+                "Discuss sustainability and responsibility",
+                "Express concern and hope about the planet",
+                "Give advice about eco-friendly habits",
+                "Debate environmental policy"
             ),
             vocabulary = listOf(
                 VocabWord("environment", "محیط زیست", "/ɪnˈvaɪrənmənt/", "noun",
-                    "We must protect the environment.", "باید از محیط زیست محافظت کنیم."),
+                    "We must protect the environment.",
+                    "باید از محیط زیست محافظت کنیم.",
+                    collocations = "protect the environment, natural environment"),
                 VocabWord("climate", "اقلیم", "/ˈklaɪmət/", "noun",
-                    "Climate change is serious.", "تغییر اقلیم جدیه."),
+                    "Climate change is a serious problem.",
+                    "تغییر اقلیم مسئله جدیه.",
+                    collocations = "climate change, global climate"),
                 VocabWord("pollution", "آلودگی", "/pəˈluːʃən/", "noun",
-                    "Air pollution is harmful.", "آلودگی هوا مضره."),
+                    "Air pollution affects everyone.",
+                    "آلودگی هوا همه رو تحت تأثیر قرار می‌ده.",
+                    collocations = "air pollution, reduce pollution"),
                 VocabWord("renewable", "تجدیدپذیر", "/rɪˈnuːəbəl/", "adjective",
-                    "Solar is renewable energy.", "خورشیدی انرژی تجدیدپذیره."),
+                    "Solar energy is renewable.",
+                    "انرژی خورشیدی تجدیدپذیره.",
+                    collocations = "renewable energy, renewable resources"),
                 VocabWord("sustainable", "پایدار", "/səˈsteɪnəbəl/", "adjective",
-                    "We need sustainable solutions.", "به راه‌حل‌های پایدار نیاز داریم."),
+                    "We need sustainable solutions.",
+                    "به راه‌حل‌های پایدار نیاز داریم.",
+                    collocations = "sustainable development, sustainable living"),
                 VocabWord("recycle", "بازیافت کردن", "/ˌriːˈsaɪkəl/", "verb",
-                    "We recycle paper.", "ما کاغذ بازیافت می‌کنیم."),
+                    "We recycle paper and plastic at home.",
+                    "در خانه کاغذ و پلاستیک بازیافت می‌کنیم.",
+                    collocations = "recycle waste, recycle materials"),
                 VocabWord("protect", "محافظت کردن", "/prəˈtekt/", "verb",
-                    "Let's protect nature.", "بیا از طبیعت محافظت کنیم."),
+                    "Let's protect nature together.",
+                    "بیا با هم از طبیعت محافظت کنیم.",
+                    collocations = "protect nature, protect wildlife"),
                 VocabWord("waste", "زباله", "/weɪst/", "noun",
-                    "Waste is a global problem.", "زباله مسئله جهانیه."),
+                    "Waste is a global problem.",
+                    "زباله مسئله جهانیه.",
+                    collocations = "reduce waste, plastic waste"),
                 VocabWord("carbon footprint", "ردپای کربن", "/ˈkɑːrbən ˈfʊtprɪnt/", "noun",
-                    "Reduce your carbon footprint.", "ردپای کربنت رو کم کن."),
-                VocabWord("emission", "انتشار", "/ɪˈmɪʃən/", "noun",
-                    "Emissions must be reduced.", "انتشارها باید کاهش یابند."),
+                    "Reduce your carbon footprint.",
+                    "ردپای کربنت رو کم کن.",
+                    collocations = "small carbon footprint, reduce carbon footprint"),
+                VocabWord("emission", "انتشار گاز", "/ɪˈmɪʃən/", "noun",
+                    "Emissions must be reduced.",
+                    "انتشارها باید کاهش یابند.",
+                    collocations = "carbon emissions, reduce emissions"),
                 VocabWord("aware", "آگاه", "/əˈwer/", "adjective",
-                    "Be aware of your impact.", "از تأثیرت آگاه باش."),
+                    "Be aware of your impact on the planet.",
+                    "از تأثیرت روی سیاره آگاه باش.",
+                    collocations = "environmentally aware, become aware"),
                 VocabWord("responsibility", "مسئولیت", "/rɪˌspɑːnsəˈbɪləti/", "noun",
-                    "We all have responsibility.", "همه مسئولیت داریم.")
+                    "We all have a responsibility to help.",
+                    "همه ما مسئولیت کمک داریم.",
+                    collocations = "shared responsibility, take responsibility"),
+                VocabWord("conservation", "حفاظت", "/ˌkɑːnsərˈveɪʃən/", "noun",
+                    "Wildlife conservation is essential.",
+                    "حفاظت از حیات وحش ضروریه.",
+                    collocations = "wildlife conservation, conservation efforts")
             ),
             idioms = listOf(
                 IdiomExpression("go green", "دوستدار محیط زیست شدن",
-                    "Many companies are going green.", "بسیاری از شرکت‌ها سبز می‌شن.", "informal"),
+                    "Many companies are going green.",
+                    "بسیاری از شرکت‌ها سبز می‌شن.",
+                    register = "informal"),
                 IdiomExpression("take responsibility", "مسئولیت پذیرفتن",
-                    "We must take responsibility.", "باید مسئولیت بپذیریم.", "neutral"),
+                    "We must take responsibility for our actions.",
+                    "باید مسئولیت اعمالمان را بپذیریم.",
+                    register = "neutral"),
                 IdiomExpression("walk the talk", "عمل کردن به حرف",
-                    "If we care, we should walk the talk.", "اگه اهمیت می‌دیم، باید عمل کنیم.", "idiom")
+                    "If we care, we should walk the talk.",
+                    "اگه اهمیت می‌دیم، باید عمل کنیم.",
+                    register = "idiom")
+            ),
+            phrasalVerbs = listOf(
+                PhrasalVerb("cut down on", "کم کردن مصرف",
+                    "کاهش دادن میزان چیزی",
+                    "We should cut down on plastic use.",
+                    "باید مصرف پلاستیک رو کم کنیم.",
+                    separable = "No"),
+                PhrasalVerb("throw away", "دور انداختن",
+                    "به عنوان زباله دور ریختن",
+                    "Don't throw away recyclable materials.",
+                    "مواد قابل بازیافت رو دور ننداز.",
+                    separable = "Yes")
             ),
             pronunciationTips = listOf(
-                PronunciationTip("environment",
-                    "environment /ɪnˈvaɪrənmənt/ — استرس روی vi."),
-                PronunciationTip("sustainable",
-                    "sustainable /səˈsteɪnəbəl/ — چهار سیلاب.")
+                PronunciationTip("Environment stress",
+                    "environment /ɪnˈvaɪrənmənt/ — main stress on VI. Four syllables."),
+                PronunciationTip("Sustainable stress",
+                    "sustainable /səˈsteɪnəbəl/ — main stress on STA. Four syllables."),
+                PronunciationTip("Conditional rhythm in environmental talk",
+                    "If we recycle, we'll help the planet. — Stress recycle and help.")
             ),
             culturalNotes = listOf(
-                CulturalNote("Climate agreements",
-                    "توافق‌نامه‌های اقلیمی در غرب مهمن."),
-                CulturalNote("Green products",
-                    "محصولات سبز در غرب محبوبند.")
+                CulturalNote("Environmental awareness in the West",
+                    "In English-speaking cultures, environmental awareness is part of modern identity. Recycling, reducing plastic, using public transport, and vegetarianism are common topics. The question 'How green are you?' is common."),
+                CulturalNote("Climate activism",
+                    "Climate activists like Greta Thunberg are well-known figures in the West. Debates about individual responsibility vs. corporate responsibility are common in daily conversation.")
             ),
             grammar = listOf(
                 GrammarSection("First conditional",
-                    """
-                        If + present simple, will + verb
-
-                        If we recycle, we will help the planet.
-                        If you don't act, things will get worse.
-                    """.trimIndent()),
+                    "If + present simple, will + verb. If we recycle, we will help the planet. / If you don't act, things will get worse. — Use for real future possibilities."),
                 GrammarSection("Should for environment",
-                    """
-                        We should recycle more.
-                        We shouldn't waste water.
-                    """.trimIndent()),
+                    "We should recycle more. / We shouldn't waste water. — Use 'should' to give advice about environmental actions."),
                 GrammarSection("Passive for environmental issues",
-                    """
-                        Forests are being destroyed.
-                        Plastic is being thrown away.
-                        Emissions must be reduced.
-                    """.trimIndent()),
+                    "Forests are being destroyed. / Plastic is being thrown away. / Emissions must be reduced. — The passive focuses on the action, not the doer."),
                 GrammarSection("Imperatives for action",
-                    """
-                        Reduce, reuse, recycle.
-                        Save energy and water.
-                        Don't waste food.
-                    """.trimIndent())
+                    "Reduce, reuse, recycle. / Save energy and water. / Don't waste food. — Use imperative sentences for direct calls to action.")
             ),
             commonMistakes = listOf(
-                CommonMistake("If we will recycle, we help.", "If we recycle, we will help.", "در if از present simple."),
-                CommonMistake("We should to protect.", "We should protect.", "بعد از should فعل ساده."),
-                CommonMistake("Plastic is throwing.", "Plastic is being thrown.", "passive: be being + pp.")
+                CommonMistake("If we will recycle, we help.", "If we recycle, we will help.",
+                    "In the if-clause, use present simple, not 'will'."),
+                CommonMistake("We should to protect.", "We should protect.",
+                    "After 'should', use the base verb without 'to'."),
+                CommonMistake("Plastic is throwing.", "Plastic is being thrown.",
+                    "Passive continuous: be + being + past participle."),
+                CommonMistake("The environment is important for we.", "The environment is important for us.",
+                    "After 'for', use the object pronoun 'us', not the subject 'we'.")
             ),
             conversation = listOf(
-                DialogueLine("A", "Are you worried about climate change?", "درباره تغییر اقلیم نگرانی؟"),
-                DialogueLine("B", "Yes, it's one of the biggest problems.", "بله، یکی از بزرگ‌ترین مشکلاته."),
-                DialogueLine("A", "What do you do for the environment?", "برای محیط زیست چیکار می‌کنی؟"),
-                DialogueLine("B", "I recycle, save water, and use public transport.", "بازیافت، ذخیره آب، حمل و نقل عمومی."),
-                DialogueLine("A", "Do you use renewable energy?", "از انرژی تجدیدپذیر استفاده می‌کنی؟"),
-                DialogueLine("B", "Not yet, but I'm thinking about solar panels.", "هنوز نه، ولی به پنل خورشیدی فکر می‌کنم."),
-                DialogueLine("A", "What does the future hold?", "فکر می‌کنی آینده چی داره؟"),
-                DialogueLine("B", "If we don't act, it will get worse.", "اگه اقدام نکنیم، بدتر می‌شه."),
-                DialogueLine("A", "What should we do first?", "اول باید چیکار کنیم؟"),
-                DialogueLine("B", "Reduce waste, use green energy, educate people.", "کاهش زباله، انرژی سبز، آموزش مردم."),
-                DialogueLine("A", "Should governments do more?", "دولت‌ها باید بیشتر انجام بدن؟"),
-                DialogueLine("B", "Definitely. Policies make a difference.", "قطعاً. سیاست‌ها تفاوت ایجاد می‌کنن."),
-                DialogueLine("A", "What about individuals?", "افراد چطور؟"),
-                DialogueLine("B", "Small changes add up.", "تغییرات کوچک جمع می‌شن."),
-                DialogueLine("A", "I'll do more.", "منم بیشتر انجام می‌دم."),
-                DialogueLine("B", "Together we can make a difference.", "با هم می‌تونیم تفاوت ایجاد کنیم."),
-                DialogueLine("A", "The planet needs us.", "سیاره به ما نیاز داره."),
-                DialogueLine("B", "Let's protect it.", "بیا ازش محافظت کنیم.")
+                DialogueLine("Nora", "Are you worried about climate change?",
+                    "درباره تغییر اقلیم نگرانی؟"),
+                DialogueLine("Sam", "Yes, it's one of the biggest problems we face.",
+                    "بله، یکی از بزرگ‌ترین مشکلاتی که باهاش روبرویم."),
+                DialogueLine("Nora", "What do you do for the environment?",
+                    "برای محیط زیست چیکار می‌کنی؟"),
+                DialogueLine("Sam", "I recycle, save water, and use public transport.",
+                    "بازیافت می‌کنم، آب ذخیره می‌کنم، و از حمل و نقل عمومی استفاده می‌کنم."),
+                DialogueLine("Nora", "Do you use renewable energy?",
+                    "از انرژی تجدیدپذیر استفاده می‌کنی؟"),
+                DialogueLine("Sam", "Not yet, but I'm thinking about solar panels.",
+                    "هنوز نه، ولی به پنل خورشیدی فکر می‌کنم."),
+                DialogueLine("Nora", "That's a great investment.",
+                    "سرمایه‌گذاری عالی‌ایه."),
+                DialogueLine("Sam", "What about you? Any green habits?",
+                    "تو چطور؟ عادت‌های سبز داری؟"),
+                DialogueLine("Nora", "I've been cutting down on plastic and buying local food.",
+                    "مصرف پلاستیک رو کم کرده‌ام و غذای محلی می‌خرم."),
+                DialogueLine("Sam", "That's great. Small actions add up.",
+                    "عالیه. کارهای کوچک جمع می‌شن."),
+                DialogueLine("Nora", "What does the future hold if we don't act?",
+                    "اگه اقدام نکنیم آینده چی می‌شه؟"),
+                DialogueLine("Sam", "If we don't act, it will get much worse.",
+                    "اگه اقدام نکنیم، خیلی بدتر می‌شه."),
+                DialogueLine("Nora", "What should we do first?",
+                    "اول باید چیکار کنیم؟"),
+                DialogueLine("Sam", "Reduce waste, use green energy, and educate people.",
+                    "کاهش زباله، انرژی سبز، و آموزش مردم."),
+                DialogueLine("Nora", "Should governments do more?",
+                    "دولت‌ها باید بیشتر انجام بدن؟"),
+                DialogueLine("Sam", "Definitely. Policies make a real difference.",
+                    "قطعاً. سیاست‌ها تفاوت واقعی ایجاد می‌کنن."),
+                DialogueLine("Nora", "What about individuals like us?",
+                    "افرادی مثل ما چطور؟"),
+                DialogueLine("Sam", "Every small change adds up. We shouldn't underestimate our impact.",
+                    "هر تغییر کوچکی جمع می‌شه. نباید تأثیرمون رو دست‌کم بگیریم."),
+                DialogueLine("Nora", "I'll do more. Starting today.",
+                    "منم بیشتر انجام می‌دم. از امروز شروع می‌کنم."),
+                DialogueLine("Sam", "Together we can make a difference.",
+                    "با هم می‌تونیم تفاوت ایجاد کنیم."),
+                DialogueLine("Nora", "The planet needs us now more than ever.",
+                    "سیاره الان بیشتر از همیشه به ما نیاز داره."),
+                DialogueLine("Sam", "Let's protect it for future generations.",
+                    "بیا برای نسل‌های آینده ازش محافظت کنیم."),
+                DialogueLine("Nora", "Well said. We should walk the talk.",
+                    "خوب گفتی. باید عمل کنیم."),
+                DialogueLine("Sam", "Couldn't agree more.",
+                    "کاملاً موافقم.")
             ),
             comprehensionQuestions = listOf(
-                ComprehensionQuestion("B برای محیط زیست چیکار می‌کند؟", "بازیافت، ذخیره آب، حمل و نقل عمومی."),
-                ComprehensionQuestion("B به چه چیزی فکر می‌کند؟", "پنل خورشیدی."),
-                ComprehensionQuestion("B فکر می‌کند اگر اقدام نکنیم چه می‌شود؟", "بدتر می‌شود."),
-                ComprehensionQuestion("B چه پیشنهادی برای آینده دارد؟", "کاهش زباله، انرژی سبز، آموزش.")
+                ComprehensionQuestion("Sam برای محیط زیست چیکار می‌کند؟",
+                    "بازیافت، ذخیره آب، حمل و نقل عمومی."),
+                ComprehensionQuestion("Sam به چه چیزی فکر می‌کند؟",
+                    "پنل خورشیدی."),
+                ComprehensionQuestion("اگر اقدام نکنیم چه می‌شود؟",
+                    "اوضاع خیلی بدتر می‌شود."),
+                ComprehensionQuestion("Sam چه پیشنهادی برای اقدام اولیه دارد؟",
+                    "کاهش زباله، انرژی سبز، آموزش مردم."),
+                ComprehensionQuestion("پیام نهایی Sam و Nora چیست؟",
+                    "کارهای کوچک جمع می‌شوند — بیایید برای نسل‌های آینده از سیاره محافظت کنیم.")
             ),
             speakingTasks = listOf(
-                SpeakingTask("Talk about environmental problems.",
-                    "درباره مشکلات زیست‌محیطی صحبت کن.",
-                    "The environment is... / We should..."),
-                SpeakingTask("Discuss solutions.",
-                    "درباره راه‌حل‌ها صحبت کن.",
-                    "If we..., we could...")
+                SpeakingTask("Talk about environmental problems and solutions.",
+                    "درباره مشکلات و راه‌حل‌های زیست‌محیطی صحبت کن.",
+                    "The environment is... / We should... / If we..., we will..."),
+                SpeakingTask("Discuss your eco-friendly habits.",
+                    "درباره عادت‌های دوستدار محیط زیستت صحبت کن.",
+                    "I recycle... / I've started... / I'm trying to..."),
+                SpeakingTask("Debate whose responsibility it is to protect the environment.",
+                    "بحث کن مسئولیت حفاظت از محیط زیست با کیست.",
+                    "I believe... / It's everyone's responsibility... / Governments should...")
             ),
             writingTasks = listOf(
                 WritingTask("Write about how to protect the environment.",
-                    "درباره حفاظت از محیط زیست بنویس.",
-                    180,
-                    "Use first conditional and should.")
+                    "درباره چگونگی حفاظت از محیط زیست بنویس.",
+                    220,
+                    "Use first conditional, should, and imperatives. Include at least two idioms.")
             ),
             quiz = listOf(
                 QuizQuestion("Complete: If we recycle, we ___ help.",
@@ -1560,125 +2334,205 @@ object FourCorners3 {
             title = "Culture and Arts",
             titlePersian = "فرهنگ و هنر",
             objectives = listOf(
-                "Discuss art and culture",
+                "Discuss art and cultural experiences",
                 "Use inversion for emphasis",
-                "Talk about cultural experiences",
-                "Express appreciation"
+                "Talk about cultural heritage",
+                "Express appreciation for art",
+                "Discuss the role of art in society",
+                "Describe performances and exhibitions"
             ),
             vocabulary = listOf(
                 VocabWord("art", "هنر", "/ɑːrt/", "noun",
-                    "Art expresses emotions.", "هنر احساسات را بیان می‌کند."),
+                    "Art expresses emotions and ideas.",
+                    "هنر احساسات و ایده‌ها رو بیان می‌کنه.",
+                    collocations = "modern art, fine art"),
                 VocabWord("culture", "فرهنگ", "/ˈkʌltʃər/", "noun",
-                    "Culture shapes identity.", "فرهنگ هویت را شکل می‌دهد."),
+                    "Culture shapes our identity.",
+                    "فرهنگ هویت ما رو شکل می‌ده.",
+                    collocations = "pop culture, cultural identity"),
                 VocabWord("tradition", "سنت", "/trəˈdɪʃən/", "noun",
-                    "Traditions connect generations.", "سنت‌ها نسل‌ها را وصل می‌کنند."),
+                    "Traditions connect generations.",
+                    "سنت‌ها نسل‌ها رو وصل می‌کنن.",
+                    collocations = "family tradition, cultural tradition"),
                 VocabWord("performance", "اجرا", "/pərˈfɔːrməns/", "noun",
-                    "The performance was amazing.", "اجرا فوق‌العاده بود."),
+                    "The performance was amazing.",
+                    "اجرا فوق‌العاده بود.",
+                    collocations = "live performance, brilliant performance"),
                 VocabWord("exhibition", "نمایشگاه", "/ˌeksɪˈbɪʃən/", "noun",
-                    "We visited an exhibition.", "از نمایشگاه بازدید کردیم."),
+                    "We visited an art exhibition.",
+                    "از یه نمایشگاه هنری بازدید کردیم.",
+                    collocations = "art exhibition, photography exhibition"),
                 VocabWord("heritage", "میراث", "/ˈherɪtɪdʒ/", "noun",
-                    "Cultural heritage is precious.", "میراث فرهنگی ارزشمنده."),
+                    "Cultural heritage is precious.",
+                    "میراث فرهنگی ارزشمنده.",
+                    collocations = "cultural heritage, world heritage"),
                 VocabWord("creative", "خلاق", "/kriˈeɪtɪv/", "adjective",
-                    "Artists are creative.", "هنرمندان خلاقند."),
+                    "Artists are usually very creative.",
+                    "هنرمندان معمولاً خیلی خلاقن.",
+                    collocations = "highly creative, creative process"),
                 VocabWord("inspire", "الهام بخشیدن", "/ɪnˈspaɪər/", "verb",
-                    "Art inspires people.", "هنر الهام می‌بخشه."),
+                    "Great art inspires people.",
+                    "هنر بزرگ به مردم الهام می‌بخشه.",
+                    collocations = "deeply inspire, inspire others"),
                 VocabWord("masterpiece", "شاهکار", "/ˈmæstərpiːs/", "noun",
-                    "This is a masterpiece.", "این یه شاهکاره."),
+                    "This painting is a masterpiece.",
+                    "این نقاشی یه شاهکاره.",
+                    collocations = "artistic masterpiece, literary masterpiece"),
                 VocabWord("perform", "اجرا کردن", "/pərˈfɔːrm/", "verb",
-                    "She performs beautifully.", "زیبا اجرا می‌کنه."),
+                    "She performs beautifully on stage.",
+                    "روی صحنه زیبا اجرا می‌کنه.",
+                    collocations = "perform live, perform well"),
                 VocabWord("appreciate", "قدردانی کردن", "/əˈpriːʃieɪt/", "verb",
-                    "We should appreciate art.", "باید هنر رو قدردانی کنیم."),
+                    "We should appreciate art more.",
+                    "باید بیشتر هنر رو قدردانی کنیم.",
+                    collocations = "fully appreciate, appreciate beauty"),
                 VocabWord("audience", "مخاطب", "/ˈɔːdiəns/", "noun",
-                    "The audience loved it.", "مخاطب عاشقش شد.")
+                    "The audience loved the performance.",
+                    "مخاطب عاشق اجرا شد.",
+                    collocations = "large audience, enthusiastic audience"),
+                VocabWord("gallery", "گالری", "/ˈɡæləri/", "noun",
+                    "There's a new gallery downtown.",
+                    "یه گالری جدید در مرکز شهر هست.",
+                    collocations = "art gallery, photography gallery")
             ),
             idioms = listOf(
                 IdiomExpression("state of the art", "پیشرفته‌ترین",
-                    "The museum has state-of-the-art tech.", "موزه پیشرفته‌ترین تکنولوژی رو داره.", "neutral"),
+                    "The museum has state-of-the-art technology.",
+                    "موزه پیشرفته‌ترین تکنولوژی رو داره.",
+                    register = "neutral"),
                 IdiomExpression("food for thought", "مایه تفکر",
-                    "The film gave me food for thought.", "فیلم مایه تفکر داد.", "idiom"),
+                    "The film gave me food for thought.",
+                    "فیلم بهم مایه تفکر داد.",
+                    register = "idiom"),
                 IdiomExpression("a work of art", "اثر هنری",
-                    "This building is a work of art.", "این ساختمان یه اثر هنریه.", "neutral")
+                    "This building is a work of art.",
+                    "این ساختمان یه اثر هنریه.",
+                    register = "neutral")
+            ),
+            phrasalVerbs = listOf(
+                PhrasalVerb("take in", "جذب کردن",
+                    "دیدن و درک کامل چیزی",
+                    "We took in the whole exhibition in two hours.",
+                    "کل نمایشگاه رو در دو ساعت دیدیم.",
+                    separable = "Yes"),
+                PhrasalVerb("put on", "برگزار کردن",
+                    "اجرا یا رویداد برگزار کردن",
+                    "They're putting on a play next month.",
+                    "ماه بعد یه نمایش برگزار می‌کنن.",
+                    separable = "Yes")
             ),
             pronunciationTips = listOf(
-                PronunciationTip("exhibition",
-                    "exhibition /ˌeksɪˈbɪʃən/ — استرس روی bi."),
-                PronunciationTip("masterpiece",
-                    "masterpiece /ˈmæstərpiːs/ — استرس روی mas.")
+                PronunciationTip("Exhibition stress",
+                    "exhibition /ˌeksɪˈbɪʃən/ — main stress on BI. Four syllables."),
+                PronunciationTip("Masterpiece stress",
+                    "masterpiece /ˈmæstərpiːs/ — stress on MAS. Three syllables."),
+                PronunciationTip("Inversion emphasis",
+                    "Rarely HAVE I SEEN such beauty. — Stress the auxiliary and the key words.")
             ),
             culturalNotes = listOf(
-                CulturalNote("Museums",
-                    "موزه‌ها در غرب بخش مهمی از فرهنگند."),
-                CulturalNote("Cultural heritage",
-                    "حفاظت از میراث فرهنگی اولویت داره.")
+                CulturalNote("Museums and galleries",
+                    "Museums and art galleries are important cultural institutions in Western countries. Many are free to the public, and art appreciation is often part of school education."),
+                CulturalNote("Cultural heritage protection",
+                    "Protecting cultural heritage is a major priority in many countries. UNESCO World Heritage Sites are internationally recognized for their cultural or natural significance.")
             ),
             grammar = listOf(
                 GrammarSection("Inversion for emphasis",
-                    """
-                        Rarely have I seen such beauty.
-                        Never before had we experienced this.
-                        Not only is it beautiful, but meaningful.
-                    """.trimIndent()),
+                    "Rarely have I seen such beauty. / Never before had we experienced this. / Not only is it beautiful, but meaningful. — Inversion adds emphasis and is common in formal or literary English."),
                 GrammarSection("Passive for art",
-                    """
-                        The painting was created in 1900.
-                        The symphony has been performed many times.
-                    """.trimIndent()),
+                    "The painting was created in 1900. / The symphony has been performed many times. — Passive voice is common when talking about artworks and their history."),
                 GrammarSection("Expressing appreciation",
-                    """
-                        I really appreciate...
-                        It's truly remarkable.
-                        What a masterpiece!
-                    """.trimIndent()),
+                    "I really appreciate... / It's truly remarkable. / What a masterpiece! — Use these phrases to express appreciation for art."),
                 GrammarSection("Cleft sentences for art",
-                    """
-                        What impressed me was the colors.
-                        It was the music that moved me.
-                    """.trimIndent())
+                    "What impressed me was the colors. / It was the music that moved me. — Cleft sentences emphasize a particular element.")
             ),
             commonMistakes = listOf(
-                CommonMistake("The painting was create in 1900.", "The painting was created in 1900.", "past participle."),
-                CommonMistake("It was the music what moved me.", "It was the music that moved me.", "it-cleft با that."),
-                CommonMistake("Rarely I have seen...", "Rarely have I seen...", "inversion نیاز داره.")
+                CommonMistake("The painting was create in 1900.", "The painting was created in 1900.",
+                    "Use the past participle 'created', not the base form."),
+                CommonMistake("It was the music what moved me.", "It was the music that moved me.",
+                    "In cleft sentences, use 'that' for both people and things (not 'what')."),
+                CommonMistake("Rarely I have seen...", "Rarely have I seen...",
+                    "Inversion requires the auxiliary before the subject."),
+                CommonMistake("The artwork was made by ancient people.", "The artwork was created by ancient people.",
+                    "'Created' or 'made' work; 'made by' is fine but 'created' is more common in art contexts.")
             ),
             conversation = listOf(
-                DialogueLine("A", "Do you enjoy art?", "از هنر لذت می‌بری؟"),
-                DialogueLine("B", "Very much. It's food for thought.", "خیلی زیاد. مایه تفکره."),
-                DialogueLine("A", "What kind of art do you like?", "چه نوع هنری دوست داری؟"),
-                DialogueLine("B", "I love paintings and music.", "عاشق نقاشی و موسیقیم."),
-                DialogueLine("A", "Have you seen any good performances lately?", "اخیراً اجرای خوبی دیدی؟"),
-                DialogueLine("B", "Yes, I saw a play last month.", "بله، ماه پیش یه نمایش دیدم."),
-                DialogueLine("A", "What impressed you most?", "چی بیشتر تحت تأثیرت قرار داد؟"),
-                DialogueLine("B", "It was the acting that moved me.", "بازیگری بود که تحت تأثیرم کرد."),
-                DialogueLine("A", "Rarely do we see such talent.", "به‌ندرت چنین استعدادی می‌بینیم."),
-                DialogueLine("B", "Exactly. What about museums?", "دقیقاً. موزه‌ها چطور؟"),
-                DialogueLine("A", "I love them. Cultural heritage is precious.", "عاشقشونم. میراث فرهنگی ارزشمنده."),
-                DialogueLine("B", "Which museum is your favorite?", "کدوم موزه مورد علاقه‌اته؟"),
-                DialogueLine("A", "The Louvre. It's a masterpiece itself.", "لوور. خودش یه شاهکاره."),
-                DialogueLine("B", "I'd love to go.", "دوست دارم برم."),
-                DialogueLine("A", "Start with the Mona Lisa.", "با مونالیزا شروع کن."),
-                DialogueLine("B", "Thanks for the tip.", "ممنون برای راهنمایی."),
-                DialogueLine("A", "Art is meant to be appreciated slowly.", "هنر باید آروم قدردانی بشه."),
-                DialogueLine("B", "Well said.", "خوب گفتی.")
+                DialogueLine("Ava", "Do you enjoy art?",
+                    "از هنر لذت می‌بری؟"),
+                DialogueLine("Liam", "Very much. It's food for thought.",
+                    "خیلی زیاد. مایه تفکره."),
+                DialogueLine("Ava", "What kind of art do you like?",
+                    "چه نوع هنری دوست داری؟"),
+                DialogueLine("Liam", "I love paintings and music. What about you?",
+                    "عاشق نقاشی و موسیقیم. تو چطور؟"),
+                DialogueLine("Ava", "I prefer theater and dance.",
+                    "من تئاتر و رقص رو ترجیح می‌دم."),
+                DialogueLine("Liam", "Have you seen any good performances lately?",
+                    "اخیراً اجرای خوبی دیدی؟"),
+                DialogueLine("Ava", "Yes, I saw a play last month.",
+                    "بله، ماه پیش یه نمایش دیدم."),
+                DialogueLine("Liam", "What impressed you most?",
+                    "چی بیشتر تحت تأثیرت قرار داد؟"),
+                DialogueLine("Ava", "It was the acting that moved me.",
+                    "بازیگری بود که تحت تأثیرم کرد."),
+                DialogueLine("Liam", "Rarely do we see such talent.",
+                    "به‌ندرت چنین استعدادی می‌بینیم."),
+                DialogueLine("Ava", "Exactly. What about museums?",
+                    "دقیقاً. موزه‌ها چطور؟"),
+                DialogueLine("Liam", "I love them. Cultural heritage is precious.",
+                    "عاشقشونم. میراث فرهنگی ارزشمنده."),
+                DialogueLine("Ava", "Which museum is your favorite?",
+                    "کدوم موزه مورد علاقه‌اته؟"),
+                DialogueLine("Liam", "The Louvre. It's a masterpiece itself.",
+                    "لوور. خودش یه شاهکاره."),
+                DialogueLine("Ava", "I've always wanted to go there.",
+                    "همیشه می‌خواستم برم."),
+                DialogueLine("Liam", "Start with the Mona Lisa.",
+                    "با مونالیزا شروع کن."),
+                DialogueLine("Ava", "Thanks for the tip.",
+                    "ممنون برای راهنمایی."),
+                DialogueLine("Liam", "Art is meant to be appreciated slowly.",
+                    "هنر باید آروم قدردانی بشه."),
+                DialogueLine("Ava", "Well said. I couldn't agree more.",
+                    "خوب گفتی. کاملاً موافقم."),
+                DialogueLine("Liam", "Do you create art yourself?",
+                    "خودت هنر خلق می‌کنی؟"),
+                DialogueLine("Ava", "I paint a little. Nothing serious.",
+                    "کمی نقاشی می‌کشم. چیز جدی‌ای نیست."),
+                DialogueLine("Liam", "That's wonderful. Keep at it.",
+                    "عالیه. ادامه بده."),
+                DialogueLine("Ava", "Thanks. It brings me joy.",
+                    "ممنون. بهم شادی می‌ده."),
+                DialogueLine("Liam", "That's the best reason of all.",
+                    "این بهترین دلیله.")
             ),
             comprehensionQuestions = listOf(
-                ComprehensionQuestion("B چه نوع هنری را دوست دارد؟", "نقاشی و موسیقی."),
-                ComprehensionQuestion("A از چه چیزی در نمایش لذت برد؟", "بازیگری."),
-                ComprehensionQuestion("موزه مورد علاقه A چیست؟", "لوور."),
-                ComprehensionQuestion("A چه توصیه‌ای برای دیدن هنر دارد؟", "آرام قدردانی کن.")
+                ComprehensionQuestion("Liam چه نوع هنری را دوست دارد؟",
+                    "نقاشی و موسیقی."),
+                ComprehensionQuestion("Ava چه چیزی را در نمایش لمس کرد؟",
+                    "بازیگری."),
+                ComprehensionQuestion("موزه مورد علاقه Liam چیست؟",
+                    "لوور."),
+                ComprehensionQuestion("Liam چه توصیه‌ای برای دیدن هنر دارد؟",
+                    "آرام قدردانی کن."),
+                ComprehensionQuestion("آیا Ava خودش هنر خلق می‌کند؟",
+                    "کمی نقاشی می‌کشد.")
             ),
             speakingTasks = listOf(
                 SpeakingTask("Discuss your favorite art form.",
                     "درباره هنر مورد علاقه‌ات صحبت کن.",
-                    "I love... / What impresses me is..."),
-                SpeakingTask("Talk about a cultural experience.",
-                    "درباره یک تجربه فرهنگی صحبت کن.",
-                    "I visited... / It was...")
+                    "I love... / What impresses me is... / It inspires me because..."),
+                SpeakingTask("Talk about a cultural experience you've had.",
+                    "درباره یک تجربه فرهنگی که داشته‌ای صحبت کن.",
+                    "I visited... / It was... / What struck me was..."),
+                SpeakingTask("Debate the role of art in society.",
+                    "درباره نقش هنر در جامعه بحث کن.",
+                    "I believe art... / It's important because... / Art can...")
             ),
             writingTasks = listOf(
-                WritingTask("Write about a cultural experience.",
-                    "درباره یک تجربه فرهنگی بنویس.",
-                    180,
-                    "Use inversion and cleft sentences.")
+                WritingTask("Write about a cultural experience or artwork you admire.",
+                    "درباره یک تجربه فرهنگی یا اثر هنری که تحسین می‌کنی بنویس.",
+                    200,
+                    "Use inversion and cleft sentences. Include at least two idioms.")
             ),
             quiz = listOf(
                 QuizQuestion("Complete: The painting was ___ in 1900.",
@@ -1711,124 +2565,205 @@ object FourCorners3 {
             title = "Review",
             titlePersian = "مرور",
             objectives = listOf(
-                "Review all grammar",
-                "Practice conversations",
-                "Use all structures",
-                "Prepare for next level"
+                "Review all major grammar points",
+                "Practice mixed conversations",
+                "Use all structures fluently",
+                "Reflect on progress",
+                "Prepare for the next level",
+                "Build confidence in English"
             ),
             vocabulary = listOf(
                 VocabWord("review", "مرور", "/rɪˈvjuː/", "noun",
-                    "Let's review the lesson.", "بیا درس رو مرور کنیم."),
+                    "Let's review the key lessons.",
+                    "بیا درس‌های کلیدی رو مرور کنیم.",
+                    collocations = "comprehensive review, final review"),
                 VocabWord("practice", "تمرین", "/ˈpræktɪs/", "noun",
-                    "Practice makes perfect.", "تمرین باعث پیشرفت."),
+                    "Practice makes perfect.",
+                    "تمرین باعث پیشرفت.",
+                    collocations = "daily practice, speaking practice"),
                 VocabWord("improve", "بهتر کردن", "/ɪmˈpruːv/", "verb",
-                    "I want to improve.", "می‌خوام بهتر شم."),
+                    "I want to improve my English.",
+                    "می‌خوام انگلیسی‌ام رو بهتر کنم.",
+                    collocations = "improve skills, improve fluency"),
                 VocabWord("confident", "با اعتماد به نفس", "/ˈkɑːnfɪdənt/", "adjective",
-                    "I feel confident.", "با اعتماد به نفس‌ام."),
+                    "I feel more confident now.",
+                    "الان با اعتماد به نفس‌ترم.",
+                    collocations = "feel confident, grow confident"),
                 VocabWord("progress", "پیشرفت", "/ˈprɑːɡres/", "noun",
-                    "You're making progress.", "داری پیشرفت می‌کنی."),
+                    "You're making great progress.",
+                    "داری پیشرفت عالی می‌کنی.",
+                    collocations = "make progress, steady progress"),
                 VocabWord("challenge", "چالش", "/ˈtʃælɪndʒ/", "noun",
-                    "English is a fun challenge.", "انگلیسی چالش سرگرم‌کننده."),
+                    "Learning a language is a fun challenge.",
+                    "یادگیری زبان یه چالش سرگرم‌کننده‌ست.",
+                    collocations = "difficult challenge, overcome a challenge"),
                 VocabWord("mistake", "اشتباه", "/mɪˈsteɪk/", "noun",
-                    "It's OK to make mistakes.", "اشتباه کردن اشکالی نداره."),
+                    "It's OK to make mistakes.",
+                    "اشتباه کردن اشکالی نداره.",
+                    collocations = "make a mistake, learn from mistakes"),
                 VocabWord("continue", "ادامه دادن", "/kənˈtɪnjuː/", "verb",
-                    "Continue practicing.", "تمرین رو ادامه بده."),
+                    "Continue practicing every day.",
+                    "هر روز تمرین رو ادامه بده.",
+                    collocations = "continue learning, continue to grow"),
                 VocabWord("succeed", "موفق شدن", "/səkˈsiːd/", "verb",
-                    "You will succeed if you try.", "اگه تلاش کنی موفق می‌شی."),
-                VocabWord("journey", "سفر", "/ˈdʒɜːrni/", "noun",
-                    "Learning is a journey.", "یادگیری یه سفره."),
+                    "You will succeed if you keep trying.",
+                    "اگه تلاش کنی موفق می‌شی.",
+                    collocations = "succeed in life, succeed at work"),
+                VocabWord("journey", "سفر / مسیر", "/ˈdʒɜːrni/", "noun",
+                    "Learning a language is a journey.",
+                    "یادگیری زبان یه سفره.",
+                    collocations = "language journey, long journey"),
                 VocabWord("goal", "هدف", "/ɡoʊl/", "noun",
-                    "My goal is to speak English.", "هدفم صحبت کردن انگلیسیه."),
+                    "My goal is to speak English fluently.",
+                    "هدفم روان صحبت کردن انگلیسیه.",
+                    collocations = "achieve a goal, set a goal"),
                 VocabWord("future", "آینده", "/ˈfjuːtʃər/", "noun",
-                    "The future is bright.", "آینده روشنه.")
+                    "The future is bright.",
+                    "آینده روشنه.",
+                    collocations = "bright future, plan for the future"),
+                VocabWord("fluent", "روان", "/ˈfluːənt/", "adjective",
+                    "She's fluent in three languages.",
+                    "او در سه زبان روانه.",
+                    collocations = "fluent in English, become fluent")
             ),
             idioms = listOf(
                 IdiomExpression("practice makes perfect", "تمرین باعث پیشرفت",
-                    "Practice makes perfect — keep going!", "تمرین باعث پیشرفت — ادامه بده!", "idiom"),
+                    "Practice makes perfect — keep going!",
+                    "تمرین باعث پیشرفت — ادامه بده!",
+                    register = "idiom"),
                 IdiomExpression("Rome wasn't built in a day", "رم در یک روز ساخته نشد",
-                    "Don't give up. Rome wasn't built in a day.", "تسلیم نشو. رم در یک روز ساخته نشد.", "idiom"),
+                    "Don't give up. Rome wasn't built in a day.",
+                    "تسلیم نشو. رم در یک روز ساخته نشد.",
+                    register = "idiom"),
                 IdiomExpression("break a leg", "موفق باشی",
-                    "Break a leg on your exam!", "در امتحانت موفق باشی!", "idiom")
+                    "Break a leg on your exam!",
+                    "در امتحانت موفق باشی!",
+                    register = "idiom")
+            ),
+            phrasalVerbs = listOf(
+                PhrasalVerb("keep up", "ادامه دادن",
+                    "ادامه دادن بدون توقف",
+                    "Keep up the good work!",
+                    "کار خوبت رو ادامه بده!",
+                    separable = "No"),
+                PhrasalVerb("look back", "به عقب نگاه کردن",
+                    "به گذشته نگاه کردن",
+                    "Looking back, I've learned so much.",
+                    "به عقب که نگاه می‌کنم، چیزهای زیادی یاد گرفته‌ام.",
+                    separable = "No")
             ),
             pronunciationTips = listOf(
-                PronunciationTip("Intonation",
-                    "در سؤال‌ها صدای پایان جمله بالا می‌رود."),
-                PronunciationTip("Linking",
-                    "در گفتار طبیعی، کلمات به هم می‌چسبند.")
+                PronunciationTip("Review intonation",
+                    "Yes/No questions rise: Have you finished? ↗ Information questions fall: What did you do? ↘"),
+                PronunciationTip("Linking in fast speech",
+                    "I have been → I've been /aɪv bɪn/. Sounds blend in natural speech."),
+                PronunciationTip("Final stress in review",
+                    "Keep the stress on content words: I've LEARNED a LOT this YEAR.")
             ),
             culturalNotes = listOf(
-                CulturalNote("Language learning",
-                    "یادگیری زبان یک فرایند طولانیه."),
-                CulturalNote("Mistakes",
-                    "اشتباه کردن بخش طبیعی یادگیریه.")
+                CulturalNote("Language learning as lifelong journey",
+                    "In Western cultures, learning languages is seen as a lifelong journey. It's common to hear 'I'm still learning' even from advanced speakers. Mistakes are viewed as part of growth, not failure."),
+                CulturalNote("Reflecting on progress",
+                    "Reflecting on progress is valued in Western cultures. Journaling, setting goals, and tracking improvement are common practices in both personal and professional life.")
             ),
             grammar = listOf(
-                GrammarSection("Review: Present simple",
-                    """
-                        I work every day.
-                        She studies English.
-                    """.trimIndent()),
-                GrammarSection("Review: Past simple",
-                    """
-                        I went to Paris.
-                        She saw a movie.
-                    """.trimIndent()),
-                GrammarSection("Review: Present perfect",
-                    """
-                        I've been to London.
-                        Have you ever eaten sushi?
-                    """.trimIndent()),
+                GrammarSection("Review: Present simple and continuous",
+                    "I work every day. / I'm working on a project right now. — Present simple for habits, present continuous for actions in progress."),
+                GrammarSection("Review: Past simple and present perfect",
+                    "I went to Paris last year. / I've been to Paris three times. — Simple past with specific times, present perfect for experiences."),
                 GrammarSection("Review: Conditionals",
-                    """
-                        If I study, I will pass.
-                        If I studied, I would pass.
-                        If I had studied, I would have passed.
-                    """.trimIndent())
+                    "If I study, I will pass. (first) / If I studied, I would pass. (second) / If I had studied, I would have passed. (third) — Three types for different scenarios."),
+                GrammarSection("Review: Passive and reported speech",
+                    "The letter was written yesterday. / She said she was tired. — Both are common in everyday English.")
             ),
             commonMistakes = listOf(
-                CommonMistake("I am agree.", "I agree.", "agree فعل است."),
-                CommonMistake("I didn't went.", "I didn't go.", "بعد از didn't فعل ساده."),
-                CommonMistake("He don't like it.", "He doesn't like it.", "برای he/she/it از doesn't.")
+                CommonMistake("I am agree.", "I agree.",
+                    "'Agree' is a verb, so it doesn't take 'am'."),
+                CommonMistake("I didn't went.", "I didn't go.",
+                    "After 'didn't', use the base verb."),
+                CommonMistake("He don't like it.", "He doesn't like it.",
+                    "With he/she/it, use 'doesn't'."),
+                CommonMistake("I have seen him yesterday.", "I saw him yesterday.",
+                    "With specific past times, use the simple past.")
             ),
             conversation = listOf(
-                DialogueLine("A", "How's your English going?", "انگلیسی‌ت چطور پیش می‌ره؟"),
-                DialogueLine("B", "Pretty well! I've been practicing every day.", "خیلی خوب! هر روز تمرین کرده‌ام."),
-                DialogueLine("A", "Do you feel more confident?", "با اعتماد به نفس‌تری؟"),
-                DialogueLine("B", "Yes, much more.", "بله، خیلی بیشتر."),
-                DialogueLine("A", "What was the hardest part?", "سخت‌ترین قسمت چی بود؟"),
-                DialogueLine("B", "Probably the grammar.", "احتمالاً گرامر."),
-                DialogueLine("A", "What helped you most?", "چی بیشتر کمک کرد؟"),
-                DialogueLine("B", "Watching movies and talking to people.", "فیلم دیدن و صحبت با مردم."),
-                DialogueLine("A", "What's your next goal?", "هدف بعدی‌ت چیه؟"),
-                DialogueLine("B", "I want to be fluent in two years.", "می‌خوام در دو سال روان بشم."),
-                DialogueLine("A", "How will you get there?", "چطور بهش می‌رسی؟"),
-                DialogueLine("B", "Practice every day and take more classes.", "هر روز تمرین و کلاس بیشتر."),
-                DialogueLine("A", "Good plan. Good luck!", "برنامه خوب. موفق باشی!"),
-                DialogueLine("B", "Practice makes perfect.", "تمرین باعث پیشرفت."),
-                DialogueLine("A", "Rome wasn't built in a day.", "رم در یک روز ساخته نشد."),
-                DialogueLine("B", "True. I'll be patient.", "درسته. صبور خواهم بود."),
-                DialogueLine("A", "That's the spirit!", "همین روحیه رو می‌خوام!"),
-                DialogueLine("B", "Thanks for the encouragement.", "ممنون برای تشویق.")
+                DialogueLine("Nora", "How's your English going?",
+                    "انگلیسی‌ت چطور پیش می‌ره؟"),
+                DialogueLine("Alex", "Pretty well! I've been practicing every day.",
+                    "خیلی خوب! هر روز تمرین کرده‌ام."),
+                DialogueLine("Nora", "Do you feel more confident now?",
+                    "الان با اعتماد به نفس‌تری؟"),
+                DialogueLine("Alex", "Yes, much more. I can have basic conversations.",
+                    "بله، خیلی بیشتر. می‌تونم مکالمات پایه داشته باشم."),
+                DialogueLine("Nora", "That's great! What was the hardest part?",
+                    "عالیه! سخت‌ترین قسمت چی بود؟"),
+                DialogueLine("Alex", "Probably the grammar. There's so much to remember.",
+                    "احتمالاً گرامر. چیزهای زیادی برای به یاد سپردن هست."),
+                DialogueLine("Nora", "What helped you most?",
+                    "چی بیشتر کمک کرد؟"),
+                DialogueLine("Alex", "Watching movies and talking to people.",
+                    "فیلم دیدن و صحبت با مردم."),
+                DialogueLine("Nora", "That's a smart approach.",
+                    "رویکرد هوشمندانه‌ایه."),
+                DialogueLine("Alex", "What's your next goal?",
+                    "هدف بعدی‌ت چیه؟"),
+                DialogueLine("Nora", "I want to be fluent in two years.",
+                    "می‌خوام در دو سال روان بشم."),
+                DialogueLine("Alex", "That's ambitious! How will you get there?",
+                    "بلندپروازانه‌ست! چطور بهش می‌رسی؟"),
+                DialogueLine("Nora", "Practice every day, take more classes, and read more.",
+                    "هر روز تمرین، کلاس بیشتر، و مطالعه بیشتر."),
+                DialogueLine("Alex", "Sounds like a solid plan. Good luck!",
+                    "برنامه محکمی به نظر می‌رسه. موفق باشی!"),
+                DialogueLine("Nora", "Thanks! Practice makes perfect, right?",
+                    "ممنون! تمرین باعث پیشرفت، درسته؟"),
+                DialogueLine("Alex", "Exactly. Rome wasn't built in a day.",
+                    "دقیقاً. رم در یک روز ساخته نشد."),
+                DialogueLine("Nora", "True. I'll be patient and keep going.",
+                    "درسته. صبور خواهم بود و ادامه می‌دم."),
+                DialogueLine("Alex", "That's the spirit! You've already come a long way.",
+                    "همین روحیه رو می‌خوام! تا حالا خیلی پیشرفت کرده‌ای."),
+                DialogueLine("Nora", "Thanks for the encouragement.",
+                    "ممنون برای تشویق."),
+                DialogueLine("Alex", "Anytime. Let's both keep improving.",
+                    "هر وقت. بیا هر دو به بهبود ادامه بدیم."),
+                DialogueLine("Nora", "Deal. Language learning is a journey.",
+                    "قبول. یادگیری زبان یه سفره."),
+                DialogueLine("Alex", "And we're on it together.",
+                    "و با هم توش هستیم."),
+                DialogueLine("Nora", "Couldn't have said it better.",
+                    "بهتر از این نمی‌شد گفت."),
+                DialogueLine("Alex", "Good luck with everything!",
+                    "در همه چیز موفق باشی!")
             ),
             comprehensionQuestions = listOf(
-                ComprehensionQuestion("B چطور انگلیسی‌اش را تقویت کرده؟", "تمرین روزانه، فیلم دیدن، صحبت با مردم."),
-                ComprehensionQuestion("سخت‌ترین بخش برای B چه بود؟", "گرامر."),
-                ComprehensionQuestion("هدف B چیست؟", "روان شدن در دو سال."),
-                ComprehensionQuestion("B چطور به هدفش می‌رسد؟", "تمرین روزانه و کلاس.")
+                ComprehensionQuestion("Alex چطور انگلیسی‌اش را تقویت کرده است؟",
+                    "تمرین روزانه، فیلم دیدن، صحبت با مردم."),
+                ComprehensionQuestion("سخت‌ترین بخش برای Alex چه بود؟",
+                    "گرامر."),
+                ComprehensionQuestion("هدف Nora چیست؟",
+                    "روان شدن در دو سال."),
+                ComprehensionQuestion("Nora چطور به هدفش می‌رسد؟",
+                    "تمرین روزانه، کلاس‌های بیشتر، مطالعه بیشتر."),
+                ComprehensionQuestion("پیام نهایی Alex و Nora چیست؟",
+                    "یادگیری زبان یک سفر مشترک است که باید با صبر ادامه داد.")
             ),
             speakingTasks = listOf(
-                SpeakingTask("Talk about your English journey.",
-                    "درباره مسیر انگلیسی‌ات صحبت کن.",
-                    "I started... / I've learned..."),
-                SpeakingTask("Give advice to a beginner.",
-                    "به یک مبتدی توصیه کن.",
-                    "You should... / Don't give up...")
+                SpeakingTask("Talk about your English learning journey.",
+                    "درباره سفر یادگیری انگلیسی‌ات صحبت کن.",
+                    "I started... / I've learned... / My next goal is..."),
+                SpeakingTask("Give advice to a beginner learning English.",
+                    "به یک مبتدی در یادگیری انگلیسی توصیه کن.",
+                    "You should... / Don't give up... / Practice makes perfect."),
+                SpeakingTask("Reflect on your progress and set new goals.",
+                    "درباره پیشرفتت بازنگری کن و اهداف جدید تعیین کن.",
+                    "I've improved... / My next goal is... / I'll keep working on...")
             ),
             writingTasks = listOf(
-                WritingTask("Write about your English goals.",
-                    "درباره اهداف انگلیسی‌ات بنویس.",
-                    150,
-                    "Use all structures you've learned.")
+                WritingTask("Write about your English learning journey and goals.",
+                    "درباره سفر یادگیری انگلیسی و اهدافت بنویس.",
+                    200,
+                    "Use all the structures you've learned. Include at least two idioms.")
             ),
             quiz = listOf(
                 QuizQuestion("What does 'practice makes perfect' mean?",
@@ -1850,4 +2785,19 @@ object FourCorners3 {
             )
         )
     }
+
+    private fun getDefaultContent(bookId: String, chapterNumber: Int): LessonContent {
+        return LessonContent(
+            bookId = bookId,
+            chapterNumber = chapterNumber,
+            title = "Coming Soon",
+            titlePersian = "به زودی...",
+            vocabulary = emptyList(),
+            grammar = emptyList(),
+            conversation = emptyList(),
+            quiz = emptyList()
+        )
+    }
 }
+
+
