@@ -28,8 +28,6 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.SpeechHelper
-import com.zabanyar.ai.ui.theme.PrimaryColor    // 👈 ایمپورت جدید
-import com.zabanyar.ai.ui.theme.SecondaryColor // 👈 ایمپورت جدید
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
