@@ -17,34 +17,29 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
 import com.zabanyar.ai.data.DialogueLine
 import com.zabanyar.ai.data.LessonContent
 import com.zabanyar.ai.data.ProgressManager
 import com.zabanyar.ai.data.VocabWord
-
-private val PrimaryColor = Color(0xFF1A237E)
+import com.zabanyar.ai.ui.theme.PrimaryColor   // 👈 ایمپورت جدید
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LessonDetailScreen(
     lesson: LessonContent,
-    bookCover: String = "",
     bookTitle: String = "",
+    bookCoverGradientStart: Long = 0xFF1A237E,   // 👈 پارامتر جدید
+    bookCoverGradientEnd: Long = 0xFF3949AB,     // 👈 پارامتر جدید
     onBack: () -> Unit = {}
 ) {
     val context = LocalContext.current
 
-    // 👈 استیت نمایش ترجمه (از ProgressManager خونده می‌شه و ذخیره می‌شه)
     var showTranslation by remember { mutableStateOf(ProgressManager.isShowTranslation(context)) }
-
-    // 👈 استیت علاقه‌مندی
     var isFavorite by remember { mutableStateOf(false) }
 
     Scaffold(
@@ -102,7 +97,7 @@ fun LessonDetailScreen(
             verticalArrangement = Arrangement.spacedBy(14.dp)
         ) {
 
-            // ==================== کارت هدر با عکس کاور + دکمه + ====================
+            // ==================== کارت هدر با گرادیان + دکمه + ====================
             item {
                 Card(
                     modifier = Modifier.fillMaxWidth(),
@@ -115,38 +110,35 @@ fun LessonDetailScreen(
                             .padding(14.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        // عکس کاور با دکمه +
+                        // کاور گرادیانی کتاب (به جای عکس)
                         Box(
                             modifier = Modifier
                                 .size(110.dp, 150.dp)
                                 .clip(RoundedCornerShape(16.dp))
-                                .background(Color(0xFFE0E0E0))
-                        ) {
-                            if (bookCover.isNotEmpty()) {
-                                AsyncImage(
-                                    model = bookCover,
-                                    contentDescription = bookTitle,
-                                    contentScale = ContentScale.Crop,
-                                    modifier = Modifier.fillMaxSize()
-                                )
-                            } else {
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .background(
-                                            Brush.linearGradient(
-                                                listOf(PrimaryColor, Color(0xFF3949AB))
-                                            )
-                                        ),
-                                    contentAlignment = Alignment.Center
-                                ) {
-                                    Icon(
-                                        Icons.Filled.MenuBook,
-                                        null,
-                                        tint = Color.White,
-                                        modifier = Modifier.size(40.dp)
+                                .background(
+                                    Brush.linearGradient(
+                                        listOf(
+                                            Color(bookCoverGradientStart),
+                                            Color(bookCoverGradientEnd)
+                                        )
                                     )
-                                }
+                                ),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                Icon(
+                                    Icons.Filled.MenuBook,
+                                    null,
+                                    tint = Color.White,
+                                    modifier = Modifier.size(40.dp)
+                                )
+                                Spacer(Modifier.height(8.dp))
+                                Text(
+                                    "درس ${lesson.chapterNumber}",
+                                    color = Color.White,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
                             }
 
                             // ✅ دکمه + در گوشه پایین راست
@@ -175,6 +167,15 @@ fun LessonDetailScreen(
 
                         // اطلاعات درس
                         Column(modifier = Modifier.weight(1f)) {
+                            if (bookTitle.isNotEmpty()) {
+                                Text(
+                                    bookTitle,
+                                    fontSize = 10.sp,
+                                    color = Color(0xFF3F51B5),
+                                    fontWeight = FontWeight.Bold
+                                )
+                                Spacer(Modifier.height(2.dp))
+                            }
                             Text(
                                 "درس ${lesson.chapterNumber}",
                                 fontSize = 11.sp,
@@ -382,7 +383,6 @@ fun VocabItem(word: VocabWord, showTranslation: Boolean) {
                 fontStyle = FontStyle.Italic
             )
 
-            // ✅ ترجمه فقط وقتی نمایش داده می‌شه که دکمه روشن باشه
             AnimatedVisibility(visible = showTranslation) {
                 Column {
                     Spacer(Modifier.height(4.dp))
@@ -431,7 +431,6 @@ fun DialogueItem(line: DialogueLine, showTranslation: Boolean) {
                 color = Color(0xFF1A237E),
                 fontWeight = FontWeight.Medium
             )
-            // ✅ ترجمه شرطی
             AnimatedVisibility(visible = showTranslation) {
                 Text(
                     line.persian,
