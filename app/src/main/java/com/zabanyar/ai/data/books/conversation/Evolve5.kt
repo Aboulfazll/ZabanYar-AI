@@ -2013,14 +2013,14 @@ private fun chapter8(): LessonContent {
                 listOf("of the", "the", "the of", "of"), 1),
             QuizQuestion("The 'right to disconnect' is:",
                 listOf("The right to quit", "The right not to respond to work after hours",
-                    "The right to work remotely", "The right to overtime"), 1)
+                    "The right to work remotely", "The right to overtime"), 1
         )
     )
 
      ‌//============================================================
     // UNIT 9 — Migration and Identity
     // ============================================================
-    private fun chapter9(): LessonContent {
+    private fun chapter9(): LessonContent 
         return LessonContent(
             bookId = BOOK_ID,
             chapterNumber = 9,
