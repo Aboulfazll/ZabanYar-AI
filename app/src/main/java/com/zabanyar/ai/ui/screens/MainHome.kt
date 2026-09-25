@@ -44,6 +44,7 @@ fun MainHome(
     onNavigateToDailySentences: () -> Unit = {},
     onNavigateToLevelTest: () -> Unit = {},
     onNavigateToAchievements: () -> Unit = {},
+    onNavigateToStories: () -> Unit = {},       // 🆕 تب داستان‌ها
     onLogout: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -60,14 +61,12 @@ fun MainHome(
 
     val allBooks = remember { BookRepository.getAllBooks() }
 
-    // کتاب‌های اضافه‌شده به خانه (به ترتیب ذخیره‌شده)
     val homeBookIds = remember(refreshKey) { FavoritesManager.getAddedBooks(context) }
     val pinnedIds = remember(refreshKey) { FavoritesManager.getPinnedBooks(context) }
 
     val homeBooks: List<Book> = remember(refreshKey, homeBookIds, pinnedIds) {
         val map = allBooks.associateBy { it.id }
         val ordered = homeBookIds.mapNotNull { map[it] }
-        // Pin شده‌ها اول
         ordered.sortedByDescending { pinnedIds.contains(it.id) }
     }
 
@@ -76,7 +75,8 @@ fun MainHome(
         minOf((lessonsCompleted % 10) * 3, dailyGoalMinutes)
     }
 
-    var selectedTab by remember { mutableIntStateOf(3) }
+    // ⚠️ تب پیش‌فرض = 4 (خانه) چون الان ۵ تب داریم
+    var selectedTab by remember { mutableIntStateOf(4) }
 
     Scaffold(
         containerColor = Color(0xFFF8F9FC),
@@ -99,7 +99,6 @@ fun MainHome(
                     }
                 },
                 actions = {
-                    // دکمه افزودن کتاب
                     IconButton(onClick = onNavigateToLibrary) {
                         Icon(
                             Icons.Filled.Add,
@@ -107,7 +106,6 @@ fun MainHome(
                             tint = Color(0xFF1A237E)
                         )
                     }
-                    // دکمه تنظیمات
                     IconButton(onClick = onNavigateToSettings) {
                         Icon(
                             Icons.Filled.Settings,
@@ -126,32 +124,44 @@ fun MainHome(
                 containerColor = Color.White,
                 tonalElevation = 8.dp
             ) {
+                // 🎤 تب ۰: اسپیکینگ
                 NavigationBarItem(
                     selected = selectedTab == 0,
                     onClick = { selectedTab = 0; onNavigateToSpeaking() },
-                    icon = { Icon(Icons.Filled.Mic, "اسپیکینگ", modifier = Modifier.size(24.dp)) },
-                    label = { Text("اسپیکینگ", fontSize = 10.sp) },
+                    icon = { Icon(Icons.Filled.Mic, "اسپیکینگ", modifier = Modifier.size(22.dp)) },
+                    label = { Text("اسپیکینگ", fontSize = 9.sp) },
                     colors = navItemColors()
                 )
+                // 💬 تب ۱: چت
                 NavigationBarItem(
                     selected = selectedTab == 1,
                     onClick = { selectedTab = 1; onNavigateToAIChat() },
-                    icon = { Icon(Icons.Filled.ChatBubble, "چت", modifier = Modifier.size(24.dp)) },
-                    label = { Text("چت", fontSize = 10.sp) },
+                    icon = { Icon(Icons.Filled.ChatBubble, "چت", modifier = Modifier.size(22.dp)) },
+                    label = { Text("چت", fontSize = 9.sp) },
                     colors = navItemColors()
                 )
+                // 📚 تب ۲: کتابخانه
                 NavigationBarItem(
                     selected = selectedTab == 2,
                     onClick = { selectedTab = 2; onNavigateToLibrary() },
-                    icon = { Icon(Icons.Filled.List, "کتابخانه", modifier = Modifier.size(24.dp)) },
-                    label = { Text("کتابخانه", fontSize = 10.sp) },
+                    icon = { Icon(Icons.Filled.List, "کتابخانه", modifier = Modifier.size(22.dp)) },
+                    label = { Text("کتابخانه", fontSize = 9.sp) },
                     colors = navItemColors()
                 )
+                // 🆕 📖 تب ۳: داستان‌ها
                 NavigationBarItem(
                     selected = selectedTab == 3,
-                    onClick = { selectedTab = 3 },
-                    icon = { Icon(Icons.Filled.Home, "خانه", modifier = Modifier.size(24.dp)) },
-                    label = { Text("خانه", fontSize = 10.sp) },
+                    onClick = { selectedTab = 3; onNavigateToStories() },
+                    icon = { Icon(Icons.Filled.AutoStories, "داستان‌ها", modifier = Modifier.size(22.dp)) },
+                    label = { Text("داستان‌ها", fontSize = 9.sp) },
+                    colors = navItemColors()
+                )
+                // 🏠 تب ۴: خانه
+                NavigationBarItem(
+                    selected = selectedTab == 4,
+                    onClick = { selectedTab = 4 },
+                    icon = { Icon(Icons.Filled.Home, "خانه", modifier = Modifier.size(22.dp)) },
+                    label = { Text("خانه", fontSize = 9.sp) },
                     colors = navItemColors()
                 )
             }
@@ -163,7 +173,6 @@ fun MainHome(
                 .padding(padding),
             contentPadding = PaddingValues(bottom = 16.dp)
         ) {
-            // کارت آبی هدر
             item {
                 BlueHeaderCard(
                     level = currentLevel,
@@ -179,12 +188,10 @@ fun MainHome(
             }
 
             if (homeBooks.isEmpty()) {
-                // حالت خالی: ایلاستریشن + دکمه افزودن کتاب
                 item {
                     EmptyHomeState(onAddBook = onNavigateToLibrary)
                 }
             } else {
-                // کاروسل کتاب‌ها
                 item {
                     Spacer(Modifier.height(16.dp))
                     LazyRow(
@@ -201,7 +208,6 @@ fun MainHome(
                     Spacer(Modifier.height(24.dp))
                 }
 
-                // عنوان لیست
                 item {
                     Text(
                         "📖 کتاب‌های شما",
@@ -212,7 +218,6 @@ fun MainHome(
                     )
                 }
 
-                // لیست کتاب‌ها با منوی سه‌نقطه
                 items(homeBooks, key = { it.id }) { book ->
                     ContentListItem(
                         book = book,
@@ -234,9 +239,7 @@ fun MainHome(
                             FavoritesManager.archiveBook(context, book.id)
                             refreshKey++
                         },
-                        onManageAudio = {
-                            // TODO: ناوبری به مدیریت صوت‌ها
-                        },
+                        onManageAudio = { },
                         onClearStats = {
                             ProgressManager.resetBookProgress(context, book.id, book.totalChapters)
                             refreshKey++
@@ -298,18 +301,12 @@ fun EmptyHomeState(onAddBook: () -> Unit) {
         Button(
             onClick = onAddBook,
             shape = RoundedCornerShape(16.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF1A237E)
-            ),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1A237E)),
             contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp)
         ) {
             Icon(Icons.Filled.Add, null, modifier = Modifier.size(20.dp))
             Spacer(Modifier.width(8.dp))
-            Text(
-                "افزودن کتاب",
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold
-            )
+            Text("افزودن کتاب", fontSize = 15.sp, fontWeight = FontWeight.Bold)
         }
     }
 }
@@ -338,11 +335,7 @@ fun BlueHeaderCard(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(
-                    Brush.linearGradient(
-                        listOf(Color(0xFF2E4A9E), Color(0xFF1A237E))
-                    )
-                )
+                .background(Brush.linearGradient(listOf(Color(0xFF2E4A9E), Color(0xFF1A237E))))
                 .padding(20.dp)
         ) {
             Column {
@@ -560,9 +553,7 @@ fun ContentListItem(
                 Spacer(Modifier.height(8.dp))
 
                 Text(book.title, fontSize = 15.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A237E), maxLines = 1, overflow = TextOverflow.Ellipsis)
-
                 Spacer(Modifier.height(2.dp))
-
                 Text(book.titlePersian, fontSize = 11.sp, color = Color.Gray, maxLines = 1, overflow = TextOverflow.Ellipsis)
 
                 Spacer(Modifier.weight(1f))
@@ -596,7 +587,6 @@ fun ContentListItem(
                     Text(book.levelEmoji, fontSize = 40.sp)
                 }
 
-                // دکمه سه‌نقطه
                 Box(
                     modifier = Modifier
                         .align(Alignment.BottomStart)
