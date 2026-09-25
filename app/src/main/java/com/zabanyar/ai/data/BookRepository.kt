@@ -232,6 +232,17 @@ object BookRepository {
             )
         ),
         Book(
+            id = "evolve_4", title = "Evolve 4", titlePersian = "ایوولو ۴",
+            author = "Leslie Anne Hendra", category = BookCategory.CONVERSATION,
+            level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
+            gradientStart = 0xFF37474F, gradientEnd = 0xFF90A4AE,
+            chapterTitles = listOf(
+                "Unit 1", "Unit 2", "Unit 3", "Unit 4",
+                "Unit 5", "Unit 6", "Unit 7", "Unit 8",
+                "Unit 9", "Unit 10", "Unit 11", "Unit 12"
+            )
+        ),
+        Book(
             id = "evolve_5", title = "Evolve 5", titlePersian = "ایوولو ۵",
             author = "Leslie Anne Hendra", category = BookCategory.CONVERSATION,
             level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
@@ -243,239 +254,25 @@ object BookRepository {
                 "Science", "Philosophy", "Future"
             )
         ),
-        Book(
-            id = "evolve_6", title = "Evolve 6", titlePersian = "ایوولو ۶",
-            author = "Ben Goldstein", category = BookCategory.CONVERSATION,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
-            gradientStart = 0xFF4527A0, gradientEnd = 0xFF9C27B0,
-            chapterTitles = listOf(
-                "Human Behavior", "Cultural Trends", "Technology & Future",
-                "Ethical Dilemmas", "World Issues", "Artistic Expression",
-                "Scientific Discovery", "Economic Systems", "Political Theory",
-                "Human Potential", "Global Challenges", "Tomorrow"
-            )
-        ),
 
         // ==================== 📝 گرامر ====================
-        // 👇 اصلاح شد: totalChapters بر اساس محتوای واقعی
-
         Book(
             id = "basic_grammar", title = "Basic Grammar in Use", titlePersian = "گرامر پایه",
             author = "Raymond Murphy", category = BookCategory.GRAMMAR,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 13,  // 👈 از 45 به 13
+            level = "مبتدی", levelEmoji = "🌱", totalChapters = 13,
             gradientStart = 0xFF00695C, gradientEnd = 0xFF26A69A
         ),
         Book(
             id = "understanding_grammar", title = "Understanding English Grammar", titlePersian = "درک گرامر انگلیسی",
             author = "Betty Azar", category = BookCategory.GRAMMAR,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 12,  // 👈 از 30 به 12
+            level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
             gradientStart = 0xFF0277BD, gradientEnd = 0xFF4FC3F7
         ),
         Book(
             id = "advanced_grammar", title = "Advanced Grammar in Use", titlePersian = "گرامر پیشرفته",
             author = "Martin Hewings", category = BookCategory.GRAMMAR,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,  // 👈 از 31 به 12
+            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
             gradientStart = 0xFF4527A0, gradientEnd = 0xFF7E57C2
-        ),
-
-        // ==================== 📚 واژگان ====================
-        Book(
-            id = "vocab_elementary", title = "Vocabulary in Use - Elementary", titlePersian = "واژگان پایه",
-            author = "Michael McCarthy", category = BookCategory.VOCABULARY,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 60,
-            gradientStart = 0xFFE91E63, gradientEnd = 0xFFF06292
-        ),
-        Book(
-            id = "vocab_pre_int", title = "Vocabulary in Use - Pre-intermediate", titlePersian = "واژگان پیش‌متوسط",
-            author = "Stuart Redman", category = BookCategory.VOCABULARY,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 100,
-            gradientStart = 0xFF00897B, gradientEnd = 0xFF4DB6AC
-        ),
-        Book(
-            id = "vocab_intermediate", title = "Vocabulary in Use - Intermediate", titlePersian = "واژگان متوسط",
-            author = "Stuart Redman", category = BookCategory.VOCABULARY,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 100,
-            gradientStart = 0xFF01579B, gradientEnd = 0xFF039BE5
-        ),
-        Book(
-            id = "book_504", title = "504 Essential Words", titlePersian = "۵۰۴ واژه ضروری",
-            author = "Murray Bromberg", category = BookCategory.VOCABULARY,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 42,
-            gradientStart = 0xFFFF6F00, gradientEnd = 0xFFFFB300
-        ),
-        Book(
-            id = "book_4000", title = "4000 Essential Words", titlePersian = "۴۰۰۰ واژه ضروری",
-            author = "Paul Nation", category = BookCategory.VOCABULARY,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 30,
-            gradientStart = 0xFF4A148C, gradientEnd = 0xFF9C27B0
-        ),
-        Book(
-            id = "word_skills_inter", title = "Word Skills Intermediate", titlePersian = "مهارت واژگان متوسط",
-            author = "Ruth Gairns", category = BookCategory.VOCABULARY,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 20,
-            gradientStart = 0xFF6A1B9A, gradientEnd = 0xFFAB47BC
-        ),
-        Book(
-            id = "word_skills_adv", title = "Word Skills Advanced", titlePersian = "مهارت واژگان پیشرفته",
-            author = "Ruth Gairns", category = BookCategory.VOCABULARY,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 20,
-            gradientStart = 0xFF01579B, gradientEnd = 0xFF039BE5
-        ),
-
-        // ==================== 🎯 آیلتس ====================
-        Book(
-            id = "ielts_16", title = "IELTS 16 General", titlePersian = "آیلتس ۱۶",
-            author = "Cambridge", category = BookCategory.IELTS,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 4,
-            gradientStart = 0xFF1A237E, gradientEnd = 0xFF3F51B5
-        ),
-        Book(
-            id = "ielts_17", title = "IELTS 17 General", titlePersian = "آیلتس ۱۷",
-            author = "Cambridge", category = BookCategory.IELTS,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 4,
-            gradientStart = 0xFF283593, gradientEnd = 0xFF5C6BC0
-        ),
-        Book(
-            id = "mindset_2", title = "Mindset for IELTS 2", titlePersian = "مایندست آیلتس ۲",
-            author = "Cambridge English", category = BookCategory.IELTS,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 8,
-            gradientStart = 0xFFAD1457, gradientEnd = 0xFFEC407A
-        ),
-        Book(
-            id = "mindset_3", title = "Mindset for IELTS 3", titlePersian = "مایندست آیلتس ۳",
-            author = "Cambridge English", category = BookCategory.IELTS,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 8,
-            gradientStart = 0xFFD84315, gradientEnd = 0xFFFF8A65
-        ),
-
-        // ==================== 🎧 شنیداری ====================
-        Book(
-            id = "basic_tactics", title = "Basic Tactics for Listening", titlePersian = "تاکتیکس پایه",
-            author = "Jack C. Richards", category = BookCategory.LISTENING,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 24,
-            gradientStart = 0xFF827717, gradientEnd = 0xFFD4E157
-        ),
-        Book(
-            id = "developing_tactics", title = "Developing Tactics for Listening", titlePersian = "تاکتیکس پیشرفته",
-            author = "Jack C. Richards", category = BookCategory.LISTENING,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 24,
-            gradientStart = 0xFFC62828, gradientEnd = 0xFFEF5350
-        ),
-        Book(
-            id = "listen_here", title = "Listen Here!", titlePersian = "گوش کن!",
-            author = "Clare West", category = BookCategory.LISTENING,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 20,
-            gradientStart = 0xFF33691E, gradientEnd = 0xFF8BC34A
-        ),
-        Book(
-            id = "dynamic_listening", title = "Dynamic Listening & Speaking", titlePersian = "لیسنینگ و اسپیکینگ",
-            author = "Byoung-man Jeon", category = BookCategory.LISTENING,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 16,
-            gradientStart = 0xFFE65100, gradientEnd = 0xFFFFB74D
-        ),
-        Book(
-            id = "tune_in_1", title = "Tune In 1", titlePersian = "تیون این ۱",
-            author = "Jack C. Richards", category = BookCategory.LISTENING,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
-            gradientStart = 0xFF558B2F, gradientEnd = 0xFF9CCC65
-        ),
-        Book(
-            id = "tune_in_2", title = "Tune In 2", titlePersian = "تیون این ۲",
-            author = "Jack C. Richards", category = BookCategory.LISTENING,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
-            gradientStart = 0xFFE65100, gradientEnd = 0xFFFFB74D
-        ),
-        Book(
-            id = "tune_in_3", title = "Tune In 3", titlePersian = "تیون این ۳",
-            author = "Jack C. Richards", category = BookCategory.LISTENING,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
-            gradientStart = 0xFF0D47A1, gradientEnd = 0xFF42A5F5
-        ),
-
-        // ==================== 📖 خواندن ====================
-        Book(
-            id = "inside_reading", title = "Inside Reading", titlePersian = "اینساید ریدینگ",
-            author = "Arline Burgmeier", category = BookCategory.READING,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 20,
-            gradientStart = 0xFFC2185B, gradientEnd = 0xFFF06292
-        ),
-        Book(
-            id = "active_skills_1", title = "Active Skills for Reading 1", titlePersian = "مهارت خواندن ۱",
-            author = "Neil Anderson", category = BookCategory.READING,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
-            gradientStart = 0xFFBF360C, gradientEnd = 0xFFFF7043
-        ),
-        Book(
-            id = "active_skills_2", title = "Active Skills for Reading 2", titlePersian = "مهارت خواندن ۲",
-            author = "Neil Anderson", category = BookCategory.READING,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
-            gradientStart = 0xFF01579B, gradientEnd = 0xFF039BE5
-        ),
-        Book(
-            id = "active_skills_3", title = "Active Skills for Reading 3", titlePersian = "مهارت خواندن ۳",
-            author = "Neil Anderson", category = BookCategory.READING,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
-            gradientStart = 0xFF1B5E20, gradientEnd = 0xFF4CAF50
-        ),
-        Book(
-            id = "active_skills_4", title = "Active Skills for Reading 4", titlePersian = "مهارت خواندن ۴",
-            author = "Neil Anderson", category = BookCategory.READING,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
-            gradientStart = 0xFF4A148C, gradientEnd = 0xFFBA68C8
-        ),
-
-        // ==================== 📕 داستان ====================
-        Book(
-            id = "gift_magi", title = "The Gift of the Magi", titlePersian = "هدیه مغان",
-            author = "O. Henry", category = BookCategory.STORY,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 3,
-            gradientStart = 0xFF880E4F, gradientEnd = 0xFFC2185B,
-            chapterTitles = listOf("The Gift of the Magi", "The Last Leaf", "The Ransom of Red Chief")
-        ),
-        Book(
-            id = "sleepy_hollow", title = "The Legend of Sleepy Hollow", titlePersian = "افسانه دره خواب‌آلود",
-            author = "Washington Irving", category = BookCategory.STORY,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 6,
-            gradientStart = 0xFF37474F, gradientEnd = 0xFF78909C,
-            chapterTitles = listOf("سوار بی سر", "ایکباد کرین", "کاترینا وان تاسل", "دعوت نامه", "روح دره خواب آلود", "سواری شبح")
-        ),
-        Book(
-            id = "halloween_horror", title = "Halloween Horror", titlePersian = "وحشت هالووین",
-            author = "Gina D.B. Clemen", category = BookCategory.STORY,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 5,
-            gradientStart = 0xFF4A148C, gradientEnd = 0xFF9C27B0
-        ),
-        Book(
-            id = "peter_pan", title = "Peter Pan", titlePersian = "پیتر پن",
-            author = "J.M. Barrie", category = BookCategory.STORY,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 10,
-            gradientStart = 0xFF006064, gradientEnd = 0xFF00BCD4
-        ),
-        Book(
-            id = "alice_wonderland", title = "Alice in Wonderland", titlePersian = "آلیس در سرزمین عجایب",
-            author = "Lewis Carroll", category = BookCategory.STORY,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
-            gradientStart = 0xFF4A148C, gradientEnd = 0xFFBA68C8
-        ),
-        Book(
-            id = "sherlock_holmes", title = "Sherlock Holmes", titlePersian = "شرلوک هلمز",
-            author = "Arthur Conan Doyle", category = BookCategory.STORY,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
-            gradientStart = 0xFF1A237E, gradientEnd = 0xFF5C6BC0
-        ),
-
-        // ==================== 💡 اصطلاحات ====================
-        Book(
-            id = "everyday_exp_1", title = "Illustrated Everyday Expressions 1", titlePersian = "اصطلاحات روزمره ۱",
-            author = "Casey Malarcher", category = BookCategory.IDIOMS,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 20,
-            gradientStart = 0xFF33691E, gradientEnd = 0xFF8BC34A
-        ),
-        Book(
-            id = "everyday_exp_2", title = "Illustrated Everyday Expressions 2", titlePersian = "اصطلاحات روزمره ۲",
-            author = "Casey Malarcher", category = BookCategory.IDIOMS,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 20,
-            gradientStart = 0xFF01579B, gradientEnd = 0xFF039BE5
         )
     )
 
