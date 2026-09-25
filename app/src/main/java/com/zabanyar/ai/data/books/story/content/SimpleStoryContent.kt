@@ -24,7 +24,7 @@ object SimpleStoryContent {
         Group7.getAll(),
         Group8.getAll(),
         Group9.getAll(),
-        // Group10.getAll(),   ← وقتی Group10 ساختی، این خط رو باز کن
+        // Group10.getAll(),
     )
 
     fun getAll(): List<StoryContent> = groups.flatten()
