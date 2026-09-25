@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.Book
 import com.zabanyar.ai.data.BookRepository
-import com.zabanyar.ai.data.HomeBooksManager
+import com.zabanyar.ai.data.FavoritesManager
 import com.zabanyar.ai.data.ProgressManager
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -60,9 +60,9 @@ fun MainHome(
 
     val allBooks = remember { BookRepository.getAllBooks() }
 
-    // 🆕 کتاب‌های اضافه‌شده به خانه (به ترتیب ذخیره‌شده)
-    val homeBookIds = remember(refreshKey) { HomeBooksManager.getHomeBooks(context) }
-    val pinnedIds = remember(refreshKey) { HomeBooksManager.getPinnedBooks(context) }
+    // کتاب‌های اضافه‌شده به خانه (به ترتیب ذخیره‌شده)
+    val homeBookIds = remember(refreshKey) { FavoritesManager.getAddedBooks(context) }
+    val pinnedIds = remember(refreshKey) { FavoritesManager.getPinnedBooks(context) }
 
     val homeBooks: List<Book> = remember(refreshKey, homeBookIds, pinnedIds) {
         val map = allBooks.associateBy { it.id }
@@ -99,7 +99,7 @@ fun MainHome(
                     }
                 },
                 actions = {
-                    // 🆕 دکمه افزودن کتاب
+                    // دکمه افزودن کتاب
                     IconButton(onClick = onNavigateToLibrary) {
                         Icon(
                             Icons.Filled.Add,
@@ -107,7 +107,7 @@ fun MainHome(
                             tint = Color(0xFF1A237E)
                         )
                     }
-                    // 🆕 دکمه تنظیمات
+                    // دکمه تنظیمات
                     IconButton(onClick = onNavigateToSettings) {
                         Icon(
                             Icons.Filled.Settings,
@@ -179,7 +179,7 @@ fun MainHome(
             }
 
             if (homeBooks.isEmpty()) {
-                // 🆕 حالت خالی: ایلاستریشن + دکمه افزودن کتاب
+                // حالت خالی: ایلاستریشن + دکمه افزودن کتاب
                 item {
                     EmptyHomeState(onAddBook = onNavigateToLibrary)
                 }
@@ -219,19 +219,19 @@ fun MainHome(
                         onClick = { onNavigateToLibrary() },
                         isPinned = pinnedIds.contains(book.id),
                         onMoveUp = {
-                            HomeBooksManager.moveUp(context, book.id)
+                            FavoritesManager.moveUp(context, book.id)
                             refreshKey++
                         },
                         onMoveTop = {
-                            HomeBooksManager.moveToTop(context, book.id)
+                            FavoritesManager.moveToTop(context, book.id)
                             refreshKey++
                         },
                         onTogglePin = {
-                            HomeBooksManager.togglePin(context, book.id)
+                            FavoritesManager.togglePin(context, book.id)
                             refreshKey++
                         },
                         onArchive = {
-                            HomeBooksManager.archiveBook(context, book.id)
+                            FavoritesManager.archiveBook(context, book.id)
                             refreshKey++
                         },
                         onManageAudio = {
@@ -242,7 +242,7 @@ fun MainHome(
                             refreshKey++
                         },
                         onRemoveFromHome = {
-                            HomeBooksManager.removeFromHome(context, book.id)
+                            FavoritesManager.removeBook(context, book.id)
                             refreshKey++
                         }
                     )
@@ -265,8 +265,6 @@ fun EmptyHomeState(onAddBook: () -> Unit) {
             .padding(horizontal = 32.dp, vertical = 48.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // ایلاستریشن (به جای تصویر، از ایموجی بزرگ استفاده می‌کنیم)
-        // اگه تصویر واقعی داری، R.drawable.home_empty بذار
         Box(
             modifier = Modifier
                 .size(180.dp)
