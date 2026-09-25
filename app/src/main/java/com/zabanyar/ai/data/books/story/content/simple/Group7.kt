@@ -405,7 +405,7 @@ object Group7 {
                 StoryParagraph("The palace was surrounded by a great garden.", "قصر با باغ بزرگی احاطه شده بود."),
                 StoryParagraph("The garden was full of flowers and trees.", "باغ پر از گل و درخت بود."),
                 StoryParagraph("In the garden lived a nightingale.", "در باغ بلبلی زندگی می‌کرد."),
-                Star paragraph said she sang beautifully., ""),
+                StoryParagraph("It sang beautifully every evening.", "هر عصر زیبا آواز می‌خواند."),
                 StoryParagraph("Everyone who heard it loved the song.", "هر کس آوازش را می‌شنید عاشقش می‌شد."),
                 StoryParagraph("Travelers wrote about the bird.", "مسافران درباره پرنده می‌نوشتند."),
                 StoryParagraph("They said it was the best thing in China.", "می‌گفتند بهترین چیز چین است."),
