@@ -238,7 +238,7 @@ fun MainHome(
                             // TODO: ناوبری به مدیریت صوت‌ها
                         },
                         onClearStats = {
-                            ProgressManager.resetBookProgress(context, book.id)
+                            ProgressManager.resetBookProgress(context, book.id, book.totalChapters)
                             refreshKey++
                         },
                         onRemoveFromHome = {
