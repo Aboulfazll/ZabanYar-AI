@@ -1,19 +1,14 @@
 package com.zabanyar.ai.data.books.story
 
 import com.zabanyar.ai.data.Book
+import com.zabanyar.ai.data.books.story.content.SimpleStoryContent
 import com.zabanyar.ai.data.books.story.content.IntermediateStoryContent
 import com.zabanyar.ai.data.books.story.content.advanced.AdvancedStoryContent
 import com.zabanyar.ai.data.books.story.content.advanced.en.EnStoryContent
 import com.zabanyar.ai.data.books.story.content.advanced.en.EnStory
+import com.zabanyar.ai.data.books.story.content.advanced.en.toStoryChapters
+import com.zabanyar.ai.data.books.story.content.advanced.en.toStoryChapter
 
-/**
- * 📚 مخزن داستان‌ها
- *
- * سه سطح داستان:
- *  🌱 ساده (متادیتا)
- *  🚀 متوسط (فارسی + انگلیسی)
- *  🏆 پیشرفته (فارسی + انگلیسی + انگلیسی تک‌زبانه)
- */
 object StoryRepository {
 
     // ═══════════════════════════════════════════════════════
@@ -42,7 +37,9 @@ object StoryRepository {
     // ═══════════════════════════════════════════════════════
 
     private val bilingualContents: List<StoryContent>
-        get() = IntermediateStoryContent.getAll() + AdvancedStoryContent.getAll()
+        get() = SimpleStoryContent.getAll() +
+                IntermediateStoryContent.getAll() +
+                AdvancedStoryContent.getAll()
 
     fun getContent(storyId: String): StoryContent? =
         bilingualContents.firstOrNull { it.storyId == storyId }
@@ -57,7 +54,7 @@ object StoryRepository {
         getContent(storyId) != null
 
     // ═══════════════════════════════════════════════════════
-    //  🇬🇧 محتوای تک‌زبانه انگلیسی (پیشرفته)
+    //  🇬🇧 محتوای انگلیسی تک‌زبانه (پیشرفته)
     // ═══════════════════════════════════════════════════════
 
     fun getEnStory(storyId: String): EnStory? =
@@ -70,7 +67,21 @@ object StoryRepository {
         EnStoryContent.hasContent(storyId)
 
     fun getEnStoriesCount(): Int =
-        EnStoryContent.getAll().size
+        EnStoryContent.getCount()
+
+    // ═══════════════════════════════════════════════════════
+    //  🔄 تبدیل En به StoryChapter
+    // ═══════════════════════════════════════════════════════
+
+    fun getEnChaptersAsStoryChapters(storyId: String): List<StoryChapter> {
+        val enStory = getEnStory(storyId) ?: return emptyList()
+        return enStory.toStoryChapters()
+    }
+
+    fun getEnChapterAsStoryChapter(storyId: String, chapterNumber: Int): StoryChapter? {
+        val enChapter = getEnChapter(storyId, chapterNumber) ?: return null
+        return enChapter.toStoryChapter()
+    }
 
     // ═══════════════════════════════════════════════════════
     //  🔍 جستجو
