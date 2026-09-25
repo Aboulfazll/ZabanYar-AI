@@ -255,7 +255,7 @@ object Group4 {
                 )
             ),
             StoryChapter(
-                number: 5, title = "The End of the Plague", titlePersian = "پایان طاعون",
+                number = 5, title = "The End of the Plague", titlePersian = "پایان طاعون",
                 paragraphs = listOf(
                     StoryParagraph("The plague finally ended in the spring.", "طاعون بالاخره در بهار تمام شد."),
                     StoryParagraph("The city gates were opened again.", "دروازه‌های شهر دوباره باز شدند."),
