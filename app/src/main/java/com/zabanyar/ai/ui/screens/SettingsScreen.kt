@@ -1,6 +1,9 @@
 package com.zabanyar.ai.ui.screens
 
+import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,15 +25,88 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.ProgressManager
 
+// ═══════════════════════════════════════════════════════
+//  ذخیره‌سازی محلی تنظیمات اضافی
+// ═══════════════════════════════════════════════════════
+private const val PREFS_SETTINGS = "zabanyar_settings"
+private const val KEY_TTS_SPEED = "tts_speed"
+private const val KEY_FONT_SIZE = "font_size"
+private const val KEY_VOICE_GENDER = "voice_gender"
+private const val KEY_VIBRATION = "vibration"
+private const val KEY_AUTO_SAVE = "auto_save"
+private const val KEY_SHOW_PRONUNCIATION = "show_pronunciation"
+private const val KEY_LANGUAGE = "app_language"
+
+private fun prefs(context: Context) =
+    context.getSharedPreferences(PREFS_SETTINGS, Context.MODE_PRIVATE)
+
+private fun getTtsSpeed(context: Context): Float =
+    prefs(context).getFloat(KEY_TTS_SPEED, 1.0f)
+
+private fun setTtsSpeed(context: Context, v: Float) =
+    prefs(context).edit().putFloat(KEY_TTS_SPEED, v).apply()
+
+private fun getFontSize(context: Context): String =
+    prefs(context).getString(KEY_FONT_SIZE, "medium") ?: "medium"
+
+private fun setFontSize(context: Context, v: String) =
+    prefs(context).edit().putString(KEY_FONT_SIZE, v).apply()
+
+private fun getVoiceGender(context: Context): String =
+    prefs(context).getString(KEY_VOICE_GENDER, "female") ?: "female"
+
+private fun setVoiceGender(context: Context, v: String) =
+    prefs(context).edit().putString(KEY_VOICE_GENDER, v).apply()
+
+private fun getVibration(context: Context): Boolean =
+    prefs(context).getBoolean(KEY_VIBRATION, true)
+
+private fun setVibration(context: Context, v: Boolean) =
+    prefs(context).edit().putBoolean(KEY_VIBRATION, v).apply()
+
+private fun getAutoSave(context: Context): Boolean =
+    prefs(context).getBoolean(KEY_AUTO_SAVE, true)
+
+private fun setAutoSave(context: Context, v: Boolean) =
+    prefs(context).edit().putBoolean(KEY_AUTO_SAVE, v).apply()
+
+private fun getShowPronunciation(context: Context): Boolean =
+    prefs(context).getBoolean(KEY_SHOW_PRONUNCIATION, true)
+
+private fun setShowPronunciation(context: Context, v: Boolean) =
+    prefs(context).edit().putBoolean(KEY_SHOW_PRONUNCIATION, v).apply()
+
+private fun getAppLanguage(context: Context): String =
+    prefs(context).getString(KEY_LANGUAGE, "fa") ?: "fa"
+
+private fun setAppLanguage(context: Context, v: String) =
+    prefs(context).edit().putString(KEY_LANGUAGE, v).apply()
+
+// ═══════════════════════════════════════════════════════
+//  صفحه اصلی تنظیمات
+// ═══════════════════════════════════════════════════════
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(onBack: () -> Unit = {}) {
     val context = LocalContext.current
 
+    // ─── ProgressManager ───
     var showTranslation by remember { mutableStateOf(ProgressManager.isShowTranslation(context)) }
     var isDarkMode by remember { mutableStateOf(ProgressManager.isDarkMode(context)) }
     var isSoundEnabled by remember { mutableStateOf(ProgressManager.isSoundEnabled(context)) }
     var isAutoPlay by remember { mutableStateOf(ProgressManager.isAutoPlay(context)) }
+    var isNotificationsEnabled by remember { mutableStateOf(ProgressManager.isNotificationsEnabled(context)) }
+
+    // ─── محلی ───
+    var ttsSpeed by remember { mutableStateOf(getTtsSpeed(context)) }
+    var fontSize by remember { mutableStateOf(getFontSize(context)) }
+    var voiceGender by remember { mutableStateOf(getVoiceGender(context)) }
+    var vibration by remember { mutableStateOf(getVibration(context)) }
+    var autoSave by remember { mutableStateOf(getAutoSave(context)) }
+    var showPronunciation by remember { mutableStateOf(getShowPronunciation(context)) }
+    var appLanguage by remember { mutableStateOf(getAppLanguage(context)) }
+
+    var showResetDialog by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -52,9 +128,12 @@ fun SettingsScreen(onBack: () -> Unit = {}) {
                 .padding(padding)
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            // ==================== کارت هدر ====================
+
+            // ═══════════════════════════════════════════
+            //  کارت هدر
+            // ═══════════════════════════════════════════
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(24.dp),
@@ -69,14 +148,17 @@ fun SettingsScreen(onBack: () -> Unit = {}) {
                     Column {
                         Text("تنظیمات اپلیکیشن", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.Bold)
                         Spacer(Modifier.height(4.dp))
-                        Text("شخصی‌سازی تجربه یادگیری", color = Color.White.copy(alpha = 0.8f), fontSize = 13.sp)
+                        Text("شخصی‌سازی کامل تجربه یادگیری", color = Color.White.copy(alpha = 0.8f), fontSize = 13.sp)
                     }
                 }
             }
 
-            // ==================== بخش یادگیری ====================
-            Text("📖 تنظیمات یادگیری", fontWeight = FontWeight.Bold, fontSize = 14.sp, color = PrimaryColor)
+            // ═══════════════════════════════════════════
+            //  📖 یادگیری
+            // ═══════════════════════════════════════════
+            SectionTitle("📖 تنظیمات یادگیری")
 
+            // ✅ نمایش/مخفی ترجمه
             SettingsToggleCard(
                 icon = Icons.Filled.Translate,
                 iconColor = Color(0xFFE91E63),
@@ -89,6 +171,20 @@ fun SettingsScreen(onBack: () -> Unit = {}) {
                 }
             )
 
+            // ✅ نمایش تلفظ
+            SettingsToggleCard(
+                icon = Icons.Filled.RecordVoiceOver,
+                iconColor = Color(0xFF6A1B9A),
+                title = "نمایش تلفظ",
+                subtitle = "نمایش فونتیک (تلفظ) کلمات جدید",
+                checked = showPronunciation,
+                onCheckedChange = {
+                    showPronunciation = it
+                    setShowPronunciation(context, it)
+                }
+            )
+
+            // ✅ یادگیری هوشمند
             SettingsToggleCard(
                 icon = Icons.Filled.AutoAwesome,
                 iconColor = Color(0xFFFF9800),
@@ -101,23 +197,27 @@ fun SettingsScreen(onBack: () -> Unit = {}) {
                 }
             )
 
-            Spacer(Modifier.height(8.dp))
-
-            // ==================== بخش ظاهر و صدا ====================
-            Text("🎨 ظاهر و صدا", fontWeight = FontWeight.Bold, fontSize = 14.sp, color = PrimaryColor)
-
+            // ✅ ذخیره خودکار
             SettingsToggleCard(
-                icon = Icons.Filled.DarkMode,
-                iconColor = Color(0xFF3F51B5),
-                title = "حالت شب (Dark Mode)",
-                subtitle = "تغییر رنگ‌بندی به حالت تیره",
-                checked = isDarkMode,
+                icon = Icons.Filled.Save,
+                iconColor = Color(0xFF11998E),
+                title = "ذخیره خودکار",
+                subtitle = "ذخیره لحظه‌ای پیشرفت هنگام مطالعه",
+                checked = autoSave,
                 onCheckedChange = {
-                    isDarkMode = it
-                    ProgressManager.setDarkMode(context, it)
+                    autoSave = it
+                    setAutoSave(context, it)
                 }
             )
 
+            Spacer(Modifier.height(8.dp))
+
+            // ═══════════════════════════════════════════
+            //  🔊 صدا و گویش
+            // ═══════════════════════════════════════════
+            SectionTitle("🔊 صدا و گویش")
+
+            // ✅ جلوه‌های صوتی
             SettingsToggleCard(
                 icon = Icons.Filled.VolumeUp,
                 iconColor = Color(0xFF4CAF50),
@@ -130,12 +230,214 @@ fun SettingsScreen(onBack: () -> Unit = {}) {
                 }
             )
 
+            // 🆕 سرعت پخش (آهسته / معمولی / سریع)
+            SettingsChoiceCard(
+                icon = Icons.Filled.Speed,
+                iconColor = Color(0xFF0288D1),
+                title = "سرعت پخش",
+                subtitle = "سرعت خواندن متن‌ها با TTS",
+                options = listOf(
+                    ChoiceOption("🐢 آهسته", "slow"),
+                    ChoiceOption("▶️ معمولی", "normal"),
+                    ChoiceOption("🐇 سریع", "fast")
+                ),
+                selectedValue = when {
+                    ttsSpeed < 0.9f -> "slow"
+                    ttsSpeed > 1.1f -> "fast"
+                    else -> "normal"
+                },
+                onSelected = { value ->
+                    val speed = when (value) {
+                        "slow" -> 0.75f
+                        "fast" -> 1.3f
+                        else -> 1.0f
+                    }
+                    ttsSpeed = speed
+                    setTtsSpeed(context, speed)
+                }
+            )
+
+            // 🆕 جنسیت گوینده
+            SettingsChoiceCard(
+                icon = Icons.Filled.VoiceChat,
+                iconColor = Color(0xFF6A1B9A),
+                title = "جنسیت گوینده",
+                subtitle = "انتخاب صدای مرد یا زن",
+                options = listOf(
+                    ChoiceOption("👩 زن", "female"),
+                    ChoiceOption("👨 مرد", "male")
+                ),
+                selectedValue = voiceGender,
+                onSelected = {
+                    voiceGender = it
+                    setVoiceGender(context, it)
+                }
+            )
+
+            Spacer(Modifier.height(8.dp))
+
+            // ═══════════════════════════════════════════
+            //  🎨 ظاهر
+            // ═══════════════════════════════════════════
+            SectionTitle("🎨 ظاهر و نمایش")
+
+            // ✅ حالت شب
+            SettingsToggleCard(
+                icon = Icons.Filled.DarkMode,
+                iconColor = Color(0xFF3F51B5),
+                title = "حالت شب (Dark Mode)",
+                subtitle = "تغییر رنگ‌بندی به حالت تیره",
+                checked = isDarkMode,
+                onCheckedChange = {
+                    isDarkMode = it
+                    ProgressManager.setDarkMode(context, it)
+                }
+            )
+
+            // 🆕 اندازه فونت
+            SettingsChoiceCard(
+                icon = Icons.Filled.FormatSize,
+                iconColor = Color(0xFFE91E63),
+                title = "اندازه فونت",
+                subtitle = "اندازه متن درس‌ها",
+                options = listOf(
+                    ChoiceOption("کوچک", "small"),
+                    ChoiceOption("متوسط", "medium"),
+                    ChoiceOption("بزرگ", "large")
+                ),
+                selectedValue = fontSize,
+                onSelected = {
+                    fontSize = it
+                    setFontSize(context, it)
+                }
+            )
+
+            // 🆕 زبان اپ
+            SettingsChoiceCard(
+                icon = Icons.Filled.Language,
+                iconColor = Color(0xFF009688),
+                title = "زبان اپلیکیشن",
+                subtitle = "زبان رابط کاربری",
+                options = listOf(
+                    ChoiceOption("فارسی", "fa"),
+                    ChoiceOption("English", "en")
+                ),
+                selectedValue = appLanguage,
+                onSelected = {
+                    appLanguage = it
+                    setAppLanguage(context, it)
+                }
+            )
+
+            Spacer(Modifier.height(8.dp))
+
+            // ═══════════════════════════════════════════
+            //  🔔 اعلان‌ها
+            // ═══════════════════════════════════════════
+            SectionTitle("🔔 اعلان‌ها و لرزش")
+
+            SettingsToggleCard(
+                icon = Icons.Filled.Notifications,
+                iconColor = Color(0xFFFF6F00),
+                title = "یادآوری روزانه",
+                subtitle = "اعلان برای مطالعه هر روز",
+                checked = isNotificationsEnabled,
+                onCheckedChange = {
+                    isNotificationsEnabled = it
+                    ProgressManager.setNotificationsEnabled(context, it)
+                }
+            )
+
+            SettingsToggleCard(
+                icon = Icons.Filled.Vibration,
+                iconColor = Color(0xFFC62828),
+                title = "لرزش",
+                subtitle = "لرزش هنگام پاسخ صحیح یا غلط",
+                checked = vibration,
+                onCheckedChange = {
+                    vibration = it
+                    setVibration(context, it)
+                }
+            )
+
+            Spacer(Modifier.height(8.dp))
+
+            // ═══════════════════════════════════════════
+            //  🗑️ مدیریت داده‌ها
+            // ═══════════════════════════════════════════
+            SectionTitle("🗑️ مدیریت داده‌ها")
+
+            SettingsActionCard(
+                icon = Icons.Filled.Refresh,
+                iconColor = Color(0xFFC62828),
+                title = "ریست پیشرفت",
+                subtitle = "پاک کردن تمام آمار و تاریخچه",
+                onClick = { showResetDialog = true }
+            )
+
+            SettingsActionCard(
+                icon = Icons.Filled.DeleteSweep,
+                iconColor = Color(0xFFFF6F00),
+                title = "پاک کردن حافظه کش",
+                subtitle = "آزادسازی فضای ذخیره‌سازی",
+                onClick = { /* TODO */ }
+            )
+
+            Spacer(Modifier.height(8.dp))
+
+            // ═══════════════════════════════════════════
+            //  ℹ️ اطلاعات
+            // ═══════════════════════════════════════════
+            SectionTitle("ℹ️ اطلاعات")
+
+            SettingsActionCard(
+                icon = Icons.Filled.Info,
+                iconColor = PrimaryColor,
+                title = "درباره زبان‌یار AI",
+                subtitle = "نسخه ۱.۰.۰",
+                onClick = { /* TODO */ }
+            )
+
+            SettingsActionCard(
+                icon = Icons.Filled.Star,
+                iconColor = Color(0xFFFF9800),
+                title = "امتیازدهی به اپ",
+                subtitle = "ما رو در مارکت حمایت کن",
+                onClick = { /* TODO */ }
+            )
+
+            SettingsActionCard(
+                icon = Icons.Filled.Share,
+                iconColor = Color(0xFF11998E),
+                title = "اشتراک‌گذاری اپ",
+                subtitle = "دوستات رو دعوت کن",
+                onClick = {
+                    val intent = Intent(Intent.ACTION_SEND).apply {
+                        type = "text/plain"
+                        putExtra(Intent.EXTRA_TEXT, "زبان‌یار AI رو نصب کن! 🚀")
+                    }
+                    context.startActivity(Intent.createChooser(intent, "اشتراک‌گذاری"))
+                }
+            )
+
+            SettingsActionCard(
+                icon = Icons.Filled.Email,
+                iconColor = Color(0xFF0288D1),
+                title = "تماس با ما",
+                subtitle = "ارسال نظرات و پیشنهادات",
+                onClick = { /* TODO */ }
+            )
+
             Spacer(Modifier.height(16.dp))
 
-            // ==================== دکمه ذخیره ====================
+            // ═══════════════════════════════════════════
+            //  دکمه ذخیره
+            // ═══════════════════════════════════════════
             Button(
                 onClick = { onBack() },
-                modifier = Modifier.fillMaxWidth().height(50.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp),
                 shape = RoundedCornerShape(16.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = PrimaryColor)
             ) {
@@ -143,11 +445,47 @@ fun SettingsScreen(onBack: () -> Unit = {}) {
                 Spacer(Modifier.width(8.dp))
                 Text("ذخیره تغییرات", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = Color.White)
             }
+
+            Spacer(Modifier.height(24.dp))
         }
+    }
+
+    // ─── دیالوگ ریست ───
+    if (showResetDialog) {
+        AlertDialog(
+            onDismissRequest = { showResetDialog = false },
+            icon = { Icon(Icons.Filled.Warning, null, tint = Color(0xFFC62828)) },
+            title = { Text("ریست پیشرفت؟", fontWeight = FontWeight.Bold) },
+            text = { Text("تمام آمار، ستاره‌ها و تاریخچه پاک می‌شود. این عملیات قابل بازگشت نیست.") },
+            confirmButton = {
+                TextButton(onClick = { showResetDialog = false }) {
+                    Text("بله، پاک کن", color = Color(0xFFC62828), fontWeight = FontWeight.Bold)
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showResetDialog = false }) {
+                    Text("انصراف", color = Color.Gray)
+                }
+            }
+        )
     }
 }
 
-// ==================== کامپوننت کارت تنظیمات ====================
+// ═══════════════════════════════════════════════════════
+//  کامپوننت‌های کمکی
+// ═══════════════════════════════════════════════════════
+
+@Composable
+fun SectionTitle(title: String) {
+    Text(
+        title,
+        fontWeight = FontWeight.Bold,
+        fontSize = 14.sp,
+        color = PrimaryColor,
+        modifier = Modifier.padding(top = 8.dp, bottom = 4.dp)
+    )
+}
+
 @Composable
 fun SettingsToggleCard(
     icon: ImageVector,
@@ -164,7 +502,9 @@ fun SettingsToggleCard(
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Box(
@@ -193,6 +533,129 @@ fun SettingsToggleCard(
                     uncheckedThumbColor = Color.Gray,
                     uncheckedTrackColor = Color.LightGray.copy(alpha = 0.5f)
                 )
+            )
+        }
+    }
+}
+
+data class ChoiceOption(val label: String, val value: String)
+
+@Composable
+fun SettingsChoiceCard(
+    icon: ImageVector,
+    iconColor: Color,
+    title: String,
+    subtitle: String,
+    options: List<ChoiceOption>,
+    selectedValue: String,
+    onSelected: (String) -> Unit
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(2.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(
+                    modifier = Modifier
+                        .size(44.dp)
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(iconColor.copy(alpha = 0.15f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(icon, null, tint = iconColor, modifier = Modifier.size(24.dp))
+                }
+
+                Spacer(Modifier.width(14.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(title, fontWeight = FontWeight.Bold, fontSize = 14.sp, color = PrimaryColor)
+                    Text(subtitle, fontSize = 11.sp, color = Color.Gray, maxLines = 2)
+                }
+            }
+
+            Spacer(Modifier.height(12.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                options.forEach { opt ->
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(
+                                if (selectedValue == opt.value) PrimaryColor
+                                else Color(0xFFF0F0F0)
+                            )
+                            .clickable { onSelected(opt.value) }
+                            .padding(vertical = 12.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            opt.label,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = if (selectedValue == opt.value) Color.White else Color.Gray
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun SettingsActionCard(
+    icon: ImageVector,
+    iconColor: Color,
+    title: String,
+    subtitle: String,
+    onClick: () -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onClick() },
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(2.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(44.dp)
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(iconColor.copy(alpha = 0.15f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(icon, null, tint = iconColor, modifier = Modifier.size(24.dp))
+            }
+
+            Spacer(Modifier.width(14.dp))
+
+            Column(modifier = Modifier.weight(1f)) {
+                Text(title, fontWeight = FontWeight.Bold, fontSize = 14.sp, color = iconColor)
+                Text(subtitle, fontSize = 11.sp, color = Color.Gray, maxLines = 2)
+            }
+
+            Icon(
+                Icons.Filled.ChevronLeft,
+                null,
+                tint = Color.Gray,
+                modifier = Modifier.size(20.dp)
             )
         }
     }
