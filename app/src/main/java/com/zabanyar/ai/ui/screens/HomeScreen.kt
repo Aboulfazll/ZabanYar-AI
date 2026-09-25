@@ -1,4 +1,3 @@
-package com.zabanyar.ai.ui.screens
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
