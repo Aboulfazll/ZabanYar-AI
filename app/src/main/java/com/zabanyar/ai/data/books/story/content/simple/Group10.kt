@@ -5,7 +5,7 @@ import com.zabanyar.ai.data.books.story.StoryContent
 import com.zabanyar.ai.data.books.story.StoryParagraph
 
 /**
- * 📚 Simple Group9 — ۵ افسانه کمتر شناخته‌شده
+ * 📚 Simple Group10 — ۵ افسانه کمتر شناخته‌شده
  * هر داستان: ۷ فصل × ۱۰ خط = ۷۰ خط
  * با ترجمه فارسی
  *
