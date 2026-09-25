@@ -1,15 +1,13 @@
 package com.zabanyar.ai.ui.screens
-
-import androidx.compose.animation.*
-import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
@@ -17,34 +15,19 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zabanyar.ai.data.Book
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.ProgressManager
-import com.zabanyar.ai.data.UserManager
-import java.text.SimpleDateFormat
-import java.util.*
-
-// ==================== Motivational Quotes ====================
-private val motivationalQuotes = listOf(
-    "زبان، پل ارتباط با دنیاست 🌍",
-    "هر روز یک قدم به رویاهات نزدیک‌تر 🎯",
-    "تمرین باعث پیشرفت می‌شه 💪",
-    "امروز بهترین روز برای شروع دوباره‌ست ✨",
-    "یادگیری زبان، سرمایه‌گذاری روی خودته 📈",
-    "کوچک شروع کن، ولی شروع کن 🚀",
-    "موفقیت از تلاش روزانه میاد ⭐",
-    "زبان جدید، دنیای جدید 🌟"
-)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -62,899 +45,510 @@ fun HomeScreen(
     onLogout: () -> Unit = {}
 ) {
     val context = LocalContext.current
-    val user = remember { UserManager.getLoggedInUser(context) }
-
     var refreshKey by remember { mutableIntStateOf(0) }
 
+    // ============ Stats ============
     val totalStars = remember(refreshKey) { ProgressManager.getTotalStars(context) }
     val lessonsCompleted = remember(refreshKey) { ProgressManager.getLessonsCompleted(context) }
     val dailyStreak = remember(refreshKey) { ProgressManager.getDailyStreak(context) }
     val quizzesPassed = remember(refreshKey) { ProgressManager.getTotalQuizzesPassed(context) }
-    val quizAttempts = remember(refreshKey) { ProgressManager.getTotalQuizAttempts(context) }
 
-    val continueBooks = remember(refreshKey) {
-        BookRepository.getAllBooks()
-            .filter { ProgressManager.isBookStarted(context, it.id) }
-            .mapNotNull { book ->
-                val progress = ProgressManager.getBookProgress(context, book.id, book.totalChapters)
-                if (progress.readChapters > 0 && progress.overallProgressPercent < 100) {
-                    Triple(book, progress.readChapters, progress.overallProgressPercent)
-                } else null
-            }
-            .sortedByDescending { it.third }
-            .take(3)
-    }
+    // ============ Level Calculation ============
+    val currentLevel = (totalStars / 100) + 1
+    val xpInLevel = totalStars % 100
+    val xpForNextLevel = 100
+    val levelProgress = xpInLevel.toFloat() / xpForNextLevel.toFloat()
 
+    // ============ Books ============
+    val allBooks = remember { BookRepository.getAllBooks() }
+    val featuredBooks = remember { allBooks.take(10) }
+
+    // ============ Daily Goal ============
     val dailyGoalMinutes = 10
-    val todayMinutes = remember(refreshKey) {
-        minOf((lessonsCompleted % 10) * 3, dailyGoalMinutes)
-    }
-    val dailyGoalProgress = todayMinutes.toFloat() / dailyGoalMinutes
+    val todayMinutes = remember(refreshKey) { minOf((lessonsCompleted % 10) * 3, dailyGoalMinutes) }
 
-    val weeklyActivity = remember(refreshKey) {
-        val calendar = Calendar.getInstance()
-        val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
-        List(7) { i ->
-            val dayIdx = (dayOfWeek - 1 + i) % 7
-            if (dayIdx < dailyStreak % 7 + 1) (1..5).random() else (0..2).random()
-        }
-    }
-
-    val todayQuote = remember {
-        val dayOfYear = Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
-        motivationalQuotes[dayOfYear % motivationalQuotes.size]
-    }
-
-    val greeting = remember {
-        val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-        when {
-            hour < 12 -> "صبح بخیر"
-            hour < 17 -> "ظهر بخیر"
-            hour < 20 -> "عصر بخیر"
-            else -> "شب بخیر"
-        }
-    }
-
-    val infiniteTransition = rememberInfiniteTransition(label = "home")
-    val glowScale by infiniteTransition.animateFloat(
-        initialValue = 1f,
-        targetValue = 1.1f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(2000, easing = FastOutSlowInEasing),
-            repeatMode = RepeatMode.Reverse
-        ),
-        label = "glow"
-    )
+    // ============ Selected Tab ============
+    var selectedTab by remember { mutableIntStateOf(0) }
 
     Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Box(
-                            modifier = Modifier
-                                .size(40.dp)
-                                .scale(glowScale)
-                                .clip(CircleShape)
-                                .background(Color.White.copy(alpha = 0.2f)),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text("🎓", fontSize = 20.sp)
-                        }
-                        Spacer(Modifier.width(10.dp))
-                        Column {
-                            Text(
-                                "زبان‌یار AI",
-                                fontWeight = FontWeight.Bold,
-                                color = Color.White,
-                                fontSize = 16.sp
-                            )
-                            Text(
-                                "یادگیری هوشمند",
-                                fontSize = 10.sp,
-                                color = Color.White.copy(alpha = 0.85f)
-                            )
-                        }
-                    }
-                },
-                actions = {
-                    Box {
-                        IconButton(onClick = { /* notifications */ }) {
-                            Icon(
-                                Icons.Filled.Notifications,
-                                contentDescription = "اعلان‌ها",
-                                tint = Color.White
-                            )
-                        }
-                        if (dailyStreak > 0) {
-                            Box(
-                                modifier = Modifier
-                                    .align(Alignment.TopEnd)
-                                    .offset(x = (-8).dp, y = 8.dp)
-                                    .size(8.dp)
-                                    .clip(CircleShape)
-                                    .background(AccentOrange)
-                            )
-                        }
-                    }
-                    IconButton(onClick = onNavigateToSettings) {
-                        Icon(
-                            Icons.Filled.Settings,
-                            contentDescription = "تنظیمات",
-                            tint = Color.White
-                        )
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = PrimaryColor)
-            )
+        containerColor = Color(0xFFF8F9FC),
+        bottomBar = {
+            NavigationBar(
+                containerColor = Color.White,
+                tonalElevation = 8.dp
+            ) {
+                NavigationBarItem(
+                    selected = selectedTab == 0,
+                    onClick = { selectedTab = 0 },
+                    icon = { Icon(Icons.Filled.Mic, "اسپیکینگ", modifier = Modifier.size(24.dp)) },
+                    label = { Text("اسپیکینگ", fontSize = 10.sp) },
+                    colors = navItemColors()
+                )
+                NavigationBarItem(
+                    selected = selectedTab == 1,
+                    onClick = { selectedTab = 1; onNavigateToAIChat() },
+                    icon = { Icon(Icons.Filled.ChatBubble, "چت", modifier = Modifier.size(24.dp)) },
+                    label = { Text("چت", fontSize = 10.sp) },
+                    colors = navItemColors()
+                )
+                NavigationBarItem(
+                    selected = selectedTab == 2,
+                    onClick = { selectedTab = 2; onNavigateToLibrary() },
+                    icon = { Icon(Icons.Filled.List, "کتابخانه", modifier = Modifier.size(24.dp)) },
+                    label = { Text("کتابخانه", fontSize = 10.sp) },
+                    colors = navItemColors()
+                )
+                NavigationBarItem(
+                    selected = selectedTab == 3,
+                    onClick = { selectedTab = 3 },
+                    icon = { Icon(Icons.Filled.Home, "خانه", modifier = Modifier.size(24.dp)) },
+                    label = { Text("خانه", fontSize = 10.sp) },
+                    colors = navItemColors()
+                )
+            }
         }
     ) { padding ->
-        Column(
+        LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFFF5F7FA))
-                .padding(padding)
-                .verticalScroll(rememberScrollState())
+                .padding(padding),
+            contentPadding = PaddingValues(bottom = 16.dp)
         ) {
-            // ==================== هدر خوش‌آمدگویی ====================
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(
-                        Brush.verticalGradient(
-                            listOf(PrimaryColor, SecondaryColor)
-                        )
-                    )
-                    .padding(horizontal = 20.dp)
-                    .padding(top = 20.dp, bottom = 80.dp)
-            ) {
-                Column {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
+            // ==================== 1. کارت آبی هدر ====================
+            item {
+                BlueHeaderCard(
+                    level = currentLevel,
+                    xpInLevel = xpInLevel,
+                    xpForNextLevel = xpForNextLevel,
+                    levelProgress = levelProgress,
+                    streak = dailyStreak,
+                    todayMinutes = todayMinutes,
+                    dailyGoal = dailyGoalMinutes,
+                    onProfileClick = onNavigateToProfile,
+                    onStatsClick = { }
+                )
+            }
+
+            // ==================== 2. کاروسل کتاب‌ها ====================
+            if (featuredBooks.isNotEmpty()) {
+                item {
+                    Spacer(Modifier.height(16.dp))
+                    LazyRow(
+                        contentPadding = PaddingValues(horizontal = 16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
-                        Column(modifier = Modifier.weight(1f)) {
+                        items(featuredBooks) { book ->
+                            BookCoverSmall(
+                                book = book,
+                                onClick = onNavigateToLibrary
+                            )
+                        }
+                    }
+                    Spacer(Modifier.height(24.dp))
+                }
+            }
+
+            // ==================== 3. لیست محتوا ====================
+            item {
+                Text(
+                    "📖 کتاب‌های شما",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF1A237E),
+                    modifier = Modifier.padding(start = 20.dp, end = 20.dp, bottom = 12.dp)
+                )
+            }
+
+            items(allBooks.take(10)) { book ->
+                ContentListItem(
+                    book = book,
+                    onClick = { onNavigateToLibrary() }
+                )
+                Spacer(Modifier.height(10.dp))
+            }
+
+            item { Spacer(Modifier.height(16.dp)) }
+        }
+    }
+}
+
+// ============================================================
+// 1. کارت آبی هدر
+// ============================================================
+@Composable
+fun BlueHeaderCard(
+    level: Int,
+    xpInLevel: Int,
+    xpForNextLevel: Int,
+    levelProgress: Float,
+    streak: Int,
+    todayMinutes: Int,
+    dailyGoal: Int,
+    onProfileClick: () -> Unit,
+    onStatsClick: () -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp),
+        shape = RoundedCornerShape(24.dp),
+        elevation = CardDefaults.cardElevation(8.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    Brush.linearGradient(
+                        listOf(Color(0xFF2E4A9E), Color(0xFF1A237E))
+                    )
+                )
+                .padding(20.dp)
+        ) {
+            Column {
+                // ردیف بالا: آیکون کاربر + آیکون نمودار
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    IconButton(
+                        onClick = onProfileClick,
+                        modifier = Modifier
+                            .size(36.dp)
+                            .clip(CircleShape)
+                            .background(Color.White.copy(alpha = 0.15f))
+                    ) {
+                        Icon(Icons.Filled.Person, null, tint = Color.White, modifier = Modifier.size(20.dp))
+                    }
+                    Spacer(Modifier.width(8.dp))
+                    IconButton(
+                        onClick = onStatsClick,
+                        modifier = Modifier
+                            .size(36.dp)
+                            .clip(CircleShape)
+                            .background(Color.White.copy(alpha = 0.15f))
+                    ) {
+                        Icon(Icons.Filled.ShowChart, null, tint = Color.White, modifier = Modifier.size(20.dp))
+                    }
+                }
+
+                Spacer(Modifier.height(16.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    // سمت چپ: Streak + چک‌باکس + زمان
+                    Column(modifier = Modifier.weight(1f)) {
+                        // Streak badge
+                        Row(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(20.dp))
+                                .background(Color(0xFF3F51B5))
+                                .padding(horizontal = 12.dp, vertical = 6.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(22.dp)
+                                    .clip(CircleShape)
+                                    .background(Color.White),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text("🔥", fontSize = 12.sp)
+                            }
+                            Spacer(Modifier.width(8.dp))
                             Text(
-                                "$greeting، ${user?.name?.split(" ")?.firstOrNull() ?: "کاربر"} 👋",
-                                fontSize = 22.sp,
+                                "$streak-day",
+                                fontSize = 13.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = Color.White
                             )
-                            Spacer(Modifier.height(6.dp))
+                            Spacer(Modifier.width(4.dp))
                             Text(
-                                "امروز چه چیزی یاد بگیریم؟",
+                                "Streak",
                                 fontSize = 13.sp,
                                 color = Color.White.copy(alpha = 0.9f)
                             )
                         }
-                        Column(horizontalAlignment = Alignment.End) {
-                            val dateStr = remember {
-                                val fmt = SimpleDateFormat("EEEE", Locale("fa"))
-                                fmt.format(Date())
-                            }
-                            Box(
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(10.dp))
-                                    .background(Color.White.copy(alpha = 0.15f))
-                                    .padding(horizontal = 10.dp, vertical = 5.dp)
-                            ) {
-                                Text(
-                                    dateStr,
-                                    fontSize = 11.sp,
-                                    color = Color.White,
-                                    fontWeight = FontWeight.Bold
-                                )
-                            }
-                        }
-                    }
 
-                    Spacer(Modifier.height(16.dp))
+                        Spacer(Modifier.height(14.dp))
 
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clip(RoundedCornerShape(14.dp))
-                            .background(Color.White.copy(alpha = 0.15f))
-                            .padding(14.dp)
-                    ) {
+                        // چک‌باکس‌ها
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text("💡", fontSize = 20.sp)
-                            Spacer(Modifier.width(10.dp))
-                            Text(
-                                todayQuote,
-                                fontSize = 12.sp,
-                                color = Color.White,
-                                lineHeight = 18.sp,
-                                fontWeight = FontWeight.Medium
-                            )
-                        }
-                    }
-                }
-            }
-
-            // ==================== کارت آماری شناور ====================
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 20.dp)
-                    .offset(y = (-50).dp),
-                shape = RoundedCornerShape(20.dp),
-                elevation = CardDefaults.cardElevation(8.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White)
-            ) {
-                Column(modifier = Modifier.padding(18.dp)) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Box(
-                                modifier = Modifier
-                                    .size(32.dp)
-                                    .clip(CircleShape)
-                                    .background(AccentOrange.copy(alpha = 0.15f)),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text("📊", fontSize = 16.sp)
-                            }
-                            Spacer(Modifier.width(8.dp))
-                            Text(
-                                "آمار شما",
-                                fontSize = 14.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = PrimaryColor
-                            )
-                        }
-                        Box(
-                            modifier = Modifier
-                                .clip(RoundedCornerShape(8.dp))
-                                .background(
-                                    Brush.linearGradient(
-                                        listOf(PrimaryColor, SecondaryColor)
-                                    )
-                                )
-                                .padding(horizontal = 10.dp, vertical = 4.dp)
-                        ) {
-                            Text(
-                                when (user?.level) {
-                                    "BEGINNER" -> "🌱 مبتدی"
-                                    "INTERMEDIATE" -> "🚀 متوسط"
-                                    "ADVANCED" -> "🏆 پیشرفته"
-                                    else -> "🌱 مبتدی"
-                                },
-                                fontSize = 10.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.White
-                            )
-                        }
-                    }
-
-                    Spacer(Modifier.height(16.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly
-                    ) {
-                        StatItemAdvanced("📚", "$lessonsCompleted", "درس", AccentBlue)
-                        VerticalDividerSmall()
-                        StatItemAdvanced("🔥", "$dailyStreak", "روز پیوسته", AccentOrange)
-                        VerticalDividerSmall()
-                        StatItemAdvanced("⭐", "$totalStars", "امتیاز", AccentPink)
-                        VerticalDividerSmall()
-                        StatItemAdvanced("🏆", "$quizzesPassed", "آزمون", AccentGreen)
-                    }
-
-                    Spacer(Modifier.height(16.dp))
-
-                    Divider(color = Color.LightGray.copy(alpha = 0.3f))
-
-                    Spacer(Modifier.height(14.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .size(38.dp)
-                                .clip(CircleShape)
-                                .background(AccentGreen.copy(alpha = 0.12f)),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text("🎯", fontSize = 18.sp)
-                        }
-                        Spacer(Modifier.width(10.dp))
-                        Column(modifier = Modifier.weight(1f)) {
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.SpaceBetween
-                            ) {
-                                Text(
-                                    "هدف امروز",
-                                    fontSize = 12.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = PrimaryColor
-                                )
-                                Text(
-                                    "$todayMinutes/$dailyGoalMinutes دقیقه",
-                                    fontSize = 11.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = AccentGreen
-                                )
-                            }
-                            Spacer(Modifier.height(4.dp))
-                            LinearProgressIndicator(
-                                progress = { dailyGoalProgress },
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(6.dp)
-                                    .clip(RoundedCornerShape(3.dp)),
-                                color = AccentGreen,
-                                trackColor = AccentGreen.copy(alpha = 0.15f)
-                            )
-                        }
-                    }
-
-                    Spacer(Modifier.height(14.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .size(38.dp)
-                                .clip(CircleShape)
-                                .background(AccentBlue.copy(alpha = 0.12f)),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text("📈", fontSize = 18.sp)
-                        }
-                        Spacer(Modifier.width(10.dp))
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                "فعالیت هفته",
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = PrimaryColor
-                            )
-                            Spacer(Modifier.height(6.dp))
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.SpaceBetween,
-                                verticalAlignment = Alignment.Bottom
-                            ) {
-                                weeklyActivity.forEachIndexed { idx, value ->
-                                    val dayNames = listOf("ش", "ی", "د", "س", "چ", "پ", "ج")
-                                    Column(
-                                        horizontalAlignment = Alignment.CenterHorizontally
-                                    ) {
-                                        Box(
-                                            modifier = Modifier
-                                                .width(14.dp)
-                                                .height((value * 6 + 8).dp)
-                                                .clip(RoundedCornerShape(4.dp))
-                                                .background(
-                                                    if (value > 0) AccentBlue
-                                                    else Color.LightGray.copy(alpha = 0.3f)
-                                                )
-                                        )
-                                        Spacer(Modifier.height(2.dp))
-                                        Text(
-                                            dayNames[idx],
-                                            fontSize = 8.sp,
-                                            color = Color.Gray
+                            repeat(5) { index ->
+                                val isChecked = index < (todayMinutes / 2)
+                                Box(
+                                    modifier = Modifier
+                                        .padding(end = 5.dp)
+                                        .size(26.dp)
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .background(
+                                            if (isChecked) Color.White
+                                            else Color.White.copy(alpha = 0.2f)
+                                        ),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    if (isChecked) {
+                                        Icon(
+                                            Icons.Filled.Check,
+                                            null,
+                                            tint = Color(0xFF2E4A9E),
+                                            modifier = Modifier.size(16.dp)
                                         )
                                     }
                                 }
                             }
                         }
-                    }
-                }
-            }
 
-            Spacer(Modifier.offset(y = (-30).dp))
+                        Spacer(Modifier.height(10.dp))
 
-            // ==================== دسترسی سریع ====================
-            SectionTitle("🚀 دسترسی سریع")
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                QuickAccessCardAdvanced(
-                    emoji = "📚", title = "کتابخانه", subtitle = "۵۳+ کتاب",
-                    gradient = listOf(Color(0xFF6A1B9A), Color(0xFFAB47BC)),
-                    modifier = Modifier.weight(1f),
-                    onClick = onNavigateToLibrary
-                )
-                QuickAccessCardAdvanced(
-                    emoji = "🤖", title = "AI Chat", subtitle = "معلم هوشمند",
-                    gradient = listOf(Color(0xFF00695C), Color(0xFF26A69A)),
-                    modifier = Modifier.weight(1f),
-                    onClick = onNavigateToAIChat
-                )
-            }
-
-            Spacer(Modifier.height(12.dp))
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                QuickAccessCardAdvanced(
-                    emoji = "🗣️", title = "اسپیکینگ", subtitle = "تمرین گفتار",
-                    gradient = listOf(Color(0xFFC62828), Color(0xFFEF5350)),
-                    modifier = Modifier.weight(1f),
-                    onClick = onNavigateToSpeaking
-                )
-                QuickAccessCardAdvanced(
-                    emoji = "📝", title = "واژگان", subtitle = "بانک لغات",
-                    gradient = listOf(Color(0xFFE91E63), Color(0xFFF06292)),
-                    modifier = Modifier.weight(1f),
-                    onClick = onNavigateToVocabulary
-                )
-            }
-
-            Spacer(Modifier.height(12.dp))
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                QuickAccessCardAdvanced(
-                    emoji = "🎧", title = "پادکست‌ها", subtitle = "۲۴ پادکست",
-                    gradient = listOf(Color(0xFF6A1B9A), Color(0xFFBA68C8)),
-                    modifier = Modifier.weight(1f),
-                    onClick = onNavigateToPodcast
-                )
-                QuickAccessCardAdvanced(
-                    emoji = "💬", title = "جملات روزمره", subtitle = "۴۰ جمله",
-                    gradient = listOf(Color(0xFF00695C), Color(0xFF4DB6AC)),
-                    modifier = Modifier.weight(1f),
-                    onClick = onNavigateToDailySentences
-                )
-            }
-
-            Spacer(Modifier.height(12.dp))
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                QuickAccessCardAdvanced(
-                    emoji = "🎯", title = "تست سطح", subtitle = "سطحت رو بسنج",
-                    gradient = listOf(Color(0xFFC62828), Color(0xFFEF5350)),
-                    modifier = Modifier.weight(1f),
-                    onClick = onNavigateToLevelTest
-                )
-                QuickAccessCardAdvanced(
-                    emoji = "🏆", title = "دستاوردها", subtitle = "۱۳ نشان",
-                    gradient = listOf(Color(0xFFFF6F00), Color(0xFFFFB300)),
-                    modifier = Modifier.weight(1f),
-                    onClick = onNavigateToAchievements
-                )
-            }
-
-            Spacer(Modifier.height(24.dp))
-
-            // ==================== ادامه یادگیری ====================
-            if (continueBooks.isNotEmpty()) {
-                SectionTitle("📖 ادامه یادگیری")
-                continueBooks.forEach { (book, chaptersRead, progressPercent) ->
-                    ContinueLearningCardAdvanced(
-                        bookTitle = book.title,
-                        bookTitlePersian = book.titlePersian,
-                        emoji = book.category.emoji,
-                        chapter = "$chaptersRead از ${book.totalChapters} درس خوانده شده",
-                        progress = progressPercent / 100f,
-                        color = Color(book.gradientStart),
-                        gradientEnd = Color(book.gradientEnd),
-                        onClick = onNavigateToLibrary
-                    )
-                    Spacer(Modifier.height(10.dp))
-                }
-            } else {
-                SectionTitle("📖 شروع یادگیری")
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp)
-                        .clickable { onNavigateToLibrary() },
-                    shape = RoundedCornerShape(18.dp),
-                    elevation = CardDefaults.cardElevation(4.dp),
-                    colors = CardDefaults.cardColors(containerColor = Color.White)
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(20.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .size(70.dp)
-                                .clip(CircleShape)
-                                .background(
-                                    Brush.linearGradient(
-                                        listOf(PrimaryColor, SecondaryColor)
-                                    )
-                                ),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text("📖", fontSize = 32.sp)
-                        }
-                        Spacer(Modifier.height(12.dp))
                         Text(
-                            "هنوز کتابی شروع نکردی!",
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = PrimaryColor
-                        )
-                        Spacer(Modifier.height(4.dp))
-                        Text(
-                            "۵۳ کتاب آموزشی آماده یادگیریه",
-                            fontSize = 12.sp,
-                            color = Color.Gray,
-                            textAlign = TextAlign.Center
-                        )
-                        Spacer(Modifier.height(12.dp))
-                        Button(
-                            onClick = onNavigateToLibrary,
-                            colors = ButtonDefaults.buttonColors(containerColor = PrimaryColor),
-                            shape = RoundedCornerShape(12.dp)
-                        ) {
-                            Text("شروع کن", color = Color.White, fontWeight = FontWeight.Bold)
-                            Spacer(Modifier.width(4.dp))
-                            Icon(Icons.Filled.ArrowForward, null, tint = Color.White, modifier = Modifier.size(16.dp))
-                        }
-                    }
-                }
-            }
-
-            Spacer(Modifier.height(24.dp))
-
-            // ==================== دستاوردها ====================
-            SectionTitle("🏆 دستاوردهای شما")
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(10.dp)
-            ) {
-                AchievementBadgeAdvanced("🥇", "شروع", lessonsCompleted > 0, if (lessonsCompleted > 0) "کامل" else "0/1", Modifier.weight(1f))
-                AchievementBadgeAdvanced("🔥", "۷ روز", dailyStreak >= 7, "$dailyStreak/7", Modifier.weight(1f))
-                AchievementBadgeAdvanced("📚", "۱۰ درس", lessonsCompleted >= 10, "$lessonsCompleted/10", Modifier.weight(1f))
-                AchievementBadgeAdvanced("🏆", "۵ آزمون", quizzesPassed >= 5, "$quizzesPassed/5", Modifier.weight(1f))
-            }
-
-            Spacer(Modifier.height(24.dp))
-
-            // ==================== پیشرفت کلی ====================
-            SectionTitle("📊 پیشرفت کلی")
-            Card(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
-                shape = RoundedCornerShape(18.dp),
-                elevation = CardDefaults.cardElevation(4.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White)
-            ) {
-                Column(modifier = Modifier.padding(18.dp)) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Box(modifier = Modifier.size(80.dp), contentAlignment = Alignment.Center) {
-                            val totalChapters = BookRepository.getAllBooks().sumOf { it.totalChapters }
-                            val progress = if (totalChapters > 0) lessonsCompleted.toFloat() / totalChapters else 0f
-                            val animatedProgress by animateFloatAsState(
-                                targetValue = progress,
-                                animationSpec = tween(1500, easing = FastOutSlowInEasing),
-                                label = "circular"
-                            )
-                            CircularProgressIndicator(
-                                progress = { 1f },
-                                modifier = Modifier.fillMaxSize(),
-                                color = Color.LightGray.copy(alpha = 0.2f),
-                                strokeWidth = 8.dp
-                            )
-                            CircularProgressIndicator(
-                                progress = { animatedProgress },
-                                modifier = Modifier.fillMaxSize(),
-                                color = PrimaryColor,
-                                strokeWidth = 8.dp
-                            )
-                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                Text(
-                                    "${(progress * 100).toInt()}%",
-                                    fontSize = 18.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = PrimaryColor
-                                )
-                            }
-                        }
-                        Spacer(Modifier.width(18.dp))
-                        Column {
-                            Text("مسیر یادگیری شما", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
-                            Spacer(Modifier.height(6.dp))
-                            ProgressText("📖 $lessonsCompleted درس خوانده‌شده", AccentBlue)
-                            Spacer(Modifier.height(2.dp))
-                            ProgressText("🏆 $quizzesPassed آزمون پاس‌شده", AccentGreen)
-                            Spacer(Modifier.height(2.dp))
-                            ProgressText("🎯 $quizAttempts بار تلاش آزمون", AccentOrange)
-                        }
-                    }
-                }
-            }
-
-            Spacer(Modifier.height(24.dp))
-
-            // ==================== دکمه پروفایل ====================
-            Card(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).clickable { onNavigateToProfile() },
-                shape = RoundedCornerShape(16.dp),
-                elevation = CardDefaults.cardElevation(3.dp),
-                colors = CardDefaults.cardColors(containerColor = Color.White)
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(50.dp)
-                            .clip(CircleShape)
-                            .background(Brush.linearGradient(listOf(PrimaryColor, SecondaryColor))),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            user?.name?.firstOrNull()?.uppercase() ?: "U",
-                            fontSize = 22.sp,
+                            "${String.format("%02d", todayMinutes / 60)}:${String.format("%02d", todayMinutes % 60)}/$dailyGoal min",
+                            fontSize = 14.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.White
                         )
                     }
-                    Spacer(Modifier.width(12.dp))
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(user?.name ?: "کاربر", fontSize = 15.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
-                        Text(user?.email ?: "", fontSize = 11.sp, color = Color.Gray)
+
+                    // سمت راست: Level + دایره
+                    Box(
+                        modifier = Modifier.size(120.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Canvas(modifier = Modifier.fillMaxSize()) {
+                            drawArc(
+                                color = Color.White.copy(alpha = 0.15f),
+                                startAngle = 135f,
+                                sweepAngle = 270f,
+                                useCenter = false,
+                                style = Stroke(width = 8.dp.toPx(), cap = StrokeCap.Round)
+                            )
+                            drawArc(
+                                color = Color.White,
+                                startAngle = 135f,
+                                sweepAngle = 270f * levelProgress,
+                                useCenter = false,
+                                style = Stroke(width = 8.dp.toPx(), cap = StrokeCap.Round)
+                            )
+                        }
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Text(
+                                "Level $level",
+                                fontSize = 18.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color.White
+                            )
+                            Spacer(Modifier.height(2.dp))
+                            Text(
+                                "$xpInLevel.$xpForNextLevel/$xpForNextLevel",
+                                fontSize = 11.sp,
+                                color = Color.White.copy(alpha = 0.85f)
+                            )
+                        }
                     }
-                    Icon(Icons.Filled.ChevronLeft, null, tint = Color.Gray)
                 }
             }
-
-            Spacer(Modifier.height(20.dp))
-
-            OutlinedButton(
-                onClick = {
-                    UserManager.logout(context)
-                    onLogout()
-                },
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).height(52.dp),
-                shape = RoundedCornerShape(14.dp),
-                colors = ButtonDefaults.outlinedButtonColors(contentColor = AccentRed)
-            ) {
-                Icon(Icons.Filled.Logout, null, modifier = Modifier.size(20.dp))
-                Spacer(Modifier.width(8.dp))
-                Text("خروج از حساب", fontWeight = FontWeight.Bold)
-            }
-
-            Spacer(Modifier.height(30.dp))
         }
     }
 }
 
-// ==================== کامپوزبل‌های کمکی ====================
-
+// ============================================================
+// 2. کاور کوچک کتاب (کاروسل)
+// ============================================================
 @Composable
-private fun SectionTitle(title: String) {
-    Text(
-        title,
-        fontSize = 16.sp,
-        fontWeight = FontWeight.Bold,
-        color = PrimaryColor,
-        modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 8.dp, bottom = 12.dp)
-    )
-}
-
-@Composable
-private fun StatItemAdvanced(emoji: String, value: String, label: String, color: Color) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(emoji, fontSize = 20.sp)
-        Spacer(Modifier.height(3.dp))
-        Text(value, fontSize = 17.sp, fontWeight = FontWeight.Bold, color = color)
-        Text(label, fontSize = 9.sp, color = Color.Gray, textAlign = TextAlign.Center)
-    }
-}
-
-@Composable
-private fun VerticalDividerSmall() {
-    Divider(
-        modifier = Modifier.height(40.dp).width(1.dp),
-        color = Color.LightGray.copy(alpha = 0.4f)
-    )
-}
-
-@Composable
-private fun QuickAccessCardAdvanced(
-    emoji: String,
-    title: String,
-    subtitle: String,
-    gradient: List<Color>,
-    modifier: Modifier = Modifier,
+fun BookCoverSmall(
+    book: Book,
     onClick: () -> Unit
 ) {
-    val infiniteTransition = rememberInfiniteTransition(label = "quick")
-    val scale by infiniteTransition.animateFloat(
-        initialValue = 1f,
-        targetValue = 1.02f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(3000, easing = FastOutSlowInEasing),
-            repeatMode = RepeatMode.Reverse
-        ),
-        label = "scale"
-    )
-
-    Card(
-        modifier = modifier.height(120.dp).scale(scale).clickable { onClick() },
-        shape = RoundedCornerShape(18.dp),
-        elevation = CardDefaults.cardElevation(6.dp)
+    Column(
+        modifier = Modifier
+            .width(78.dp)
+            .clickable { onClick() },
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
-            modifier = Modifier.fillMaxSize().background(Brush.linearGradient(gradient)).padding(14.dp)
+            modifier = Modifier
+                .size(78.dp, 110.dp)
+                .clip(RoundedCornerShape(12.dp))
+                .background(
+                    Brush.linearGradient(
+                        listOf(Color(book.gradientStart), Color(book.gradientEnd))
+                    )
+                ),
+            contentAlignment = Alignment.Center
         ) {
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.SpaceBetween
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.Top
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(42.dp)
-                            .clip(CircleShape)
-                            .background(Color.White.copy(alpha = 0.25f)),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(emoji, fontSize = 22.sp)
-                    }
-                    Box(
-                        modifier = Modifier
-                            .size(20.dp)
-                            .clip(CircleShape)
-                            .background(Color.White.copy(alpha = 0.2f)),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Icon(Icons.Filled.ArrowForward, null, tint = Color.White, modifier = Modifier.size(12.dp))
-                    }
-                }
-                Column {
-                    Text(title, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Color.White)
-                    Spacer(Modifier.height(2.dp))
-                    Text(subtitle, fontSize = 10.sp, color = Color.White.copy(alpha = 0.85f))
-                }
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(book.levelEmoji, fontSize = 24.sp)
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    book.title.split(" ").firstOrNull() ?: "",
+                    fontSize = 8.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                    maxLines = 1,
+                    textAlign = TextAlign.Center
+                )
             }
         }
     }
 }
 
+// ============================================================
+// 3. آیتم لیست محتوا (طبق mockup)
+// ============================================================
 @Composable
-private fun ContinueLearningCardAdvanced(
-    bookTitle: String,
-    bookTitlePersian: String,
-    emoji: String,
-    chapter: String,
-    progress: Float,
-    color: Color,
-    gradientEnd: Color,
+fun ContentListItem(
+    book: Book,
     onClick: () -> Unit
 ) {
     Card(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).clickable { onClick() },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
+            .clickable { onClick() },
         shape = RoundedCornerShape(16.dp),
-        elevation = CardDefaults.cardElevation(3.dp),
+        elevation = CardDefaults.cardElevation(2.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(14.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(140.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Box(
+            // ===== سمت چپ: متن =====
+            Column(
                 modifier = Modifier
-                    .size(54.dp)
-                    .clip(RoundedCornerShape(12.dp))
-                    .background(Brush.linearGradient(listOf(color, gradientEnd))),
-                contentAlignment = Alignment.Center
+                    .weight(1f)
+                    .padding(start = 16.dp, top = 16.dp, bottom = 16.dp, end = 8.dp)
             ) {
-                Text(emoji, fontSize = 26.sp)
-            }
-            Spacer(Modifier.width(12.dp))
-            Column(modifier = Modifier.weight(1f)) {
-                Text(bookTitle, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
-                Text(bookTitlePersian, fontSize = 10.sp, color = SecondaryColor, fontWeight = FontWeight.SemiBold)
-                Spacer(Modifier.height(4.dp))
-                Text(chapter, fontSize = 10.sp, color = Color.Gray)
-                Spacer(Modifier.height(6.dp))
-                LinearProgressIndicator(
-                    progress = { progress },
-                    modifier = Modifier.fillMaxWidth().height(6.dp).clip(RoundedCornerShape(3.dp)),
-                    color = color,
-                    trackColor = color.copy(alpha = 0.15f)
+                // تگ سطح (سمت راست)
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.End)
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(Color(0xFFF0F0F0))
+                        .padding(horizontal = 10.dp, vertical = 3.dp)
+                ) {
+                    Text(
+                        book.level,
+                        fontSize = 10.sp,
+                        color = Color.Gray,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+
+                Spacer(Modifier.height(8.dp))
+
+                // عنوان انگلیسی
+                Text(
+                    book.title,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF1A237E),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
-                Spacer(Modifier.height(3.dp))
-                Text("${(progress * 100).toInt()}% تکمیل", fontSize = 9.sp, color = color, fontWeight = FontWeight.Bold)
-            }
-            Box(
-                modifier = Modifier
-                    .size(38.dp)
-                    .clip(CircleShape)
-                    .background(color.copy(alpha = 0.15f)),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(Icons.Filled.PlayArrow, null, tint = color, modifier = Modifier.size(22.dp))
-            }
-        }
-    }
-}
 
-@Composable
-private fun AchievementBadgeAdvanced(
-    emoji: String,
-    title: String,
-    unlocked: Boolean,
-    progressText: String,
-    modifier: Modifier = Modifier
-) {
-    Card(
-        modifier = modifier,
-        shape = RoundedCornerShape(14.dp),
-        elevation = CardDefaults.cardElevation(if (unlocked) 4.dp else 1.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (unlocked) Color.White else Color(0xFFEDEDED)
-        )
-    ) {
-        Column(
-            modifier = Modifier.fillMaxWidth().padding(8.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+                Spacer(Modifier.height(2.dp))
+
+                // عنوان فارسی
+                Text(
+                    book.titlePersian,
+                    fontSize = 11.sp,
+                    color = Color.Gray,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+
+                Spacer(Modifier.weight(1f))
+
+                // زمان + نوار پیشرفت
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Icon(
+                        Icons.Filled.AccessTime,
+                        null,
+                        tint = Color.Gray,
+                        modifier = Modifier.size(13.dp)
+                    )
+                    Spacer(Modifier.width(4.dp))
+                    Text(
+                        "${book.totalChapters} فصل",
+                        fontSize = 11.sp,
+                        color = Color.Gray
+                    )
+                    Spacer(Modifier.width(10.dp))
+                    LinearProgressIndicator(
+                        progress = { 0.35f },
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(4.dp)
+                            .clip(RoundedCornerShape(2.dp)),
+                        color = Color(book.gradientStart),
+                        trackColor = Color(book.gradientStart).copy(alpha = 0.15f)
+                    )
+                }
+            }
+
+            // ===== سمت راست: کاور =====
             Box(
                 modifier = Modifier
-                    .size(38.dp)
-                    .clip(CircleShape)
+                    .padding(end = 12.dp)
+                    .width(95.dp)
+                    .height(130.dp)
+                    .clip(RoundedCornerShape(14.dp))
                     .background(
-                        if (unlocked) AccentOrange.copy(alpha = 0.15f)
-                        else Color.Gray.copy(alpha = 0.15f)
-                    ),
-                contentAlignment = Alignment.Center
+                        Brush.linearGradient(
+                            listOf(Color(book.gradientStart), Color(book.gradientEnd))
+                        )
+                    )
             ) {
-                Text(emoji, fontSize = 18.sp)
+                // محتوای روی کاور
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        book.levelEmoji,
+                        fontSize = 40.sp
+                    )
+                }
+
+                // دکمه ۳ نقطه در پایین-چپ کاور
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.BottomStart)
+                        .padding(6.dp)
+                        .size(26.dp)
+                        .clip(CircleShape)
+                        .background(Color.White.copy(alpha = 0.9f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        Icons.Filled.MoreVert,
+                        null,
+                        tint = Color.Gray,
+                        modifier = Modifier.size(16.dp)
+                    )
+                }
             }
-            Spacer(Modifier.height(4.dp))
-            Text(
-                title,
-                fontSize = 9.sp,
-                fontWeight = FontWeight.Bold,
-                color = if (unlocked) PrimaryColor else Color.Gray,
-                textAlign = TextAlign.Center,
-                lineHeight = 11.sp
-            )
-            Text(
-                progressText,
-                fontSize = 8.sp,
-                color = if (unlocked) AccentGreen else Color.Gray,
-                fontWeight = FontWeight.SemiBold
-            )
         }
     }
 }
 
+// ============================================================
+// Helper
+// ============================================================
 @Composable
-private fun ProgressText(text: String, color: Color) {
-    Text(text, fontSize = 11.sp, color = color, fontWeight = FontWeight.SemiBold)
+fun navItemColors(): NavigationBarItemColors {
+    return NavigationBarItemDefaults.colors(
+        selectedIconColor = Color(0xFF1A237E),
+        selectedTextColor = Color(0xFF1A237E),
+        unselectedIconColor = Color.Gray,
+        unselectedTextColor = Color.Gray,
+        indicatorColor = Color(0xFF1A237E).copy(alpha = 0.15f)
+    )
 }
