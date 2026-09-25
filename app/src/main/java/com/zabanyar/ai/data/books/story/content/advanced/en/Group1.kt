@@ -1,7 +1,7 @@
 package com.zabanyar.ai.data.books.story.content.advanced.en
 
 /**
- * 📚 En Group2 — ۳ داستان پیشرفته، ۵ فصل × ۳۰ خط
+ * 📚 En Group1 — ۳ داستان پیشرفته، ۵ فصل × ۳۰ خط
  *  ۴. One Hundred Years of Solitude
  *  ۵. Mrs Dalloway
  *  ۶. Siddhartha
