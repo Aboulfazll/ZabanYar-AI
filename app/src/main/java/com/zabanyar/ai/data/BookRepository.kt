@@ -1,6 +1,4 @@
 package com.zabanyar.ai.data
-package com.zabanyar.ai.data
-
 enum class BookCategory(
     val displayName: String,
     val persianName: String,
