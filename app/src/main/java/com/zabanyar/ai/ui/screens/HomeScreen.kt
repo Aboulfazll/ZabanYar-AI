@@ -1,8 +1,3 @@
-				
-
-
-
-
 ‌‌‌،package.com.zabanyar.ai.ui.sceerns
  import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
