@@ -12,7 +12,10 @@ import com.zabanyar.ai.data.books.story.content.advanced.en.toStoryChapter
 
 object StoryRepository {
 
-    // ─── متادیتا ───
+    // ═══════════════════════════════════════════════════════
+    //  📖 متادیتا (لیست کتاب‌ها)
+    // ═══════════════════════════════════════════════════════
+
     fun getAllStories(): List<Book> =
         SimpleStories.getAll() +
         IntermediateStories.getAll() +
@@ -30,7 +33,10 @@ object StoryRepository {
 
     fun getCount(): Int = getAllStories().size
 
-    // ─── محتوای دوزبانه ───
+    // ═══════════════════════════════════════════════════════
+    //  📚 محتوای دوزبانه (فارسی + انگلیسی)
+    // ═══════════════════════════════════════════════════════
+
     private val bilingualContents: List<StoryContent>
         get() = SimpleStoryContent.getAll() +
                 IntermediateStoryContent.getAll() +
@@ -48,7 +54,10 @@ object StoryRepository {
     fun hasContent(storyId: String): Boolean =
         getContent(storyId) != null
 
-    // ─── محتوای انگلیسی تک‌زبانه ───
+    // ═══════════════════════════════════════════════════════
+    //  🇬🇧 محتوای انگلیسی تک‌زبانه (پیشرفته)
+    // ═══════════════════════════════════════════════════════
+
     fun getEnStory(storyId: String): EnStory? =
         EnStoryContent.getStory(storyId)
 
@@ -61,7 +70,10 @@ object StoryRepository {
     fun getEnStoriesCount(): Int =
         EnStoryContent.getCount()
 
-    // ─── تبدیل En به StoryChapter ───
+    // ═══════════════════════════════════════════════════════
+    //  🔄 تبدیل En به StoryChapter
+    // ═══════════════════════════════════════════════════════
+
     fun getEnChaptersAsStoryChapters(storyId: String): List<StoryChapter> {
         val enStory = getEnStory(storyId) ?: return emptyList()
         return enStory.toStoryChapters()
@@ -72,7 +84,10 @@ object StoryRepository {
         return enChapter.toStoryChapter()
     }
 
-    // ─── جستجو ───
+    // ═══════════════════════════════════════════════════════
+    //  🔍 جستجو
+    // ═══════════════════════════════════════════════════════
+
     fun searchStories(query: String): List<Book> {
         val q = query.trim().lowercase()
         if (q.isEmpty()) return emptyList()
