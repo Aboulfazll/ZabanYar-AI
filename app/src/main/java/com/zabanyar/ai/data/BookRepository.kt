@@ -1,4 +1,5 @@
 package com.zabanyar.ai.data
+package com.zabanyar.ai.data
 
 enum class BookCategory(
     val displayName: String,
@@ -256,22 +257,24 @@ object BookRepository {
         ),
 
         // ==================== 📝 گرامر ====================
+        // 👇 اصلاح شد: totalChapters بر اساس محتوای واقعی
+
         Book(
             id = "basic_grammar", title = "Basic Grammar in Use", titlePersian = "گرامر پایه",
             author = "Raymond Murphy", category = BookCategory.GRAMMAR,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 45,
+            level = "مبتدی", levelEmoji = "🌱", totalChapters = 13,  // 👈 از 45 به 13
             gradientStart = 0xFF00695C, gradientEnd = 0xFF26A69A
         ),
         Book(
             id = "understanding_grammar", title = "Understanding English Grammar", titlePersian = "درک گرامر انگلیسی",
             author = "Betty Azar", category = BookCategory.GRAMMAR,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 30,
+            level = "متوسط", levelEmoji = "🚀", totalChapters = 12,  // 👈 از 30 به 12
             gradientStart = 0xFF0277BD, gradientEnd = 0xFF4FC3F7
         ),
         Book(
             id = "advanced_grammar", title = "Advanced Grammar in Use", titlePersian = "گرامر پیشرفته",
             author = "Martin Hewings", category = BookCategory.GRAMMAR,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 31,
+            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,  // 👈 از 31 به 12
             gradientStart = 0xFF4527A0, gradientEnd = 0xFF7E57C2
         ),
 
