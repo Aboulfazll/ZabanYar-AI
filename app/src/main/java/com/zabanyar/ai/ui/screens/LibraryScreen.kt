@@ -1,4 +1,5 @@
-package com.zabanyar.ai.ui.screens 
+package com.zabanyar.ai.ui.screens
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -19,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -26,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.Book
 import com.zabanyar.ai.data.BookCategory
 import com.zabanyar.ai.data.BookRepository
+import com.zabanyar.ai.data.FavoritesManager
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -33,14 +36,31 @@ fun LibraryScreen(
     onBack: () -> Unit = {},
     onBookClick: (String) -> Unit = {}
 ) {
-    val addedBooks = remember { mutableStateListOf<String>() }
-    var selectedTab by remember { mutableStateOf("کتاب‌های ساده") }
+    val context = LocalContext.current
+
+    // ✅ ذخیره‌سازی علاقه‌مندی‌ها در SharedPreferences
+    var addedBooks by remember { mutableStateOf(FavoritesManager.getAddedBooks(context)) }
+    var selectedTab by remember { mutableStateOf("همه") }
 
     val allBooks = remember { BookRepository.getAllBooks() }
 
-    val simpleBooks = allBooks.filter { it.level == "مبتدی" }
-    val mediumBooks = allBooks.filter { it.level == "متوسط" }
-    val advancedBooks = allBooks.filter { it.level == "پیشرفته" }
+    // تب‌های جدید
+    val tabs = listOf("همه", "ساده", "متوسط", "پیشرفته", "داستان", "گرامر", "مکالمه", "شنیداری")
+
+    // فیلتر کتاب‌ها بر اساس تب انتخاب‌شده
+    val filteredBooks = remember(selectedTab, allBooks) {
+        when (selectedTab) {
+            "همه" -> allBooks
+            "ساده" -> allBooks.filter { it.level == "مبتدی" }
+            "متوسط" -> allBooks.filter { it.level == "متوسط" }
+            "پیشرفته" -> allBooks.filter { it.level == "پیشرفته" }
+            "داستان" -> allBooks.filter { it.category == BookCategory.STORY }
+            "گرامر" -> allBooks.filter { it.category == BookCategory.GRAMMAR }
+            "مکالمه" -> allBooks.filter { it.category == BookCategory.CONVERSATION }
+            "شنیداری" -> allBooks.filter { it.category == BookCategory.LISTENING }
+            else -> allBooks
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -66,11 +86,11 @@ fun LibraryScreen(
                 .background(Color.White)
                 .padding(padding)
         ) {
+            // ==================== تب‌ها ====================
             LazyRow(
                 contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                val tabs = listOf("کتاب‌های ساده", "کتاب‌های متوسط", "کتاب‌های پیشرفته")
                 items(tabs) { tab ->
                     Button(
                         onClick = { selectedTab = tab },
@@ -87,50 +107,35 @@ fun LibraryScreen(
                 }
             }
 
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(bottom = 32.dp),
-                verticalArrangement = Arrangement.spacedBy(28.dp)
-            ) {
-                when (selectedTab) {
-                    "کتاب‌های ساده" -> {
-                        items(simpleBooks.chunked(10)) { chunk ->
-                            BookSectionByCategory(
-                                books = chunk,
-                                addedBooks = addedBooks,
-                                onAddClick = { id ->
-                                    if (addedBooks.contains(id)) addedBooks.remove(id)
-                                    else addedBooks.add(id)
-                                },
-                                onBookClick = onBookClick
-                            )
-                        }
+            // ==================== لیست کتاب‌ها ====================
+            if (filteredBooks.isEmpty()) {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text("📭", fontSize = 48.sp)
+                        Spacer(Modifier.height(8.dp))
+                        Text("کتابی در این دسته وجود ندارد", color = Color.Gray, fontSize = 14.sp)
                     }
-                    "کتاب‌های متوسط" -> {
-                        items(mediumBooks.chunked(10)) { chunk ->
-                            BookSectionByCategory(
-                                books = chunk,
-                                addedBooks = addedBooks,
-                                onAddClick = { id ->
-                                    if (addedBooks.contains(id)) addedBooks.remove(id)
-                                    else addedBooks.add(id)
-                                },
-                                onBookClick = onBookClick
-                            )
-                        }
-                    }
-                    "کتاب‌های پیشرفته" -> {
-                        items(advancedBooks.chunked(10)) { chunk ->
-                            BookSectionByCategory(
-                                books = chunk,
-                                addedBooks = addedBooks,
-                                onAddClick = { id ->
-                                    if (addedBooks.contains(id)) addedBooks.remove(id)
-                                    else addedBooks.add(id)
-                                },
-                                onBookClick = onBookClick
-                            )
-                        }
+                }
+            } else {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(bottom = 32.dp),
+                    verticalArrangement = Arrangement.spacedBy(28.dp)
+                ) {
+                    items(filteredBooks.chunked(10)) { chunk ->
+                        BookSectionByCategory(
+                            books = chunk,
+                            addedBooks = addedBooks,
+                            onAddClick = { id ->
+                                // ✅ ذخیره در SharedPreferences
+                                FavoritesManager.toggleBook(context, id)
+                                addedBooks = FavoritesManager.getAddedBooks(context)
+                            },
+                            onBookClick = onBookClick
+                        )
                     }
                 }
             }
@@ -255,6 +260,7 @@ fun BookCardReal(
                 }
             }
 
+            // ✅ دکمه + که حالا در SharedPreferences ذخیره می‌شه
             Box(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
