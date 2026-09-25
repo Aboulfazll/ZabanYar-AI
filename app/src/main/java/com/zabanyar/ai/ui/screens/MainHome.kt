@@ -10,15 +10,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccessTime
-import androidx.compose.material.icons.filled.ChatBubble
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.filled.Mic
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.ShowChart
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -36,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.Book
 import com.zabanyar.ai.data.BookRepository
+import com.zabanyar.ai.data.HomeBooksManager
 import com.zabanyar.ai.data.ProgressManager
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -54,7 +47,7 @@ fun MainHome(
     onLogout: () -> Unit = {}
 ) {
     val context = LocalContext.current
-    val refreshKey by remember { mutableIntStateOf(0) }
+    var refreshKey by remember { mutableIntStateOf(0) }
 
     val totalStars = remember(refreshKey) { ProgressManager.getTotalStars(context) }
     val lessonsCompleted = remember(refreshKey) { ProgressManager.getLessonsCompleted(context) }
@@ -66,15 +59,68 @@ fun MainHome(
     val levelProgress = xpInLevel.toFloat() / xpForNextLevel.toFloat()
 
     val allBooks = remember { BookRepository.getAllBooks() }
-    val featuredBooks = remember { allBooks.take(10) }
+
+    // 🆕 کتاب‌های اضافه‌شده به خانه (به ترتیب ذخیره‌شده)
+    val homeBookIds = remember(refreshKey) { HomeBooksManager.getHomeBooks(context) }
+    val pinnedIds = remember(refreshKey) { HomeBooksManager.getPinnedBooks(context) }
+
+    val homeBooks: List<Book> = remember(refreshKey, homeBookIds, pinnedIds) {
+        val map = allBooks.associateBy { it.id }
+        val ordered = homeBookIds.mapNotNull { map[it] }
+        // Pin شده‌ها اول
+        ordered.sortedByDescending { pinnedIds.contains(it.id) }
+    }
 
     val dailyGoalMinutes = 10
-    val todayMinutes = remember(refreshKey) { minOf((lessonsCompleted % 10) * 3, dailyGoalMinutes) }
+    val todayMinutes = remember(refreshKey) {
+        minOf((lessonsCompleted % 10) * 3, dailyGoalMinutes)
+    }
 
     var selectedTab by remember { mutableIntStateOf(3) }
 
     Scaffold(
         containerColor = Color(0xFFF8F9FC),
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        "زبان‌یار AI",
+                        color = Color(0xFF1A237E),
+                        fontWeight = FontWeight.Bold
+                    )
+                },
+                navigationIcon = {
+                    IconButton(onClick = { /* drawer */ }) {
+                        Icon(
+                            Icons.Filled.Menu,
+                            contentDescription = "منو",
+                            tint = Color(0xFF1A237E)
+                        )
+                    }
+                },
+                actions = {
+                    // 🆕 دکمه افزودن کتاب
+                    IconButton(onClick = onNavigateToLibrary) {
+                        Icon(
+                            Icons.Filled.Add,
+                            contentDescription = "افزودن کتاب",
+                            tint = Color(0xFF1A237E)
+                        )
+                    }
+                    // 🆕 دکمه تنظیمات
+                    IconButton(onClick = onNavigateToSettings) {
+                        Icon(
+                            Icons.Filled.Settings,
+                            contentDescription = "تنظیمات",
+                            tint = Color(0xFF1A237E)
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color.White
+                )
+            )
+        },
         bottomBar = {
             NavigationBar(
                 containerColor = Color.White,
@@ -128,19 +174,24 @@ fun MainHome(
                     todayMinutes = todayMinutes,
                     dailyGoal = dailyGoalMinutes,
                     onProfileClick = onNavigateToProfile,
-                    onStatsClick = { }
+                    onStatsClick = onNavigateToAchievements
                 )
             }
 
-            // کاروسل کتاب‌ها
-            if (featuredBooks.isNotEmpty()) {
+            if (homeBooks.isEmpty()) {
+                // 🆕 حالت خالی: ایلاستریشن + دکمه افزودن کتاب
+                item {
+                    EmptyHomeState(onAddBook = onNavigateToLibrary)
+                }
+            } else {
+                // کاروسل کتاب‌ها
                 item {
                     Spacer(Modifier.height(16.dp))
                     LazyRow(
                         contentPadding = PaddingValues(horizontal = 16.dp),
                         horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
-                        items(featuredBooks) { book ->
+                        items(homeBooks, key = { it.id }) { book ->
                             BookCoverSmall(
                                 book = book,
                                 onClick = onNavigateToLibrary
@@ -149,32 +200,123 @@ fun MainHome(
                     }
                     Spacer(Modifier.height(24.dp))
                 }
-            }
 
-            // عنوان لیست
-            item {
-                Text(
-                    "📖 کتاب‌های شما",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF1A237E),
-                    modifier = Modifier.padding(start = 20.dp, end = 20.dp, bottom = 12.dp)
-                )
-            }
+                // عنوان لیست
+                item {
+                    Text(
+                        "📖 کتاب‌های شما",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF1A237E),
+                        modifier = Modifier.padding(start = 20.dp, end = 20.dp, bottom = 12.dp)
+                    )
+                }
 
-            // لیست کتاب‌ها
-            items(allBooks.take(10)) { book ->
-                ContentListItem(
-                    book = book,
-                    onClick = { onNavigateToLibrary() }
-                )
-                Spacer(Modifier.height(10.dp))
+                // لیست کتاب‌ها با منوی سه‌نقطه
+                items(homeBooks, key = { it.id }) { book ->
+                    ContentListItem(
+                        book = book,
+                        onClick = { onNavigateToLibrary() },
+                        isPinned = pinnedIds.contains(book.id),
+                        onMoveUp = {
+                            HomeBooksManager.moveUp(context, book.id)
+                            refreshKey++
+                        },
+                        onMoveTop = {
+                            HomeBooksManager.moveToTop(context, book.id)
+                            refreshKey++
+                        },
+                        onTogglePin = {
+                            HomeBooksManager.togglePin(context, book.id)
+                            refreshKey++
+                        },
+                        onArchive = {
+                            HomeBooksManager.archiveBook(context, book.id)
+                            refreshKey++
+                        },
+                        onManageAudio = {
+                            // TODO: ناوبری به مدیریت صوت‌ها
+                        },
+                        onClearStats = {
+                            ProgressManager.resetBookProgress(context, book.id)
+                            refreshKey++
+                        },
+                        onRemoveFromHome = {
+                            HomeBooksManager.removeFromHome(context, book.id)
+                            refreshKey++
+                        }
+                    )
+                    Spacer(Modifier.height(10.dp))
+                }
             }
 
             item { Spacer(Modifier.height(16.dp)) }
         }
     }
 }
+
+// ───────────── Empty State ─────────────
+
+@Composable
+fun EmptyHomeState(onAddBook: () -> Unit) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 32.dp, vertical = 48.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        // ایلاستریشن (به جای تصویر، از ایموجی بزرگ استفاده می‌کنیم)
+        // اگه تصویر واقعی داری، R.drawable.home_empty بذار
+        Box(
+            modifier = Modifier
+                .size(180.dp)
+                .clip(CircleShape)
+                .background(Color(0xFFE8EEF9)),
+            contentAlignment = Alignment.Center
+        ) {
+            Text("📚", fontSize = 80.sp)
+        }
+
+        Spacer(Modifier.height(24.dp))
+
+        Text(
+            "هنوز کتابی اضافه نکردی!",
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF1A237E)
+        )
+
+        Spacer(Modifier.height(8.dp))
+
+        Text(
+            "از کتابخانه، کتاب مورد علاقه‌ات رو\nبه این صفحه اضافه کن",
+            fontSize = 13.sp,
+            color = Color.Gray,
+            textAlign = TextAlign.Center
+        )
+
+        Spacer(Modifier.height(24.dp))
+
+        Button(
+            onClick = onAddBook,
+            shape = RoundedCornerShape(16.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF1A237E)
+            ),
+            contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp)
+        ) {
+            Icon(Icons.Filled.Add, null, modifier = Modifier.size(20.dp))
+            Spacer(Modifier.width(8.dp))
+            Text(
+                "افزودن کتاب",
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold
+            )
+        }
+    }
+}
+
+// ───────────── Header Card ─────────────
 
 @Composable
 fun BlueHeaderCard(
@@ -255,18 +397,9 @@ fun BlueHeaderCard(
                                 Text("🔥", fontSize = 12.sp)
                             }
                             Spacer(Modifier.width(8.dp))
-                            Text(
-                                "$streak-day",
-                                fontSize = 13.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.White
-                            )
+                            Text("$streak-day", fontSize = 13.sp, fontWeight = FontWeight.Bold, color = Color.White)
                             Spacer(Modifier.width(4.dp))
-                            Text(
-                                "Streak",
-                                fontSize = 13.sp,
-                                color = Color.White.copy(alpha = 0.9f)
-                            )
+                            Text("Streak", fontSize = 13.sp, color = Color.White.copy(alpha = 0.9f))
                         }
 
                         Spacer(Modifier.height(14.dp))
@@ -286,12 +419,7 @@ fun BlueHeaderCard(
                                     contentAlignment = Alignment.Center
                                 ) {
                                     if (isChecked) {
-                                        Icon(
-                                            Icons.Filled.Check,
-                                            null,
-                                            tint = Color(0xFF2E4A9E),
-                                            modifier = Modifier.size(16.dp)
-                                        )
+                                        Icon(Icons.Filled.Check, null, tint = Color(0xFF2E4A9E), modifier = Modifier.size(16.dp))
                                     }
                                 }
                             }
@@ -307,10 +435,7 @@ fun BlueHeaderCard(
                         )
                     }
 
-                    Box(
-                        modifier = Modifier.size(120.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
+                    Box(modifier = Modifier.size(120.dp), contentAlignment = Alignment.Center) {
                         Canvas(modifier = Modifier.fillMaxSize()) {
                             drawArc(
                                 color = Color.White.copy(alpha = 0.15f),
@@ -328,18 +453,9 @@ fun BlueHeaderCard(
                             )
                         }
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Text(
-                                "Level $level",
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.White
-                            )
+                            Text("Level $level", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.White)
                             Spacer(Modifier.height(2.dp))
-                            Text(
-                                "$xpInLevel/$xpForNextLevel",
-                                fontSize = 11.sp,
-                                color = Color.White.copy(alpha = 0.85f)
-                            )
+                            Text("$xpInLevel/$xpForNextLevel", fontSize = 11.sp, color = Color.White.copy(alpha = 0.85f))
                         }
                     }
                 }
@@ -348,11 +464,10 @@ fun BlueHeaderCard(
     }
 }
 
+// ───────────── Book Cover ─────────────
+
 @Composable
-fun BookCoverSmall(
-    book: Book,
-    onClick: () -> Unit
-) {
+fun BookCoverSmall(book: Book, onClick: () -> Unit) {
     Column(
         modifier = Modifier
             .width(78.dp)
@@ -363,11 +478,7 @@ fun BookCoverSmall(
             modifier = Modifier
                 .size(78.dp, 110.dp)
                 .clip(RoundedCornerShape(12.dp))
-                .background(
-                    Brush.linearGradient(
-                        listOf(Color(book.gradientStart), Color(book.gradientEnd))
-                    )
-                ),
+                .background(Brush.linearGradient(listOf(Color(book.gradientStart), Color(book.gradientEnd)))),
             contentAlignment = Alignment.Center
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -386,11 +497,23 @@ fun BookCoverSmall(
     }
 }
 
+// ───────────── Content List Item + منو ─────────────
+
 @Composable
 fun ContentListItem(
     book: Book,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    isPinned: Boolean,
+    onMoveUp: () -> Unit,
+    onMoveTop: () -> Unit,
+    onTogglePin: () -> Unit,
+    onArchive: () -> Unit,
+    onManageAudio: () -> Unit,
+    onClearStats: () -> Unit,
+    onRemoveFromHome: () -> Unit
 ) {
+    var menuExpanded by remember { mutableStateOf(false) }
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -411,60 +534,45 @@ fun ContentListItem(
                     .weight(1f)
                     .padding(start = 16.dp, top = 16.dp, bottom = 16.dp, end = 8.dp)
             ) {
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.End)
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(Color(0xFFF0F0F0))
-                        .padding(horizontal = 10.dp, vertical = 3.dp)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.End
                 ) {
-                    Text(
-                        book.level,
-                        fontSize = 10.sp,
-                        color = Color.Gray,
-                        fontWeight = FontWeight.Bold
-                    )
+                    if (isPinned) {
+                        Box(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(10.dp))
+                                .background(Color(0xFFFFF3E0))
+                                .padding(horizontal = 6.dp, vertical = 3.dp)
+                        ) {
+                            Text("📌", fontSize = 10.sp)
+                        }
+                        Spacer(Modifier.width(4.dp))
+                    }
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(Color(0xFFF0F0F0))
+                            .padding(horizontal = 10.dp, vertical = 3.dp)
+                    ) {
+                        Text(book.level, fontSize = 10.sp, color = Color.Gray, fontWeight = FontWeight.Bold)
+                    }
                 }
 
                 Spacer(Modifier.height(8.dp))
 
-                Text(
-                    book.title,
-                    fontSize = 15.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF1A237E),
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
+                Text(book.title, fontSize = 15.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A237E), maxLines = 1, overflow = TextOverflow.Ellipsis)
 
                 Spacer(Modifier.height(2.dp))
 
-                Text(
-                    book.titlePersian,
-                    fontSize = 11.sp,
-                    color = Color.Gray,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
+                Text(book.titlePersian, fontSize = 11.sp, color = Color.Gray, maxLines = 1, overflow = TextOverflow.Ellipsis)
 
                 Spacer(Modifier.weight(1f))
 
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Icon(
-                        Icons.Filled.AccessTime,
-                        null,
-                        tint = Color.Gray,
-                        modifier = Modifier.size(13.dp)
-                    )
+                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
+                    Icon(Icons.Filled.AccessTime, null, tint = Color.Gray, modifier = Modifier.size(13.dp))
                     Spacer(Modifier.width(4.dp))
-                    Text(
-                        "${book.totalChapters} فصل",
-                        fontSize = 11.sp,
-                        color = Color.Gray
-                    )
+                    Text("${book.totalChapters} فصل", fontSize = 11.sp, color = Color.Gray)
                     Spacer(Modifier.width(10.dp))
                     LinearProgressIndicator(
                         progress = { 0.35f },
@@ -484,36 +592,65 @@ fun ContentListItem(
                     .width(95.dp)
                     .height(130.dp)
                     .clip(RoundedCornerShape(14.dp))
-                    .background(
-                        Brush.linearGradient(
-                            listOf(Color(book.gradientStart), Color(book.gradientEnd))
-                        )
-                    )
+                    .background(Brush.linearGradient(listOf(Color(book.gradientStart), Color(book.gradientEnd))))
             ) {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        book.levelEmoji,
-                        fontSize = 40.sp
-                    )
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(book.levelEmoji, fontSize = 40.sp)
                 }
 
+                // دکمه سه‌نقطه
                 Box(
                     modifier = Modifier
                         .align(Alignment.BottomStart)
                         .padding(6.dp)
                         .size(26.dp)
                         .clip(CircleShape)
-                        .background(Color.White.copy(alpha = 0.9f)),
+                        .background(Color.White.copy(alpha = 0.9f))
+                        .clickable { menuExpanded = true },
                     contentAlignment = Alignment.Center
                 ) {
-                    Icon(
-                        Icons.Filled.MoreVert,
-                        null,
-                        tint = Color.Gray,
-                        modifier = Modifier.size(16.dp)
+                    Icon(Icons.Filled.MoreVert, "منو", tint = Color.Gray, modifier = Modifier.size(16.dp))
+                }
+
+                DropdownMenu(
+                    expanded = menuExpanded,
+                    onDismissRequest = { menuExpanded = false }
+                ) {
+                    DropdownMenuItem(
+                        text = { Text("انتقال به بالا") },
+                        onClick = { menuExpanded = false; onMoveTop() },
+                        leadingIcon = { Icon(Icons.Filled.VerticalAlignTop, null, modifier = Modifier.size(18.dp)) }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("یک پله بالا") },
+                        onClick = { menuExpanded = false; onMoveUp() },
+                        leadingIcon = { Icon(Icons.Filled.ArrowUpward, null, modifier = Modifier.size(18.dp)) }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("مدیریت صوت‌ها") },
+                        onClick = { menuExpanded = false; onManageAudio() },
+                        leadingIcon = { Icon(Icons.Filled.Headphones, null, modifier = Modifier.size(18.dp)) }
+                    )
+                    DropdownMenuItem(
+                        text = { Text(if (isPinned) "برداشتن نشان" else "نشان کردن") },
+                        onClick = { menuExpanded = false; onTogglePin() },
+                        leadingIcon = { Icon(Icons.Filled.PushPin, null, modifier = Modifier.size(18.dp)) }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("آرشیو کردن") },
+                        onClick = { menuExpanded = false; onArchive() },
+                        leadingIcon = { Icon(Icons.Filled.Archive, null, modifier = Modifier.size(18.dp)) }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("حذف آمار و تاریخچه") },
+                        onClick = { menuExpanded = false; onClearStats() },
+                        leadingIcon = { Icon(Icons.Filled.DeleteSweep, null, modifier = Modifier.size(18.dp)) }
+                    )
+                    HorizontalDivider()
+                    DropdownMenuItem(
+                        text = { Text("حذف از خانه", color = Color(0xFFC62828)) },
+                        onClick = { menuExpanded = false; onRemoveFromHome() },
+                        leadingIcon = { Icon(Icons.Filled.Delete, null, tint = Color(0xFFC62828), modifier = Modifier.size(18.dp)) }
                     )
                 }
             }
