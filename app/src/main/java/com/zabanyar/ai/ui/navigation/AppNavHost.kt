@@ -15,10 +15,10 @@ import com.zabanyar.ai.ui.screens.AchievementsScreen
 import com.zabanyar.ai.ui.screens.ApiKeyScreen
 import com.zabanyar.ai.ui.screens.BookDetailScreen
 import com.zabanyar.ai.ui.screens.DailySentencesScreen
-import com.zabanyar.ai.ui.screens.HomeScreen
 import com.zabanyar.ai.ui.screens.LessonDetailScreen
 import com.zabanyar.ai.ui.screens.LevelTestScreen
 import com.zabanyar.ai.ui.screens.LibraryScreen
+import com.zabanyar.ai.ui.screens.MainHome
 import com.zabanyar.ai.ui.screens.PodcastScreen
 import com.zabanyar.ai.ui.screens.ProfileScreen
 import com.zabanyar.ai.ui.screens.QuizScreen
@@ -85,7 +85,7 @@ fun AppNavHost(
         }
 
         composable(Routes.HOME) {
-            HomeScreen(
+            MainHome(
                 onNavigateToLibrary = { navController.navigate(Routes.LIBRARY) },
                 onNavigateToAIChat = { navController.navigate(Routes.AI_CHAT) },
                 onNavigateToSpeaking = { navController.navigate(Routes.SPEAKING) },
