@@ -1,4 +1,6 @@
-package com.zabanyar.ai.ui.navigation import androidx.compose.runtime.Composable
+package com.zabanyar.ai.ui.navigation 
+ 
+import androidx.compose.runtime.Composabl
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
