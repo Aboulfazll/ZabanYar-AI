@@ -1,5 +1,5 @@
 package.com.zabanyar.ai.ui.sceerns
-import androidx.compose.foundation.Canvas
+ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -47,28 +47,23 @@ fun HomeScreen(
     val context = LocalContext.current
     var refreshKey by remember { mutableIntStateOf(0) }
 
-    // ============ Stats ============
     val totalStars = remember(refreshKey) { ProgressManager.getTotalStars(context) }
     val lessonsCompleted = remember(refreshKey) { ProgressManager.getLessonsCompleted(context) }
     val dailyStreak = remember(refreshKey) { ProgressManager.getDailyStreak(context) }
     val quizzesPassed = remember(refreshKey) { ProgressManager.getTotalQuizzesPassed(context) }
 
-    // ============ Level Calculation ============
     val currentLevel = (totalStars / 100) + 1
     val xpInLevel = totalStars % 100
     val xpForNextLevel = 100
     val levelProgress = xpInLevel.toFloat() / xpForNextLevel.toFloat()
 
-    // ============ Books ============
     val allBooks = remember { BookRepository.getAllBooks() }
     val featuredBooks = remember { allBooks.take(10) }
 
-    // ============ Daily Goal ============
     val dailyGoalMinutes = 10
     val todayMinutes = remember(refreshKey) { minOf((lessonsCompleted % 10) * 3, dailyGoalMinutes) }
 
-    // ============ Selected Tab ============
-    var selectedTab by remember { mutableIntStateOf(0) }
+    var selectedTab by remember { mutableIntStateOf(3) }
 
     Scaffold(
         containerColor = Color(0xFFF8F9FC),
@@ -79,7 +74,7 @@ fun HomeScreen(
             ) {
                 NavigationBarItem(
                     selected = selectedTab == 0,
-                    onClick = { selectedTab = 0 },
+                    onClick = { selectedTab = 0; onNavigateToSpeaking() },
                     icon = { Icon(Icons.Filled.Mic, "اسپیکینگ", modifier = Modifier.size(24.dp)) },
                     label = { Text("اسپیکینگ", fontSize = 10.sp) },
                     colors = navItemColors()
@@ -114,7 +109,6 @@ fun HomeScreen(
                 .padding(padding),
             contentPadding = PaddingValues(bottom = 16.dp)
         ) {
-            // ==================== 1. کارت آبی هدر ====================
             item {
                 BlueHeaderCard(
                     level = currentLevel,
@@ -129,7 +123,6 @@ fun HomeScreen(
                 )
             }
 
-            // ==================== 2. کاروسل کتاب‌ها ====================
             if (featuredBooks.isNotEmpty()) {
                 item {
                     Spacer(Modifier.height(16.dp))
@@ -148,7 +141,6 @@ fun HomeScreen(
                 }
             }
 
-            // ==================== 3. لیست محتوا ====================
             item {
                 Text(
                     "📖 کتاب‌های شما",
@@ -172,9 +164,6 @@ fun HomeScreen(
     }
 }
 
-// ============================================================
-// 1. کارت آبی هدر
-// ============================================================
 @Composable
 fun BlueHeaderCard(
     level: Int,
@@ -205,7 +194,6 @@ fun BlueHeaderCard(
                 .padding(20.dp)
         ) {
             Column {
-                // ردیف بالا: آیکون کاربر + آیکون نمودار
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -237,9 +225,7 @@ fun BlueHeaderCard(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    // سمت چپ: Streak + چک‌باکس + زمان
                     Column(modifier = Modifier.weight(1f)) {
-                        // Streak badge
                         Row(
                             modifier = Modifier
                                 .clip(RoundedCornerShape(20.dp))
@@ -273,7 +259,6 @@ fun BlueHeaderCard(
 
                         Spacer(Modifier.height(14.dp))
 
-                        // چک‌باکس‌ها
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             repeat(5) { index ->
                                 val isChecked = index < (todayMinutes / 2)
@@ -310,7 +295,6 @@ fun BlueHeaderCard(
                         )
                     }
 
-                    // سمت راست: Level + دایره
                     Box(
                         modifier = Modifier.size(120.dp),
                         contentAlignment = Alignment.Center
@@ -352,9 +336,6 @@ fun BlueHeaderCard(
     }
 }
 
-// ============================================================
-// 2. کاور کوچک کتاب (کاروسل)
-// ============================================================
 @Composable
 fun BookCoverSmall(
     book: Book,
@@ -393,9 +374,6 @@ fun BookCoverSmall(
     }
 }
 
-// ============================================================
-// 3. آیتم لیست محتوا (طبق mockup)
-// ============================================================
 @Composable
 fun ContentListItem(
     book: Book,
@@ -416,13 +394,11 @@ fun ContentListItem(
                 .height(140.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // ===== سمت چپ: متن =====
             Column(
                 modifier = Modifier
                     .weight(1f)
                     .padding(start = 16.dp, top = 16.dp, bottom = 16.dp, end = 8.dp)
             ) {
-                // تگ سطح (سمت راست)
                 Box(
                     modifier = Modifier
                         .align(Alignment.End)
@@ -440,7 +416,6 @@ fun ContentListItem(
 
                 Spacer(Modifier.height(8.dp))
 
-                // عنوان انگلیسی
                 Text(
                     book.title,
                     fontSize = 15.sp,
@@ -452,7 +427,6 @@ fun ContentListItem(
 
                 Spacer(Modifier.height(2.dp))
 
-                // عنوان فارسی
                 Text(
                     book.titlePersian,
                     fontSize = 11.sp,
@@ -463,7 +437,6 @@ fun ContentListItem(
 
                 Spacer(Modifier.weight(1f))
 
-                // زمان + نوار پیشرفت
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier.fillMaxWidth()
@@ -493,7 +466,6 @@ fun ContentListItem(
                 }
             }
 
-            // ===== سمت راست: کاور =====
             Box(
                 modifier = Modifier
                     .padding(end = 12.dp)
@@ -506,7 +478,6 @@ fun ContentListItem(
                         )
                     )
             ) {
-                // محتوای روی کاور
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
@@ -517,7 +488,6 @@ fun ContentListItem(
                     )
                 }
 
-                // دکمه ۳ نقطه در پایین-چپ کاور
                 Box(
                     modifier = Modifier
                         .align(Alignment.BottomStart)
@@ -539,9 +509,6 @@ fun ContentListItem(
     }
 }
 
-// ============================================================
-// Helper
-// ============================================================
 @Composable
 fun navItemColors(): NavigationBarItemColors {
     return NavigationBarItemDefaults.colors(
