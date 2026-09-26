@@ -20,7 +20,7 @@ object Group8 {
 
     // ─────────────── ۲۲: کوه جادو ───────────────
     private fun story22() = StoryContent(
-        storyId = "adv_magic_mountain",
+        storyId = "adv_the_magic_mountain",
         chapters = listOf(
             StoryChapter(
                 number = 1, title = "Arrival at the Sanatorium", titlePersian = "ورود به آسایشگاه",
@@ -152,7 +152,7 @@ object Group8 {
 
     // ─────────────── ۲۳: مرگ در ونیز ───────────────
     private fun story23() = StoryContent(
-        storyId = "adv_death_venice",
+        storyId = "adv_death_in_venice",
         chapters = listOf(
             StoryChapter(
                 number = 1, title = "The Writer's Weariness", titlePersian = "خستگی نویسنده",
