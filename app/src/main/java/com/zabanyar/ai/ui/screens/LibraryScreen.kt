@@ -33,6 +33,7 @@ import com.zabanyar.ai.data.BookCategory
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.FavoritesManager
 import com.zabanyar.ai.data.getCoverUrl
+import com.zabanyar.ai.data.books.story.StoryRepository
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,16 +46,27 @@ fun LibraryScreen(
     var addedBooks by remember { mutableStateOf(FavoritesManager.getAddedBooks(context)) }
     var selectedTab by remember { mutableStateOf("همه") }
 
-    val allBooks = remember { BookRepository.getAllBooks() }
+    // ✅ اصلاح: اضافه کردن همه داستان‌ها از StoryRepository
+    val allBooks = remember {
+        (BookRepository.getAllBooks() + StoryRepository.getAllStories())
+            .distinctBy { it.id }
+    }
 
     val tabs = listOf("همه", "ساده", "متوسط", "پیشرفته", "داستان", "گرامر", "مکالمه", "شنیداری")
 
     val filteredBooks = remember(selectedTab, allBooks) {
         when (selectedTab) {
             "همه" -> allBooks
-            "ساده" -> allBooks.filter { it.level == "مبتدی" }
-            "متوسط" -> allBooks.filter { it.level == "متوسط" }
-            "پیشرفته" -> allBooks.filter { it.level == "پیشرفته" }
+            // ✅ اصلاح: پشتیبانی از هر دو naming (فارسی و انگلیسی)
+            "ساده" -> allBooks.filter {
+                it.level == "مبتدی" || it.level == "Simple"
+            }
+            "متوسط" -> allBooks.filter {
+                it.level == "متوسط" || it.level == "Intermediate"
+            }
+            "پیشرفته" -> allBooks.filter {
+                it.level == "پیشرفته" || it.level == "Advanced"
+            }
             "داستان" -> allBooks.filter { it.category == BookCategory.STORY }
             "گرامر" -> allBooks.filter { it.category == BookCategory.GRAMMAR }
             "مکالمه" -> allBooks.filter { it.category == BookCategory.CONVERSATION }
@@ -219,7 +231,7 @@ fun BookCardReal(
                     )
                 )
         ) {
-            // ─── لایه پس‌زمینه (اگه عکس لود نشد دیده می‌شه) ───
+            // ─── لایه پس‌زمینه ───
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -247,7 +259,7 @@ fun BookCardReal(
                 }
             }
 
-            // ─── 🖼️ عکس جلد کتاب روی پس‌زمینه ───
+            // ─── 🖼️ عکس جلد کتاب ───
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(book.getCoverUrl())
