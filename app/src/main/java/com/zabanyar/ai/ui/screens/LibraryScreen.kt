@@ -20,15 +20,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.zabanyar.ai.data.Book
 import com.zabanyar.ai.data.BookCategory
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.FavoritesManager
+import com.zabanyar.ai.data.getCoverUrl
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,16 +42,13 @@ fun LibraryScreen(
 ) {
     val context = LocalContext.current
 
-    // ✅ ذخیره‌سازی علاقه‌مندی‌ها در SharedPreferences
     var addedBooks by remember { mutableStateOf(FavoritesManager.getAddedBooks(context)) }
     var selectedTab by remember { mutableStateOf("همه") }
 
     val allBooks = remember { BookRepository.getAllBooks() }
 
-    // تب‌های جدید
     val tabs = listOf("همه", "ساده", "متوسط", "پیشرفته", "داستان", "گرامر", "مکالمه", "شنیداری")
 
-    // فیلتر کتاب‌ها بر اساس تب انتخاب‌شده
     val filteredBooks = remember(selectedTab, allBooks) {
         when (selectedTab) {
             "همه" -> allBooks
@@ -130,7 +131,6 @@ fun LibraryScreen(
                             books = chunk,
                             addedBooks = addedBooks,
                             onAddClick = { id ->
-                                // ✅ ذخیره در SharedPreferences
                                 FavoritesManager.toggleBook(context, id)
                                 addedBooks = FavoritesManager.getAddedBooks(context)
                             },
@@ -219,6 +219,7 @@ fun BookCardReal(
                     )
                 )
         ) {
+            // ─── لایه پس‌زمینه (اگه عکس لود نشد دیده می‌شه) ───
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -246,6 +247,17 @@ fun BookCardReal(
                 }
             }
 
+            // ─── 🖼️ عکس جلد کتاب روی پس‌زمینه ───
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(book.getCoverUrl())
+                    .crossfade(true)
+                    .build(),
+                contentDescription = book.title,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+
             if (book.category == BookCategory.LISTENING) {
                 Box(
                     modifier = Modifier
@@ -260,7 +272,7 @@ fun BookCardReal(
                 }
             }
 
-            // ✅ دکمه + که حالا در SharedPreferences ذخیره می‌شه
+            // ─── دکمه + ───
             Box(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
