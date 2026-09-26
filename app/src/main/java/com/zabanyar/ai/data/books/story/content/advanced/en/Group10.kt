@@ -6,7 +6,7 @@ package com.zabanyar.ai.data.books.story.content.advanced.en
  *  ۲۹. The Name of the Rose
  *  ۳۰. Hunger
  */
-object Group10 {
+object EnGroup10 {
 
     fun getAll(): List<EnStory> = listOf(story28(), story29(), story30())
 
