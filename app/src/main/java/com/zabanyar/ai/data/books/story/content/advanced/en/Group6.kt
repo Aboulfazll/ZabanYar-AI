@@ -6,7 +6,7 @@ package com.zabanyar.ai.data.books.story.content.advanced.en
  *  ۱۷. To the Lighthouse
  *  ۱۸. Beloved
  */
-object Group6 {
+object EnGroup6 {
 
     fun getAll(): List<EnStory> = listOf(story16(), story17(), story18())
 
