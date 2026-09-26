@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.ProgressManager
+import com.zabanyar.ai.data.books.story.StoryRepository
 
 // ============================================================
 // Sealed Class for List Items
@@ -65,7 +66,10 @@ fun BookDetailScreen(
     onQuizClick: (Int) -> Unit = {}
 ) {
     val context = LocalContext.current
+
+    // ✅ اصلاح: ابتدا از BookRepository، اگر پیدا نشد از StoryRepository
     val book = BookRepository.getBookById(bookId)
+        ?: StoryRepository.getStoryById(bookId)
 
     if (book == null) {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -332,7 +336,7 @@ fun BookDetailScreen(
                 }
             }
 
-            // ============ لیست اصلی (نسخه اصلاح‌شده) ============
+            // ============ لیست اصلی ============
             items(
                 count = listItems.size,
                 key = { index -> "book_detail_$bookId$index" }
@@ -943,7 +947,10 @@ private fun buildBookDetailItems(
 }
 
 private fun getChapterTitle(bookId: String, chapterNumber: Int): String {
-    val book = BookRepository.getBookById(bookId) ?: return "درس $chapterNumber"
+    // ✅ اصلاح: از هر دو Repository جستجو کن
+    val book = BookRepository.getBookById(bookId)
+        ?: StoryRepository.getStoryById(bookId)
+        ?: return "درس $chapterNumber"
     return if (book.chapterTitles.isNotEmpty() && chapterNumber <= book.chapterTitles.size) {
         book.chapterTitles[chapterNumber - 1]
     } else {
