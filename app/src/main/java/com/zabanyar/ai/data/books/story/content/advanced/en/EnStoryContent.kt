@@ -26,4 +26,4 @@ object EnStoryContent {
         getStory(storyId) != null
 
     fun getCount(): Int = getAll().size
-}نفم
+}
