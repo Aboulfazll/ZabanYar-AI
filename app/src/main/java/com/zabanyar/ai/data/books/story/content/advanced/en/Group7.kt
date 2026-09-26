@@ -6,7 +6,7 @@ package com.zabanyar.ai.data.books.story.content.advanced.en
  *  ۲۰. Lolita
  *  ۲۱. The Master and Margarita
  */
-object Group7 {
+object EnGroup7 {
 
     fun getAll(): List<EnStory> = listOf(story19(), story20(), story21())
 
