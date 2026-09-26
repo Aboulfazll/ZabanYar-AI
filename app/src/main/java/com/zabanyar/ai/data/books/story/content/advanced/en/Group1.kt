@@ -6,7 +6,7 @@ package com.zabanyar.ai.data.books.story.content.advanced.en
  *  ۵. Mrs Dalloway
  *  ۶. Siddhartha
  */
-object Group2 {
+object EnGroup1 {
 
     fun getAll(): List<EnStory> = listOf(story4(), story5(), story6())
 
