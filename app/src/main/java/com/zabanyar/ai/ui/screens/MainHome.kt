@@ -44,7 +44,8 @@ fun MainHome(
     onNavigateToDailySentences: () -> Unit = {},
     onNavigateToLevelTest: () -> Unit = {},
     onNavigateToAchievements: () -> Unit = {},
-    onNavigateToStories: () -> Unit = {},       // 🆕 تب داستان‌ها
+    onNavigateToStories: () -> Unit = {},
+    onNavigateToBook: (String) -> Unit = {},   // 🆕 رفتن مستقیم به کتاب
     onLogout: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -75,7 +76,6 @@ fun MainHome(
         minOf((lessonsCompleted % 10) * 3, dailyGoalMinutes)
     }
 
-    // ⚠️ تب پیش‌فرض = 4 (خانه) چون الان ۵ تب داریم
     var selectedTab by remember { mutableIntStateOf(4) }
 
     Scaffold(
@@ -91,40 +91,22 @@ fun MainHome(
                 },
                 navigationIcon = {
                     IconButton(onClick = { /* drawer */ }) {
-                        Icon(
-                            Icons.Filled.Menu,
-                            contentDescription = "منو",
-                            tint = Color(0xFF1A237E)
-                        )
+                        Icon(Icons.Filled.Menu, "منو", tint = Color(0xFF1A237E))
                     }
                 },
                 actions = {
                     IconButton(onClick = onNavigateToLibrary) {
-                        Icon(
-                            Icons.Filled.Add,
-                            contentDescription = "افزودن کتاب",
-                            tint = Color(0xFF1A237E)
-                        )
+                        Icon(Icons.Filled.Add, "افزودن کتاب", tint = Color(0xFF1A237E))
                     }
                     IconButton(onClick = onNavigateToSettings) {
-                        Icon(
-                            Icons.Filled.Settings,
-                            contentDescription = "تنظیمات",
-                            tint = Color(0xFF1A237E)
-                        )
+                        Icon(Icons.Filled.Settings, "تنظیمات", tint = Color(0xFF1A237E))
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.White
-                )
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.White)
             )
         },
         bottomBar = {
-            NavigationBar(
-                containerColor = Color.White,
-                tonalElevation = 8.dp
-            ) {
-                // 🎤 تب ۰: اسپیکینگ
+            NavigationBar(containerColor = Color.White, tonalElevation = 8.dp) {
                 NavigationBarItem(
                     selected = selectedTab == 0,
                     onClick = { selectedTab = 0; onNavigateToSpeaking() },
@@ -132,7 +114,6 @@ fun MainHome(
                     label = { Text("اسپیکینگ", fontSize = 9.sp) },
                     colors = navItemColors()
                 )
-                // 💬 تب ۱: چت
                 NavigationBarItem(
                     selected = selectedTab == 1,
                     onClick = { selectedTab = 1; onNavigateToAIChat() },
@@ -140,7 +121,6 @@ fun MainHome(
                     label = { Text("چت", fontSize = 9.sp) },
                     colors = navItemColors()
                 )
-                // 📚 تب ۲: کتابخانه
                 NavigationBarItem(
                     selected = selectedTab == 2,
                     onClick = { selectedTab = 2; onNavigateToLibrary() },
@@ -148,7 +128,6 @@ fun MainHome(
                     label = { Text("کتابخانه", fontSize = 9.sp) },
                     colors = navItemColors()
                 )
-                // 🆕 📖 تب ۳: داستان‌ها
                 NavigationBarItem(
                     selected = selectedTab == 3,
                     onClick = { selectedTab = 3; onNavigateToStories() },
@@ -156,7 +135,6 @@ fun MainHome(
                     label = { Text("داستان‌ها", fontSize = 9.sp) },
                     colors = navItemColors()
                 )
-                // 🏠 تب ۴: خانه
                 NavigationBarItem(
                     selected = selectedTab == 4,
                     onClick = { selectedTab = 4 },
@@ -168,9 +146,7 @@ fun MainHome(
         }
     ) { padding ->
         LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding),
+            modifier = Modifier.fillMaxSize().padding(padding),
             contentPadding = PaddingValues(bottom = 16.dp)
         ) {
             item {
@@ -188,9 +164,7 @@ fun MainHome(
             }
 
             if (homeBooks.isEmpty()) {
-                item {
-                    EmptyHomeState(onAddBook = onNavigateToLibrary)
-                }
+                item { EmptyHomeState(onAddBook = onNavigateToLibrary) }
             } else {
                 item {
                     Spacer(Modifier.height(16.dp))
@@ -199,9 +173,10 @@ fun MainHome(
                         horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
                         items(homeBooks, key = { it.id }) { book ->
+                            // ✅ تغییر ۱: رفتن مستقیم به کتاب
                             BookCoverSmall(
                                 book = book,
-                                onClick = onNavigateToLibrary
+                                onClick = { onNavigateToBook(book.id) }
                             )
                         }
                     }
@@ -221,7 +196,8 @@ fun MainHome(
                 items(homeBooks, key = { it.id }) { book ->
                     ContentListItem(
                         book = book,
-                        onClick = { onNavigateToLibrary() },
+                        // ✅ تغییر ۲: رفتن مستقیم به کتاب
+                        onClick = { onNavigateToBook(book.id) },
                         isPinned = pinnedIds.contains(book.id),
                         onMoveUp = {
                             FavoritesManager.moveUp(context, book.id)
@@ -263,41 +239,23 @@ fun MainHome(
 @Composable
 fun EmptyHomeState(onAddBook: () -> Unit) {
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 32.dp, vertical = 48.dp),
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp, vertical = 48.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
-            modifier = Modifier
-                .size(180.dp)
-                .clip(CircleShape)
-                .background(Color(0xFFE8EEF9)),
+            modifier = Modifier.size(180.dp).clip(CircleShape).background(Color(0xFFE8EEF9)),
             contentAlignment = Alignment.Center
         ) {
             Text("📚", fontSize = 80.sp)
         }
-
         Spacer(Modifier.height(24.dp))
-
-        Text(
-            "هنوز کتابی اضافه نکردی!",
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color(0xFF1A237E)
-        )
-
+        Text("هنوز کتابی اضافه نکردی!", fontSize = 16.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A237E))
         Spacer(Modifier.height(8.dp))
-
         Text(
             "از کتابخانه، کتاب مورد علاقه‌ات رو\nبه این صفحه اضافه کن",
-            fontSize = 13.sp,
-            color = Color.Gray,
-            textAlign = TextAlign.Center
+            fontSize = 13.sp, color = Color.Gray, textAlign = TextAlign.Center
         )
-
         Spacer(Modifier.height(24.dp))
-
         Button(
             onClick = onAddBook,
             shape = RoundedCornerShape(16.dp),
@@ -326,9 +284,7 @@ fun BlueHeaderCard(
     onStatsClick: () -> Unit
 ) {
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(12.dp),
+        modifier = Modifier.fillMaxWidth().padding(12.dp),
         shape = RoundedCornerShape(24.dp),
         elevation = CardDefaults.cardElevation(8.dp)
     ) {
@@ -345,20 +301,14 @@ fun BlueHeaderCard(
                 ) {
                     IconButton(
                         onClick = onProfileClick,
-                        modifier = Modifier
-                            .size(36.dp)
-                            .clip(CircleShape)
-                            .background(Color.White.copy(alpha = 0.15f))
+                        modifier = Modifier.size(36.dp).clip(CircleShape).background(Color.White.copy(alpha = 0.15f))
                     ) {
                         Icon(Icons.Filled.Person, null, tint = Color.White, modifier = Modifier.size(20.dp))
                     }
                     Spacer(Modifier.width(8.dp))
                     IconButton(
                         onClick = onStatsClick,
-                        modifier = Modifier
-                            .size(36.dp)
-                            .clip(CircleShape)
-                            .background(Color.White.copy(alpha = 0.15f))
+                        modifier = Modifier.size(36.dp).clip(CircleShape).background(Color.White.copy(alpha = 0.15f))
                     ) {
                         Icon(Icons.Filled.ShowChart, null, tint = Color.White, modifier = Modifier.size(20.dp))
                     }
@@ -379,10 +329,7 @@ fun BlueHeaderCard(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Box(
-                                modifier = Modifier
-                                    .size(22.dp)
-                                    .clip(CircleShape)
-                                    .background(Color.White),
+                                modifier = Modifier.size(22.dp).clip(CircleShape).background(Color.White),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text("🔥", fontSize = 12.sp)
@@ -455,14 +402,12 @@ fun BlueHeaderCard(
     }
 }
 
-// ───────────── Book Cover ─────────────
+// ───────────── Book Cover Small ─────────────
 
 @Composable
 fun BookCoverSmall(book: Book, onClick: () -> Unit) {
     Column(
-        modifier = Modifier
-            .width(78.dp)
-            .clickable { onClick() },
+        modifier = Modifier.width(78.dp).clickable { onClick() },
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
@@ -473,8 +418,9 @@ fun BookCoverSmall(book: Book, onClick: () -> Unit) {
             contentAlignment = Alignment.Center
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(book.levelEmoji, fontSize = 24.sp)
-                Spacer(Modifier.height(4.dp))
+                // ✅ تغییر ۳: استفاده از ایموجی دسته‌بندی به جای برگ
+                Text(book.category.emoji, fontSize = 30.sp)
+                Spacer(Modifier.height(6.dp))
                 Text(
                     book.title.split(" ").firstOrNull() ?: "",
                     fontSize = 8.sp,
@@ -488,7 +434,7 @@ fun BookCoverSmall(book: Book, onClick: () -> Unit) {
     }
 }
 
-// ───────────── Content List Item + منو ─────────────
+// ───────────── Content List Item ─────────────
 
 @Composable
 fun ContentListItem(
@@ -515,9 +461,7 @@ fun ContentListItem(
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(140.dp),
+            modifier = Modifier.fillMaxWidth().height(140.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(
@@ -565,10 +509,7 @@ fun ContentListItem(
                     Spacer(Modifier.width(10.dp))
                     LinearProgressIndicator(
                         progress = { 0.35f },
-                        modifier = Modifier
-                            .weight(1f)
-                            .height(4.dp)
-                            .clip(RoundedCornerShape(2.dp)),
+                        modifier = Modifier.weight(1f).height(4.dp).clip(RoundedCornerShape(2.dp)),
                         color = Color(book.gradientStart),
                         trackColor = Color(book.gradientStart).copy(alpha = 0.15f)
                     )
@@ -584,7 +525,8 @@ fun ContentListItem(
                     .background(Brush.linearGradient(listOf(Color(book.gradientStart), Color(book.gradientEnd))))
             ) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text(book.levelEmoji, fontSize = 40.sp)
+                    // ✅ تغییر ۴: ایموجی دسته‌بندی به جای برگ
+                    Text(book.category.emoji, fontSize = 48.sp)
                 }
 
                 Box(
@@ -600,10 +542,7 @@ fun ContentListItem(
                     Icon(Icons.Filled.MoreVert, "منو", tint = Color.Gray, modifier = Modifier.size(16.dp))
                 }
 
-                DropdownMenu(
-                    expanded = menuExpanded,
-                    onDismissRequest = { menuExpanded = false }
-                ) {
+                DropdownMenu(expanded = menuExpanded, onDismissRequest = { menuExpanded = false }) {
                     DropdownMenuItem(
                         text = { Text("انتقال به بالا") },
                         onClick = { menuExpanded = false; onMoveTop() },
