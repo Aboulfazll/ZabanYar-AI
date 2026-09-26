@@ -5,7 +5,7 @@ import com.zabanyar.ai.data.books.story.StoryContent
 import com.zabanyar.ai.data.books.story.StoryParagraph
 
 /**
- * 📚 گروه ۱۰ ساده — داستان‌های کلاسیک کوتاه
+ * 📚 گروه 9 ساده — داستان‌های کلاسیک کوتاه
  * هر داستان: ۷ فصل × ۱۰ خط
  */
 object Group9 {
