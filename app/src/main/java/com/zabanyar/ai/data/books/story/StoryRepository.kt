@@ -10,6 +10,11 @@ import com.zabanyar.ai.data.books.story.content.advanced.en.EnChapter
 import com.zabanyar.ai.data.books.story.content.advanced.en.toStoryChapters
 import com.zabanyar.ai.data.books.story.content.advanced.en.toStoryChapter
 
+// ⚠️ این سه خط رو اضافه کردم. اگر فایل‌ها توی همین پوشه story هستن، این خطوط رو پاک کنید.
+import com.zabanyar.ai.data.books.story.SimpleStories
+import com.zabanyar.ai.data.books.story.IntermediateStories
+import com.zabanyar.ai.data.books.story.AdvancedStories
+
 object StoryRepository {
 
     // ═══════════════════════════════════════════════════════
