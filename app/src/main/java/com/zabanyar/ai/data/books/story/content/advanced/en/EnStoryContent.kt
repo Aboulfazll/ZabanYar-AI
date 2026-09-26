@@ -12,7 +12,7 @@ object EnStoryContent {
         EnGroup7.getAll(),
         EnGroup8.getAll(),
         EnGroup9.getAll(),
-        Group10.getAll() // این یکی چون توی عکس Group10 بود، بدون En هست
+        EnGroup10.getAll()
     )
 
     fun getAll(): List<EnStory> = groups.flatten()
