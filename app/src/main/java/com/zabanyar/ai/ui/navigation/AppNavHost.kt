@@ -100,6 +100,8 @@ fun AppNavHost(
                 onNavigateToLevelTest = { navController.navigate(Routes.LEVEL_TEST) },
                 onNavigateToAchievements = { navController.navigate(Routes.ACHIEVEMENTS) },
                 onNavigateToStories = { navController.navigate(Routes.STORIES) },
+                // ✅ تغییر اصلی: رفتن مستقیم به کتاب
+                onNavigateToBook = { bookId -> navController.navigate(Routes.bookDetail(bookId)) },
                 onLogout = {
                     navController.navigate(Routes.LOGIN) {
                         popUpTo(Routes.HOME) { inclusive = true }
