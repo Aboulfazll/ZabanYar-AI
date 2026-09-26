@@ -1,27 +1,30 @@
-package com.zabanyar.ai.data.books.story.content.advanced
+package com.zabanyar.ai.data.books.story.content.advanced.en
 
-import com.zabanyar.ai.data.books.story.StoryContent
+object EnStoryContent {
 
-object AdvancedStoryContent {
-
-    private val groups: List<List<StoryContent>> = listOf(
-        Group1.getAll(),
-        Group2.getAll(),
-        Group3.getAll(),
-        Group4.getAll(),
-        Group5.getAll(),
-        Group6.getAll(),
-        Group7.getAll(),
-        Group8.getAll(),
-        Group9.getAll(),
-        Group10.getAll(),
+    private val groups: List<List<EnStory>> = listOf(
+        EnGroup1.getAll(),
+        EnGroup2.getAll(),
+        EnGroup3.getAll(),
+        EnGroup4.getAll(),
+        EnGroup5.getAll(),
+        EnGroup6.getAll(),
+        EnGroup7.getAll(),
+        EnGroup8.getAll(),
+        EnGroup9.getAll(),
+        EnGroup10.getAll()
     )
 
-    fun getAll(): List<StoryContent> = groups.flatten()
+    fun getAll(): List<EnStory> = groups.flatten()
 
-    fun getStory(storyId: String): StoryContent? =
+    fun getStory(storyId: String): EnStory? =
         getAll().firstOrNull { it.storyId == storyId }
+
+    fun getChapter(storyId: String, chapterNumber: Int): EnChapter? =
+        getStory(storyId)?.chapters?.firstOrNull { it.number == chapterNumber }
 
     fun hasContent(storyId: String): Boolean =
         getStory(storyId) != null
+
+    fun getCount(): Int = getAll().size
 }
