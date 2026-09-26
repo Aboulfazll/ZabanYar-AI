@@ -4,11 +4,11 @@ import java.net.URLEncoder
 
 /**
  * 🖼️ تولید URL جلد کتاب
- * ۱. اگه coverUrl دستی تنظیم شده باشه، از اون استفاده می‌کنه
- * ۲. اگه نه، برای داستان‌ها از Open Library بر اساس عنوان استفاده می‌کنه
+ * ۱. اگه coverUrl دستی تنظیم شده باشه (کتاب‌های درسی)، از Google Books استفاده می‌کنه
+ * ۲. اگه نه (داستان‌ها)، از Open Library بر اساس عنوان استفاده می‌کنه
  */
 fun Book.getCoverUrl(): String {
-    // ۱. اگه URL دستی داریم، همون رو برگردون
+    // ۱. اگه coverUrl تنظیم شده باشه، همون رو برگردون
     if (coverUrl.isNotBlank()) {
         return coverUrl
     }
