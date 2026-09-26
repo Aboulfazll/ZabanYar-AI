@@ -20,7 +20,7 @@ object Group7 {
 
     // ─────────────── ۱۹: خشم و هیاهو ───────────────
     private fun story19() = StoryContent(
-        storyId = "adv_sound_fury",
+        storyId = "adv_sound_and_fury",
         chapters = listOf(
             StoryChapter(
                 number = 1, title = "Benjamin's Voice", titlePersian = "صدای بنجامین",
@@ -284,7 +284,7 @@ object Group7 {
 
     // ─────────────── ۲۱: استاد و مارگاریتا ───────────────
     private fun story21() = StoryContent(
-        storyId = "adv_master_margarita",
+        storyId = "adv_master_and_margarita",
         chapters = listOf(
             StoryChapter(
                 number = 1, title = "The Devil in Moscow", titlePersian = "شیطان در مسکو",
