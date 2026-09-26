@@ -1,0 +1,9 @@
+task:
+  name: Build APK
+  container:
+    image: ghcr.io/cirruslabs/android-sdk:34
+  build_script:
+    - chmod +x ./gradlew
+    - ./gradlew assembleDebug
+  apk_artifacts:
+    path: app/build/outputs/apk/debug/app-debug.apk
