@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.LessonContentRepository
+import com.zabanyar.ai.data.books.story.StoryRepository
 import com.zabanyar.ai.ui.auth.LoginScreen
 import com.zabanyar.ai.ui.auth.RegisterScreen
 import com.zabanyar.ai.ui.screens.AIChatScreen
@@ -25,6 +26,7 @@ import com.zabanyar.ai.ui.screens.QuizScreen
 import com.zabanyar.ai.ui.screens.ReadingModeScreen
 import com.zabanyar.ai.ui.screens.SettingsScreen
 import com.zabanyar.ai.ui.screens.SpeakingScreen
+import com.zabanyar.ai.ui.screens.StoriesScreen
 import com.zabanyar.ai.ui.screens.VocabularyScreen
 
 object Routes {
@@ -34,6 +36,7 @@ object Routes {
     const val PROFILE = "profile"
     const val SETTINGS = "settings"
     const val LIBRARY = "library"
+    const val STORIES = "stories"
     const val BOOK_DETAIL = "book_detail/{bookId}"
     const val LESSON_DETAIL = "lesson_detail/{bookId}/{chapterNumber}"
     const val READING_MODE = "reading_mode/{title}/{text}"
@@ -96,6 +99,7 @@ fun AppNavHost(
                 onNavigateToDailySentences = { navController.navigate(Routes.DAILY_SENTENCES) },
                 onNavigateToLevelTest = { navController.navigate(Routes.LEVEL_TEST) },
                 onNavigateToAchievements = { navController.navigate(Routes.ACHIEVEMENTS) },
+                onNavigateToStories = { navController.navigate(Routes.STORIES) },
                 onLogout = {
                     navController.navigate(Routes.LOGIN) {
                         popUpTo(Routes.HOME) { inclusive = true }
@@ -108,6 +112,16 @@ fun AppNavHost(
             LibraryScreen(
                 onBack = { navController.popBackStack() },
                 onBookClick = { bookId -> navController.navigate(Routes.bookDetail(bookId)) }
+            )
+        }
+
+        // 🆕 صفحه داستان‌ها
+        composable(Routes.STORIES) {
+            StoriesScreen(
+                onBack = { navController.popBackStack() },
+                onStoryClick = { storyId ->
+                    navController.navigate(Routes.bookDetail(storyId))
+                }
             )
         }
 
@@ -154,6 +168,7 @@ fun AppNavHost(
             )
         }
 
+        // 🆕 LESSON_DETAIL — هم داستان، هم کتاب
         composable(
             route = Routes.LESSON_DETAIL,
             arguments = listOf(
@@ -163,15 +178,31 @@ fun AppNavHost(
         ) { entry ->
             val bookId = entry.arguments?.getString("bookId") ?: ""
             val chapterNumber = entry.arguments?.getInt("chapterNumber") ?: 1
-            val lesson = LessonContentRepository.getLessonContent(bookId, chapterNumber)
             val book = BookRepository.getBookById(bookId)
-            LessonDetailScreen(
-                lesson = lesson,
-                bookTitle = book?.title ?: "",
-                bookCoverGradientStart = book?.gradientStart ?: 0xFF1A237E,
-                bookCoverGradientEnd = book?.gradientEnd ?: 0xFF3949AB,
-                onBack = { navController.popBackStack() }
-            )
+
+            // چک کن آیا این فصل توی داستان‌هاست
+            val storyChapter = StoryRepository.getChapter(bookId, chapterNumber)
+
+            if (storyChapter != null) {
+                // ─── داستان ───
+                LessonDetailScreen(
+                    storyChapter = storyChapter,
+                    bookTitle = book?.title ?: "",
+                    bookCoverGradientStart = book?.gradientStart ?: 0xFF1A237E,
+                    bookCoverGradientEnd = book?.gradientEnd ?: 0xFF3949AB,
+                    onBack = { navController.popBackStack() }
+                )
+            } else {
+                // ─── کتاب معمولی ───
+                val lesson = LessonContentRepository.getLessonContent(bookId, chapterNumber)
+                LessonDetailScreen(
+                    lesson = lesson,
+                    bookTitle = book?.title ?: "",
+                    bookCoverGradientStart = book?.gradientStart ?: 0xFF1A237E,
+                    bookCoverGradientEnd = book?.gradientEnd ?: 0xFF3949AB,
+                    onBack = { navController.popBackStack() }
+                )
+            }
         }
 
         composable(
