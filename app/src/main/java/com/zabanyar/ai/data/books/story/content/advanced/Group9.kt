@@ -20,7 +20,7 @@ object Group9 {
 
     // ─────────────── ۲۵: پرواز بر فراز آشیانه فاخته ───────────────
     private fun story25() = StoryContent(
-        storyId = "adv_cuckoos_nest",
+        storyId = "adv_one_flew_over_the_cuckoos_nest",
         chapters = listOf(
             StoryChapter(
                 number = 1, title = "Arrival at the Ward", titlePersian = "ورود به بخش",
@@ -284,7 +284,7 @@ object Group9 {
 
     // ─────────────── ۲۷: تحمل‌ناپذیری هستی ───────────────
     private fun story27() = StoryContent(
-        storyId = "adv_unbearable_lightness",
+        storyId = "adv_the_unbearable_lightness_of_being",
         chapters = listOf(
             StoryChapter(
                 number = 1, title = "The Prague Doctor", titlePersian = "دکتر پراگی",
