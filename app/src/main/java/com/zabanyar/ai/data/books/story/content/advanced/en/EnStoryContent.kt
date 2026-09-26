@@ -11,8 +11,7 @@ object EnStoryContent {
         Group6.getAll(),
         Group7.getAll(),
         Group8.getAll(),
-        Group9.getAll(),
-        Group10.getAll(),
+        Group9.getAll()
     )
 
     fun getAll(): List<EnStory> = groups.flatten()
