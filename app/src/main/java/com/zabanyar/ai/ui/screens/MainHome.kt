@@ -20,16 +20,20 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.zabanyar.ai.data.Book
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.FavoritesManager
 import com.zabanyar.ai.data.ProgressManager
+import com.zabanyar.ai.data.getCoverUrl
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,7 +49,7 @@ fun MainHome(
     onNavigateToLevelTest: () -> Unit = {},
     onNavigateToAchievements: () -> Unit = {},
     onNavigateToStories: () -> Unit = {},
-    onNavigateToBook: (String) -> Unit = {},   // 🆕 رفتن مستقیم به کتاب
+    onNavigateToBook: (String) -> Unit = {},
     onLogout: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -90,7 +94,7 @@ fun MainHome(
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = { /* drawer */ }) {
+                    IconButton(onClick = { }) {
                         Icon(Icons.Filled.Menu, "منو", tint = Color(0xFF1A237E))
                     }
                 },
@@ -173,7 +177,6 @@ fun MainHome(
                         horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
                         items(homeBooks, key = { it.id }) { book ->
-                            // ✅ تغییر ۱: رفتن مستقیم به کتاب
                             BookCoverSmall(
                                 book = book,
                                 onClick = { onNavigateToBook(book.id) }
@@ -196,7 +199,6 @@ fun MainHome(
                 items(homeBooks, key = { it.id }) { book ->
                     ContentListItem(
                         book = book,
-                        // ✅ تغییر ۲: رفتن مستقیم به کتاب
                         onClick = { onNavigateToBook(book.id) },
                         isPinned = pinnedIds.contains(book.id),
                         onMoveUp = {
@@ -402,7 +404,7 @@ fun BlueHeaderCard(
     }
 }
 
-// ───────────── Book Cover Small ─────────────
+// ───────────── Book Cover Small (با عکس) ─────────────
 
 @Composable
 fun BookCoverSmall(book: Book, onClick: () -> Unit) {
@@ -417,24 +419,24 @@ fun BookCoverSmall(book: Book, onClick: () -> Unit) {
                 .background(Brush.linearGradient(listOf(Color(book.gradientStart), Color(book.gradientEnd)))),
             contentAlignment = Alignment.Center
         ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                // ✅ تغییر ۳: استفاده از ایموجی دسته‌بندی به جای برگ
-                Text(book.category.emoji, fontSize = 30.sp)
-                Spacer(Modifier.height(6.dp))
-                Text(
-                    book.title.split(" ").firstOrNull() ?: "",
-                    fontSize = 8.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.White,
-                    maxLines = 1,
-                    textAlign = TextAlign.Center
-                )
-            }
+            // لایه پس‌زمینه (اگه عکس لود نشد)
+            Text(book.category.emoji, fontSize = 30.sp)
+
+            // 🖼️ عکس روی پس‌زمینه
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(book.getCoverUrl())
+                    .crossfade(true)
+                    .build(),
+                contentDescription = book.title,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
         }
     }
 }
 
-// ───────────── Content List Item ─────────────
+// ───────────── Content List Item (با عکس) ─────────────
 
 @Composable
 fun ContentListItem(
@@ -524,10 +526,21 @@ fun ContentListItem(
                     .clip(RoundedCornerShape(14.dp))
                     .background(Brush.linearGradient(listOf(Color(book.gradientStart), Color(book.gradientEnd))))
             ) {
+                // لایه پس‌زمینه
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    // ✅ تغییر ۴: ایموجی دسته‌بندی به جای برگ
                     Text(book.category.emoji, fontSize = 48.sp)
                 }
+
+                // 🖼️ عکس روی پس‌زمینه
+                AsyncImage(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(book.getCoverUrl())
+                        .crossfade(true)
+                        .build(),
+                    contentDescription = book.title,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop
+                )
 
                 Box(
                     modifier = Modifier
