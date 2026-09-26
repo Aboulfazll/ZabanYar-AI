@@ -1,4 +1,3 @@
-
 package com.zabanyar.ai.ui.screens
 
 import androidx.compose.foundation.background
@@ -20,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -27,12 +27,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import androidx.compose.ui.layout.ContentScale
 import com.zabanyar.ai.data.Book
 import com.zabanyar.ai.data.BookCategory
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.FavoritesManager
 import com.zabanyar.ai.data.getCoverUrl
+import com.zabanyar.ai.data.books.story.AdvancedStories
+import com.zabanyar.ai.data.books.story.IntermediateStories
+import com.zabanyar.ai.data.books.story.SimpleStories
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,17 +47,23 @@ fun StoriesScreen(
     var addedBooks by remember { mutableStateOf(FavoritesManager.getAddedBooks(context)) }
     var selectedTab by remember { mutableStateOf("همه") }
 
-    val allStories = remember { BookRepository.getAllStories() }
+    // ✅ ترکیب همه داستان‌ها از منابع مختلف
+    val allStories: List<Book> = remember {
+        BookRepository.getAllStories() +   // داستان‌های موجود در BookRepository
+        SimpleStories.getAll() +            // ۵۰ داستان ساده
+        IntermediateStories.getAll() +      // ۳۰ داستان متوسط
+        AdvancedStories.getAll()            // ۶۰ داستان پیشرفته
+    }
 
     val tabs = listOf("همه", "ساده", "متوسط", "پیشرفته", "🇬🇧 انگلیسی")
 
     val filteredStories = remember(selectedTab, allStories) {
         when (selectedTab) {
             "همه" -> allStories
-            "ساده" -> allStories.filter { it.level == "مبتدی" }
-            "متوسط" -> allStories.filter { it.level == "متوسط" }
-            "پیشرفته" -> allStories.filter { it.level == "پیشرفته" }
-            "🇬🇧 انگلیسی" -> allStories.filter { it.id.startsWith("adv_") && !it.titlePersian.isBlank() }
+            "ساده" -> allStories.filter { it.level == "مبتدی" || it.level == "Simple" }
+            "متوسط" -> allStories.filter { it.level == "متوسط" || it.level == "Intermediate" }
+            "پیشرفته" -> allStories.filter { (it.level == "پیشرفته" || it.level == "Advanced") && it.titlePersian.isNotBlank() }
+            "🇬🇧 انگلیسی" -> allStories.filter { it.titlePersian.isBlank() }
             else -> allStories
         }
     }
@@ -66,11 +74,7 @@ fun StoriesScreen(
                 title = {
                     Column {
                         Text("📖 داستان‌ها", color = Color.White, fontSize = 17.sp, fontWeight = FontWeight.Bold)
-                        Text(
-                            "${allStories.size} داستان در سطوح مختلف",
-                            color = Color.White.copy(alpha = 0.8f),
-                            fontSize = 11.sp
-                        )
+                        Text("${allStories.size} داستان در سطوح مختلف", color = Color.White.copy(alpha = 0.8f), fontSize = 11.sp)
                     }
                 },
                 navigationIcon = {
@@ -111,10 +115,7 @@ fun StoriesScreen(
 
             // ==================== لیست داستان‌ها ====================
             if (filteredStories.isEmpty()) {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text("📭", fontSize = 48.sp)
                         Spacer(Modifier.height(8.dp))
@@ -125,7 +126,7 @@ fun StoriesScreen(
                 LazyColumn(
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(bottom = 32.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                    verticalArrangement = Arrangement.spacedBy(28.dp)
                 ) {
                     items(filteredStories.chunked(10)) { chunk ->
                         StorySection(
@@ -153,7 +154,15 @@ fun StorySection(
 ) {
     if (stories.isEmpty()) return
 
-    val grouped = stories.groupBy { it.level }
+    // گروه‌بندی بر اساس سطح
+    val grouped = stories.groupBy {
+        when (it.level) {
+            "مبتدی", "Simple" -> "مبتدی"
+            "متوسط", "Intermediate" -> "متوسط"
+            "پیشرفته", "Advanced" -> if (it.titlePersian.isBlank()) "انگلیسی" else "پیشرفته"
+            else -> it.level
+        }
+    }
 
     grouped.forEach { (level, storiesInLevel) ->
         Column(modifier = Modifier.padding(bottom = 16.dp)) {
@@ -165,22 +174,14 @@ fun StorySection(
                     "مبتدی" -> "🌱"
                     "متوسط" -> "🚀"
                     "پیشرفته" -> "🏆"
+                    "انگلیسی" -> "🇬🇧"
                     else -> "📚"
                 }
                 Text(emoji, fontSize = 18.sp)
                 Spacer(Modifier.width(8.dp))
                 Column {
-                    Text(
-                        "داستان‌های $level",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 18.sp,
-                        color = Color(0xFF1A237E)
-                    )
-                    Text(
-                        "${storiesInLevel.size} داستان",
-                        fontSize = 12.sp,
-                        color = Color.Gray
-                    )
+                    Text("داستان‌های $level", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Color(0xFF1A237E))
+                    Text("${storiesInLevel.size} داستان", fontSize = 12.sp, color = Color.Gray)
                 }
             }
 
@@ -223,7 +224,20 @@ fun StoryCard(
                     )
                 )
         ) {
-            // عکس جلد (اگه لود بشه)
+            // لایه پس‌زمینه
+            Column(
+                modifier = Modifier.fillMaxSize().padding(12.dp),
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(story.levelEmoji.ifBlank { "📕" }, fontSize = 26.sp)
+                Column {
+                    Text(story.title, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 13.sp, maxLines = 3, overflow = TextOverflow.Ellipsis)
+                    Spacer(Modifier.height(4.dp))
+                    Text(story.titlePersian, color = Color.White.copy(alpha = 0.85f), fontSize = 11.sp, maxLines = 2)
+                }
+            }
+
+            // 🖼️ عکس
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(story.getCoverUrl())
@@ -233,34 +247,6 @@ fun StoryCard(
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
-
-            // متن روی عکس
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(12.dp),
-                verticalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(story.levelEmoji, fontSize = 26.sp)
-
-                Column {
-                    Text(
-                        story.title,
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 13.sp,
-                        maxLines = 3,
-                        overflow = TextOverflow.Ellipsis
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        story.titlePersian,
-                        color = Color.White.copy(alpha = 0.85f),
-                        fontSize = 11.sp,
-                        maxLines = 2
-                    )
-                }
-            }
 
             // دکمه +
             Box(
@@ -284,31 +270,13 @@ fun StoryCard(
 
         Spacer(Modifier.height(8.dp))
 
-        Text(
-            story.title,
-            fontWeight = FontWeight.Bold,
-            fontSize = 13.sp,
-            color = Color(0xFF1A237E),
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
-        )
-        Text(
-            story.titlePersian,
-            fontSize = 11.sp,
-            color = Color.Gray,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
-        )
+        Text(story.title, fontWeight = FontWeight.Bold, fontSize = 13.sp, color = Color(0xFF1A237E), maxLines = 1, overflow = TextOverflow.Ellipsis)
+        Text(story.titlePersian, fontSize = 11.sp, color = Color.Gray, maxLines = 1, overflow = TextOverflow.Ellipsis)
 
         Spacer(Modifier.height(6.dp))
 
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Icon(
-                Icons.Filled.Visibility,
-                null,
-                tint = Color.Gray,
-                modifier = Modifier.size(13.dp)
-            )
+            Icon(Icons.Filled.Visibility, null, tint = Color.Gray, modifier = Modifier.size(13.dp))
             Spacer(Modifier.width(4.dp))
             Text("${story.totalChapters} فصل", fontSize = 11.sp, color = Color.Gray)
         }
