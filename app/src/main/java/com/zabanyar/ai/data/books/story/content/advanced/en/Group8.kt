@@ -6,7 +6,7 @@ package com.zabanyar.ai.data.books.story.content.advanced.en
  *  ۲۳. Death in Venice
  *  ۲۴. Things Fall Apart
  */
-object Group8 {
+object EnGroup8 {
 
     fun getAll(): List<EnStory> = listOf(story22(), story23(), story24())
 
