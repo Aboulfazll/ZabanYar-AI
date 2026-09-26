@@ -15,7 +15,7 @@ import com.zabanyar.ai.data.books.story.StoryParagraph
  *  ۴۴. نوازندگان شهر بریمن
  *  ۴۵. سرباز قلعی ثابت‌قدم
  */
-object Group9 {
+object Group10 {
 
     fun getAll(): List<StoryContent> = listOf(
         story41(), story42(), story43(), story44(), story45()
