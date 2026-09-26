@@ -1,12 +1,9 @@
 package com.zabanyar.ai.data
 
+import com.zabanyar.ai.R
+
 /**
  * 🖼️ نگاشت شناسه کتاب به عکس محلی (drawable)
- *
- * هر کتاب که عکس محلی دارد در این Map ثبت می‌شود.
- * نام فایل عکس باید دقیقاً مطابق id کتاب باشد.
- *
- * مثال: id = "top_notch_1" → فایل: res/drawable/top_notch_1.webp
  */
 object BookCoverMapper {
 
@@ -42,7 +39,7 @@ object BookCoverMapper {
         "understanding_grammar" to R.drawable.understanding_grammar,
         "advanced_grammar" to R.drawable.advanced_grammar,
 
-        // ─── 📕 داستان‌ها (اگر عکس محلی داری) ───
+        // ─── 📕 داستان‌ها ───
         "alice_wonderland" to R.drawable.alice_wonderland,
         "peter_pan" to R.drawable.peter_pan,
         "little_prince" to R.drawable.little_prince,
@@ -52,16 +49,10 @@ object BookCoverMapper {
         "halloween_horror" to R.drawable.halloween_horror,
         "gift_of_magi" to R.drawable.gift_of_magi,
         "secret_garden" to R.drawable.secret_garden,
-        "black_beauty" to R.drawable.black_beauty,
+        "black_beauty" to R.drawable.black_beauty
     )
 
-    /**
-     * عکس محلی کتاب را برمی‌گرداند یا null اگر وجود نداشت.
-     */
     fun getLocalCover(bookId: String): Int? = localCovers[bookId]
 
-    /**
-     * آیا کتاب عکس محلی دارد؟
-     */
     fun hasLocalCover(bookId: String): Boolean = localCovers.containsKey(bookId)
 }
