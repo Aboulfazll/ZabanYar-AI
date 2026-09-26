@@ -39,7 +39,7 @@ object Routes {
     const val STORIES = "stories"
     const val BOOK_DETAIL = "book_detail/{bookId}"
     const val LESSON_DETAIL = "lesson_detail/{bookId}/{chapterNumber}"
-    const val READING_MODE = "reading_mode/{title}/{text}"
+    const val READING_MODE = "reading_mode/{storyId}"
     const val QUIZ = "quiz/{bookId}/{quizIndex}/{totalChapters}/{bookTitle}"
     const val AI_CHAT = "ai_chat"
     const val API_KEY = "api_key"
@@ -52,8 +52,7 @@ object Routes {
 
     fun bookDetail(bookId: String) = "book_detail/$bookId"
     fun lessonDetail(bookId: String, chapterNumber: Int) = "lesson_detail/$bookId/$chapterNumber"
-    fun readingMode(title: String, text: String) =
-        "reading_mode/${android.net.Uri.encode(title)}/${android.net.Uri.encode(text)}"
+    fun readingMode(storyId: String) = "reading_mode/$storyId"
     fun quiz(bookId: String, quizIndex: Int, totalChapters: Int, bookTitle: String) =
         "quiz/$bookId/$quizIndex/$totalChapters/${android.net.Uri.encode(bookTitle)}"
 }
@@ -100,7 +99,6 @@ fun AppNavHost(
                 onNavigateToLevelTest = { navController.navigate(Routes.LEVEL_TEST) },
                 onNavigateToAchievements = { navController.navigate(Routes.ACHIEVEMENTS) },
                 onNavigateToStories = { navController.navigate(Routes.STORIES) },
-                // ✅ تغییر اصلی: رفتن مستقیم به کتاب
                 onNavigateToBook = { bookId -> navController.navigate(Routes.bookDetail(bookId)) },
                 onLogout = {
                     navController.navigate(Routes.LOGIN) {
@@ -117,7 +115,6 @@ fun AppNavHost(
             )
         }
 
-        // 🆕 صفحه داستان‌ها
         composable(Routes.STORIES) {
             StoriesScreen(
                 onBack = { navController.popBackStack() },
@@ -170,7 +167,6 @@ fun AppNavHost(
             )
         }
 
-        // 🆕 LESSON_DETAIL — هم داستان، هم کتاب
         composable(
             route = Routes.LESSON_DETAIL,
             arguments = listOf(
@@ -182,11 +178,9 @@ fun AppNavHost(
             val chapterNumber = entry.arguments?.getInt("chapterNumber") ?: 1
             val book = BookRepository.getBookById(bookId)
 
-            // چک کن آیا این فصل توی داستان‌هاست
             val storyChapter = StoryRepository.getChapter(bookId, chapterNumber)
 
             if (storyChapter != null) {
-                // ─── داستان ───
                 LessonDetailScreen(
                     storyChapter = storyChapter,
                     bookTitle = book?.title ?: "",
@@ -195,7 +189,6 @@ fun AppNavHost(
                     onBack = { navController.popBackStack() }
                 )
             } else {
-                // ─── کتاب معمولی ───
                 val lesson = LessonContentRepository.getLessonContent(bookId, chapterNumber)
                 LessonDetailScreen(
                     lesson = lesson,
@@ -207,22 +200,16 @@ fun AppNavHost(
             }
         }
 
+        // ✅ READING_MODE اصلاح‌شده: فقط storyId می‌گیره
         composable(
             route = Routes.READING_MODE,
-            arguments = listOf(
-                navArgument("title") { type = NavType.StringType },
-                navArgument("text") { type = NavType.StringType }
-            )
+            arguments = listOf(navArgument("storyId") { type = NavType.StringType })
         ) { entry ->
-            val title = java.net.URLDecoder.decode(
-                entry.arguments?.getString("title") ?: "", "UTF-8"
-            )
-            val text = java.net.URLDecoder.decode(
-                entry.arguments?.getString("text") ?: "", "UTF-8"
-            )
+            val storyId = entry.arguments?.getString("storyId") ?: ""
+            val book = BookRepository.getBookById(storyId)
             ReadingModeScreen(
-                title = title,
-                text = text,
+                storyId = storyId,
+                title = book?.title ?: "داستان",
                 onBack = { navController.popBackStack() }
             )
         }
