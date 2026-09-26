@@ -6,7 +6,7 @@ package com.zabanyar.ai.data.books.story.content.advanced.en
  *  ۲۶. Slaughterhouse-Five
  *  ۲۷. The Unbearable Lightness of Being
  */
-object Group9 {
+object EnGroup9 {
 
     fun getAll(): List<EnStory> = listOf(story25(), story26(), story27())
 
