@@ -4,6 +4,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun StoriesScreen() {
+fun StoriesScreen(
+    onBack: () -> Unit = {},
+    onStoryClick: (String) -> Unit = {}
+) {
     Text(text = "Stories Screen (به‌زودی)")
 }
