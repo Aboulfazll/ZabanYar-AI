@@ -1,7 +1,7 @@
 package com.zabanyar.ai.data.books.story.content.advanced.en
 
 /**
- * 📚 En Group2 — ۳ داستان پیشرفته، ۵ فصل × ۳۰ خط
+ * 📚  Group2 — ۳ داستان پیشرفته، ۵ فصل × ۳۰ خط
  *  ۱. Crime and Punishment
  *  ۲. Anna Karenina
  *  ۳. The Metamorphosis
