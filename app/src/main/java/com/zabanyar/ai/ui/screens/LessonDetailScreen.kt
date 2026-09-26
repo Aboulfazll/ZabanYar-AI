@@ -22,7 +22,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.DialogueLine
@@ -45,11 +44,21 @@ fun LessonDetailScreen(
 ) {
     val context = LocalContext.current
 
+    // 🆕 SpeechHelper instance
+    val speechHelper = remember { SpeechHelper(context) }
+
+    // 🆕 آزادسازی منابع
+    DisposableEffect(Unit) {
+        onDispose {
+            speechHelper.stop()
+            speechHelper.shutdown()
+        }
+    }
+
     var showTranslation by remember { mutableStateOf(ProgressManager.isShowTranslation(context)) }
 
     val isStory = storyChapter != null
 
-    // ─── عنوان‌ها ───
     val chapterNumber = storyChapter?.number ?: lesson?.chapterNumber ?: 1
     val title = storyChapter?.title ?: lesson?.title ?: ""
     val titlePersian = storyChapter?.titlePersian ?: lesson?.titlePersian ?: ""
@@ -75,7 +84,10 @@ fun LessonDetailScreen(
                     }
                 },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
+                    IconButton(onClick = {
+                        speechHelper.stop()
+                        onBack()
+                    }) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
                     }
                 },
@@ -127,7 +139,7 @@ fun LessonDetailScreen(
             }
 
             // ═══════════════════════════════════════════════════
-            //  📖 اگر داستان باشه → محتوای داستان
+            //  📖 داستان
             // ═══════════════════════════════════════════════════
             if (isStory && storyChapter != null) {
 
@@ -136,7 +148,8 @@ fun LessonDetailScreen(
                     StoryAudioCard(
                         chapter = storyChapter,
                         gradientStart = bookCoverGradientStart,
-                        gradientEnd = bookCoverGradientEnd
+                        gradientEnd = bookCoverGradientEnd,
+                        speechHelper = speechHelper
                     )
                 }
 
@@ -167,13 +180,14 @@ fun LessonDetailScreen(
                     StoryParagraphCard(
                         paragraph = paragraph,
                         showTranslation = showTranslation,
-                        accentColor = Color(bookCoverGradientStart)
+                        accentColor = Color(bookCoverGradientStart),
+                        speechHelper = speechHelper
                     )
                 }
             }
 
             // ═══════════════════════════════════════════════════
-            //  📚 اگر کتاب معمولی باشه → محتوای درس
+            //  📚 کتاب معمولی
             // ═══════════════════════════════════════════════════
             if (!isStory && lesson != null) {
 
@@ -211,7 +225,11 @@ fun LessonDetailScreen(
                             title = "واژگان (${lesson.vocabulary.size} کلمه)"
                         ) {
                             lesson.vocabulary.forEach { word ->
-                                VocabItem(word = word, showTranslation = showTranslation)
+                                VocabItem(
+                                    word = word,
+                                    showTranslation = showTranslation,
+                                    speechHelper = speechHelper
+                                )
                                 Spacer(Modifier.height(10.dp))
                             }
                         }
@@ -226,7 +244,11 @@ fun LessonDetailScreen(
                             title = "مکالمه"
                         ) {
                             lesson.conversation.forEach { line ->
-                                DialogueItem(line = line, showTranslation = showTranslation)
+                                DialogueItem(
+                                    line = line,
+                                    showTranslation = showTranslation,
+                                    speechHelper = speechHelper
+                                )
                                 Spacer(Modifier.height(8.dp))
                             }
                         }
@@ -387,10 +409,9 @@ fun HeaderCard(
 fun StoryAudioCard(
     chapter: StoryChapter,
     gradientStart: Long,
-    gradientEnd: Long
+    gradientEnd: Long,
+    speechHelper: SpeechHelper
 ) {
-    val context = LocalContext.current
-
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
@@ -414,7 +435,7 @@ fun StoryAudioCard(
                     )
                     .clickable {
                         val fullText = chapter.paragraphs.joinToString(" ") { it.english }
-                        SpeechHelper.speak(context, fullText)
+                        speechHelper.speak(fullText)
                     },
                 contentAlignment = Alignment.Center
             ) {
@@ -450,10 +471,9 @@ fun StoryAudioCard(
 fun StoryParagraphCard(
     paragraph: StoryParagraph,
     showTranslation: Boolean,
-    accentColor: Color
+    accentColor: Color,
+    speechHelper: SpeechHelper
 ) {
-    val context = LocalContext.current
-
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
@@ -491,7 +511,7 @@ fun StoryParagraphCard(
 
             IconButton(
                 onClick = {
-                    SpeechHelper.speak(context, paragraph.english)
+                    speechHelper.speak(paragraph.english)
                 },
                 modifier = Modifier
                     .size(36.dp)
@@ -549,59 +569,87 @@ fun LessonSectionCard(
 //  آیتم واژه
 // ═══════════════════════════════════════════════════════
 @Composable
-fun VocabItem(word: VocabWord, showTranslation: Boolean) {
+fun VocabItem(
+    word: VocabWord,
+    showTranslation: Boolean,
+    speechHelper: SpeechHelper
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFFF5F7FA))
     ) {
-        Column(modifier = Modifier.padding(12.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    word.english,
-                    fontSize = 15.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF1A237E)
-                )
-                Spacer(Modifier.width(8.dp))
-                Box(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(6.dp))
-                        .background(Color(0xFF3F51B5).copy(alpha = 0.15f))
-                        .padding(horizontal = 6.dp, vertical = 2.dp)
-                ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            verticalAlignment = Alignment.Top
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        word.partOfSpeech,
-                        fontSize = 9.sp,
-                        color = Color(0xFF3F51B5),
-                        fontWeight = FontWeight.Bold
+                        word.english,
+                        fontSize = 15.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF1A237E)
                     )
+                    Spacer(Modifier.width(8.dp))
+                    Box(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(6.dp))
+                            .background(Color(0xFF3F51B5).copy(alpha = 0.15f))
+                            .padding(horizontal = 6.dp, vertical = 2.dp)
+                    ) {
+                        Text(
+                            word.partOfSpeech,
+                            fontSize = 9.sp,
+                            color = Color(0xFF3F51B5),
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                }
+                Text(
+                    word.pronunciation,
+                    fontSize = 11.sp,
+                    color = Color(0xFF009688),
+                    fontStyle = FontStyle.Italic
+                )
+
+                AnimatedVisibility(visible = showTranslation) {
+                    Column {
+                        Spacer(Modifier.height(4.dp))
+                        Text(word.persian, fontSize = 13.sp, color = Color.Gray)
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            "مثال: ${word.example}",
+                            fontSize = 11.sp,
+                            color = Color(0xFF3F51B5)
+                        )
+                        Text(
+                            word.examplePersian,
+                            fontSize = 11.sp,
+                            color = Color.Gray,
+                            fontStyle = FontStyle.Italic
+                        )
+                    }
                 }
             }
-            Text(
-                word.pronunciation,
-                fontSize = 11.sp,
-                color = Color(0xFF009688),
-                fontStyle = FontStyle.Italic
-            )
 
-            AnimatedVisibility(visible = showTranslation) {
-                Column {
-                    Spacer(Modifier.height(4.dp))
-                    Text(word.persian, fontSize = 13.sp, color = Color.Gray)
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        "مثال: ${word.example}",
-                        fontSize = 11.sp,
-                        color = Color(0xFF3F51B5)
-                    )
-                    Text(
-                        word.examplePersian,
-                        fontSize = 11.sp,
-                        color = Color.Gray,
-                        fontStyle = FontStyle.Italic
-                    )
-                }
+            Spacer(Modifier.width(8.dp))
+
+            IconButton(
+                onClick = { speechHelper.speak(word.english) },
+                modifier = Modifier
+                    .size(32.dp)
+                    .clip(CircleShape)
+                    .background(Color(0xFF3F51B5).copy(alpha = 0.12f))
+            ) {
+                Icon(
+                    Icons.Filled.VolumeUp,
+                    "پخش",
+                    tint = Color(0xFF3F51B5),
+                    modifier = Modifier.size(16.dp)
+                )
             }
         }
     }
@@ -611,7 +659,11 @@ fun VocabItem(word: VocabWord, showTranslation: Boolean) {
 //  آیتم مکالمه
 // ═══════════════════════════════════════════════════════
 @Composable
-fun DialogueItem(line: DialogueLine, showTranslation: Boolean) {
+fun DialogueItem(
+    line: DialogueLine,
+    showTranslation: Boolean,
+    speechHelper: SpeechHelper
+) {
     Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.Top) {
         Box(
             modifier = Modifier
@@ -643,6 +695,21 @@ fun DialogueItem(line: DialogueLine, showTranslation: Boolean) {
                     fontStyle = FontStyle.Italic
                 )
             }
+        }
+        Spacer(Modifier.width(8.dp))
+        IconButton(
+            onClick = { speechHelper.speak(line.english) },
+            modifier = Modifier
+                .size(30.dp)
+                .clip(CircleShape)
+                .background(Color(0xFF009688).copy(alpha = 0.12f))
+        ) {
+            Icon(
+                Icons.Filled.VolumeUp,
+                "پخش",
+                tint = Color(0xFF009688),
+                modifier = Modifier.size(14.dp)
+            )
         }
     }
 }
