@@ -10,7 +10,7 @@ import com.zabanyar.ai.data.books.story.content.simple.Group6
 import com.zabanyar.ai.data.books.story.content.simple.Group7
 import com.zabanyar.ai.data.books.story.content.simple.Group8
 import com.zabanyar.ai.data.books.story.content.simple.Group9
-// import com.zabanyar.ai.data.books.story.content.simple.Group10
+import com.zabanyar.ai.data.books.story.content.simple.Group10
 
 object SimpleStoryContent {
 
@@ -24,7 +24,7 @@ object SimpleStoryContent {
         Group7.getAll(),
         Group8.getAll(),
         Group9.getAll(),
-        // Group10.getAll(),
+        Group10.getAll(),
     )
 
     fun getAll(): List<StoryContent> = groups.flatten()
