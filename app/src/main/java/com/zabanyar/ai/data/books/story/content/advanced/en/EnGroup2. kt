@@ -6,7 +6,7 @@ package com.zabanyar.ai.data.books.story.content.advanced.en
  *  ۲. Anna Karenina
  *  ۳. The Metamorphosis
  */
-object Group1 {
+object EnGroup1 {
 
     fun getAll(): List<EnStory> = listOf(story1(), story2(), story3())
 
