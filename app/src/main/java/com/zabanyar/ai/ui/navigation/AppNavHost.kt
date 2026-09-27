@@ -1,6 +1,11 @@
 package com.zabanyar.ai.ui.navigation
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -265,7 +270,6 @@ fun AppNavHost(
             SpeakingScreen(onBack = { navController.popBackStack() })
         }
 
-        // ✅ لیست پادکست‌ها — با onPodcastClick
         composable(Routes.PODCAST) {
             PodcastScreen(
                 onBack = { navController.popBackStack() },
@@ -275,7 +279,6 @@ fun AppNavHost(
             )
         }
 
-        // 🆕 پلیر پادکست
         composable(
             route = Routes.PODCAST_PLAYER,
             arguments = listOf(navArgument("podcastId") { type = NavType.StringType })
@@ -284,12 +287,11 @@ fun AppNavHost(
             val podcast = PodcastRepository.getPodcastById(podcastId)
 
             if (podcast == null) {
-                androidx.compose.foundation.layout.Box(
-                    modifier = androidx.compose.ui.Modifier
-                        .fillMaxSize(),
-                    contentAlignment = androidx.compose.ui.Alignment.Center
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
                 ) {
-                    androidx.compose.material3.Text("پادکست پیدا نشد")
+                    Text("پادکست پیدا نشد")
                 }
             } else {
                 PodcastPlayerScreen(
