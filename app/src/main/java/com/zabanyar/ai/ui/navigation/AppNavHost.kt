@@ -228,4 +228,103 @@ fun AppNavHost(
             route = Routes.READING_MODE,
             arguments = listOf(navArgument("storyId") { type = NavType.StringType })
         ) { entry ->
-            val storyId = entry.arguments?.getString("storyتد
+            val storyId = entry.arguments?.getString("storyId") ?: ""
+            val book = BookRepository.getBookById(storyId)
+                ?: StoryRepository.getStoryById(storyId)
+            ReadingModeScreen(
+                storyId = storyId,
+                title = book?.title ?: "داستان",
+                onBack = { navController.popBackStack() }
+            )
+        }
+
+        composable(Routes.AI_CHAT) {
+            AIChatScreen(
+                onBack = { navController.popBackStack() },
+                onOpenSettings = { navController.navigate(Routes.API_KEY) }
+            )
+        }
+
+        composable(Routes.API_KEY) {
+            ApiKeyScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(Routes.PROFILE) {
+            ProfileScreen(
+                onBack = { navController.popBackStack() },
+                onNavigateToApiKey = { navController.navigate(Routes.API_KEY) },
+                onLogout = {
+                    navController.navigate(Routes.LOGIN) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        composable(Routes.SETTINGS) {
+            SettingsScreen(
+                onBack = { navController.popBackStack() },
+                onLogout = {
+                    navController.navigate(Routes.LOGIN) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        composable(Routes.VOCABULARY) {
+            VocabularyScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(Routes.SPEAKING) {
+            SpeakingScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(Routes.PODCAST) {
+            PodcastScreen(
+                onBack = { navController.popBackStack() },
+                onPodcastClick = { podcast ->
+                    navController.navigate(Routes.podcastPlayer(podcast.id))
+                }
+            )
+        }
+
+        composable(
+            route = Routes.PODCAST_PLAYER,
+            arguments = listOf(navArgument("podcastId") { type = NavType.StringType })
+        ) { entry ->
+            val podcastId = entry.arguments?.getString("podcastId") ?: ""
+            val podcast = PodcastRepository.getPodcastById(podcastId)
+
+            if (podcast == null) {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text("پادکست پیدا نشد")
+                }
+            } else {
+                PodcastPlayerScreen(
+                    podcast = podcast,
+                    transcript = podcast.transcript,
+                    onBack = { navController.popBackStack() }
+                )
+            }
+        }
+
+        composable(Routes.DAILY_SENTENCES) {
+            DailySentencesScreen(onBack = { navController.popBackStack() })
+        }
+
+        composable(Routes.LEVEL_TEST) {
+            LevelTestScreen(
+                onBack = { navController.popBackStack() },
+                onTestComplete = { }
+            )
+        }
+
+        composable(Routes.ACHIEVEMENTS) {
+            AchievementsScreen(onBack = { navController.popBackStack() })
+        }
+    }
+}
