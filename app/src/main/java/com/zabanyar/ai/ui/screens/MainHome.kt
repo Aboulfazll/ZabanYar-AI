@@ -27,13 +27,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
 import com.zabanyar.ai.data.Book
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.FavoritesManager
 import com.zabanyar.ai.data.ProgressManager
-import com.zabanyar.ai.data.getCoverUrl
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -422,13 +419,9 @@ fun BookCoverSmall(book: Book, onClick: () -> Unit) {
             // لایه پس‌زمینه (اگه عکس لود نشد)
             Text(book.category.emoji, fontSize = 30.sp)
 
-            // 🖼️ عکس روی پس‌زمینه
-            AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(book.getCoverUrl())
-                    .crossfade(true)
-                    .build(),
-                contentDescription = book.title,
+            // 🖼️ عکس روی پس‌زمینه (اول محلی، بعد URL)
+            BookCoverImage(
+                book = book,
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
@@ -531,13 +524,9 @@ fun ContentListItem(
                     Text(book.category.emoji, fontSize = 48.sp)
                 }
 
-                // 🖼️ عکس روی پس‌زمینه
-                AsyncImage(
-                    model = ImageRequest.Builder(LocalContext.current)
-                        .data(book.getCoverUrl())
-                        .crossfade(true)
-                        .build(),
-                    contentDescription = book.title,
+                // 🖼️ عکس روی پس‌زمینه (اول محلی، بعد URL)
+                BookCoverImage(
+                    book = book,
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop
                 )
