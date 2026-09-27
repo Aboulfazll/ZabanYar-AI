@@ -346,10 +346,9 @@ fun BookDetailScreen(
                                 }
                             }
                         )
-                        // خط جداکننده بین فصل‌ها
                         if (index < listItems.size - 1) {
                             Divider(
-                                modifier = Modifier.padding(start = 20.dp, end = 20.dp),
+                                modifier = Modifier.padding(horizontal = 20.dp),
                                 color = Color(0xFFEEEEEE),
                                 thickness = 1.dp
                             )
@@ -416,7 +415,7 @@ fun BookDetailScreen(
 }
 
 // ============================================================
-//  ✅ فصل شماره‌دار — استایل جدید (مثل اسکرین‌شات)
+//  ✅ فصل‌ها — دقیقاً مثل تصویر (راست‌چین، شماره بالا، عنوان زیر)
 // ============================================================
 @Composable
 private fun ChapterListRow(
@@ -427,61 +426,39 @@ private fun ChapterListRow(
     accentColor: Color,
     onClick: () -> Unit
 ) {
-    Row(
+    Column(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(enabled = isUnlocked) { onClick() }
             .background(Color.White)
-            .padding(horizontal = 20.dp, vertical = 18.dp),
-        verticalAlignment = Alignment.CenterVertically
+            .padding(horizontal = 20.dp, vertical = 16.dp),
+        horizontalAlignment = Alignment.End
     ) {
-        // عنوان سمت چپ
-        Column(
-            modifier = Modifier.weight(1f)
-        ) {
+        Text(
+            "فصل $number",
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold,
+            color = if (isUnlocked) Color(0xFF1A237E) else Color.Gray,
+            textAlign = TextAlign.End,
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(Modifier.height(6.dp))
+        Text(
+            title,
+            fontSize = 13.sp,
+            color = if (isUnlocked) Color.Gray else Color.Gray.copy(alpha = 0.6f),
+            maxLines = 2,
+            lineHeight = 18.sp,
+            textAlign = TextAlign.End,
+            modifier = Modifier.fillMaxWidth()
+        )
+        if (isRead) {
+            Spacer(Modifier.height(4.dp))
             Text(
-                title,
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Medium,
-                color = if (isUnlocked) Color(0xFF1A237E) else Color.Gray,
-                maxLines = 2,
-                lineHeight = 20.sp
-            )
-            if (isRead) {
-                Spacer(Modifier.height(4.dp))
-                Box(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(6.dp))
-                        .background(Color(0xFF4CAF50).copy(alpha = 0.15f))
-                        .padding(horizontal = 6.dp, vertical = 2.dp)
-                ) {
-                    Text(
-                        "خوانده‌شده ✓",
-                        fontSize = 9.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color(0xFF2E7D32)
-                    )
-                }
-            }
-        }
-
-        Spacer(Modifier.width(16.dp))
-
-        // ✅ شماره سمت راست (مثل اسکرین‌شات)
-        if (isUnlocked) {
-            Text(
-                "$number",
-                fontSize = 22.sp,
+                "خوانده‌شده ✓",
+                fontSize = 10.sp,
                 fontWeight = FontWeight.Bold,
-                color = accentColor,
-                textAlign = TextAlign.End
-            )
-        } else {
-            Icon(
-                Icons.Filled.Lock,
-                null,
-                tint = Color.Gray,
-                modifier = Modifier.size(20.dp)
+                color = Color(0xFF2E7D32)
             )
         }
     }
