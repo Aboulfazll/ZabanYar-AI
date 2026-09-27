@@ -80,12 +80,12 @@ fun LessonDetailScreen(
     val titlePersian = storyChapter?.titlePersian ?: lesson?.titlePersian ?: ""
 
     // ═══════════════════════════════════════════════════════
-    //  گرفتن لیست فصل‌ها از ریپازیتوری
+    //  گرفتن لیست فصل‌ها از ریپازیتوری (اصلاح‌شده ✅)
     // ═══════════════════════════════════════════════════════
     val allChapters: List<StoryChapter> = remember(bookId) {
         if (bookId.isEmpty()) emptyList()
         else try {
-            StoryRepository.getAllChapters(bookId)
+            StoryRepository.getChapters(bookId)
         } catch (e: Exception) {
             emptyList()
         }
