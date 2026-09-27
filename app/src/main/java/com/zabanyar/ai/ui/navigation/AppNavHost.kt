@@ -228,4 +228,4 @@ fun AppNavHost(
             route = Routes.READING_MODE,
             arguments = listOf(navArgument("storyId") { type = NavType.StringType })
         ) { entry ->
-            val storyId = entry.arguments?.getString("story
+            val storyId = entry.arguments?.getString("storyتد
