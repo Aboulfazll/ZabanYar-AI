@@ -2,11 +2,6 @@ package com.zabanyar.ai.data
 
 import java.net.URLEncoder
 
-/**
- * 🖼️ تولید URL جلد کتاب
- * ۱. اگه coverUrl دستی تنظیم شده باشه، از همان استفاده می‌کند
- * ۲. اگه نه، از Open Library بر اساس عنوان استفاده می‌کند
- */
 fun Book.getCoverUrl(): String {
     if (coverUrl.isNotBlank()) {
         return coverUrl
