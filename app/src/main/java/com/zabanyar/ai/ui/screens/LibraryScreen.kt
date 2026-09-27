@@ -26,13 +26,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
 import com.zabanyar.ai.data.Book
 import com.zabanyar.ai.data.BookCategory
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.FavoritesManager
-import com.zabanyar.ai.data.getCoverUrl
 import com.zabanyar.ai.data.books.story.StoryRepository
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -46,7 +43,7 @@ fun LibraryScreen(
     var addedBooks by remember { mutableStateOf(FavoritesManager.getAddedBooks(context)) }
     var selectedTab by remember { mutableStateOf("همه") }
 
-    // ✅ اصلاح: اضافه کردن همه داستان‌ها از StoryRepository
+    // ✅ اضافه کردن همه داستان‌ها از StoryRepository
     val allBooks = remember {
         (BookRepository.getAllBooks() + StoryRepository.getAllStories())
             .distinctBy { it.id }
@@ -57,7 +54,6 @@ fun LibraryScreen(
     val filteredBooks = remember(selectedTab, allBooks) {
         when (selectedTab) {
             "همه" -> allBooks
-            // ✅ اصلاح: پشتیبانی از هر دو naming (فارسی و انگلیسی)
             "ساده" -> allBooks.filter {
                 it.level == "مبتدی" || it.level == "Simple"
             }
@@ -259,13 +255,9 @@ fun BookCardReal(
                 }
             }
 
-            // ─── 🖼️ عکس جلد کتاب ───
-            AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(book.getCoverUrl())
-                    .crossfade(true)
-                    .build(),
-                contentDescription = book.title,
+            // ─── 🖼️ عکس جلد کتاب (اول محلی، بعد URL) ───
+            BookCoverImage(
+                book = book,
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
