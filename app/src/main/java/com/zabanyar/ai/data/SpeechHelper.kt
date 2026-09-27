@@ -12,7 +12,8 @@ class SpeechHelper(context: Context) : TextToSpeech.OnInitListener {
     private var isReady = false
     private var currentSpeed = 1.0f
     private var currentPitch = 1.0f
-    private var pendingText: String? = null // 👈 متن‌هایی که قبل از init اومدن
+    private var pendingText: String? = null
+    private var pendingCallback: (() -> Unit)? = null
     private var onDoneCallback: (() -> Unit)? = null
 
     companion object {
@@ -34,7 +35,6 @@ class SpeechHelper(context: Context) : TextToSpeech.OnInitListener {
                 tts?.setSpeechRate(currentSpeed)
                 tts?.setPitch(currentPitch)
 
-                // 👈 تنظیم Listener برای گرفتن وضعیت پخش
                 tts?.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
                     override fun onStart(utteranceId: String?) {
                         Log.d(TAG, "TTS Started: $utteranceId")
@@ -48,13 +48,23 @@ class SpeechHelper(context: Context) : TextToSpeech.OnInitListener {
                     @Deprecated("Deprecated in Java")
                     override fun onError(utteranceId: String?) {
                         Log.e(TAG, "TTS Error: $utteranceId")
+                        // ✅ اگه خطا داد، خط بعدی خونده بشه
+                        onDoneCallback?.invoke()
+                    }
+
+                    override fun onError(utteranceId: String?, errorCode: Int) {
+                        Log.e(TAG, "TTS Error: $utteranceId, code: $errorCode")
+                        // ✅ اگه خطا داد، خط بعدی خونده بشه
+                        onDoneCallback?.invoke()
                     }
                 })
 
-                // 👈 اگه قبلاً speak صدا زده شده بود و منتظر بود، الان پخش کن
-                pendingText?.let {
-                    speak(it)
+                // اگه قبلاً speak صدا زده شده بود و منتظر بود، الان پخش کن
+                pendingText?.let { text ->
+                    val cb = pendingCallback
                     pendingText = null
+                    pendingCallback = null
+                    speak(text, cb)
                 }
             } else {
                 Log.e(TAG, "TTS Language not supported")
@@ -65,12 +75,17 @@ class SpeechHelper(context: Context) : TextToSpeech.OnInitListener {
     }
 
     fun speak(text: String, onDone: (() -> Unit)? = null) {
-        if (text.isBlank()) return
+        if (text.isBlank()) {
+            // اگه متن خالی بود، فوراً callback رو صدا بزن
+            onDone?.invoke()
+            return
+        }
 
         // اگه TTS آماده نیست، متن رو ذخیره کن تا بعداً پخش بشه
         if (!isReady) {
             Log.d(TAG, "TTS not ready yet, saving text for later")
             pendingText = text
+            pendingCallback = onDone
             return
         }
 
@@ -82,6 +97,7 @@ class SpeechHelper(context: Context) : TextToSpeech.OnInitListener {
 
     fun stop() {
         tts?.stop()
+        onDoneCallback = null
     }
 
     fun setSpeed(speed: Float) {
@@ -104,5 +120,8 @@ class SpeechHelper(context: Context) : TextToSpeech.OnInitListener {
         tts?.stop()
         tts?.shutdown()
         isReady = false
+        onDoneCallback = null
+        pendingText = null
+        pendingCallback = null
     }
 }
