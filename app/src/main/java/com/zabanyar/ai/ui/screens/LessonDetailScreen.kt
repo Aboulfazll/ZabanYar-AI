@@ -36,6 +36,7 @@ import com.zabanyar.ai.data.VocabWord
 import com.zabanyar.ai.data.books.story.StoryChapter
 import com.zabanyar.ai.data.books.story.StoryParagraph
 import com.zabanyar.ai.data.books.story.StoryRepository
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,7 +47,8 @@ fun LessonDetailScreen(
     bookCoverGradientStart: Long = 0xFF1A237E,
     bookCoverGradientEnd: Long = 0xFF3949AB,
     bookId: String = "",
-    onBack: () -> Unit = {}
+    onBack: () -> Unit = {},
+    onChapterSelected: (Int) -> Unit = {}   // ← جدید: برای ناوبری به فصل دیگه
 ) {
     val context = LocalContext.current
     val speechHelper = remember { SpeechHelper(context) }
@@ -64,12 +66,30 @@ fun LessonDetailScreen(
             ?: StoryRepository.getStoryById(bookId)
     }
 
+    // ═══════════════════════════════════════════════════════
+    //  🆕 State های کشوی کناری
+    // ═══════════════════════════════════════════════════════
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
+
     var showTranslation by remember { mutableStateOf(ProgressManager.isShowTranslation(context)) }
     val isStory = storyChapter != null
 
     val chapterNumber = storyChapter?.number ?: lesson?.chapterNumber ?: 1
     val title = storyChapter?.title ?: lesson?.title ?: ""
     val titlePersian = storyChapter?.titlePersian ?: lesson?.titlePersian ?: ""
+
+    // ═══════════════════════════════════════════════════════
+    //  🆕 گرفتن لیست فصل‌ها از ریپازیتوری
+    // ═══════════════════════════════════════════════════════
+    val allChapters: List<StoryChapter> = remember(bookId) {
+        if (bookId.isEmpty()) emptyList()
+        else try {
+            StoryRepository.getAllChapters(bookId)  // ← اگه اسم متدت فرق داره، عوض کن
+        } catch (e: Exception) {
+            emptyList()
+        }
+    }
 
     val tabs = buildList {
         if (lesson != null) {
@@ -81,271 +101,394 @@ fun LessonDetailScreen(
     }
     var selectedTab by remember { mutableIntStateOf(0) }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Column {
-                        Text(
-                            if (isStory) "فصل $chapterNumber: $title" else title,
-                            color = Color.White, fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold, maxLines = 1
-                        )
-                        Text(
-                            titlePersian,
-                            color = Color.White.copy(alpha = 0.8f),
-                            fontSize = 11.sp, maxLines = 1
-                        )
-                    }
-                },
-                navigationIcon = {
-                    IconButton(onClick = {
-                        speechHelper.stop()
-                        onBack()
-                    }) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
-                    }
-                },
-                actions = {
-                    IconButton(
-                        onClick = {
-                            showTranslation = !showTranslation
-                            ProgressManager.setShowTranslation(context, showTranslation)
-                        }
-                    ) {
-                        Icon(
-                            imageVector = if (showTranslation) Icons.Filled.Translate
-                            else Icons.Filled.GTranslate,
-                            contentDescription = "Toggle Translation",
-                            tint = if (showTranslation) Color(0xFFFFD54F)
-                            else Color.White.copy(alpha = 0.6f)
-                        )
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = PrimaryColor)
-            )
-        }
-    ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color(0xFFF8F9FC))
-                .padding(padding)
-        ) {
-
-            HeaderCard(
-                book = book,
-                bookTitle = bookTitle,
-                chapterNumber = chapterNumber,
-                title = title,
-                titlePersian = titlePersian,
-                gradientStart = bookCoverGradientStart,
-                gradientEnd = bookCoverGradientEnd,
-                isStory = isStory,
-                vocabCount = lesson?.vocabulary?.size ?: 0,
-                dialogueCount = lesson?.conversation?.size ?: 0,
-                storyParagraphCount = storyChapter?.paragraphs?.size ?: 0
-            )
-
-            // ═══════════════════════════════════════
-            //  🎬 داستان
-            // ═══════════════════════════════════════
-            if (isStory && storyChapter != null) {
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(14.dp)
+    // ═══════════════════════════════════════════════════════
+    //  🆕 کشوی کناری (ModalNavigationDrawer)
+    // ═══════════════════════════════════════════════════════
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        drawerContent = {
+            ModalDrawerSheet(
+                modifier = Modifier.width(310.dp),
+                drawerContainerColor = Color.White
+            ) {
+                // ─── هدر کشو (مشخصات کتاب) ───
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color(0xFFF0F2F5))
+                        .padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    item {
-                        StoryAudioCard(
-                            chapter = storyChapter,
-                            gradientStart = bookCoverGradientStart,
-                            gradientEnd = bookCoverGradientEnd,
-                            speechHelper = speechHelper
-                        )
-                    }
-                    item {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically
+                    if (book != null) {
+                        Box(
+                            modifier = Modifier
+                                .size(70.dp, 95.dp)
+                                .clip(RoundedCornerShape(8.dp))
                         ) {
-                            Box(
-                                modifier = Modifier
-                                    .size(4.dp, 20.dp)
-                                    .clip(RoundedCornerShape(2.dp))
-                                    .background(Color(bookCoverGradientStart))
-                            )
-                            Spacer(Modifier.width(10.dp))
-                            Text(
-                                "📖 متن داستان (${storyChapter.paragraphs.size} خط)",
-                                fontSize = 15.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = PrimaryColor
+                            BookCoverImage(
+                                book = book,
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
                             )
                         }
+                        Spacer(Modifier.height(10.dp))
                     }
-                    items(storyChapter.paragraphs) { paragraph ->
-                        StoryParagraphCard(
-                            paragraph = paragraph,
-                            showTranslation = showTranslation,
-                            accentColor = Color(bookCoverGradientStart),
-                            speechHelper = speechHelper
+                    Text(
+                        text = if (bookTitle.isNotEmpty()) bookTitle else title,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 15.sp,
+                        color = Color(0xFF1A237E),
+                        textAlign = TextAlign.Center
+                    )
+                    val author = book?.author
+                    if (!author.isNullOrEmpty()) {
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            text = author,
+                            fontSize = 12.sp,
+                            color = Color.Gray,
+                            textAlign = TextAlign.Center
                         )
+                    }
+                }
+
+                Divider(color = Color(0xFFE0E0E0))
+
+                Spacer(Modifier.height(4.dp))
+
+                // ─── لیست فصل‌ها ───
+                if (allChapters.isEmpty()) {
+                    Box(
+                        modifier = Modifier.fillMaxSize().padding(20.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text("فصلی یافت نشد", color = Color.Gray, fontSize = 13.sp)
+                    }
+                } else {
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(bottom = 16.dp)
+                    ) {
+                        items(allChapters) { chapter ->
+                            val isCurrent = chapter.number == chapterNumber
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .background(
+                                        if (isCurrent) Color(0xFFE8EAF6)
+                                        else Color.Transparent
+                                    )
+                                    .clickable {
+                                        scope.launch { drawerState.close() }
+                                        if (!isCurrent) {
+                                            speechHelper.stop()
+                                            onChapterSelected(chapter.number)
+                                        }
+                                    }
+                                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Text(
+                                    text = "فصل ${chapter.number}",
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = if (isCurrent) Color(0xFF3949AB) else Color(0xFF1A237E)
+                                )
+                                Spacer(Modifier.height(4.dp))
+                                Text(
+                                    text = chapter.titlePersian.ifEmpty { chapter.title },
+                                    fontSize = 12.sp,
+                                    color = if (isCurrent) Color(0xFF3949AB) else Color(0xFF666666),
+                                    textAlign = TextAlign.Center,
+                                    maxLines = 2
+                                )
+                            }
+                            Divider(color = Color(0xFFEEEEEE), thickness = 1.dp)
+                        }
                     }
                 }
             }
+        }
+    ) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Column {
+                            Text(
+                                if (isStory) "فصل $chapterNumber: $title" else title,
+                                color = Color.White, fontSize = 15.sp,
+                                fontWeight = FontWeight.Bold, maxLines = 1
+                            )
+                            Text(
+                                titlePersian,
+                                color = Color.White.copy(alpha = 0.8f),
+                                fontSize = 11.sp, maxLines = 1
+                            )
+                        }
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = {
+                            speechHelper.stop()
+                            onBack()
+                        }) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
+                        }
+                    },
+                    actions = {
+                        // ─── دکمه ترجمه ───
+                        IconButton(
+                            onClick = {
+                                showTranslation = !showTranslation
+                                ProgressManager.setShowTranslation(context, showTranslation)
+                            }
+                        ) {
+                            Icon(
+                                imageVector = if (showTranslation) Icons.Filled.Translate
+                                else Icons.Filled.GTranslate,
+                                contentDescription = "Toggle Translation",
+                                tint = if (showTranslation) Color(0xFFFFD54F)
+                                else Color.White.copy(alpha = 0.6f)
+                            )
+                        }
+                        // ═══════════════════════════════════
+                        //  🆕 دکمه منوی فصل‌ها (همبرگری)
+                        // ═══════════════════════════════════
+                        IconButton(onClick = {
+                            scope.launch { drawerState.open() }
+                        }) {
+                            Icon(
+                                imageVector = Icons.Filled.Menu,
+                                contentDescription = "منوی فصل‌ها",
+                                tint = Color.White
+                            )
+                        }
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(containerColor = PrimaryColor)
+                )
+            }
+        ) { padding ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color(0xFFF8F9FC))
+                    .padding(padding)
+            ) {
 
-            // ═══════════════════════════════════════
-            //  📚 درس — با تب
-            // ═══════════════════════════════════════
-            else if (lesson != null) {
+                HeaderCard(
+                    book = book,
+                    bookTitle = bookTitle,
+                    chapterNumber = chapterNumber,
+                    title = title,
+                    titlePersian = titlePersian,
+                    gradientStart = bookCoverGradientStart,
+                    gradientEnd = bookCoverGradientEnd,
+                    isStory = isStory,
+                    vocabCount = lesson?.vocabulary?.size ?: 0,
+                    dialogueCount = lesson?.conversation?.size ?: 0,
+                    storyParagraphCount = storyChapter?.paragraphs?.size ?: 0
+                )
 
-                if (tabs.isNotEmpty()) {
-                    TabRow(
-                        selectedTabIndex = selectedTab.coerceIn(0, tabs.size - 1),
-                        containerColor = Color.White,
-                        contentColor = PrimaryColor
+                // ═══════════════════════════════════════
+                //  🎬 داستان
+                // ═══════════════════════════════════════
+                if (isStory && storyChapter != null) {
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(14.dp)
                     ) {
-                        tabs.forEachIndexed { index, tabTitle ->
-                            Tab(
-                                selected = selectedTab == index,
-                                onClick = {
-                                    speechHelper.stop()
-                                    selectedTab = index
-                                },
-                                text = {
-                                    Text(
-                                        tabTitle,
-                                        fontSize = 13.sp,
-                                        fontWeight = if (selectedTab == index) FontWeight.Bold
-                                        else FontWeight.Normal
-                                    )
-                                }
+                        item {
+                            StoryAudioCard(
+                                chapter = storyChapter,
+                                gradientStart = bookCoverGradientStart,
+                                gradientEnd = bookCoverGradientEnd,
+                                speechHelper = speechHelper
+                            )
+                        }
+                        item {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .size(4.dp, 20.dp)
+                                        .clip(RoundedCornerShape(2.dp))
+                                        .background(Color(bookCoverGradientStart))
+                                )
+                                Spacer(Modifier.width(10.dp))
+                                Text(
+                                    "📖 متن داستان (${storyChapter.paragraphs.size} خط)",
+                                    fontSize = 15.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = PrimaryColor
+                                )
+                            }
+                        }
+                        items(storyChapter.paragraphs) { paragraph ->
+                            StoryParagraphCard(
+                                paragraph = paragraph,
+                                showTranslation = showTranslation,
+                                accentColor = Color(bookCoverGradientStart),
+                                speechHelper = speechHelper
                             )
                         }
                     }
                 }
 
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    when (tabs.getOrNull(selectedTab)) {
+                // ═══════════════════════════════════════
+                //  📚 درس — با تب
+                // ═══════════════════════════════════════
+                else if (lesson != null) {
 
-                        "اهداف" -> {
-                            item {
-                                LessonSectionCard(
-                                    icon = Icons.Filled.Flag,
-                                    iconColor = Color(0xFFE91E63),
-                                    title = "اهداف درس"
-                                ) {
-                                    lesson.objectives.forEach { objective ->
-                                        Row(
-                                            modifier = Modifier.padding(vertical = 3.dp),
-                                            verticalAlignment = Alignment.CenterVertically
-                                        ) {
-                                            Box(
-                                                modifier = Modifier
-                                                    .size(6.dp)
-                                                    .clip(RoundedCornerShape(3.dp))
-                                                    .background(Color(0xFFE91E63))
-                                            )
-                                            Spacer(Modifier.width(8.dp))
-                                            Text(objective, fontSize = 13.sp, color = Color(0xFF1A237E))
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        "واژگان" -> {
-                            item {
-                                PlayAllCard(
-                                    title = "پخش کل واژگان",
-                                    subtitle = "${lesson.vocabulary.size} کلمه",
-                                    gradientStart = bookCoverGradientStart,
-                                    gradientEnd = bookCoverGradientEnd,
-                                    onPlayAll = {
-                                        val fullText = lesson.vocabulary.joinToString(". ") { it.english }
-                                        speechHelper.speak(fullText)
+                    if (tabs.isNotEmpty()) {
+                        TabRow(
+                            selectedTabIndex = selectedTab.coerceIn(0, tabs.size - 1),
+                            containerColor = Color.White,
+                            contentColor = PrimaryColor
+                        ) {
+                            tabs.forEachIndexed { index, tabTitle ->
+                                Tab(
+                                    selected = selectedTab == index,
+                                    onClick = {
+                                        speechHelper.stop()
+                                        selectedTab = index
+                                    },
+                                    text = {
+                                        Text(
+                                            tabTitle,
+                                            fontSize = 13.sp,
+                                            fontWeight = if (selectedTab == index) FontWeight.Bold
+                                            else FontWeight.Normal
+                                        )
                                     }
                                 )
-                            }
-                            items(lesson.vocabulary) { word ->
-                                VocabItem(
-                                    word = word,
-                                    showTranslation = showTranslation,
-                                    speechHelper = speechHelper
-                                )
-                            }
-                        }
-
-                        "مکالمه" -> {
-                            item {
-                                PlayAllCard(
-                                    title = "پخش کل مکالمه",
-                                    subtitle = "${lesson.conversation.size} دیالوگ",
-                                    gradientStart = bookCoverGradientStart,
-                                    gradientEnd = bookCoverGradientEnd,
-                                    onPlayAll = {
-                                        val fullText = lesson.conversation.joinToString(". ") { it.english }
-                                        speechHelper.speak(fullText)
-                                    }
-                                )
-                            }
-                            items(lesson.conversation) { line ->
-                                DialogueItem(
-                                    line = line,
-                                    showTranslation = showTranslation,
-                                    speechHelper = speechHelper
-                                )
-                            }
-                        }
-
-                        "اصطلاحات" -> {
-                            item {
-                                LessonSectionCard(
-                                    icon = Icons.Filled.Lightbulb,
-                                    iconColor = Color(0xFFFF9800),
-                                    title = "اصطلاحات (${lesson.idioms.size})"
-                                ) {
-                                    lesson.idioms.forEach { idiom ->
-                                        Column(modifier = Modifier.padding(vertical = 6.dp)) {
-                                            Text(
-                                                idiom.english,
-                                                fontSize = 14.sp,
-                                                fontWeight = FontWeight.Bold,
-                                                color = Color(0xFF1A237E)
-                                            )
-                                            if (showTranslation) {
-                                                Text(idiom.persian, fontSize = 12.sp, color = Color.Gray)
-                                            }
-                                            Spacer(Modifier.height(3.dp))
-                                            Text(
-                                                "مثال: ${idiom.example}",
-                                                fontSize = 11.sp,
-                                                color = Color(0xFF3F51B5)
-                                            )
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        else -> {
-                            item {
-                                Box(
-                                    modifier = Modifier.fillMaxWidth().padding(40.dp),
-                                    contentAlignment = Alignment.Center
-                                ) {
-                                    Text("محتوایی یافت نشد", color = Color.Gray)
-                                }
                             }
                         }
                     }
 
-                    item { Spacer(Modifier.height(16.dp)) }
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        when (tabs.getOrNull(selectedTab)) {
+
+                            "اهداف" -> {
+                                item {
+                                    LessonSectionCard(
+                                        icon = Icons.Filled.Flag,
+                                        iconColor = Color(0xFFE91E63),
+                                        title = "اهداف درس"
+                                    ) {
+                                        lesson.objectives.forEach { objective ->
+                                            Row(
+                                                modifier = Modifier.padding(vertical = 3.dp),
+                                                verticalAlignment = Alignment.CenterVertically
+                                            ) {
+                                                Box(
+                                                    modifier = Modifier
+                                                        .size(6.dp)
+                                                        .clip(RoundedCornerShape(3.dp))
+                                                        .background(Color(0xFFE91E63))
+                                                )
+                                                Spacer(Modifier.width(8.dp))
+                                                Text(objective, fontSize = 13.sp, color = Color(0xFF1A237E))
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            "واژگان" -> {
+                                item {
+                                    PlayAllCard(
+                                        title = "پخش کل واژگان",
+                                        subtitle = "${lesson.vocabulary.size} کلمه",
+                                        gradientStart = bookCoverGradientStart,
+                                        gradientEnd = bookCoverGradientEnd,
+                                        onPlayAll = {
+                                            val fullText = lesson.vocabulary.joinToString(". ") { it.english }
+                                            speechHelper.speak(fullText)
+                                        }
+                                    )
+                                }
+                                items(lesson.vocabulary) { word ->
+                                    VocabItem(
+                                        word = word,
+                                        showTranslation = showTranslation,
+                                        speechHelper = speechHelper
+                                    )
+                                }
+                            }
+
+                            "مکالمه" -> {
+                                item {
+                                    PlayAllCard(
+                                        title = "پخش کل مکالمه",
+                                        subtitle = "${lesson.conversation.size} دیالوگ",
+                                        gradientStart = bookCoverGradientStart,
+                                        gradientEnd = bookCoverGradientEnd,
+                                        onPlayAll = {
+                                            val fullText = lesson.conversation.joinToString(". ") { it.english }
+                                            speechHelper.speak(fullText)
+                                        }
+                                    )
+                                }
+                                items(lesson.conversation) { line ->
+                                    DialogueItem(
+                                        line = line,
+                                        showTranslation = showTranslation,
+                                        speechHelper = speechHelper
+                                    )
+                                }
+                            }
+
+                            "اصطلاحات" -> {
+                                item {
+                                    LessonSectionCard(
+                                        icon = Icons.Filled.Lightbulb,
+                                        iconColor = Color(0xFFFF9800),
+                                        title = "اصطلاحات (${lesson.idioms.size})"
+                                    ) {
+                                        lesson.idioms.forEach { idiom ->
+                                            Column(modifier = Modifier.padding(vertical = 6.dp)) {
+                                                Text(
+                                                    idiom.english,
+                                                    fontSize = 14.sp,
+                                                    fontWeight = FontWeight.Bold,
+                                                    color = Color(0xFF1A237E)
+                                                )
+                                                if (showTranslation) {
+                                                    Text(idiom.persian, fontSize = 12.sp, color = Color.Gray)
+                                                }
+                                                Spacer(Modifier.height(3.dp))
+                                                Text(
+                                                    "مثال: ${idiom.example}",
+                                                    fontSize = 11.sp,
+                                                    color = Color(0xFF3F51B5)
+                                                )
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            else -> {
+                                item {
+                                    Box(
+                                        modifier = Modifier.fillMaxWidth().padding(40.dp),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Text("محتوایی یافت نشد", color = Color.Gray)
+                                    }
+                                }
+                            }
+                        }
+
+                        item { Spacer(Modifier.height(16.dp)) }
+                    }
                 }
             }
         }
@@ -353,7 +496,7 @@ fun LessonDetailScreen(
 }
 
 // ═══════════════════════════════════════════════════════
-//  کارت «پخش کل»
+//  بقیه کامپوزبل‌ها (بدون تغییر)
 // ═══════════════════════════════════════════════════════
 @Composable
 fun PlayAllCard(
@@ -392,9 +535,6 @@ fun PlayAllCard(
     }
 }
 
-// ═══════════════════════════════════════════════════════
-//  کارت هدر جدید
-// ═══════════════════════════════════════════════════════
 @Composable
 fun HeaderCard(
     book: Book?,
@@ -426,7 +566,6 @@ fun HeaderCard(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // ─── عکس کتاب بالا-راست ───
             Box(
                 modifier = Modifier
                     .align(Alignment.End)
@@ -452,7 +591,6 @@ fun HeaderCard(
 
             Spacer(Modifier.height(8.dp))
 
-            // ─── نام کتاب ───
             if (bookTitle.isNotEmpty()) {
                 Text(
                     bookTitle,
@@ -464,7 +602,6 @@ fun HeaderCard(
                 Spacer(Modifier.height(3.dp))
             }
 
-            // ─── نویسنده (اصلاح‌شده) ───
             val author = book?.author
             if (!author.isNullOrEmpty()) {
                 Text(
@@ -476,7 +613,6 @@ fun HeaderCard(
                 Spacer(Modifier.height(3.dp))
             }
 
-            // ─── لهجه ───
             Text(
                 "🇺🇸 لهجه آمریکایی",
                 fontSize = 11.sp,
@@ -486,7 +622,6 @@ fun HeaderCard(
 
             Spacer(Modifier.height(24.dp))
 
-            // ─── Chapter N ───
             Text(
                 "Chapter $chapterNumber",
                 fontSize = 30.sp,
@@ -496,7 +631,6 @@ fun HeaderCard(
             )
             Spacer(Modifier.height(4.dp))
 
-            // ─── فصل N ───
             Text(
                 "فصل $chapterNumber",
                 fontSize = 22.sp,
@@ -507,7 +641,6 @@ fun HeaderCard(
 
             Spacer(Modifier.height(20.dp))
 
-            // ─── عنوان فصل انگلیسی ───
             Text(
                 title,
                 fontSize = 26.sp,
@@ -517,7 +650,6 @@ fun HeaderCard(
                 lineHeight = 34.sp
             )
 
-            // ─── عنوان فصل فارسی ───
             if (titlePersian.isNotEmpty()) {
                 Spacer(Modifier.height(6.dp))
                 Text(
@@ -528,7 +660,6 @@ fun HeaderCard(
                 )
             }
 
-            // ─── اطلاعات ───
             Spacer(Modifier.height(12.dp))
             Text(
                 if (isStory) "$storyParagraphCount خط"
@@ -541,9 +672,6 @@ fun HeaderCard(
     }
 }
 
-// ═══════════════════════════════════════════════════════
-//  Story Audio Card
-// ═══════════════════════════════════════════════════════
 @Composable
 fun StoryAudioCard(
     chapter: StoryChapter,
@@ -583,9 +711,6 @@ fun StoryAudioCard(
     }
 }
 
-// ═══════════════════════════════════════════════════════
-//  Story Paragraph Card
-// ═══════════════════════════════════════════════════════
 @Composable
 fun StoryParagraphCard(
     paragraph: StoryParagraph,
@@ -621,9 +746,6 @@ fun StoryParagraphCard(
     }
 }
 
-// ═══════════════════════════════════════════════════════
-//  Lesson Section Card
-// ═══════════════════════════════════════════════════════
 @Composable
 fun LessonSectionCard(
     icon: ImageVector,
@@ -657,9 +779,6 @@ fun LessonSectionCard(
     }
 }
 
-// ═══════════════════════════════════════════════════════
-//  VocabItem
-// ═══════════════════════════════════════════════════════
 @Composable
 fun VocabItem(
     word: VocabWord,
@@ -711,9 +830,6 @@ fun VocabItem(
     }
 }
 
-// ═══════════════════════════════════════════════════════
-//  DialogueItem
-// ═══════════════════════════════════════════════════════
 @Composable
 fun DialogueItem(
     line: DialogueLine,
