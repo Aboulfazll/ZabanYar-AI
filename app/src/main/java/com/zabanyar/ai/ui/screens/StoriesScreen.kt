@@ -273,4 +273,4 @@ fun StoryCard(
             Text("${story.totalChapters} فصل", fontSize = 11.sp, color = Color.Gray)
         }
     }
-}
+}ر
