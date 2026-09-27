@@ -5,7 +5,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -66,9 +67,6 @@ fun LessonDetailScreen(
             ?: StoryRepository.getStoryById(bookId)
     }
 
-    // ═══════════════════════════════════════════════════════
-    //  State های کشوی کناری
-    // ═══════════════════════════════════════════════════════
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -79,15 +77,37 @@ fun LessonDetailScreen(
     val title = storyChapter?.title ?: lesson?.title ?: ""
     val titlePersian = storyChapter?.titlePersian ?: lesson?.titlePersian ?: ""
 
-    // ═══════════════════════════════════════════════════════
-    //  گرفتن لیست فصل‌ها از ریپازیتوری (اصلاح‌شده ✅)
-    // ═══════════════════════════════════════════════════════
     val allChapters: List<StoryChapter> = remember(bookId) {
         if (bookId.isEmpty()) emptyList()
         else try {
             StoryRepository.getChapters(bookId)
         } catch (e: Exception) {
             emptyList()
+        }
+    }
+
+    // ═══════════════════════════════════════════════════════
+    //  🆕 State های خواندن خط به خط
+    // ═══════════════════════════════════════════════════════
+    var playingLineIndex by remember { mutableIntStateOf(-1) }
+    val storyListState = rememberLazyListState()
+
+    fun stopLinePlayback() {
+        speechHelper.stop()
+        playingLineIndex = -1
+    }
+
+    fun playLineFrom(index: Int) {
+        if (storyChapter == null || index >= storyChapter.paragraphs.size) {
+            playingLineIndex = -1
+            return
+        }
+        playingLineIndex = index
+        scope.launch {
+            try { storyListState.animateScrollToItem(index + 2) } catch (_: Exception) {}
+        }
+        speechHelper.speak(storyChapter.paragraphs[index].english) {
+            playLineFrom(index + 1)
         }
     }
 
@@ -101,9 +121,6 @@ fun LessonDetailScreen(
     }
     var selectedTab by remember { mutableIntStateOf(0) }
 
-    // ═══════════════════════════════════════════════════════
-    //  کشوی کناری (ModalNavigationDrawer)
-    // ═══════════════════════════════════════════════════════
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
@@ -111,7 +128,6 @@ fun LessonDetailScreen(
                 modifier = Modifier.width(310.dp),
                 drawerContainerColor = Color.White
             ) {
-                // ─── هدر کشو (مشخصات کتاب) ───
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -155,7 +171,6 @@ fun LessonDetailScreen(
                 Divider(color = Color(0xFFE0E0E0))
                 Spacer(Modifier.height(4.dp))
 
-                // ─── لیست فصل‌ها ───
                 if (allChapters.isEmpty()) {
                     Box(
                         modifier = Modifier.fillMaxSize().padding(20.dp),
@@ -168,7 +183,7 @@ fun LessonDetailScreen(
                         modifier = Modifier.fillMaxSize(),
                         contentPadding = PaddingValues(bottom = 16.dp)
                     ) {
-                        items(allChapters) { chapter ->
+                        itemsIndexed(allChapters) { _, chapter ->
                             val isCurrent = chapter.number == chapterNumber
                             Column(
                                 modifier = Modifier
@@ -180,7 +195,7 @@ fun LessonDetailScreen(
                                     .clickable {
                                         scope.launch { drawerState.close() }
                                         if (!isCurrent) {
-                                            speechHelper.stop()
+                                            stopLinePlayback()
                                             onChapterSelected(chapter.number)
                                         }
                                     }
@@ -228,14 +243,13 @@ fun LessonDetailScreen(
                     },
                     navigationIcon = {
                         IconButton(onClick = {
-                            speechHelper.stop()
+                            stopLinePlayback()
                             onBack()
                         }) {
                             Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
                         }
                     },
                     actions = {
-                        // ─── دکمه ترجمه ───
                         IconButton(
                             onClick = {
                                 showTranslation = !showTranslation
@@ -250,7 +264,6 @@ fun LessonDetailScreen(
                                 else Color.White.copy(alpha = 0.6f)
                             )
                         }
-                        // ─── دکمه منوی فصل‌ها ───
                         IconButton(onClick = {
                             scope.launch { drawerState.open() }
                         }) {
@@ -272,9 +285,11 @@ fun LessonDetailScreen(
                     .padding(padding)
             ) {
 
-                HeaderCard(
+                // ═══════════════════════════════════════════════════════
+                //  🆕 هدر فشرده
+                // ═══════════════════════════════════════════════════════
+                CompactHeaderCard(
                     book = book,
-                    bookTitle = bookTitle,
                     chapterNumber = chapterNumber,
                     title = title,
                     titlePersian = titlePersian,
@@ -286,21 +301,24 @@ fun LessonDetailScreen(
                     storyParagraphCount = storyChapter?.paragraphs?.size ?: 0
                 )
 
-                // ═══════════════════════════════════════
-                //  🎬 داستان
-                // ═══════════════════════════════════════
                 if (isStory && storyChapter != null) {
                     LazyColumn(
+                        state = storyListState,
                         modifier = Modifier.fillMaxSize(),
-                        contentPadding = PaddingValues(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(14.dp)
+                        contentPadding = PaddingValues(12.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         item {
                             StoryAudioCard(
                                 chapter = storyChapter,
                                 gradientStart = bookCoverGradientStart,
                                 gradientEnd = bookCoverGradientEnd,
-                                speechHelper = speechHelper
+                                speechHelper = speechHelper,
+                                isPlayingAll = playingLineIndex >= 0,
+                                onPlayAll = {
+                                    if (playingLineIndex >= 0) stopLinePlayback()
+                                    else playLineFrom(0)
+                                }
                             )
                         }
                         item {
@@ -310,33 +328,35 @@ fun LessonDetailScreen(
                             ) {
                                 Box(
                                     modifier = Modifier
-                                        .size(4.dp, 20.dp)
+                                        .size(4.dp, 18.dp)
                                         .clip(RoundedCornerShape(2.dp))
                                         .background(Color(bookCoverGradientStart))
                                 )
-                                Spacer(Modifier.width(10.dp))
+                                Spacer(Modifier.width(8.dp))
                                 Text(
                                     "📖 متن داستان (${storyChapter.paragraphs.size} خط)",
-                                    fontSize = 15.sp,
+                                    fontSize = 14.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = PrimaryColor
                                 )
                             }
                         }
-                        items(storyChapter.paragraphs) { paragraph ->
+                        itemsIndexed(storyChapter.paragraphs) { index, paragraph ->
                             StoryParagraphCard(
                                 paragraph = paragraph,
                                 showTranslation = showTranslation,
                                 accentColor = Color(bookCoverGradientStart),
-                                speechHelper = speechHelper
+                                speechHelper = speechHelper,
+                                isHighlighted = index == playingLineIndex,
+                                onManualPlay = {
+                                    stopLinePlayback()
+                                    speechHelper.speak(paragraph.english)
+                                }
                             )
                         }
                     }
                 }
 
-                // ═══════════════════════════════════════
-                //  📚 درس — با تب
-                // ═══════════════════════════════════════
                 else if (lesson != null) {
 
                     if (tabs.isNotEmpty()) {
@@ -411,7 +431,7 @@ fun LessonDetailScreen(
                                         }
                                     )
                                 }
-                                items(lesson.vocabulary) { word ->
+                                itemsIndexed(lesson.vocabulary) { _, word ->
                                     VocabItem(
                                         word = word,
                                         showTranslation = showTranslation,
@@ -433,7 +453,7 @@ fun LessonDetailScreen(
                                         }
                                     )
                                 }
-                                items(lesson.conversation) { line ->
+                                itemsIndexed(lesson.conversation) { _, line ->
                                     DialogueItem(
                                         line = line,
                                         showTranslation = showTranslation,
@@ -493,6 +513,109 @@ fun LessonDetailScreen(
 }
 
 // ═══════════════════════════════════════════════════════
+//  🆕 هدر فشرده (کتاب کنار عنوان)
+// ═══════════════════════════════════════════════════════
+@Composable
+fun CompactHeaderCard(
+    book: Book?,
+    chapterNumber: Int,
+    title: String,
+    titlePersian: String,
+    gradientStart: Long,
+    gradientEnd: Long,
+    isStory: Boolean,
+    vocabCount: Int,
+    dialogueCount: Int,
+    storyParagraphCount: Int
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(
+                Brush.verticalGradient(
+                    listOf(
+                        Color(gradientStart).copy(alpha = 0.12f),
+                        Color(0xFFFAF3E6)
+                    )
+                )
+            )
+            .padding(horizontal = 14.dp, vertical = 10.dp)
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // عکس کتاب - کوچک سمت راست
+            Box(
+                modifier = Modifier
+                    .size(55.dp, 72.dp)
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(Brush.linearGradient(listOf(Color(gradientStart), Color(gradientEnd))))
+            ) {
+                if (book != null) {
+                    BookCoverImage(
+                        book = book,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
+                    )
+                } else {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(if (isStory) "📖" else "📕", fontSize = 22.sp)
+                    }
+                }
+            }
+
+            Spacer(Modifier.width(12.dp))
+
+            Column(modifier = Modifier.weight(1f)) {
+                // شماره فصل
+                Text(
+                    "Chapter $chapterNumber • فصل $chapterNumber",
+                    fontSize = 11.sp,
+                    color = Color(0xFF3949AB),
+                    fontWeight = FontWeight.Bold
+                )
+                Spacer(Modifier.height(2.dp))
+
+                // عنوان انگلیسی
+                Text(
+                    title,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF1A237E),
+                    maxLines = 2,
+                    lineHeight = 18.sp
+                )
+
+                // عنوان فارسی
+                if (titlePersian.isNotEmpty()) {
+                    Spacer(Modifier.height(2.dp))
+                    Text(
+                        titlePersian,
+                        fontSize = 12.sp,
+                        color = Color.Gray,
+                        maxLines = 1
+                    )
+                }
+
+                Spacer(Modifier.height(3.dp))
+
+                // اطلاعات
+                Text(
+                    if (isStory) "$storyParagraphCount خط"
+                    else "$vocabCount کلمه • $dialogueCount دیالوگ",
+                    fontSize = 10.sp,
+                    color = Color(0xFF009688)
+                )
+            }
+        }
+    }
+}
+
+// ═══════════════════════════════════════════════════════
 //  کارت «پخش کل»
 // ═══════════════════════════════════════════════════════
 @Composable
@@ -533,154 +656,16 @@ fun PlayAllCard(
 }
 
 // ═══════════════════════════════════════════════════════
-//  کارت هدر
-// ═══════════════════════════════════════════════════════
-@Composable
-fun HeaderCard(
-    book: Book?,
-    bookTitle: String,
-    chapterNumber: Int,
-    title: String,
-    titlePersian: String,
-    gradientStart: Long,
-    gradientEnd: Long,
-    isStory: Boolean,
-    vocabCount: Int,
-    dialogueCount: Int,
-    storyParagraphCount: Int
-) {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(
-                Brush.verticalGradient(
-                    listOf(
-                        Color(gradientStart).copy(alpha = 0.15f),
-                        Color(0xFFFAF3E6)
-                    )
-                )
-            )
-            .padding(horizontal = 20.dp, vertical = 20.dp)
-    ) {
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Box(
-                modifier = Modifier
-                    .align(Alignment.End)
-                    .size(80.dp, 110.dp)
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(Brush.linearGradient(listOf(Color(gradientStart), Color(gradientEnd))))
-            ) {
-                if (book != null) {
-                    BookCoverImage(
-                        book = book,
-                        modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Crop
-                    )
-                } else {
-                    Box(
-                        modifier = Modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(if (isStory) "📖" else "📕", fontSize = 32.sp)
-                    }
-                }
-            }
-
-            Spacer(Modifier.height(8.dp))
-
-            if (bookTitle.isNotEmpty()) {
-                Text(
-                    bookTitle,
-                    fontSize = 17.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF1A237E),
-                    textAlign = TextAlign.Center
-                )
-                Spacer(Modifier.height(3.dp))
-            }
-
-            val author = book?.author
-            if (!author.isNullOrEmpty()) {
-                Text(
-                    author,
-                    fontSize = 12.sp,
-                    color = Color.Gray,
-                    textAlign = TextAlign.Center
-                )
-                Spacer(Modifier.height(3.dp))
-            }
-
-            Text(
-                "🇺🇸 لهجه آمریکایی",
-                fontSize = 11.sp,
-                color = Color.Gray,
-                textAlign = TextAlign.Center
-            )
-
-            Spacer(Modifier.height(24.dp))
-
-            Text(
-                "Chapter $chapterNumber",
-                fontSize = 30.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF3949AB),
-                textAlign = TextAlign.Center
-            )
-            Spacer(Modifier.height(4.dp))
-
-            Text(
-                "فصل $chapterNumber",
-                fontSize = 22.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF3949AB),
-                textAlign = TextAlign.Center
-            )
-
-            Spacer(Modifier.height(20.dp))
-
-            Text(
-                title,
-                fontSize = 26.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF1A237E),
-                textAlign = TextAlign.Center,
-                lineHeight = 34.sp
-            )
-
-            if (titlePersian.isNotEmpty()) {
-                Spacer(Modifier.height(6.dp))
-                Text(
-                    titlePersian,
-                    fontSize = 18.sp,
-                    color = Color.Gray,
-                    textAlign = TextAlign.Center
-                )
-            }
-
-            Spacer(Modifier.height(12.dp))
-            Text(
-                if (isStory) "$storyParagraphCount خط"
-                else "$vocabCount کلمه • $dialogueCount دیالوگ",
-                fontSize = 11.sp,
-                color = Color(0xFF009688),
-                textAlign = TextAlign.Center
-            )
-        }
-    }
-}
-
-// ═══════════════════════════════════════════════════════
-//  Story Audio Card
+//  🆕 Story Audio Card با دکمه Play/Stop
 // ═══════════════════════════════════════════════════════
 @Composable
 fun StoryAudioCard(
     chapter: StoryChapter,
     gradientStart: Long,
     gradientEnd: Long,
-    speechHelper: SpeechHelper
+    speechHelper: SpeechHelper,
+    isPlayingAll: Boolean,
+    onPlayAll: () -> Unit
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -697,56 +682,92 @@ fun StoryAudioCard(
                     .size(48.dp)
                     .clip(CircleShape)
                     .background(Brush.linearGradient(listOf(Color(gradientStart), Color(gradientEnd))))
-                    .clickable {
-                        val fullText = chapter.paragraphs.joinToString(" ") { it.english }
-                        speechHelper.speak(fullText)
-                    },
+                    .clickable { onPlayAll() },
                 contentAlignment = Alignment.Center
             ) {
-                Icon(Icons.Filled.PlayArrow, "پخش کل داستان", tint = Color.White, modifier = Modifier.size(28.dp))
+                Icon(
+                    if (isPlayingAll) Icons.Filled.Stop else Icons.Filled.PlayArrow,
+                    if (isPlayingAll) "توقف" else "پخش کل داستان",
+                    tint = Color.White,
+                    modifier = Modifier.size(28.dp)
+                )
             }
             Spacer(Modifier.width(14.dp))
             Column(modifier = Modifier.weight(1f)) {
-                Text("پخش کل فصل", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
-                Text("${chapter.paragraphs.size} خط • گوش دادن", fontSize = 11.sp, color = Color.Gray)
+                Text(
+                    if (isPlayingAll) "در حال خواندن..." else "پخش کل فصل",
+                    fontSize = 14.sp, fontWeight = FontWeight.Bold,
+                    color = if (isPlayingAll) Color(0xFFBF360C) else PrimaryColor
+                )
+                Text(
+                    "${chapter.paragraphs.size} خط • خط به خط",
+                    fontSize = 11.sp, color = Color.Gray
+                )
             }
         }
     }
 }
 
 // ═══════════════════════════════════════════════════════
-//  Story Paragraph Card
+//  🆕 Story Paragraph Card با هایلایت
 // ═══════════════════════════════════════════════════════
 @Composable
 fun StoryParagraphCard(
     paragraph: StoryParagraph,
     showTranslation: Boolean,
     accentColor: Color,
-    speechHelper: SpeechHelper
+    speechHelper: SpeechHelper,
+    isHighlighted: Boolean = false,
+    onManualPlay: () -> Unit = {}
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(1.dp)
+        colors = CardDefaults.cardColors(
+            containerColor = if (isHighlighted) Color(0xFFFFE0B2) else Color.White
+        ),
+        elevation = CardDefaults.cardElevation(if (isHighlighted) 5.dp else 1.dp)
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(14.dp),
+            modifier = Modifier.fillMaxWidth().padding(12.dp),
             verticalAlignment = Alignment.Top
         ) {
             Column(modifier = Modifier.weight(1f)) {
-                Text(paragraph.english, fontSize = 15.sp, fontWeight = FontWeight.Medium, color = Color(0xFF1A237E), lineHeight = 22.sp)
+                Text(
+                    paragraph.english,
+                    fontSize = 15.sp,
+                    fontWeight = if (isHighlighted) FontWeight.Bold else FontWeight.Medium,
+                    color = if (isHighlighted) Color(0xFFBF360C) else Color(0xFF1A237E),
+                    lineHeight = 22.sp
+                )
                 if (showTranslation && paragraph.persian.isNotEmpty()) {
                     Spacer(Modifier.height(6.dp))
-                    Text(paragraph.persian, fontSize = 13.sp, color = Color.Gray, fontStyle = FontStyle.Italic, lineHeight = 20.sp)
+                    Text(
+                        paragraph.persian,
+                        fontSize = 13.sp,
+                        color = if (isHighlighted) Color(0xFFBF360C).copy(alpha = 0.7f) else Color.Gray,
+                        fontStyle = FontStyle.Italic,
+                        lineHeight = 20.sp
+                    )
                 }
             }
             Spacer(Modifier.width(8.dp))
             IconButton(
-                onClick = { speechHelper.speak(paragraph.english) },
-                modifier = Modifier.size(36.dp).clip(CircleShape).background(accentColor.copy(alpha = 0.12f))
+                onClick = onManualPlay,
+                modifier = Modifier
+                    .size(34.dp)
+                    .clip(CircleShape)
+                    .background(
+                        if (isHighlighted) Color(0xFFBF360C).copy(alpha = 0.15f)
+                        else accentColor.copy(alpha = 0.12f)
+                    )
             ) {
-                Icon(Icons.Filled.VolumeUp, "پخش", tint = accentColor, modifier = Modifier.size(18.dp))
+                Icon(
+                    Icons.Filled.VolumeUp,
+                    "پخش",
+                    tint = if (isHighlighted) Color(0xFFBF360C) else accentColor,
+                    modifier = Modifier.size(17.dp)
+                )
             }
         }
     }
