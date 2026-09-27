@@ -91,7 +91,8 @@ fun MainHome(
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = { }) {
+                    // ✅ تغییر: ☰ حالا Podcast باز می‌کند
+                    IconButton(onClick = onNavigateToPodcast) {
                         Icon(Icons.Filled.Menu, "منو", tint = Color(0xFF1A237E))
                     }
                 },
