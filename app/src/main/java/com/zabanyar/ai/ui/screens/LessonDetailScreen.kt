@@ -19,11 +19,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zabanyar.ai.data.Book
+import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.DialogueLine
 import com.zabanyar.ai.data.LessonContent
 import com.zabanyar.ai.data.ProgressManager
@@ -31,6 +35,7 @@ import com.zabanyar.ai.data.SpeechHelper
 import com.zabanyar.ai.data.VocabWord
 import com.zabanyar.ai.data.books.story.StoryChapter
 import com.zabanyar.ai.data.books.story.StoryParagraph
+import com.zabanyar.ai.data.books.story.StoryRepository
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,6 +45,7 @@ fun LessonDetailScreen(
     bookTitle: String = "",
     bookCoverGradientStart: Long = 0xFF1A237E,
     bookCoverGradientEnd: Long = 0xFF3949AB,
+    bookId: String = "",
     onBack: () -> Unit = {}
 ) {
     val context = LocalContext.current
@@ -52,6 +58,12 @@ fun LessonDetailScreen(
         }
     }
 
+    val book = remember(bookId) {
+        if (bookId.isEmpty()) null
+        else BookRepository.getBookById(bookId)
+            ?: StoryRepository.getStoryById(bookId)
+    }
+
     var showTranslation by remember { mutableStateOf(ProgressManager.isShowTranslation(context)) }
     val isStory = storyChapter != null
 
@@ -59,7 +71,6 @@ fun LessonDetailScreen(
     val title = storyChapter?.title ?: lesson?.title ?: ""
     val titlePersian = storyChapter?.titlePersian ?: lesson?.titlePersian ?: ""
 
-    // ─── تب‌ها فقط برای درس (نه داستان) ───
     val tabs = buildList {
         if (lesson != null) {
             if (lesson.objectives.isNotEmpty()) add("اهداف")
@@ -122,8 +133,9 @@ fun LessonDetailScreen(
                 .padding(padding)
         ) {
 
-            // ─── کارت هدر ───
+            // ─── کارت هدر جدید ───
             HeaderCard(
+                book = book,
                 bookTitle = bookTitle,
                 chapterNumber = chapterNumber,
                 title = title,
@@ -249,7 +261,6 @@ fun LessonDetailScreen(
                         }
 
                         "واژگان" -> {
-                            // دکمه پخش کل واژگان
                             item {
                                 PlayAllCard(
                                     title = "پخش کل واژگان",
@@ -272,7 +283,6 @@ fun LessonDetailScreen(
                         }
 
                         "مکالمه" -> {
-                            // دکمه پخش کل مکالمه
                             item {
                                 PlayAllCard(
                                     title = "پخش کل مکالمه",
@@ -384,10 +394,11 @@ fun PlayAllCard(
 }
 
 // ═══════════════════════════════════════════════════════
-//  کارت هدر (بدون تغییر)
+//  🆕 کارت هدر جدید (مثل اسکرین‌شات)
 // ═══════════════════════════════════════════════════════
 @Composable
 fun HeaderCard(
+    book: Book?,
     bookTitle: String,
     chapterNumber: Int,
     title: String,
@@ -399,49 +410,133 @@ fun HeaderCard(
     dialogueCount: Int,
     storyParagraphCount: Int
 ) {
-    Card(
-        modifier = Modifier.fillMaxWidth().padding(12.dp),
-        shape = RoundedCornerShape(20.dp),
-        elevation = CardDefaults.cardElevation(6.dp)
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(
+                Brush.verticalGradient(
+                    listOf(
+                        Color(gradientStart).copy(alpha = 0.15f),
+                        Color(0xFFFAF3E6)
+                    )
+                )
+            )
+            .padding(horizontal = 20.dp, vertical = 20.dp)
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(14.dp),
-            verticalAlignment = Alignment.CenterVertically
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            // ─── عکس کتاب بالا-راست ───
             Box(
                 modifier = Modifier
-                    .size(90.dp, 120.dp)
-                    .clip(RoundedCornerShape(16.dp))
-                    .background(Brush.linearGradient(listOf(Color(gradientStart), Color(gradientEnd)))),
-                contentAlignment = Alignment.Center
+                    .align(Alignment.End)
+                    .size(80.dp, 110.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(Brush.linearGradient(listOf(Color(gradientStart), Color(gradientEnd))))
             ) {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Icon(
-                        if (isStory) Icons.Filled.AutoStories else Icons.Filled.MenuBook,
-                        null, tint = Color.White, modifier = Modifier.size(36.dp)
+                if (book != null) {
+                    BookCoverImage(
+                        book = book,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
                     )
-                    Spacer(Modifier.height(6.dp))
-                    Text(
-                        if (isStory) "فصل $chapterNumber" else "درس $chapterNumber",
-                        color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Bold
-                    )
+                } else {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(if (isStory) "📖" else "📕", fontSize = 32.sp)
+                    }
                 }
             }
-            Spacer(Modifier.width(14.dp))
-            Column(modifier = Modifier.weight(1f)) {
-                if (bookTitle.isNotEmpty()) {
-                    Text(bookTitle, fontSize = 10.sp, color = Color(0xFF3F51B5), fontWeight = FontWeight.Bold)
-                    Spacer(Modifier.height(2.dp))
-                }
-                Text(title, fontSize = 15.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A237E), maxLines = 2)
-                Text(titlePersian, fontSize = 12.sp, color = Color.Gray, maxLines = 2)
+
+            Spacer(Modifier.height(8.dp))
+
+            // ─── نام کتاب ───
+            if (bookTitle.isNotEmpty()) {
+                Text(
+                    bookTitle,
+                    fontSize = 17.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF1A237E),
+                    textAlign = TextAlign.Center
+                )
+                Spacer(Modifier.height(3.dp))
+            }
+
+            // ─── نویسنده ───
+            if (!book?.author.isNullOrEmpty()) {
+                Text(
+                    book.author,
+                    fontSize = 12.sp,
+                    color = Color.Gray,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(Modifier.height(3.dp))
+            }
+
+            // ─── لهجه ───
+            Text(
+                "🇺🇸 لهجه آمریکایی",
+                fontSize = 11.sp,
+                color = Color.Gray,
+                textAlign = TextAlign.Center
+            )
+
+            Spacer(Modifier.height(24.dp))
+
+            // ─── Chapter N ───
+            Text(
+                "Chapter $chapterNumber",
+                fontSize = 30.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF3949AB),
+                textAlign = TextAlign.Center
+            )
+            Spacer(Modifier.height(4.dp))
+
+            // ─── فصل N ───
+            Text(
+                "فصل $chapterNumber",
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF3949AB),
+                textAlign = TextAlign.Center
+            )
+
+            Spacer(Modifier.height(20.dp))
+
+            // ─── عنوان فصل انگلیسی ───
+            Text(
+                title,
+                fontSize = 26.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color(0xFF1A237E),
+                textAlign = TextAlign.Center,
+                lineHeight = 34.sp
+            )
+
+            // ─── عنوان فصل فارسی ───
+            if (titlePersian.isNotEmpty()) {
                 Spacer(Modifier.height(6.dp))
                 Text(
-                    if (isStory) "$storyParagraphCount خط"
-                    else "$vocabCount کلمه • $dialogueCount دیالوگ",
-                    fontSize = 11.sp, color = Color(0xFF009688)
+                    titlePersian,
+                    fontSize = 18.sp,
+                    color = Color.Gray,
+                    textAlign = TextAlign.Center
                 )
             }
+
+            // ─── اطلاعات ───
+            Spacer(Modifier.height(12.dp))
+            Text(
+                if (isStory) "$storyParagraphCount خط"
+                else "$vocabCount کلمه • $dialogueCount دیالوگ",
+                fontSize = 11.sp,
+                color = Color(0xFF009688),
+                textAlign = TextAlign.Center
+            )
         }
     }
 }
