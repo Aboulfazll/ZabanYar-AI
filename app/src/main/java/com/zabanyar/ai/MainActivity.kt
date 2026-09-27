@@ -22,11 +22,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.Density
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.navigation.compose.rememberNavController
 import com.zabanyar.ai.data.FontSizeManager
 import com.zabanyar.ai.data.NotificationHelper
@@ -100,7 +100,6 @@ class MainActivity : ComponentActivity() {
 
 /**
  * 🅰️ اعمال اندازه فونت در کل اپ
- * هر تغییری در FontSizeManager، خودکار همه‌جا اعمال می‌شود
  */
 @Composable
 private fun FontScaleWrapper(content: @Composable () -> Unit) {
@@ -109,7 +108,6 @@ private fun FontScaleWrapper(content: @Composable () -> Unit) {
 
     var fontScale by remember { mutableFloatStateOf(FontSizeManager.getFontScale(context)) }
 
-    // گوش دادن به ON_RESUME برای خواندن مقدار جدید
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_RESUME) {
