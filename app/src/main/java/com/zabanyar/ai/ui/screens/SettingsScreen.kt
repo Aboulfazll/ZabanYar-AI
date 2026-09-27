@@ -24,6 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zabanyar.ai.data.FontSizeManager
 import com.zabanyar.ai.data.ProgressManager
 import com.zabanyar.ai.data.UserManager
 
@@ -32,7 +33,6 @@ import com.zabanyar.ai.data.UserManager
 // ═══════════════════════════════════════════════════════
 private const val PREFS_SETTINGS = "zabanyar_settings"
 private const val KEY_TTS_SPEED = "tts_speed"
-private const val KEY_FONT_SIZE = "font_size"
 private const val KEY_VOICE_GENDER = "voice_gender"
 private const val KEY_VIBRATION = "vibration"
 private const val KEY_AUTO_SAVE = "auto_save"
@@ -46,11 +46,6 @@ private fun getTtsSpeed(context: Context): Float =
     prefs(context).getFloat(KEY_TTS_SPEED, 1.0f)
 private fun setTtsSpeed(context: Context, v: Float) =
     prefs(context).edit().putFloat(KEY_TTS_SPEED, v).apply()
-
-private fun getFontSize(context: Context): String =
-    prefs(context).getString(KEY_FONT_SIZE, "medium") ?: "medium"
-private fun setFontSize(context: Context, v: String) =
-    prefs(context).edit().putString(KEY_FONT_SIZE, v).apply()
 
 private fun getVoiceGender(context: Context): String =
     prefs(context).getString(KEY_VOICE_GENDER, "female") ?: "female"
@@ -95,12 +90,12 @@ fun SettingsScreen(
     var isNotificationsEnabled by remember { mutableStateOf(ProgressManager.isNotificationsEnabled(context)) }
 
     var ttsSpeed by remember { mutableStateOf(getTtsSpeed(context)) }
-    var fontSize by remember { mutableStateOf(getFontSize(context)) }
     var voiceGender by remember { mutableStateOf(getVoiceGender(context)) }
     var vibration by remember { mutableStateOf(getVibration(context)) }
     var autoSave by remember { mutableStateOf(getAutoSave(context)) }
     var showPronunciation by remember { mutableStateOf(getShowPronunciation(context)) }
     var appLanguage by remember { mutableStateOf(getAppLanguage(context)) }
+    var fontScale by remember { mutableFloatStateOf(FontSizeManager.getFontScale(context)) }
 
     var showResetDialog by remember { mutableStateOf(false) }
     var showLogoutDialog by remember { mutableStateOf(false) }
@@ -312,19 +307,16 @@ fun SettingsScreen(
                     }
                 )
                 ItemDivider()
-                NumberedChoiceItem(
+                // ✅ اسلایدر اندازه فونت
+                NumberedSliderItem(
                     index = ++itemIndex,
                     title = "اندازه فونت",
-                    subtitle = "اندازه متن درس‌ها",
-                    options = listOf(
-                        ChoiceOption("کوچک", "small"),
-                        ChoiceOption("متوسط", "medium"),
-                        ChoiceOption("بزرگ", "large")
-                    ),
-                    selectedValue = fontSize,
-                    onSelected = {
-                        fontSize = it
-                        setFontSize(context, it)
+                    subtitle = "اندازه متن در کل اپ (${(fontScale * 100).toInt()}%)",
+                    value = fontScale,
+                    valueRange = FontSizeManager.MIN_SCALE..FontSizeManager.MAX_SCALE,
+                    onValueChange = {
+                        fontScale = it
+                        FontSizeManager.setFontScale(context, it)
                     }
                 )
                 ItemDivider()
@@ -588,32 +580,14 @@ fun NumberedToggleItem(
                 .background(PrimaryColor.copy(alpha = 0.1f)),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                "$index",
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold,
-                color = PrimaryColor
-            )
+            Text("$index", fontSize = 15.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
         }
-
         Spacer(Modifier.width(12.dp))
-
         Column(modifier = Modifier.weight(1f)) {
-            Text(
-                title,
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF1A237E)
-            )
+            Text(title, fontSize = 15.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A237E))
             Spacer(Modifier.height(2.dp))
-            Text(
-                subtitle,
-                fontSize = 11.sp,
-                color = Color.Gray,
-                lineHeight = 15.sp
-            )
+            Text(subtitle, fontSize = 11.sp, color = Color.Gray, lineHeight = 15.sp)
         }
-
         Switch(
             checked = checked,
             onCheckedChange = onCheckedChange,
@@ -651,39 +625,18 @@ fun NumberedChoiceItem(
                     .background(PrimaryColor.copy(alpha = 0.1f)),
                 contentAlignment = Alignment.Center
             ) {
-                Text(
-                    "$index",
-                    fontSize = 15.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = PrimaryColor
-                )
+                Text("$index", fontSize = 15.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
             }
-
             Spacer(Modifier.width(12.dp))
-
             Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    title,
-                    fontSize = 15.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color(0xFF1A237E)
-                )
+                Text(title, fontSize = 15.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A237E))
                 Spacer(Modifier.height(2.dp))
-                Text(
-                    subtitle,
-                    fontSize = 11.sp,
-                    color = Color.Gray,
-                    lineHeight = 15.sp
-                )
+                Text(subtitle, fontSize = 11.sp, color = Color.Gray, lineHeight = 15.sp)
             }
         }
-
         Spacer(Modifier.height(10.dp))
-
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 46.dp),
+            modifier = Modifier.fillMaxWidth().padding(start = 46.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             options.forEach { opt ->
@@ -712,6 +665,62 @@ fun NumberedChoiceItem(
     }
 }
 
+// ✅ کامپوننت جدید: اسلایدر
+@Composable
+fun NumberedSliderItem(
+    index: Int,
+    title: String,
+    subtitle: String,
+    value: Float,
+    valueRange: ClosedFloatingPointRange<Float>,
+    onValueChange: (Float) -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 14.dp)
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Box(
+                modifier = Modifier
+                    .size(34.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(PrimaryColor.copy(alpha = 0.1f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Text("$index", fontSize = 15.sp, fontWeight = FontWeight.Bold, color = PrimaryColor)
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(title, fontSize = 15.sp, fontWeight = FontWeight.Bold, color = Color(0xFF1A237E))
+                Spacer(Modifier.height(2.dp))
+                Text(subtitle, fontSize = 11.sp, color = Color.Gray)
+            }
+        }
+        Spacer(Modifier.height(8.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(start = 46.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text("A", fontSize = 11.sp, color = Color.Gray, fontWeight = FontWeight.Bold)
+            Spacer(Modifier.width(6.dp))
+            Slider(
+                value = value,
+                onValueChange = onValueChange,
+                valueRange = valueRange,
+                modifier = Modifier.weight(1f),
+                colors = SliderDefaults.colors(
+                    thumbColor = PrimaryColor,
+                    activeTrackColor = PrimaryColor,
+                    inactiveTrackColor = PrimaryColor.copy(alpha = 0.2f)
+                )
+            )
+            Spacer(Modifier.width(6.dp))
+            Text("A", fontSize = 20.sp, color = PrimaryColor, fontWeight = FontWeight.Bold)
+        }
+    }
+}
+
 @Composable
 fun NumberedActionItem(
     index: Int,
@@ -734,37 +743,14 @@ fun NumberedActionItem(
                 .background(titleColor.copy(alpha = 0.1f)),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                "$index",
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold,
-                color = titleColor
-            )
+            Text("$index", fontSize = 15.sp, fontWeight = FontWeight.Bold, color = titleColor)
         }
-
         Spacer(Modifier.width(12.dp))
-
         Column(modifier = Modifier.weight(1f)) {
-            Text(
-                title,
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold,
-                color = titleColor
-            )
+            Text(title, fontSize = 15.sp, fontWeight = FontWeight.Bold, color = titleColor)
             Spacer(Modifier.height(2.dp))
-            Text(
-                subtitle,
-                fontSize = 11.sp,
-                color = Color.Gray,
-                lineHeight = 15.sp
-            )
+            Text(subtitle, fontSize = 11.sp, color = Color.Gray, lineHeight = 15.sp)
         }
-
-        Icon(
-            Icons.Filled.ChevronLeft,
-            null,
-            tint = Color.Gray,
-            modifier = Modifier.size(20.dp)
-        )
+        Icon(Icons.Filled.ChevronLeft, null, tint = Color.Gray, modifier = Modifier.size(20.dp))
     }
 }
