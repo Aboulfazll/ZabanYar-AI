@@ -67,7 +67,6 @@ fun BookDetailScreen(
 ) {
     val context = LocalContext.current
 
-    // ✅ اصلاح: ابتدا از BookRepository، اگر پیدا نشد از StoryRepository
     val book = BookRepository.getBookById(bookId)
         ?: StoryRepository.getStoryById(bookId)
 
@@ -80,7 +79,6 @@ fun BookDetailScreen(
 
     val accentColor = Color(book.gradientStart)
 
-    // State
     var refreshKey by remember { mutableIntStateOf(0) }
     val chapterStates = remember(refreshKey) {
         ProgressManager.getChapterStates(context, bookId, book.totalChapters)
@@ -131,7 +129,7 @@ fun BookDetailScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFFF5F7FA))
+                .background(Color(0xFFF8F9FC))
                 .padding(padding),
             contentPadding = PaddingValues(bottom = 30.dp)
         ) {
@@ -264,24 +262,9 @@ fun BookDetailScreen(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
-                            MiniStatBox(
-                                icon = "📖",
-                                value = "${progress.readChapters}",
-                                label = "خوانده",
-                                color = Color(0xFF1976D2)
-                            )
-                            MiniStatBox(
-                                icon = "📝",
-                                value = "${progress.quizzesPassed}/${progress.totalQuizzes}",
-                                label = "آزمون",
-                                color = Color(0xFF00695C)
-                            )
-                            MiniStatBox(
-                                icon = "🔓",
-                                value = "${progress.unlockedGroups}/${progress.totalGroups}",
-                                label = "گروه باز",
-                                color = Color(0xFFF57C00)
-                            )
+                            MiniStatBox("📖", "${progress.readChapters}", "خوانده", Color(0xFF1976D2))
+                            MiniStatBox("📝", "${progress.quizzesPassed}/${progress.totalQuizzes}", "آزمون", Color(0xFF00695C))
+                            MiniStatBox("🔓", "${progress.unlockedGroups}/${progress.totalGroups}", "گروه باز", Color(0xFFF57C00))
                         }
                     }
                 }
@@ -317,7 +300,7 @@ fun BookDetailScreen(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 20.dp, vertical = 8.dp),
+                        .padding(horizontal = 20.dp, vertical = 12.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Box(
@@ -328,7 +311,7 @@ fun BookDetailScreen(
                     )
                     Spacer(Modifier.width(10.dp))
                     Text(
-                        "محتوای کتاب (${book.totalChapters} درس • ${progress.totalQuizzes} آزمون)",
+                        "محتوای کتاب (${book.totalChapters} درس)",
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
                         color = PrimaryColor
@@ -350,18 +333,28 @@ fun BookDetailScreen(
                         accentColor = accentColor
                     )
 
-                    is BookDetailItem.ChapterItem -> ChapterCard(
-                        number = item.number,
-                        title = item.title,
-                        isRead = item.isRead,
-                        isUnlocked = item.isUnlocked,
-                        accentColor = accentColor,
-                        onClick = {
-                            if (item.isUnlocked) {
-                                onChapterClick(item.number)
+                    is BookDetailItem.ChapterItem -> {
+                        ChapterListRow(
+                            number = item.number,
+                            title = item.title,
+                            isRead = item.isRead,
+                            isUnlocked = item.isUnlocked,
+                            accentColor = accentColor,
+                            onClick = {
+                                if (item.isUnlocked) {
+                                    onChapterClick(item.number)
+                                }
                             }
+                        )
+                        // خط جداکننده بین فصل‌ها
+                        if (index < listItems.size - 1) {
+                            Divider(
+                                modifier = Modifier.padding(start = 20.dp, end = 20.dp),
+                                color = Color(0xFFEEEEEE),
+                                thickness = 1.dp
+                            )
                         }
-                    )
+                    }
 
                     is BookDetailItem.QuizCard -> QuizCardView(
                         quizIndex = item.quizIndex,
@@ -423,6 +416,78 @@ fun BookDetailScreen(
 }
 
 // ============================================================
+//  ✅ فصل شماره‌دار — استایل جدید (مثل اسکرین‌شات)
+// ============================================================
+@Composable
+private fun ChapterListRow(
+    number: Int,
+    title: String,
+    isRead: Boolean,
+    isUnlocked: Boolean,
+    accentColor: Color,
+    onClick: () -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(enabled = isUnlocked) { onClick() }
+            .background(Color.White)
+            .padding(horizontal = 20.dp, vertical = 18.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        // عنوان سمت چپ
+        Column(
+            modifier = Modifier.weight(1f)
+        ) {
+            Text(
+                title,
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Medium,
+                color = if (isUnlocked) Color(0xFF1A237E) else Color.Gray,
+                maxLines = 2,
+                lineHeight = 20.sp
+            )
+            if (isRead) {
+                Spacer(Modifier.height(4.dp))
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(6.dp))
+                        .background(Color(0xFF4CAF50).copy(alpha = 0.15f))
+                        .padding(horizontal = 6.dp, vertical = 2.dp)
+                ) {
+                    Text(
+                        "خوانده‌شده ✓",
+                        fontSize = 9.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF2E7D32)
+                    )
+                }
+            }
+        }
+
+        Spacer(Modifier.width(16.dp))
+
+        // ✅ شماره سمت راست (مثل اسکرین‌شات)
+        if (isUnlocked) {
+            Text(
+                "$number",
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold,
+                color = accentColor,
+                textAlign = TextAlign.End
+            )
+        } else {
+            Icon(
+                Icons.Filled.Lock,
+                null,
+                tint = Color.Gray,
+                modifier = Modifier.size(20.dp)
+            )
+        }
+    }
+}
+
+// ============================================================
 // Group Header View
 // ============================================================
 @Composable
@@ -435,30 +500,20 @@ private fun GroupHeaderView(
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .background(Color(0xFFF0F3FA))
             .padding(horizontal = 20.dp, vertical = 10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Box(
-            modifier = Modifier
-                .size(26.dp)
-                .clip(CircleShape)
-                .background(
-                    if (isUnlocked) accentColor.copy(alpha = 0.15f)
-                    else Color.Gray.copy(alpha = 0.15f)
-                ),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                if (isUnlocked) "📂" else "🔒",
-                fontSize = 13.sp
-            )
-        }
+        Text(
+            if (isUnlocked) "📂" else "🔒",
+            fontSize = 13.sp
+        )
         Spacer(Modifier.width(8.dp))
         Text(
             title,
-            fontSize = 13.sp,
+            fontSize = 12.sp,
             fontWeight = FontWeight.Bold,
-            color = if (isUnlocked) PrimaryColor else Color.Gray
+            color = if (isUnlocked) accentColor else Color.Gray
         )
         Spacer(Modifier.weight(1f))
         if (!isUnlocked) {
@@ -473,122 +528,6 @@ private fun GroupHeaderView(
                     fontSize = 10.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Gray
-                )
-            }
-        }
-    }
-}
-
-// ============================================================
-// Chapter Card
-// ============================================================
-@Composable
-private fun ChapterCard(
-    number: Int,
-    title: String,
-    isRead: Boolean,
-    isUnlocked: Boolean,
-    accentColor: Color,
-    onClick: () -> Unit
-) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 5.dp)
-            .clickable(enabled = isUnlocked) { onClick() },
-        shape = RoundedCornerShape(14.dp),
-        elevation = CardDefaults.cardElevation(
-            if (isUnlocked) 3.dp else 1.dp
-        ),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isUnlocked) Color.White else Color(0xFFF0F0F0)
-        )
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(14.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(46.dp)
-                    .clip(CircleShape)
-                    .background(
-                        when {
-                            !isUnlocked -> Color.Gray.copy(alpha = 0.2f)
-                            isRead -> Color(0xFF4CAF50).copy(alpha = 0.15f)
-                            else -> accentColor.copy(alpha = 0.15f)
-                        }
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                if (isRead) {
-                    Icon(
-                        Icons.Filled.Check,
-                        null,
-                        tint = Color(0xFF4CAF50),
-                        modifier = Modifier.size(22.dp)
-                    )
-                } else {
-                    Text(
-                        "$number",
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = if (isUnlocked) accentColor else Color.Gray
-                    )
-                }
-            }
-
-            Spacer(Modifier.width(12.dp))
-
-            Column(modifier = Modifier.weight(1f)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        "درس $number",
-                        fontSize = 11.sp,
-                        color = if (isUnlocked) Color.Gray else Color.Gray.copy(alpha = 0.6f),
-                        fontWeight = FontWeight.SemiBold
-                    )
-                    if (isRead) {
-                        Spacer(Modifier.width(6.dp))
-                        Box(
-                            modifier = Modifier
-                                .clip(RoundedCornerShape(6.dp))
-                                .background(Color(0xFF4CAF50).copy(alpha = 0.15f))
-                                .padding(horizontal = 6.dp, vertical = 2.dp)
-                        ) {
-                            Text(
-                                "خوانده‌شده ✓",
-                                fontSize = 9.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color(0xFF2E7D32)
-                            )
-                        }
-                    }
-                }
-                Spacer(Modifier.height(2.dp))
-                Text(
-                    title,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = if (isUnlocked) Color(0xFF1A237E) else Color.Gray
-                )
-            }
-
-            if (isUnlocked) {
-                Icon(
-                    Icons.Filled.PlayArrow,
-                    null,
-                    tint = accentColor,
-                    modifier = Modifier.size(28.dp)
-                )
-            } else {
-                Icon(
-                    Icons.Filled.Lock,
-                    null,
-                    tint = Color.Gray,
-                    modifier = Modifier.size(22.dp)
                 )
             }
         }
@@ -639,7 +578,6 @@ private fun QuizCardView(
         )
     ) {
         Column {
-            // Header
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -701,7 +639,6 @@ private fun QuizCardView(
                 }
             }
 
-            // Body
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -901,7 +838,6 @@ private fun buildBookDetailItems(
         val isGroupUnlocked = groupIndex == 0 ||
                 (quizStates.getOrNull(groupIndex - 1)?.isPassed == true)
 
-        // Group Header
         items.add(
             BookDetailItem.GroupHeader(
                 groupIndex = groupIndex,
@@ -910,7 +846,6 @@ private fun buildBookDetailItems(
             )
         )
 
-        // Chapters
         for (ch in firstCh..lastCh) {
             val chapterState = chapterStates.firstOrNull { it.chapterNumber == ch }
             val title = getChapterTitle(bookId, ch)
@@ -924,7 +859,6 @@ private fun buildBookDetailItems(
             )
         }
 
-        // Quiz (بعد از گروه، به‌جز آخرین)
         if (groupIndex < totalGroups - 1) {
             val quizState = quizStates.getOrNull(groupIndex)
             if (quizState != null) {
@@ -947,7 +881,6 @@ private fun buildBookDetailItems(
 }
 
 private fun getChapterTitle(bookId: String, chapterNumber: Int): String {
-    // ✅ اصلاح: از هر دو Repository جستجو کن
     val book = BookRepository.getBookById(bookId)
         ?: StoryRepository.getStoryById(bookId)
         ?: return "درس $chapterNumber"
