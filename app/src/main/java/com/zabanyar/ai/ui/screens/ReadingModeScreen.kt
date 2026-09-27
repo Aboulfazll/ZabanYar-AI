@@ -45,9 +45,6 @@ fun ReadingModeScreen(
     val context = LocalContext.current
     val speechHelper = remember { SpeechHelper(context) }
 
-    // ═══════════════════════════════════════════════════════
-    //  📖 گرفتن محتوای داستان از Repository
-    // ═══════════════════════════════════════════════════════
     val isBilingual = remember(storyId) { StoryRepository.hasContent(storyId) }
     val isEnglishOnly = remember(storyId) { StoryRepository.hasEnContent(storyId) }
 
@@ -77,9 +74,6 @@ fun ReadingModeScreen(
         if (showBilingual) bilingualText else englishOnlyText
     }
 
-    // ═══════════════════════════════════════════════════════
-    //  🎙️ منطق پخش و هایلایت
-    // ═══════════════════════════════════════════════════════
     val words = remember(displayText) {
         displayText.split(" ").filter { it.isNotBlank() }
     }
@@ -90,7 +84,6 @@ fun ReadingModeScreen(
     var playbackSpeed by remember { mutableFloatStateOf(1.0f) }
     var ttsReady by remember { mutableStateOf(false) }
 
-    // 🆕 state دیکشنری
     var tappedWord by remember { mutableStateOf<String?>(null) }
     var tappedEntry by remember { mutableStateOf<DictionaryEntry?>(null) }
 
@@ -116,7 +109,6 @@ fun ReadingModeScreen(
         }
     }
 
-    // 🆕 annotated text با کلمات قابل کلیک
     val annotatedText = remember(currentWordIndex, words) {
         buildAnnotatedString {
             words.forEachIndexed { index, word ->
@@ -188,7 +180,6 @@ fun ReadingModeScreen(
                 .background(Color(0xFFF5F7FA))
                 .padding(padding)
         ) {
-            // نوار پیشرفت
             if (isPlaying || isPaused) {
                 Column(
                     modifier = Modifier
@@ -218,7 +209,6 @@ fun ReadingModeScreen(
                 }
             }
 
-            // کارت متن
             Column(
                 modifier = Modifier
                     .weight(1f)
@@ -248,7 +238,7 @@ fun ReadingModeScreen(
                                 color = Color.Red, fontSize = 14.sp
                             )
                         } else {
-                            // ✅ کلمات قابل کلیک با pointerInput
+                            // ✅ اصلاح شده: offset.x.toInt()
                             Text(
                                 text = annotatedText,
                                 fontSize = 18.sp,
@@ -256,8 +246,9 @@ fun ReadingModeScreen(
                                 color = Color(0xFF1A237E),
                                 modifier = Modifier.pointerInput(annotatedText) {
                                     detectTapGestures { offset ->
+                                        val pos = offset.x.toInt()
                                         annotatedText
-                                            .getStringAnnotations("WORD", offset, offset)
+                                            .getStringAnnotations("WORD", pos, pos)
                                             .firstOrNull()
                                             ?.let { annotation ->
                                                 val word = annotation.item
@@ -275,7 +266,6 @@ fun ReadingModeScreen(
 
                 Spacer(Modifier.height(12.dp))
 
-                // راهنما
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp),
@@ -296,7 +286,6 @@ fun ReadingModeScreen(
                 }
             }
 
-            // نوار کنترل
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp),
@@ -409,7 +398,6 @@ fun ReadingModeScreen(
         }
     }
 
-    // 🆕 پاپ‌آپ دیکشنری
     tappedWord?.let { word ->
         WordPopupDialog(
             word = word,
