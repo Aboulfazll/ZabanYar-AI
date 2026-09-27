@@ -48,7 +48,7 @@ fun LessonDetailScreen(
     bookCoverGradientEnd: Long = 0xFF3949AB,
     bookId: String = "",
     onBack: () -> Unit = {},
-    onChapterSelected: (Int) -> Unit = {}   // ← جدید: برای ناوبری به فصل دیگه
+    onChapterSelected: (Int) -> Unit = {}
 ) {
     val context = LocalContext.current
     val speechHelper = remember { SpeechHelper(context) }
@@ -67,7 +67,7 @@ fun LessonDetailScreen(
     }
 
     // ═══════════════════════════════════════════════════════
-    //  🆕 State های کشوی کناری
+    //  State های کشوی کناری
     // ═══════════════════════════════════════════════════════
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -80,12 +80,12 @@ fun LessonDetailScreen(
     val titlePersian = storyChapter?.titlePersian ?: lesson?.titlePersian ?: ""
 
     // ═══════════════════════════════════════════════════════
-    //  🆕 گرفتن لیست فصل‌ها از ریپازیتوری
+    //  گرفتن لیست فصل‌ها از ریپازیتوری
     // ═══════════════════════════════════════════════════════
     val allChapters: List<StoryChapter> = remember(bookId) {
         if (bookId.isEmpty()) emptyList()
         else try {
-            StoryRepository.getAllChapters(bookId)  // ← اگه اسم متدت فرق داره، عوض کن
+            StoryRepository.getAllChapters(bookId)
         } catch (e: Exception) {
             emptyList()
         }
@@ -102,7 +102,7 @@ fun LessonDetailScreen(
     var selectedTab by remember { mutableIntStateOf(0) }
 
     // ═══════════════════════════════════════════════════════
-    //  🆕 کشوی کناری (ModalNavigationDrawer)
+    //  کشوی کناری (ModalNavigationDrawer)
     // ═══════════════════════════════════════════════════════
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -153,7 +153,6 @@ fun LessonDetailScreen(
                 }
 
                 Divider(color = Color(0xFFE0E0E0))
-
                 Spacer(Modifier.height(4.dp))
 
                 // ─── لیست فصل‌ها ───
@@ -251,9 +250,7 @@ fun LessonDetailScreen(
                                 else Color.White.copy(alpha = 0.6f)
                             )
                         }
-                        // ═══════════════════════════════════
-                        //  🆕 دکمه منوی فصل‌ها (همبرگری)
-                        // ═══════════════════════════════════
+                        // ─── دکمه منوی فصل‌ها ───
                         IconButton(onClick = {
                             scope.launch { drawerState.open() }
                         }) {
@@ -496,7 +493,7 @@ fun LessonDetailScreen(
 }
 
 // ═══════════════════════════════════════════════════════
-//  بقیه کامپوزبل‌ها (بدون تغییر)
+//  کارت «پخش کل»
 // ═══════════════════════════════════════════════════════
 @Composable
 fun PlayAllCard(
@@ -535,6 +532,9 @@ fun PlayAllCard(
     }
 }
 
+// ═══════════════════════════════════════════════════════
+//  کارت هدر
+// ═══════════════════════════════════════════════════════
 @Composable
 fun HeaderCard(
     book: Book?,
@@ -672,6 +672,9 @@ fun HeaderCard(
     }
 }
 
+// ═══════════════════════════════════════════════════════
+//  Story Audio Card
+// ═══════════════════════════════════════════════════════
 @Composable
 fun StoryAudioCard(
     chapter: StoryChapter,
@@ -711,6 +714,9 @@ fun StoryAudioCard(
     }
 }
 
+// ═══════════════════════════════════════════════════════
+//  Story Paragraph Card
+// ═══════════════════════════════════════════════════════
 @Composable
 fun StoryParagraphCard(
     paragraph: StoryParagraph,
@@ -746,6 +752,9 @@ fun StoryParagraphCard(
     }
 }
 
+// ═══════════════════════════════════════════════════════
+//  Lesson Section Card
+// ═══════════════════════════════════════════════════════
 @Composable
 fun LessonSectionCard(
     icon: ImageVector,
@@ -779,6 +788,9 @@ fun LessonSectionCard(
     }
 }
 
+// ═══════════════════════════════════════════════════════
+//  VocabItem
+// ═══════════════════════════════════════════════════════
 @Composable
 fun VocabItem(
     word: VocabWord,
@@ -830,6 +842,9 @@ fun VocabItem(
     }
 }
 
+// ═══════════════════════════════════════════════════════
+//  DialogueItem
+// ═══════════════════════════════════════════════════════
 @Composable
 fun DialogueItem(
     line: DialogueLine,
