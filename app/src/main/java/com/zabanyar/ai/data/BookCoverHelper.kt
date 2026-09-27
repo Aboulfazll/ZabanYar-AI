@@ -1,4 +1,3 @@
-
 package com.zabanyar.ai.ui.screens
 
 import androidx.compose.foundation.background
@@ -27,7 +26,7 @@ import com.zabanyar.ai.data.getCoverUrl
 /**
  * 🖼️ نمایش عکس کتاب/داستان با اولویت‌بندی:
  *   ۱. عکس محلی از res/drawable/ (بر اساس id)
- *   ۲. URL آنلاین از getCoverUrl()
+ *   ۲. URL خودکار (getCoverUrl — Open Library)
  *   ۳. گرادیان رنگی با عنوان
  */
 @Composable
@@ -47,6 +46,11 @@ fun BookCoverImage(
         )
     }
 
+    // 🌐 URL خودکار (coverUrl دستی یا Open Library بر اساس عنوان)
+    val onlineUrl = remember(book.id, book.coverUrl, book.title) {
+        book.getCoverUrl()
+    }
+
     when {
         // ✅ عکس محلی
         localResId != 0 -> {
@@ -57,11 +61,11 @@ fun BookCoverImage(
                 contentScale = contentScale
             )
         }
-        // 🌐 URL آنلاین
-        book.coverUrl.isNotBlank() -> {
+        // 🌐 URL آنلاین (Open Library)
+        onlineUrl.isNotBlank() -> {
             AsyncImage(
                 model = ImageRequest.Builder(context)
-                    .data(book.coverUrl)
+                    .data(onlineUrl)
                     .crossfade(true)
                     .build(),
                 contentDescription = book.title,
