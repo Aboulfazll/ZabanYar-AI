@@ -28,6 +28,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zabanyar.ai.data.DictionaryEntry
+import com.zabanyar.ai.data.DictionaryRepository
 import com.zabanyar.ai.data.SpeechHelper
 import com.zabanyar.ai.data.books.story.StoryRepository
 import kotlinx.coroutines.delay
@@ -48,7 +50,6 @@ fun ReadingModeScreen(
     val isBilingual = remember(storyId) { StoryRepository.hasContent(storyId) }
     val isEnglishOnly = remember(storyId) { StoryRepository.hasEnContent(storyId) }
 
-    // متن دوزبانه (انگلیسی + فارسی)
     val bilingualText = remember(storyId) {
         if (isBilingual) {
             val chapters = StoryRepository.getChapters(storyId)
@@ -60,7 +61,6 @@ fun ReadingModeScreen(
         } else ""
     }
 
-    // متن انگلیسی خالص
     val englishOnlyText = remember(storyId) {
         if (isEnglishOnly) {
             val enStory = StoryRepository.getEnStory(storyId)
@@ -70,10 +70,8 @@ fun ReadingModeScreen(
         } else ""
     }
 
-    // حالت نمایش: دوزبانه یا انگلیسی
     var showBilingual by remember(storyId) { mutableStateOf(isBilingual) }
 
-    // متنی که باید نمایش داده بشه
     val displayText = remember(showBilingual, bilingualText, englishOnlyText) {
         if (showBilingual) bilingualText else englishOnlyText
     }
@@ -90,6 +88,10 @@ fun ReadingModeScreen(
     var isPaused by remember { mutableStateOf(false) }
     var playbackSpeed by remember { mutableFloatStateOf(1.0f) }
     var ttsReady by remember { mutableStateOf(false) }
+
+    // 🆕 state دیکشنری
+    var tappedWord by remember { mutableStateOf<String?>(null) }
+    var tappedEntry by remember { mutableStateOf<DictionaryEntry?>(null) }
 
     LaunchedEffect(Unit) {
         while (!speechHelper.isInitialized()) delay(100)
@@ -113,9 +115,16 @@ fun ReadingModeScreen(
         }
     }
 
+    // 🆕 annotated text با کلمات قابل کلیک
     val annotatedText = remember(currentWordIndex, words) {
         buildAnnotatedString {
             words.forEachIndexed { index, word ->
+                val cleanWord = word.trim(
+                    '.', ',', '!', '?', ';', ':', '"', '\'',
+                    '(', ')', '[', ']', '-', '—', '…'
+                )
+
+                pushStringAnnotation(tag = "WORD", annotation = cleanWord)
                 if (index == currentWordIndex) {
                     withStyle(SpanStyle(
                         background = Color(0xFFFFEB3B),
@@ -128,6 +137,8 @@ fun ReadingModeScreen(
                         fontWeight = FontWeight.Normal
                     )) { append(word) }
                 }
+                pop()
+
                 if (index < words.size - 1) append(" ")
             }
         }
@@ -155,7 +166,6 @@ fun ReadingModeScreen(
                     }
                 },
                 actions = {
-                    // دکمه تغییر حالت دوزبانه / انگلیسی
                     if (isBilingual && isEnglishOnly) {
                         TextButton(onClick = { showBilingual = !showBilingual }) {
                             Text(
@@ -237,13 +247,48 @@ fun ReadingModeScreen(
                                 color = Color.Red, fontSize = 14.sp
                             )
                         } else {
+                            // ✅ کلمات قابل کلیک
                             Text(
                                 text = annotatedText,
                                 fontSize = 18.sp,
                                 lineHeight = 34.sp,
-                                color = Color(0xFF1A237E)
+                                color = Color(0xFF1A237E),
+                                modifier = Modifier.clickable { offset ->
+                                    annotatedText
+                                        .getStringAnnotations("WORD", offset, offset)
+                                        .firstOrNull()
+                                        ?.let { annotation ->
+                                            val word = annotation.item
+                                            if (word.isNotEmpty()) {
+                                                tappedWord = word
+                                                tappedEntry = DictionaryRepository.lookup(context, word)
+                                            }
+                                        }
+                                }
                             )
                         }
+                    }
+                }
+
+                Spacer(Modifier.height(12.dp))
+
+                // راهنما
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(12.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFFE3F2FD))
+                ) {
+                    Row(
+                        modifier = Modifier.padding(12.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text("💡", fontSize = 16.sp)
+                        Spacer(Modifier.width(8.dp))
+                        Text(
+                            "روی هر کلمه بزن تا معنی و تلفظش را ببینی",
+                            fontSize = 11.sp,
+                            color = Color(0xFF1565C0)
+                        )
                     }
                 }
             }
@@ -357,5 +402,18 @@ fun ReadingModeScreen(
                 }
             }
         }
+    }
+
+    // 🆕 پاپ‌آپ دیکشنری
+    tappedWord?.let { word ->
+        WordPopupDialog(
+            word = word,
+            entry = tappedEntry,
+            speechHelper = speechHelper,
+            onDismiss = {
+                tappedWord = null
+                tappedEntry = null
+            }
+        )
     }
 }
