@@ -134,7 +134,9 @@ fun AppNavHost(
                 onBack = { navController.popBackStack() },
                 onChapterClick = { ch -> navController.navigate(Routes.lessonDetail(bookId, ch)) },
                 onQuizClick = { idx ->
+                    // ✅ اصلاح: از هر دو Repository جستجو کن
                     val book = BookRepository.getBookById(bookId)
+                        ?: StoryRepository.getStoryById(bookId)
                     navController.navigate(
                         Routes.quiz(bookId, idx, book?.totalChapters ?: 12, book?.title ?: "")
                     )
@@ -176,7 +178,10 @@ fun AppNavHost(
         ) { entry ->
             val bookId = entry.arguments?.getString("bookId") ?: ""
             val chapterNumber = entry.arguments?.getInt("chapterNumber") ?: 1
+
+            // ✅ اصلاح: از هر دو Repository جستجو کن
             val book = BookRepository.getBookById(bookId)
+                ?: StoryRepository.getStoryById(bookId)
 
             val storyChapter = StoryRepository.getChapter(bookId, chapterNumber)
 
@@ -200,13 +205,14 @@ fun AppNavHost(
             }
         }
 
-        // ✅ READING_MODE اصلاح‌شده: فقط storyId می‌گیره
         composable(
             route = Routes.READING_MODE,
             arguments = listOf(navArgument("storyId") { type = NavType.StringType })
         ) { entry ->
             val storyId = entry.arguments?.getString("storyId") ?: ""
+            // ✅ اصلاح: از هر دو Repository جستجو کن
             val book = BookRepository.getBookById(storyId)
+                ?: StoryRepository.getStoryById(storyId)
             ReadingModeScreen(
                 storyId = storyId,
                 title = book?.title ?: "داستان",
@@ -237,8 +243,16 @@ fun AppNavHost(
             )
         }
 
+        // ✅ اصلاح: onLogout اضافه شد
         composable(Routes.SETTINGS) {
-            SettingsScreen(onBack = { navController.popBackStack() })
+            SettingsScreen(
+                onBack = { navController.popBackStack() },
+                onLogout = {
+                    navController.navigate(Routes.LOGIN) {
+                        popUpTo(Routes.HOME) { inclusive = true }
+                    }
+                }
+            )
         }
 
         composable(Routes.VOCABULARY) {
