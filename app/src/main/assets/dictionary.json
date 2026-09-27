@@ -1,887 +1,1070 @@
 {
-  "youngster": {
-    "us": "/ˈjʌŋstər/",
-    "uk": "/ˈjʌŋstə/",
-    "persian": ["بچه", "کودک", "پسر بچه", "دختر بچه", "خردسال", "جوان", "نوجوان"]
-  },
-  "young": {
-    "us": "/jʌŋ/",
-    "uk": "/jʌŋ/",
-    "persian": ["جوان", "کم‌سن", "نوجوان"]
-  },
-  "youtube": {
-    "us": "/ˈjuːtjuːb/",
-    "uk": "/ˈjuːtjuːb/",
-    "persian": ["یوتیوب"]
-  },
-  "behind": {
-    "us": "/bɪˈhaɪnd/",
-    "uk": "/bɪˈhaɪnd/",
-    "persian": ["پشت", "عقب", "در پشت", "پشت سر"]
-  },
-  "people": {
-    "us": "/ˈpiːpəl/",
-    "uk": "/ˈpiːpəl/",
-    "persian": ["مردم", "افراد", "اشخاص"]
-  },
-  "person": {
-    "us": "/ˈpɜːrsən/",
-    "uk": "/ˈpɜːsən/",
-    "persian": ["شخص", "فرد", "آدم"]
-  },
-  "time": {
-    "us": "/taɪm/",
-    "uk": "/taɪm/",
-    "persian": ["زمان", "وقت", "بار"]
-  },
-  "day": {
-    "us": "/deɪ/",
-    "uk": "/deɪ/",
-    "persian": ["روز"]
-  },
-  "night": {
-    "us": "/naɪt/",
-    "uk": "/naɪt/",
-    "persian": ["شب"]
-  },
-  "morning": {
-    "us": "/ˈmɔːrnɪŋ/",
-    "uk": "/ˈmɔːnɪŋ/",
-    "persian": ["صبح", "بامداد"]
-  },
-  "year": {
-    "us": "/jɪr/",
-    "uk": "/jɪə/",
-    "persian": ["سال"]
-  },
-  "week": {
-    "us": "/wiːk/",
-    "uk": "/wiːk/",
-    "persian": ["هفته"]
-  },
-  "month": {
-    "us": "/mʌnθ/",
-    "uk": "/mʌnθ/",
-    "persian": ["ماه"]
-  },
-  "hour": {
-    "us": "/ˈaʊər/",
-    "uk": "/ˈaʊə/",
-    "persian": ["ساعت"]
-  },
-  "minute": {
-    "us": "/ˈmɪnɪt/",
-    "uk": "/ˈmɪnɪt/",
-    "persian": ["دقیقه", "لحظه"]
-  },
-  "water": {
-    "us": "/ˈwɔːtər/",
-    "uk": "/ˈwɔːtə/",
-    "persian": ["آب"]
-  },
-  "food": {
-    "us": "/fuːd/",
-    "uk": "/fuːd/",
-    "persian": ["غذا", "خوراک"]
-  },
-  "house": {
-    "us": "/haʊs/",
-    "uk": "/haʊs/",
-    "persian": ["خانه", "منزل"]
-  },
-  "home": {
-    "us": "/hoʊm/",
-    "uk": "/həʊm/",
-    "persian": ["خانه", "منزل"]
-  },
-  "work": {
-    "us": "/wɜːrk/",
-    "uk": "/wɜːk/",
-    "persian": ["کار", "شغل", "کار کردن"]
-  },
-  "job": {
-    "us": "/dʒɑːb/",
-    "uk": "/dʒɒb/",
-    "persian": ["شغل", "کار"]
-  },
-  "school": {
-    "us": "/skuːl/",
-    "uk": "/skuːl/",
-    "persian": ["مدرسه"]
-  },
-  "student": {
-    "us": "/ˈstuːdənt/",
-    "uk": "/ˈstjuːdənt/",
-    "persian": ["دانش‌آموز", "دانشجو"]
-  },
-  "teacher": {
-    "us": "/ˈtiːtʃər/",
-    "uk": "/ˈtiːtʃə/",
-    "persian": ["معلم", "آموزگار"]
-  },
-  "book": {
-    "us": "/bʊk/",
-    "uk": "/bʊk/",
-    "persian": ["کتاب"]
-  },
-  "friend": {
-    "us": "/frend/",
-    "uk": "/frend/",
-    "persian": ["دوست", "رفیق"]
-  },
-  "family": {
-    "us": "/ˈfæməli/",
-    "uk": "/ˈfæməli/",
-    "persian": ["خانواده", "فامیل"]
-  },
-  "mother": {
-    "us": "/ˈmʌðər/",
-    "uk": "/ˈmʌðə/",
-    "persian": ["مادر"]
-  },
-  "father": {
-    "us": "/ˈfɑːðər/",
-    "uk": "/ˈfɑːðə/",
-    "persian": ["پدر"]
-  },
-  "brother": {
-    "us": "/ˈbrʌðər/",
-    "uk": "/ˈbrʌðə/",
-    "persian": ["برادر"]
-  },
-  "sister": {
-    "us": "/ˈsɪstər/",
-    "uk": "/ˈsɪstə/",
-    "persian": ["خواهر"]
-  },
-  "son": {
-    "us": "/sʌn/",
-    "uk": "/sʌn/",
-    "persian": ["پسر"]
-  },
-  "daughter": {
-    "us": "/ˈdɔːtər/",
-    "uk": "/ˈdɔːtə/",
-    "persian": ["دختر"]
-  },
-  "child": {
-    "us": "/tʃaɪld/",
-    "uk": "/tʃaɪld/",
-    "persian": ["بچه", "کودک", "فرزند"]
-  },
-  "man": {
-    "us": "/mæn/",
-    "uk": "/mæn/",
-    "persian": ["مرد", "آدم"]
-  },
-  "woman": {
-    "us": "/ˈwʊmən/",
-    "uk": "/ˈwʊmən/",
-    "persian": ["زن"]
-  },
-  "boy": {
-    "us": "/bɔɪ/",
-    "uk": "/bɔɪ/",
-    "persian": ["پسر"]
-  },
-  "girl": {
-    "us": "/ɡɜːrl/",
-    "uk": "/ɡɜːl/",
-    "persian": ["دختر"]
-  },
-  "good": {
-    "us": "/ɡʊd/",
-    "uk": "/ɡʊd/",
-    "persian": ["خوب", "نیک"]
-  },
-  "bad": {
-    "us": "/bæd/",
-    "uk": "/bæd/",
-    "persian": ["بد"]
-  },
-  "big": {
-    "us": "/bɪɡ/",
-    "uk": "/bɪɡ/",
-    "persian": ["بزرگ"]
-  },
-  "small": {
-    "us": "/smɔːl/",
-    "uk": "/smɔːl/",
-    "persian": ["کوچک"]
-  },
-  "new": {
-    "us": "/nuː/",
-    "uk": "/njuː/",
-    "persian": ["جدید", "نو"]
-  },
-  "old": {
-    "us": "/oʊld/",
-    "uk": "/əʊld/",
-    "persian": ["قدیمی", "پیر"]
-  },
-  "happy": {
-    "us": "/ˈhæpi/",
-    "uk": "/ˈhæpi/",
-    "persian": ["خوشحال", "شاد"]
-  },
-  "sad": {
-    "us": "/sæd/",
-    "uk": "/sæd/",
-    "persian": ["غمگین", "ناراحت"]
-  },
-  "beautiful": {
-    "us": "/ˈbjuːtəfəl/",
-    "uk": "/ˈbjuːtəfəl/",
-    "persian": ["زیبا", "قشنگ"]
-  },
-  "go": {
-    "us": "/ɡoʊ/",
-    "uk": "/ɡəʊ/",
-    "persian": ["رفتن", "روانه شدن"]
-  },
-  "come": {
-    "us": "/kʌm/",
-    "uk": "/kʌm/",
-    "persian": ["آمدن", "رسیدن"]
-  },
-  "see": {
-    "us": "/siː/",
-    "uk": "/siː/",
-    "persian": ["دیدن", "مشاهده کردن"]
-  },
-  "look": {
-    "us": "/lʊk/",
-    "uk": "/lʊk/",
-    "persian": ["نگاه کردن", "نگاه"]
-  },
-  "know": {
-    "us": "/noʊ/",
-    "uk": "/nəʊ/",
-    "persian": ["دانستن", "شناختن"]
-  },
-  "think": {
-    "us": "/θɪŋk/",
-    "uk": "/θɪŋk/",
-    "persian": ["فکر کردن", "اندیشیدن"]
-  },
-  "say": {
-    "us": "/seɪ/",
-    "uk": "/seɪ/",
-    "persian": ["گفتن", "بیان کردن"]
-  },
-  "tell": {
-    "us": "/tel/",
-    "uk": "/tel/",
-    "persian": ["گفتن", "تعریف کردن"]
-  },
-  "ask": {
-    "us": "/æsk/",
-    "uk": "/ɑːsk/",
-    "persian": ["پرسیدن", "درخواست کردن"]
-  },
-  "answer": {
-    "us": "/ˈænsər/",
-    "uk": "/ˈɑːnsə/",
-    "persian": ["پاسخ", "جواب", "پاسخ دادن"]
-  },
-  "help": {
-    "us": "/help/",
-    "uk": "/help/",
-    "persian": ["کمک", "کمک کردن"]
-  },
-  "make": {
-    "us": "/meɪk/",
-    "uk": "/meɪk/",
-    "persian": ["ساختن", "درست کردن"]
-  },
-  "take": {
-    "us": "/teɪk/",
-    "uk": "/teɪk/",
-    "persian": ["گرفتن", "برداشتن"]
-  },
-  "give": {
-    "us": "/ɡɪv/",
-    "uk": "/ɡɪv/",
-    "persian": ["دادن", "بخشیدن"]
-  },
-  "get": {
-    "us": "/ɡet/",
-    "uk": "/ɡet/",
-    "persian": ["گرفتن", "به دست آوردن"]
-  },
-  "want": {
-    "us": "/wɑːnt/",
-    "uk": "/wɒnt/",
-    "persian": ["خواستن", "مایل بودن"]
-  },
-  "need": {
-    "us": "/niːd/",
-    "uk": "/niːd/",
-    "persian": ["نیاز داشتن", "لازم داشتن"]
-  },
-  "like": {
-    "us": "/laɪk/",
-    "uk": "/laɪk/",
-    "persian": ["دوست داشتن", "مانند"]
-  },
-  "love": {
-    "us": "/lʌv/",
-    "uk": "/lʌv/",
-    "persian": ["عشق", "دوست داشتن", "عاشق بودن"]
-  },
-  "read": {
-    "us": "/riːd/",
-    "uk": "/riːd/",
-    "persian": ["خواندن"]
-  },
-  "write": {
-    "us": "/raɪt/",
-    "uk": "/raɪt/",
-    "persian": ["نوشتن"]
-  },
-  "speak": {
-    "us": "/spiːk/",
-    "uk": "/spiːk/",
-    "persian": ["صحبت کردن", "حرف زدن"]
-  },
-  "listen": {
-    "us": "/ˈlɪsən/",
-    "uk": "/ˈlɪsən/",
-    "persian": ["گوش دادن", "گوش کردن"]
-  },
-  "learn": {
-    "us": "/lɜːrn/",
-    "uk": "/lɜːn/",
-    "persian": ["یاد گرفتن", "آموختن"]
-  },
-  "teach": {
-    "us": "/tiːtʃ/",
-    "uk": "/tiːtʃ/",
-    "persian": ["آموزش دادن", "درس دادن"]
-  },
-  "play": {
-    "us": "/pleɪ/",
-    "uk": "/pleɪ/",
-    "persian": ["بازی کردن", "نواختن"]
-  },
-  "run": {
-    "us": "/rʌn/",
-    "uk": "/rʌn/",
-    "persian": ["دویدن", "اجرا کردن"]
-  },
-  "walk": {
-    "us": "/wɔːk/",
-    "uk": "/wɔːk/",
-    "persian": ["راه رفتن", "قدم زدن"]
-  },
-  "eat": {
-    "us": "/iːt/",
-    "uk": "/iːt/",
-    "persian": ["خوردن"]
-  },
-  "drink": {
-    "us": "/drɪŋk/",
-    "uk": "/drɪŋk/",
-    "persian": ["نوشیدن", "نوشیدنی"]
-  },
-  "sleep": {
-    "us": "/sliːp/",
-    "uk": "/sliːp/",
-    "persian": ["خواب", "خوابیدن"]
-  },
-  "live": {
-    "us": "/lɪv/",
-    "uk": "/lɪv/",
-    "persian": ["زندگی کردن", "زنده بودن"]
-  },
-  "life": {
-    "us": "/laɪf/",
-    "uk": "/laɪf/",
-    "persian": ["زندگی", "عمر"]
-  },
-  "death": {
-    "us": "/deθ/",
-    "uk": "/deθ/",
-    "persian": ["مرگ", "فوت"]
-  },
-  "happy": {
-    "us": "/ˈhæpi/",
-    "uk": "/ˈhæpi/",
-    "persian": ["خوشحال", "خوشبخت"]
-  },
-  "sad": {
-    "us": "/sæd/",
-    "uk": "/sæd/",
-    "persian": ["غمگین", "ناراحت"]
-  },
-  "angry": {
-    "us": "/ˈæŋɡri/",
-    "uk": "/ˈæŋɡri/",
-    "persian": ["عصبانی", "خشمگین"]
-  },
-  "afraid": {
-    "us": "/əˈfreɪd/",
-    "uk": "/əˈfreɪd/",
-    "persian": ["ترسیده", "می‌ترسد"]
-  },
-  "tired": {
-    "us": "/ˈtaɪərd/",
-    "uk": "/ˈtaɪəd/",
-    "persian": ["خسته"]
-  },
-  "hungry": {
-    "us": "/ˈhʌŋɡri/",
-    "uk": "/ˈhʌŋɡri/",
-    "persian": ["گرسنه"]
-  },
-  "thirsty": {
-    "us": "/ˈθɜːrsti/",
-    "uk": "/ˈθɜːsti/",
-    "persian": ["تشنه"]
-  },
-  "money": {
-    "us": "/ˈmʌni/",
-    "uk": "/ˈmʌni/",
-    "persian": ["پول"]
-  },
-  "car": {
-    "us": "/kɑːr/",
-    "uk": "/kɑː/",
-    "persian": ["ماشین", "اتومبیل"]
-  },
-  "city": {
-    "us": "/ˈsɪti/",
-    "uk": "/ˈsɪti/",
-    "persian": ["شهر"]
-  },
-  "country": {
-    "us": "/ˈkʌntri/",
-    "uk": "/ˈkʌntri/",
-    "persian": ["کشور", "مملکت"]
-  },
-  "world": {
-    "us": "/wɜːrld/",
-    "uk": "/wɜːld/",
-    "persian": ["جهان", "دنیا"]
-  },
-  "way": {
-    "us": "/weɪ/",
-    "uk": "/weɪ/",
-    "persian": ["راه", "روش", "مسیر"]
-  },
-  "thing": {
-    "us": "/θɪŋ/",
-    "uk": "/θɪŋ/",
-    "persian": ["چیز", "شیء"]
-  },
-  "place": {
-    "us": "/pleɪs/",
-    "uk": "/pleɪs/",
-    "persian": ["جا", "مکان", "محل"]
-  },
-  "story": {
-    "us": "/ˈstɔːri/",
-    "uk": "/ˈstɔːri/",
-    "persian": ["داستان", "قصه"]
-  },
-  "word": {
-    "us": "/wɜːrd/",
-    "uk": "/wɜːd/",
-    "persian": ["کلمه", "واژه"]
-  },
-  "language": {
-    "us": "/ˈlæŋɡwɪdʒ/",
-    "uk": "/ˈlæŋɡwɪdʒ/",
-    "persian": ["زبان"]
-  },
-  "problem": {
-    "us": "/ˈprɑːbləm/",
-    "uk": "/ˈprɒbləm/",
-    "persian": ["مشکل", "مسئله"]
-  },
-  "question": {
-    "us": "/ˈkwestʃən/",
-    "uk": "/ˈkwestʃən/",
-    "persian": ["سؤال", "پرسش"]
-  },
-  "important": {
-    "us": "/ɪmˈpɔːrtənt/",
-    "uk": "/ɪmˈpɔːtənt/",
-    "persian": ["مهم", "با اهمیت"]
-  },
-  "different": {
-    "us": "/ˈdɪfərənt/",
-    "uk": "/ˈdɪfrənt/",
-    "persian": ["متفاوت", "فرق داشتن"]
-  },
-  "same": {
-    "us": "/seɪm/",
-    "uk": "/seɪm/",
-    "persian": ["یکسان", "همان"]
-  },
-  "easy": {
-    "us": "/ˈiːzi/",
-    "uk": "/ˈiːzi/",
-    "persian": ["آسان", "راحت"]
-  },
-  "difficult": {
-    "us": "/ˈdɪfɪkəlt/",
-    "uk": "/ˈdɪfɪkəlt/",
-    "persian": ["سخت", "دشوار"]
-  },
-  "fast": {
-    "us": "/fæst/",
-    "uk": "/fɑːst/",
-    "persian": ["سریع", "تند"]
-  },
-  "slow": {
-    "us": "/sloʊ/",
-    "uk": "/sləʊ/",
-    "persian": ["آهسته", "کند"]
-  },
-  "always": {
-    "us": "/ˈɔːlweɪz/",
-    "uk": "/ˈɔːlweɪz/",
-    "persian": ["همیشه", "دائماً"]
-  },
-  "never": {
-    "us": "/ˈnevər/",
-    "uk": "/ˈnevə/",
-    "persian": ["هرگز", "هیچ‌وقت"]
-  },
-  "sometimes": {
-    "us": "/ˈsʌmtaɪmz/",
-    "uk": "/ˈsʌmtaɪmz/",
-    "persian": ["گاهی", "بعضی اوقات"]
-  },
-  "often": {
-    "us": "/ˈɔːfən/",
-    "uk": "/ˈɒfən/",
-    "persian": ["اغلب", "غالباً"]
-  },
-  "today": {
-    "us": "/təˈdeɪ/",
-    "uk": "/təˈdeɪ/",
-    "persian": ["امروز"]
-  },
-  "tomorrow": {
-    "us": "/təˈmɑːroʊ/",
-    "uk": "/təˈmɒrəʊ/",
-    "persian": ["فردا"]
-  },
-  "yesterday": {
-    "us": "/ˈjestərdeɪ/",
-    "uk": "/ˈjestədeɪ/",
-    "persian": ["دیروز"]
-  },
-  "now": {
-    "us": "/naʊ/",
-    "uk": "/naʊ/",
-    "persian": ["حالا", "اکنون"]
-  },
-  "later": {
-    "us": "/ˈleɪtər/",
-    "uk": "/ˈleɪtə/",
-    "persian": ["بعداً", "دیرتر"]
-  },
-  "early": {
-    "us": "/ˈɜːrli/",
-    "uk": "/ˈɜːli/",
-    "persian": ["زود", "پیش از موعد"]
-  },
-  "late": {
-    "us": "/leɪt/",
-    "uk": "/leɪt/",
-    "persian": ["دیر", "با تأخیر"]
-  },
-  "hello": {
-    "us": "/həˈloʊ/",
-    "uk": "/həˈləʊ/",
-    "persian": ["سلام", "درود"]
-  },
-  "goodbye": {
-    "us": "/ɡʊdˈbaɪ/",
-    "uk": "/ɡʊdˈbaɪ/",
-    "persian": ["خداحافظ", "بدرود"]
-  },
-  "please": {
-    "us": "/pliːz/",
-    "uk": "/pliːz/",
-    "persian": ["لطفاً", "خواهش می‌کنم"]
-  },
-  "thank": {
-    "us": "/θæŋk/",
-    "uk": "/θæŋk/",
-    "persian": ["تشکر کردن", "سپاسگزاری"]
-  },
-  "sorry": {
-    "us": "/ˈsɑːri/",
-    "uk": "/ˈsɒri/",
-    "persian": ["متأسف", "پشیمان"]
-  },
-  "yes": {
-    "us": "/jes/",
-    "uk": "/jes/",
-    "persian": ["بله", "آری"]
-  },
-  "no": {
-    "us": "/noʊ/",
-    "uk": "/nəʊ/",
-    "persian": ["نه", "خیر"]
-  },
-  "maybe": {
-    "us": "/ˈmeɪbi/",
-    "uk": "/ˈmeɪbi/",
-    "persian": ["شاید", "احتمالاً"]
-  },
-  "very": {
-    "us": "/ˈveri/",
-    "uk": "/ˈveri/",
-    "persian": ["خیلی", "بسیار"]
-  },
-  "really": {
-    "us": "/ˈriːəli/",
-    "uk": "/ˈrɪəli/",
-    "persian": ["واقعاً", "حقیقتاً"]
-  },
-  "beautiful": {
-    "us": "/ˈbjuːtəfəl/",
-    "uk": "/ˈbjuːtəfəl/",
-    "persian": ["زیبا", "خوشگل"]
-  },
-  "interesting": {
-    "us": "/ˈɪntrəstɪŋ/",
-    "uk": "/ˈɪntrəstɪŋ/",
-    "persian": ["جالب", "جذاب"]
-  },
-  "important": {
-    "us": "/ɪmˈpɔːrtənt/",
-    "uk": "/ɪmˈpɔːtənt/",
-    "persian": ["مهم", "با ارزش"]
-  },
-  "future": {
-    "us": "/ˈfjuːtʃər/",
-    "uk": "/ˈfjuːtʃə/",
-    "persian": ["آینده"]
-  },
-  "past": {
-    "us": "/pæst/",
-    "uk": "/pɑːst/",
-    "persian": ["گذشته", "سابق"]
-  },
-  "present": {
-    "us": "/ˈprezənt/",
-    "uk": "/ˈprezənt/",
-    "persian": ["حال", "حاضر", "هدیه"]
-  },
-  "dream": {
-    "us": "/driːm/",
-    "uk": "/driːm/",
-    "persian": ["خواب", "رؤیا", "آرزو"]
-  },
-  "hope": {
-    "us": "/hoʊp/",
-    "uk": "/həʊp/",
-    "persian": ["امید", "امیدواری"]
-  },
-  "fear": {
-    "us": "/fɪr/",
-    "uk": "/fɪə/",
-    "persian": ["ترس", "هراس"]
-  },
-  "truth": {
-    "us": "/truːθ/",
-    "uk": "/truːθ/",
-    "persian": ["حقیقت", "راستی"]
-  },
-  "lie": {
-    "us": "/laɪ/",
-    "uk": "/laɪ/",
-    "persian": ["دروغ", "دروغ گفتن"]
-  },
-  "happy": {
-    "us": "/ˈhæpi/",
-    "uk": "/ˈhæpi/",
-    "persian": ["خوشحال", "شادمان"]
-  },
-  "smile": {
-    "us": "/smaɪl/",
-    "uk": "/smaɪl/",
-    "persian": ["لبخند", "لبخند زدن"]
-  },
-  "laugh": {
-    "us": "/læf/",
-    "uk": "/lɑːf/",
-    "persian": ["خندیدن", "خنده"]
-  },
-  "cry": {
-    "us": "/kraɪ/",
-    "uk": "/kraɪ/",
-    "persian": ["گریه کردن", "فریاد"]
-  },
-  "sing": {
-    "us": "/sɪŋ/",
-    "uk": "/sɪŋ/",
-    "persian": ["آواز خواندن", "خواندن"]
-  },
-  "dance": {
-    "us": "/dæns/",
-    "uk": "/dɑːns/",
-    "persian": ["رقص", "رقصیدن"]
-  },
-  "music": {
-    "us": "/ˈmjuːzɪk/",
-    "uk": "/ˈmjuːzɪk/",
-    "persian": ["موسیقی", "آهنگ"]
-  },
-  "song": {
-    "us": "/sɔːŋ/",
-    "uk": "/sɒŋ/",
-    "persian": ["آهنگ", "ترانه"]
-  },
-  "movie": {
-    "us": "/ˈmuːvi/",
-    "uk": "/ˈmuːvi/",
-    "persian": ["فیلم", "سینما"]
-  },
-  "game": {
-    "us": "/ɡeɪm/",
-    "uk": "/ɡeɪm/",
-    "persian": ["بازی", "مسابقه"]
-  },
-  "phone": {
-    "us": "/foʊn/",
-    "uk": "/fəʊn/",
-    "persian": ["تلفن", "گوشی"]
-  },
-  "computer": {
-    "us": "/kəmˈpjuːtər/",
-    "uk": "/kəmˈpjuːtə/",
-    "persian": ["کامپیوتر", "رایانه"]
-  },
-  "internet": {
-    "us": "/ˈɪntərnet/",
-    "uk": "/ˈɪntənet/",
-    "persian": ["اینترنت"]
-  },
-  "science": {
-    "us": "/ˈsaɪəns/",
-    "uk": "/ˈsaɪəns/",
-    "persian": ["علم", "دانش"]
-  },
-  "history": {
-    "us": "/ˈhɪstri/",
-    "uk": "/ˈhɪstri/",
-    "persian": ["تاریخ"]
-  },
-  "nature": {
-    "us": "/ˈneɪtʃər/",
-    "uk": "/ˈneɪtʃə/",
-    "persian": ["طبیعت"]
-  },
-  "animal": {
-    "us": "/ˈænɪməl/",
-    "uk": "/ˈænɪməl/",
-    "persian": ["حیوان", "جانور"]
-  },
-  "tree": {
-    "us": "/triː/",
-    "uk": "/triː/",
-    "persian": ["درخت"]
-  },
-  "flower": {
-    "us": "/ˈflaʊər/",
-    "uk": "/ˈflaʊə/",
-    "persian": ["گل"]
-  },
-  "sun": {
-    "us": "/sʌn/",
-    "uk": "/sʌn/",
-    "persian": ["خورشید", "آفتاب"]
-  },
-  "moon": {
-    "us": "/muːn/",
-    "uk": "/muːn/",
-    "persian": ["ماه"]
-  },
-  "star": {
-    "us": "/stɑːr/",
-    "uk": "/stɑː/",
-    "persian": ["ستاره"]
-  },
-  "sky": {
-    "us": "/skaɪ/",
-    "uk": "/skaɪ/",
-    "persian": ["آسمان"]
-  },
-  "sea": {
-    "us": "/siː/",
-    "uk": "/siː/",
-    "persian": ["دریا"]
-  },
-  "ocean": {
-    "us": "/ˈoʊʃən/",
-    "uk": "/ˈəʊʃən/",
-    "persian": ["اقیانوس"]
-  },
-  "river": {
-    "us": "/ˈrɪvər/",
-    "uk": "/ˈrɪvə/",
-    "persian": ["رودخانه", "رود"]
-  },
-  "mountain": {
-    "us": "/ˈmaʊntən/",
-    "uk": "/ˈmaʊntɪn/",
-    "persian": ["کوه"]
-  },
-  "forest": {
-    "us": "/ˈfɔːrɪst/",
-    "uk": "/ˈfɒrɪst/",
-    "persian": ["جنگل"]
-  },
-  "road": {
-    "us": "/roʊd/",
-    "uk": "/rəʊd/",
-    "persian": ["جاده", "راه"]
-  },
-  "street": {
-    "us": "/striːt/",
-    "uk": "/striːt/",
-    "persian": ["خیابان", "شارع"]
-  },
-  "hospital": {
-    "us": "/ˈhɑːspɪtəl/",
-    "uk": "/ˈhɒspɪtəl/",
-    "persian": ["بیمارستان"]
-  },
-  "doctor": {
-    "us": "/ˈdɑːktər/",
-    "uk": "/ˈdɒktə/",
-    "persian": ["دکتر", "پزشک"]
-  },
-  "police": {
-    "us": "/pəˈliːs/",
-    "uk": "/pəˈliːs/",
-    "persian": ["پلیس"]
-  },
-  "airport": {
-    "us": "/ˈerpɔːrt/",
-    "uk": "/ˈeəpɔːt/",
-    "persian": ["فرودگاه"]
-  },
-  "train": {
-    "us": "/treɪn/",
-    "uk": "/treɪn/",
-    "persian": ["قطار", "آموزش دادن"]
-  },
-  "plane": {
-    "us": "/pleɪn/",
-    "uk": "/pleɪn/",
-    "persian": ["هواپیما", "سطح"]
-  },
-  "ship": {
-    "us": "/ʃɪp/",
-    "uk": "/ʃɪp/",
-    "persian": ["کشتی", "ارسال کردن"]
-  }
+  "the": {"us": "/ðə/", "uk": "/ðə/", "persian": ["حرف تعریف معرفه"]},
+  "a": {"us": "/ə/", "uk": "/ə/", "persian": ["یک"]},
+  "an": {"us": "/ən/", "uk": "/ən/", "persian": ["یک"]},
+  "and": {"us": "/ænd/", "uk": "/ænd/", "persian": ["و"]},
+  "or": {"us": "/ɔːr/", "uk": "/ɔː/", "persian": ["یا"]},
+  "but": {"us": "/bʌt/", "uk": "/bʌt/", "persian": ["اما", "ولی"]},
+  "if": {"us": "/ɪf/", "uk": "/ɪf/", "persian": ["اگر"]},
+  "because": {"us": "/bɪˈkɔːz/", "uk": "/bɪˈkɒz/", "persian": ["چون", "زیرا"]},
+  "so": {"us": "/soʊ/", "uk": "/səʊ/", "persian": ["پس", "بنابراین"]},
+  "that": {"us": "/ðæt/", "uk": "/ðæt/", "persian": ["آن", "که"]},
+  "this": {"us": "/ðɪs/", "uk": "/ðɪs/", "persian": ["این"]},
+  "these": {"us": "/ðiːz/", "uk": "/ðiːz/", "persian": ["این‌ها"]},
+  "those": {"us": "/ðoʊz/", "uk": "/ðəʊz/", "persian": ["آن‌ها"]},
+  "here": {"us": "/hɪr/", "uk": "/hɪə/", "persian": ["اینجا"]},
+  "there": {"us": "/ðer/", "uk": "/ðeə/", "persian": ["آنجا", "وجود دارد"]},
+  "where": {"us": "/wer/", "uk": "/weə/", "persian": ["کجا"]},
+  "when": {"us": "/wen/", "uk": "/wen/", "persian": ["چه وقت", "وقتی"]},
+  "why": {"us": "/waɪ/", "uk": "/waɪ/", "persian": ["چرا"]},
+  "how": {"us": "/haʊ/", "uk": "/haʊ/", "persian": ["چطور"]},
+  "what": {"us": "/wʌt/", "uk": "/wɒt/", "persian": ["چه"]},
+  "which": {"us": "/wɪtʃ/", "uk": "/wɪtʃ/", "persian": ["کدام", "که"]},
+  "who": {"us": "/huː/", "uk": "/huː/", "persian": ["کی"]},
+  "whom": {"us": "/huːm/", "uk": "/huːm/", "persian": ["کی را", "به کی"]},
+  "whose": {"us": "/huːz/", "uk": "/huːz/", "persian": ["مال کی"]},
+
+  "i": {"us": "/aɪ/", "uk": "/aɪ/", "persian": ["من"]},
+  "you": {"us": "/juː/", "uk": "/juː/", "persian": ["تو", "شما"]},
+  "he": {"us": "/hiː/", "uk": "/hiː/", "persian": ["او (مرد)"]},
+  "she": {"us": "/ʃiː/", "uk": "/ʃiː/", "persian": ["او (زن)"]},
+  "it": {"us": "/ɪt/", "uk": "/ɪt/", "persian": ["آن", "او (شیء)"]},
+  "we": {"us": "/wiː/", "uk": "/wiː/", "persian": ["ما"]},
+  "they": {"us": "/ðeɪ/", "uk": "/ðeɪ/", "persian": ["آن‌ها"]},
+  "me": {"us": "/miː/", "uk": "/miː/", "persian": ["مرا", "به من"]},
+  "him": {"us": "/hɪm/", "uk": "/hɪm/", "persian": ["او را", "به او"]},
+  "her": {"us": "/hɜːr/", "uk": "/hɜː/", "persian": ["او را", "مال او"]},
+  "us": {"us": "/ʌs/", "uk": "/ʌs/", "persian": ["ما را", "به ما"]},
+  "them": {"us": "/ðem/", "uk": "/ðem/", "persian": ["آن‌ها را"]},
+  "my": {"us": "/maɪ/", "uk": "/maɪ/", "persian": ["مال من"]},
+  "your": {"us": "/jʊr/", "uk": "/jɔː/", "persian": ["مال تو", "مال شما"]},
+  "his": {"us": "/hɪz/", "uk": "/hɪz/", "persian": ["مال او (مرد)"]},
+  "its": {"us": "/ɪts/", "uk": "/ɪts/", "persian": ["مال آن"]},
+  "our": {"us": "/ˈaʊər/", "uk": "/ˈaʊə/", "persian": ["مال ما"]},
+  "their": {"us": "/ðer/", "uk": "/ðeə/", "persian": ["مال آن‌ها"]},
+  "mine": {"us": "/maɪn/", "uk": "/maɪn/", "persian": ["مال من"]},
+  "yours": {"us": "/jʊrz/", "uk": "/jɔːz/", "persian": ["مال تو"]},
+  "hers": {"us": "/hɜːrz/", "uk": "/hɜːz/", "persian": ["مال او (زن)"]},
+  "ours": {"us": "/ˈaʊərz/", "uk": "/ˈaʊəz/", "persian": ["مال ما"]},
+  "theirs": {"us": "/ðerz/", "uk": "/ðeəz/", "persian": ["مال آن‌ها"]},
+  "myself": {"us": "/maɪˈself/", "uk": "/maɪˈself/", "persian": ["خودم"]},
+  "yourself": {"us": "/jʊrˈself/", "uk": "/jɔːˈself/", "persian": ["خودت"]},
+  "himself": {"us": "/hɪmˈself/", "uk": "/hɪmˈself/", "persian": ["خودش (مرد)"]},
+  "herself": {"us": "/hɜːrˈself/", "uk": "/hɜːˈself/", "persian": ["خودش (زن)"]},
+  "itself": {"us": "/ɪtˈself/", "uk": "/ɪtˈself/", "persian": ["خودش (شیء)"]},
+  "ourselves": {"us": "/aʊərˈselvz/", "uk": "/aʊəˈselvz/", "persian": ["خودمان"]},
+  "themselves": {"us": "/ðəmˈselvz/", "uk": "/ðəmˈselvz/", "persian": ["خودشان"]},
+
+  "be": {"us": "/biː/", "uk": "/biː/", "persian": ["بودن", "هستن"]},
+  "am": {"us": "/æm/", "uk": "/æm/", "persian": ["هستم"]},
+  "is": {"us": "/ɪz/", "uk": "/ɪz/", "persian": ["است"]},
+  "are": {"us": "/ɑːr/", "uk": "/ɑː/", "persian": ["هستند", "هستیم"]},
+  "was": {"us": "/wʌz/", "uk": "/wɒz/", "persian": ["بود"]},
+  "were": {"us": "/wɜːr/", "uk": "/wɜː/", "persian": ["بودند"]},
+  "been": {"us": "/bɪn/", "uk": "/biːn/", "persian": ["بوده"]},
+  "being": {"us": "/ˈbiːɪŋ/", "uk": "/ˈbiːɪŋ/", "persian": ["هستن", "وجود داشتن"]},
+  "have": {"us": "/hæv/", "uk": "/hæv/", "persian": ["داشتن"]},
+  "has": {"us": "/hæz/", "uk": "/hæz/", "persian": ["دارد"]},
+  "had": {"us": "/hæd/", "uk": "/hæd/", "persian": ["داشت"]},
+  "do": {"us": "/duː/", "uk": "/duː/", "persian": ["انجام دادن"]},
+  "does": {"us": "/dʌz/", "uk": "/dʌz/", "persian": ["انجام می‌دهد"]},
+  "did": {"us": "/dɪd/", "uk": "/dɪd/", "persian": ["انجام داد"]},
+  "done": {"us": "/dʌn/", "uk": "/dʌn/", "persian": ["انجام شده"]},
+  "will": {"us": "/wɪl/", "uk": "/wɪl/", "persian": ["خواهد (آینده)"]},
+  "would": {"us": "/wʊd/", "uk": "/wʊd/", "persian": ["می‌خواست"]},
+  "can": {"us": "/kæn/", "uk": "/kæn/", "persian": ["توانستن", "می‌تواند"]},
+  "could": {"us": "/kʊd/", "uk": "/kʊd/", "persian": ["می‌توانست"]},
+  "may": {"us": "/meɪ/", "uk": "/meɪ/", "persian": ["ممکن است", "ماه می"]},
+  "might": {"us": "/maɪt/", "uk": "/maɪt/", "persian": ["شاید", "ممکن بود"]},
+  "must": {"us": "/mʌst/", "uk": "/mʌst/", "persian": ["باید"]},
+  "shall": {"us": "/ʃæl/", "uk": "/ʃæl/", "persian": ["خواهد (پرسشی)"]},
+  "should": {"us": "/ʃʊd/", "uk": "/ʃʊd/", "persian": ["باید (توصیه)"]},
+
+  "say": {"us": "/seɪ/", "uk": "/seɪ/", "persian": ["گفتن"]},
+  "said": {"us": "/sed/", "uk": "/sed/", "persian": ["گفت"]},
+  "tell": {"us": "/tel/", "uk": "/tel/", "persian": ["گفتن", "تعریف کردن"]},
+  "told": {"us": "/toʊld/", "uk": "/təʊld/", "persian": ["گفت", "تعریف کرد"]},
+  "ask": {"us": "/æsk/", "uk": "/ɑːsk/", "persian": ["پرسیدن"]},
+  "asked": {"us": "/æskt/", "uk": "/ɑːskt/", "persian": ["پرسید"]},
+  "answer": {"us": "/ˈænsər/", "uk": "/ˈɑːnsə/", "persian": ["پاسخ", "جواب دادن"]},
+  "speak": {"us": "/spiːk/", "uk": "/spiːk/", "persian": ["صحبت کردن"]},
+  "talk": {"us": "/tɔːk/", "uk": "/tɔːk/", "persian": ["حرف زدن", "گفتگو"]},
+  "listen": {"us": "/ˈlɪsən/", "uk": "/ˈlɪsən/", "persian": ["گوش دادن"]},
+  "hear": {"us": "/hɪr/", "uk": "/hɪə/", "persian": ["شنیدن"]},
+  "heard": {"us": "/hɜːrd/", "uk": "/hɜːd/", "persian": ["شنید"]},
+  "see": {"us": "/siː/", "uk": "/siː/", "persian": ["دیدن"]},
+  "saw": {"us": "/sɔː/", "uk": "/sɔː/", "persian": ["دید"]},
+  "seen": {"us": "/siːn/", "uk": "/siːn/", "persian": ["دیده"]},
+  "look": {"us": "/lʊk/", "uk": "/lʊk/", "persian": ["نگاه کردن"]},
+  "watch": {"us": "/wɑːtʃ/", "uk": "/wɒtʃ/", "persian": ["تماشا کردن", "ساعت"]},
+  "show": {"us": "/ʃoʊ/", "uk": "/ʃəʊ/", "persian": ["نشان دادن", "نمایش"]},
+  "read": {"us": "/riːd/", "uk": "/riːd/", "persian": ["خواندن"]},
+  "write": {"us": "/raɪt/", "uk": "/raɪt/", "persian": ["نوشتن"]},
+  "wrote": {"us": "/roʊt/", "uk": "/rəʊt/", "persian": ["نوشت"]},
+  "written": {"us": "/ˈrɪtən/", "uk": "/ˈrɪtən/", "persian": ["نوشته"]},
+
+  "go": {"us": "/ɡoʊ/", "uk": "/ɡəʊ/", "persian": ["رفتن"]},
+  "went": {"us": "/went/", "uk": "/went/", "persian": ["رفت"]},
+  "gone": {"us": "/ɡɔːn/", "uk": "/ɡɒn/", "persian": ["رفته"]},
+  "come": {"us": "/kʌm/", "uk": "/kʌm/", "persian": ["آمدن"]},
+  "came": {"us": "/keɪm/", "uk": "/keɪm/", "persian": ["آمد"]},
+  "get": {"us": "/ɡet/", "uk": "/ɡet/", "persian": ["گرفتن", "بدست آوردن"]},
+  "got": {"us": "/ɡɑːt/", "uk": "/ɡɒt/", "persian": ["گرفت"]},
+  "give": {"us": "/ɡɪv/", "uk": "/ɡɪv/", "persian": ["دادن"]},
+  "gave": {"us": "/ɡeɪv/", "uk": "/ɡeɪv/", "persian": ["داد"]},
+  "given": {"us": "/ˈɡɪvən/", "uk": "/ˈɡɪvən/", "persian": ["داده شده"]},
+  "take": {"us": "/teɪk/", "uk": "/teɪk/", "persian": ["گرفتن", "بردن"]},
+  "took": {"us": "/tʊk/", "uk": "/tʊk/", "persian": ["گرفت"]},
+  "taken": {"us": "/ˈteɪkən/", "uk": "/ˈteɪkən/", "persian": ["گرفته"]},
+  "make": {"us": "/meɪk/", "uk": "/meɪk/", "persian": ["ساختن", "درست کردن"]},
+  "made": {"us": "/meɪd/", "uk": "/meɪd/", "persian": ["ساخت"]},
+  "put": {"us": "/pʊt/", "uk": "/pʊt/", "persian": ["گذاشتن"]},
+  "keep": {"us": "/kiːp/", "uk": "/kiːp/", "persian": ["نگه داشتن"]},
+  "kept": {"us": "/kept/", "uk": "/kept/", "persian": ["نگه داشت"]},
+  "let": {"us": "/let/", "uk": "/let/", "persian": ["اجازه دادن"]},
+  "leave": {"us": "/liːv/", "uk": "/liːv/", "persian": ["ترک کردن", "رفتن"]},
+  "left": {"us": "/left/", "uk": "/left/", "persian": ["رفت", "چپ"]},
+  "find": {"us": "/faɪnd/", "uk": "/faɪnd/", "persian": ["پیدا کردن"]},
+  "found": {"us": "/faʊnd/", "uk": "/faʊnd/", "persian": ["پیدا کرد"]},
+  "lose": {"us": "/luːz/", "uk": "/luːz/", "persian": ["از دست دادن", "باختن"]},
+  "lost": {"us": "/lɔːst/", "uk": "/lɒst/", "persian": ["از دست داد", "گمشده"]},
+  "win": {"us": "/wɪn/", "uk": "/wɪn/", "persian": ["بردن"]},
+  "won": {"us": "/wʌn/", "uk": "/wʌn/", "persian": ["برد"]},
+  "buy": {"us": "/baɪ/", "uk": "/baɪ/", "persian": ["خریدن"]},
+  "bought": {"us": "/bɔːt/", "uk": "/bɔːt/", "persian": ["خرید"]},
+  "sell": {"us": "/sel/", "uk": "/sel/", "persian": ["فروختن"]},
+  "sold": {"us": "/soʊld/", "uk": "/səʊld/", "persian": ["فروخت"]},
+  "pay": {"us": "/peɪ/", "uk": "/peɪ/", "persian": ["پرداخت کردن"]},
+  "paid": {"us": "/peɪd/", "uk": "/peɪd/", "persian": ["پرداخت کرد"]},
+  "send": {"us": "/send/", "uk": "/send/", "persian": ["فرستادن"]},
+  "sent": {"us": "/sent/", "uk": "/sent/", "persian": ["فرستاد"]},
+  "bring": {"us": "/brɪŋ/", "uk": "/brɪŋ/", "persian": ["آوردن"]},
+  "brought": {"us": "/brɔːt/", "uk": "/brɔːt/", "persian": ["آورد"]},
+  "carry": {"us": "/ˈkæri/", "uk": "/ˈkæri/", "persian": ["حمل کردن"]},
+
+  "begin": {"us": "/bɪˈɡɪn/", "uk": "/bɪˈɡɪn/", "persian": ["شروع کردن"]},
+  "began": {"us": "/bɪˈɡæn/", "uk": "/bɪˈɡæn/", "persian": ["شروع کرد"]},
+  "start": {"us": "/stɑːrt/", "uk": "/stɑːt/", "persian": ["شروع کردن"]},
+  "stop": {"us": "/stɑːp/", "uk": "/stɒp/", "persian": ["متوقف کردن", "ایست"]},
+  "finish": {"us": "/ˈfɪnɪʃ/", "uk": "/ˈfɪnɪʃ/", "persian": ["تمام کردن"]},
+  "end": {"us": "/end/", "uk": "/end/", "persian": ["پایان", "تمام شدن"]},
+  "continue": {"us": "/kənˈtɪnjuː/", "uk": "/kənˈtɪnjuː/", "persian": ["ادامه دادن"]},
+  "change": {"us": "/tʃeɪndʒ/", "uk": "/tʃeɪndʒ/", "persian": ["تغییر", "تغییر دادن"]},
+  "grow": {"us": "/ɡroʊ/", "uk": "/ɡrəʊ/", "persian": ["رشد کردن"]},
+  "grew": {"us": "/ɡruː/", "uk": "/ɡruː/", "persian": ["رشد کرد"]},
+  "live": {"us": "/lɪv/", "uk": "/lɪv/", "persian": ["زندگی کردن"]},
+  "lived": {"us": "/lɪvd/", "uk": "/lɪvd/", "persian": ["زندگی کرد"]},
+  "die": {"us": "/daɪ/", "uk": "/daɪ/", "persian": ["مردن"]},
+  "died": {"us": "/daɪd/", "uk": "/daɪd/", "persian": ["مرد"]},
+  "kill": {"us": "/kɪl/", "uk": "/kɪl/", "persian": ["کشتن"]},
+  "stay": {"us": "/steɪ/", "uk": "/steɪ/", "persian": ["ماندن"]},
+  "wait": {"us": "/weɪt/", "uk": "/weɪt/", "persian": ["منتظر ماندن"]},
+  "help": {"us": "/help/", "uk": "/help/", "persian": ["کمک کردن"]},
+  "work": {"us": "/wɜːrk/", "uk": "/wɜːk/", "persian": ["کار", "کار کردن"]},
+  "worked": {"us": "/wɜːrkt/", "uk": "/wɜːkt/", "persian": ["کار کرد"]},
+  "play": {"us": "/pleɪ/", "uk": "/pleɪ/", "persian": ["بازی کردن", "نواختن"]},
+  "run": {"us": "/rʌn/", "uk": "/rʌn/", "persian": ["دویدن", "اجرا کردن"]},
+  "ran": {"us": "/ræn/", "uk": "/ræn/", "persian": ["دوید"]},
+  "walk": {"us": "/wɔːk/", "uk": "/wɔːk/", "persian": ["راه رفتن"]},
+  "move": {"us": "/muːv/", "uk": "/muːv/", "persian": ["حرکت کردن"]},
+  "turn": {"us": "/tɜːrn/", "uk": "/tɜːn/", "persian": ["چرخیدن", "نوبت"]},
+  "sit": {"us": "/sɪt/", "uk": "/sɪt/", "persian": ["نشستن"]},
+  "sat": {"us": "/sæt/", "uk": "/sæt/", "persian": ["نشست"]},
+  "stand": {"us": "/stænd/", "uk": "/stænd/", "persian": ["ایستادن"]},
+  "stood": {"us": "/stʊd/", "uk": "/stʊd/", "persian": ["ایستاد"]},
+  "sleep": {"us": "/sliːp/", "uk": "/sliːp/", "persian": ["خوابیدن", "خواب"]},
+  "slept": {"us": "/slept/", "uk": "/slept/", "persian": ["خوابید"]},
+  "wake": {"us": "/weɪk/", "uk": "/weɪk/", "persian": ["بیدار شدن"]},
+  "woke": {"us": "/woʊk/", "uk": "/wəʊk/", "persian": ["بیدار شد"]},
+
+  "eat": {"us": "/iːt/", "uk": "/iːt/", "persian": ["خوردن"]},
+  "ate": {"us": "/eɪt/", "uk": "/eɪt/", "persian": ["خورد"]},
+  "eaten": {"us": "/ˈiːtən/", "uk": "/ˈiːtən/", "persian": ["خورده"]},
+  "drink": {"us": "/drɪŋk/", "uk": "/drɪŋk/", "persian": ["نوشیدن", "نوشیدنی"]},
+  "drank": {"us": "/dræŋk/", "uk": "/dræŋk/", "persian": ["نوشید"]},
+  "cook": {"us": "/kʊk/", "uk": "/kʊk/", "persian": ["آشپزی کردن", "پختن"]},
+  "wash": {"us": "/wɑːʃ/", "uk": "/wɒʃ/", "persian": ["شستن"]},
+  "wear": {"us": "/wer/", "uk": "/weə/", "persian": ["پوشیدن"]},
+  "wore": {"us": "/wɔːr/", "uk": "/wɔː/", "persian": ["پوشید"]},
+
+  "think": {"us": "/θɪŋk/", "uk": "/θɪŋk/", "persian": ["فکر کردن"]},
+  "thought": {"us": "/θɔːt/", "uk": "/θɔːt/", "persian": ["فکر کرد", "فکر"]},
+  "know": {"us": "/noʊ/", "uk": "/nəʊ/", "persian": ["دانستن", "شناختن"]},
+  "knew": {"us": "/nuː/", "uk": "/njuː/", "persian": ["دانست"]},
+  "known": {"us": "/noʊn/", "uk": "/nəʊn/", "persian": ["شناخته"]},
+  "understand": {"us": "/ˌʌndərˈstænd/", "uk": "/ˌʌndəˈstænd/", "persian": ["فهمیدن"]},
+  "understood": {"us": "/ˌʌndərˈstʊd/", "uk": "/ˌʌndəˈstʊd/", "persian": ["فهمید"]},
+  "believe": {"us": "/bɪˈliːv/", "uk": "/bɪˈliːv/", "persian": ["باور کردن"]},
+  "remember": {"us": "/rɪˈmembər/", "uk": "/rɪˈmembə/", "persian": ["به یاد آوردن"]},
+  "forget": {"us": "/fərˈɡet/", "uk": "/fəˈɡet/", "persian": ["فراموش کردن"]},
+  "forgot": {"us": "/fərˈɡɑːt/", "uk": "/fəˈɡɒt/", "persian": ["فراموش کرد"]},
+  "learn": {"us": "/lɜːrn/", "uk": "/lɜːn/", "persian": ["یاد گرفتن"]},
+  "learned": {"us": "/lɜːrnd/", "uk": "/lɜːnd/", "persian": ["یاد گرفت"]},
+  "teach": {"us": "/tiːtʃ/", "uk": "/tiːtʃ/", "persian": ["درس دادن"]},
+  "taught": {"us": "/tɔːt/", "uk": "/tɔːt/", "persian": ["درس داد"]},
+  "study": {"us": "/ˈstʌdi/", "uk": "/ˈstʌdi/", "persian": ["درس خواندن", "مطالعه"]},
+  "wonder": {"us": "/ˈwʌndər/", "uk": "/ˈwʌndə/", "persian": ["تعجب کردن"]},
+  "feel": {"us": "/fiːl/", "uk": "/fiːl/", "persian": ["احساس کردن"]},
+  "felt": {"us": "/felt/", "uk": "/felt/", "persian": ["احساس کرد"]},
+  "seem": {"us": "/siːm/", "uk": "/siːm/", "persian": ["به نظر رسیدن"]},
+  "want": {"us": "/wɑːnt/", "uk": "/wɒnt/", "persian": ["خواستن"]},
+  "need": {"us": "/niːd/", "uk": "/niːd/", "persian": ["نیاز داشتن"]},
+  "like": {"us": "/laɪk/", "uk": "/laɪk/", "persian": ["دوست داشتن", "مانند"]},
+  "love": {"us": "/lʌv/", "uk": "/lʌv/", "persian": ["عشق", "دوست داشتن"]},
+  "hate": {"us": "/heɪt/", "uk": "/heɪt/", "persian": ["متنفر بودن"]},
+  "hope": {"us": "/hoʊp/", "uk": "/həʊp/", "persian": ["امید", "امیدوار بودن"]},
+  "wish": {"us": "/wɪʃ/", "uk": "/wɪʃ/", "persian": ["آرزو کردن"]},
+  "try": {"us": "/traɪ/", "uk": "/traɪ/", "persian": ["تلاش کردن"]},
+  "tried": {"us": "/traɪd/", "uk": "/traɪd/", "persian": ["تلاش کرد"]},
+
+  "person": {"us": "/ˈpɜːrsən/", "uk": "/ˈpɜːsən/", "persian": ["شخص", "فرد"]},
+  "people": {"us": "/ˈpiːpəl/", "uk": "/ˈpiːpəl/", "persian": ["مردم", "افراد"]},
+  "man": {"us": "/mæn/", "uk": "/mæn/", "persian": ["مرد", "آدم"]},
+  "men": {"us": "/men/", "uk": "/men/", "persian": ["مردان"]},
+  "woman": {"us": "/ˈwʊmən/", "uk": "/ˈwʊmən/", "persian": ["زن"]},
+  "women": {"us": "/ˈwɪmɪn/", "uk": "/ˈwɪmɪn/", "persian": ["زنان"]},
+  "boy": {"us": "/bɔɪ/", "uk": "/bɔɪ/", "persian": ["پسر"]},
+  "girl": {"us": "/ɡɜːrl/", "uk": "/ɡɜːl/", "persian": ["دختر"]},
+  "child": {"us": "/tʃaɪld/", "uk": "/tʃaɪld/", "persian": ["بچه", "کودک"]},
+  "children": {"us": "/ˈtʃɪldrən/", "uk": "/ˈtʃɪldrən/", "persian": ["بچه‌ها"]},
+  "baby": {"us": "/ˈbeɪbi/", "uk": "/ˈbeɪbi/", "persian": ["نوزاد", "بچه"]},
+  "kid": {"us": "/kɪd/", "uk": "/kɪd/", "persian": ["بچه"]},
+  "friend": {"us": "/frend/", "uk": "/frend/", "persian": ["دوست", "رفیق"]},
+  "mother": {"us": "/ˈmʌðər/", "uk": "/ˈmʌðə/", "persian": ["مادر"]},
+  "father": {"us": "/ˈfɑːðər/", "uk": "/ˈfɑːðə/", "persian": ["پدر"]},
+  "mom": {"us": "/mɑːm/", "uk": "/mɒm/", "persian": ["مامان"]},
+  "dad": {"us": "/dæd/", "uk": "/dæd/", "persian": ["بابا"]},
+  "parent": {"us": "/ˈperənt/", "uk": "/ˈpeərənt/", "persian": ["والد"]},
+  "brother": {"us": "/ˈbrʌðər/", "uk": "/ˈbrʌðə/", "persian": ["برادر"]},
+  "sister": {"us": "/ˈsɪstər/", "uk": "/ˈsɪstə/", "persian": ["خواهر"]},
+  "son": {"us": "/sʌn/", "uk": "/sʌn/", "persian": ["پسر"]},
+  "daughter": {"us": "/ˈdɔːtər/", "uk": "/ˈdɔːtə/", "persian": ["دختر"]},
+  "husband": {"us": "/ˈhʌzbənd/", "uk": "/ˈhʌzbənd/", "persian": ["شوهر"]},
+  "wife": {"us": "/waɪf/", "uk": "/waɪf/", "persian": ["همسر (زن)"]},
+  "family": {"us": "/ˈfæməli/", "uk": "/ˈfæməli/", "persian": ["خانواده"]},
+  "grandfather": {"us": "/ˈɡrænfɑːðər/", "uk": "/ˈɡrænfɑːðə/", "persian": ["پدربزرگ"]},
+  "grandmother": {"us": "/ˈɡrænmʌðər/", "uk": "/ˈɡrænmʌðə/", "persian": ["مادربزرگ"]},
+
+  "home": {"us": "/hoʊm/", "uk": "/həʊm/", "persian": ["خانه"]},
+  "house": {"us": "/haʊs/", "uk": "/haʊs/", "persian": ["خانه", "منزل"]},
+  "room": {"us": "/ruːm/", "uk": "/ruːm/", "persian": ["اتاق"]},
+  "door": {"us": "/dɔːr/", "uk": "/dɔː/", "persian": ["در"]},
+  "window": {"us": "/ˈwɪndoʊ/", "uk": "/ˈwɪndəʊ/", "persian": ["پنجره"]},
+  "wall": {"us": "/wɔːl/", "uk": "/wɔːl/", "persian": ["دیوار"]},
+  "floor": {"us": "/flɔːr/", "uk": "/flɔː/", "persian": ["کف", "طبقه"]},
+  "table": {"us": "/ˈteɪbəl/", "uk": "/ˈteɪbəl/", "persian": ["میز"]},
+  "chair": {"us": "/tʃer/", "uk": "/tʃeə/", "persian": ["صندلی"]},
+  "bed": {"us": "/bed/", "uk": "/bed/", "persian": ["تختخواب"]},
+
+  "place": {"us": "/pleɪs/", "uk": "/pleɪs/", "persian": ["جا", "مکان"]},
+  "city": {"us": "/ˈsɪti/", "uk": "/ˈsɪti/", "persian": ["شهر"]},
+  "town": {"us": "/taʊn/", "uk": "/taʊn/", "persian": ["شهر کوچک"]},
+  "village": {"us": "/ˈvɪlɪdʒ/", "uk": "/ˈvɪlɪdʒ/", "persian": ["روستا", "دهکده"]},
+  "country": {"us": "/ˈkʌntri/", "uk": "/ˈkʌntri/", "persian": ["کشور", "روستا"]},
+  "world": {"us": "/wɜːrld/", "uk": "/wɜːld/", "persian": ["جهان", "دنیا"]},
+  "school": {"us": "/skuːl/", "uk": "/skuːl/", "persian": ["مدرسه"]},
+  "street": {"us": "/striːt/", "uk": "/striːt/", "persian": ["خیابان"]},
+  "road": {"us": "/roʊd/", "uk": "/rəʊd/", "persian": ["جاده", "راه"]},
+
+  "time": {"us": "/taɪm/", "uk": "/taɪm/", "persian": ["زمان", "وقت", "بار"]},
+  "day": {"us": "/deɪ/", "uk": "/deɪ/", "persian": ["روز"]},
+  "week": {"us": "/wiːk/", "uk": "/wiːk/", "persian": ["هفته"]},
+  "month": {"us": "/mʌnθ/", "uk": "/mʌnθ/", "persian": ["ماه"]},
+  "year": {"us": "/jɪr/", "uk": "/jɪə/", "persian": ["سال"]},
+  "hour": {"us": "/ˈaʊər/", "uk": "/ˈaʊə/", "persian": ["ساعت"]},
+  "minute": {"us": "/ˈmɪnɪt/", "uk": "/ˈmɪnɪt/", "persian": ["دقیقه"]},
+  "second": {"us": "/ˈsekənd/", "uk": "/ˈsekənd/", "persian": ["ثانیه", "دوم"]},
+  "morning": {"us": "/ˈmɔːrnɪŋ/", "uk": "/ˈmɔːnɪŋ/", "persian": ["صبح"]},
+  "afternoon": {"us": "/ˌæftərˈnuːn/", "uk": "/ˌɑːftəˈnuːn/", "persian": ["بعدازظهر"]},
+  "evening": {"us": "/ˈiːvnɪŋ/", "uk": "/ˈiːvnɪŋ/", "persian": ["عصر"]},
+  "night": {"us": "/naɪt/", "uk": "/naɪt/", "persian": ["شب"]},
+  "today": {"us": "/təˈdeɪ/", "uk": "/təˈdeɪ/", "persian": ["امروز"]},
+  "tomorrow": {"us": "/təˈmɑːroʊ/", "uk": "/təˈmɒrəʊ/", "persian": ["فردا"]},
+  "yesterday": {"us": "/ˈjestərdeɪ/", "uk": "/ˈjestədeɪ/", "persian": ["دیروز"]},
+  "now": {"us": "/naʊ/", "uk": "/naʊ/", "persian": ["حالا", "اکنون"]},
+  "then": {"us": "/ðen/", "uk": "/ðen/", "persian": ["بعد", "آنگاه"]},
+  "soon": {"us": "/suːn/", "uk": "/suːn/", "persian": ["به‌زودی"]},
+  "early": {"us": "/ˈɜːrli/", "uk": "/ˈɜːli/", "persian": ["زود"]},
+  "late": {"us": "/leɪt/", "uk": "/leɪt/", "persian": ["دیر"]},
+
+  "water": {"us": "/ˈwɔːtər/", "uk": "/ˈwɔːtə/", "persian": ["آب"]},
+  "food": {"us": "/fuːd/", "uk": "/fuːd/", "persian": ["غذا", "خوراک"]},
+  "bread": {"us": "/bred/", "uk": "/bred/", "persian": ["نان"]},
+  "milk": {"us": "/mɪlk/", "uk": "/mɪlk/", "persian": ["شیر"]},
+  "tea": {"us": "/tiː/", "uk": "/tiː/", "persian": ["چای"]},
+  "coffee": {"us": "/ˈkɔːfi/", "uk": "/ˈkɒfi/", "persian": ["قهوه"]},
+  "rice": {"us": "/raɪs/", "uk": "/raɪs/", "persian": ["برنج"]},
+  "meat": {"us": "/miːt/", "uk": "/miːt/", "persian": ["گوشت"]},
+  "fruit": {"us": "/fruːt/", "uk": "/fruːt/", "persian": ["میوه"]},
+  "apple": {"us": "/ˈæpəl/", "uk": "/ˈæpəl/", "persian": ["سیب"]},
+  "egg": {"us": "/eɡ/", "uk": "/eɡ/", "persian": ["تخم مرغ"]},
+
+  "good": {"us": "/ɡʊd/", "uk": "/ɡʊd/", "persian": ["خوب", "نیک"]},
+  "bad": {"us": "/bæd/", "uk": "/bæd/", "persian": ["بد"]},
+  "big": {"us": "/bɪɡ/", "uk": "/bɪɡ/", "persian": ["بزرگ"]},
+  "small": {"us": "/smɔːl/", "uk": "/smɔːl/", "persian": ["کوچک"]},
+  "large": {"us": "/lɑːrdʒ/", "uk": "/lɑːdʒ/", "persian": ["بزرگ", "وسیع"]},
+  "little": {"us": "/ˈlɪtəl/", "uk": "/ˈlɪtəl/", "persian": ["کوچک", "کمی"]},
+  "long": {"us": "/lɔːŋ/", "uk": "/lɒŋ/", "persian": ["طولانی", "بلند"]},
+  "short": {"us": "/ʃɔːrt/", "uk": "/ʃɔːt/", "persian": ["کوتاه"]},
+  "high": {"us": "/haɪ/", "uk": "/haɪ/", "persian": ["بلند", "بالا"]},
+  "low": {"us": "/loʊ/", "uk": "/ləʊ/", "persian": ["پایین", "کوتاه"]},
+  "old": {"us": "/oʊld/", "uk": "/əʊld/", "persian": ["پیر", "قدیمی"]},
+  "new": {"us": "/nuː/", "uk": "/njuː/", "persian": ["جدید", "نو"]},
+  "young": {"us": "/jʌŋ/", "uk": "/jʌŋ/", "persian": ["جوان", "کم‌سن"]},
+  "beautiful": {"us": "/ˈbjuːtəfəl/", "uk": "/ˈbjuːtəfəl/", "persian": ["زیبا", "خوشگل"]},
+  "ugly": {"us": "/ˈʌɡli/", "uk": "/ˈʌɡli/", "persian": ["زشت"]},
+  "happy": {"us": "/ˈhæpi/", "uk": "/ˈhæpi/", "persian": ["خوشحال", "شاد"]},
+  "sad": {"us": "/sæd/", "uk": "/sæd/", "persian": ["غمگین", "ناراحت"]},
+  "angry": {"us": "/ˈæŋɡri/", "uk": "/ˈæŋɡri/", "persian": ["عصبانی"]},
+  "afraid": {"us": "/əˈfreɪd/", "uk": "/əˈfreɪd/", "persian": ["ترسیده"]},
+  "tired": {"us": "/ˈtaɪərd/", "uk": "/ˈtaɪəd/", "persian": ["خسته"]},
+  "hungry": {"us": "/ˈhʌŋɡri/", "uk": "/ˈhʌŋɡri/", "persian": ["گرسنه"]},
+  "thirsty": {"us": "/ˈθɜːrsti/", "uk": "/ˈθɜːsti/", "persian": ["تشنه"]},
+  "sick": {"us": "/sɪk/", "uk": "/sɪk/", "persian": ["مریض"]},
+  "healthy": {"us": "/ˈhelθi/", "uk": "/ˈhelθi/", "persian": ["سالم"]},
+  "hot": {"us": "/hɑːt/", "uk": "/hɒt/", "persian": ["گرم", "داغ"]},
+  "cold": {"us": "/koʊld/", "uk": "/kəʊld/", "persian": ["سرد"]},
+  "warm": {"us": "/wɔːrm/", "uk": "/wɔːm/", "persian": ["گرم"]},
+  "cool": {"us": "/kuːl/", "uk": "/kuːl/", "persian": ["خنک"]},
+  "fast": {"us": "/fæst/", "uk": "/fɑːst/", "persian": ["سریع"]},
+  "slow": {"us": "/sloʊ/", "uk": "/sləʊ/", "persian": ["آهسته"]},
+  "easy": {"us": "/ˈiːzi/", "uk": "/ˈiːzi/", "persian": ["آسان"]},
+  "difficult": {"us": "/ˈdɪfɪkəlt/", "uk": "/ˈdɪfɪkəlt/", "persian": ["سخت"]},
+  "hard": {"us": "/hɑːrd/", "uk": "/hɑːd/", "persian": ["سخت", "سفت"]},
+  "true": {"us": "/truː/", "uk": "/truː/", "persian": ["درست", "واقعی"]},
+  "false": {"us": "/fɔːls/", "uk": "/fɔːls/", "persian": ["غلط", "دروغ"]},
+  "same": {"us": "/seɪm/", "uk": "/seɪm/", "persian": ["یکسان", "همان"]},
+  "different": {"us": "/ˈdɪfərənt/", "uk": "/ˈdɪfrənt/", "persian": ["متفاوت"]},
+  "important": {"us": "/ɪmˈpɔːrtənt/", "uk": "/ɪmˈpɔːtənt/", "persian": ["مهم"]},
+  "interesting": {"us": "/ˈɪntrəstɪŋ/", "uk": "/ˈɪntrəstɪŋ/", "persian": ["جالب"]},
+  "boring": {"us": "/ˈbɔːrɪŋ/", "uk": "/ˈbɔːrɪŋ/", "persian": ["خسته‌کننده"]},
+  "ready": {"us": "/ˈredi/", "uk": "/ˈredi/", "persian": ["آماده"]},
+  "sure": {"us": "/ʃʊr/", "uk": "/ʃʊə/", "persian": ["مطمئن"]},
+  "right": {"us": "/raɪt/", "uk": "/raɪt/", "persian": ["درست", "راست"]},
+  "wrong": {"us": "/rɔːŋ/", "uk": "/rɒŋ/", "persian": ["غلط", "اشتباه"]},
+  "free": {"us": "/friː/", "uk": "/friː/", "persian": ["آزاد", "رایگان"]},
+  "busy": {"us": "/ˈbɪzi/", "uk": "/ˈbɪzi/", "persian": ["مشغول", "شلوغ"]},
+  "quiet": {"us": "/ˈkwaɪət/", "uk": "/ˈkwaɪət/", "persian": ["ساکت", "آرام"]},
+  "loud": {"us": "/laʊd/", "uk": "/laʊd/", "persian": ["بلند", "پرسروصدا"]},
+
+  "very": {"us": "/ˈveri/", "uk": "/ˈveri/", "persian": ["خیلی", "بسیار"]},
+  "really": {"us": "/ˈriːəli/", "uk": "/ˈrɪəli/", "persian": ["واقعاً"]},
+  "too": {"us": "/tuː/", "uk": "/tuː/", "persian": ["همچنین", "زیادی"]},
+  "also": {"us": "/ˈɔːlsoʊ/", "uk": "/ˈɔːlsəʊ/", "persian": ["همچنین"]},
+  "only": {"us": "/ˈoʊnli/", "uk": "/ˈəʊnli/", "persian": ["فقط", "تنها"]},
+  "just": {"us": "/dʒʌst/", "uk": "/dʒʌst/", "persian": ["فقط", "همین حالا"]},
+  "even": {"us": "/ˈiːvən/", "uk": "/ˈiːvən/", "persian": ["حتی", "یکنواخت"]},
+  "still": {"us": "/stɪl/", "uk": "/stɪl/", "persian": ["هنوز", "باز هم"]},
+  "already": {"us": "/ɔːlˈredi/", "uk": "/ɔːlˈredi/", "persian": ["قبلاً", "دیگر"]},
+  "yet": {"us": "/jet/", "uk": "/jet/", "persian": ["هنوز (منفی)", "با این حال"]},
+  "ever": {"us": "/ˈevər/", "uk": "/ˈevə/", "persian": ["هرگز (سؤالی)", "همیشه"]},
+  "never": {"us": "/ˈnevər/", "uk": "/ˈnevə/", "persian": ["هرگز"]},
+  "always": {"us": "/ˈɔːlweɪz/", "uk": "/ˈɔːlweɪz/", "persian": ["همیشه"]},
+  "often": {"us": "/ˈɔːfən/", "uk": "/ˈɒfən/", "persian": ["اغلب"]},
+  "sometimes": {"us": "/ˈsʌmtaɪmz/", "uk": "/ˈsʌmtaɪmz/", "persian": ["گاهی"]},
+  "usually": {"us": "/ˈjuːʒuəli/", "uk": "/ˈjuːʒuəli/", "persian": ["معمولاً"]},
+  "maybe": {"us": "/ˈmeɪbi/", "uk": "/ˈmeɪbi/", "persian": ["شاید"]},
+  "perhaps": {"us": "/pərˈhæps/", "uk": "/pəˈhæps/", "persian": ["شاید"]},
+  "almost": {"us": "/ˈɔːlmoʊst/", "uk": "/ˈɔːlməʊst/", "persian": ["تقریباً"]},
+  "about": {"us": "/əˈbaʊt/", "uk": "/əˈbaʊt/", "persian": ["درباره", "حدود"]},
+  "before": {"us": "/bɪˈfɔːr/", "uk": "/bɪˈfɔː/", "persian": ["قبل", "پیش از"]},
+  "after": {"us": "/ˈæftər/", "uk": "/ˈɑːftə/", "persian": ["بعد از"]},
+  "during": {"us": "/ˈdʊrɪŋ/", "uk": "/ˈdjʊərɪŋ/", "persian": ["در طول"]},
+  "between": {"us": "/bɪˈtwiːn/", "uk": "/bɪˈtwiːn/", "persian": ["بین"]},
+  "among": {"us": "/əˈmʌŋ/", "uk": "/əˈmʌŋ/", "persian": ["میان", "در میان"]},
+  "through": {"us": "/θruː/", "uk": "/θruː/", "persian": ["از طریق", "در طول"]},
+  "across": {"us": "/əˈkrɔːs/", "uk": "/əˈkrɒs/", "persian": ["در سراسر", "آن طرف"]},
+  "along": {"us": "/əˈlɔːŋ/", "uk": "/əˈlɒŋ/", "persian": ["در طول", "همراه"]},
+  "around": {"us": "/əˈraʊnd/", "uk": "/əˈraʊnd/", "persian": ["دور", "حدود"]},
+  "above": {"us": "/əˈbʌv/", "uk": "/əˈbʌv/", "persian": ["بالای"]},
+  "below": {"us": "/bɪˈloʊ/", "uk": "/bɪˈləʊ/", "persian": ["زیر"]},
+  "under": {"us": "/ˈʌndər/", "uk": "/ˈʌndə/", "persian": ["زیر"]},
+  "over": {"us": "/ˈoʊvər/", "uk": "/ˈəʊvə/", "persian": ["بالای", "تمام شده"]},
+  "on": {"us": "/ɑːn/", "uk": "/ɒn/", "persian": ["روی", "روشن"]},
+  "in": {"us": "/ɪn/", "uk": "/ɪn/", "persian": ["در", "داخل"]},
+  "out": {"us": "/aʊt/", "uk": "/aʊt/", "persian": ["بیرون", "خارج"]},
+  "up": {"us": "/ʌp/", "uk": "/ʌp/", "persian": ["بالا", "بیدار"]},
+  "down": {"us": "/daʊn/", "uk": "/daʊn/", "persian": ["پایین"]},
+  "off": {"us": "/ɔːf/", "uk": "/ɒf/", "persian": ["خاموش", "دور"]},
+  "into": {"us": "/ˈɪntuː/", "uk": "/ˈɪntuː/", "persian": ["به داخل"]},
+  "with": {"us": "/wɪð/", "uk": "/wɪð/", "persian": ["با"]},
+  "without": {"us": "/wɪˈðaʊt/", "uk": "/wɪˈðaʊt/", "persian": ["بدون"]},
+  "for": {"us": "/fɔːr/", "uk": "/fɔː/", "persian": ["برای", "به مدت"]},
+  "from": {"us": "/frʌm/", "uk": "/frɒm/", "persian": ["از"]},
+  "to": {"us": "/tuː/", "uk": "/tuː/", "persian": ["به", "برای"]},
+  "of": {"us": "/ʌv/", "uk": "/ɒv/", "persian": ["از", "مال"]},
+  "at": {"us": "/æt/", "uk": "/æt/", "persian": ["در", "در ساعت"]},
+  "by": {"us": "/baɪ/", "uk": "/baɪ/", "persian": ["با", "توسط"]},
+  "as": {"us": "/æz/", "uk": "/æz/", "persian": ["به عنوان", "همانند"]},
+  "than": {"us": "/ðæn/", "uk": "/ðæn/", "persian": ["از (مقایسه)"]},
+  "such": {"us": "/sʌtʃ/", "uk": "/sʌtʃ/", "persian": ["چنین"]},
+  "some": {"us": "/sʌm/", "uk": "/sʌm/", "persian": ["بعضی", "مقداری"]},
+  "any": {"us": "/ˈeni/", "uk": "/ˈeni/", "persian": ["هر", "هیچ"]},
+  "every": {"us": "/ˈevri/", "uk": "/ˈevri/", "persian": ["هر"]},
+  "each": {"us": "/iːtʃ/", "uk": "/iːtʃ/", "persian": ["هر یک"]},
+  "both": {"us": "/boʊθ/", "uk": "/bəʊθ/", "persian": ["هر دو"]},
+  "all": {"us": "/ɔːl/", "uk": "/ɔːl/", "persian": ["همه", "تمام"]},
+  "most": {"us": "/moʊst/", "uk": "/məʊst/", "persian": ["بیشتر", "اکثر"]},
+  "many": {"us": "/ˈmeni/", "uk": "/ˈmeni/", "persian": ["بسیار", "زیاد"]},
+  "much": {"us": "/mʌtʃ/", "uk": "/mʌtʃ/", "persian": ["بسیار", "زیاد"]},
+  "more": {"us": "/mɔːr/", "uk": "/mɔː/", "persian": ["بیشتر"]},
+  "less": {"us": "/les/", "uk": "/les/", "persian": ["کمتر"]},
+  "few": {"us": "/fjuː/", "uk": "/fjuː/", "persian": ["چند", "کم"]},
+  "several": {"us": "/ˈsevrəl/", "uk": "/ˈsevrəl/", "persian": ["چندین"]},
+
+  "yes": {"us": "/jes/", "uk": "/jes/", "persian": ["بله"]},
+  "no": {"us": "/noʊ/", "uk": "/nəʊ/", "persian": ["نه", "خیر"]},
+  "ok": {"us": "/ˌoʊˈkeɪ/", "uk": "/ˌəʊˈkeɪ/", "persian": ["خوب", "باشه"]},
+  "hello": {"us": "/həˈloʊ/", "uk": "/həˈləʊ/", "persian": ["سلام"]},
+  "hi": {"us": "/haɪ/", "uk": "/haɪ/", "persian": ["سلام"]},
+  "goodbye": {"us": "/ɡʊdˈbaɪ/", "uk": "/ɡʊdˈbaɪ/", "persian": ["خداحافظ"]},
+  "bye": {"us": "/baɪ/", "uk": "/baɪ/", "persian": ["خداحافظ"]},
+  "please": {"us": "/pliːz/", "uk": "/pliːz/", "persian": ["لطفاً"]},
+  "thanks": {"us": "/θæŋks/", "uk": "/θæŋks/", "persian": ["ممنون"]},
+  "sorry": {"us": "/ˈsɑːri/", "uk": "/ˈsɒri/", "persian": ["متأسفم", "ببخشید"]},
+  "welcome": {"us": "/ˈwelkəm/", "uk": "/ˈwelkəm/", "persian": ["خوش آمدید"]},
+  "excuse": {"us": "/ɪkˈskjuːz/", "uk": "/ɪkˈskjuːz/", "persian": ["ببخشید"]},
+
+  "something": {"us": "/ˈsʌmθɪŋ/", "uk": "/ˈsʌmθɪŋ/", "persian": ["چیزی"]},
+  "anything": {"us": "/ˈeniθɪŋ/", "uk": "/ˈeniθɪŋ/", "persian": ["هر چیزی"]},
+  "nothing": {"us": "/ˈnʌθɪŋ/", "uk": "/ˈnʌθɪŋ/", "persian": ["هیچ چیز"]},
+  "everything": {"us": "/ˈevriθɪŋ/", "uk": "/ˈevriθɪŋ/", "persian": ["همه چیز"]},
+  "someone": {"us": "/ˈsʌmwʌn/", "uk": "/ˈsʌmwʌn/", "persian": ["کسی"]},
+  "somebody": {"us": "/ˈsʌmbədi/", "uk": "/ˈsʌmbədi/", "persian": ["یک نفر"]},
+  "anyone": {"us": "/ˈeniwʌn/", "uk": "/ˈeniwʌn/", "persian": ["هرکسی"]},
+  "everyone": {"us": "/ˈevriwʌn/", "uk": "/ˈevriwʌn/", "persian": ["همه"]},
+  "nobody": {"us": "/ˈnoʊbədi/", "uk": "/ˈnəʊbədi/", "persian": ["هیچ‌کس"]},
+  "somewhere": {"us": "/ˈsʌmwer/", "uk": "/ˈsʌmweə/", "persian": ["جایی"]},
+  "anywhere": {"us": "/ˈeniwer/", "uk": "/ˈeniweə/", "persian": ["هر جایی"]},
+  "everywhere": {"us": "/ˈevriwer/", "uk": "/ˈevriweə/", "persian": ["همه‌جا"]},
+  "nowhere": {"us": "/ˈnoʊwer/", "uk": "/ˈnəʊweə/", "persian": ["هیچ‌جا"]},
+
+  "price": {"us": "/praɪs/", "uk": "/praɪs/", "persian": ["قیمت"]},
+  "cheap": {"us": "/tʃiːp/", "uk": "/tʃiːp/", "persian": ["ارزان"]},
+  "expensive": {"us": "/ɪkˈspensɪv/", "uk": "/ɪkˈspensɪv/", "persian": ["گران"]},
+  "rich": {"us": "/rɪtʃ/", "uk": "/rɪtʃ/", "persian": ["ثروتمند"]},
+  "poor": {"us": "/pʊr/", "uk": "/pʊə/", "persian": ["فقیر"]},
+  "car": {"us": "/kɑːr/", "uk": "/kɑː/", "persian": ["ماشین", "اتومبیل"]},
+  "bus": {"us": "/bʌs/", "uk": "/bʌs/", "persian": ["اتوبوس"]},
+  "train": {"us": "/treɪn/", "uk": "/treɪn/", "persian": ["قطار"]},
+  "plane": {"us": "/pleɪn/", "uk": "/pleɪn/", "persian": ["هواپیما"]},
+  "ship": {"us": "/ʃɪp/", "uk": "/ʃɪp/", "persian": ["کشتی"]},
+  "boat": {"us": "/boʊt/", "uk": "/bəʊt/", "persian": ["قایق"]},
+  "phone": {"us": "/foʊn/", "uk": "/fəʊn/", "persian": ["تلفن", "گوشی"]},
+  "computer": {"us": "/kəmˈpjuːtər/", "uk": "/kəmˈpjuːtə/", "persian": ["کامپیوتر"]},
+  "internet": {"us": "/ˈɪntərnet/", "uk": "/ˈɪntənet/", "persian": ["اینترنت"]},
+  "email": {"us": "/ˈiːmeɪl/", "uk": "/ˈiːmeɪl/", "persian": ["ایمیل"]},
+
+  "life": {"us": "/laɪf/", "uk": "/laɪf/", "persian": ["زندگی"]},
+  "death": {"us": "/deθ/", "uk": "/deθ/", "persian": ["مرگ"]},
+  "dream": {"us": "/driːm/", "uk": "/driːm/", "persian": ["خواب", "رؤیا"]},
+  "future": {"us": "/ˈfjuːtʃər/", "uk": "/ˈfjuːtʃə/", "persian": ["آینده"]},
+  "past": {"us": "/pæst/", "uk": "/pɑːst/", "persian": ["گذشته"]},
+  "present": {"us": "/ˈprezənt/", "uk": "/ˈprezənt/", "persian": ["حال", "هدیه"]},
+  "problem": {"us": "/ˈprɑːbləm/", "uk": "/ˈprɒbləm/", "persian": ["مشکل"]},
+  "question": {"us": "/ˈkwestʃən/", "uk": "/ˈkwestʃən/", "persian": ["سؤال"]},
+  "idea": {"us": "/aɪˈdiːə/", "uk": "/aɪˈdɪə/", "persian": ["ایده", "فکر"]},
+  "reason": {"us": "/ˈriːzən/", "uk": "/ˈriːzən/", "persian": ["دلیل"]},
+  "story": {"us": "/ˈstɔːri/", "uk": "/ˈstɔːri/", "persian": ["داستان"]},
+  "word": {"us": "/wɜːrd/", "uk": "/wɜːd/", "persian": ["کلمه"]},
+  "language": {"us": "/ˈlæŋɡwɪdʒ/", "uk": "/ˈlæŋɡwɪdʒ/", "persian": ["زبان"]},
+  "English": {"us": "/ˈɪŋɡlɪʃ/", "uk": "/ˈɪŋɡlɪʃ/", "persian": ["انگلیسی"]},
+  "book": {"us": "/bʊk/", "uk": "/bʊk/", "persian": ["کتاب"]},
+  "teacher": {"us": "/ˈtiːtʃər/", "uk": "/ˈtiːtʃə/", "persian": ["معلم"]},
+  "student": {"us": "/ˈstuːdənt/", "uk": "/ˈstjuːdənt/", "persian": ["دانش‌آموز", "دانشجو"]},
+  "head": {"us": "/hed/", "uk": "/hed/", "persian": ["سر", "رئیس"]},
+  "face": {"us": "/feɪs/", "uk": "/feɪs/", "persian": ["صورت", "چهره"]},
+  "eye": {"us": "/aɪ/", "uk": "/aɪ/", "persian": ["چشم"]},
+  "eyes": {"us": "/aɪz/", "uk": "/aɪz/", "persian": ["چشم‌ها"]},
+  "ear": {"us": "/ɪr/", "uk": "/ɪə/", "persian": ["گوش"]},
+  "nose": {"us": "/noʊz/", "uk": "/nəʊz/", "persian": ["بینی"]},
+  "mouth": {"us": "/maʊθ/", "uk": "/maʊθ/", "persian": ["دهان"]},
+  "tooth": {"us": "/tuːθ/", "uk": "/tuːθ/", "persian": ["دندان"]},
+  "tongue": {"us": "/tʌŋ/", "uk": "/tʌŋ/", "persian": ["زبان (عضو)"]},
+  "lip": {"us": "/lɪp/", "uk": "/lɪp/", "persian": ["لب"]},
+  "hair": {"us": "/her/", "uk": "/heə/", "persian": ["مو", "موها"]},
+  "neck": {"us": "/nek/", "uk": "/nek/", "persian": ["گردن"]},
+  "shoulder": {"us": "/ˈʃoʊldər/", "uk": "/ˈʃəʊldə/", "persian": ["شانه"]},
+  "arm": {"us": "/ɑːrm/", "uk": "/ɑːm/", "persian": ["بازو"]},
+  "hand": {"us": "/hænd/", "uk": "/hænd/", "persian": ["دست"]},
+  "finger": {"us": "/ˈfɪŋɡər/", "uk": "/ˈfɪŋɡə/", "persian": ["انگشت"]},
+  "leg": {"us": "/leɡ/", "uk": "/leɡ/", "persian": ["پا (ساق)"]},
+  "foot": {"us": "/fʊt/", "uk": "/fʊt/", "persian": ["پا"]},
+  "knee": {"us": "/niː/", "uk": "/niː/", "persian": ["زانو"]},
+  "heart": {"us": "/hɑːrt/", "uk": "/hɑːt/", "persian": ["قلب"]},
+  "blood": {"us": "/blʌd/", "uk": "/blʌd/", "persian": ["خون"]},
+  "brain": {"us": "/breɪn/", "uk": "/breɪn/", "persian": ["مغز"]},
+  "skin": {"us": "/skɪn/", "uk": "/skɪn/", "persian": ["پوست"]},
+  "bone": {"us": "/boʊn/", "uk": "/bəʊn/", "persian": ["استخوان"]},
+  "body": {"us": "/ˈbɑːdi/", "uk": "/ˈbɒdi/", "persian": ["بدن"]},
+
+  "shirt": {"us": "/ʃɜːrt/", "uk": "/ʃɜːt/", "persian": ["پیراهن"]},
+  "T-shirt": {"us": "/ˈtiː ʃɜːrt/", "uk": "/ˈtiː ʃɜːt/", "persian": ["تی‌شرت"]},
+  "pants": {"us": "/pænts/", "uk": "/pænts/", "persian": ["شلوار"]},
+  "trousers": {"us": "/ˈtraʊzərz/", "uk": "/ˈtraʊzəz/", "persian": ["شلوار"]},
+  "skirt": {"us": "/skɜːrt/", "uk": "/skɜːt/", "persian": ["دامن"]},
+  "jacket": {"us": "/ˈdʒækɪt/", "uk": "/ˈdʒækɪt/", "persian": ["کاپشن", "ژاکت"]},
+  "coat": {"us": "/koʊt/", "uk": "/kəʊt/", "persian": ["پالتو"]},
+  "shoe": {"us": "/ʃuː/", "uk": "/ʃuː/", "persian": ["کفش"]},
+  "hat": {"us": "/hæt/", "uk": "/hæt/", "persian": ["کلاه"]},
+  "cap": {"us": "/kæp/", "uk": "/kæp/", "persian": ["کلاه لبه‌دار"]},
+  "sock": {"us": "/sɑːk/", "uk": "/sɒk/", "persian": ["جوراب"]},
+  "glove": {"us": "/ɡlʌv/", "uk": "/ɡlʌv/", "persian": ["دستکش"]},
+  "scarf": {"us": "/skɑːrf/", "uk": "/skɑːf/", "persian": ["شال گردن"]},
+  "tie": {"us": "/taɪ/", "uk": "/taɪ/", "persian": ["کراوات"]},
+  "belt": {"us": "/belt/", "uk": "/belt/", "persian": ["کمربند"]},
+  "ring": {"us": "/rɪŋ/", "uk": "/rɪŋ/", "persian": ["حلقه", "زنگ"]},
+  "glasses": {"us": "/ˈɡlæsɪz/", "uk": "/ˈɡlɑːsɪz/", "persian": ["عینک"]},
+  "bag": {"us": "/bæɡ/", "uk": "/bæɡ/", "persian": ["کیف"]},
+
+  "lion": {"us": "/ˈlaɪən/", "uk": "/ˈlaɪən/", "persian": ["شیر"]},
+  "tiger": {"us": "/ˈtaɪɡər/", "uk": "/ˈtaɪɡə/", "persian": ["ببر"]},
+  "bear": {"us": "/ber/", "uk": "/beə/", "persian": ["خرس"]},
+  "elephant": {"us": "/ˈeləfənt/", "uk": "/ˈelɪfənt/", "persian": ["فیل"]},
+  "monkey": {"us": "/ˈmʌŋki/", "uk": "/ˈmʌŋki/", "persian": ["میمون"]},
+  "wolf": {"us": "/wʊlf/", "uk": "/wʊlf/", "persian": ["گرگ"]},
+  "fox": {"us": "/fɑːks/", "uk": "/fɒks/", "persian": ["روباه"]},
+  "rabbit": {"us": "/ˈræbɪt/", "uk": "/ˈræbɪt/", "persian": ["خرگوش"]},
+  "mouse": {"us": "/maʊs/", "uk": "/maʊs/", "persian": ["موش"]},
+  "snake": {"us": "/sneɪk/", "uk": "/sneɪk/", "persian": ["مار"]},
+  "turtle": {"us": "/ˈtɜːrtəl/", "uk": "/ˈtɜːtəl/", "persian": ["لاک‌پشت"]},
+  "frog": {"us": "/frɔːɡ/", "uk": "/frɒɡ/", "persian": ["قورباغه"]},
+  "sheep": {"us": "/ʃiːp/", "uk": "/ʃiːp/", "persian": ["گوسفند"]},
+  "goat": {"us": "/ɡoʊt/", "uk": "/ɡəʊt/", "persian": ["بز"]},
+  "cow": {"us": "/kaʊ/", "uk": "/kaʊ/", "persian": ["گاو"]},
+  "pig": {"us": "/pɪɡ/", "uk": "/pɪɡ/", "persian": ["خوک"]},
+  "chicken": {"us": "/ˈtʃɪkɪn/", "uk": "/ˈtʃɪkɪn/", "persian": ["مرغ", "جوجه"]},
+  "duck": {"us": "/dʌk/", "uk": "/dʌk/", "persian": ["اردک"]},
+  "goose": {"us": "/ɡuːs/", "uk": "/ɡuːs/", "persian": ["غاز"]},
+  "insect": {"us": "/ˈɪnsekt/", "uk": "/ˈɪnsekt/", "persian": ["حشره"]},
+  "bee": {"us": "/biː/", "uk": "/biː/", "persian": ["زنبور"]},
+  "ant": {"us": "/ænt/", "uk": "/ænt/", "persian": ["مورچه"]},
+  "butterfly": {"us": "/ˈbʌtərflaɪ/", "uk": "/ˈbʌtəflaɪ/", "persian": ["پروانه"]},
+
+  "vegetable": {"us": "/ˈvedʒtəbəl/", "uk": "/ˈvedʒtəbəl/", "persian": ["سبزی", "سبزیجات"]},
+  "carrot": {"us": "/ˈkærət/", "uk": "/ˈkærət/", "persian": ["هویج"]},
+  "potato": {"us": "/pəˈteɪtoʊ/", "uk": "/pəˈteɪtəʊ/", "persian": ["سیب‌زمینی"]},
+  "tomato": {"us": "/təˈmeɪtoʊ/", "uk": "/təˈmɑːtəʊ/", "persian": ["گوجه"]},
+  "onion": {"us": "/ˈʌnjən/", "uk": "/ˈʌnjən/", "persian": ["پیاز"]},
+  "garlic": {"us": "/ˈɡɑːrlɪk/", "uk": "/ˈɡɑːlɪk/", "persian": ["سیر"]},
+  "banana": {"us": "/bəˈnænə/", "uk": "/bəˈnɑːnə/", "persian": ["موز"]},
+  "grape": {"us": "/ɡreɪp/", "uk": "/ɡreɪp/", "persian": ["انگور"]},
+  "watermelon": {"us": "/ˈwɔːtərmelən/", "uk": "/ˈwɔːtəmelən/", "persian": ["هندوانه"]},
+  "strawberry": {"us": "/ˈstrɔːberi/", "uk": "/ˈstrɔːbəri/", "persian": ["توت‌فرنگی"]},
+  "cherry": {"us": "/ˈtʃeri/", "uk": "/ˈtʃeri/", "persian": ["گیلاس"]},
+  "lemon": {"us": "/ˈlemən/", "uk": "/ˈlemən/", "persian": ["لیمو"]},
+  "cake": {"us": "/keɪk/", "uk": "/keɪk/", "persian": ["کیک"]},
+  "cookie": {"us": "/ˈkʊki/", "uk": "/ˈkʊki/", "persian": ["بیسکویت"]},
+  "chocolate": {"us": "/ˈtʃɑːklət/", "uk": "/ˈtʃɒklət/", "persian": ["شکلات"]},
+  "ice cream": {"us": "/aɪs kriːm/", "uk": "/aɪs kriːm/", "persian": ["بستنی"]},
+  "sugar": {"us": "/ˈʃʊɡər/", "uk": "/ˈʃʊɡə/", "persian": ["شکر"]},
+  "salt": {"us": "/sɔːlt/", "uk": "/sɒlt/", "persian": ["نمک"]},
+  "pepper": {"us": "/ˈpepər/", "uk": "/ˈpepə/", "persian": ["فلفل"]},
+  "oil": {"us": "/ɔɪl/", "uk": "/ɔɪl/", "persian": ["روغن"]},
+  "butter": {"us": "/ˈbʌtər/", "uk": "/ˈbʌtə/", "persian": ["کره"]},
+  "cheese": {"us": "/tʃiːz/", "uk": "/tʃiːz/", "persian": ["پنیر"]},
+  "soup": {"us": "/suːp/", "uk": "/suːp/", "persian": ["سوپ"]},
+  "salad": {"us": "/ˈsæləd/", "uk": "/ˈsæləd/", "persian": ["سالاد"]},
+  "sandwich": {"us": "/ˈsænwɪtʃ/", "uk": "/ˈsænwɪdʒ/", "persian": ["ساندویچ"]},
+  "pizza": {"us": "/ˈpiːtsə/", "uk": "/ˈpiːtsə/", "persian": ["پیتزا"]},
+  "breakfast": {"us": "/ˈbrekfəst/", "uk": "/ˈbrekfəst/", "persian": ["صبحانه"]},
+  "lunch": {"us": "/lʌntʃ/", "uk": "/lʌntʃ/", "persian": ["ناهار"]},
+  "dinner": {"us": "/ˈdɪnər/", "uk": "/ˈdɪnə/", "persian": ["شام"]},
+
+  "kitchen": {"us": "/ˈkɪtʃɪn/", "uk": "/ˈkɪtʃɪn/", "persian": ["آشپزخانه"]},
+  "bathroom": {"us": "/ˈbæθruːm/", "uk": "/ˈbɑːθruːm/", "persian": ["حمام", "دستشویی"]},
+  "bedroom": {"us": "/ˈbedruːm/", "uk": "/ˈbedruːm/", "persian": ["اتاق خواب"]},
+  "garden": {"us": "/ˈɡɑːrdən/", "uk": "/ˈɡɑːdən/", "persian": ["باغ", "باغچه"]},
+  "garage": {"us": "/ɡəˈrɑːʒ/", "uk": "/ˈɡærɑːʒ/", "persian": ["گاراژ", "پارکینگ"]},
+  "mirror": {"us": "/ˈmɪrər/", "uk": "/ˈmɪrə/", "persian": ["آینه"]},
+  "towel": {"us": "/ˈtaʊəl/", "uk": "/ˈtaʊəl/", "persian": ["حوله"]},
+  "soap": {"us": "/soʊp/", "uk": "/səʊp/", "persian": ["صابون"]},
+  "brush": {"us": "/brʌʃ/", "uk": "/brʌʃ/", "persian": ["برس", "مسواک"]},
+  "comb": {"us": "/koʊm/", "uk": "/kəʊm/", "persian": ["شانه"]},
+  "key": {"us": "/kiː/", "uk": "/kiː/", "persian": ["کلید"]},
+  "box": {"us": "/bɑːks/", "uk": "/bɒks/", "persian": ["جعبه"]},
+  "paper": {"us": "/ˈpeɪpər/", "uk": "/ˈpeɪpə/", "persian": ["کاغذ"]},
+  "pencil": {"us": "/ˈpensəl/", "uk": "/ˈpensəl/", "persian": ["مداد"]},
+  "pen": {"us": "/pen/", "uk": "/pen/", "persian": ["خودکار"]},
+  "eraser": {"us": "/ɪˈreɪsər/", "uk": "/ɪˈreɪzə/", "persian": ["پاک‌کن"]},
+  "notebook": {"us": "/ˈnoʊtbʊk/", "uk": "/ˈnəʊtbʊk/", "persian": ["دفتر"]},
+  "newspaper": {"us": "/ˈnuːzpeɪpər/", "uk": "/ˈnjuːzpeɪpə/", "persian": ["روزنامه"]},
+  "magazine": {"us": "/ˈmæɡəziːn/", "uk": "/ˌmæɡəˈziːn/", "persian": ["مجله"]},
+  "letter": {"us": "/ˈletər/", "uk": "/ˈletə/", "persian": ["نامه", "حرف"]},
+  "map": {"us": "/mæp/", "uk": "/mæp/", "persian": ["نقشه"]},
+  "picture": {"us": "/ˈpɪktʃər/", "uk": "/ˈpɪktʃə/", "persian": ["عکس", "تصویر"]},
+  "photo": {"us": "/ˈfoʊtoʊ/", "uk": "/ˈfəʊtəʊ/", "persian": ["عکس"]},
+  "camera": {"us": "/ˈkæmərə/", "uk": "/ˈkæmərə/", "persian": ["دوربین"]},
+  "television": {"us": "/ˈteləvɪʒən/", "uk": "/ˈtelɪvɪʒən/", "persian": ["تلویزیون"]},
+  "TV": {"us": "/ˌtiː ˈviː/", "uk": "/ˌtiː ˈviː/", "persian": ["تلویزیون"]},
+  "radio": {"us": "/ˈreɪdioʊ/", "uk": "/ˈreɪdiəʊ/", "persian": ["رادیو"]},
+  "bicycle": {"us": "/ˈbaɪsɪkəl/", "uk": "/ˈbaɪsɪkəl/", "persian": ["دوچرخه"]},
+  "motorcycle": {"us": "/ˈmoʊtərsaɪkəl/", "uk": "/ˈməʊtəsaɪkəl/", "persian": ["موتورسیکلت"]},
+  "taxi": {"us": "/ˈtæksi/", "uk": "/ˈtæksi/", "persian": ["تاکسی"]},
+  "subway": {"us": "/ˈsʌbweɪ/", "uk": "/ˈsʌbweɪ/", "persian": ["مترو"]},
+  "airport": {"us": "/ˈerpɔːrt/", "uk": "/ˈeəpɔːt/", "persian": ["فرودگاه"]},
+  "station": {"us": "/ˈsteɪʃən/", "uk": "/ˈsteɪʃən/", "persian": ["ایستگاه"]},
+  "library": {"us": "/ˈlaɪbreri/", "uk": "/ˈlaɪbrəri/", "persian": ["کتابخانه"]},
+  "hospital": {"us": "/ˈhɑːspɪtəl/", "uk": "/ˈhɒspɪtəl/", "persian": ["بیمارستان"]},
+  "hotel": {"us": "/hoʊˈtel/", "uk": "/həʊˈtel/", "persian": ["هتل"]},
+  "restaurant": {"us": "/ˈrestərɑːnt/", "uk": "/ˈrestrɒnt/", "persian": ["رستوران"]},
+  "cafe": {"us": "/kæˈfeɪ/", "uk": "/ˈkæfeɪ/", "persian": ["کافه"]},
+  "bank": {"us": "/bæŋk/", "uk": "/bæŋk/", "persian": ["بانک"]},
+  "shop": {"us": "/ʃɑːp/", "uk": "/ʃɒp/", "persian": ["مغازه"]},
+  "store": {"us": "/stɔːr/", "uk": "/stɔː/", "persian": ["فروشگاه"]},
+  "market": {"us": "/ˈmɑːrkɪt/", "uk": "/ˈmɑːkɪt/", "persian": ["بازار"]},
+  "office": {"us": "/ˈɔːfɪs/", "uk": "/ˈɒfɪs/", "persian": ["دفتر"]},
+  "factory": {"us": "/ˈfæktəri/", "uk": "/ˈfæktəri/", "persian": ["کارخانه"]},
+  "farm": {"us": "/fɑːrm/", "uk": "/fɑːm/", "persian": ["مزرعه"]},
+  "museum": {"us": "/mjuːˈziːəm/", "uk": "/mjuːˈziːəm/", "persian": ["موزه"]},
+  "church": {"us": "/tʃɜːrtʃ/", "uk": "/tʃɜːtʃ/", "persian": ["کلیسا"]},
+  "park": {"us": "/pɑːrk/", "uk": "/pɑːk/", "persian": ["پارک"]},
+  "beach": {"us": "/biːtʃ/", "uk": "/biːtʃ/", "persian": ["ساحل"]},
+  "island": {"us": "/ˈaɪlənd/", "uk": "/ˈaɪlənd/", "persian": ["جزیره"]},
+  "desert": {"us": "/ˈdezərt/", "uk": "/ˈdezət/", "persian": ["بیابان"]},
+  "bridge": {"us": "/brɪdʒ/", "uk": "/brɪdʒ/", "persian": ["پل"]},
+
+  "north": {"us": "/nɔːrθ/", "uk": "/nɔːθ/", "persian": ["شمال"]},
+  "south": {"us": "/saʊθ/", "uk": "/saʊθ/", "persian": ["جنوب"]},
+  "east": {"us": "/iːst/", "uk": "/iːst/", "persian": ["شرق"]},
+  "west": {"us": "/west/", "uk": "/west/", "persian": ["غرب"]},
+  "front": {"us": "/frʌnt/", "uk": "/frʌnt/", "persian": ["جلو"]},
+  "back": {"us": "/bæk/", "uk": "/bæk/", "persian": ["پشت", "عقب"]},
+  "side": {"us": "/saɪd/", "uk": "/saɪd/", "persian": ["کنار", "طرف"]},
+  "top": {"us": "/tɑːp/", "uk": "/tɒp/", "persian": ["بالا", "قله"]},
+  "bottom": {"us": "/ˈbɑːtəm/", "uk": "/ˈbɒtəm/", "persian": ["پایین", "کف"]},
+  "middle": {"us": "/ˈmɪdəl/", "uk": "/ˈmɪdəl/", "persian": ["وسط"]},
+  "center": {"us": "/ˈsentər/", "uk": "/ˈsentə/", "persian": ["مرکز"]},
+  "corner": {"us": "/ˈkɔːrnər/", "uk": "/ˈkɔːnə/", "persian": ["گوشه"]},
+
+  "dollar": {"us": "/ˈdɑːlər/", "uk": "/ˈdɒlə/", "persian": ["دلار"]},
+  "euro": {"us": "/ˈjʊroʊ/", "uk": "/ˈjʊərəʊ/", "persian": ["یورو"]},
+  "cash": {"us": "/kæʃ/", "uk": "/kæʃ/", "persian": ["نقد"]},
+  "card": {"us": "/kɑːrd/", "uk": "/kɑːd/", "persian": ["کارت"]},
+  "credit": {"us": "/ˈkredɪt/", "uk": "/ˈkredɪt/", "persian": ["اعتبار"]},
+  "account": {"us": "/əˈkaʊnt/", "uk": "/əˈkaʊnt/", "persian": ["حساب"]},
+  "century": {"us": "/ˈsentʃəri/", "uk": "/ˈsentʃəri/", "persian": ["قرن"]},
+  "decade": {"us": "/ˈdekeɪd/", "uk": "/ˈdekeɪd/", "persian": ["دهه"]},
+  "moment": {"us": "/ˈmoʊmənt/", "uk": "/ˈməʊmənt/", "persian": ["لحظه"]},
+  "period": {"us": "/ˈpɪriəd/", "uk": "/ˈpɪəriəd/", "persian": ["دوره"]},
+  "noon": {"us": "/nuːn/", "uk": "/nuːn/", "persian": ["ظهر"]},
+  "midnight": {"us": "/ˈmɪdnaɪt/", "uk": "/ˈmɪdnaɪt/", "persian": ["نیمه‌شب"]},
+
+  "stranger": {"us": "/ˈstreɪndʒər/", "uk": "/ˈstreɪndʒə/", "persian": ["غریبه"]},
+  "neighbor": {"us": "/ˈneɪbər/", "uk": "/ˈneɪbə/", "persian": ["همسایه"]},
+  "guest": {"us": "/ɡest/", "uk": "/ɡest/", "persian": ["مهمان"]},
+  "host": {"us": "/hoʊst/", "uk": "/həʊst/", "persian": ["میزبان"]},
+
+  "science": {"us": "/ˈsaɪəns/", "uk": "/ˈsaɪəns/", "persian": ["علم"]},
+  "math": {"us": "/mæθ/", "uk": "/mæθ/", "persian": ["ریاضی"]},
+  "history": {"us": "/ˈhɪstəri/", "uk": "/ˈhɪstəri/", "persian": ["تاریخ"]},
+  "geography": {"us": "/dʒiˈɑːɡrəfi/", "uk": "/dʒiˈɒɡrəfi/", "persian": ["جغرافیا"]},
+  "art": {"us": "/ɑːrt/", "uk": "/ɑːt/", "persian": ["هنر"]},
+  "music": {"us": "/ˈmjuːzɪk/", "uk": "/ˈmjuːzɪk/", "persian": ["موسیقی"]},
+  "literature": {"us": "/ˈlɪtrətʃər/", "uk": "/ˈlɪtrətʃə/", "persian": ["ادبیات"]},
+  "philosophy": {"us": "/fəˈlɑːsəfi/", "uk": "/fɪˈlɒsəfi/", "persian": ["فلسفه"]},
+  "psychology": {"us": "/saɪˈkɑːlədʒi/", "uk": "/saɪˈkɒlədʒi/", "persian": ["روانشناسی"]},
+
+  "business": {"us": "/ˈbɪznəs/", "uk": "/ˈbɪznəs/", "persian": ["کسب و کار"]},
+  "company": {"us": "/ˈkʌmpəni/", "uk": "/ˈkʌmpəni/", "persian": ["شرکت"]},
+  "manager": {"us": "/ˈmænɪdʒər/", "uk": "/ˈmænɪdʒə/", "persian": ["مدیر"]},
+  "boss": {"us": "/bɔːs/", "uk": "/bɒs/", "persian": ["رئیس"]},
+  "worker": {"us": "/ˈwɜːrkər/", "uk": "/ˈwɜːkə/", "persian": ["کارگر"]},
+  "employee": {"us": "/ɪmˈplɔɪiː/", "uk": "/ɪmˈplɔɪiː/", "persian": ["کارمند"]},
+  "customer": {"us": "/ˈkʌstəmər/", "uk": "/ˈkʌstəmə/", "persian": ["مشتری"]},
+  "meeting": {"us": "/ˈmiːtɪŋ/", "uk": "/ˈmiːtɪŋ/", "persian": ["جلسه"]},
+  "project": {"us": "/ˈprɑːdʒekt/", "uk": "/ˈprɒdʒekt/", "persian": ["پروژه"]},
+  "report": {"us": "/rɪˈpɔːrt/", "uk": "/rɪˈpɔːt/", "persian": ["گزارش"]},
+  "plan": {"us": "/plæn/", "uk": "/plæn/", "persian": ["نقشه", "طرح"]},
+  "schedule": {"us": "/ˈskedʒuːl/", "uk": "/ˈʃedjuːl/", "persian": ["برنامه زمانی"]},
+
+  "government": {"us": "/ˈɡʌvərnmənt/", "uk": "/ˈɡʌvənmənt/", "persian": ["دولت"]},
+  "president": {"us": "/ˈprezɪdənt/", "uk": "/ˈprezɪdənt/", "persian": ["رئیس‌جمهور"]},
+  "king": {"us": "/kɪŋ/", "uk": "/kɪŋ/", "persian": ["پادشاه"]},
+  "queen": {"us": "/kwiːn/", "uk": "/kwiːn/", "persian": ["ملکه"]},
+  "prince": {"us": "/prɪns/", "uk": "/prɪns/", "persian": ["شاهزاده"]},
+  "princess": {"us": "/prɪnˈses/", "uk": "/prɪnˈses/", "persian": ["شاهزاده خانم"]},
+  "war": {"us": "/wɔːr/", "uk": "/wɔː/", "persian": ["جنگ"]},
+  "peace": {"us": "/piːs/", "uk": "/piːs/", "persian": ["صلح", "آرامش"]},
+  "freedom": {"us": "/ˈfriːdəm/", "uk": "/ˈfriːdəm/", "persian": ["آزادی"]},
+  "power": {"us": "/ˈpaʊər/", "uk": "/ˈpaʊə/", "persian": ["قدرت"]},
+  "law": {"us": "/lɔː/", "uk": "/lɔː/", "persian": ["قانون"]},
+  "police": {"us": "/pəˈliːs/", "uk": "/pəˈliːs/", "persian": ["پلیس"]},
+  "army": {"us": "/ˈɑːrmi/", "uk": "/ˈɑːmi/", "persian": ["ارتش"]},
+  "soldier": {"us": "/ˈsoʊldʒər/", "uk": "/ˈsəʊldʒə/", "persian": ["سرباز"]},
+
+  "god": {"us": "/ɡɑːd/", "uk": "/ɡɒd/", "persian": ["خدا"]},
+  "heaven": {"us": "/ˈhevən/", "uk": "/ˈhevən/", "persian": ["بهشت"]},
+  "hell": {"us": "/hel/", "uk": "/hel/", "persian": ["جهنم"]},
+  "soul": {"us": "/soʊl/", "uk": "/səʊl/", "persian": ["روح"]},
+  "spirit": {"us": "/ˈspɪrɪt/", "uk": "/ˈspɪrɪt/", "persian": ["روح", "شبح"]},
+  "angel": {"us": "/ˈeɪndʒəl/", "uk": "/ˈeɪndʒəl/", "persian": ["فرشته"]},
+  "devil": {"us": "/ˈdevəl/", "uk": "/ˈdevəl/", "persian": ["شیطان"]},
+
+  "mind": {"us": "/maɪnd/", "uk": "/maɪnd/", "persian": ["ذهن", "فکر"]},
+  "memory": {"us": "/ˈmeməri/", "uk": "/ˈmeməri/", "persian": ["حافظه", "خاطره"]},
+  "feeling": {"us": "/ˈfiːlɪŋ/", "uk": "/ˈfiːlɪŋ/", "persian": ["احساس"]},
+  "emotion": {"us": "/ɪˈmoʊʃən/", "uk": "/ɪˈməʊʃən/", "persian": ["احساسات"]},
+  "joy": {"us": "/dʒɔɪ/", "uk": "/dʒɔɪ/", "persian": ["شادی"]},
+  "sorrow": {"us": "/ˈsɑːroʊ/", "uk": "/ˈsɒrəʊ/", "persian": ["غم"]},
+  "anger": {"us": "/ˈæŋɡər/", "uk": "/ˈæŋɡə/", "persian": ["خشم"]},
+  "fear": {"us": "/fɪr/", "uk": "/fɪə/", "persian": ["ترس"]},
+  "faith": {"us": "/feɪθ/", "uk": "/feɪθ/", "persian": ["ایمان"]},
+  "trust": {"us": "/trʌst/", "uk": "/trʌst/", "persian": ["اعتماد"]},
+  "doubt": {"us": "/daʊt/", "uk": "/daʊt/", "persian": ["شک"]},
+  "courage": {"us": "/ˈkɜːrɪdʒ/", "uk": "/ˈkʌrɪdʒ/", "persian": ["شجاعت"]},
+  "patience": {"us": "/ˈpeɪʃəns/", "uk": "/ˈpeɪʃəns/", "persian": ["صبر"]},
+  "wisdom": {"us": "/ˈwɪzdəm/", "uk": "/ˈwɪzdəm/", "persian": ["حکمت", "دانایی"]},
+  "knowledge": {"us": "/ˈnɑːlɪdʒ/", "uk": "/ˈnɒlɪdʒ/", "persian": ["دانش"]},
+
+  "real": {"us": "/ˈriːəl/", "uk": "/rɪəl/", "persian": ["واقعی"]},
+  "fake": {"us": "/feɪk/", "uk": "/feɪk/", "persian": ["جعلی"]},
+  "simple": {"us": "/ˈsɪmpəl/", "uk": "/ˈsɪmpəl/", "persian": ["ساده"]},
+  "complex": {"us": "/ˈkɑːmpleks/", "uk": "/ˈkɒmpleks/", "persian": ["پیچیده"]},
+  "modern": {"us": "/ˈmɑːdərn/", "uk": "/ˈmɒdən/", "persian": ["مدرن"]},
+  "ancient": {"us": "/ˈeɪnʃənt/", "uk": "/ˈeɪnʃənt/", "persian": ["باستانی"]},
+  "traditional": {"us": "/trəˈdɪʃənəl/", "uk": "/trəˈdɪʃənəl/", "persian": ["سنتی"]},
+  "popular": {"us": "/ˈpɑːpjələr/", "uk": "/ˈpɒpjələ/", "persian": ["محبوب", "پرطرفدار"]},
+  "famous": {"us": "/ˈfeɪməs/", "uk": "/ˈfeɪməs/", "persian": ["معروف"]},
+  "successful": {"us": "/səkˈsesfəl/", "uk": "/səkˈsesfəl/", "persian": ["موفق"]},
+  "powerful": {"us": "/ˈpaʊərfəl/", "uk": "/ˈpaʊəfəl/", "persian": ["قدرتمند"]},
+  "dangerous": {"us": "/ˈdeɪndʒərəs/", "uk": "/ˈdeɪndʒərəs/", "persian": ["خطرناک"]},
+  "wealthy": {"us": "/ˈwelθi/", "uk": "/ˈwelθi/", "persian": ["ثروتمند"]},
+  "clever": {"us": "/ˈklevər/", "uk": "/ˈklevə/", "persian": ["باهوش"]},
+  "smart": {"us": "/smɑːrt/", "uk": "/smɑːt/", "persian": ["هوشمند"]},
+  "stupid": {"us": "/ˈstuːpɪd/", "uk": "/ˈstjuːpɪd/", "persian": ["احمق"]},
+  "wise": {"us": "/waɪz/", "uk": "/waɪz/", "persian": ["دانا"]},
+  "foolish": {"us": "/ˈfuːlɪʃ/", "uk": "/ˈfuːlɪʃ/", "persian": ["ابله"]},
+  "brave": {"us": "/breɪv/", "uk": "/breɪv/", "persian": ["شجاع"]},
+  "kind": {"us": "/kaɪnd/", "uk": "/kaɪnd/", "persian": ["مهربان", "نوع"]},
+  "mean": {"us": "/miːn/", "uk": "/miːn/", "persian": ["بدجنس", "معنی"]},
+  "polite": {"us": "/pəˈlaɪt/", "uk": "/pəˈlaɪt/", "persian": ["مؤدب"]},
+  "rude": {"us": "/ruːd/", "uk": "/ruːd/", "persian": ["بی‌ادب"]},
+  "honest": {"us": "/ˈɑːnɪst/", "uk": "/ˈɒnɪst/", "persian": ["صادق"]},
+  "patient": {"us": "/ˈpeɪʃənt/", "uk": "/ˈpeɪʃənt/", "persian": ["صبور", "بیمار"]},
+  "generous": {"us": "/ˈdʒenərəs/", "uk": "/ˈdʒenərəs/", "persian": ["بخشنده"]},
+  "selfish": {"us": "/ˈselfɪʃ/", "uk": "/ˈselfɪʃ/", "persian": ["خودخواه"]},
+  "gentle": {"us": "/ˈdʒentəl/", "uk": "/ˈdʒentəl/", "persian": ["ملایم"]},
+  "calm": {"us": "/kɑːm/", "uk": "/kɑːm/", "persian": ["آرام"]},
+  "proud": {"us": "/praʊd/", "uk": "/praʊd/", "persian": ["مغرور", "افتخارکننده"]},
+  "humble": {"us": "/ˈhʌmbəl/", "uk": "/ˈhʌmbəl/", "persian": ["فروتن"]},
+  "jealous": {"us": "/ˈdʒeləs/", "uk": "/ˈdʒeləs/", "persian": ["حسود"]},
+  "lonely": {"us": "/ˈloʊnli/", "uk": "/ˈləʊnli/", "persian": ["تنها"]},
+
+  "invent": {"us": "/ɪnˈvent/", "uk": "/ɪnˈvent/", "persian": ["اختراع کردن"]},
+  "discover": {"us": "/dɪˈskʌvər/", "uk": "/dɪˈskʌvə/", "persian": ["کشف کردن"]},
+  "explore": {"us": "/ɪkˈsplɔːr/", "uk": "/ɪkˈsplɔː/", "persian": ["کاوش کردن"]},
+  "travel": {"us": "/ˈtrævəl/", "uk": "/ˈtrævəl/", "persian": ["سفر کردن"]},
+  "celebrate": {"us": "/ˈseləbreɪt/", "uk": "/ˈseləbreɪt/", "persian": ["جشن گرفتن"]},
+  "invite": {"us": "/ɪnˈvaɪt/", "uk": "/ɪnˈvaɪt/", "persian": ["دعوت کردن"]},
+  "explain": {"us": "/ɪkˈspleɪn/", "uk": "/ɪkˈspleɪn/", "persian": ["توضیح دادن"]},
+  "describe": {"us": "/dɪˈskraɪb/", "uk": "/dɪˈskraɪb/", "persian": ["توصیف کردن"]},
+  "discuss": {"us": "/dɪˈskʌs/", "uk": "/dɪˈskʌs/", "persian": ["بحث کردن"]},
+  "argue": {"us": "/ˈɑːrɡjuː/", "uk": "/ˈɑːɡjuː/", "persian": ["بحث کردن", "دعوا کردن"]},
+  "disagree": {"us": "/ˌdɪsəˈɡriː/", "uk": "/ˌdɪsəˈɡriː/", "persian": ["مخالفت کردن"]},
+  "suggest": {"us": "/səɡˈdʒest/", "uk": "/səˈdʒest/", "persian": ["پیشنهاد دادن"]},
+  "advise": {"us": "/ədˈvaɪz/", "uk": "/ədˈvaɪz/", "persian": ["توصیه کردن"]},
+  "warn": {"us": "/wɔːrn/", "uk": "/wɔːn/", "persian": ["هشدار دادن"]},
+  "threaten": {"us": "/ˈθretən/", "uk": "/ˈθretən/", "persian": ["تهدید کردن"]},
+  "complain": {"us": "/kəmˈpleɪn/", "uk": "/kəmˈpleɪn/", "persian": ["شکایت کردن"]},
+  "apologize": {"us": "/əˈpɑːlədʒaɪz/", "uk": "/əˈpɒlədʒaɪz/", "persian": ["عذرخواهی کردن"]},
+  "forgive": {"us": "/fərˈɡɪv/", "uk": "/fəˈɡɪv/", "persian": ["بخشیدن"]},
+  "greet": {"us": "/ɡriːt/", "uk": "/ɡriːt/", "persian": ["سلام کردن"]},
+  "introduce": {"us": "/ˌɪntrəˈduːs/", "uk": "/ˌɪntrəˈdjuːs/", "persian": ["معرفی کردن"]},
+  "marry": {"us": "/ˈmæri/", "uk": "/ˈmæri/", "persian": ["ازدواج کردن"]},
+  "divorce": {"us": "/dɪˈvɔːrs/", "uk": "/dɪˈvɔːs/", "persian": ["طلاق"]},
+
+  "weather": {"us": "/ˈweðər/", "uk": "/ˈweðə/", "persian": ["آب و هوا"]},
+  "rain": {"us": "/reɪn/", "uk": "/reɪn/", "persian": ["باران"]},
+  "snow": {"us": "/snoʊ/", "uk": "/snəʊ/", "persian": ["برف"]},
+  "wind": {"us": "/wɪnd/", "uk": "/wɪnd/", "persian": ["باد"]},
+  "cloud": {"us": "/klaʊd/", "uk": "/klaʊd/", "persian": ["ابر"]},
+  "storm": {"us": "/stɔːrm/", "uk": "/stɔːm/", "persian": ["طوفان"]},
+
+  "happen": {"us": "/ˈhæpən/", "uk": "/ˈhæpən/", "persian": ["اتفاق افتادن"]},
+  "become": {"us": "/bɪˈkʌm/", "uk": "/bɪˈkʌm/", "persian": ["شدن"]},
+  "became": {"us": "/bɪˈkeɪm/", "uk": "/bɪˈkeɪm/", "persian": ["شد"]},
+  "call": {"us": "/kɔːl/", "uk": "/kɔːl/", "persian": ["صدا زدن", "تماس"]},
+  "called": {"us": "/kɔːld/", "uk": "/kɔːld/", "persian": ["نامیده می‌شود"]},
+  "meet": {"us": "/miːt/", "uk": "/miːt/", "persian": ["ملاقات کردن"]},
+  "met": {"us": "/met/", "uk": "/met/", "persian": ["ملاقات کرد"]},
+  "follow": {"us": "/ˈfɑːloʊ/", "uk": "/ˈfɒləʊ/", "persian": ["دنبال کردن"]},
+  "arrive": {"us": "/əˈraɪv/", "uk": "/əˈraɪv/", "persian": ["رسیدن"]},
+  "reach": {"us": "/riːtʃ/", "uk": "/riːtʃ/", "persian": ["رسیدن"]},
+  "return": {"us": "/rɪˈtɜːrn/", "uk": "/rɪˈtɜːn/", "persian": ["برگشتن"]},
+  "visit": {"us": "/ˈvɪzɪt/", "uk": "/ˈvɪzɪt/", "persian": ["دیدار کردن"]},
+  "share": {"us": "/ʃer/", "uk": "/ʃeə/", "persian": ["به اشتراک گذاشتن"]},
+  "enjoy": {"us": "/ɪnˈdʒɔɪ/", "uk": "/ɪnˈdʒɔɪ/", "persian": ["لذت بردن"]},
+  "prefer": {"us": "/prɪˈfɜːr/", "uk": "/prɪˈfɜː/", "persian": ["ترجیح دادن"]},
+  "decide": {"us": "/dɪˈsaɪd/", "uk": "/dɪˈsaɪd/", "persian": ["تصمیم گرفتن"]},
+  "allow": {"us": "/əˈlaʊ/", "uk": "/əˈlaʊ/", "persian": ["اجازه دادن"]},
+  "accept": {"us": "/əkˈsept/", "uk": "/əkˈsept/", "persian": ["پذیرفتن"]},
+  "refuse": {"us": "/rɪˈfjuːz/", "uk": "/rɪˈfjuːz/", "persian": ["رد کردن"]},
+  "choose": {"us": "/tʃuːz/", "uk": "/tʃuːz/", "persian": ["انتخاب کردن"]},
+  "chose": {"us": "/tʃoʊz/", "uk": "/tʃəʊz/", "persian": ["انتخاب کرد"]},
+  "laugh": {"us": "/læf/", "uk": "/lɑːf/", "persian": ["خندیدن"]},
+  "cry": {"us": "/kraɪ/", "uk": "/kraɪ/", "persian": ["گریه کردن", "فریاد"]},
+  "smile": {"us": "/smaɪl/", "uk": "/smaɪl/", "persian": ["لبخند"]},
+  "sing": {"us": "/sɪŋ/", "uk": "/sɪŋ/", "persian": ["آواز خواندن"]},
+  "dance": {"us": "/dæns/", "uk": "/dɑːns/", "persian": ["رقصیدن"]},
+  "draw": {"us": "/drɔː/", "uk": "/drɔː/", "persian": ["کشیدن"]},
+  "paint": {"us": "/peɪnt/", "uk": "/peɪnt/", "persian": ["رنگ کردن"]},
+  "borrow": {"us": "/ˈbɑːroʊ/", "uk": "/ˈbɒrəʊ/", "persian": ["قرض گرفتن"]},
+  "lend": {"us": "/lend/", "uk": "/lend/", "persian": ["قرض دادن"]},
+  "hurry": {"us": "/ˈhɜːri/", "uk": "/ˈhʌri/", "persian": ["عجله کردن"]},
+  "touch": {"us": "/tʌtʃ/", "uk": "/tʌtʃ/", "persian": ["لمس کردن"]},
+  "push": {"us": "/pʊʃ/", "uk": "/pʊʃ/", "persian": ["فشار دادن", "هل دادن"]},
+  "pull": {"us": "/pʊl/", "uk": "/pʊl/", "persian": ["کشیدن"]},
+  "throw": {"us": "/θroʊ/", "uk": "/θrəʊ/", "persian": ["پرت کردن"]},
+  "catch": {"us": "/kætʃ/", "uk": "/kætʃ/", "persian": ["گرفتن"]},
+  "break": {"us": "/breɪk/", "uk": "/breɪk/", "persian": ["شکستن", "استراحت"]},
+  "broke": {"us": "/broʊk/", "uk": "/brəʊk/", "persian": ["شکست"]},
+  "fix": {"us": "/fɪks/", "uk": "/fɪks/", "persian": ["تعمیر کردن"]},
+  "build": {"us": "/bɪld/", "uk": "/bɪld/", "persian": ["ساختن"]},
+  "built": {"us": "/bɪlt/", "uk": "/bɪlt/", "persian": ["ساخت"]},
+  "design": {"us": "/dɪˈzaɪn/", "uk": "/dɪˈzaɪn/", "persian": ["طراحی کردن"]},
+  "create": {"us": "/kriˈeɪt/", "uk": "/kriˈeɪt/", "persian": ["خلق کردن"]},
+  "destroy": {"us": "/dɪˈstrɔɪ/", "uk": "/dɪˈstrɔɪ/", "persian": ["نابود کردن"]},
+  "save": {"us": "/seɪv/", "uk": "/seɪv/", "persian": ["نجات دادن", "ذخیره"]},
+  "protect": {"us": "/prəˈtekt/", "uk": "/prəˈtekt/", "persian": ["محافظت کردن"]},
+  "fight": {"us": "/faɪt/", "uk": "/faɪt/", "persian": ["جنگیدن"]},
+  "fought": {"us": "/fɔːt/", "uk": "/fɔːt/", "persian": ["جنگید"]},
+
+  "safe": {"us": "/seɪf/", "uk": "/seɪf/", "persian": ["امن"]},
+  "clear": {"us": "/klɪr/", "uk": "/klɪə/", "persian": ["واضح", "روشن"]},
+  "dark": {"us": "/dɑːrk/", "uk": "/dɑːk/", "persian": ["تاریک"]},
+  "light": {"us": "/laɪt/", "uk": "/laɪt/", "persian": ["روشن", "نور", "سبک"]},
+  "heavy": {"us": "/ˈhevi/", "uk": "/ˈhevi/", "persian": ["سنگین"]},
+  "strong": {"us": "/strɔːŋ/", "uk": "/strɒŋ/", "persian": ["قوی"]},
+  "weak": {"us": "/wiːk/", "uk": "/wiːk/", "persian": ["ضعیف"]},
+  "deep": {"us": "/diːp/", "uk": "/diːp/", "persian": ["عمیق"]},
+  "wide": {"us": "/waɪd/", "uk": "/waɪd/", "persian": ["پهن", "گسترده"]},
+  "narrow": {"us": "/ˈnæroʊ/", "uk": "/ˈnærəʊ/", "persian": ["باریک"]},
+  "thin": {"us": "/θɪn/", "uk": "/θɪn/", "persian": ["نازک", "لاغر"]},
+  "thick": {"us": "/θɪk/", "uk": "/θɪk/", "persian": ["ضخیم", "کلفت"]},
+  "fat": {"us": "/fæt/", "uk": "/fæt/", "persian": ["چاق", "چربی"]},
+  "dirty": {"us": "/ˈdɜːrti/", "uk": "/ˈdɜːti/", "persian": ["کثیف"]},
+  "wet": {"us": "/wet/", "uk": "/wet/", "persian": ["خیس"]},
+  "dry": {"us": "/draɪ/", "uk": "/draɪ/", "persian": ["خشک"]},
+  "full": {"us": "/fʊl/", "uk": "/fʊl/", "persian": ["پر", "کامل"]},
+  "empty": {"us": "/ˈempti/", "uk": "/ˈempti/", "persian": ["خالی"]},
+  "closed": {"us": "/kloʊzd/", "uk": "/kləʊzd/", "persian": ["بسته"]},
+  "sweet": {"us": "/swiːt/", "uk": "/swiːt/", "persian": ["شیرین"]},
+  "bitter": {"us": "/ˈbɪtər/", "uk": "/ˈbɪtə/", "persian": ["تلخ"]},
+  "sour": {"us": "/ˈsaʊər/", "uk": "/ˈsaʊə/", "persian": ["ترش"]},
+  "salty": {"us": "/ˈsɔːlti/", "uk": "/ˈsɔːlti/", "persian": ["شور"]},
+  "spicy": {"us": "/ˈspaɪsi/", "uk": "/ˈspaɪsi/", "persian": ["تند"]},
+
+  "rarely": {"us": "/ˈrerli/", "uk": "/ˈreəli/", "persian": ["به‌ندرت"]},
+  "hardly": {"us": "/ˈhɑːrdli/", "uk": "/ˈhɑːdli/", "persian": ["به‌سختی"]},
+  "quickly": {"us": "/ˈkwɪkli/", "uk": "/ˈkwɪkli/", "persian": ["سریع"]},
+  "slowly": {"us": "/ˈsloʊli/", "uk": "/ˈsləʊli/", "persian": ["آهسته"]},
+  "carefully": {"us": "/ˈkerfəli/", "uk": "/ˈkeəfəli/", "persian": ["با دقت"]},
+  "easily": {"us": "/ˈiːzəli/", "uk": "/ˈiːzəli/", "persian": ["به‌راحتی"]},
+  "suddenly": {"us": "/ˈsʌdənli/", "uk": "/ˈsʌdənli/", "persian": ["ناگهان"]},
+  "finally": {"us": "/ˈfaɪnəli/", "uk": "/ˈfaɪnəli/", "persian": ["بالاخره"]},
+  "probably": {"us": "/ˈprɑːbəbli/", "uk": "/ˈprɒbəbli/", "persian": ["احتمالاً"]},
+  "certainly": {"us": "/ˈsɜːrtənli/", "uk": "/ˈsɜːtənli/", "persian": ["مطمئناً"]},
+  "absolutely": {"us": "/ˌæbsəˈluːtli/", "uk": "/ˈæbsəluːtli/", "persian": ["کاملاً"]},
+  "definitely": {"us": "/ˈdefɪnətli/", "uk": "/ˈdefɪnətli/", "persian": ["قطعاً"]},
+  "exactly": {"us": "/ɪɡˈzæktli/", "uk": "/ɪɡˈzæktli/", "persian": ["دقیقاً"]},
+  "together": {"us": "/təˈɡeðər/", "uk": "/təˈɡeðə/", "persian": ["با هم"]},
+  "alone": {"us": "/əˈloʊn/", "uk": "/əˈləʊn/", "persian": ["تنها"]},
+  "again": {"us": "/əˈɡen/", "uk": "/əˈɡen/", "persian": ["دوباره"]},
+  "however": {"us": "/haʊˈevər/", "uk": "/haʊˈevə/", "persian": ["با این حال"]},
+  "therefore": {"us": "/ˈðerfɔːr/", "uk": "/ˈðeəfɔː/", "persian": ["بنابراین"]},
+  "instead": {"us": "/ɪnˈsted/", "uk": "/ɪnˈsted/", "persian": ["به جای"]},
+
+  "look for": {"us": "/lʊk fɔːr/", "uk": "/lʊk fɔː/", "persian": ["جستجو کردن"]},
+  "look at": {"us": "/lʊk æt/", "uk": "/lʊk æt/", "persian": ["نگاه کردن به"]},
+  "look after": {"us": "/lʊk ˈæftər/", "uk": "/lʊk ˈɑːftə/", "persian": ["مراقبت کردن"]},
+  "give up": {"us": "/ɡɪv ʌp/", "uk": "/ɡɪv ʌp/", "persian": ["تسلیم شدن"]},
+  "get up": {"us": "/ɡet ʌp/", "uk": "/ɡet ʌp/", "persian": ["بلند شدن"]},
+  "wake up": {"us": "/weɪk ʌp/", "uk": "/weɪk ʌp/", "persian": ["بیدار شدن"]},
+  "stand up": {"us": "/stænd ʌp/", "uk": "/stænd ʌp/", "persian": ["ایستادن"]},
+  "sit down": {"us": "/sɪt daʊn/", "uk": "/sɪt daʊn/", "persian": ["نشستن"]},
+  "come back": {"us": "/kʌm bæk/", "uk": "/kʌm bæk/", "persian": ["برگشتن"]},
+  "go back": {"us": "/ɡoʊ bæk/", "uk": "/ɡəʊ bæk/", "persian": ["برگشتن"]},
+  "come in": {"us": "/kʌm ɪn/", "uk": "/kʌm ɪn/", "persian": ["وارد شدن"]},
+  "go out": {"us": "/ɡoʊ aʊt/", "uk": "/ɡəʊ aʊt/", "persian": ["بیرون رفتن"]},
+  "grow up": {"us": "/ɡroʊ ʌp/", "uk": "/ɡrəʊ ʌp/", "persian": ["بزرگ شدن"]},
+  "find out": {"us": "/faɪnd aʊt/", "uk": "/faɪnd aʊt/", "persian": ["کشف کردن", "فهمیدن"]},
+  "figure out": {"us": "/ˈfɪɡjər aʊt/", "uk": "/ˈfɪɡə aʊt/", "persian": ["متوجه شدن"]},
+  "turn on": {"us": "/tɜːrn ɑːn/", "uk": "/tɜːn ɒn/", "persian": ["روشن کردن"]},
+  "turn off": {"us": "/tɜːrn ɔːf/", "uk": "/tɜːn ɒf/", "persian": ["خاموش کردن"]},
+  "put on": {"us": "/pʊt ɑːn/", "uk": "/pʊt ɒn/", "persian": ["پوشیدن"]},
+  "take off": {"us": "/teɪk ɔːf/", "uk": "/teɪk ɒf/", "persian": ["درآوردن", "بلند شدن"]},
+  "run out": {"us": "/rʌn aʊt/", "uk": "/rʌn aʊt/", "persian": ["تمام شدن"]},
+  "wait for": {"us": "/weɪt fɔːr/", "uk": "/weɪt fɔː/", "persian": ["منتظر ماندن"]},
+  "pay for": {"us": "/peɪ fɔːr/", "uk": "/peɪ fɔː/", "persian": ["پرداخت کردن"]},
+  "keep on": {"us": "/kiːp ɑːn/", "uk": "/kiːp ɒn/", "persian": ["ادامه دادن"]},
+  "shut up": {"us": "/ʃʌt ʌp/", "uk": "/ʃʌt ʌp/", "persian": ["ساکت شو"]},
+  "cheer up": {"us": "/tʃɪr ʌp/", "uk": "/tʃɪə ʌp/", "persian": ["روحیه‌ات را بالا ببر"]},
+  "calm down": {"us": "/kɑːm daʊn/", "uk": "/kɑːm daʊn/", "persian": ["آرام باش"]},
+  "look out": {"us": "/lʊk aʊt/", "uk": "/lʊk aʊt/", "persian": ["مواظب باش"]},
+  "watch out": {"us": "/wɑːtʃ aʊt/", "uk": "/wɒtʃ aʊt/", "persian": ["مواظب باش"]},
+  "point out": {"us": "/pɔɪnt aʊt/", "uk": "/pɔɪnt aʊt/", "persian": ["اشاره کردن"]},
+  "work out": {"us": "/wɜːrk aʊt/", "uk": "/wɜːk aʊt/", "persian": ["حل شدن", "ورزش کردن"]},
+  "break down": {"us": "/breɪk daʊn/", "uk": "/breɪk daʊn/", "persian": ["خراب شدن"]},
+  "break up": {"us": "/breɪk ʌp/", "uk": "/breɪk ʌp/", "persian": ["به هم زدن", "جدا شدن"]},
+  "give back": {"us": "/ɡɪv bæk/", "uk": "/ɡɪv bæk/", "persian": ["پس دادن"]},
+  "get back": {"us": "/ɡet bæk/", "uk": "/ɡet bæk/", "persian": ["برگشتن", "پس گرفتن"]},
+  "put off": {"us": "/pʊt ɔːf/", "uk": "/pʊt ɒf/", "persian": ["به تعویق انداختن"]},
+  "put up": {"us": "/pʊt ʌp/", "uk": "/pʊt ʌp/", "persian": ["ساختن", "تحمل کردن"]},
+  "put out": {"us": "/pʊt aʊt/", "uk": "/pʊt aʊt/", "persian": ["خاموش کردن"]},
+  "give in": {"us": "/ɡɪv ɪn/", "uk": "/ɡɪv ɪn/", "persian": ["تسلیم شدن"]},
+  "give out": {"us": "/ɡɪv aʊt/", "uk": "/ɡɪv aʊt/", "persian": ["پخش کردن"]},
+  "take care": {"us": "/teɪk ker/", "uk": "/teɪk keə/", "persian": ["مراقب باش"]},
+  "take place": {"us": "/teɪk pleɪs/", "uk": "/teɪk pleɪs/", "persian": ["اتفاق افتادن"]},
+  "take part": {"us": "/teɪk pɑːrt/", "uk": "/teɪk pɑːt/", "persian": ["شرکت کردن"]},
+  "make sure": {"us": "/meɪk ʃʊr/", "uk": "/meɪk ʃʊə/", "persian": ["مطمئن شدن"]},
+  "make up": {"us": "/meɪk ʌp/", "uk": "/meɪk ʌp/", "persian": ["ساختن", "جبران کردن"]},
+  "make out": {"us": "/meɪk aʊt/", "uk": "/meɪk aʊt/", "persian": ["فهمیدن"]},
+  "look forward to": {"us": "/lʊk ˈfɔːrwərd tuː/", "uk": "/lʊk ˈfɔːwəd tuː/", "persian": ["منتظر بودن"]},
+  "look up": {"us": "/lʊk ʌp/", "uk": "/lʊk ʌp/", "persian": ["جستجو کردن", "نگاه کردن به بالا"]},
+  "look down": {"us": "/lʊk daʊn/", "uk": "/lʊk daʊn/", "persian": ["نگاه کردن به پایین"]},
+  "come up": {"us": "/kʌm ʌp/", "uk": "/kʌm ʌp/", "persian": ["به وجود آمدن"]},
+  "come out": {"us": "/kʌm aʊt/", "uk": "/kʌm aʊt/", "persian": ["بیرون آمدن", "منتشر شدن"]},
+  "get in": {"us": "/ɡet ɪn/", "uk": "/ɡet ɪn/", "persian": ["وارد شدن"]},
+  "get out": {"us": "/ɡet aʊt/", "uk": "/ɡet aʊt/", "persian": ["بیرون رفتن"]},
+  "get on": {"us": "/ɡet ɑːn/", "uk": "/ɡet ɒn/", "persian": ["سوار شدن"]},
+  "get off": {"us": "/ɡet ɔːf/", "uk": "/ɡet ɒf/", "persian": ["پیاده شدن"]},
+  "turn up": {"us": "/tɜːrn ʌp/", "uk": "/tɜːn ʌp/", "persian": ["بالا بردن صدا", "ظاهر شدن"]},
+  "turn down": {"us": "/tɜːrn daʊn/", "uk": "/tɜːn daʊn/", "persian": ["کم کردن", "رد کردن"]},
+  "show up": {"us": "/ʃoʊ ʌp/", "uk": "/ʃəʊ ʌp/", "persian": ["ظاهر شدن"]},
+  "show off": {"us": "/ʃoʊ ɔːf/", "uk": "/ʃəʊ ɒf/", "persian": ["پز دادن"]},
+  "carry on": {"us": "/ˈkæri ɑːn/", "uk": "/ˈkæri ɒn/", "persian": ["ادامه دادن"]},
+  "call off": {"us": "/kɔːl ɔːf/", "uk": "/kɔːl ɒf/", "persian": ["لغو کردن"]},
+  "call back": {"us": "/kɔːl bæk/", "uk": "/kɔːl bæk/", "persian": ["تماس برگشتی"]},
+  "move on": {"us": "/muːv ɑːn/", "uk": "/muːv ɒn/", "persian": ["ادامه دادن"]},
+  "back up": {"us": "/bæk ʌp/", "uk": "/bæk ʌp/", "persian": ["پشتیبان گرفتن"]},
+  "back off": {"us": "/bæk ɔːf/", "uk": "/bæk ɒf/", "persian": ["عقب کشیدن"]},
+  "settle down": {"us": "/ˈsetəl daʊn/", "uk": "/ˈsetəl daʊn/", "persian": ["آرام گرفتن", "زندگی کردن"]},
+  "check out": {"us": "/tʃek aʊt/", "uk": "/tʃek aʊt/", "persian": ["بررسی کردن"]},
+  "check in": {"us": "/tʃek ɪn/", "uk": "/tʃek ɪn/", "persian": ["پذیرش"]},
+  "pick up": {"us": "/pɪk ʌp/", "uk": "/pɪk ʌp/", "persian": ["برداشتن", "سوار کردن"]},
+  "drop by": {"us": "/drɑːp baɪ/", "uk": "/drɒp baɪ/", "persian": ["سر زدن"]},
+  "drop out": {"us": "/drɑːp aʊt/", "uk": "/drɒp aʊt/", "persian": ["رها کردن"]},
+  "go on": {"us": "/ɡoʊ ɑːn/", "uk": "/ɡəʊ ɒn/", "persian": ["ادامه دادن"]},
+  "go off": {"us": "/ɡoʊ ɔːf/", "uk": "/ɡəʊ ɒf/", "persian": ["منفجر شدن", "زنگ زدن"]},
+  "go by": {"us": "/ɡoʊ baɪ/", "uk": "/ɡəʊ baɪ/", "persian": ["گذشتن"]},
+  "go through": {"us": "/ɡoʊ θruː/", "uk": "/ɡəʊ θruː/", "persian": ["تجربه کردن", "عبور کردن"]},
+
+  "on top of": {"us": "/ɑːn tɑːp əv/", "uk": "/ɒn tɒp əv/", "persian": ["روی"]},
+  "in front of": {"us": "/ɪn frʌnt əv/", "uk": "/ɪn frʌnt əv/", "persian": ["جلوی"]},
+  "next to": {"us": "/nekst tuː/", "uk": "/nekst tuː/", "persian": ["کنار"]},
+  "close to": {"us": "/kloʊs tuː/", "uk": "/kləʊs tuː/", "persian": ["نزدیک به"]},
+  "far from": {"us": "/fɑːr frʌm/", "uk": "/fɑː frɒm/", "persian": ["دور از"]},
+  "instead of": {"us": "/ɪnˈsted əv/", "uk": "/ɪnˈsted əv/", "persian": ["به جای"]},
+  "because of": {"us": "/bɪˈkɔːz əv/", "uk": "/bɪˈkɒz əv/", "persian": ["به خاطر"]},
+  "in order to": {"us": "/ɪn ˈɔːrdər tuː/", "uk": "/ɪn ˈɔːdə tuː/", "persian": ["برای اینکه"]},
+  "as if": {"us": "/æz ɪf/", "uk": "/æz ɪf/", "persian": ["انگار که"]},
+  "even though": {"us": "/ˈiːvən ðoʊ/", "uk": "/ˈiːvən ðəʊ/", "persian": ["حتی اگر"]},
+  "as long as": {"us": "/æz lɔːŋ æz/", "uk": "/æz lɒŋ æz/", "persian": ["تا زمانی که"]},
+  "as much as": {"us": "/æz mʌtʃ æz/", "uk": "/æz mʌtʃ æz/", "persian": ["به اندازه"]},
+  "as well as": {"us": "/æz wel æz/", "uk": "/æz wel æz/", "persian": ["و همچنین"]},
+  "in addition": {"us": "/ɪn əˈdɪʃən/", "uk": "/ɪn əˈdɪʃən/", "persian": ["علاوه بر"]},
+  "in general": {"us": "/ɪn ˈdʒenərəl/", "uk": "/ɪn ˈdʒenərəl/", "persian": ["به طور کلی"]},
+  "in particular": {"us": "/ɪn pərˈtɪkjələr/", "uk": "/ɪn pəˈtɪkjələ/", "persian": ["به طور خاص"]},
+  "in common": {"us": "/ɪn ˈkɑːmən/", "uk": "/ɪn ˈkɒmən/", "persian": ["مشترک"]},
+  "on purpose": {"us": "/ɑːn ˈpɜːrpəs/", "uk": "/ɒn ˈpɜːpəs/", "persian": ["عمداً"]},
+  "by accident": {"us": "/baɪ ˈæksɪdənt/", "uk": "/baɪ ˈæksɪdənt/", "persian": ["تصادفاً"]},
+  "in advance": {"us": "/ɪn ədˈvæns/", "uk": "/ɪn ədˈvɑːns/", "persian": ["از قبل"]},
+  "out of order": {"us": "/aʊt əv ˈɔːrdər/", "uk": "/aʊt əv ˈɔːdə/", "persian": ["خراب"]},
+  "out of date": {"us": "/aʊt əv deɪt/", "uk": "/aʊt əv deɪt/", "persian": ["قدیمی"]},
+  "up to date": {"us": "/ʌp tuː deɪt/", "uk": "/ʌp tuː deɪt/", "persian": ["به‌روز"]},
+  "no longer": {"us": "/noʊ ˈlɔːŋər/", "uk": "/nəʊ ˈlɒŋə/", "persian": ["دیگر نه"]},
+  "any longer": {"us": "/ˈeni ˈlɔːŋər/", "uk": "/ˈeni ˈlɒŋə/", "persian": ["دیگر نه"]},
+  "at all times": {"us": "/æt ɔːl taɪmz/", "uk": "/æt ɔːl taɪmz/", "persian": ["همیشه"]},
+  "once upon a time": {"us": "/wʌns əˈpɑːn ə taɪm/", "uk": "/wʌns əˈpɒn ə taɪm/", "persian": ["یکی بود یکی نبود"]},
+
+  "one": {"us": "/wʌn/", "uk": "/wʌn/", "persian": ["یک"]},
+  "two": {"us": "/tuː/", "uk": "/tuː/", "persian": ["دو"]},
+  "three": {"us": "/θriː/", "uk": "/θriː/", "persian": ["سه"]},
+  "four": {"us": "/fɔːr/", "uk": "/fɔː/", "persian": ["چهار"]},
+  "five": {"us": "/faɪv/", "uk": "/faɪv/", "persian": ["پنج"]},
+  "six": {"us": "/sɪks/", "uk": "/sɪks/", "persian": ["شش"]},
+  "seven": {"us": "/ˈsevən/", "uk": "/ˈsevən/", "persian": ["هفت"]},
+  "eight": {"us": "/eɪt/", "uk": "/eɪt/", "persian": ["هشت"]},
+  "nine": {"us": "/naɪn/", "uk": "/naɪn/", "persian": ["نه"]},
+  "ten": {"us": "/ten/", "uk": "/ten/", "persian": ["ده"]},
+  "eleven": {"us": "/ɪˈlevən/", "uk": "/ɪˈlevən/", "persian": ["یازده"]},
+  "twelve": {"us": "/twelv/", "uk": "/twelv/", "persian": ["دوازده"]},
+  "twenty": {"us": "/ˈtwenti/", "uk": "/ˈtwenti/", "persian": ["بیست"]},
+  "thirty": {"us": "/ˈθɜːrti/", "uk": "/ˈθɜːti/", "persian": ["سی"]},
+  "forty": {"us": "/ˈfɔːrti/", "uk": "/ˈfɔːti/", "persian": ["چهل"]},
+  "fifty": {"us": "/ˈfɪfti/", "uk": "/ˈfɪfti/", "persian": ["پنجاه"]},
+  "hundred": {"us": "/ˈhʌndrəd/", "uk": "/ˈhʌndrəd/", "persian": ["صد"]},
+  "thousand": {"us": "/ˈθaʊzənd/", "uk": "/ˈθaʊzənd/", "persian": ["هزار"]},
+  "million": {"us": "/ˈmɪljən/", "uk": "/ˈmɪljən/", "persian": ["میلیون"]},
+  "first": {"us": "/fɜːrst/", "uk": "/fɜːst/", "persian": ["اول", "نخست"]},
+  "last": {"us": "/læst/", "uk": "/lɑːst/", "persian": ["آخر", "گذشته"]},
+  "next": {"us": "/nekst/", "uk": "/nekst/", "persian": ["بعدی"]},
+
+  "Monday": {"us": "/ˈmʌndeɪ/", "uk": "/ˈmʌndeɪ/", "persian": ["دوشنبه"]},
+  "Tuesday": {"us": "/ˈtuːzdeɪ/", "uk": "/ˈtjuːzdeɪ/", "persian": ["سه‌شنبه"]},
+  "Wednesday": {"us": "/ˈwenzdeɪ/", "uk": "/ˈwenzdeɪ/", "persian": ["چهارشنبه"]},
+  "Thursday": {"us": "/ˈθɜːrzdeɪ/", "uk": "/ˈθɜːzdeɪ/", "persian": ["پنجشنبه"]},
+  "Friday": {"us": "/ˈfraɪdeɪ/", "uk": "/ˈfraɪdeɪ/", "persian": ["جمعه"]},
+  "Saturday": {"us": "/ˈsætərdeɪ/", "uk": "/ˈsætədeɪ/", "persian": ["شنبه"]},
+  "Sunday": {"us": "/ˈsʌndeɪ/", "uk": "/ˈsʌndeɪ/", "persian": ["یکشنبه"]},
+
+  "January": {"us": "/ˈdʒænjueri/", "uk": "/ˈdʒænjuəri/", "persian": ["ژانویه"]},
+  "February": {"us": "/ˈfebrueri/", "uk": "/ˈfebruəri/", "persian": ["فوریه"]},
+  "March": {"us": "/mɑːrtʃ/", "uk": "/mɑːtʃ/", "persian": ["مارس"]},
+  "April": {"us": "/ˈeɪprəl/", "uk": "/ˈeɪprəl/", "persian": ["آوریل"]},
+  "May": {"us": "/meɪ/", "uk": "/meɪ/", "persian": ["مه"]},
+  "June": {"us": "/dʒuːn/", "uk": "/dʒuːn/", "persian": ["ژوئن"]},
+  "July": {"us": "/dʒuˈlaɪ/", "uk": "/dʒuˈlaɪ/", "persian": ["جولای"]},
+  "August": {"us": "/ˈɔːɡəst/", "uk": "/ˈɔːɡəst/", "persian": ["اوت"]},
+  "September": {"us": "/sepˈtembər/", "uk": "/sepˈtembə/", "persian": ["سپتامبر"]},
+  "October": {"us": "/ɑːkˈtoʊbər/", "uk": "/ɒkˈtəʊbə/", "persian": ["اکتبر"]},
+  "November": {"us": "/noʊˈvembər/", "uk": "/nəʊˈvembə/", "persian": ["نوامبر"]},
+  "December": {"us": "/dɪˈsembər/", "uk": "/dɪˈsembə/", "persian": ["دسامبر"]},
+
+  "red": {"us": "/red/", "uk": "/red/", "persian": ["قرمز", "سرخ"]},
+  "blue": {"us": "/bluː/", "uk": "/bluː/", "persian": ["آبی"]},
+  "green": {"us": "/ɡriːn/", "uk": "/ɡriːn/", "persian": ["سبز"]},
+  "yellow": {"us": "/ˈjeloʊ/", "uk": "/ˈjeləʊ/", "persian": ["زرد"]},
+  "orange": {"us": "/ˈɔːrɪndʒ/", "uk": "/ˈɒrɪndʒ/", "persian": ["نارنجی", "پرتقال"]},
+  "purple": {"us": "/ˈpɜːrpəl/", "uk": "/ˈpɜːpəl/", "persian": ["بنفش"]},
+  "pink": {"us": "/pɪŋk/", "uk": "/pɪŋk/", "persian": ["صورتی"]},
+  "brown": {"us": "/braʊn/", "uk": "/braʊn/", "persian": ["قهوه‌ای"]},
+  "black": {"us": "/blæk/", "uk": "/blæk/", "persian": ["سیاه"]},
+  "white": {"us": "/waɪt/", "uk": "/waɪt/", "persian": ["سفید"]},
+  "gray": {"us": "/ɡreɪ/", "uk": "/ɡreɪ/", "persian": ["خاکستری"]},
+
+  "sun": {"us": "/sʌn/", "uk": "/sʌn/", "persian": ["خورشید"]},
+  "moon": {"us": "/muːn/", "uk": "/muːn/", "persian": ["ماه"]},
+  "star": {"us": "/stɑːr/", "uk": "/stɑː/", "persian": ["ستاره"]},
+  "sky": {"us": "/skaɪ/", "uk": "/skaɪ/", "persian": ["آسمان"]},
+  "sea": {"us": "/siː/", "uk": "/siː/", "persian": ["دریا"]},
+  "ocean": {"us": "/ˈoʊʃən/", "uk": "/ˈəʊʃən/", "persian": ["اقیانوس"]},
+  "river": {"us": "/ˈrɪvər/", "uk": "/ˈrɪvə/", "persian": ["رودخانه"]},
+  "mountain": {"us": "/ˈmaʊntən/", "uk": "/ˈmaʊntɪn/", "persian": ["کوه"]},
+  "forest": {"us": "/ˈfɔːrɪst/", "uk": "/ˈfɒrɪst/", "persian": ["جنگل"]},
+  "tree": {"us": "/triː/", "uk": "/triː/", "persian": ["درخت"]},
+  "flower": {"us": "/ˈflaʊər/", "uk": "/ˈflaʊə/", "persian": ["گل"]},
+  "animal": {"us": "/ˈænɪməl/", "uk": "/ˈænɪməl/", "persian": ["حیوان"]},
+  "dog": {"us": "/dɔːɡ/", "uk": "/dɒɡ/", "persian": ["سگ"]},
+  "cat": {"us": "/kæt/", "uk": "/kæt/", "persian": ["گربه"]},
+  "bird": {"us": "/bɜːrd/", "uk": "/bɜːd/", "persian": ["پرنده"]},
+  "fish": {"us": "/fɪʃ/", "uk": "/fɪʃ/", "persian": ["ماهی"]},
+  "horse": {"us": "/hɔːrs/", "uk": "/hɔːs/", "persian": ["اسب"]},
+
+  "how are you": {"us": "/haʊ ɑːr juː/", "uk": "/haʊ ɑː juː/", "persian": ["حالت چطوره؟"]},
+  "thank you": {"us": "/θæŋk juː/", "uk": "/θæŋk juː/", "persian": ["ممنون"]},
+  "you're welcome": {"us": "/jʊr ˈwelkəm/", "uk": "/jɔː ˈwelkəm/", "persian": ["خواهش می‌کنم"]},
+  "how much": {"us": "/haʊ mʌtʃ/", "uk": "/haʊ mʌtʃ/", "persian": ["چقدر"]},
+  "how many": {"us": "/haʊ ˈmeni/", "uk": "/haʊ ˈmeni/", "persian": ["چند تا"]},
+  "how old": {"us": "/haʊ oʊld/", "uk": "/haʊ əʊld/", "persian": ["چند ساله"]},
+  "what time": {"us": "/wʌt taɪm/", "uk": "/wɒt taɪm/", "persian": ["چه ساعتی"]},
+  "excuse me": {"us": "/ɪkˈskjuːz miː/", "uk": "/ɪkˈskjuːz miː/", "persian": ["ببخشید"]},
+  "i'm sorry": {"us": "/aɪm ˈsɑːri/", "uk": "/aɪm ˈsɒri/", "persian": ["متأسفم"]},
+  "see you later": {"us": "/siː juː ˈleɪtər/", "uk": "/siː juː ˈleɪtə/", "persian": ["می‌بینمت"]},
+  "good morning": {"us": "/ɡʊd ˈmɔːrnɪŋ/", "uk": "/ɡʊd ˈmɔːnɪŋ/", "persian": ["صبح بخیر"]},
+  "good afternoon": {"us": "/ɡʊd ˌæftərˈnuːn/", "uk": "/ɡʊd ˌɑːftəˈnuːn/", "persian": ["عصر بخیر"]},
+  "good evening": {"us": "/ɡʊd ˈiːvnɪŋ/", "uk": "/ɡʊd ˈiːvnɪŋ/", "persian": ["شب بخیر"]},
+  "good night": {"us": "/ɡʊd naɪt/", "uk": "/ɡʊd naɪt/", "persian": ["شب بخیر (خواب)"]}
 }
