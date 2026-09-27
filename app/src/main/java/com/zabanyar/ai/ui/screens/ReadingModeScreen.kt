@@ -1,7 +1,7 @@
 package com.zabanyar.ai.ui.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -247,23 +248,25 @@ fun ReadingModeScreen(
                                 color = Color.Red, fontSize = 14.sp
                             )
                         } else {
-                            // ✅ کلمات قابل کلیک
+                            // ✅ کلمات قابل کلیک با pointerInput
                             Text(
                                 text = annotatedText,
                                 fontSize = 18.sp,
                                 lineHeight = 34.sp,
                                 color = Color(0xFF1A237E),
-                                modifier = Modifier.clickable { offset ->
-                                    annotatedText
-                                        .getStringAnnotations("WORD", offset, offset)
-                                        .firstOrNull()
-                                        ?.let { annotation ->
-                                            val word = annotation.item
-                                            if (word.isNotEmpty()) {
-                                                tappedWord = word
-                                                tappedEntry = DictionaryRepository.lookup(context, word)
+                                modifier = Modifier.pointerInput(annotatedText) {
+                                    detectTapGestures { offset ->
+                                        annotatedText
+                                            .getStringAnnotations("WORD", offset, offset)
+                                            .firstOrNull()
+                                            ?.let { annotation ->
+                                                val word = annotation.item
+                                                if (word.isNotEmpty()) {
+                                                    tappedWord = word
+                                                    tappedEntry = DictionaryRepository.lookup(context, word)
+                                                }
                                             }
-                                        }
+                                    }
                                 }
                             )
                         }
@@ -353,15 +356,17 @@ fun ReadingModeScreen(
                             modifier = Modifier
                                 .size(70.dp).clip(CircleShape)
                                 .background(Brush.linearGradient(listOf(PrimaryColor, SecondaryColor)))
-                                .clickable {
-                                    if (isPlaying) {
-                                        speechHelper.stop()
-                                        isPlaying = false
-                                        isPaused = true
-                                    } else {
-                                        if (currentWordIndex < 0) currentWordIndex = 0
-                                        isPlaying = true
-                                        isPaused = false
+                                .pointerInput(isPlaying) {
+                                    detectTapGestures {
+                                        if (isPlaying) {
+                                            speechHelper.stop()
+                                            isPlaying = false
+                                            isPaused = true
+                                        } else {
+                                            if (currentWordIndex < 0) currentWordIndex = 0
+                                            isPlaying = true
+                                            isPaused = false
+                                        }
                                     }
                                 },
                             contentAlignment = Alignment.Center
