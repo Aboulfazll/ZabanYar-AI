@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.LessonContentRepository
+import com.zabanyar.ai.data.PodcastRepository
 import com.zabanyar.ai.data.books.story.StoryRepository
 import com.zabanyar.ai.ui.auth.LoginScreen
 import com.zabanyar.ai.ui.auth.RegisterScreen
@@ -20,6 +21,7 @@ import com.zabanyar.ai.ui.screens.LessonDetailScreen
 import com.zabanyar.ai.ui.screens.LevelTestScreen
 import com.zabanyar.ai.ui.screens.LibraryScreen
 import com.zabanyar.ai.ui.screens.MainHome
+import com.zabanyar.ai.ui.screens.PodcastPlayerScreen
 import com.zabanyar.ai.ui.screens.PodcastScreen
 import com.zabanyar.ai.ui.screens.ProfileScreen
 import com.zabanyar.ai.ui.screens.QuizScreen
@@ -46,6 +48,7 @@ object Routes {
     const val VOCABULARY = "vocabulary"
     const val SPEAKING = "speaking"
     const val PODCAST = "podcast"
+    const val PODCAST_PLAYER = "podcast_player/{podcastId}"
     const val DAILY_SENTENCES = "daily_sentences"
     const val LEVEL_TEST = "level_test"
     const val ACHIEVEMENTS = "achievements"
@@ -55,6 +58,7 @@ object Routes {
     fun readingMode(storyId: String) = "reading_mode/$storyId"
     fun quiz(bookId: String, quizIndex: Int, totalChapters: Int, bookTitle: String) =
         "quiz/$bookId/$quizIndex/$totalChapters/${android.net.Uri.encode(bookTitle)}"
+    fun podcastPlayer(podcastId: String) = "podcast_player/$podcastId"
 }
 
 @Composable
@@ -134,7 +138,6 @@ fun AppNavHost(
                 onBack = { navController.popBackStack() },
                 onChapterClick = { ch -> navController.navigate(Routes.lessonDetail(bookId, ch)) },
                 onQuizClick = { idx ->
-                    // ✅ اصلاح: از هر دو Repository جستجو کن
                     val book = BookRepository.getBookById(bookId)
                         ?: StoryRepository.getStoryById(bookId)
                     navController.navigate(
@@ -179,7 +182,6 @@ fun AppNavHost(
             val bookId = entry.arguments?.getString("bookId") ?: ""
             val chapterNumber = entry.arguments?.getInt("chapterNumber") ?: 1
 
-            // ✅ اصلاح: از هر دو Repository جستجو کن
             val book = BookRepository.getBookById(bookId)
                 ?: StoryRepository.getStoryById(bookId)
 
@@ -191,6 +193,7 @@ fun AppNavHost(
                     bookTitle = book?.title ?: "",
                     bookCoverGradientStart = book?.gradientStart ?: 0xFF1A237E,
                     bookCoverGradientEnd = book?.gradientEnd ?: 0xFF3949AB,
+                    bookId = bookId,
                     onBack = { navController.popBackStack() }
                 )
             } else {
@@ -200,6 +203,7 @@ fun AppNavHost(
                     bookTitle = book?.title ?: "",
                     bookCoverGradientStart = book?.gradientStart ?: 0xFF1A237E,
                     bookCoverGradientEnd = book?.gradientEnd ?: 0xFF3949AB,
+                    bookId = bookId,
                     onBack = { navController.popBackStack() }
                 )
             }
@@ -210,7 +214,6 @@ fun AppNavHost(
             arguments = listOf(navArgument("storyId") { type = NavType.StringType })
         ) { entry ->
             val storyId = entry.arguments?.getString("storyId") ?: ""
-            // ✅ اصلاح: از هر دو Repository جستجو کن
             val book = BookRepository.getBookById(storyId)
                 ?: StoryRepository.getStoryById(storyId)
             ReadingModeScreen(
@@ -243,7 +246,6 @@ fun AppNavHost(
             )
         }
 
-        // ✅ اصلاح: onLogout اضافه شد
         composable(Routes.SETTINGS) {
             SettingsScreen(
                 onBack = { navController.popBackStack() },
@@ -263,8 +265,39 @@ fun AppNavHost(
             SpeakingScreen(onBack = { navController.popBackStack() })
         }
 
+        // ✅ لیست پادکست‌ها — با onPodcastClick
         composable(Routes.PODCAST) {
-            PodcastScreen(onBack = { navController.popBackStack() })
+            PodcastScreen(
+                onBack = { navController.popBackStack() },
+                onPodcastClick = { podcast ->
+                    navController.navigate(Routes.podcastPlayer(podcast.id))
+                }
+            )
+        }
+
+        // 🆕 پلیر پادکست
+        composable(
+            route = Routes.PODCAST_PLAYER,
+            arguments = listOf(navArgument("podcastId") { type = NavType.StringType })
+        ) { entry ->
+            val podcastId = entry.arguments?.getString("podcastId") ?: ""
+            val podcast = PodcastRepository.getPodcastById(podcastId)
+
+            if (podcast == null) {
+                androidx.compose.foundation.layout.Box(
+                    modifier = androidx.compose.ui.Modifier
+                        .fillMaxSize(),
+                    contentAlignment = androidx.compose.ui.Alignment.Center
+                ) {
+                    androidx.compose.material3.Text("پادکست پیدا نشد")
+                }
+            } else {
+                PodcastPlayerScreen(
+                    podcast = podcast,
+                    transcript = podcast.transcript,
+                    onBack = { navController.popBackStack() }
+                )
+            }
         }
 
         composable(Routes.DAILY_SENTENCES) {
