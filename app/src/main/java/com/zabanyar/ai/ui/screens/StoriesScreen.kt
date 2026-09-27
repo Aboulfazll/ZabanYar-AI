@@ -25,13 +25,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
 import com.zabanyar.ai.data.Book
 import com.zabanyar.ai.data.BookCategory
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.FavoritesManager
-import com.zabanyar.ai.data.getCoverUrl
 import com.zabanyar.ai.data.books.story.AdvancedStories
 import com.zabanyar.ai.data.books.story.IntermediateStories
 import com.zabanyar.ai.data.books.story.SimpleStories
@@ -49,10 +46,10 @@ fun StoriesScreen(
 
     // ✅ ترکیب همه داستان‌ها از منابع مختلف
     val allStories: List<Book> = remember {
-        BookRepository.getAllStories() +   // داستان‌های موجود در BookRepository
-        SimpleStories.getAll() +            // ۵۰ داستان ساده
-        IntermediateStories.getAll() +      // ۳۰ داستان متوسط
-        AdvancedStories.getAll()            // ۶۰ داستان پیشرفته
+        (BookRepository.getAllStories() +
+        SimpleStories.getAll() +
+        IntermediateStories.getAll() +
+        AdvancedStories.getAll()).distinctBy { it.id }
     }
 
     val tabs = listOf("همه", "ساده", "متوسط", "پیشرفته", "🇬🇧 انگلیسی")
@@ -154,7 +151,6 @@ fun StorySection(
 ) {
     if (stories.isEmpty()) return
 
-    // گروه‌بندی بر اساس سطح
     val grouped = stories.groupBy {
         when (it.level) {
             "مبتدی", "Simple" -> "مبتدی"
@@ -237,13 +233,9 @@ fun StoryCard(
                 }
             }
 
-            // 🖼️ عکس
-            AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(story.getCoverUrl())
-                    .crossfade(true)
-                    .build(),
-                contentDescription = story.title,
+            // 🖼️ عکس (اول محلی، بعد URL)
+            BookCoverImage(
+                book = story,
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
