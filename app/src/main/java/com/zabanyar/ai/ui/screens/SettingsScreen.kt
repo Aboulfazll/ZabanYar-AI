@@ -6,10 +6,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.Logout
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -23,6 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zabanyar.ai.data.ProgressManager
+import com.zabanyar.ai.data.UserManager
 
 // ═══════════════════════════════════════════════════════
 //  ذخیره‌سازی محلی
@@ -79,7 +82,10 @@ private fun setAppLanguage(context: Context, v: String) =
 // ═══════════════════════════════════════════════════════
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsScreen(onBack: () -> Unit = {}) {
+fun SettingsScreen(
+    onBack: () -> Unit = {},
+    onLogout: () -> Unit = {}
+) {
     val context = LocalContext.current
 
     var showTranslation by remember { mutableStateOf(ProgressManager.isShowTranslation(context)) }
@@ -97,6 +103,8 @@ fun SettingsScreen(onBack: () -> Unit = {}) {
     var appLanguage by remember { mutableStateOf(getAppLanguage(context)) }
 
     var showResetDialog by remember { mutableStateOf(false) }
+    var showLogoutDialog by remember { mutableStateOf(false) }
+    val currentUser = remember { UserManager.getLoggedInUser(context) }
     var itemIndex = 0
 
     Scaffold(
@@ -126,6 +134,57 @@ fun SettingsScreen(onBack: () -> Unit = {}) {
                 .padding(padding)
                 .verticalScroll(rememberScrollState())
         ) {
+
+            // ═══════════════
+            //  👤 حساب کاربری
+            // ═══════════════
+            SectionHeader("👤 حساب کاربری")
+
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                shape = RoundedCornerShape(16.dp),
+                elevation = CardDefaults.cardElevation(1.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.White)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(56.dp)
+                            .clip(CircleShape)
+                            .background(PrimaryColor.copy(alpha = 0.15f)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            Icons.Filled.Person,
+                            null,
+                            tint = PrimaryColor,
+                            modifier = Modifier.size(30.dp)
+                        )
+                    }
+                    Spacer(Modifier.width(14.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            currentUser?.name ?: "کاربر مهمان",
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF1A237E)
+                        )
+                        Spacer(Modifier.height(2.dp))
+                        Text(
+                            currentUser?.email ?: "وارد نشده",
+                            fontSize = 12.sp,
+                            color = Color.Gray
+                        )
+                    }
+                }
+            }
 
             // ═══════════════
             //  📖 یادگیری
@@ -382,10 +441,50 @@ fun SettingsScreen(onBack: () -> Unit = {}) {
                 )
             }
 
-            Spacer(Modifier.height(24.dp))
+            // ═══════════════
+            //  🚪 خروج از حساب
+            // ═══════════════
+            if (currentUser != null) {
+                Spacer(Modifier.height(20.dp))
+
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                        .clickable { showLogoutDialog = true },
+                    shape = RoundedCornerShape(16.dp),
+                    elevation = CardDefaults.cardElevation(1.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFFFFEBEE))
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(18.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.Logout,
+                            null,
+                            tint = Color(0xFFC62828),
+                            modifier = Modifier.size(22.dp)
+                        )
+                        Spacer(Modifier.width(10.dp))
+                        Text(
+                            "خروج از حساب کاربری",
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFFC62828)
+                        )
+                    }
+                }
+            }
+
+            Spacer(Modifier.height(32.dp))
         }
     }
 
+    // ─── دیالوگ ریست ───
     if (showResetDialog) {
         AlertDialog(
             onDismissRequest = { showResetDialog = false },
@@ -404,10 +503,34 @@ fun SettingsScreen(onBack: () -> Unit = {}) {
             }
         )
     }
+
+    // ─── دیالوگ خروج ───
+    if (showLogoutDialog) {
+        AlertDialog(
+            onDismissRequest = { showLogoutDialog = false },
+            icon = { Icon(Icons.AutoMirrored.Filled.Logout, null, tint = Color(0xFFC62828)) },
+            title = { Text("خروج از حساب؟", fontWeight = FontWeight.Bold) },
+            text = { Text("آیا مطمئنی می‌خواهی از حساب کاربری خارج شوی؟") },
+            confirmButton = {
+                TextButton(onClick = {
+                    showLogoutDialog = false
+                    UserManager.logout(context)
+                    onLogout()
+                }) {
+                    Text("بله، خروج", color = Color(0xFFC62828), fontWeight = FontWeight.Bold)
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showLogoutDialog = false }) {
+                    Text("انصراف", color = Color.Gray)
+                }
+            }
+        )
+    }
 }
 
 // ═══════════════════════════════════════════════════════
-//  کامپوننت‌های جدید — استایل لیست شماره‌دار
+//  کامپوننت‌های کمکی
 // ═══════════════════════════════════════════════════════
 
 @Composable
@@ -458,7 +581,6 @@ fun NumberedToggleItem(
             .padding(horizontal = 16.dp, vertical = 14.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // شماره
         Box(
             modifier = Modifier
                 .size(34.dp)
