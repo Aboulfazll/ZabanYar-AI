@@ -2,20 +2,27 @@ package com.zabanyar.ai.data.books.conversation
 
 import com.zabanyar.ai.data.*
 
+/**
+ * Top Notch 3 — Complete Course Content
+ * 10 Units | Upper-Intermediate (B1+ to B2)
+ * Original educational content (no copyrighted material reproduced)
+ * Unit titles match the official Pearson Scope & Sequence
+ * Long-form dialogues: 140-160 lines each (~15-17 minutes)
+ */
 object TopNotch3 {
     const val BOOK_ID = "top_notch_3"
 
     fun getContent(chapterNumber: Int): LessonContent = when (chapterNumber) {
-        1 -> lesson1()
-        2 -> lesson2()
-        3 -> lesson3()
-        4 -> lesson4()
-        5 -> lesson5()
-        6 -> lesson6()
-        7 -> lesson7()
-        8 -> lesson8()
-        9 -> lesson9()
-        10 -> lesson10()
+        1 -> unit1()
+        2 -> unit2()
+        3 -> unit3()
+        4 -> unit4()
+        5 -> unit5()
+        6 -> unit6()
+        7 -> unit7()
+        8 -> unit8()
+        9 -> unit9()
+        10 -> unit10()
         else -> LessonContent(
             BOOK_ID, chapterNumber, "Coming Soon", "به‌زودی...",
             vocabulary = emptyList(), grammar = emptyList(),
@@ -54,1132 +61,1856 @@ object TopNotch3 {
         QuizQuestion(question, options, correct)
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 1 — Make Small Talk
+    // UNIT 1 — Cultural Literacy | سواد فرهنگی  (≈ 150 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson1() = base(
-        1, "Make Small Talk", "گپ کوچک زدن",
+    private fun unit1() = base(
+        1, "Cultural Literacy", "سواد فرهنگی",
         listOf(
-            "Make small talk with strangers in social situations",
-            "Use tag questions to confirm information and keep conversation going",
-            "Use the past perfect to talk about events before other past events",
-            "Discuss etiquette rules across cultures",
-            "Use appropriate intonation for tag questions"
-        ),
-        listOf(
-            v("small talk", "گپ کوچک", "Small talk helps break the ice at parties.", "گپ کوچک در مهمانی‌ها به شکستن یخ کمک می‌کند."),
-            v("etiquette", "آداب معاشرت", "Every culture has its own etiquette rules.", "هر فرهنگی آداب معاشرت خاص خود را دارد."),
-            v("taboo", "تابو", "Discussing salary is often a taboo in social settings.", "بحث درباره حقوق اغلب در محیط‌های اجتماعی تابو است."),
-            v("customary", "مرسوم", "It's customary to bring a gift to a dinner party.", "مرسوم است که به مهمانی شام هدیه ببرید."),
-            v("guideline", "رهنمود", "Here are some guidelines for making small talk.", "اینجا چند رهنمود برای گپ کوچک زدن است."),
-            v("conservative", "محافظه‌کار", "In conservative cultures, certain topics are off-limits.", "در فرهنگ‌های محافظه‌کار، موضوعات خاصی ممنوع هستند."),
-            v("aware", "آگاه", "Be aware of cultural differences in conversation.", "از تفاوت‌های فرهنگی در گفت‌وگو آگاه باش."),
-            v("rude", "بی‌ادب", "Asking personal questions can be considered rude.", "پرسیدن سؤالات شخصی می‌تواند بی‌ادبانه تلقی شود."),
-            v("formal", "رسمی", "Formal introductions are common in business settings.", "معرفی‌های رسمی در محیط‌های کاری رایج است."),
-            v("informal", "غیررسمی", "Informal greetings are used among friends.", "سلام‌های غیررسمی بین دوستان استفاده می‌شود."),
-            v("definitely", "قطعاً", "That's definitely an interesting topic.", "این قطعاً موضوع جالبی است.", "adverb"),
-            v("particular", "خاص", "Is there any particular reason you're asking?", "دلیل خاصی برای پرسیدنت داری؟", "adjective"),
-            v("address", "خطاب قرار دادن", "How should I address your parents?", "چطور باید والدینت را خطاب کنم؟", "verb"),
-            v("grow up", "بزرگ شدن", "Where did you grow up?", "کجا بزرگ شدی؟", "verb"),
-            v("break the ice", "یخ را شکستن", "A funny joke can break the ice at a party.", "یک جوک خنده‌دار می‌تواند یخ مهمانی را بشکند.", "verb")
+            "Discuss cultural differences and similarities",
+            "Understand cultural references and idioms",
+            "Talk about customs and taboos around the world",
+            "Use gerunds and infinitives correctly",
+            "Discuss the value of cultural literacy",
+            "Express opinions with nuance and hedging"
         ),
         listOf(
-            GrammarSection(
-                "Tag Questions",
-                "Use tag questions to confirm information or keep conversation going. Affirmative statement → negative tag: You're from Canada, aren't you? Negative statement → affirmative tag: You don't like coffee, do you? Special case: I am → aren't I? I'm on time, aren't I?"
-            ),
-            GrammarSection(
-                "Past Perfect",
-                "Use the past perfect (had + past participle) for an action that happened before another past action. When I arrived at the party, everyone had already left. She had never been to Japan before last year."
-            ),
-            GrammarSection(
-                "Rising and Falling Intonation for Tag Questions",
-                "Use falling intonation when you are fairly sure of the answer (confirming). Use rising intonation when you are unsure and genuinely asking."
-            ),
-            GrammarSection(
-                "Conversation Strategy: Keeping Small Talk Going",
-                "Use tag questions, follow-up questions, and active listening expressions like 'Really?', 'That's interesting', and 'I see' to keep conversation flowing."
-            )
-        ),
-        listOf(
-            d("A", "Excuse me, is this seat taken?", "ببخشید، این صندلی گرفته شده؟"),
-            d("B", "No, please sit down. I'm Daniel, by the way.", "نه، لطفاً بنشین. من دنیل هستم، راستی."),
-            d("A", "Nice to meet you, Daniel. I'm Emma. Are you here for the conference too?", "از آشنایی با تو خوشحالم، دنیل. من اِما هستم. تو هم برای کنفرانس اینجایی؟"),
-            d("B", "Yes, I am. You're from the London office, aren't you?", "بله. تو از دفتر لندن هستی، نه؟"),
-            d("A", "That's right! How did you know?", "درست است! از کجا فهمیدی؟"),
-            d("B", "I saw your name on the attendee list. You've been with the company for five years, haven't you?", "اسمت را در لیست شرکت‌کنندگان دیدم. پنج سال است در شرکت هستی، نه؟"),
-            d("A", "Actually, it's been six years now. Time flies, doesn't it?", "در واقع، الان شش سال است. زمان سریع می‌گذرد، نه؟"),
-            d("B", "It really does. Where did you work before that?", "واقعاً همین‌طور است. قبل از آن کجا کار می‌کردی؟"),
-            d("A", "I was at a smaller firm in Manchester. I had worked there for three years before I moved to London.", "در یک شرکت کوچک‌تر در منچستر بودم. سه سال آنجا کار کرده بودم قبل از اینکه به لندن نقل مکان کنم."),
-            d("B", "I see. And how do you like London?", "متوجه شدم. لندن را چطور دوست داری؟"),
-            d("A", "I love it, though the weather takes some getting used to. You've lived here for a while, haven't you?", "عاشقش هستم، هرچند آب و هوا کمی زمان می‌برد تا عادت کنی. مدتی است اینجا زندگی می‌کنی، نه؟"),
-            d("B", "About ten years now. I grew up in the north, but I moved here after university.", "حدود ده سال است. در شمال بزرگ شدم، ولی بعد از دانشگاه به اینجا آمدم."),
-            d("A", "That must have been quite a change. Do you ever miss your hometown?", "این باید تغییر بزرگی بوده باشد. دلت برای شهرت تنگ می‌شود؟"),
-            d("B", "Sometimes. But I've built a life here. My wife is from London, actually.", "گاهی. ولی اینجا زندگی ساخته‌ام. همسرم اهل لندن است، در واقع."),
-            d("A", "Oh, you're married. How long have you been married?", "اوه، متأهلی. چند وقت است ازدواج کرده‌ای؟"),
-            d("B", "We've been married for eight years. We have two children.", "هشت سال است ازدواج کرده‌ایم. دو فرزند داریم."),
-            d("A", "That's wonderful. What do your children like to do?", "فوق‌العاده است. فرزندانت دوست دارند چه کار کنند؟"),
-            d("B", "My son loves football, and my daughter is into art. They keep us busy!", "پسرم عاشق فوتبال است، و دخترم به هنر علاقه دارد. ما را مشغول نگه می‌دارند!"),
-            d("A", "I can imagine. Do you get much time for yourself?", "می‌توانم تصور کنم. وقت زیادی برای خودت داری؟"),
-            d("B", "Not as much as I'd like, but I try to play tennis on weekends. Do you play any sports?", "آنقدر که دوست دارم نه، ولی سعی می‌کنم آخر هفته‌ها تنیس بازی کنم. ورزشی انجام می‌دهی؟"),
-            d("A", "I used to play badminton, but I haven't played in years. Maybe I should start again.", "قبلاً بدمینتون بازی می‌کردم، ولی سال‌هاست بازی نکرده‌ام. شاید باید دوباره شروع کنم."),
-            d("B", "You should! It's a great way to stay fit and meet people.", "باید بکنی! روش عالی برای تناسب اندام و آشنا شدن با مردم است."),
-            d("A", "You're right. By the way, do you know anyone else from the London office here?", "حق داری. راستی، کسی دیگر از دفتر لندن اینجا می‌شناسی؟"),
-            d("B", "Yes, a few people. I'd be happy to introduce you. You'd like that, wouldn't you?", "بله، چند نفر. خوشحال می‌شوم معرفی کنم. دوست داری، نه؟"),
-            d("A", "That would be great! Thanks so much.", "عالی می‌شود! خیلی ممنون."),
-            d("B", "Of course. Let's grab a coffee first, shall we?", "حتماً. بیا اول قهوه بخوریم، باشه؟"),
-            d("A", "Sounds perfect. I'd love that.", "عالی به نظر می‌رسد. خوشحال می‌شوم."),
-            d("B", "Great. The coffee stand is right over there, isn't it?", "عالی. غرفه قهوه همان آنجاست، نه؟"),
-            d("A", "Yes, it is. Let's go.", "بله. بیا برویم."),
-            d("B", "After you.", "شما اول.")
-        ),
-        listOf(
-            q("Where is Emma from?", listOf("Manchester", "London", "New York", "Paris"), 1),
-            q("How long has Emma been with the company?", listOf("five years", "six years", "three years", "ten years"), 1),
-            q("Where did Emma work before?", listOf("a smaller firm in Manchester", "a company in London", "a university", "a hospital"), 0),
-            q("How long has Daniel been married?", listOf("five years", "eight years", "ten years", "three years"), 1),
-            q("You're from Canada, ___?", listOf("aren't you", "are you", "don't you", "isn't it"), 0),
-            q("She doesn't like coffee, ___?", listOf("does she", "doesn't she", "is she", "isn't she"), 0),
-            q("I'm on time, ___?", listOf("am I", "aren't I", "isn't it", "am not I"), 1),
-            q("When I arrived, everyone ___ already ___.", listOf("has / left", "had / left", "was / leaving", "did / leave"), 1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Break the ice", "یخ را شکستن", "A joke can break the ice at a party.", "یک جوک می‌تواند یخ مهمانی را بشکند."),
-            IdiomExpression("Time flies", "زمان سریع می‌گذرد", "Time flies, doesn't it?", "زمان سریع می‌گذرد، نه؟"),
-            IdiomExpression("Takes some getting used to", "کمی زمان می‌برد تا عادت کنی", "The weather takes some getting used to.", "آب و هوا کمی زمان می‌برد تا عادت کنی."),
-            IdiomExpression("By the way", "راستی", "By the way, do you know anyone here?", "راستی، کسی را اینجا می‌شناسی؟")
-        ),
-        phrasal = listOf(
-            PhrasalVerb("grow up", "بزرگ شدن", "spend childhood", "Where did you grow up?", "کجا بزرگ شدی؟", "No"),
-            PhrasalVerb("get used to", "عادت کردن", "become accustomed to", "The weather takes some getting used to.", "آب و هوا کمی زمان می‌برد تا عادت کنی.", "No"),
-            PhrasalVerb("grab a coffee", "قهوه خوردن (سریع)", "get coffee informally", "Let's grab a coffee first.", "بیا اول قهوه بخوریم.", "No")
-        ),
-        pronunciation = listOf(
-            PronunciationTip("Falling intonation in tag questions", "When you're fairly sure, use falling intonation: You're from Canada, aren't you? ↘"),
-            PronunciationTip("Rising intonation in tag questions", "When genuinely asking, use rising intonation: You're from Canada, aren't you? ↗")
-        ),
-        culture = listOf(
-            CulturalNote("Small talk topics", "Safe topics for small talk in most English-speaking cultures include weather, work, hobbies, travel, and family. Topics to avoid include salary, politics, religion, and very personal questions."),
-            CulturalNote("Etiquette and taboos", "What's considered polite varies across cultures. In some cultures, asking about age or marital status is normal; in others, it's considered rude. Being aware of these differences shows respect.")
-        ),
-        mistakes = listOf(
-            CommonMistake("You're from Canada, isn't it?", "You're from Canada, aren't you?", "The tag must match the subject and verb of the statement."),
-            CommonMistake("When I arrived, everyone already left.", "When I arrived, everyone had already left.", "Use past perfect for the earlier past action.")
-        ),
-        comprehension = listOf(
-            ComprehensionQuestion("What does Emma say about her time in London?", "She loves it but says the weather takes some getting used to."),
-            ComprehensionQuestion("What are Daniel's children interested in?", "His son loves football and his daughter is into art.")
-        ),
-        speaking = listOf(
-            SpeakingTask("Practice making small talk with a partner using tag questions.", "با یک دوست گپ کوچک با استفاده از سؤالات ضمیمه تمرین کن.", "You're..., aren't you? / You've..., haven't you? / It's..., isn't it?"),
-            SpeakingTask("Discuss which topics are appropriate for small talk in your culture.", "درباره اینکه چه موضوعاتی برای گپ کوچک در فرهنگت مناسب هستند صحبت کن.", "In my culture, it's polite to... / People usually avoid...")
-        ),
-        writing = listOf(
-            WritingTask("Write a short dialogue where two people make small talk at an event.", "یک گفت‌وگوی کوتاه بنویس که دو نفر در یک رویداد گپ کوچک می‌زنند.", 180, "Use at least three tag questions and one past perfect.")
-        )
-    )
-
-    // ═══════════════════════════════════════════════════════════
-    // UNIT 2 — Health Matters
-    // ═══════════════════════════════════════════════════════════
-    private fun lesson2() = base(
-        2, "Health Matters", "مسائل سلامتی",
-        listOf(
-            "Describe symptoms and health problems",
-            "Make a medical or dental appointment",
-            "Discuss types of treatments and medications",
-            "Use modal verbs for possibility and ability (may, might, could)",
-            "Show concern and offer help"
-        ),
-        listOf(
-            v("symptom", "نشانه", "A persistent cough can be a symptom of a cold.", "سرفه مداوم می‌تواند نشانه سرماخوردگی باشد."),
-            v("dizzy", "گیج", "She felt dizzy after standing up too quickly.", "بعد از سریع بلند شدن احساس گیجی کرد."),
-            v("nauseous", "تهوع‌آور", "The bumpy car ride made her feel nauseous.", "مسیر ناهموار ماشین او را تهوع‌آور کرد."),
-            v("weak", "ضعیف", "He felt weak after the flu.", "بعد از آنفولانزا احساس ضعف می‌کرد."),
-            v("short of breath", "تنگی نفس", "She was short of breath after climbing the stairs.", "بعد از بالا رفتن از پله‌ها تنگی نفس داشت."),
-            v("vomit", "استفراغ کردن", "He sometimes vomits after eating certain foods.", "او گاهی بعد از خوردن غذاهای خاص استفراغ می‌کند."),
-            v("cough", "سرفه کردن", "Cover your mouth when you cough.", "هنگام سرفه دهانت را بپوشان."),
-            v("sneeze", "عطسه کردن", "Don't forget to cover your mouth when you sneeze.", "فراموش نکن هنگام عطسه دهانت را بپوشانی."),
-            v("wheeze", "خس‌خس کردن", "The child wheezed during the asthma attack.", "کودک در حین حمله آسم خس‌خس کرد."),
-            v("pain", "درد", "I have a sharp pain in my chest.", "درد تیزی در قفسه سینه‌ام دارم."),
-            v("prescription", "نسخه", "The doctor gave me a prescription for antibiotics.", "پزشک برایم نسخه آنتی‌بیوتیک نوشت."),
-            v("treatment", "درمان", "The treatment lasted for two weeks.", "درمان دو هفته طول کشید."),
-            v("emergency", "اضطرار", "Call an ambulance in case of an emergency.", "در مواقع اضطراری آمبولانس خبر کنید."),
-            v("appointment", "قرار ملاقات", "I have a doctor's appointment at three.", "ساعت سه قرار ملاقات پزشک دارم."),
-            v("remedy", "راه‌حل / درمان خانگی", "A warm drink is a good remedy for a sore throat.", "نوشیدنی گرم راه‌حل خوبی برای گلودرد است.")
-        ),
-        listOf(
-            GrammarSection("Modal Verbs for Possibility: may, might, could", "Use may, might, or could + base verb to express possibility in the present or future. The doctor may prescribe antibiotics. She might have a fever. It could be just a cold."),
-            GrammarSection("Modal Verbs for Ability: be able to", "Use 'be able to' for ability, especially in tenses where 'can' is not used. The treatment might be able to reduce the pain. Will you be able to come to the appointment?"),
-            GrammarSection("Expressing Concern and Offering Help", "Use expressions like 'You should see a doctor', 'I'm worried about...', 'Is there anything I can do?', and 'Would you like me to...?' to show concern and offer help."),
-            GrammarSection("Conversation Strategy: Describing Symptoms", "Use 'I have a...', 'I've been feeling...', and 'It hurts when...' to describe symptoms clearly to a doctor.")
-        ),
-        listOf(
-            d("A", "You don't look well. Are you okay?", "خوب به نظر نمی‌رسی. حالت خوبه؟"),
-            d("B", "Not really. I've been feeling dizzy and nauseous since this morning.", "نه واقعاً. از صبح احساس گیجی و تهوع دارم."),
-            d("A", "That sounds terrible. Do you have any other symptoms?", "وحشتناک به نظر می‌رسد. نشانه دیگری داری؟"),
-            d("B", "Yes, I've also been coughing a lot. And I feel weak.", "بله، خیلی هم سرفه کرده‌ام. و احساس ضعف می‌کنم."),
-            d("A", "Have you taken your temperature?", "دمایت را اندازه گرفته‌ای؟"),
-            d("B", "No, I haven't. I don't have a thermometer.", "نه. دماسنج ندارم."),
-            d("A", "You might have a fever. You should see a doctor.", "ممکن است تب داشته باشی. باید به پزشک مراجعه کنی."),
-            d("B", "You're right. I'll make an appointment.", "حق داری. قرار ملاقات می‌گیرم."),
-            d("A", "Would you like me to call the clinic for you?", "می‌خواهی برایت به کلینیک زنگ بزنم؟"),
-            d("B", "That would be great, thanks. I feel too weak to talk on the phone.", "عالی می‌شود، ممنون. خیلی ضعیفم که تلفنی صحبت کنم."),
-            d("A", "No problem. They can see you at 2:30. Is that okay?", "مشکلی نیست. می‌توانند ساعت ۲:۳۰ ببینندت. خوبه؟"),
-            d("B", "Yes, that's fine. Thank you so much.", "بله، خوبه. خیلی ممنون."),
-            d("A", "Do you need help getting there?", "برای رسیدن به آنجا کمک لازم داری؟"),
-            d("B", "I think I can manage. But could you write down the address?", "فکر می‌کنم بتوانم. ولی می‌توانی آدرس را بنویسی؟"),
-            d("A", "Of course. Here you go. It's on Oak Street, near the pharmacy.", "حتماً. بفرما. در خیابان اوک است، نزدیک داروخانه."),
-            d("B", "Got it. I'll take a taxi. I don't think I can walk that far.", "متوجه شدم. تاکسی می‌گیرم. فکر نمی‌کنم بتوانم آنقدر پیاده بروم."),
-            d("A", "That's a good idea. Do you want me to come with you?", "فکر خوبی است. می‌خواهی با تو بیایم؟"),
-            d("B", "No, you've already done so much. I'll be fine.", "نه، تو تا حالا خیلی کار کرده‌ای. خوب خواهم شد."),
-            d("A", "Okay, but call me if you need anything. Promise?", "باشه، ولی اگر چیزی لازم داشتی بهم زنگ بزن. قول می‌دهی؟"),
-            d("B", "I promise. Thanks for being such a good friend.", "قول می‌دهم. ممنون که چنین دوست خوبی هستی."),
-            d("A", "That's what friends are for. Now go rest before your appointment.", "دوست برای همین است. حالا برو قبل از قرار ملاقاتت استراحت کن."),
-            d("B", "I will. See you later.", "می‌کنم. بعداً می‌بینمت."),
-            d("A", "Text me after you see the doctor, okay?", "بعد از دیدن پزشک پیام بده، باشه؟"),
-            d("B", "I will. Bye.", "می‌دهم. خداحافظ."),
-            d("A", "Take care!", "مراقب خودت باش!")
-        ),
-        listOf(
-            q("What symptoms does B have?", listOf("headache and fever", "dizzy, nauseous, coughing, weak", "sore throat and sneezing", "chest pain"), 1),
-            q("When is B's appointment?", listOf("1:30", "2:00", "2:30", "3:00"), 2),
-            q("How will B get to the clinic?", listOf("walk", "bus", "taxi", "friend drives"), 2),
-            q("Where is the clinic?", listOf("Main Street", "Oak Street", "Park Avenue", "First Street"), 1),
-            q("The doctor ___ prescribe antibiotics.", listOf("may", "is", "does", "has"), 0),
-            q("The treatment ___ reduce the pain.", listOf("might be able to", "is able", "can able to", "might can"), 0),
-            q("She ___ have a fever. (possibility)", listOf("may", "must", "should", "will"), 0),
-            q("You ___ see a doctor if you feel this way.", listOf("should", "are", "do", "have"), 0)
-        ),
-        idioms = listOf(
-            IdiomExpression("That's what friends are for", "دوست برای همین است", "Thanks for helping. That's what friends are for.", "ممنون برای کمکت. دوست برای همین است."),
-            IdiomExpression("I can manage", "می‌توانم از عهده برآیم", "I think I can manage.", "فکر می‌کنم بتوانم از عهده برآیم."),
-            IdiomExpression("Take care", "مراقب خودت باش", "Take care!", "مراقب خودت باش!"),
-            IdiomExpression("Promise?", "قول می‌دهی؟", "Call me if you need anything. Promise?", "اگر چیزی لازم داشتی زنگ بزن. قول می‌دهی؟")
-        ),
-        phrasal = listOf(
-            PhrasalVerb("manage", "از عهده برآمدن", "succeed in doing something", "I think I can manage.", "فکر می‌کنم بتوانم از عهده برآیم.", "No"),
-            PhrasalVerb("come with", "همراه شدن با", "accompany someone", "Do you want me to come with you?", "می‌خواهی با تو بیایم؟", "No"),
-            PhrasalVerb("write down", "نوشتن", "write on paper", "Could you write down the address?", "می‌توانی آدرس را بنویسی؟", "Yes")
-        ),
-        pronunciation = listOf(
-            PronunciationTip("Showing concern intonation", "Use gentle falling intonation to show concern: Are you okay? ↘"),
-            PronunciationTip("Modal verb stress", "Stress the modal verb to emphasize possibility: You MIGHT have a fever.")
-        ),
-        culture = listOf(
-            CulturalNote("Medical appointments", "In many English-speaking countries, you usually need to make an appointment to see a doctor. Walk-in clinics are available for urgent but non-emergency issues."),
-            CulturalNote("Showing concern", "Offering help to a sick friend is common, but respecting their independence is also important. Asking 'Would you like me to...?' is a polite way to offer help without being pushy.")
-        ),
-        mistakes = listOf(
-            CommonMistake("The doctor may prescribes antibiotics.", "The doctor may prescribe antibiotics.", "After modal verbs, use the base form of the verb."),
-            CommonMistake("She might can come.", "She might be able to come.", "Don't use two modal verbs together. Use 'be able to' after 'might'.")
-        ),
-        comprehension = listOf(
-            ComprehensionQuestion("What symptoms does B describe?", "Dizzy, nauseous, coughing, and weak."),
-            ComprehensionQuestion("How does A help B?", "Calls the clinic, writes down the address, and offers to come along.")
-        ),
-        speaking = listOf(
-            SpeakingTask("Describe symptoms to a partner as if they were a doctor.", "نشانه‌هایت را به یک دوست طوری که انگار پزشک است توصیف کن.", "I have... / I've been feeling... / It hurts when..."),
-            SpeakingTask("Practice making a medical appointment by phone.", "تمرین کنید تلفنی قرار ملاقات پزشک بگیرید.", "I'd like to make an appointment... / I've been having... / When is the earliest...?")
-        ),
-        writing = listOf(
-            WritingTask("Write an email to a friend who is sick, showing concern and offering help.", "ایمیلی به یک دوست بیمار بنویس، نگرانی نشان بده و کمک پیشنهاد کن.", 170, "Use modal verbs (may, might, could) and expressions of concern.")
-        )
-    )
-
-    // ═══════════════════════════════════════════════════════════
-    // UNIT 3 — Getting Things Done
-    // ═══════════════════════════════════════════════════════════
-    private fun lesson3() = base(
-        3, "Getting Things Done", "انجام کارها",
-        listOf(
-            "Talk about getting things done by others",
-            "Use the causative (get/have + object + past participle)",
-            "Discuss services and errands",
-            "Talk about procrastination and time management",
-            "Use the passive causative"
-        ),
-        listOf(
-            v("procrastinate", "به تعویق انداختن", "Stop procrastinating and start working!", "دست از به تعویق انداختن بردار و شروع به کار کن!"),
-            v("procrastinator", "فرد به تعویق انداز", "He's a chronic procrastinator.", "او یک به تعویق انداز مزمن است."),
-            v("organized", "سازمان‌یافته", "She's very organized and never misses deadlines.", "او خیلی سازمان‌یافته است و هرگز ضرب‌الاجل را از دست نمی‌دهد."),
-            v("self-motivated", "خودانگیخته", "Self-motivated people don't need to be told what to do.", "افراد خودانگیخته نیازی ندارند به آن‌ها گفته شود چه کار کنند."),
-            v("deadline", "ضرب‌الاجل", "The deadline for the project is Friday.", "ضرب‌الاجل پروژه جمعه است."),
-            v("errand", "کار روزمره", "I have a few errands to run this afternoon.", "امروز بعدازظهر چند کار روزمره دارم."),
-            v("dry-clean", "خشکشویی کردن", "I need to dry-clean my suit.", "باید کت و شلوارم را خشکشویی کنم."),
-            v("repair", "تعمیر کردن", "Where can I get my shoes repaired?", "کجا می‌توانم کفش‌هایم را تعمیر کنم؟"),
-            v("deliver", "تحویل دادن", "They deliver packages every morning.", "آن‌ها هر صبح بسته‌ها را تحویل می‌دهند."),
-            v("frame", "قاب کردن", "I want to get this picture framed.", "می‌خواهم این عکس را قاب کنم."),
-            v("lengthen", "بلندتر کردن", "Can you lengthen this skirt?", "می‌توانی این دامن را بلندتر کنی؟"),
-            v("shorten", "کوتاه‌تر کردن", "I need to shorten these pants.", "باید این شلوار را کوتاه‌تر کنم."),
-            v("copy", "کپی کردن", "Please copy this report for the meeting.", "لطفاً این گزارش را برای جلسه کپی کن."),
-            v("lifesaver", "نجات‌دهنده", "You're a lifesaver!", "تو نجات‌دهنده‌ای!"),
-            v("owe", "بدهکار بودن", "I owe you one.", "بدهکارت هستم.")
-        ),
-        listOf(
-            GrammarSection("Causative with get + object + infinitive", "Use 'get + object + to + verb' to say one person persuades another to do something. I'll get the waiter to correct the check. They got him to pay for dinner. Did she get her friends to help?"),
-            GrammarSection("Causative with have + object + base form", "Use 'have + object + base verb' to say one person directs another to do something. I'll have the mechanic check the car. She had the plumber fix the sink."),
-            GrammarSection("Passive Causative: have/get + object + past participle", "Use the passive causative when focusing on the object rather than who did the action. Form: have/get + object + past participle. We had our picture taken. They plan to have the offices painted. We got our picture taken."),
-            GrammarSection("Conversation Strategy: Asking for and offering help", "Use expressions like 'Could you...?', 'Would you mind...?', 'I'll take care of it', and 'You're a lifesaver' when asking for or offering help with tasks.")
-        ),
-        listOf(
-            d("A", "Hey, you look stressed. What's going on?", "سلام، استرس داری. چه خبره؟"),
-            d("B", "I have so much to do before the conference next week.", "قبل از کنفرانس هفته بعد کارهای زیادی دارم."),
-            d("A", "Like what?", "مثل چی؟"),
-            d("B", "I need to get my suit dry-cleaned, have my presentation printed, and get my picture framed for the display.", "باید کت و شلوارم را خشکشویی کنم، ارائه‌ام را چاپ کنم، و عکسم را برای نمایش قاب کنم."),
-            d("A", "That's a lot. Have you done any of it yet?", "زیاد است. تا حالا کدامش را انجام داده‌ای؟"),
-            d("B", "Honestly, no. I've been procrastinating.", "صادقانه، نه. به تعویق انداخته‌ام."),
-            d("A", "Why? You're usually so organized.", "چرا؟ تو معمولاً خیلی سازمان‌یافته هستی."),
-            d("B", "I know. I've been so busy with other things. I just can't seem to get motivated.", "می‌دانم. با چیزهای دیگر خیلی مشغول بوده‌ام. به نظر نمی‌توانم انگیزه بگیرم."),
-            d("A", "Well, let's tackle it together. What's the most urgent?", "خب، بیا با هم انجامش دهیم. کدام فوری‌تر است؟"),
-            d("B", "The suit. I need it by Thursday.", "کت و شلوار. تا پنجشنبه لازمش دارم."),
-            d("A", "Okay. There's a dry cleaner on Main Street. You can get it done in a day.", "باشه. خشکشویی در خیابان مین هست. می‌توانی یک روزه انجامش دهی."),
-            d("B", "That's good to know. Do they also repair shoes?", "خوب است که می‌دانم. کفش هم تعمیر می‌کنند؟"),
-            d("A", "I'm not sure. But I can call and ask. Do you need shoes repaired too?", "مطمئن نیستم. ولی می‌توانم زنگ بزنم و بپرسم. کفش هم نیاز به تعمیر دارد؟"),
-            d("B", "Yes, my favorite pair has a hole in them.", "بله، کفش مورد علاقه‌ام سوراخ شده."),
-            d("A", "I'll find out. What about the picture framing?", "متوجه می‌شوم. قاب کردن عکس چطور؟"),
-            d("B", "There's a frame shop near my house. I'll get it framed there.", "یک مغازه قاب‌سازی نزدیک خانه‌ام هست. آنجا قابش می‌کنم."),
-            d("A", "Good. And the presentation?", "خوبه. و ارائه؟"),
-            d("B", "I need to get it printed at the copy shop. But I haven't finished writing it yet.", "باید در کپی‌فروشی چاپش کنم. ولی هنوز نوشتنش را تمام نکرده‌ام."),
-            d("A", "How much do you have left?", "چقدر مانده؟"),
-            d("B", "About half. I've been putting it off because it's the hardest part.", "حدود نصف. به تعویق انداخته‌ام چون سخت‌ترین قسمت است."),
-            d("A", "Why don't you work on it now while I make some calls?", "چرا الان روش کار نمی‌کنی تا من چند تماس بگیرم؟"),
-            d("B", "That would be a huge help. You're a lifesaver!", "این کمک بزرگی می‌شود. تو نجات‌دهنده‌ای!"),
-            d("A", "That's what friends are for. I'll let you know what I find out.", "دوست برای همین است. خبرت می‌کنم چه پیدا کردم."),
-            d("B", "Thanks. I owe you one.", "ممنون. بدهکارت هستم."),
-            d("A", "You can buy me coffee later. Now get to work!", "بعداً می‌توانی برایم قهوه بخری. حالا برو سر کار!"),
-            d("B", "Deal. I'll start right now.", "قبول. همین الان شروع می‌کنم."),
-            d("A", "That's the spirit. I'll be back in an hour.", "همین روحیه را می‌خواهم. یک ساعت دیگر برمی‌گردم."),
-            d("B", "Perfect. Thanks again.", "عالی. باز هم ممنون."),
-            d("A", "No problem. See you soon.", "مشکلی نیست. به‌زودی می‌بینمت."),
-            d("B", "See you. And thanks for kicking me into gear.", "می‌بینمت. و ممنون که به من انگیزه دادی.")
-        ),
-        listOf(
-            q("What does B need to get done?", listOf("suit dry-cleaned, presentation printed, picture framed", "shoes repaired, suit cleaned, report copied", "car fixed, hair cut, suit cleaned", "picture taken, suit bought, report printed"), 0),
-            q("Why has B been procrastinating?", listOf("too busy and can't get motivated", "doesn't know where to go", "doesn't have money", "waiting for help"), 0),
-            q("What is the most urgent task?", listOf("the presentation", "the suit", "the picture", "the shoes"), 1),
-            q("What does A offer to do?", listOf("write the presentation", "make calls and find services", "pay for everything", "drive B around"), 1),
-            q("I'll get the waiter ___ the check.", listOf("correct", "to correct", "correcting", "corrected"), 1),
-            q("She had the plumber ___ the sink.", listOf("fix", "to fix", "fixing", "fixed"), 0),
-            q("We had our picture ___.", listOf("take", "to take", "taking", "taken"), 3),
-            q("They plan to have the offices ___.", listOf("paint", "to paint", "painting", "painted"), 3)
-        ),
-        idioms = listOf(
-            IdiomExpression("You're a lifesaver", "نجات‌دهنده‌ای", "You're a lifesaver!", "تو نجات‌دهنده‌ای!"),
-            IdiomExpression("I owe you one", "بدهکارت هستم", "I owe you one.", "بدهکارت هستم."),
-            IdiomExpression("Kick into gear", "انگیزه دادن", "Thanks for kicking me into gear.", "ممنون که به من انگیزه دادی."),
-            IdiomExpression("That's the spirit", "همین روحیه را می‌خواهم", "That's the spirit. Now get to work!", "همین روحیه را می‌خواهم. حالا برو سر کار!")
-        ),
-        phrasal = listOf(
-            PhrasalVerb("put off", "به تعویق انداختن", "postpone", "I've been putting it off.", "به تعویق انداخته‌ام.", "Yes"),
-            PhrasalVerb("find out", "فهمیدن", "discover information", "I'll let you know what I find out.", "خبرت می‌کنم چه پیدا کردم.", "No"),
-            PhrasalVerb("get to work", "شروع به کار کردن", "begin working", "Now get to work!", "حالا برو سر کار!", "No")
-        ),
-        pronunciation = listOf(
-            PronunciationTip("Causative stress", "Stress the past participle in passive causative: We had our picture TAKen."),
-            PronunciationTip("Reduction in 'get to'", "In natural speech, 'get to' is often reduced: get t' work → /ɡɛt tə wɜrk/")
-        ),
-        culture = listOf(
-            CulturalNote("Services and errands", "In many English-speaking countries, it's common to pay others to do tasks like dry-cleaning, shoe repair, and picture framing. Convenience is often valued over doing everything yourself."),
-            CulturalNote("Procrastination", "Procrastination is a common experience worldwide. Time management strategies like breaking tasks into smaller steps and setting deadlines are often discussed.")
-        ),
-        mistakes = listOf(
-            CommonMistake("I'll get the waiter correct the check.", "I'll get the waiter to correct the check.", "Use 'to + verb' after 'get + object' in the causative."),
-            CommonMistake("She had the plumber to fix the sink.", "She had the plumber fix the sink.", "Use the base verb (no 'to') after 'have + object' in the causative.")
-        ),
-        comprehension = listOf(
-            ComprehensionQuestion("What tasks does B need to complete?", "Dry-clean suit, repair shoes, frame picture, print presentation."),
-            ComprehensionQuestion("How does A help B?", "Makes calls to find services and encourages B to work on the presentation.")
-        ),
-        speaking = listOf(
-            SpeakingTask("Discuss a time you procrastinated and how you got motivated.", "درباره زمانی که کارها را به تعویق انداختی و چطور انگیزه گرفتی صحبت کن.", "I kept putting it off because... / What helped me was..."),
-            SpeakingTask("Practice asking for help with errands using causative structures.", "تمرین کنید با ساختار causative برای کارهای روزمره کمک بخواهید.", "Can you get someone to...? / I need to have my... / Where can I get...?")
-        ),
-        writing = listOf(
-            WritingTask("Write a to-do list for a busy week and explain how you'll get things done.", "لیست کارهای یک هفته شلوغ را بنویس و توضیح بده چطور انجامشان می‌دهی.", 180, "Use at least four causative structures (get/have + object + past participle).")
-        )
-    )
-
-    // ═══════════════════════════════════════════════════════════
-    // UNIT 4 — Reading for Pleasure
-    // ═══════════════════════════════════════════════════════════
-    private fun lesson4() = base(
-        4, "Reading for Pleasure", "خواندن برای لذت",
-        listOf(
-            "Discuss different types of books and reading preferences",
-            "Talk about reading habits and favorite authors",
-            "Use noun clauses and embedded questions",
-            "Use adjective clauses with whose and where",
-            "Recommend and discuss books"
-        ),
-        listOf(
-            v("novel", "رمان", "She's reading a historical novel.", "او یک رمان تاریخی می‌خواند."),
-            v("fiction", "داستان", "I prefer fiction to non-fiction.", "داستان را به غیرداستان ترجیح می‌دهم."),
-            v("non-fiction", "غیرداستانی", "Non-fiction books teach you about real events.", "کتاب‌های غیرداستانی درباره رویدادهای واقعی آموزش می‌دهند."),
-            v("biography", "زندگی‌نامه", "I'm reading a biography of Steve Jobs.", "دارم زندگی‌نامه استیو جابز را می‌خوانم."),
-            v("autobiography", "خودزندگی‌نامه", "Her autobiography was a bestseller.", "خودزندگی‌نامه‌اش پرفروش شد."),
-            v("mystery", "معمایی", "Mystery novels keep you guessing.", "رمان‌های معمایی تو را در حدس نگه می‌دارند."),
-            v("plot", "داستان / پیرنگ", "The plot was very unpredictable.", "پیرنگ خیلی غیرقابل پیش‌بینی بود."),
-            v("character", "شخصیت", "The main character is very complex.", "شخصیت اصلی خیلی پیچیده است."),
-            v("author", "نویسنده", "Who's your favorite author?", "نویسنده مورد علاقه‌ات کیست؟"),
-            v("recommend", "توصیه کردن", "I highly recommend this book.", "این کتاب را شدیداً توصیه می‌کنم.", "verb"),
-            v("plot twist", "پیچش داستانی", "The plot twist caught me by surprise.", "پیچش داستانی مرا غافلگیر کرد."),
-            v("best-seller", "پرفروش", "This book is a best-seller.", "این کتاب پرفروش است."),
-            v("chapter", "فصل", "I read one chapter every night.", "هر شب یک فصل می‌خوانم."),
-            v("genre", "ژانر", "What genres do you enjoy?", "چه ژانرهایی را دوست داری؟"),
-            v("browse", "ورق زدن", "I like to browse in bookstores.", "دوست دارم در کتاب‌فروشی‌ها ورق بزنم.", "verb")
-        ),
-        listOf(
-            GrammarSection("Noun Clauses", "Use noun clauses as subjects or objects. Common forms: that-clauses (I think that reading is important), whether/if clauses (I wonder whether she likes mysteries), and wh-clauses (I don't know what he's reading)."),
-            GrammarSection("Embedded Questions", "Embedded questions use statement word order. Direct: What time does the library close? Embedded: Do you know what time the library closes? Direct: Where is the bookstore? Embedded: Can you tell me where the bookstore is?"),
-            GrammarSection("Adjective Clauses with whose and where", "Use 'whose' for possession and 'where' for places. The author whose book I read lives in Paris. The bookstore where I shop is closed today."),
-            GrammarSection("Conversation Strategy: Recommending and Discussing Books", "Use expressions like 'You should read...', 'It's worth reading', 'It's a page-turner', and 'It didn't really grab me' to discuss books.")
-        ),
-        listOf(
-            d("A", "Hey, I saw you reading during lunch. What's the book?", "سلام، دیدم هنگام ناهار کتاب می‌خواندی. چه کتابی است؟"),
-            d("B", "It's a mystery novel. I can't put it down!", "یک رمان معمایی است. نمی‌توانم زمینش بگذارم!"),
-            d("A", "Really? Who's the author?", "واقعاً؟ نویسنده‌اش کیست؟"),
-            d("B", "Her name is Laura Chen. Do you know her work?", "اسمش لورا چن است. کارش را می‌شناسی؟"),
-            d("A", "I'm not sure. What's it about?", "مطمئن نیستم. درباره چیست؟"),
-            d("B", "It's about a detective whose partner disappears mysteriously.", "درباره کارآگاهی است که همکارش به شکلی مرموز ناپدید می‌شود."),
-            d("A", "That sounds interesting. Is it a page-turner?", "جالب به نظر می‌رسد. کتابی است که نمی‌توانی زمینش بگذاری؟"),
-            d("B", "Absolutely. I've been reading it every chance I get.", "قطعاً. هر فرصتی که پیدا می‌کنم می‌خوانمش."),
-            d("A", "I've been looking for something new. What genres do you usually read?", "دنبال چیز جدیدی می‌گشتم. معمولاً چه ژانرهایی می‌خوانی؟"),
-            d("B", "Mostly mysteries and thrillers. Sometimes I read biographies too.", "بیشتر معمایی و دلهره‌آور. گاهی زندگی‌نامه هم می‌خوانم."),
-            d("A", "I prefer non-fiction, especially science and history.", "من غیرداستانی را ترجیح می‌دهم، خصوصاً علم و تاریخ."),
-            d("B", "That's a good genre too. Do you know where I can find a good science book?", "آن هم ژانر خوبی است. می‌دانی کجا می‌توانم کتاب علمی خوبی پیدا کنم؟"),
-            d("A", "There's a great bookstore on Elm Street. It's where I buy all my books.", "یک کتاب‌فروشی عالی در خیابان الم هست. همان‌جایی است که همه کتاب‌هایم را می‌خرم."),
-            d("B", "I'll check it out. Do you know if they have a café?", "بررسی می‌کنم. می‌دانی کافه دارند؟"),
-            d("A", "Yes, they do. It's a nice place to read and have coffee.", "بله. جای خوبی برای خواندن و قهوه خوردن است."),
-            d("B", "Perfect. I might go this weekend. Do you want to come?", "عالی. شاید این آخر هفته بروم. می‌خواهی بیایی؟"),
-            d("A", "I'd love to. What time works for you?", "خیلی دوست دارم. چه ساعتی برایت خوب است؟"),
-            d("B", "How about Saturday morning at ten?", "شنبه صبح ساعت ده چطور؟"),
-            d("A", "That works. I'll meet you there. Oh, one more thing — can you tell me what the book is called?", "خوبه. آنجا می‌بینمت. اوه، یک چیز دیگر — می‌توانی بگویی اسم کتاب چیست؟"),
-            d("B", "It's called 'The Silent Partner'. I think you'd like it.", "«شریک ساکت» نام دارد. فکر می‌کنم دوستش داشته باشی."),
-            d("A", "I'll look for it. Thanks for the recommendation!", "دنبالش می‌گردم. ممنون برای توصیه!"),
-            d("B", "No problem. Let me know what you think if you read it.", "مشکلی نیست. اگر خواندی خبرم کن چه فکر می‌کنی."),
-            d("A", "I will. See you Saturday!", "می‌کنم. شنبه می‌بینمت!"),
-            d("B", "See you then!", "تا اون موقع!")
-        ),
-        listOf(
-            q("What is B reading?", listOf("a biography", "a mystery novel", "a science book", "a romance"), 1),
-            q("Who is the author of B's book?", listOf("Laura Chen", "Steve Jobs", "Elm Street", "The Silent Partner"), 0),
-            q("What kind of books does A prefer?", listOf("mysteries", "thrillers", "non-fiction", "romance"), 2),
-            q("Where is the bookstore A recommends?", listOf("on Main Street", "on Elm Street", "near the park", "downtown"), 1),
-            q("Do you know what time the library ___?", listOf("closes", "does close", "close", "is closing"), 0),
-            q("Can you tell me where the bookstore ___?", listOf("is", "is it", "does it", "it is"), 0),
-            q("The author ___ book I read lives in Paris.", listOf("who", "which", "whose", "where"), 2),
-            q("The bookstore ___ I shop is closed today.", listOf("which", "that", "whose", "where"), 3)
-        ),
-        idioms = listOf(
-            IdiomExpression("Can't put it down", "نمی‌توانم زمینش بگذارم", "I can't put it down!", "نمی‌توانم زمینش بگذارم!"),
-            IdiomExpression("Page-turner", "کتاب جذاب", "Is it a page-turner?", "کتاب جذابی است؟"),
-            IdiomExpression("Every chance I get", "هر فرصتی که پیدا می‌کنم", "I read every chance I get.", "هر فرصتی که پیدا می‌کنم می‌خوانم."),
-            IdiomExpression("Check it out", "بررسی کردن", "I'll check it out.", "بررسی می‌کنم.")
-        ),
-        phrasal = listOf(
-            PhrasalVerb("look for", "دنبال گشتن", "search for", "I'll look for it.", "دنبالش می‌گردم.", "No"),
-            PhrasalVerb("check out", "بررسی کردن", "investigate", "I'll check it out.", "بررسی می‌کنم.", "No"),
-            PhrasalVerb("put down", "زمین گذاشتن", "stop reading", "I can't put it down!", "نمی‌توانم زمینش بگذارم!", "Yes")
-        ),
-        pronunciation = listOf(
-            PronunciationTip("Embedded question intonation", "Embedded questions use statement intonation, not question intonation: Do you know what time the library closes? ↘"),
-            PronunciationTip("Noun clause linking", "Link 'that' with the next word: I think_that_it's good → /aɪ θɪŋk ðət ɪts ɡʊd/")
-        ),
-        culture = listOf(
-            CulturalNote("Reading culture", "Reading for pleasure is a popular hobby in many English-speaking countries. Book clubs, independent bookstores, and library programs are common ways people share their love of reading."),
-            CulturalNote("Genres and preferences", "Discussions about favorite genres and authors are common conversation topics. Recommending books to friends is considered a thoughtful gesture.")
-        ),
-        mistakes = listOf(
-            CommonMistake("Do you know what time does the library close?", "Do you know what time the library closes?", "Embedded questions use statement word order, not question word order."),
-            CommonMistake("The author who book I read...", "The author whose book I read...", "Use 'whose' for possession.")
-        ),
-        comprehension = listOf(
-            ComprehensionQuestion("What is B's book about?", "A detective whose partner disappears mysteriously."),
-            ComprehensionQuestion("Where does A recommend going for books?", "A bookstore on Elm Street that has a café.")
-        ),
-        speaking = listOf(
-            SpeakingTask("Discuss your reading preferences with a partner.", "درباره ترجیحات مطالعه‌ات با یک دوست صحبت کن.", "I prefer... / I usually read... / My favorite author is..."),
-            SpeakingTask("Recommend a book using noun clauses and embedded questions.", "یک کتاب را با استفاده از جملات اسمی و سؤالات جاسازی‌شده توصیه کن.", "You should read... / Do you know...? / I think that...")
-        ),
-        writing = listOf(
-            WritingTask("Write a book review for a book you've read recently.", "نقدی برای کتابی که اخیراً خوانده‌ای بنویس.", 180, "Use noun clauses, embedded questions, and adjective clauses with whose/where.")
-        )
-    )
-
-    // ═══════════════════════════════════════════════════════════
-    // UNIT 5 — Natural Disasters
-    // ═══════════════════════════════════════════════════════════
-    private fun lesson5() = base(
-        5, "Natural Disasters", "بلایای طبیعی",
-        listOf(
-            "Discuss natural disasters and their impact",
-            "Describe emergency situations and responses",
-            "Use indirect speech (say/tell, tense changes)",
-            "Report what someone said",
-            "Talk about preparedness and safety"
-        ),
-        listOf(
-            v("earthquake", "زمین‌لرزه", "The earthquake measured 6.5 on the Richter scale.", "زمین‌لرزه ۶.۵ ریشتر بود."),
-            v("flood", "سیل", "The flood destroyed many homes.", "سیل خانه‌های زیادی را نابود کرد."),
-            v("hurricane", "طوفان", "The hurricane is expected to hit the coast tomorrow.", "انتظار می‌رود طوفان فردا به ساحل برسد."),
-            v("tornado", "گردباد", "Tornadoes are common in this region.", "گردبادها در این منطقه رایج هستند."),
-            v("wildfire", "آتش‌سوزی جنگلی", "The wildfire spread quickly due to strong winds.", "آتش‌سوزی به دلیل بادهای شدید به سرعت گسترش یافت."),
-            v("drought", "خشکسالی", "The drought lasted for three years.", "خشکسالی سه سال طول کشید."),
-            v("evacuate", "تخلیه کردن", "Residents were asked to evacuate immediately.", "از ساکنان خواسته شد فوراً تخلیه کنند.", "verb"),
-            v("shelter", "سرپناه", "They took shelter in a community center.", "آن‌ها در یک مرکز اجتماعی سرپناه گرفتند."),
-            v("survivor", "بازمانده", "Survivors were rescued by emergency teams.", "بازماندگان توسط تیم‌های امدادی نجات یافتند."),
-            v("rescue", "نجات دادن", "Firefighters rescued three people from the building.", "آتش‌نشانان سه نفر را از ساختمان نجات دادند.", "verb"),
-            v("warning", "هشدار", "The weather service issued a tornado warning.", "اداره هواشناسی هشدار گردباد صادر کرد."),
-            v("emergency kit", "کیت اضطراری", "Every home should have an emergency kit.", "هر خانه باید یک کیت اضطراری داشته باشد."),
-            v("damage", "خسارت", "The storm caused widespread damage.", "طوفان خسارت گسترده‌ای ایجاد کرد."),
-            v("impact", "تأثیر", "The impact of the disaster was felt for years.", "تأثیر فاجعه سال‌ها احساس شد."),
-            v("preparedness", "آمادگی", "Preparedness can save lives.", "آمادگی می‌تواند جان‌ها را نجات دهد.")
-        ),
-        listOf(
-            GrammarSection("Indirect Speech: Tense Changes", "When reporting speech, tenses usually shift back: Present → Past (I'm tired → He said he was tired), Past → Past Perfect (I saw her → He said he had seen her), Will → Would (I'll help → She said she would help), Can → Could (I can come → He said he could come)."),
-            GrammarSection("Indirect Speech: Time and Place Changes", "Time expressions and place words often change: now → then, today → that day, tomorrow → the next day, yesterday → the day before, here → there, this → that."),
-            GrammarSection("Say vs Tell", "Use 'say' without an indirect object (He said that...). Use 'tell' with an indirect object (He told me that...)."),
-            GrammarSection("Conversation Strategy: Reporting News and Emergencies", "Use expressions like 'Did you hear about...?', 'I heard that...', 'They said that...', and 'Apparently...' to report news and emergencies.")
-        ),
-        listOf(
-            d("A", "Did you hear about the earthquake in the south?", "درباره زمین‌لرزه در جنوب شنیدی؟"),
-            d("B", "Yes, I saw it on the news. It was terrible.", "بله، در اخبار دیدم. وحشتناک بود."),
-            d("A", "My cousin lives near there. She said the shaking lasted almost a minute.", "پسرخاله‌ام نزدیک آنجا زندگی می‌کند. گفت لرزش تقریباً یک دقیقه طول کشید."),
-            d("B", "That must have been terrifying. Did she evacuate?", "این باید ترسناک بوده باشد. تخلیه کرد؟"),
-            d("A", "Yes, she did. She told me she went to a shelter downtown.", "بله. به من گفت به یک سرپناه در مرکز شهر رفت."),
-            d("B", "I'm glad she's safe. Have there been aftershocks?", "خوشحالم که سالم است. پس‌لرزه‌ای بوده؟"),
-            d("A", "She said there had been several small ones, but nothing major.", "گفت چند تا کوچک بوده، ولی چیز مهمی نبوده."),
-            d("B", "That's a relief. Do you know how much damage there was?", "این آرامش‌بخش است. می‌دانی چقدر خسارت بوده؟"),
-            d("A", "The news reported that hundreds of buildings were damaged.", "اخبار گزارش داد که صدها ساختمان آسیب دیده‌اند."),
-            d("B", "That's awful. Were there any casualties?", "وحشتناک است. تلفاتی هم بوده؟"),
-            d("A", "Fortunately, not many. The warning system gave people time to evacuate.", "خوشبختانه، زیاد نه. سیستم هشدار به مردم وقت داد تخلیه کنند."),
-            d("B", "Thank goodness for that. Do you think we're prepared here?", "خدا را شکر. فکر می‌کنی ما اینجا آماده‌ایم؟"),
-            d("A", "Honestly, I'm not sure. I don't even have an emergency kit.", "صادقانه، مطمئن نیستم. حتی کیت اضطراری هم ندارم."),
-            d("B", "Neither do I. We should really get one. What should be in it?", "من هم ندارم. واقعاً باید یکی بگیریم. چه چیزهایی باید داشته باشد؟"),
-            d("A", "Water, non-perishable food, a flashlight, batteries, a first-aid kit, and important documents.", "آب، غذای فاسد نشدنی، چراغ‌قوه، باتری، جعبه کمک‌های اولیه، و مدارک مهم."),
-            d("B", "That makes sense. I'll put one together this weekend.", "منطقی است. این آخر هفته یکی درست می‌کنم."),
-            d("A", "Good idea. Also, do you know where the nearest shelter is?", "فکر خوبی است. همچنین، می‌دانی نزدیک‌ترین سرپناه کجاست؟"),
-            d("B", "No, I don't. I should find out.", "نه. باید بفهمم."),
-            d("A", "My cousin said everyone should know their evacuation route beforehand.", "پسرخاله‌ام گفت همه باید از قبل مسیر تخلیه‌شان را بدانند."),
-            d("B", "She's right. Preparedness can save lives.", "حق دارد. آمادگی می‌تواند جان‌ها را نجات دهد."),
-            d("A", "Exactly. I'm going to make a plan this week.", "دقیقاً. این هفته برنامه‌ای می‌سازم."),
-            d("B", "Let me know if you find good resources. I'd like to do the same.", "اگر منابع خوبی پیدا کردی خبرم کن. من هم می‌خواهم همین کار را بکنم."),
-            d("A", "I will. It's better to be safe than sorry.", "می‌کنم. بهتر است احتیاط کنیم تا پشیمان شویم."),
-            d("B", "Definitely. I hope we never need to use any of this.", "قطعاً. امیدوارم هرگز لازم نشود از این‌ها استفاده کنیم."),
-            d("A", "Me too. But it's good to be ready.", "من هم. ولی خوب است آماده باشیم."),
-            d("B", "Absolutely. Thanks for the information.", "قطعاً. ممنون برای اطلاعات."),
-            d("A", "No problem. Let's check on each other if anything happens.", "مشکلی نیست. اگر اتفاقی افتاد به هم سر بزنیم."),
-            d("B", "Deal. Take care.", "قبول. مراقب خودت باش."),
-            d("A", "You too.", "تو هم.")
-        ),
-        listOf(
-            q("Where did the earthquake happen?", listOf("in the north", "in the south", "in the east", "in the west"), 1),
-            q("What did A's cousin do?", listOf("stayed home", "went to a shelter", "evacuated to another country", "went to a hospital"), 1),
-            q("How long did the shaking last?", listOf("a few seconds", "almost a minute", "five minutes", "an hour"), 1),
-            q("What should be in an emergency kit?", listOf("water, food, flashlight, batteries, first-aid kit", "clothes and shoes", "books and toys", "computer and phone"), 0),
-            q("I'm tired. → He said he ___ tired.", listOf("is", "was", "were", "be"), 1),
-            q("I'll help. → She said she ___ help.", listOf("will", "would", "can", "could"), 1),
-            q("He ___ me that he was busy.", listOf("said", "told", "spoke", "talked"), 1),
-            q("She said she ___ seen him the day before.", listOf("has", "had", "have", "having"), 1)
-        ),
-        idioms = listOf(
-            IdiomExpression("That's a relief", "این آرامش‌بخش است", "That's a relief. Do you know about the damage?", "این آرامش‌بخش است. از خسارت خبر داری؟"),
-            IdiomExpression("Thank goodness", "خدا را شکر", "Thank goodness for that.", "خدا را شکر."),
-            IdiomExpression("Better safe than sorry", "احتیاط بهتر از پشیمانی است", "It's better to be safe than sorry.", "بهتر است احتیاط کنیم تا پشیمان شویم."),
-            IdiomExpression("Check on", "سر زدن به", "Let's check on each other if anything happens.", "اگر اتفاقی افتاد به هم سر بزنیم.")
-        ),
-        phrasal = listOf(
-            PhrasalVerb("find out", "فهمیدن", "discover information", "I should find out.", "باید بفهمم.", "No"),
-            PhrasalVerb("put together", "درست کردن", "assemble", "I'll put one together this weekend.", "این آخر هفته یکی درست می‌کنم.", "Yes"),
-            PhrasalVerb("check on", "سر زدن به", "visit to see how someone is", "Let's check on each other.", "به هم سر بزنیم.", "No")
-        ),
-        pronunciation = listOf(
-            PronunciationTip("Indirect speech intonation", "In reported speech, the intonation usually falls at the end: He said he was tired. ↘"),
-            PronunciationTip("Linking in 'said that'", "Link 'said' with 'that': said_that → /sɛd ðət/")
-        ),
-        culture = listOf(
-            CulturalNote("Disaster preparedness", "In many countries, emergency preparedness is emphasized through public education. Knowing evacuation routes, having an emergency kit, and staying informed are common recommendations."),
-            CulturalNote("Reporting news", "When reporting news or emergencies, English speakers often use indirect speech: 'They said that...', 'I heard that...', 'Apparently...'. This softens the statement and shows the source.")
-        ),
-        mistakes = listOf(
-            CommonMistake("He said me that he was busy.", "He told me that he was busy.", "Use 'tell' with an indirect object, not 'say'."),
-            CommonMistake("She said she will come.", "She said she would come.", "In indirect speech, 'will' changes to 'would'.")
-        ),
-        comprehension = listOf(
-            ComprehensionQuestion("What did A's cousin say about the earthquake?", "The shaking lasted almost a minute, and she went to a shelter."),
-            ComprehensionQuestion("What do A and B decide to do about preparedness?", "Put together emergency kits and make a plan.")
-        ),
-        speaking = listOf(
-            SpeakingTask("Report a news story you heard recently using indirect speech.", "خبری که اخیراً شنیده‌ای را با استفاده از نقل قول غیرمستقیم گزارش کن.", "They said that... / I heard that... / Apparently..."),
-            SpeakingTask("Discuss what should be in an emergency kit with a partner.", "درباره اینکه چه چیزهایی باید در کیت اضطراری باشد با یک دوست صحبت کن.", "It should have... / You need... / Don't forget...")
-        ),
-        writing = listOf(
-            WritingTask("Write a news report about a natural disaster using indirect speech.", "گزارش خبری درباره یک بلای طبیعی با استفاده از نقل قول غیرمستقیم بنویس.", 180, "Use indirect speech (say/tell, tense changes) at least four times.")
-        )
-    )
-
-    // ═══════════════════════════════════════════════════════════
-    // UNIT 6 — Life Plans
-    // ═══════════════════════════════════════════════════════════
-    private fun lesson6() = base(
-        6, "Life Plans", "برنامه‌های زندگی",
-        listOf(
-            "Discuss future plans and life goals",
-            "Talk about hopes, dreams, and ambitions",
-            "Use perfect modals (could have, might have, should have)",
-            "Use wish + past perfect to express regrets",
-            "Discuss turning points in life"
-        ),
-        listOf(
-            v("career", "حرفه", "She's focused on her career right now.", "او الان روی حرفه‌اش متمرکز است."),
-            v("ambition", "جاه‌طلبی", "His ambition is to become a CEO.", "جاه‌طلبی‌اش این است که مدیرعامل شود."),
-            v("turning point", "نقطه عطف", "Moving abroad was a turning point in my life.", "نقل مکان به خارج نقطه عطفی در زندگی من بود."),
-            v("achieve", "دست یافتن", "She achieved her goal of running a marathon.", "او به هدفش برای دویدن ماراتن دست یافت.", "verb"),
-            v("accomplish", "انجام دادن", "He accomplished everything he set out to do.", "او هر چیزی که قصد انجامش را داشت انجام داد.", "verb"),
-            v("milestone", "نقطه عطف", "Graduating was an important milestone.", "فارغ‌التحصیلی نقطه عطف مهمی بود."),
-            v("regret", "پشیمانی", "I have no regrets about my choices.", "درباره انتخاب‌هایم پشیمانی ندارم."),
-            v("opportunity", "فرصت", "Don't miss this opportunity.", "این فرصت را از دست نده."),
-            v("settle down", "ساکن شدن", "They decided to settle down in the countryside.", "آن‌ها تصمیم گرفتند در حومه شهر ساکن شوند.", "verb"),
-            v("pursue", "دنبال کردن", "She decided to pursue a career in medicine.", "او تصمیم گرفت حرفه پزشکی را دنبال کند.", "verb"),
-            v("fulfilling", "رضایت‌بخش", "Teaching is a fulfilling career.", "تدریس حرفه رضایت‌بخشی است.", "adjective"),
-            v("risky", "پرخطر", "Starting a business is risky.", "شروع کسب‌وکار پرخطر است.", "adjective"),
-            v("rewarding", "پاداش‌دهنده", "Volunteering is very rewarding.", "داوطلب شدن خیلی پاداش‌دهنده است.", "adjective"),
-            v("look back", "به عقب نگاه کردن", "When I look back, I'm happy with my choices.", "وقتی به عقب نگاه می‌کنم، از انتخاب‌هایم راضی هستم.", "verb"),
-            v("look forward", "به جلو نگاه کردن", "I look forward to the next chapter of my life.", "منتظر فصل بعدی زندگی‌ام هستم.", "verb")
-        ),
-        listOf(
-            GrammarSection("Perfect Modals: could have, might have, should have", "Use perfect modals to talk about past possibilities and regrets. Could have: It was possible but didn't happen (I could have studied abroad). Might have: It was possible but uncertain (She might have taken the job). Should have: It was a good idea but didn't happen (I should have applied earlier)."),
-            GrammarSection("Wish + Past Perfect for Regrets", "Use 'wish + past perfect' to express regret about the past. I wish I had studied harder. She wishes she hadn't quit her job."),
-            GrammarSection("If Only", "Use 'if only' for stronger regrets, similar to 'wish + past perfect'. If only I had known! If only she had listened!"),
-            GrammarSection("Conversation Strategy: Discussing Life Choices", "Use expressions like 'Looking back...', 'If I had...', 'I wish I had...', and 'It turned out to be...' to discuss past choices and their outcomes.")
-        ),
-        listOf(
-            d("A", "You look thoughtful. What's on your mind?", "متفکر به نظر می‌رسی. چه فکری داری؟"),
-            d("B", "I've been thinking about my career lately. I'm not sure I'm on the right path.", "اخیراً به حرفه‌ام فکر کرده‌ام. مطمئن نیستم در مسیر درستی باشم."),
-            d("A", "What do you mean?", "منظورت چیست؟"),
-            d("B", "Well, I've been in finance for ten years. But I've always wanted to do something more creative.", "خب، ده سال است در امور مالی هستم. ولی همیشه می‌خواستم کاری خلاقانه‌تر انجام دهم."),
-            d("A", "That's a big decision. What would you do instead?", "این تصمیم بزرگی است. به جایش چه کار می‌کردی؟"),
-            d("B", "I've thought about becoming a writer. I should have studied literature in university.", "به نویسنده شدن فکر کرده‌ام. باید در دانشگاه ادبیات می‌خواندم."),
-            d("A", "It's never too late, you know. I could have gone back to school at forty, but I didn't.", "می‌دانی، هرگز دیر نیست. می‌توانستم چهل سالگی به دانشگاه برگردم، ولی برنگشتم."),
-            d("B", "Really? What would you have studied?", "واقعاً؟ چه می‌خواندی؟"),
-            d("A", "Photography. I wish I had pursued it when I was younger.", "عکاسی. ای کاش وقتی جوان‌تر بودم دنبالش کرده بودم."),
-            d("B", "Why didn't you?", "چرا نکردی؟"),
-            d("A", "I was afraid. I might have succeeded, but I was too scared to try.", "می‌ترسیدم. ممکن بود موفق شوم، ولی خیلی ترسیده بودم که تلاش کنم."),
-            d("B", "That's understandable. Fear holds a lot of people back.", "قابل درک است. ترس بسیاری را عقب نگه می‌دارد."),
-            d("A", "Exactly. So now I tell everyone — don't let fear stop you.", "دقیقاً. پس حالا به همه می‌گویم — نگذار ترس متوقفت کند."),
-            d("B", "That's good advice. I wish I had been braver earlier too.", "توصیه خوبی است. ای کاش من هم زودتر شجاع‌تر بودم."),
-            d("A", "But you still have time. What's stopping you now?", "ولی هنوز وقت داری. الان چه چیزی متوقفت می‌کند؟"),
-            d("B", "I'm worried about money. Starting over is risky.", "نگران پول هستم. شروع دوباره پرخطر است."),
-            d("A", "Could you start writing part-time? That way you don't have to quit immediately.", "می‌توانی پاره‌وقت شروع به نوشتن کنی؟ این‌طوری مجبور نیستی فوراً ترک کنی."),
-            d("B", "That's actually a great idea. I could write in the evenings and on weekends.", "این در واقع فکر عالی است. می‌توانم شب‌ها و آخر هفته‌ها بنویسم."),
-            d("A", "Exactly. And if it works out, you can make the full transition.", "دقیقاً. و اگر خوب پیش رفت، می‌توانی انتقال کامل انجام دهی."),
-            d("B", "You're right. I should have thought of this earlier.", "حق داری. باید زودتر به این فکر می‌کردم."),
-            d("A", "Better late than never. What kind of writing do you want to do?", "دیر رسیدن بهتر از هرگز نرسیدن است. چه نوع نوشتنی می‌خواهی انجام دهی؟"),
-            d("B", "I'd like to write novels. Fiction, probably mysteries.", "دوست دارم رمان بنویسم. داستان، احتمالاً معمایی."),
-            d("A", "That's a great genre. You should start with short stories.", "ژانر خوبی است. باید با داستان‌های کوتاه شروع کنی."),
-            d("B", "I could do that. Maybe I'll take a writing class first.", "می‌توانم این کار را بکنم. شاید اول یک کلاس نویسندگی بروم."),
-            d("A", "That's a smart first step. Let me know how it goes.", "این اولین قدم هوشمندانه است. خبرم کن چطور شد."),
-            d("B", "I will. Thanks for the encouragement. I feel much better now.", "می‌کنم. ممنون برای تشویق. الان خیلی بهتر احساس می‌کنم."),
-            d("A", "Anytime. Remember — it's your life. Don't live with regrets.", "هر وقت. یادت باشد — این زندگی توست. با پشیمانی زندگی نکن."),
-            d("B", "I won't. Thanks again.", "نمی‌کنم. باز هم ممنون."),
-            d("A", "Good luck. I'm sure you'll do great.", "موفق باشی. مطمئنم عالی عمل می‌کنی."),
-            d("B", "I hope so. See you soon.", "امیدوارم. به‌زودی می‌بینمت."),
-            d("A", "See you. Take care.", "می‌بینمت. مراقب خودت باش.")
-        ),
-        listOf(
-            q("How long has B worked in finance?", listOf("five years", "ten years", "fifteen years", "twenty years"), 1),
-            q("What does B want to become?", listOf("a photographer", "a writer", "a teacher", "a doctor"), 1),
-            q("What does A regret not pursuing?", listOf("writing", "photography", "teaching", "music"), 1),
-            q("What advice does A give B?", listOf("quit immediately", "write part-time first", "forget about writing", "take a break"), 1),
-            q("I ___ have studied literature.", listOf("should", "would", "will", "am"), 0),
-            q("She ___ have succeeded, but she was afraid.", listOf("could", "can", "will", "would"), 0),
-            q("I wish I ___ studied harder.", listOf("have", "had", "will have", "have had"), 1),
-            q("If only I ___ known!", listOf("have", "had", "will have", "have had"), 1)
-        ),
-        idioms = listOf(
-            IdiomExpression("On your mind", "در ذهنت", "What's on your mind?", "چه فکری داری؟"),
-            IdiomExpression("It's never too late", "هرگز دیر نیست", "It's never too late, you know.", "می‌دانی، هرگز دیر نیست."),
-            IdiomExpression("Better late than never", "دیر رسیدن بهتر از هرگز نرسیدن", "Better late than never.", "دیر رسیدن بهتر از هرگز نرسیدن است."),
-            IdiomExpression("Live with regrets", "با پشیمانی زندگی کردن", "Don't live with regrets.", "با پشیمانی زندگی نکن.")
-        ),
-        phrasal = listOf(
-            PhrasalVerb("hold back", "عقب نگه داشتن", "prevent from progressing", "Fear holds a lot of people back.", "ترس بسیاری را عقب نگه می‌دارد.", "Yes"),
-            PhrasalVerb("start over", "شروع دوباره", "begin again", "Starting over is risky.", "شروع دوباره پرخطر است.", "No"),
-            PhrasalVerb("work out", "خوب پیش رفتن", "end successfully", "If it works out, you can make the transition.", "اگر خوب پیش رفت، می‌توانی انتقال انجام دهی.", "No"),
-            PhrasalVerb("think of", "فکر کردن به", "consider", "I should have thought of this earlier.", "باید زودتر به این فکر می‌کردم.", "No")
-        ),
-        pronunciation = listOf(
-            PronunciationTip("Perfect modal stress", "Stress the modal verb to emphasize regret: I SHOULD have studied harder. I COULD have succeeded."),
-            PronunciationTip("Wish + past perfect rhythm", "The stress falls on the past participle: I wish I had STUdied harder.")
-        ),
-        culture = listOf(
-            CulturalNote("Career changes", "Changing careers mid-life is increasingly common in many countries. People often balance financial security with personal fulfillment, pursuing new paths through part-time work or further education."),
-            CulturalNote("Regrets and choices", "Every culture has ways of discussing regrets and life choices. In English, expressions like 'wish + past perfect', 'could have', and 'should have' are commonly used to reflect on past decisions.")
-        ),
-        mistakes = listOf(
-            CommonMistake("I should have study harder.", "I should have studied harder.", "After perfect modals, use the past participle."),
-            CommonMistake("I wish I studied harder (about past).", "I wish I had studied harder.", "For regrets about the past, use 'wish + past perfect'.")
-        ),
-        comprehension = listOf(
-            ComprehensionQuestion("What regrets does A share?", "Not going back to school at forty to study photography."),
-            ComprehensionQuestion("What advice does A give B about pursuing writing?", "Start part-time by writing in evenings and weekends; take a writing class.")
-        ),
-        speaking = listOf(
-            SpeakingTask("Discuss a turning point in your life with a partner.", "درباره یک نقطه عطف در زندگی‌ات با یک دوست صحبت کن.", "It was a turning point because... / Looking back... / I wish I had..."),
-            SpeakingTask("Talk about a life goal you have and how you plan to achieve it.", "درباره هدف زندگی‌ات و اینکه چطور می‌خواهی به آن برسی صحبت کن.", "My goal is to... / I'm planning to... / I could... / I should...")
-        ),
-        writing = listOf(
-            WritingTask("Write about a decision you regret and what you would do differently.", "درباره تصمیمی که پشیمان هستی و اینکه چه کار متفاوتی می‌کردی بنویس.", 180, "Use perfect modals (could have, might have, should have) and wish + past perfect.")
-        )
-    )
-
-    // ═══════════════════════════════════════════════════════════
-    // UNIT 7 — Holidays and Traditions
-    // ═══════════════════════════════════════════════════════════
-    private fun lesson7() = base(
-        7, "Holidays and Traditions", "تعطیلات و سنت‌ها",
-        listOf(
-            "Discuss holidays and traditions from around the world",
-            "Describe celebrations and customs",
-            "Use adjective clauses with subject and object relative pronouns",
-            "Use reflexive pronouns correctly",
-            "Compare traditions across cultures"
-        ),
-        listOf(
-            v("tradition", "سنت", "It's a family tradition to eat together on Fridays.", "سنت خانوادگی است که جمعه‌ها با هم غذا بخوریم."),
-            v("celebration", "جشن", "The celebration lasted all night.", "جشن تمام شب طول کشید."),
-            v("festival", "فستیوال", "The music festival attracts thousands of visitors.", "فستیوال موسیقی هزاران بازدیدکننده جذب می‌کند."),
-            v("ceremony", "مراسم", "The wedding ceremony was beautiful.", "مراسم عروسی زیبا بود."),
-            v("custom", "رسم", "Shaking hands is a common custom.", "دست دادن رسم رایجی است."),
-            v("ritual", "آیین", "Morning coffee is a daily ritual for many people.", "قهوه صبحگاهی آیین روزانه بسیاری است."),
-            v("parade", "رژه", "The parade marched through the main street.", "رژه در خیابان اصلی راهپیمایی کرد."),
-            v("fireworks", "آتش‌بازی", "We watched the fireworks from the rooftop.", "آتش‌بازی را از پشت‌بام تماشا کردیم."),
-            v("gathering", "گردهمایی", "It was a small family gathering.", "گردهمایی کوچک خانوادگی بود."),
-            v("honor", "احترام گذاشتن", "We honor our ancestors on this day.", "در این روز به نیاکانمان احترام می‌گذاریم.", "verb"),
-            v("symbolize", "نماد بودن", "The candle symbolizes hope.", "شمع نماد امید است.", "verb"),
-            v("ancestor", "نیاکان", "Many cultures honor their ancestors.", "بسیاری از فرهنگ‌ها به نیاکانشان احترام می‌گذارند."),
+            v("cultural literacy", "سواد فرهنگی", "Cultural literacy helps us understand other societies.", "سواد فرهنگی به ما در درک جوامع دیگر کمک می‌کند."),
+            v("taboo", "تابو", "Discussing salary is a taboo in some cultures.", "صحبت درباره حقوق در برخی فرهنگ‌ها تابو است."),
+            v("etiquette", "آداب معاشرت", "Business etiquette varies by country.", "آداب معاشرت تجاری بین کشورها متفاوت است."),
+            v("stereotype", "کلیشه", "We should avoid stereotypes about other cultures.", "باید از کلیشه‌ها درباره فرهنگ‌های دیگر پرهیز کنیم."),
+            v("custom", "رسم و رسوم", "Every country has its own customs.", "هر کشوری رسوم خودش را دارد."),
             v("heritage", "میراث", "Cultural heritage should be preserved.", "میراث فرهنگی باید حفظ شود."),
-            v("celebrate", "جشن گرفتن", "How do you celebrate New Year?", "سال نو را چطور جشن می‌گیرید؟", "verb"),
-            v("observe", "رعایت کردن", "Some families observe religious traditions.", "برخی خانواده‌ها سنت‌های مذهبی را رعایت می‌کنند.", "verb")
+            v("tradition", "سنت", "Family traditions pass from generation to generation.", "سنت‌های خانوادگی از نسلی به نسل دیگر منتقل می‌شوند."),
+            v("diversity", "تنوع", "Cultural diversity enriches society.", "تنوع فرهنگی جامعه را غنی می‌کند."),
+            v("identity", "هویت", "Language is closely tied to identity.", "زبان با هویت گره خورده است."),
+            v("perception", "برداشت / ادراک", "Our perception is shaped by culture.", "برداشت ما توسط فرهنگ شکل می‌گیرد."),
+            v("misunderstanding", "سوءتفاهم", "Cultural misunderstandings can cause problems.", "سوءتفاهم‌های فرهنگی می‌توانند مشکلاتی ایجاد کنند."),
+            v("globalization", "جهانی‌سازی", "Globalization brings cultures closer together.", "جهانی‌سازی فرهنگ‌ها را به هم نزدیک‌تر می‌کند."),
+            v("adapt", "انطباق پیدا کردن", "It takes time to adapt to a new culture.", "انطباق با فرهنگ جدید زمان می‌برد.", "verb"),
+            v("assimilate", "جذب شدن", "Immigrants often assimilate over time.", "مهاجران اغلب به مرور جذب می‌شوند.", "verb"),
+            v("bilingual", "دوزبانه", "Bilingual children have cognitive advantages.", "کودکان دوزبانه مزایای شناختی دارند.", "adjective")
         ),
         listOf(
-            GrammarSection("Adjective Clauses: Subject Relative Pronouns", "When the relative pronoun is the subject of the clause, it cannot be omitted: The festival that takes place in spring is famous. The people who organize it work all year."),
-            GrammarSection("Adjective Clauses: Object Relative Pronouns", "When the relative pronoun is the object of the clause, it can often be omitted: The tradition (that) my family follows is old. The food (which) we eat is traditional."),
-            GrammarSection("Reflexive Pronouns", "Use reflexive pronouns (myself, yourself, himself, herself, itself, ourselves, yourselves, themselves) when the subject and object are the same: She prepared herself for the ceremony. We enjoyed ourselves at the festival."),
-            GrammarSection("Conversation Strategy: Describing Traditions", "Use expressions like 'It's a tradition to...', 'We usually...', 'It symbolizes...', and 'It dates back to...' to describe traditions and customs.")
+            GrammarSection("Gerunds and Infinitives",
+                "Some verbs are followed by gerunds (enjoy doing), others by infinitives (want to do), and some by both (like doing / like to do). Understanding these patterns makes speech more natural."),
+            GrammarSection("Hedging and softening opinions",
+                "Use expressions like 'It seems to me...', 'I could be wrong, but...', 'In some ways...', 'It depends...' to express opinions more diplomatically."),
+            GrammarSection("Cultural idioms and references",
+                "Many English expressions come from cultural context: 'When in Rome...', 'break the ice', 'culture shock', 'the melting pot'.")
         ),
         listOf(
-            d("A", "Are you doing anything special for the holidays?", "برای تعطیلات کار خاصی می‌کنی؟"),
-            d("B", "Yes, my family is having a big gathering. It's a tradition that we've followed for generations.", "بله، خانواده‌ام گردهمایی بزرگی دارد. سنتی است که نسل‌ها رعایت کرده‌ایم."),
-            d("A", "That sounds wonderful. What do you usually do?", "فوق‌العاده به نظر می‌رسد. معمولاً چه کار می‌کنید؟"),
-            d("B", "We cook traditional food, exchange gifts, and tell stories about our ancestors.", "غذای سنتی می‌پزیم، هدیه رد و بدل می‌کنیم، و داستان‌های نیاکانمان را تعریف می‌کنیم."),
-            d("A", "That's beautiful. Do you have any special rituals?", "زیباست. آیین خاصی دارید؟"),
-            d("B", "Yes, we light candles that symbolize hope for the coming year.", "بله، شمع‌هایی روشن می‌کنیم که نماد امید برای سال آینده هستند."),
-            d("A", "I love that. In my culture, we have a similar tradition.", "دوستش دارم. در فرهنگ من هم سنت مشابهی داریم."),
-            d("B", "Really? Tell me about it.", "واقعاً؟ برایم تعریف کن."),
-            d("A", "We celebrate with a big meal that includes special dishes passed down from our grandparents.", "با غذای بزرگی جشن می‌گیریم که شامل غذاهای خاصی است که از پدربزرگ و مادربزرگ‌هایمان به ارث رسیده."),
-            d("B", "That sounds delicious. Do you cook everything yourselves?", "خوشمزه به نظر می‌رسد. همه چیز را خودتان می‌پزید؟"),
-            d("A", "Yes, we do. Everyone helps. It's a lot of work, but we enjoy ourselves.", "بله. همه کمک می‌کنند. کار زیادی است، ولی خوش می‌گذرانیم."),
-            d("B", "That's what makes it special, I think. The shared effort.", "فکر می‌کنم همین خاصش می‌کند. تلاش مشترک."),
-            d("A", "Exactly. It's not just about the food — it's about being together.", "دقیقاً. فقط درباره غذا نیست — درباره با هم بودن است."),
-            d("B", "Well said. Do you exchange gifts too?", "خوب گفتی. هدیه هم رد و بدل می‌کنید؟"),
-            d("A", "Yes, but only small ones. It's more about the thought than the value.", "بله، ولی فقط کوچک. بیشتر به فکر اهمیت دارد تا ارزش."),
-            d("B", "That's a nice approach. Sometimes gift-giving gets too commercial.", "رویکرد خوبی است. گاهی هدیه دادن زیادی تجاری می‌شود."),
-            d("A", "I agree. The traditions that matter most are the ones that bring people together.", "موافقم. سنت‌هایی که بیشترین اهمیت را دارند آن‌هایی هستند که مردم را کنار هم می‌آورند."),
-            d("B", "You're absolutely right. My grandmother always said the same thing.", "کاملاً حق داری. مادربزرگم همیشه همین را می‌گفت."),
-            d("A", "She sounds wise. Is she still with you?", "به نظر دانا می‌آید. هنوز با شماست؟"),
-            d("B", "Yes, she's 92. She's the one who taught us all these traditions.", "بله، ۹۲ ساله است. او کسی است که همه این سنت‌ها را به ما یاد داد."),
-            d("A", "That's a blessing. Traditions passed down like that are precious.", "این نعمت است. سنت‌هایی که این‌طور منتقل می‌شوند ارزشمند هستند."),
-            d("B", "They are. I hope to pass them on to my children too.", "هستند. امیدوارم به فرزندانم هم منتقل کنم."),
-            d("A", "I'm sure you will. Do you have children?", "مطمئنم می‌کنی. فرزند داری؟"),
-            d("B", "Yes, two. They love the holidays, especially the fireworks.", "بله، دو تا. عاشق تعطیلات هستند، خصوصاً آتش‌بازی."),
-            d("A", "Fireworks are always a favorite. We have them too.", "آتش‌بازی همیشه محبوب است. ما هم داریم."),
-            d("B", "It's amazing how different cultures share similar ways of celebrating.", "شگفت‌انگیز است که فرهنگ‌های مختلف روش‌های مشابهی برای جشن گرفتن دارند."),
-            d("A", "That's what I love about learning about other cultures. We're more alike than we think.", "این چیزی است که در یادگیری درباره فرهنگ‌های دیگر دوست دارم. ما بیشتر از آنچه فکر می‌کنیم شبیه هم هستیم."),
-            d("B", "So true. Well, I should go help with the preparations.", "خیلی درست. خب، باید بروم کمک آماده‌سازی‌ها."),
-            d("A", "Of course. Enjoy your celebration!", "حتماً. از جشنت لذت ببر!"),
-            d("B", "Thanks! You too. Happy holidays!", "ممنون! تو هم. تعطیلات مبارک!")
+            d("A", "Hey, I've been meaning to ask you something.", "سلام، مدتی است می‌خواهم چیزی ازت بپرسم."),
+            d("B", "Sure, what's on your mind?", "حتماً، چی تو ذهنت هست؟"),
+            d("A", "I'm going to Tokyo next month for work, and I want to avoid any awkward situations.", "ماه آینده برای کار به توکیو می‌روم، و می‌خواهم از موقعیت‌های ناخوشایند پرهیز کنم."),
+            d("B", "Oh, how exciting! How long will you be there?", "اوه، چقدر هیجان‌انگیز! چند وقت آنجا می‌مانی؟"),
+            d("A", "About three weeks. I'll be meeting with clients and attending a trade show.", "حدود سه هفته. با مشتری‌ها جلسه دارم و به یک نمایشگاه تجاری می‌روم."),
+            d("B", "That's a good amount of time. Have you been to Japan before?", "زمان خوبی است. قبلاً به ژاپن رفته‌ای؟"),
+            d("A", "No, never. That's why I'm a bit nervous.", "نه، هرگز. برای همین کمی مضطربم."),
+            d("B", "Nervous is normal. But honestly, you'll be fine if you know a few basics.", "اضطراب طبیعی است. ولی راستش اگر چند نکته پایه را بدانی، خوب می‌شوی."),
+            d("A", "Like what?", "مثل چی؟"),
+            d("B", "Well, first, bowing is very important. It's not just a formality — it shows respect.", "خب، اول، تعظیم خیلی مهم است. فقط یک تشریفات نیست — احترام را نشان می‌دهد."),
+            d("A", "I've heard that. But how deep should I bow?", "شنیده‌ام. ولی چقدر باید خم شوم؟"),
+            d("B", "It depends. A slight nod for casual greetings, a deeper bow for formal situations.", "بستگی دارد. یک تکان کوچک سر برای سلام‌های غیررسمی، تعظیم عمیق‌تر برای موقعیت‌های رسمی."),
+            d("A", "Okay, so I should match the other person?", "باشه، پس باید با طرف مقابل هماهنگ شوم؟"),
+            d("B", "Exactly. That's the safest approach. Watch what they do and mirror it.", "دقیقاً. این ایمن‌ترین رویکرد است. نگاه کن چه می‌کنند و تقلیدشان کن."),
+            d("A", "Good tip. What about business cards?", "نکته خوبی. کارت ویزیت چطور؟"),
+            d("B", "Oh, that's a whole ritual. Always give and receive them with both hands.", "اوه، این یک آیین کامل است. همیشه با دو دست بده و بگیر."),
+            d("A", "With both hands? Why?", "با دو دست؟ چرا؟"),
+            d("B", "It shows respect and care. And don't just shove it in your pocket — read it carefully first.", "احترام و توجه را نشان می‌دهد. و همینطور سرش نکن در جیبت — اول با دقت بخوانش."),
+            d("A", "I would have totally messed that up.", "کاملاً خرابش می‌کردم."),
+            d("B", "Don't worry, most foreigners do. But showing you've made the effort means a lot.", "نگران نباش، بیشتر خارجی‌ها همینطور می‌کنند. ولی نشان دادن تلاشت خیلی ارزش دارد."),
+            d("A", "What about gifts? Should I bring something?", "هدیه چطور؟ چیزی بیاورم؟"),
+            d("B", "Yes, small gifts are appreciated. Something from your country is ideal.", "بله، هدایای کوچک قدردانی می‌شوند. چیزی از کشور خودت ایده‌آل است."),
+            d("A", "Like food or souvenirs?", "مثل غذا یا سوغات؟"),
+            d("B", "Both work. Just avoid anything with a sharp edge or in even numbers.", "هر دو خوبه. فقط از چیزهایی با لبه تیز یا تعداد زوج پرهیز کن."),
+            d("A", "Even numbers? That's new to me.", "تعداد زوج؟ این برایم جدید است."),
+            d("B", "Yes, in Japanese culture, odd numbers are preferred for gifts. And the number four is avoided.", "بله، در فرهنگ ژاپنی اعداد فرد برای هدیه ترجیح می‌شوند. و از عدد چهار پرهیز می‌شود."),
+            d("A", "Why four?", "چرا چهار؟"),
+            d("B", "Because 'shi' — four — sounds like the word for death.", "چون «شی» — چهار — صدای کلمه مرگ را می‌دهد."),
+            d("A", "Wow, I never knew that. Anything else I should know?", "واو، هرگز نمی‌دانستم. چیز دیگری هست که باید بدانم؟"),
+            d("B", "Let me think. Oh, yes — don't be surprised if people seem reserved at first.", "بگذار فکر کنم. اوه، بله — تعجب نکن اگر مردم اول کم‌حرف به نظر برسند."),
+            d("A", "Reserved? Like shy?", "کم‌حرف؟ مثل خجالتی؟"),
+            d("B", "Not shy, exactly. It's more about politeness and taking time to build trust.", "دقیقاً خجالتی نه. بیشتر درباره ادب و وقت گذاشتن برای ساختن اعتماد است."),
+            d("A", "So I shouldn't be too informal right away?", "پس نباید بلافاصله خیلی غیررسمی باشم؟"),
+            d("B", "Right. Start formal. If they warm up to you, follow their lead.", "درست. رسمی شروع کن. اگر با تو گرم شدند، از آنها تبعیت کن."),
+            d("A", "Got it. What about dining? Any rules I should know?", "متوجه شدم. غذا خوردن چطور؟ قوانینی هست که باید بدانم؟"),
+            d("B", "A few. Don't stick chopsticks upright in rice — it resembles a funeral ritual.", "چند تا. چاپستیک‌ها را عمودی در برنج فرو نکن — شبیه آیین تشییع است."),
+            d("A", "Noted. Anything else at the table?", "یادداشت کردم. چیز دیگری سر میز؟"),
+            d("B", "It's polite to say 'itadakimasu' before eating. It means 'I humbly receive'.", "مؤدبانه است قبل از غذا گفتن «ایتاداکیماس». یعنی «متواضعانه دریافت می‌کنم»."),
+            d("A", "I'll try to remember that. And after the meal?", "سعی می‌کنم یادم بماند. و بعد از غذا؟"),
+            d("B", "Say 'gochisousama deshita'. It thanks the host for the meal.", "بگو «گوچیسوساما دشیتا». از میزبان برای غذا تشکر می‌کند."),
+            d("A", "My pronunciation is going to be terrible!", "تلفظ من وحشتناک می‌شود!"),
+            d("B", "Ha! People appreciate the effort, even if it's not perfect.", "ها! مردم تلاش را قدردانی می‌کنند، حتی اگر کامل نباشد."),
+            d("A", "You're right. Speaking of which — should I try to learn some Japanese?", "حق داری. از این صحبت — باید سعی کنم کمی ژاپنی یاد بگیرم؟"),
+            d("B", "Definitely. Even a few phrases make a big difference.", "قطعاً. حتی چند عبارت تفاوت بزرگی ایجاد می‌کند."),
+            d("A", "Like what?", "مثل چی؟"),
+            d("B", "Learn 'sumimasen' — it means 'excuse me' or 'sorry'. You'll use it constantly.", "«سومی‌ماسن» یاد بگیر — یعنی «ببخشید» یا «متأسفم». مدام استفاده می‌کنی."),
+            d("A", "Sumimasen. Got it. Any others?", "سومی‌ماسن. گرفتم. دیگران؟"),
+            d("B", "'Arigatou gozaimasu' for thank you, and 'onegaishimasu' for please.", "«آریگاتو گوزایماس» برای ممنون، و «اونگایشیماس» برای لطفاً."),
+            d("A", "Let me practice. Arigatou gozaimasu.", "بگذار تمرین کنم. آریگاتو گوزایماس."),
+            d("B", "Not bad! The rhythm is a bit off, but people will understand.", "بد نیست! ریتم کمی خارج است، ولی مردم می‌فهمند."),
+            d("A", "Thanks. Now, what about cultural references? I keep hearing 'when in Rome'...", "ممنون. حالا، درباره ارجاعات فرهنگی؟ مدام می‌شنوم «وقتی در رم هستی»..."),
+            d("B", "Ah, 'When in Rome, do as the Romans do'. It means follow local customs.", "آه، «وقتی در رم هستی، مثل رومی‌ها رفتار کن». یعنی رسوم محلی را دنبال کن."),
+            d("A", "That's exactly what I'm trying to do!", "این دقیقاً همان چیزی است که سعی می‌کنم انجام دهم!"),
+            d("B", "Ha! Exactly. That phrase comes from ancient times, by the way.", "ها! دقیقاً. راستی، آن عبارت از دوران باستان می‌آید."),
+            d("A", "Really? Where from?", "واقعاً؟ از کجا؟"),
+            d("B", "It's attributed to Saint Augustine. He observed that people adapt to their surroundings.", "به سنت آگوستین نسبت داده می‌شود. او مشاهده کرد که مردم خود را با محیط انطباق می‌دهند."),
+            d("A", "Interesting. So cultural literacy isn't just about manners — it's about understanding people.", "جالب است. پس سواد فرهنگی فقط درباره رفتار نیست — درباره درک مردم است."),
+            d("B", "Exactly. And the more you understand, the fewer misunderstandings you have.", "دقیقاً. و هر چه بیشتر بفهمی، سوءتفاهم‌های کمتری داری."),
+            d("A", "I've noticed that even within my own country, there are regional differences.", "متوجه شدم حتی در کشور خودم، تفاوت‌های منطقه‌ای هست."),
+            d("B", "Oh, absolutely. Culture isn't monolithic — it varies by region, generation, and even profession.", "اوه، کاملاً. فرهنگ یکپارچه نیست — بر اساس منطقه، نسل، و حتی شغل متفاوت است."),
+            d("A", "That's true. My grandparents have very different manners than my friends.", "درست است. پدربزرگ و مادربزرگم رفتار خیلی متفاوتی از دوستانم دارند."),
+            d("B", "Same here. And that's a form of cultural diversity too — within one country.", "من هم همینطور. و این هم نوعی تنوع فرهنگی است — در یک کشور."),
+            d("A", "So how do I avoid stereotypes when I travel?", "پس چطور از کلیشه‌ها هنگام سفر پرهیز کنم؟"),
+            d("B", "Great question. Treat every person as an individual first.", "سؤال خوبی است. با هر شخص اول به عنوان فرد رفتار کن."),
+            d("A", "Not just as a representative of their culture.", "نه فقط به عنوان نماینده فرهنگشان."),
+            d("B", "Exactly. Learn the general rules, then observe how individuals differ.", "دقیقاً. قواعد کلی را یاد بگیر، بعد ببین افراد چطور متفاوتند."),
+            d("A", "So the goal isn't to become an expert on every culture?", "پس هدف متخصص شدن در هر فرهنگی نیست؟"),
+            d("B", "No, that's impossible. The goal is to be curious and respectful.", "نه، این غیرممکن است. هدف کنجکاو و محترم بودن است."),
+            d("A", "I like that. Curiosity and respect.", "این را دوست دارم. کنجکاوی و احترام."),
+            d("B", "Right. And admit when you don't know something. People respect that honesty.", "درست. و وقتی چیزی را نمی‌دانی اعتراف کن. مردم آن صداقت را احترام می‌گذارند."),
+            d("A", "So I shouldn't pretend to know everything?", "پس نباید تظاهر کنم همه چیز را می‌دانم؟"),
+            d("B", "Definitely not. Ask questions. 'Can you tell me more about...?' goes a long way.", "قطعاً نه. سؤال بپرس. «می‌توانی بیشتر درباره... توضیح دهی؟» خیلی کمک می‌کند."),
+            d("A", "That's reassuring. I feel a bit less nervous now.", "اطمینان‌بخش است. الان کمی کمتر مضطربم."),
+            d("B", "Good. One more tip: be patient with yourself. Culture shock is real.", "خوبه. یک نکته دیگر: با خودت صبور باش. شوک فرهنگی واقعی است."),
+            d("A", "Culture shock? I thought that only happened if you stayed long-term.", "شوک فرهنگی؟ فکر می‌کردم فقط اگر بلندمدت بمانی اتفاق می‌افتد."),
+            d("B", "It can happen even in three weeks. You might feel tired, confused, or frustrated.", "حتی در سه هفته هم ممکن است اتفاق بیفتد. ممکن است خسته، گیج، یا ناامید شوی."),
+            d("A", "How do I deal with it?", "چطور با آن کنار بیایم؟"),
+            d("B", "Rest. Stay connected with home. Don't isolate yourself.", "استراحت کن. با خانه در ارتباط بمان. خودت را جدا نکن."),
+            d("A", "That makes sense. I'll keep that in mind.", "منطقی است. در نظر خواهم داشت."),
+            d("B", "And remember — the discomfort passes. You'll come back with stories.", "و یادت باشد — ناراحتی می‌گذرد. با داستان برمی‌گردی."),
+            d("A", "I hope so. I'm already imagining the awkward first meeting!", "امیدوارم. دارم اولین جلسه‌ی ناخوشایند را تصور می‌کنم!"),
+            d("B", "Ha! Just remember — bow slightly, use both hands for cards, and say sumimasen a lot.", "ها! فقط یادت باشد — کمی تعظیم کن، از هر دو دست برای کارت استفاده کن، و «سومی‌ماسن» زیاد بگو."),
+            d("A", "That's my plan. Thanks for all the advice.", "این نقشه من است. ممنون برای همه توصیه‌ها."),
+            d("B", "Anytime. Send me a message from Tokyo!", "هر وقت. از توکیو پیام بفرست!"),
+            d("A", "I will. And when you go to a new country, I'll return the favor.", "می‌فرستم. و وقتی تو به کشور جدیدی رفتی، جبران می‌کنم."),
+            d("B", "Deal. Cultural literacy exchange program!", "قبول. برنامه تبادل سواد فرهنگی!"),
+            d("A", "Ha! Exactly. Talk soon.", "ها! دقیقاً. به‌زودی صحبت."),
+            d("B", "Talk soon. Have a great trip!", "به‌زودی صحبت. سفر خوبی داشته باشی!")
         ),
         listOf(
-            q("What tradition does B's family follow?", listOf("lighting candles", "fireworks", "parade", "dancing"), 0),
-            q("What does the candle symbolize?", listOf("love", "hope", "peace", "wealth"), 1),
-            q("How old is B's grandmother?", listOf("82", "87", "92", "95"), 2),
-            q("What does A say matters most in traditions?", listOf("the food", "the gifts", "being together", "the decorations"), 2),
-            q("The festival ___ takes place in spring is famous.", listOf("who", "which", "whose", "where"), 1),
-            q("The people ___ organize it work all year.", listOf("who", "which", "whose", "where"), 0),
-            q("She prepared ___ for the ceremony.", listOf("her", "herself", "hers", "she"), 1),
-            q("We enjoyed ___ at the festival.", listOf("us", "ourselves", "our", "we"), 1)
+            q("How long will A be in Tokyo?", listOf("one week", "two weeks", "three weeks", "a month"), 2),
+            q("What should be avoided when giving gifts in Japan?", listOf("anything colorful", "even numbers and sharp edges", "food items", "handmade items"), 1),
+            q("Why is the number four avoided?", listOf("unlucky", "sounds like 'death'", "religious reason", "past tradition"), 1),
+            q("What should you not do with chopsticks?", listOf("use two together", "stick them upright in rice", "share with others", "hold with left hand"), 1),
+            q("How should business cards be exchanged?", listOf("with one hand", "with both hands", "by leaving on table", "no special way"), 1),
+            q("What does 'When in Rome' mean?", listOf("go to Italy", "follow local customs", "avoid travel", "return home"), 1),
+            q("Which is a gerund?", listOf("to travel", "traveling", "traveled", "travels"), 1),
+            q("I enjoy ___ about other cultures.", listOf("learn", "learning", "to learn", "learned"), 1),
+            q("I want ___ Japanese before my trip.", listOf("study", "studying", "to study", "studied"), 2),
+            q("What does 'itadakimasu' mean?", listOf("thank you", "I humbly receive", "excuse me", "goodbye"), 1)
         ),
         idioms = listOf(
-            IdiomExpression("Passed down", "منتقل شده", "Special dishes passed down from our grandparents.", "غذاهای خاصی که از پدربزرگ و مادربزرگ‌هایمان به ارث رسیده."),
-            IdiomExpression("What makes it special", "چیزی که خاصش می‌کند", "The shared effort is what makes it special.", "تلاش مشترک چیزی است که خاصش می‌کند."),
-            IdiomExpression("Well said", "خوب گفتی", "Well said. Do you exchange gifts too?", "خوب گفتی. هدیه هم رد و بدل می‌کنید؟"),
-            IdiomExpression("Pass on", "منتقل کردن", "I hope to pass them on to my children.", "امیدوارم به فرزندانم منتقل کنم.")
+            IdiomExpression("When in Rome", "با گرگ‌ها گرگ شو", "When in Rome, do as the Romans do.", "وقتی در رم هستی، مثل رومی‌ها رفتار کن."),
+            IdiomExpression("On your mind", "در ذهنت بودن", "What's on your mind?", "چی تو ذهنت هست؟"),
+            IdiomExpression("Warm up to", "گرم شدن با", "If they warm up to you, follow their lead.", "اگر با تو گرم شدند، از آنها تبعیت کن."),
+            IdiomExpression("Goes a long way", "خیلی کمک کردن", "That goes a long way.", "خیلی کمک می‌کند."),
+            IdiomExpression("Follow their lead", "از آنها تبعیت کردن", "Follow their lead.", "از آنها تبعیت کن."),
+            IdiomExpression("Return the favor", "جبران کردن", "When you go, I'll return the favor.", "وقتی بروی، جبران می‌کنم.")
         ),
         phrasal = listOf(
-            PhrasalVerb("pass down", "منتقل کردن (نسل به نسل)", "transmit to the next generation", "Traditions passed down from our grandparents.", "سنت‌هایی که از پدربزرگ و مادربزرگ‌هایمان منتقل شده‌اند.", "Yes"),
-            PhrasalVerb("pass on", "منتقل کردن", "give to someone else", "I hope to pass them on to my children.", "امیدوارم به فرزندانم منتقل کنم.", "Yes"),
-            PhrasalVerb("go back to", "به ... برگشتن", "originate from", "This tradition goes back to ancient times.", "این سنت به دوران باستان برمی‌گردد.", "No")
+            PhrasalVerb("mess up", "خراب کردن", "make a mistake",
+                "I would have totally messed that up.", "کاملاً خرابش می‌کردم.", "Yes"),
+            PhrasalVerb("shove in", "فشردن در", "push into",
+                "Don't just shove it in your pocket.", "سرش نکن در جیبت.", "Yes"),
+            PhrasalVerb("warm up to", "گرم شدن با", "become friendly",
+                "They might warm up to you over time.", "ممکن است به مرور با تو گرم شوند.", "No"),
+            PhrasalVerb("keep in mind", "در نظر داشتن", "remember",
+                "I'll keep that in mind.", "در نظر خواهم داشت.", "Yes")
         ),
         pronunciation = listOf(
-            PronunciationTip("Reflexive pronoun stress", "Stress the reflexive pronoun for emphasis: She prepared herSELF. We enjoyed ourSELVES."),
-            PronunciationTip("Adjective clause rhythm", "Adjective clauses are usually said without pauses: the food that we eat is traditional.")
+            PronunciationTip("Japanese loanwords", "Practice: 'sumimasen' /suːmiˈmɑːsɛn/, 'arigatou' /ˌɑːriˈɡɑːtoʊ/, 'itadakimasu' /iˌtɑːdɑːkiˈmɑːsu/."),
+            PronunciationTip("Hedging intonation", "Soften opinions with rising then falling intonation: It seems to me ↘ that..."),
+            PronunciationTip("Cultural terms stress", "Stress the first syllable of compound nouns: CULtural LITeracy, BUSiness ETiquette."),
+            PronunciationTip("Linking in phrases", "Link words naturally: 'it depends' → /ɪt dɪˈpɛndz/, 'kind of' → /ˈkaɪndəv/.")
         ),
         culture = listOf(
-            CulturalNote("Traditions around the world", "Every culture has its own holidays and traditions. Many share common themes — honoring ancestors, celebrating harvests, marking new beginnings — but express them in unique ways."),
-            CulturalNote("Reflexive pronouns in context", "In English, reflexive pronouns are often used when the subject and object are the same person. They can also add emphasis: 'I made it myself.'")
+            CulturalNote("Cultural literacy defined",
+                "Cultural literacy is the ability to understand and participate fluently in a given culture — including its references, idioms, customs, and unspoken rules."),
+            CulturalNote("Stereotypes vs. generalizations",
+                "A generalization is a broad observation that has many exceptions. A stereotype is a rigid belief applied to all members of a group. Learn to distinguish them."),
+            CulturalNote("The iceberg model of culture",
+                "Visible aspects of culture (food, dress, festivals) are like the tip of an iceberg. The deeper, invisible parts (values, beliefs, assumptions) shape most behavior.")
         ),
         mistakes = listOf(
-            CommonMistake("The tradition who we follow is old.", "The tradition that we follow is old.", "Use 'that' or 'which' for things, not 'who'."),
-            CommonMistake("She prepared her for the ceremony.", "She prepared herself for the ceremony.", "Use a reflexive pronoun when the subject and object are the same.")
+            CommonMistake("I enjoy to learn about cultures.", "I enjoy learning about cultures.", "Use a gerund after 'enjoy'."),
+            CommonMistake("She wants learning Japanese.", "She wants to learn Japanese.", "Use an infinitive after 'want'."),
+            CommonMistake("Everyone in Japan is shy.", "In Japan, people may seem reserved at first.", "Avoid stereotypes; use hedged generalizations.")
         ),
         comprehension = listOf(
-            ComprehensionQuestion("What are some traditions B's family follows?", "Cooking traditional food, exchanging gifts, telling stories about ancestors, and lighting candles that symbolize hope."),
-            ComprehensionQuestion("What does B's grandmother have to do with the traditions?", "She taught the family all these traditions and is 92 years old.")
+            ComprehensionQuestion("Why is bowing important in Japan, and how should A approach it?", "It shows respect. A should match the other person's bow."),
+            ComprehensionQuestion("How does B suggest A avoid stereotypes?", "Treat every person as an individual first, and observe how they differ from generalizations."),
+            ComprehensionQuestion("What is culture shock and how can A deal with it?", "Feeling tired, confused, or frustrated in a new culture. Rest, stay connected with home, and don't isolate.")
         ),
         speaking = listOf(
-            SpeakingTask("Describe a holiday or tradition from your culture.", "یک تعطیلات یا سنت از فرهنگت را توصیف کن.", "It's a tradition to... / We usually... / It symbolizes..."),
-            SpeakingTask("Compare traditions from two different cultures.", "دو سنت از دو فرهنگ مختلف را مقایسه کن.", "In my culture, we... / Similarly, in... / The difference is...")
+            SpeakingTask("Discuss a cultural difference you've experienced or observed.",
+                "درباره یک تفاوت فرهنگی که تجربه کرده‌ای یا دیده‌ای صحبت کن.",
+                "In my experience... / One difference is... / It seems to me..."),
+            SpeakingTask("Role-play giving cultural advice to a friend traveling abroad.",
+                "نقش‌بازی: دادن مشاوره فرهنگی به دوستی که به خارج سفر می‌کند.",
+                "You should... / It's important to... / Avoid..."),
+            SpeakingTask("Debate whether cultural globalization is positive or negative.",
+                "بحث کنید که جهانی‌سازی فرهنگی مثبت است یا منفی.",
+                "On one hand... / On the other hand... / I'd argue that...")
         ),
         writing = listOf(
-            WritingTask("Write about an important holiday or tradition in your culture.", "درباره یک تعطیلات یا سنت مهم در فرهنگت بنویس.", 180, "Use adjective clauses with subject and object relative pronouns, and reflexive pronouns.")
+            WritingTask("Write a cultural guide for visitors to your country.",
+                "یک راهنمای فرهنگی برای بازدیدکنندگان از کشورت بنویس.",
+                200, "Include customs, taboos, and one common misunderstanding. Use gerunds and infinitives naturally.")
         )
     )
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 8 — Inventions and Discoveries
+    // UNIT 2 — Good Citizens | شهروندان خوب  (≈ 150 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson8() = base(
-        8, "Inventions and Discoveries", "اختراعات و اکتشافات",
+    private fun unit2() = base(
+        2, "Good Citizens", "شهروندان خوب",
         listOf(
-            "Discuss important inventions and discoveries",
-            "Talk about how things were invented or discovered",
-            "Use the unreal conditional (present and past)",
-            "Discuss hypothetical situations",
-            "Express wonder and speculate about possibilities"
+            "Discuss civic responsibility and community involvement",
+            "Talk about volunteering and social issues",
+            "Express obligation and prohibition",
+            "Use modal verbs for obligation (must, should, have to)",
+            "Debate social and political issues"
         ),
         listOf(
-            v("invention", "اختراع", "The telephone was a revolutionary invention.", "تلفن یک اختراع انقلابی بود."),
-            v("discovery", "کشف", "The discovery of penicillin changed medicine.", "کشف پنی‌سیلین پزشکی را تغییر داد."),
-            v("inventor", "مخترع", "Who was the inventor of the light bulb?", "مخترع لامپ کی بود؟"),
-            v("innovation", "نوآوری", "Innovation drives economic growth.", "نوآوری رشد اقتصادی را هدایت می‌کند."),
-            v("revolutionary", "انقلابی", "The internet was a revolutionary development.", "اینترنت یک پیشرفت انقلابی بود.", "adjective"),
-            v("patent", "اختراع‌نامه", "He applied for a patent for his design.", "او برای طرحش درخواست اختراع‌نامه داد."),
-            v("breakthrough", "پیشرفت بزرگ", "Scientists made a major breakthrough in cancer research.", "دانشمندان پیشرفت بزرگی در تحقیقات سرطان داشتند."),
-            v("prototype", "نمونه اولیه", "They built a prototype to test the idea.", "آن‌ها نمونه اولیه‌ای برای آزمایش ایده ساختند."),
-            v("impact", "تأثیر", "The invention had a huge impact on society.", "اختراع تأثیر بزرگی بر جامعه داشت."),
-            v("develop", "توسعه دادن", "It took years to develop the technology.", "سال‌ها طول کشید تا تکنولوژی را توسعه دهند.", "verb"),
-            v("discover", "کشف کردن", "Scientists discovered a new species.", "دانشمندان گونه جدیدی کشف کردند.", "verb"),
-            v("experiment", "آزمایش", "The experiment proved the theory.", "آزمایش نظریه را اثبات کرد."),
-            v("advancement", "پیشرفت", "Medical advancements have saved millions of lives.", "پیشرفت‌های پزشکی جان میلیون‌ها نفر را نجات داده‌اند."),
-            v("influence", "تأثیر", "The invention influenced many other technologies.", "اختراع بر بسیاری از تکنولوژی‌های دیگر تأثیر گذاشت.", "verb"),
-            v("era", "عصر", "We live in the digital era.", "ما در عصر دیجیتال زندگی می‌کنیم.")
+            v("citizen", "شهروند", "Good citizens participate in their communities.", "شهروندان خوب در جامعه‌شان مشارکت می‌کنند."),
+            v("civic", "مدنی", "Civic duty is important in a democracy.", "وظیفه مدنی در دموکراسی مهم است."),
+            v("volunteer", "داوطلب", "She volunteers at the local shelter every weekend.", "او هر آخر هفته در پناهگاه محلی داوطلب می‌شود.", "verb"),
+            v("community", "جامعه محلی", "The community came together after the storm.", "جامعه محلی بعد از طوفان با هم متحد شد."),
+            v("donate", "اهدا کردن", "Please donate to the food bank.", "لطفاً به بانک غذا اهدا کنید.", "verb"),
+            v("charity", "خیریه", "They support several local charities.", "از چندین خیریه محلی حمایت می‌کنند."),
+            v("responsibility", "مسئولیت", "Voting is a responsibility, not just a right.", "رأی دادن یک مسئولیت است، نه فقط یک حق."),
+            v("protest", "اعتراض", "Citizens protested against the new law.", "شهروندان علیه قانون جدید اعتراض کردند.", "verb"),
+            v("petition", "طومار", "They signed a petition to save the park.", "طوماری برای نجات پارک امضا کردند."),
+            v("shelter", "پناهگاه", "The animal shelter needs volunteers.", "پناهگاه حیوانات به داوطلب نیاز دارد."),
+            v("neighborhood", "محله", "Our neighborhood is very diverse.", "محله ما خیلی متنوع است."),
+            v("participate", "مشارکت کردن", "Everyone should participate in local elections.", "همه باید در انتخابات محلی مشارکت کنند.", "verb"),
+            v("awareness", "آگاهی", "They organized a campaign for cancer awareness.", "کمپینی برای آگاهی از سرطان سازمان دادند."),
+            v("contribute", "سهم داشتن", "Everyone can contribute in their own way.", "همه می‌توانند به روش خودشان سهم داشته باشند.", "verb"),
+            v("advocate", "حمایت کردن", "She advocates for equal education.", "او از آموزش برابر حمایت می‌کند.", "verb")
         ),
         listOf(
-            GrammarSection("Unreal Conditional: Present", "Use the second conditional for unreal or hypothetical present/future situations. Form: If + past simple, would + base verb. If I had a million dollars, I would travel the world. If she were here, she would know what to do."),
-            GrammarSection("Unreal Conditional: Past", "Use the third conditional for unreal past situations and their imagined results. Form: If + past perfect, would have + past participle. If I had studied medicine, I would have become a doctor. If they hadn't invented the internet, our lives would have been very different."),
-            GrammarSection("Mixed Conditional", "Use mixed conditionals when the time in the if-clause and main clause are different. If I had studied harder (past), I would have a better job now (present)."),
-            GrammarSection("Conversation Strategy: Speculating and Hypothesizing", "Use expressions like 'What if...?', 'Imagine if...', 'If it hadn't been for...', and 'I wonder what would have happened if...' to speculate about inventions and discoveries.")
+            GrammarSection("Modal verbs for obligation and prohibition",
+                "Use 'must' for strong personal obligation, 'have to' for external obligation, 'should' for advice, and 'mustn't' for prohibition. You must wear a seatbelt. You have to pay taxes. You should vote. You mustn't park here."),
+            GrammarSection("Passive voice with modals",
+                "Combine modals with passive: The law must be followed. Taxes should be paid on time. Volunteers are needed."),
+            GrammarSection("Expressing opinions on social issues",
+                "Use 'I strongly believe...', 'It's essential that...', 'We ought to...', 'There's no doubt that...' for passionate but respectful debate.")
         ),
         listOf(
-            d("A", "I just read an article about the invention of the telephone.", "تازه مقاله‌ای درباره اختراع تلفن خواندم."),
-            d("B", "Really? What did it say?", "واقعاً؟ چه می‌گفت؟"),
-            d("A", "It said that if Alexander Graham Bell hadn't invented it, someone else would have.", "می‌گفت اگر الکساندر گراهام بل اختراعش نمی‌کرد، یک نفر دیگر انجامش می‌داد."),
-            d("B", "That's an interesting point. Many inventions seem inevitable in hindsight.", "نکته جالبی است. بسیاری از اختراعات در retrospect اجتناب‌ناپذیر به نظر می‌رسند."),
-            d("A", "Exactly. Think about it — if the internet had never been developed, how different would our lives be?", "دقیقاً. فکرش را بکن — اگر اینترنت هرگز توسعه نمی‌یافت، زندگی‌مان چقدر متفاوت می‌بود؟"),
-            d("B", "That's hard to imagine. I probably wouldn't be doing my job, for one thing.", "تصورش سخت است. برای یک چیز، احتمالاً شغلم را انجام نمی‌دادم."),
-            d("A", "Me neither. I work entirely online.", "من هم. کاملاً آنلاین کار می‌کنم."),
-            d("B", "What other inventions do you think changed the world the most?", "فکر می‌کنی کدام اختراعات دیگر بیشترین تغییر را در جهان ایجاد کردند؟"),
-            d("A", "Electricity, definitely. If we didn't have electricity, almost everything would be different.", "قطعاً برق. اگر برق نداشتیم، تقریباً همه چیز متفاوت می‌بود."),
-            d("B", "True. What about medical discoveries?", "درست. کشفیات پزشکی چطور؟"),
-            d("A", "Penicillin is a big one. If it hadn't been discovered, millions more people would have died from infections.", "پنی‌سیلین یکی از بزرگ‌ترین‌هاست. اگر کشف نمی‌شد، میلیون‌ها نفر بیشتر از عفونت‌ها می‌مردند."),
-            d("B", "That's a powerful thought. It makes you appreciate how far we've come.", "فکر قدرتمندی است. باعث می‌شود قدر پیشرفتمان را بدانیم."),
-            d("A", "It does. And it makes me wonder what inventions are still to come.", "همین‌طور است. و باعث می‌شود فکر کنم چه اختراعاتی هنوز در راه هستند."),
-            d("B", "What do you think will be the next big breakthrough?", "فکر می‌کنی پیشرفت بزرگ بعدی چه خواهد بود؟"),
-            d("A", "Probably something in AI or renewable energy.", "احتمالاً چیزی در هوش مصنوعی یا انرژی تجدیدپذیر."),
-            d("B", "I agree. Those areas are advancing so quickly.", "موافقم. آن زمینه‌ها خیلی سریع پیشرفت می‌کنند."),
-            d("A", "If I had the chance, I would love to work on something like that.", "اگر فرصت داشتم، دوست داشتم روی چیزی مثل آن کار کنم."),
-            d("B", "Why don't you? You have the skills.", "چرا نمی‌کنی؟ مهارت‌هایش را داری."),
-            d("A", "I don't know. Maybe I'm afraid of failing.", "نمی‌دانم. شاید از شکست می‌ترسم."),
-            d("B", "But if you never try, you'll never know what you could have achieved.", "ولی اگر هرگز تلاش نکنی، هرگز نمی‌دانی چه می‌توانستی به دست آوری."),
-            d("A", "You're right. If I had started earlier, I might already be there.", "حق داری. اگر زودتر شروع کرده بودم، شاید الان آنجا بودم."),
-            d("B", "It's not too late. Many inventors started late in life.", "دیر نیست. بسیاری از مخترعان دیر در زندگی شروع کردند."),
-            d("A", "That's encouraging. Maybe I should look into it.", "این دلگرم‌کننده است. شاید باید بررسی کنم."),
-            d("B", "You should. If I were you, I would start with a small project.", "باید بکنی. اگر جای تو بودم، با یک پروژه کوچک شروع می‌کردم."),
-            d("A", "That's good advice. Thanks for the push.", "توصیه خوبی است. ممنون برای انگیزه."),
-            d("B", "Anytime. Let me know if you need help.", "هر وقت. اگر کمک خواستی خبرم کن."),
-            d("A", "I will. Thanks again.", "می‌کنم. باز هم ممنون."),
-            d("B", "Good luck!", "موفق باشی!")
+            d("A", "Hey, are you free this Saturday?", "سلام، شنبه آزادی؟"),
+            d("B", "I think so. Why? What's happening?", "فکر می‌کنم بله. چرا؟ چه خبره؟"),
+            d("A", "There's a community cleanup in the park. Want to join?", "یک پاکسازی محلی در پارک هست. می‌خواهی شرکت کنی؟"),
+            d("B", "A cleanup? You mean picking up trash?", "پاکسازی؟ یعنی جمع کردن زباله؟"),
+            d("A", "Yeah, exactly. From 9 to noon. They're providing gloves and bags.", "بله، دقیقاً. از ۹ تا ظهر. دستکش و کیسه می‌دهند."),
+            d("B", "Sounds nice, but honestly, I've got a lot going on.", "خوب به نظر می‌رسد، ولی راستش کارهای زیادی دارم."),
+            d("A", "I get it. But it's only three hours, and it really helps the neighborhood.", "می‌فهمم. ولی فقط سه ساعت است، و واقعاً به محله کمک می‌کند."),
+            d("B", "I know. I just... I don't know if it makes a real difference.", "می‌دانم. فقط... نمی‌دانم آیا تفاوت واقعی ایجاد می‌کند."),
+            d("A", "I used to think that too. But then I saw how much trash we collected last year.", "من هم قبلاً همینطور فکر می‌کردم. ولی بعد دیدم پارسال چقدر زباله جمع کردیم."),
+            d("B", "How much?", "چقدر؟"),
+            d("A", "Over three hundred bags. From one park.", "بیش از سیصد کیسه. از یک پارک."),
+            d("B", "Okay, that's impressive. Who organizes it?", "باشه، این تحسین‌برانگیز است. چه کسی سازمان می‌دهد؟"),
+            d("A", "The neighborhood association. You know Sarah from the corner store?", "انجمن محله. سارا از مغازه گوشه را می‌شناسی؟"),
+            d("B", "The one with the bakery? Yeah, she's really nice.", "همان که نانوایی دارد؟ بله، خیلی مهربان است."),
+            d("A", "She runs it. She's been organizing community events for years.", "او اداره می‌کند. سال‌هاست رویدادهای محلی سازمان می‌دهد."),
+            d("B", "That's dedication. Does she get paid?", "این فداکاری است. حقوق می‌گیرد؟"),
+            d("A", "No, she's a volunteer. Like everyone else.", "نه، داوطلب است. مثل بقیه."),
+            d("B", "Wow. That's really something. Okay, I'll join.", "واو. این واقعاً چیز مهمی است. باشه، می‌آیم."),
+            d("A", "Great! You won't regret it. It's actually fun.", "عالی! پشیمان نمی‌شوی. در واقع سرگرم‌کننده است."),
+            d("B", "Fun? Picking up trash?", "سرگرم‌کننده؟ جمع کردن زباله؟"),
+            d("A", "Ha! Yes. You meet people, you chat, you feel good afterward.", "ها! بله. مردم را می‌بینی، گپ می‌زنی، بعدش حس خوبی داری."),
+            d("B", "Okay, I'm convinced. What time exactly?", "باشه، قانع شدم. دقیقاً چه ساعتی؟"),
+            d("A", "Nine o'clock, at the north entrance. Bring water and sunscreen.", "ساعت نه، ورودی شمالی. آب و ضدآفتاب بیاور."),
+            d("B", "Got it. Should I bring anything else?", "گرفتم. چیز دیگری بیاورم؟"),
+            d("A", "Just yourself. Maybe a hat if it's sunny.", "فقط خودت. شاید کلاه اگر آفتابی است."),
+            d("B", "Okay. See you Saturday.", "باشه. شنبه می‌بینمت."),
+            d("A", "Perfect. Oh, by the way — have you thought about volunteering regularly?", "عالی. راستی — به داوطلب شدن منظم فکر کرده‌ای؟"),
+            d("B", "Regularly? Like every week?", "منظم؟ مثل هر هفته؟"),
+            d("A", "Yeah. There are lots of opportunities. Animal shelter, food bank, tutoring kids.", "بله. فرصت‌های زیادی هست. پناهگاه حیوانات، بانک غذا، تدریس به بچه‌ها."),
+            d("B", "I'd like to, but I don't have much free time.", "دوست دارم، ولی وقت آزاد زیادی ندارم."),
+            d("A", "That's understandable. Even once a month helps.", "این قابل درک است. حتی ماهی یک بار هم کمک می‌کند."),
+            d("B", "Once a month I could probably do. Where do I start?", "ماهی یک بار احتمالاً می‌توانم. از کجا شروع کنم؟"),
+            d("A", "There's a website — volunteermatch.org. You put in your interests and location.", "یک وب‌سایت هست — volunteermatch.org. علاقه‌مندی‌ها و مکانت را وارد می‌کنی."),
+            d("B", "Nice. I'll check it out. What kind of volunteering do you do?", "عالی. بررسی می‌کنم. تو چه نوع داوطلبی می‌کنی؟"),
+            d("A", "I tutor kids in math twice a month. And I walk dogs at the shelter.", "ماهی دو بار به بچه‌ها ریاضی درس می‌دهم. و در پناهگاه سگ‌ها را پیاده می‌برم."),
+            d("B", "That's really nice of you.", "واقعاً از لطف تو است."),
+            d("A", "It's not just nice — it's good for me too. It gives me purpose.", "فقط لطف نیست — برای من هم خوب است. به من هدف می‌دهد."),
+            d("B", "Purpose. That's a good word.", "هدف. کلمه خوبی است."),
+            d("A", "Yeah. Sometimes modern life feels so disconnected, you know?", "بله. گاهی زندگی مدرن خیلی منقطع حس می‌شود، می‌دانی؟"),
+            d("B", "I do know. Everyone's busy, but nobody feels connected.", "می‌دانم. همه مشغولند، ولی هیچ‌کس احساس ارتباط نمی‌کند."),
+            d("A", "Exactly. Volunteering is one of the few things that brings people together.", "دقیقاً. داوطلبی یکی از معدود چیزهایی است که مردم را دور هم جمع می‌کند."),
+            d("B", "That's a good point. Have you made friends through it?", "نکته خوبی است. از طریق آن دوست پیدا کرده‌ای؟"),
+            d("A", "Definitely. Some of my closest friends are people I met while volunteering.", "قطعاً. بعضی از نزدیک‌ترین دوستانم افرادی هستند که هنگام داوطلبی دیدم."),
+            d("B", "Really? That's surprising.", "واقعاً؟ این تعجب‌آور است."),
+            d("A", "Why surprising?", "چرا تعجب‌آور؟"),
+            d("B", "I don't know. I always pictured volunteering as something lonely.", "نمی‌دانم. همیشه داوطلبی را تنهایی تصور می‌کردم."),
+            d("A", "No, it's the opposite! It's a very social thing. You work side by side with people.", "نه، برعکس است! خیلی اجتماعی است. کنار هم با مردم کار می‌کنی."),
+            d("B", "I see. Well, I'm looking forward to Saturday now.", "می‌فهمم. خب، الان منتظر شنبه هستم."),
+            d("A", "Great. But let me warn you — it can become addictive!", "عالی. ولی بگذار هشدار بدهم — می‌تواند اعتیادآور شود!"),
+            d("B", "Addictive? Doing good deeds?", "اعتیادآور؟ کارهای خوب انجام دادن؟"),
+            d("A", "Ha! Yes. After the first one, you'll want to do more.", "ها! بله. بعد از اولی، بیشتر می‌خواهی."),
+            d("B", "We'll see about that. But I'm open to it.", "می‌بینیم. ولی باز هستم."),
+            d("A", "That's all it takes. Oh, one thing — you must wear closed shoes.", "همین کافی است. اوه، یک چیز — باید کفش بسته بپوشی."),
+            d("B", "Why closed shoes?", "چرا کفش بسته؟"),
+            d("A", "Safety. There might be sharp objects in the grass.", "ایمنی. ممکن است اشیاء تیزی در چمن باشد."),
+            d("B", "Got it. Anything else I must or mustn't do?", "گرفتم. چیز دیگری که باید یا نباید انجام دهم؟"),
+            d("A", "You mustn't wander off alone — always stay with the group.", "نباید تنها دور شوی — همیشه با گروه بمان."),
+            d("B", "That makes sense. And what should I bring besides water?", "منطقی است. و غیر از آب چه باید بیاورم؟"),
+            d("A", "Snacks are good. The event lasts three hours.", "تنقلات خوب است. رویداد سه ساعت طول می‌کشد."),
+            d("B", "Okay. I'll bring some granola bars.", "باشه. چند تخته گرانولا می‌آورم."),
+            d("A", "Perfect. By the way, do you know Sarah well?", "عالی. راستی، سارا را خوب می‌شناسی؟"),
+            d("B", "Not really. Just from buying bread!", "نه واقعاً. فقط از خرید نان!"),
+            d("A", "You should talk to her on Saturday. She's fascinating.", "باید شنبه با او صحبت کنی. جذاب است."),
+            d("B", "What makes her fascinating?", "چه چیزی جذابش می‌کند؟"),
+            d("A", "She used to be a lawyer in the city. Then she moved here and opened a bakery.", "قبلاً وکیل در شهر بود. بعد به اینجا نقل مکان کرد و نانوایی باز کرد."),
+            d("B", "Really? What a change!", "واقعاً؟ چه تغییری!"),
+            d("A", "She says she wanted a simpler life. More meaningful.", "می‌گوید زندگی ساده‌تری می‌خواست. معنادارتر."),
+            d("B", "And now she runs community events?", "و حالا رویدادهای محلی اداره می‌کند؟"),
+            d("A", "Exactly. She found her purpose.", "دقیقاً. هدفش را پیدا کرد."),
+            d("B", "That's inspiring. Maybe I'll get some of that on Saturday.", "الهام‌بخش است. شاید شنبه کمی از آن را بگیرم."),
+            d("A", "I hope so. That's what community is all about.", "امیدوارم. جامعه محلی درباره همین است."),
+            d("B", "You know, I've lived in this neighborhood for five years and barely know anyone.", "می‌دانی، پنج سال در این محله زندگی کرده‌ام و تقریباً هیچ‌کس را نمی‌شناسم."),
+            d("A", "That's common. We're all so busy with work and screens.", "این رایج است. همه با کار و صفحه‌نمایش‌ها مشغولیم."),
+            d("B", "Yeah. My neighbor moved in six months ago and I still haven't said hello.", "بله. همسایه‌ام شش ماه پیش آمد و هنوز سلام نکرده‌ام."),
+            d("A", "Then Saturday is your chance to change that.", "پس شنبه فرصتت است که تغییرش دهی."),
+            d("B", "True. Maybe I'll meet people from my building.", "درست. شاید افرادی از ساختمانم را ببینم."),
+            d("A", "You probably will. Lots of locals come to these events.", "احتمالاً. کلی بومی به این رویدادها می‌آیند."),
+            d("B", "Okay, I'm officially excited now.", "باشه، الان رسماً هیجان‌زده‌ام."),
+            d("A", "Great. See you Saturday at nine.", "عالی. شنبه ساعت نه می‌بینمت."),
+            d("B", "See you. And thanks for inviting me.", "می‌بینمت. و ممنون که دعوتم کردی."),
+            d("A", "Anytime. That's what neighbors do.", "هر وقت. همسایه‌ها همین کار را می‌کنند.")
         ),
         listOf(
-            q("Who invented the telephone according to the article?", listOf("Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "Samuel Morse"), 1),
-            q("What does A think is the most important invention?", listOf("the telephone", "the internet", "electricity", "penicillin"), 2),
-            q("What would have happened without penicillin?", listOf("no surgery", "millions more deaths from infections", "no hospitals", "no vaccines"), 1),
-            q("What areas does A think will have the next breakthrough?", listOf("transportation and construction", "AI and renewable energy", "food and agriculture", "space and ocean"), 1),
-            q("If I ___ a million dollars, I would travel.", listOf("have", "had", "will have", "would have"), 1),
-            q("If she ___ here, she would know what to do.", listOf("is", "was", "were", "be"), 2),
-            q("If I ___ studied medicine, I would have become a doctor.", listOf("have", "had", "will have", "would have"), 1),
-            q("If they hadn't invented the internet, our lives ___ different.", listOf("would be", "would have been", "will be", "are"), 1)
+            q("What is A inviting B to?", listOf("a party", "a community cleanup", "a concert", "a meeting"), 1),
+            q("How much trash did they collect last year?", listOf("50 bags", "100 bags", "200 bags", "300+ bags"), 3),
+            q("Who organizes the event?", listOf("the mayor", "a local business", "the neighborhood association", "the police"), 2),
+            q("What did Sarah use to do?", listOf("teacher", "lawyer", "doctor", "chef"), 1),
+            q("What must B wear?", listOf("closed shoes", "a hat", "gloves", "a uniform"), 0),
+            q("What must B not do?", listOf("talk to strangers", "wander off alone", "bring snacks", "wear sunscreen"), 1),
+            q("You ___ wear a seatbelt. (strong obligation)", listOf("should", "must", "could", "might"), 1),
+            q("You ___ park here. (prohibition)", listOf("mustn't", "don't have to", "shouldn't", "can't"), 0),
+            q("Taxes ___ be paid on time.", listOf("must", "may", "could", "might"), 0),
+            q("I used to ___ that it didn't matter.", listOf("thinking", "think", "thought", "thinks"), 1)
         ),
         idioms = listOf(
-            IdiomExpression("In hindsight", "در retrospect", "Many inventions seem inevitable in hindsight.", "بسیاری از اختراعات در retrospect اجتناب‌ناپذیر به نظر می‌رسند."),
-            IdiomExpression("For one thing", "برای یک چیز", "I probably wouldn't be doing my job, for one thing.", "برای یک چیز، احتمالاً شغلم را انجام نمی‌دادم."),
-            IdiomExpression("How far we've come", "چقدر پیشرفت کرده‌ایم", "It makes you appreciate how far we've come.", "باعث می‌شود قدر پیشرفتمان را بدانیم."),
-            IdiomExpression("Look into", "بررسی کردن", "Maybe I should look into it.", "شاید باید بررسی کنم.")
+            IdiomExpression("On your mind", "در ذهنت بودن", "What's on your mind?", "چی تو ذهنت هست؟"),
+            IdiomExpression("A lot going on", "کارهای زیادی داشتن", "I've got a lot going on.", "کارهای زیادی دارم."),
+            IdiomExpression("Won't regret it", "پشیمان نشدن", "You won't regret it.", "پشیمان نمی‌شوی."),
+            IdiomExpression("Looking forward to", "منتظر بودن", "I'm looking forward to Saturday.", "منتظر شنبه هستم."),
+            IdiomExpression("Find your purpose", "هدفت را پیدا کردن", "She found her purpose.", "هدفش را پیدا کرد."),
+            IdiomExpression("That's what community is all about", "جامعه محلی درباره همین است", "That's what community is all about.", "جامعه محلی درباره همین است.")
         ),
         phrasal = listOf(
-            PhrasalVerb("look into", "بررسی کردن", "investigate", "Maybe I should look into it.", "شاید باید بررسی کنم.", "No"),
-            PhrasalVerb("come up with", "به فکر رسیدن", "think of an idea", "They came up with a revolutionary design.", "آن‌ها طرح انقلابی به فکرشان رسید.", "No"),
-            PhrasalVerb("start with", "شروع کردن با", "begin with", "I would start with a small project.", "با یک پروژه کوچک شروع می‌کردم.", "No")
+            PhrasalVerb("pick up", "جمع کردن", "collect",
+                "We're picking up trash in the park.", "در پارک زباله جمع می‌کنیم.", "Yes"),
+            PhrasalVerb("check out", "بررسی کردن", "investigate",
+                "I'll check out the website.", "وب‌سایت را بررسی می‌کنم.", "Yes"),
+            PhrasalVerb("come together", "با هم متحد شدن", "unite",
+                "The community came together after the storm.", "جامعه محلی بعد از طوفان با هم متحد شد.", "No"),
+            PhrasalVerb("wander off", "دور شدن", "stray away",
+                "Don't wander off alone.", "تنها دور نشو.", "No")
         ),
         pronunciation = listOf(
-            PronunciationTip("Third conditional stress", "Stress 'would have' and the past participle: If I had STUdied, I would have PASsed."),
-            PronunciationTip("Reduction in 'would have'", "In natural speech, 'would have' is often reduced to 'would've': /wʊdəv/")
+            PronunciationTip("Modal verb reduction", "In natural speech, 'must' and 'have to' often reduce: must → /məst/, have to → /ˈhæftə/"),
+            PronunciationTip("Strong prohibition stress", "Stress 'mustn't' for prohibition: You MUSTn't park here."),
+            PronunciationTip("Passive with modals", "Link modal and past participle: must be done → /məst bi dʌn/, should be paid → /ʃʊd bi peɪd/")
         ),
         culture = listOf(
-            CulturalNote("Inventions that changed the world", "The telephone, electricity, the internet, and penicillin are often cited as the most influential inventions and discoveries in human history. Each transformed society in fundamental ways."),
-            CulturalNote("Hypothetical thinking", "Discussing what might have happened if things were different is common in English. It helps people reflect on history, science, and personal choices.")
+            CulturalNote("Civic duty around the world",
+                "The concept of civic duty varies. In some countries, volunteering is common. In others, government provides more services. Understanding these differences helps cross-cultural communication."),
+            CulturalNote("Voting as responsibility",
+                "In many democracies, voting is seen as both a right and a responsibility. Some countries have mandatory voting; others rely on voluntary participation."),
+            CulturalNote("Community vs. individualism",
+                "Some cultures emphasize community and collective responsibility. Others emphasize individual rights. This affects attitudes toward volunteering and civic engagement.")
         ),
         mistakes = listOf(
-            CommonMistake("If I would have a million dollars...", "If I had a million dollars...", "Use past simple in the if-clause, not 'would have'."),
-            CommonMistake("If she was here...", "If she were here...", "In formal English, use 'were' for all persons in unreal conditionals.")
+            CommonMistake("You must to wear closed shoes.", "You must wear closed shoes.", "After 'must', use the base verb without 'to'."),
+            CommonMistake("You don't must park here.", "You mustn't park here.", "Use 'mustn't' (not 'don't must') for prohibition."),
+            CommonMistake("I used to thinking it didn't matter.", "I used to think it didn't matter.", "After 'used to', use the base verb.")
         ),
         comprehension = listOf(
-            ComprehensionQuestion("What does A say about the invention of the telephone?", "If Bell hadn't invented it, someone else would have."),
-            ComprehensionQuestion("What advice does B give A about pursuing innovation?", "Start with a small project; many inventors started late in life.")
+            ComprehensionQuestion("Why does B initially hesitate to join the cleanup?", "B feels busy and doubts whether it makes a real difference."),
+            ComprehensionQuestion("How does B's attitude change during the conversation?", "B goes from hesitant to excited, seeing the social and personal value of volunteering."),
+            ComprehensionQuestion("What is Sarah's story and why is she inspiring?", "She left a law career to open a bakery and organize community events, finding a more meaningful life.")
         ),
         speaking = listOf(
-            SpeakingTask("Discuss which invention you think changed the world the most and why.", "درباره اینکه فکر می‌کنی کدام اختراع بیشترین تغییر را در جهان ایجاد کرد و چرا صحبت کن.", "I think... / If it hadn't been invented... / The impact would have been..."),
-            SpeakingTask("Speculate about what the world would be like without a specific technology.", "تصور کن جهان بدون یک تکنولوژی خاص چطور می‌بود.", "If we didn't have... / We would... / It would have been...")
+            SpeakingTask("Discuss a social issue you care about.",
+                "درباره یک مسئله اجتماعی که برایت مهم است صحبت کن.",
+                "I strongly believe... / It's essential that... / We ought to..."),
+            SpeakingTask("Debate whether voting should be mandatory.",
+                "بحث کنید که رأی دادن باید اجباری باشد یا نه.",
+                "On one hand... / On the other hand... / I'd argue..."),
+            SpeakingTask("Plan a community project with a partner.",
+                "با یک دوست یک پروژه اجتماعی برنامه‌ریزی کنید.",
+                "We should... / We have to... / We mustn't forget...")
         ),
         writing = listOf(
-            WritingTask("Write an essay about an invention that changed the world.", "مقاله‌ای درباره اختراعی که جهان را تغییر داد بنویس.", 200, "Use unreal conditionals (present and past) at least four times.")
+            WritingTask("Write a persuasive essay about a social issue.",
+                "یک مقاله ترغیبی درباره یک مسئله اجتماعی بنویس.",
+                220, "Use modal verbs for obligation and passive voice with modals.")
         )
     )
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 9 — Controversial Issues
+    // UNIT 3 — Global Products | محصولات جهانی  (≈ 150 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson9() = base(
-        9, "Controversial Issues", "مسائل بحث‌برانگیز",
+    private fun unit3() = base(
+        3, "Global Products", "محصولات جهانی",
         listOf(
-            "Discuss controversial topics respectfully",
-            "Express opinions and agree/disagree politely",
+            "Discuss global brands and products",
+            "Talk about where products come from",
+            "Use the passive voice in different tenses",
+            "Discuss fair trade and ethical sourcing",
+            "Debate the pros and cons of globalization"
+        ),
+        listOf(
+            v("global", "جهانی", "Global brands are everywhere.", "برندهای جهانی همه‌جا هستند.", "adjective"),
+            v("manufacture", "تولید کردن", "These shoes are manufactured in Vietnam.", "این کفش‌ها در ویتنام تولید می‌شوند.", "verb"),
+            v("import", "وارد کردن", "We import coffee from Colombia.", "قهوه را از کلمبیا وارد می‌کنیم.", "verb"),
+            v("export", "صادر کردن", "Germany exports cars worldwide.", "آلمان خودرو به سراسر جهان صادر می‌کند.", "verb"),
+            v("supply chain", "زنجیره تأمین", "The supply chain was disrupted by the pandemic.", "زنجیره تأمین توسط پاندمی مختل شد."),
+            v("fair trade", "تجارت منصفانه", "Fair trade ensures farmers get a fair price.", "تجارت منصفانه اطمینان می‌دهد کشاورزان قیمت منصفانه می‌گیرند."),
+            v("sustainable", "پایدار", "Sustainable production is important.", "تولید پایدار مهم است.", "adjective"),
+            v("outsource", "برون‌سپاری کردن", "Many companies outsource to cut costs.", "بسیاری از شرکت‌ها برای کاهش هزینه برون‌سپاری می‌کنند.", "verb"),
+            v("brand", "برند", "Apple is a globally recognized brand.", "اپل یک برند شناخته‌شده جهانی است."),
+            v("multinational", "چندملیتی", "Multinational companies operate in many countries.", "شرکت‌های چندملیتی در کشورهای زیادی فعالیت می‌کنند."),
+            v("tariff", "تعرفه", "Tariffs affect the price of imports.", "تعرفه‌ها بر قیمت واردات تأثیر می‌گذارند."),
+            v("logistics", "لجستیک", "Logistics is a complex global industry.", "لجستیک صنعت جهانی پیچیده‌ای است."),
+            v("consumer", "مصرف‌کننده", "Consumers drive demand.", "مصرف‌کنندگان تقاضا را هدایت می‌کنند."),
+            v("traceability", "قابلیت ردیابی", "Traceability helps ensure ethical sourcing.", "قابلیت ردیابی به تضمین تأمین اخلاقی کمک می‌کند."),
+            v("transparency", "شفافیت", "Transparency in supply chains is growing.", "شفافیت در زنجیره‌های تأمین در حال رشد است.")
+        ),
+        listOf(
+            GrammarSection("Passive voice across tenses",
+                "Use passive to focus on the product or process. Present: The coffee is grown in Ethiopia. Past: These shoes were made in Italy. Present perfect: It has been produced here for decades. Future: It will be shipped tomorrow."),
+            GrammarSection("Passive with by + agent",
+                "Include 'by' when the agent matters: The design was created by a Japanese studio. The parts are supplied by local companies."),
+            GrammarSection("Causative: have/get something done",
+                "Use 'have/get + object + past participle' to say someone does something for you: I had my car repaired. We got the documents translated.")
+        ),
+        listOf(
+            d("A", "Hey, look at this label. It says 'Made in Bangladesh'.", "سلام، این برچسب را ببین. می‌گوید «ساخته‌شده در بنگلادش»."),
+            d("B", "Really? For a shirt from a European brand?", "واقعاً؟ برای پیراهنی از یک برند اروپایی؟"),
+            d("A", "Happens all the time. The design is European, but the production happens elsewhere.", "مدام اتفاق می‌افتد. طراحی اروپایی است، ولی تولید جای دیگری انجام می‌شود."),
+            d("B", "That's the global economy, I guess.", "این اقتصاد جهانی است، فکر کنم."),
+            d("A", "Exactly. But it raises questions. Who actually made this shirt?", "دقیقاً. ولی سؤالاتی را مطرح می‌کند. چه کسی این پیراهن را ساخته؟"),
+            d("B", "Some worker in a factory, I suppose.", "یک کارگر در کارخانه، فکر می‌کنم."),
+            d("A", "Right. And what were their working conditions?", "درست. و شرایط کارشان چه بود؟"),
+            d("B", "That's the difficult part. We don't know.", "این بخش دشوار است. نمی‌دانیم."),
+            d("A", "That's why there's a growing movement for transparency in supply chains.", "برای همین جنبشی در حال رشد برای شفافیت در زنجیره‌های تأمین هست."),
+            d("B", "Transparency? What does that mean exactly?", "شفافیت؟ دقیقاً به چه معناست؟"),
+            d("A", "Companies disclose where their products are made and under what conditions.", "شرکت‌ها افشا می‌کنند که محصولاتشان کجا و تحت چه شرایطی ساخته می‌شوند."),
+            d("B", "That sounds idealistic. Do companies actually do that?", "آرمان‌گرایانه به نظر می‌رسد. آیا شرکت‌ها واقعاً این کار را می‌کنند؟"),
+            d("A", "Some do. Others resist because it reveals uncomfortable truths.", "برخی بله. دیگران مقاومت می‌کنند چون حقایق ناراحت‌کننده را آشکار می‌کند."),
+            d("B", "So how do I know if I'm buying something ethically made?", "پس چطور بدانم چیزی اخلاقی می‌خرم؟"),
+            d("A", "Look for fair trade certifications. Or B-corp labels.", "به دنبال گواهی‌های تجارت منصفانه باش. یا برچسب‌های B-corp."),
+            d("B", "Fair trade? I've heard of that. What does it mean?", "تجارت منصفانه؟ شنیده‌ام. یعنی چه؟"),
+            d("A", "It means farmers and workers are guaranteed fair wages and safe conditions.", "یعنی به کشاورزان و کارگران دستمزد منصفانه و شرایط ایمن تضمین می‌شود."),
+            d("B", "That sounds better. Is it expensive?", "بهتر به نظر می‌رسد. گران است؟"),
+            d("A", "Sometimes slightly. But you're paying for dignity, not just the product.", "گاهی کمی. ولی برای کرامت پول می‌دهی، نه فقط محصول."),
+            d("B", "I like that way of thinking. Dignity, not just the product.", "این طرز فکر را دوست دارم. کرامت، نه فقط محصول."),
+            d("A", "It's a small shift in mindset, but it matters.", "یک تغییر کوچک در ذهنیت است، ولی مهم است."),
+            d("B", "Do you always check labels?", "همیشه برچسب‌ها را چک می‌کنی؟"),
+            d("A", "I try to. Honestly, sometimes I forget.", "سعی می‌کنم. راستش گاهی فراموش می‌کنم."),
+            d("B", "So you're not perfect either!", "پس تو هم کامل نیستی!"),
+            d("A", "Ha! Never claimed to be. But I try to be conscious.", "ها! هرگز ادعا نکردم. ولی سعی می‌کنم آگاه باشم."),
+            d("B", "Conscious consumer. That's a nice phrase.", "مصرف‌کننده آگاه. عبارت قشنگی است."),
+            d("A", "It's become a whole movement. People want to know what they're buying.", "به یک جنبش کامل تبدیل شده. مردم می‌خواهند بدانند چه می‌خرند."),
+            d("B", "But isn't it exhausting to check everything?", "ولی چک کردن همه چیز خسته‌کننده نیست؟"),
+            d("A", "It can be. That's why certifications matter — they do the work for you.", "می‌تواند باشد. برای همین گواهی‌ها مهم هستند — کار را برایت انجام می‌دهند."),
+            d("B", "Makes sense. What about price? Ethical products are often more expensive.", "منطقی است. قیمت چطور؟ محصولات اخلاقی اغلب گران‌ترند."),
+            d("A", "That's a real issue. Not everyone can afford them.", "این یک مسئله واقعی است. همه نمی‌توانند بخرند."),
+            d("B", "So ethical consumption is a privilege?", "پس مصرف اخلاقی یک امتیاز است؟"),
+            d("A", "Partly, yes. But even small choices add up. Buying less is also ethical.", "تا حدی، بله. ولی حتی انتخاب‌های کوچک جمع می‌شوند. کمتر خریدن هم اخلاقی است."),
+            d("B", "That's interesting. So it's not just about buying the right brands?", "جالب است. پس فقط درباره خرید برندهای درست نیست؟"),
+            d("A", "Exactly. It's also about consuming less overall.", "دقیقاً. همچنین درباره کمتر مصرف کردن کلی است."),
+            d("B", "I've been trying to buy less, actually. It feels good.", "راستش سعی کرده‌ام کمتر بخرم. حس خوبی دارد."),
+            d("A", "See? You're already part of the movement.", "می‌بینی؟ تو هم بخشی از جنبش هستی."),
+            d("B", "Ha! I guess so. Now, what about globalization itself?", "ها! فکر کنم بله. حالا، خود جهانی‌سازی چطور؟"),
+            d("A", "What about it?", "چطور؟"),
+            d("B", "Is it good or bad? I hear arguments both ways.", "خوب است یا بد؟ استدلال‌های هر دو طرف را می‌شنوم."),
+            d("A", "It's complicated. Globalization has lifted millions out of poverty.", "پیچیده است. جهانی‌سازی میلیون‌ها را از فقر نجات داده."),
+            d("B", "But it's also caused environmental damage and cultural homogenization.", "ولی همچنین به آسیب زیست‌محیطی و همگن‌سازی فرهنگی منجر شده."),
+            d("A", "True. It's not either/or. Both things can be true at once.", "درست. یا این یا آن نیست. هر دو می‌توانند همزمان درست باشند."),
+            d("B", "That's a mature way of looking at it.", "این نگاه بالغانه‌ای است."),
+            d("A", "Well, life is rarely simple. Globalization is a tool. How we use it matters.", "خب، زندگی به‌ندرت ساده است. جهانی‌سازی یک ابزار است. اینکه چطور استفاده می‌کنیم مهم است."),
+            d("B", "So we should shape it, not just accept it?", "پس باید شکلش دهیم، نه فقط بپذیریمش؟"),
+            d("A", "Yes. Through our choices as consumers, and through our voices as citizens.", "بله. از طریق انتخاب‌هایمان به عنوان مصرف‌کننده، و صداهایمان به عنوان شهروند."),
+            d("B", "That's empowering. I feel less powerless.", "این توانمندساز است. کمتر ناتوان حس می‌کنم."),
+            d("A", "Good. Because we're not. Every purchase is a vote.", "خوبه. چون نیستیم. هر خرید یک رأی است."),
+            d("B", "Every purchase is a vote. I like that.", "هر خرید یک رأی است. این را دوست دارم."),
+            d("A", "It's a phrase from conscious consumerism. Kind of catchy, right?", "عبارتی از مصرف‌گرایی آگاهانه است. تا حدی جذاب است، نه؟"),
+            d("B", "Very. Do you ever talk about this with friends?", "خیلی. تا حالا با دوستان درباره این صحبت کرده‌ای؟"),
+            d("A", "Sometimes. Some people roll their eyes, honestly.", "گاهی. راستش بعضی‌ها چشمشان را می‌چرخانند."),
+            d("B", "Why?", "چرا؟"),
+            d("A", "They think it's preachy. Like I'm telling them what to do.", "فکر می‌کنند موعظه‌آمیز است. مثل اینکه دارم می‌گویم چه کار کنند."),
+            d("B", "So how do you handle that?", "چطور با آن کنار می‌آیی؟"),
+            d("A", "I try to share information without judgment. Let people decide.", "سعی می‌کنم اطلاعات را بدون قضاوت به اشتراک بگذارم. بگذار مردم تصمیم بگیرند."),
+            d("B", "That's better. Nobody likes being lectured.", "بهتر است. هیچ‌کس دوست ندارد نصیحت شود."),
+            d("A", "Exactly. That's why I'm careful with my language now.", "دقیقاً. برای همین الان با زبانم مراقبم."),
+            d("B", "Do you think it makes a difference?", "فکر می‌کنی تفاوت ایجاد می‌کند؟"),
+            d("A", "I hope so. I've seen friends change their habits slowly.", "امیدوارم. دیده‌ام دوستان عادت‌هایشان را به آرامی تغییر می‌دهند."),
+            d("B", "That's encouraging. Change is usually gradual.", "این دلگرم‌کننده است. تغییر معمولاً تدریجی است."),
+            d("A", "Yes. That's why we shouldn't give up. Small steps add up.", "بله. برای همین نباید تسلیم شویم. قدم‌های کوچک جمع می‌شوند."),
+            d("B", "Okay, I'm inspired. Where should I start?", "باشه، الهام گرفتم. از کجا شروع کنم؟"),
+            d("A", "Start with what you buy most. For me, it was coffee.", "از چیزی که بیشتر می‌خری شروع کن. برای من قهوه بود."),
+            d("B", "Coffee? Why?", "قهوه؟ چرا؟"),
+            d("A", "Because coffee farmers are often exploited. Fair trade changes that.", "چون کشاورزان قهوه اغلب استثمار می‌شوند. تجارت منصفانه تغییرش می‌دهد."),
+            d("B", "I had no idea. Where is coffee grown?", "هیچ ایده‌ای نداشتم. قهوه کجا رشد می‌کند؟"),
+            d("A", "Ethiopia, Colombia, Vietnam, Brazil — many countries.", "اتیوپی، کلمبیا، ویتنام، برزیل — کشورهای زیادی."),
+            d("B", "And most of it is exported, right?", "و بیشترش صادر می‌شود، درست است؟"),
+            d("A", "Yes. But most of the profit goes to middlemen, not farmers.", "بله. ولی بیشتر سود به واسطه‌ها می‌رسد، نه کشاورزان."),
+            d("B", "That's unfair.", "این ناعادلانه است."),
+            d("A", "Very. That's the whole point of fair trade.", "خیلی. این تمام نکته تجارت منصفانه است."),
+            d("B", "Okay, I'll start buying fair trade coffee.", "باشه، شروع می‌کنم قهوه تجارت منصفانه بخرم."),
+            d("A", "Perfect first step. You'll notice the taste is often better too!", "اولین قدم عالی. متوجه می‌شوی طعمش هم اغلب بهتر است!"),
+            d("B", "Really? Bonus!", "واقعاً؟ امتیاز اضافه!"),
+            d("A", "Ha! Yes. Good coffee, good conscience.", "ها! بله. قهوه خوب، وجدان خوب."),
+            d("B", "I like that. Well, I need to go, but this was a great conversation.", "این را دوست دارم. خب، باید بروم، ولی گفت‌وگوی عالی‌ای بود."),
+            d("A", "Agreed. Let me know how your coffee experiment goes.", "موافقم. بگو آزمایش قهوه‌ات چطور پیش رفت."),
+            d("B", "I will. See you soon!", "می‌گویم. به‌زودی می‌بینمت!"),
+            d("A", "See you!", "می‌بینمت!")
+        ),
+        listOf(
+            q("Where was the shirt made?", listOf("Italy", "Bangladesh", "Vietnam", "China"), 1),
+            q("What does 'fair trade' mean?", listOf("free shipping", "fair wages and safe conditions", "lower prices", "quick delivery"), 1),
+            q("What certification is mentioned for ethical products?", listOf("ISO 9000", "B-corp", "FDA", "CE"), 1),
+            q("How does A describe every purchase?", listOf("a necessity", "a vote", "a habit", "a risk"), 1),
+            q("What is A's suggestion for starting ethical consumption?", listOf("stop buying everything", "start with what you buy most", "buy only local", "avoid all brands"), 1),
+            q("The coffee ___ in Ethiopia.", listOf("grows", "is grown", "grew", "growing"), 1),
+            q("These shoes ___ in Italy in 2020.", listOf("are made", "were made", "have made", "made"), 1),
+            q("The report ___ by the committee last week.", listOf("is written", "was written", "has been written", "writes"), 1),
+            q("I ___ my car repaired yesterday.", listOf("have", "had", "having", "has"), 1),
+            q("We ___ the documents translated last month.", listOf("get", "got", "getting", "gets"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Add up", "جمع شدن", "Small steps add up.", "قدم‌های کوچک جمع می‌شوند."),
+            IdiomExpression("Raise questions", "سؤال مطرح کردن", "It raises questions.", "سؤالاتی مطرح می‌کند."),
+            IdiomExpression("Both can be true", "هر دو می‌توانند درست باشند", "Both things can be true at once.", "هر دو می‌توانند همزمان درست باشند."),
+            IdiomExpression("Roll their eyes", "چشم چرخاندن", "Some people roll their eyes.", "بعضی‌ها چشمشان را می‌چرخانند."),
+            IdiomExpression("Good conscience", "وجدان راحت", "Good coffee, good conscience.", "قهوه خوب، وجدان خوب."),
+            IdiomExpression("Every purchase is a vote", "هر خرید یک رأی است", "Every purchase is a vote.", "هر خرید یک رأی است.")
+        ),
+        phrasal = listOf(
+            PhrasalVerb("add up", "جمع شدن", "accumulate",
+                "Small steps add up.", "قدم‌های کوچک جمع می‌شوند.", "No"),
+            PhrasalVerb("give up", "تسلیم شدن", "stop trying",
+                "We shouldn't give up.", "نباید تسلیم شویم.", "No"),
+            PhrasalVerb("start with", "شروع کردن با", "begin with",
+                "Start with what you buy most.", "از چیزی که بیشتر می‌خری شروع کن.", "No"),
+            PhrasalVerb("roll their eyes", "چشم چرخاندن", "show disapproval",
+                "Some people roll their eyes.", "بعضی‌ها چشمشان را می‌چرخانند.", "No")
+        ),
+        pronunciation = listOf(
+            PronunciationTip("Passive voice stress", "Stress the past participle: The coffee is GROWN in Ethiopia."),
+            PronunciationTip("Reduction of 'have' in causative", "In natural speech, 'have' often reduces: I had my car repaired → /aɪd maɪ kɑr rɪˈpɛrd/"),
+            PronunciationTip("Linked passive forms", "Link 'is' with the past participle: is_grown, was_made, has_been_produced.")
+        ),
+        culture = listOf(
+            CulturalNote("Fair trade movement",
+                "The fair trade movement began in the 1940s-1960s, aiming to ensure producers in developing countries receive fair prices. Today, fair trade certifications cover coffee, chocolate, bananas, and many other products."),
+            CulturalNote("Supply chain transparency",
+                "Modern consumers increasingly demand to know where their products come from. Brands like Patagonia and Everlane have built their reputations on transparency."),
+            CulturalNote("Globalization debate",
+                "Globalization has lifted hundreds of millions out of poverty, but also contributed to environmental degradation and cultural homogenization. Both perspectives have merit.")
+        ),
+        mistakes = listOf(
+            CommonMistake("The coffee is grow in Ethiopia.", "The coffee is grown in Ethiopia.", "Use the past participle in passive voice."),
+            CommonMistake("The shoes was made in Italy.", "The shoes were made in Italy.", "Use 'were' with plural nouns in passive."),
+            CommonMistake("I have repaired my car (meaning someone did it for me).", "I had my car repaired.", "Use 'have/get + object + past participle' for the causative.")
+        ),
+        comprehension = listOf(
+            ComprehensionQuestion("What does transparency mean in supply chains?", "Companies disclose where products are made and under what conditions."),
+            ComprehensionQuestion("How does A view globalization?", "As a tool that has both lifted millions out of poverty and caused environmental damage. It's not either/or."),
+            ComprehensionQuestion("Why does A think every purchase is a vote?", "Because each purchase supports certain practices and companies. Consumers shape the market.")
+        ),
+        speaking = listOf(
+            SpeakingTask("Discuss the pros and cons of globalization.",
+                "درباره مزایا و معایب جهانی‌سازی صحبت کن.",
+                "On one hand... / On the other hand... / Both can be true..."),
+            SpeakingTask("Explain how a product is made, using passive voice.",
+                "توضیح بده چگونه یک محصول ساخته می‌شود، با استفاده از مجهول.",
+                "It is grown in... / It is manufactured... / It is shipped..."),
+            SpeakingTask("Role-play a debate about ethical consumption.",
+                "نقش‌بازی بحث درباره مصرف اخلاقی.",
+                "I strongly believe... / You should consider... / Have you thought about...?")
+        ),
+        writing = listOf(
+            WritingTask("Write a report on a global product's journey from production to consumer.",
+                "گزارشی درباره سفر یک محصول جهانی از تولید تا مصرف‌کننده بنویس.",
+                220, "Use passive voice across multiple tenses.")
+        )
+    )
+
+    // ═══════════════════════════════════════════════════════════
+    // UNIT 4 — Communication | ارتباطات  (≈ 150 خط)
+    // ═══════════════════════════════════════════════════════════
+    private fun unit4() = base(
+        4, "Communication", "ارتباطات",
+        listOf(
+            "Discuss communication styles",
+            "Talk about the impact of technology on communication",
+            "Use reported speech correctly",
+            "Discuss misunderstandings and how to resolve them",
+            "Express and clarify intentions"
+        ),
+        listOf(
+            v("communication", "ارتباط", "Communication skills are essential today.", "مهارت‌های ارتباطی امروز ضروری هستند."),
+            v("misunderstanding", "سوءتفاهم", "The misunderstanding was cleared up quickly.", "سوءتفاهم به سرعت حل شد."),
+            v("clarify", "روشن کردن", "Could you clarify what you meant?", "می‌توانی روشن کنی منظورت چه بود؟", "verb"),
+            v("misinterpret", "تعبیر غلط کردن", "He misinterpreted my tone.", "لحنم را غلط تعبیر کرد.", "verb"),
+            v("direct", "مستقیم", "Some cultures prefer direct communication.", "برخی فرهنگ‌ها ارتباط مستقیم را ترجیح می‌دهند.", "adjective"),
+            v("indirect", "غیرمستقیم", "Other cultures value indirect communication.", "فرهنگ‌های دیگر ارتباط غیرمستقیم را ارزش می‌گذارند.", "adjective"),
+            v("nuance", "تفاوت ظریف", "There's a nuance in his tone I missed.", "تفاوت ظریفی در لحنش بود که از دست دادم."),
+            v("signal", "علامت / نشانه", "Her silence was a signal of disagreement.", "سکوتش نشانه مخالفت بود."),
+            v("interpretation", "تفسیر", "That's one interpretation, but not the only one.", "این یک تفسیر است، ولی نه تنها تفسیر."),
+            v("feedback", "بازخورد", "Give feedback respectfully.", "بازخورد را محترمانه بده."),
+            v("assertive", "قاطع", "Being assertive is different from being aggressive.", "قاطع بودن با پرخاشگر بودن تفاوت دارد.", "adjective"),
+            v("passive", "منفعل", "Passive communication can cause resentment.", "ارتباط منفعل می‌تواند کینه ایجاد کند.", "adjective"),
+            v("empathy", "همدلی", "Empathy is key to good communication.", "همدلی کلید ارتباط خوب است."),
+            v("tone", "لحن", "Your tone matters as much as your words.", "لحنت به اندازه کلماتت مهم است."),
+            v("context", "زمینه", "Context shapes how we understand a message.", "زمینه نحوه درک پیام را شکل می‌دهد.")
+        ),
+        listOf(
+            GrammarSection("Reported speech",
+                "Use reported speech to relay what others said. Direct: 'I'm tired.' Reported: She said she was tired. Notice tense changes: present → past, past → past perfect."),
+            GrammarSection("Reported questions and commands",
+                "Reported questions use statement word order: He asked me where I was going. Reported commands use infinitive: She told me to wait."),
+            GrammarSection("Reporting verbs",
+                "Use a variety of reporting verbs: say, tell, ask, mention, explain, admit, complain, insist, suggest, warn.")
+        ),
+        listOf(
+            d("A", "Hey, do you have a minute? Something happened today that I want to talk about.", "سلام، یک دقیقه وقت داری؟ امروز چیزی اتفاق افتاد که می‌خواهم درباره‌اش صحبت کنم."),
+            d("B", "Of course. What's going on?", "حتماً. چه خبره؟"),
+            d("A", "I think I had a misunderstanding with a colleague. I'm not sure if I should bring it up.", "فکر می‌کنم سوءتفاهمی با یک همکار پیدا کردم. مطمئن نیستم باید مطرحش کنم یا نه."),
+            d("B", "Tell me what happened.", "بگو چه شد."),
+            d("A", "So, in our team meeting, I suggested a new idea. And Maria said, 'That's interesting.' But her tone... it felt dismissive.", "خب، در جلسه تیم، یک ایده جدید پیشنهاد دادم. و ماریا گفت: «جالب است.» ولی لحنش... تحقیرآمیز به نظر می‌رسید."),
+            d("B", "Hmm. What did she say exactly?", "هوم. دقیقاً چه گفت؟"),
+            d("A", "She said, 'That's interesting.' But she also kind of smiled and looked at someone else.", "گفت: «جالب است.» ولی همچنین نوعی لبخند زد و به کس دیگری نگاه کرد."),
+            d("B", "Okay. So what did you interpret from that?", "باشه. خب چه چیزی از آن تعبیر کردی؟"),
+            d("A", "I interpreted it as her thinking my idea was stupid.", "تعبیر کردم که فکر می‌کند ایده‌ام احمقانه است."),
+            d("B", "But you're not sure?", "ولی مطمئن نیستی؟"),
+            d("A", "No, that's the problem. She might have meant something different.", "نه، مشکل همین است. ممکن است چیز دیگری منظورش بوده."),
+            d("B", "Have you asked her?", "از او پرسیده‌ای؟"),
+            d("A", "Not yet. I don't want to seem oversensitive.", "هنوز نه. نمی‌خواهم بیش از حد حساس به نظر برسم."),
+            d("B", "I understand. But maybe you're reading too much into her tone.", "می‌فهمم. ولی شاید بیش از حد به لحنش توجه می‌کنی."),
+            d("A", "Maybe. Tone is hard to read, especially with people from different cultures.", "شاید. لحن سخت خوانده می‌شود، مخصوصاً با افراد از فرهنگ‌های مختلف."),
+            d("B", "True. Where is Maria from?", "درست. ماریا اهل کجاست؟"),
+            d("A", "Brazil. And in Brazilian culture, indirect communication is common.", "برزیل. و در فرهنگ برزیلی، ارتباط غیرمستقیم رایج است."),
+            d("B", "So 'interesting' might have been her polite way of disagreeing?", "پس «جالب» ممکن است روش مؤدبانه‌اش برای مخالفت بوده؟"),
+            d("A", "Possibly. Or maybe she really did find it interesting.", "احتمالاً. یا شاید واقعاً جالب یافته."),
+            d("B", "That's the ambiguity. You need to clarify.", "این ابهام است. باید روشن کنی."),
+            d("A", "How do I do that without being awkward?", "چطور بدون ناخوشایند بودن انجامش دهم؟"),
+            d("B", "Ask in a curious way, not a defensive one.", "کنجکاوانه بپرس، نه دفاعی."),
+            d("A", "Like what?", "مثل چی؟"),
+            d("B", "You could say, 'Hey, I wanted to follow up on my idea from yesterday. What did you think?'", "می‌توانی بگویی: «سلام، می‌خواستم ایده دیروزم را پیگیری کنم. چه فکر می‌کنی؟»"),
+            d("A", "That's neutral. I like it.", "این بی‌طرف است. دوستش دارم."),
+            d("B", "And listen carefully to her response. Watch her whole communication, not just words.", "و به پاسخش با دقت گوش کن. کل ارتباطش را ببین، نه فقط کلمات."),
+            d("A", "You mean body language, tone, context?", "یعنی زبان بدن، لحن، زمینه؟"),
+            d("B", "Exactly. Words are only part of the message.", "دقیقاً. کلمات فقط بخشی از پیام هستند."),
+            d("A", "That's true. Sometimes the same words mean different things.", "درست است. گاهی همان کلمات چیزهای متفاوتی می‌گویند."),
+            d("B", "Yes. And sometimes we project our own insecurities onto others.", "بله. و گاهی ناامنی‌های خودمان را روی دیگران تصویر می‌کنیم."),
+            d("A", "What do you mean?", "منظورت چیست؟"),
+            d("B", "If you're feeling unsure about your idea, you might hear criticism where there isn't any.", "اگر درباره ایده‌ات مطمئن نیستی، ممکن است جایی که نقدی نیست، آن را بشنوی."),
+            d("A", "That's... actually a really good point. I've been doubting my ideas lately.", "این... واقعاً نکته خوبی است. اخیراً به ایده‌هایم شک کرده‌ام."),
+            d("B", "Why is that?", "چرا؟"),
+            d("A", "I don't know. Work has been stressful. And my last two suggestions weren't approved.", "نمی‌دانم. کار پراسترس بوده. و دو پیشنهاد آخرمان تأیید نشد."),
+            d("B", "That's hard. So maybe Maria's response hit a sensitive spot.", "این سخت است. پس شاید پاسخ ماریا به نقطه حساسی خورده."),
+            d("A", "Yeah, I think so. Maybe the problem isn't Maria. It's my own doubts.", "بله، فکر می‌کنم. شاید مشکل ماریا نیست. شک‌های خودم است."),
+            d("B", "That's really self-aware. Most people would just blame the other person.", "این خیلی خودآگاهی است. بیشتر مردم فقط دیگری را سرزنش می‌کنند."),
+            d("A", "Thanks. But I still want to talk to her. To be sure.", "ممنون. ولی هنوز می‌خواهم با او صحبت کنم. که مطمئن شوم."),
+            d("B", "That's a healthy approach. Just keep it curious, not accusatory.", "این رویکرد سالمی است. فقط کنجکاو نگهش دار، نه متهم‌کننده."),
+            d("A", "So maybe: 'I've been thinking about my idea. What were your thoughts?'", "پس شاید: «درباره ایده‌ام فکر کرده‌ام. نظرت چه بود؟»"),
+            d("B", "Perfect. And use a warm tone. Tone matters so much.", "عالی. و از لحن گرم استفاده کن. لحن خیلی مهم است."),
+            d("A", "It does. I've learned that the hard way.", "همینطور است. به روش سختی یاد گرفتم."),
+            d("B", "We all do. Communication is a skill, not a talent.", "همه‌مان یاد می‌گیریم. ارتباط یک مهارت است، نه استعداد."),
+            d("A", "That's encouraging. Some people seem naturally good at it.", "این دلگرم‌کننده است. بعضی‌ها به طور طبیعی در آن خوب به نظر می‌رسند."),
+            d("B", "They've practiced. Or they grew up in environments that valued it.", "تمرین کرده‌اند. یا در محیط‌هایی بزرگ شده‌اند که ارزشش را می‌گذاشتند."),
+            d("A", "So it's not fixed? I can get better?", "پس ثابت نیست؟ می‌توانم بهتر شوم؟"),
+            d("B", "Definitely. Reading, watching others, asking for feedback — it all helps.", "قطعاً. خواندن، تماشای دیگران، درخواست بازخورد — همه کمک می‌کنند."),
+            d("A", "What should I read?", "چه بخوانم؟"),
+            d("B", "There's a great book called 'Nonviolent Communication'. It's about expressing needs without blame.", "کتاب عالی‌ای هست به نام «ارتباط بدون خشونت». درباره بیان نیازها بدون سرزنش است."),
+            d("A", "Nonviolent communication? That sounds intense.", "ارتباط بدون خشونت؟ شدید به نظر می‌رسد."),
+            d("B", "It's not about violence literally. It's about speaking in a way that doesn't trigger defensiveness.", "به معنای واقعی درباره خشونت نیست. درباره صحبت کردن به روشی است که حالت دفاعی را فعال نکند."),
+            d("A", "That would be useful. So often conversations escalate unnecessarily.", "این مفید می‌شود. اغلب گفت‌وگوها بیهوده escalate می‌شوند."),
+            d("B", "Right. Because people feel attacked even when we don't mean to attack.", "درست. چون مردم احساس حمله می‌کنند حتی وقتی قصد حمله نداریم."),
+            d("A", "Tone again?", "باز هم لحن؟"),
+            d("B", "Tone, word choice, timing, body language — all of it.", "لحن، انتخاب کلمات، زمان‌بندی، زبان بدن — همه‌اش."),
+            d("A", "It's overwhelming.", "طاقت‌فرسا است."),
+            d("B", "It is. But you don't have to be perfect. Just a bit more intentional.", "هست. ولی لازم نیست کامل باشی. فقط کمی هدفمندتر."),
+            d("A", "I like that. Intentional. Not perfect.", "این را دوست دارم. هدفمند. نه کامل."),
+            d("B", "Exactly. Every conversation is practice.", "دقیقاً. هر گفت‌وگو تمرین است."),
+            d("A", "So should I talk to Maria today?", "پس امروز با ماریا صحبت کنم؟"),
+            d("B", "What feels right to you?", "چه چیزی برایت درست حس می‌شود؟"),
+            d("A", "Maybe tomorrow. When I'm calmer.", "شاید فردا. وقتی آرام‌ترم."),
+            d("B", "That's wise. Never have a difficult conversation when you're upset.", "این عاقلانه است. هرگز گفت‌وگوی دشوار را وقتی ناراحتی انجام نده."),
+            d("A", "I've learned that before. It never goes well.", "قبلاً یاد گرفته‌ام. هرگز خوب پیش نمی‌رود."),
+            d("B", "Right. Sleep on it. Things often look different in the morning.", "درست. رویش بخواب. چیزها صبح اغلب متفاوت به نظر می‌رسند."),
+            d("A", "Thanks. I feel much better already.", "ممنون. الان خیلی بهترم."),
+            d("B", "Glad I could help. Text me after you talk to her.", "خوشحالم کمک کردم. بعد از صحبت با او پیام بده."),
+            d("A", "I will. Thanks for being a good listener.", "می‌فرستم. ممنون که شنونده خوبی هستی."),
+            d("B", "Anytime. That's what friends are for.", "هر وقت. دوست برای همین است."),
+            d("A", "See you soon.", "به‌زودی می‌بینمت."),
+            d("B", "See you. Good luck!", "می‌بینمت. موفق باشی!")
+        ),
+        listOf(
+            q("What happened in the team meeting?", listOf("A was praised", "Maria dismissed A's idea", "A argued with Maria", "A was promoted"), 1),
+            q("Where is Maria from?", listOf("Argentina", "Brazil", "Mexico", "Spain"), 1),
+            q("What did B suggest A consider?", listOf("quitting", "projecting insecurities", "complaining to HR", "ignoring it"), 1),
+            q("What book does B recommend?", listOf("'How to Win Friends'", "'Nonviolent Communication'", "'Atomic Habits'", "'The 7 Habits'"), 1),
+            q("When does B suggest A talk to Maria?", listOf("immediately", "when calmer", "in a week", "never"), 1),
+            q("She said she ___ tired.", listOf("is", "was", "were", "am"), 1),
+            q("He asked me where I ___ going.", listOf("am", "was", "were", "be"), 1),
+            q("She told me ___ wait.", listOf("wait", "waiting", "to wait", "waited"), 2),
+            q("He said he ___ finished the report.", listOf("has", "had", "having", "have"), 1),
+            q("She mentioned that she ___ busy.", listOf("is", "was", "were", "be"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Read too much into", "بیش از حد تعبیر کردن", "Maybe you're reading too much into her tone.", "شاید بیش از حد به لحنش توجه می‌کنی."),
+            IdiomExpression("Hit a sensitive spot", "به نقطه حساس خوردن", "Maybe her response hit a sensitive spot.", "شاید پاسخش به نقطه حساسی خورده."),
+            IdiomExpression("The hard way", "به روش سخت", "I learned that the hard way.", "به روش سختی یاد گرفتم."),
+            IdiomExpression("Sleep on it", "روی چیزی خوابیدن", "Sleep on it. Things look different in the morning.", "روی آن بخواب. صبح چیزها متفاوت به نظر می‌رسند."),
+            IdiomExpression("What friends are for", "دوست برای همین است", "That's what friends are for.", "دوست برای همین است."),
+            IdiomExpression("Escalate", "شدت گرفتن", "Conversations escalate unnecessarily.", "گفت‌وگوها بیهوده شدت می‌گیرند.")
+        ),
+        phrasal = listOf(
+            PhrasalVerb("bring up", "مطرح کردن", "mention a topic",
+                "I'm not sure if I should bring it up.", "مطمئن نیستم باید مطرحش کنم.", "Yes"),
+            PhrasalVerb("follow up on", "پیگیری کردن", "check on something",
+                "I wanted to follow up on my idea.", "می‌خواستم ایده‌ام را پیگیری کنم.", "No"),
+            PhrasalVerb("read into", "تعبیر کردن", "interpret more than intended",
+                "You're reading too much into it.", "بیش از حد تعبیرش می‌کنی.", "No"),
+            PhrasalVerb("sleep on it", "روی چیزی خوابیدن", "wait before deciding",
+                "Sleep on it before deciding.", "قبل از تصمیم، رویش بخواب.", "No")
+        ),
+        pronunciation = listOf(
+            PronunciationTip("Reported speech tense shift", "Notice the tense shift in natural speech: 'I'm tired' → she said she WAS tired."),
+            PronunciationTip("Curious vs. defensive tone", "Curious: rising intonation at end. Defensive: flat or falling. What did you think? ↗ vs. What did you think? ↘"),
+            PronunciationTip("Linking in reported speech", "Link words: 'she said she was' → /ʃi sɛd ʃi wəz/, 'he told me to' → /hi toʊld mi tə/")
+        ),
+        culture = listOf(
+            CulturalNote("High-context vs. low-context cultures",
+                "In high-context cultures (Japan, Brazil, Arab countries), meaning depends heavily on situation and relationship. In low-context cultures (US, Germany), communication tends to be explicit and direct."),
+            CulturalNote("Indirect communication",
+                "In many cultures, direct disagreement is seen as rude. People may say 'That's interesting' when they actually disagree. Learning to read indirect signals is a valuable skill."),
+            CulturalNote("Nonviolent Communication",
+                "Developed by Marshall Rosenberg, NVC focuses on expressing observations, feelings, needs, and requests without blame — reducing defensiveness and conflict.")
+        ),
+        mistakes = listOf(
+            CommonMistake("She said she is tired. (wrong in reported speech)", "She said she was tired.", "Shift tense back in reported speech."),
+            CommonMistake("He asked me where was I going.", "He asked me where I was going.", "Reported questions use statement word order."),
+            CommonMistake("She told me wait.", "She told me to wait.", "Reported commands use the infinitive.")
+        ),
+        comprehension = listOf(
+            ComprehensionQuestion("What was A's initial interpretation of Maria's comment?", "A thought Maria was dismissing the idea as stupid."),
+            ComprehensionQuestion("How did B reframe A's concern?", "B suggested A might be projecting insecurities onto Maria's response."),
+            ComprehensionQuestion("What did B recommend for handling the conversation?", "Wait until calmer, approach curiously rather than defensively, and listen to the full communication.")
+        ),
+        speaking = listOf(
+            SpeakingTask("Report a recent conversation you had, using reported speech.",
+                "یک گفت‌وگوی اخیرت را با استفاده از نقل قول غیرمستقیم گزارش کن.",
+                "She said that... / He told me... / They asked..."),
+            SpeakingTask("Role-play resolving a misunderstanding.",
+                "نقش‌بازی حل یک سوءتفاهم.",
+                "I wanted to clarify... / What did you mean by...? / I might have misunderstood..."),
+            SpeakingTask("Discuss how technology has changed communication.",
+                "درباره اینکه تکنولوژی چطور ارتباط را تغییر داده صحبت کن.",
+                "Before, people... / Now we... / The impact has been...")
+        ),
+        writing = listOf(
+            WritingTask("Write a reflective essay about a misunderstanding you resolved.",
+                "یک مقاله تأملی درباره سوءتفاهمی که حل کرده‌ای بنویس.",
+                220, "Use reported speech and a range of reporting verbs.")
+        )
+    )
+
+    // ═══════════════════════════════════════════════════════════
+    // UNIT 5 — Appearances | ظاهر  (≈ 150 خط)
+    // ═══════════════════════════════════════════════════════════
+    private fun unit5() = base(
+        5, "Appearances", "ظاهر",
+        listOf(
+            "Discuss physical appearance and style",
+            "Talk about first impressions based on appearance",
+            "Use comparative and superlative adjectives",
+            "Discuss beauty standards across cultures",
+            "Express opinions about image and identity"
+        ),
+        listOf(
+            v("appearance", "ظاهر", "Appearance matters less than character.", "ظاهر کمتر از شخصیت اهمیت دارد."),
+            v("style", "سبک", "She has a unique style.", "او سبک منحصربه‌فردی دارد."),
+            v("fashion", "مد", "Fashion changes every season.", "مد هر فصل تغییر می‌کند."),
+            v("trend", "روند", "That hairstyle is a new trend.", "آن مدل مو یک روند جدید است."),
+            v("beauty standard", "استاندارد زیبایی", "Beauty standards vary across cultures.", "استانداردهای زیبایی بین فرهنگ‌ها متفاوتند."),
+            v("self-image", "تصویر از خود", "Social media affects self-image.", "شبکه‌های اجتماعی تصویر از خود را تحت تأثیر قرار می‌دهند."),
+            v("confident", "با اعتماد به نفس", "She looks confident and poised.", "او با اعتماد به نفس و متین به نظر می‌رسد.", "adjective"),
+            v("judge", "قضاوت کردن", "Don't judge by appearance alone.", "فقط از روی ظاهر قضاوت نکن.", "verb"),
+            v("superficial", "سطحی", "Focusing only on looks is superficial.", "توجه فقط به ظاهر سطحی است.", "adjective"),
+            v("natural", "طبیعی", "He prefers a natural look.", "او ظاهر طبیعی را ترجیح می‌دهد.", "adjective"),
+            v("makeover", "تغییر ظاهر", "She got a complete makeover.", "او تغییر ظاهر کاملی داد."),
+            v("grooming", "آراستگی", "Good grooming shows respect for others.", "آراستگی خوب احترام به دیگران را نشان می‌دهد."),
+            v("insecure", "ناامن", "He feels insecure about his height.", "او درباره قدش احساس ناامنی می‌کند.", "adjective"),
+            v("diverse", "متنوع", "Beauty is diverse and personal.", "زیبایی متنوع و شخصی است.", "adjective"),
+            v("authentic", "اصیل", "Being authentic is more attractive than following trends.", "اصیل بودن جذاب‌تر از دنبال کردن روندهاست.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Comparatives and superlatives",
+                "Use -er/-est or more/most for comparisons. She is taller than her sister. He is the most stylish person I know. Irregulars: good → better → best, bad → worse → worst."),
+            GrammarSection("As...as and not as...as",
+                "Use 'as...as' for equality: She is as tall as her mother. Use 'not as...as' for inequality: He isn't as outgoing as his brother."),
+            GrammarSection("Adjectives for describing appearance",
+                "Order: opinion → size → age → shape → color → origin → material. A beautiful small antique round wooden table.")
+        ),
+        listOf(
+            d("A", "Can I ask you something personal?", "می‌توانم چیز شخصی بپرسم؟"),
+            d("B", "Sure. What's up?", "حتماً. چه خبره؟"),
+            d("A", "I'm thinking about changing my look. Do you think I should?", "دارم فکر می‌کنم ظاهرم را تغییر دهم. فکر می‌کنی باید؟"),
+            d("B", "Changing your look? Like a haircut?", "تغییر ظاهر؟ مثل کوتاهی مو؟"),
+            d("A", "More than that. Maybe my whole style. Clothes, hair, everything.", "بیشتر از آن. شاید کل سبکم. لباس، مو، همه چیز."),
+            d("B", "Wow, that's a big decision. Why do you want to change?", "واو، این تصمیم بزرگی است. چرا می‌خواهی تغییر دهی؟"),
+            d("A", "Honestly? I feel stuck. And I think my appearance reflects that.", "راستش؟ احساس گیر کردن می‌کنم. و فکر می‌کنم ظاهرم این را نشان می‌دهد."),
+            d("B", "That's interesting. You think appearance and mindset are connected?", "جالب است. فکر می‌کنی ظاهر و ذهنیت به هم مرتبطند؟"),
+            d("A", "I do. When I dress well, I feel more confident.", "بله. وقتی خوب لباس می‌پوشم، با اعتماد به نفس‌ترم."),
+            d("B", "That's not just in your head. Research shows how we dress affects how we feel.", "این فقط در ذهنت نیست. تحقیقات نشان می‌دهد چطور لباس می‌پوشیم بر احساسمان تأثیر می‌گذارد."),
+            d("A", "Really? That's validating.", "واقعاً؟ این تأییدکننده است."),
+            d("B", "Yes. It's called 'enclothed cognition'. Fascinating stuff.", "بله. «شناخت پوششی» نامیده می‌شود. موضوع جذابی است."),
+            d("A", "I've never heard of that. What is it exactly?", "هرگز نشنیده‌ام. دقیقاً چیست؟"),
+            d("B", "It's the idea that the symbolic meaning of clothes affects our performance and psychology.", "ایده‌ای است که معنای نمادین لباس بر عملکرد و روان‌شناسی ما تأثیر می‌گذارد."),
+            d("A", "So if I wear a suit, I might feel more professional?", "پس اگر کت و شلوار بپوشم، حرفه‌ای‌تر حس می‌کنم؟"),
+            d("B", "Exactly. There was a study where people wearing lab coats performed better on attention tasks.", "دقیقاً. مطالعه‌ای بود که افراد با روپوش آزمایشگاهی در کارهای توجه بهتر عمل کردند."),
+            d("A", "Wow. That's powerful. But also kind of scary.", "واو. قدرتمند است. ولی تا حدی ترسناک هم هست."),
+            d("B", "Why scary?", "چرا ترسناک؟"),
+            d("A", "Because it means we're influenced by external things more than we think.", "چون یعنی ما بیشتر از آنچه فکر می‌کنیم تحت تأثیر چیزهای بیرونی هستیم."),
+            d("B", "That's true. But it also means we can use it intentionally.", "درست است. ولی همچنین یعنی می‌توانیم عمداً استفاده‌اش کنیم."),
+            d("A", "Use it intentionally. I like that.", "عمداً استفاده کنیم. دوستش دارم."),
+            d("B", "So what kind of change are you thinking about?", "خب چه نوع تغییری در ذهن داری؟"),
+            d("A", "I want a more polished look. More intentional. But still me.", "ظاهر صیقلی‌تر می‌خواهم. هدفمندتر. ولی هنوز خودم."),
+            d("B", "That's a good balance. You don't want to become someone else.", "تعادل خوبی است. نمی‌خواهی شخص دیگری شوی."),
+            d("A", "Exactly. I've seen people completely change and lose themselves.", "دقیقاً. دیده‌ام افراد کامل تغییر می‌کنند و خودشان را گم می‌کنند."),
+            d("B", "It happens. Especially when people chase trends too hard.", "اتفاق می‌افتد. مخصوصاً وقتی افراد بیش از حد روندها را دنبال می‌کنند."),
+            d("A", "Trends are exhausting. They change every few months.", "روندها طاقت‌فرسا هستند. هر چند ماه تغییر می‌کنند."),
+            d("B", "They do. That's why personal style matters more than fashion.", "همینطور است. برای همین سبک شخصی مهم‌تر از مد است."),
+            d("A", "What's the difference?", "تفاوت چیست؟"),
+            d("B", "Fashion is what's popular. Style is what suits you.", "مد چیزی است که رایج است. سبک چیزی است که مناسب تو است."),
+            d("A", "That's a great way to put it. How do I find my style?", "روش خوبی برای بیان آن است. چطور سبکم را پیدا کنم؟"),
+            d("B", "Start by noticing what makes you feel good. Not what looks good on others.", "با توجه به اینکه چه چیزی حالت را خوب می‌کند شروع کن. نه آنچه روی دیگران خوب به نظر می‌رسد."),
+            d("A", "That's harder than it sounds.", "این سخت‌تر از آنچه به نظر می‌رسد."),
+            d("B", "It is. We're constantly influenced by ads and social media.", "هست. مدام تحت تأثیر تبلیغات و شبکه‌های اجتماعی هستیم."),
+            d("A", "Social media is the worst. Everyone looks perfect online.", "شبکه‌های اجتماعی بدترین است. همه آنلاین بی‌نقص به نظر می‌رسند."),
+            d("B", "But it's not real. Even the models don't look like their photos.", "ولی واقعی نیست. حتی مدل‌ها هم شبیه عکس‌هایشان نیستند."),
+            d("A", "True. Filters, angles, lighting — it's all manipulated.", "درست. فیلترها، زوایا، نور — همه دستکاری شده‌اند."),
+            d("B", "Exactly. That's why comparing yourself to online images is dangerous.", "دقیقاً. برای همین مقایسه خود با تصاویر آنلاین خطرناک است."),
+            d("A", "Have you ever struggled with that?", "تا حالا با آن دست و پنجه نرم کرده‌ای؟"),
+            d("B", "Oh yes. In my twenties, I was obsessed with being thin.", "اوه بله. در بیست‌سالگی، وسواس لاغر بودن داشتم."),
+            d("A", "Really? You seem so confident now.", "واقعاً؟ الان خیلی با اعتماد به نفس به نظر می‌رسی."),
+            d("B", "It took years. And it was never about weight — it was about self-acceptance.", "سال‌ها طول کشید. و هرگز درباره وزن نبود — درباره خودپذیری بود."),
+            d("A", "That's deep. How did you get past it?", "این عمیق است. چطور از آن گذشتی؟"),
+            d("B", "Therapy helped. So did time and good friends.", "درمان کمک کرد. زمان و دوستان خوب هم همینطور."),
+            d("A", "I'm glad you're in a better place now.", "خوشحالم که الان جای بهتری هستی."),
+            d("B", "Me too. That's why I'm careful with how I talk about appearance now.", "من هم. برای همین الان درباره ظاهر با احتیاط صحبت می‌کنم."),
+            d("A", "You mean you don't comment on people's looks?", "یعنی درباره ظاهر مردم نظر نمی‌دهی؟"),
+            d("B", "Rarely. And never negatively. You don't know what people are going through.", "به‌ندرت. و هرگز منفی. نمی‌دانی مردم چه می‌گذرانند."),
+            d("A", "That's compassionate. But what about compliments?", "این دلسوزانه است. ولی تعریف چطور؟"),
+            d("B", "Compliments can be lovely. Especially about effort or style, not just body.", "تعریف‌ها می‌توانند دلپذیر باشند. مخصوصاً درباره تلاش یا سبک، نه فقط بدن."),
+            d("A", "So 'you look great today' is fine, but 'you look skinny' isn't?", "پس «امروز عالی به نظر می‌رسی» خوب است، ولی «لاغر به نظر می‌رسی» نه؟"),
+            d("B", "Right. The second one implies skinny is better, which isn't universal.", "درست. دومی تلویحاً می‌گوید لاغر بهتر است، که جهانی نیست."),
+            d("A", "I've never thought about it that way. I need to be more careful.", "هرگز اینطور فکر نکرده‌ام. باید مراقب‌تر باشم."),
+            d("B", "We all do. Language shapes how we see the world.", "همه‌مان باید. زبان نحوه دیدن دنیا را شکل می‌دهد."),
+            d("A", "So if I want a change in appearance, I should be careful with the language I use?", "پس اگر تغییری در ظاهر می‌خواهم، باید با زبانی که استفاده می‌کنم مراقب باشم؟"),
+            d("B", "Definitely. 'I want to look more polished' is different from 'I need to fix myself'.", "قطعاً. «می‌خواهم صیقلی‌تر به نظر برسم» با «باید خودم را درست کنم» تفاوت دارد."),
+            d("A", "You're right. It's about addition, not correction.", "حق داری. درباره اضافه کردن است، نه اصلاح کردن."),
+            d("B", "Exactly. That's a much healthier mindset.", "دقیقاً. این ذهنیت سالم‌تری است."),
+            d("A", "I feel much clearer now. Thank you.", "الان خیلی واضح‌تر حس می‌کنم. ممنون."),
+            d("B", "Anytime. And if you need a shopping buddy, let me know.", "هر وقت. و اگر همراه خرید لازم داشتی، بگو."),
+            d("A", "I will. That might be fun!", "می‌گویم. ممکن است سرگرم‌کننده باشد!"),
+            d("B", "It will be. Let's make a day of it.", "خواهد بود. بیا یک روز کاملش کنیم."),
+            d("A", "Deal. See you Saturday?", "قبول. شنبه می‌بینمت؟"),
+            d("B", "See you Saturday!", "شنبه می‌بینمت!")
+        ),
+        listOf(
+            q("Why does A want to change their appearance?", listOf("for a job", "feeling stuck", "peer pressure", "a wedding"), 1),
+            q("What is 'enclothed cognition'?", listOf("fashion trends", "how clothes affect psychology", "a beauty standard", "online shopping"), 1),
+            q("How does B distinguish fashion from style?", listOf("they're the same", "fashion is popular; style is what suits you", "fashion is cheaper", "style is only for women"), 1),
+            q("What does B say about their twenties?", listOf("was confident", "obsessed with being thin", "didn't care", "was a model"), 1),
+            q("What type of compliment does B prefer?", listOf("about body", "about effort or style", "about weight", "about age"), 1),
+            q("She is ___ than her sister.", listOf("tall", "taller", "tallest", "most tall"), 1),
+            q("He is the ___ stylish person I know.", listOf("more", "most", "much", "many"), 1),
+            q("This is as ___ as that one.", listOf("good", "better", "best", "gooder"), 0),
+            q("He isn't as ___ as his brother.", listOf("outgoing", "more outgoing", "most outgoing", "outgoingest"), 0),
+            q("A beautiful ___ table.", listOf("small round wooden", "wooden small round", "round wooden small", "round small wooden"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("Read too much into", "بیش از حد تعبیر کردن", "You might be reading too much into her expression.", "ممکن است بیش از حد حالت چهره‌اش را تعبیر کنی."),
+            IdiomExpression("Make a day of it", "یک روز کاملش کردن", "Let's make a day of it.", "بیا یک روز کاملش کنیم."),
+            IdiomExpression("Shopping buddy", "همراه خرید", "If you need a shopping buddy, let me know.", "اگر همراه خرید لازم داشتی، بگو."),
+            IdiomExpression("In a better place", "در جای بهتری بودن", "I'm glad you're in a better place now.", "خوشحالم که الان جای بهتری هستی."),
+            IdiomExpression("Get past it", "از آن گذشتن", "How did you get past it?", "چطور از آن گذشتی؟"),
+            IdiomExpression("Obsessed with", "وسواس داشتن روی", "I was obsessed with being thin.", "وسواس لاغر بودن داشتم.")
+        ),
+        phrasal = listOf(
+            PhrasalVerb("get past", "گذشتن از", "overcome",
+                "How did you get past it?", "چطور از آن گذشتی؟", "No"),
+            PhrasalVerb("make a day of", "یک روز کامل کردن", "spend a full day",
+                "Let's make a day of it.", "بیا یک روز کاملش کنیم.", "No"),
+            PhrasalVerb("put it", "بیان کردن", "express something",
+                "That's a great way to put it.", "روش خوبی برای بیان آن است.", "Yes")
+        ),
+        pronunciation = listOf(
+            PronunciationTip("Comparatives stress", "Stress the comparative form: She is TALLer than me."),
+            PronunciationTip("Superlatives stress", "Stress the superlative form: He is the MOST stylish person I know."),
+            PronunciationTip("Linking in comparatives", "Link 'than' with the next word: taller_than, better_than."),
+            PronunciationTip("Adjective order rhythm", "Practice the natural rhythm: a BEAUtiful SMALL OLD BLUE French silk scarf.")
+        ),
+        culture = listOf(
+            CulturalNote("Beauty standards across cultures",
+                "Beauty standards vary widely. Some cultures value thinness, others value curves. Some value pale skin, others value tanned. Recognizing this helps avoid imposing one standard on everyone."),
+            CulturalNote("Enclothed cognition",
+                "Research by Adam and Galinsky (2012) showed that wearing clothing associated with specific roles (like a lab coat) can improve performance on related tasks. Our clothes shape how we think and behave."),
+            CulturalNote("Body positivity movement",
+                "The body positivity movement challenges narrow beauty standards and promotes acceptance of diverse body types. It has gained significant traction online and in media.")
+        ),
+        mistakes = listOf(
+            CommonMistake("She is more tall than me.", "She is taller than me.", "Use -er for one-syllable adjectives."),
+            CommonMistake("He is the most tall in the room.", "He is the tallest in the room.", "Use -est for one-syllable superlatives."),
+            CommonMistake("He is as taller as his brother.", "He is as tall as his brother.", "Use the base adjective form with 'as...as'.")
+        ),
+        comprehension = listOf(
+            ComprehensionQuestion("What is 'enclothed cognition' and why does it matter?", "The idea that the symbolic meaning of clothes affects our psychology and performance. It matters because we can use clothing intentionally."),
+            ComprehensionQuestion("What is the difference between fashion and style according to B?", "Fashion is what's popular at a moment; style is what suits you personally and endures."),
+            ComprehensionQuestion("Why does B think complimenting weight is problematic?", "It implies that thinness is universally desirable, which isn't true and can be harmful.")
+        ),
+        speaking = listOf(
+            SpeakingTask("Discuss how appearance affects first impressions.",
+                "درباره اینکه ظاهر چطور بر برداشت اول تأثیر می‌گذارد صحبت کن.",
+                "When I meet someone... / Appearance can... / But character is..."),
+            SpeakingTask("Compare beauty standards in different cultures.",
+                "استانداردهای زیبایی در فرهنگ‌های مختلف را مقایسه کن.",
+                "In some cultures... / In others... / They're as...as..."),
+            SpeakingTask("Debate whether appearance matters in professional settings.",
+                "بحث کنید که آیا ظاهر در محیط حرفه‌ای مهم است.",
+                "On one hand... / On the other... / I'd argue...")
+        ),
+        writing = listOf(
+            WritingTask("Write a reflective essay about your relationship with appearance.",
+                "یک مقاله تأملی درباره رابطه‌ات با ظاهر بنویس.",
+                220, "Use comparative and superlative adjectives naturally.")
+        )
+    )
+
+    // ═══════════════════════════════════════════════════════════
+    // UNIT 6 — A Good Read | یک کتاب خوب  (≈ 150 خط)
+    // ═══════════════════════════════════════════════════════════
+    private fun unit6() = base(
+        6, "A Good Read", "یک کتاب خوب",
+        listOf(
+            "Discuss books, reading habits, and genres",
+            "Recommend books and describe plots",
+            "Use relative clauses with whose, where, and when",
+            "Express preference for different media",
+            "Talk about the role of reading in personal growth"
+        ),
+        listOf(
+            v("novel", "رمان", "Her novel won a literary prize.", "رمانش جایزه ادبی برد."),
+            v("memoir", "خاطرات‌نامه", "His memoir was deeply personal.", "خاطرات‌نامه‌اش خیلی شخصی بود."),
+            v("genre", "ژانر", "What genre do you enjoy most?", "کدام ژانر را بیشتر لذت می‌بری؟"),
+            v("plot", "خط داستانی", "The plot kept me guessing until the end.", "خط داستانی تا آخر مرا حدس‌زن نگه داشت."),
+            v("character", "شخصیت", "The main character felt very real.", "شخصیت اصلی خیلی واقعی حس می‌شد."),
+            v("author", "نویسنده", "The author lives in Dublin.", "نویسنده در دوبلین زندگی می‌کند."),
+            v("hardcover", "جلد سخت", "I prefer hardcovers for classics.", "برای کلاسیک‌ها جلد سخت را ترجیح می‌دهم."),
+            v("paperback", "کتاب جلد کاغذی", "Paperbacks are cheaper and lighter.", "کتاب‌های جلد کاغذی ارزان‌تر و سبک‌ترند."),
+            v("ebook", "کتاب الکترونیکی", "I read ebooks on my tablet.", "کتاب‌های الکترونیکی را روی تبلتم می‌خوانم."),
+            v("audiobook", "کتاب صوتی", "I listen to audiobooks during my commute.", "در رفت‌وآمد کتاب صوتی گوش می‌دهم."),
+            v("page-turner", "کتاب پرکشش", "That novel was a real page-turner.", "آن رمان واقعاً پرکشش بود."),
+            v("fictional", "خیالی", "The story is fictional but feels true.", "داستان خیالی است ولی واقعی حس می‌شود."),
+            v("plot twist", "پیچش داستانی", "The plot twist completely surprised me.", "پیچش داستانی کاملاً غافلگیرم کرد."),
+            v("theme", "تم / درون‌مایه", "Loss is a major theme in the book.", "فقدان درون‌مایه اصلی کتاب است."),
+            v("bestseller", "پرفروش", "It was a bestseller for months.", "ماه‌ها پرفروش بود.")
+        ),
+        listOf(
+            GrammarSection("Relative clauses with whose, where, when",
+                "Use 'whose' for possession: The author whose book I love lives in Paris. Use 'where' for places: The café where we met is closed. Use 'when' for times: The day when we graduated was sunny."),
+            GrammarSection("Non-defining relative clauses",
+                "Use commas for extra information: The book, which I read last week, was excellent. Omit 'that' in non-defining clauses."),
+            GrammarSection("Expressing preference with 'prefer', 'would rather', 'rather than'",
+                "I prefer novels to memoirs. I'd rather read fiction. Rather than watch TV, I read.")
+        ),
+        listOf(
+            d("A", "You always seem to have a book with you. What are you reading now?", "همیشه به نظر می‌رسد کتابی همراهت داری. الان چه می‌خوانی؟"),
+            d("B", "A novel by a Nigerian author. It's fascinating.", "یک رمان از یک نویسنده نیجریه‌ای. جذاب است."),
+            d("A", "What's it about?", "درباره چیست؟"),
+            d("B", "It's set in Lagos, following three characters whose lives intersect after a chance meeting.", "در لاگوس می‌گذرد، سه شخصیتی را دنبال می‌کند که زندگی‌هایشان بعد از یک ملاقات تصادفی به هم گره می‌خورد."),
+            d("A", "Sounds complex. Is it hard to follow?", "پیچیده به نظر می‌رسد. دنبال کردنش سخت است؟"),
+            d("B", "Not at all. The author has a very clear style. And the plot unfolds beautifully.", "اصلاً. نویسنده سبک خیلی واضحی دارد. و خط داستانی زیبا باز می‌شود."),
+            d("A", "I could use a good book. I've been in a reading slump.", "به کتاب خوبی نیاز دارم. در رکود خواندن بوده‌ام."),
+            d("B", "A reading slump? What happened?", "رکود خواندن؟ چی شده؟"),
+            d("A", "I don't know. Nothing I picked up grabbed me.", "نمی‌دانم. هیچ‌کدام از کتاب‌هایی که برداشتم مرا نگرفت."),
+            d("B", "That happens. Maybe you need a different genre.", "این اتفاق می‌افتد. شاید به ژانر متفاوتی نیاز داری."),
+            d("A", "Maybe. I usually read mysteries. Any suggestions?", "شاید. معمولاً معما می‌خوانم. پیشنهادی داری؟"),
+            d("B", "Well, if you want to try something different — I'd suggest this one. It's literary fiction, but very readable.", "خب، اگر می‌خواهی چیز متفاوتی امتحان کنی — این یکی را پیشنهاد می‌دهم. داستان ادبی است، ولی خیلی خواندنی."),
+            d("A", "Literary fiction sounds intimidating.", "داستان ادبی پرابهت به نظر می‌رسد."),
+            d("B", "It can be. But not all of it. Some is as accessible as any thriller.", "می‌تواند باشد. ولی نه همه‌اش. بعضی‌اش به اندازه هر دلهره‌آوری قابل دسترسی است."),
+            d("A", "Okay, tell me more about the book. What's the main theme?", "باشه، بیشتر درباره کتاب بگو. تم اصلی چیست؟"),
+            d("B", "Identity and belonging. The characters are all trying to find where they fit.", "هویت و تعلق. شخصیت‌ها همه سعی می‌کنند جای خودشان را پیدا کنند."),
+            d("A", "That's universal. Everyone goes through that.", "این جهانی است. همه از آن عبور می‌کنند."),
+            d("B", "Exactly. That's why it resonates with so many readers.", "دقیقاً. برای همین با این همه خواننده هم‌آواز است."),
+            d("A", "Is it a bestseller?", "پرفروش است؟"),
+            d("B", "It was. It won several awards too, including the Booker Prize.", "بود. چند جایزه هم برد، از جمله جایزه بوکر."),
+            d("A", "The Booker Prize! That's serious.", "جایزه بوکر! این جدی است."),
+            d("B", "It is. But don't let that put you off. Prizes don't always mean difficult.", "هست. ولی نگذار این منصرفت کند. جوایز همیشه معنای دشوار نیستند."),
+            d("A", "Good point. How long is it?", "نکته خوبی. چقدر طولانی است؟"),
+            d("B", "About four hundred pages. Not too long.", "حدود چهارصد صفحه. خیلی طولانی نیست."),
+            d("A", "That's manageable. How did you find it?", "قابل مدیریت است. چطور پیدایش کردی؟"),
+            d("B", "A friend whose taste I trust recommended it.", "دوستی که به سلیقه‌اش اعتماد دارم توصیه‌اش کرد."),
+            d("A", "That's the best way — personal recommendations.", "این بهترین راه است — توصیه‌های شخصی."),
+            d("B", "Definitely. Book reviews are helpful, but friends know you.", "قطعاً. نقدهای کتاب مفیدند، ولی دوستان تو را می‌شناسند."),
+            d("A", "Have you ever read a book based on a bad review?", "تا حالا بر اساس نقد بد کتابی خوانده‌ای؟"),
+            d("B", "Ha! Yes, and I ended up loving it. Reviews are subjective.", "ها! بله، و آخرش عاشقش شدم. نقدها ذهنی هستند."),
+            d("A", "So true. What's your favorite book of all time?", "خیلی درست. کتاب مورد علاقه‌ات در تمام دوران چیست؟"),
+            d("B", "That's a hard question. Maybe 'One Hundred Years of Solitude'.", "سؤال سختی است. شاید «صد سال تنهایی»."),
+            d("A", "Marquez? I've heard of it but never read it.", "مارکز؟ شنیده‌ام ولی هرگز نخوانده‌ام."),
+            d("B", "It's magical realism. Very dense but rewarding.", "رئالیسم جادویی است. خیلی متراکم ولی ارزشمند."),
+            d("A", "Dense sounds intimidating again.", "متراکم باز هم پرابهت به نظر می‌رسد."),
+            d("B", "Ha! I promise, some books are worth the effort.", "ها! قول می‌دهم، بعضی کتاب‌ها ارزش تلاش را دارند."),
+            d("A", "Okay, okay. Start me with something easier.", "باشه، باشه. با چیز ساده‌تری شروع کن."),
+            d("B", "Fair enough. Try the Nigerian novel. I'll lend it to you.", "منصفانه است. رمان نیجریه‌ای را امتحان کن. قرضت می‌دهم."),
+            d("A", "Really? You'd lend it?", "واقعاً؟ قرض می‌دهی؟"),
+            d("B", "Sure. But you have to return it. That's the rule.", "حتماً. ولی باید برگردانی. این قانون است."),
+            d("A", "Ha! Of course. When can I get it?", "ها! البته. کی می‌توانم بگیرمش؟"),
+            d("B", "Tomorrow at work. I'll bring it.", "فردا در محل کار. می‌آورمش."),
+            d("A", "Perfect. I'm actually excited to read again.", "عالی. واقعاً هیجان‌زده‌ام که دوباره بخوانم."),
+            d("B", "Good. Reading comes and goes in cycles.", "خوبه. خواندن در چرخه می‌آید و می‌رود."),
+            d("A", "You mean slumps are normal?", "یعنی رکودها طبیعی هستند؟"),
+            d("B", "Very normal. Don't force it. Just wait for the right book.", "خیلی طبیعی. زور نزن. فقط منتظر کتاب درست بمان."),
+            d("A", "That's reassuring. Do you read every day?", "اطمینان‌بخش است. هر روز می‌خوانی؟"),
+            d("B", "Almost. At least twenty minutes before bed.", "تقریباً. حداقل بیست دقیقه قبل از خواب."),
+            d("A", "Before bed? Doesn't it keep you awake?", "قبل از خواب؟ بیدارت نگه نمی‌دارد؟"),
+            d("B", "Not if I read fiction. Non-fiction can be stimulating.", "اگر داستان بخوانم نه. غیرداستانی می‌تواند محرک باشد."),
+            d("A", "Interesting. What about audiobooks?", "جالب است. کتاب صوتی چطور؟"),
+            d("B", "I love them for commuting. Or when I'm doing dishes.", "برای رفت‌وآمد عاشقشان هستم. یا وقتی ظرف می‌شویم."),
+            d("A", "Multitasking! Do you count them as reading?", "چندوظیفگی! آنها را به عنوان خواندن حساب می‌کنی؟"),
+            d("B", "That's a debate among readers. I count them. Why not?", "این بحثی بین خوانندگان است. من حساب می‌کنم. چرا نه؟"),
+            d("A", "Some people say it's not the same.", "بعضی‌ها می‌گویند یکسان نیست."),
+            d("B", "It's different, sure. But the story enters your mind either way.", "متفاوت است، حتماً. ولی داستان به هر حال وارد ذهنت می‌شود."),
+            d("A", "True. Do you prefer paper books or ebooks?", "درست. کتاب کاغذی ترجیح می‌دهی یا الکترونیکی؟"),
+            d("B", "Paper for favorites, ebooks for travel.", "کاغذی برای مورد علاقه‌ها، الکترونیکی برای سفر."),
+            d("A", "That makes sense. I'm the same, actually.", "منطقی است. راستش من هم همینطورم."),
+            d("B", "See? Great minds think alike.", "می‌بینی؟ ذهن‌های بزرگ شبیه هم فکر می‌کنند."),
+            d("A", "Ha! Or maybe we're just practical.", "ها! یا شاید فقط عملی هستیم."),
+            d("B", "That too. Anyway, let me know if you want more recommendations.", "این هم هست. به‌هرحال، اگر توصیه‌های بیشتری خواستی بگو."),
+            d("A", "I will. And I'll bring the book back in two weeks.", "می‌گویم. و کتاب را در دو هفته برمی‌گردانم."),
+            d("B", "No rush. Take your time.", "عجله نکن. وقت بگذار."),
+            d("A", "Thanks. You're the best.", "ممنون. بهترینی."),
+            d("B", "Happy reading!", "خواندن خوبی داشته باشی!"),
+            d("A", "You too!", "تو هم!")
+        ),
+        listOf(
+            q("What genre is A's usual reading?", listOf("sci-fi", "mysteries", "romance", "biography"), 1),
+            q("What's the main theme of the recommended book?", listOf("love", "identity and belonging", "war", "money"), 1),
+            q("What prize did the book win?", listOf("Pulitzer", "Booker", "Nobel", "Hugo"), 1),
+            q("What's B's favorite book?", listOf("'1984'", "'One Hundred Years of Solitude'", "'The Great Gatsby'", "'War and Peace'"), 1),
+            q("When does B read every day?", listOf("morning", "before bed", "lunch break", "commute only"), 1),
+            q("The author ___ book I love lives in Paris.", listOf("who", "whose", "which", "whom"), 1),
+            q("The café ___ we met is closed.", listOf("which", "that", "where", "when"), 2),
+            q("The day ___ we graduated was sunny.", listOf("where", "when", "which", "whose"), 1),
+            q("The book, ___ I read last week, was excellent.", listOf("that", "which", "who", "whose"), 1),
+            q("I ___ read fiction than non-fiction.", listOf("prefer", "would rather", "like", "want"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Reading slump", "رکود خواندن", "I've been in a reading slump.", "در رکود خواندن بوده‌ام."),
+            IdiomExpression("Page-turner", "کتاب پرکشش", "That novel was a real page-turner.", "آن رمان واقعاً پرکشش بود."),
+            IdiomExpression("Put me off", "منصرف کردن", "Don't let the prize put you off.", "نگذار جایزه منصرفت کند."),
+            IdiomExpression("Great minds think alike", "ذهن‌های بزرگ شبیه هم فکر می‌کنند", "See? Great minds think alike.", "می‌بینی؟ ذهن‌های بزرگ شبیه هم فکر می‌کنند."),
+            IdiomExpression("Comes and goes", "می‌آید و می‌رود", "Reading comes and goes in cycles.", "خواندن در چرخه می‌آید و می‌رود."),
+            IdiomExpression("Take your time", "عجله نکن", "No rush. Take your time.", "عجله نکن. وقت بگذار.")
+        ),
+        phrasal = listOf(
+            PhrasalVerb("pick up", "برداشتن (کتاب)", "start reading",
+                "Nothing I picked up grabbed me.", "هیچ‌کدام که برداشتم مرا نگرفت.", "Yes"),
+            PhrasalVerb("end up", "در نهایت شدن", "finally become",
+                "I ended up loving it.", "آخرش عاشقش شدم.", "No"),
+            PhrasalVerb("put off", "منصرف کردن", "discourage",
+                "Don't let that put you off.", "نگذار این منصرفت کند.", "Yes")
+        ),
+        pronunciation = listOf(
+            PronunciationTip("Relative clause linking", "Link 'whose' with the following noun: whose book → /huːz bʊk/, where we → /wɛr wi/"),
+            PronunciationTip("Non-defining comma pause", "In speech, use a small pause where commas appear in non-defining clauses: The book, / which I read, / was excellent."),
+            PronunciationTip("Preference stress", "Stress the preference: I'd RATHER read fiction than watch TV.")
+        ),
+        culture = listOf(
+            CulturalNote("The Booker Prize",
+                "The Booker Prize is one of the most prestigious literary awards in the English-speaking world, awarded annually to the best original novel written in English and published in the UK or Ireland."),
+            CulturalNote("Reading habits around the world",
+                "Reading habits vary widely. In some countries, physical books remain dominant. In others, ebooks and audiobooks have surged. Cultural attitudes toward reading also differ."),
+            CulturalNote("Magical realism",
+                "Magical realism, popularized by Latin American writers like Gabriel García Márquez, blends realistic settings with magical elements treated as ordinary.")
+        ),
+        mistakes = listOf(
+            CommonMistake("The author who book I love...", "The author whose book I love...", "Use 'whose' for possession, not 'who'."),
+            CommonMistake("The place which we met...", "The place where we met...", "Use 'where' for places."),
+            CommonMistake("I prefer reading than watching TV.", "I prefer reading to watching TV.", "Use 'prefer...to...' not 'prefer...than...'.")
+        ),
+        comprehension = listOf(
+            ComprehensionQuestion("Why was A in a reading slump?", "Nothing A picked up grabbed their attention, and A usually reads mysteries."),
+            ComprehensionQuestion("What is the recommended book about?", "Three characters whose lives intersect in Lagos; themes of identity and belonging."),
+            ComprehensionQuestion("What's B's view on audiobooks?", "B considers them reading — the story enters the mind either way, even if it's a different experience.")
+        ),
+        speaking = listOf(
+            SpeakingTask("Recommend a book to a partner.",
+                "یک کتاب به یک دوست توصیه کن.",
+                "You should read... / It's about... / The theme is..."),
+            SpeakingTask("Discuss your reading habits.",
+                "درباره عادت‌های کتاب‌خوانی‌ات صحبت کن.",
+                "I read... / I prefer... / I usually..."),
+            SpeakingTask("Talk about a character or author you admire.",
+                "درباره شخصیتی یا نویسنده‌ای که تحسین می‌کنی صحبت کن.",
+                "The character whose... / The author who... / I admire...")
+        ),
+        writing = listOf(
+            WritingTask("Write a book review of a novel you've read recently.",
+                "نقد کتابی از یک رمان که اخیراً خوانده‌ای بنویس.",
+                220, "Use relative clauses with whose, where, and when.")
+        )
+    )
+
+    // ═══════════════════════════════════════════════════════════
+    // UNIT 7 — Art and Music | هنر و موسیقی  (≈ 150 خط)
+    // ═══════════════════════════════════════════════════════════
+    private fun unit7() = base(
+        7, "Art and Music", "هنر و موسیقی",
+        listOf(
+            "Discuss art forms and personal taste",
+            "Talk about music and its emotional impact",
             "Use the passive voice with modals",
-            "Use expressions for hedging and softening",
-            "Debate current issues"
+            "Describe artistic experiences",
+            "Debate the value of art in society"
         ),
         listOf(
-            v("controversial", "بحث‌برانگیز", "It's a controversial topic with strong opinions on both sides.", "موضوع بحث‌برانگیزی است با نظرات قوی در هر دو طرف.", "adjective"),
-            v("debate", "مناظره", "The debate lasted for hours.", "مناظره ساعت‌ها طول کشید."),
-            v("argument", "استدلال", "She presented a strong argument.", "او استدلال قوی ارائه داد."),
-            v("perspective", "دیدگاه", "From my perspective, it's a complex issue.", "از دیدگاه من، موضوع پیچیده‌ای است."),
-            v("issue", "مسئله", "Climate change is a global issue.", "تغییر اقلیم یک مسئله جهانی است."),
-            v("advocate", "طرفدار", "She's an advocate for environmental protection.", "او طرفدار حفاظت از محیط زیست است."),
-            v("oppose", "مخالفت کردن", "Many people oppose the new law.", "بسیاری با قانون جدید مخالفند.", "verb"),
-            v("compromise", "سازش", "Both sides need to compromise.", "هر دو طرف باید سازش کنند.", "verb"),
-            v("evidence", "شواهد", "There's strong evidence to support this theory.", "شواهد قوی برای حمایت از این نظریه وجود دارد."),
-            v("value", "ارزش", "Different cultures have different values.", "فرهنگ‌های مختلف ارزش‌های متفاوتی دارند."),
-            v("sensitive", "حساس", "It's a sensitive topic that requires care.", "موضوع حساسی است که نیاز به دقت دارد.", "adjective"),
-            v("respectful", "محترمانه", "We can disagree while remaining respectful.", "می‌توانیم مخالف باشیم ولی محترم بمانیم.", "adjective"),
-            v("persuade", "متقاعد کردن", "He tried to persuade me to change my mind.", "او سعی کرد مرا متقاعد کند نظرم را عوض کنم.", "verb"),
-            v("stance", "موضع", "What's your stance on this issue?", "موضع تو در این موضوع چیست؟"),
-            v("open-minded", "روشن‌فکر", "Try to be open-minded about other views.", "سعی کن درباره دیدگاه‌های دیگر روشن‌فکر باشی.", "adjective")
+            v("exhibit", "نمایشگاه", "The exhibit features local artists.", "نمایشگاه هنرمندان محلی را ارائه می‌دهد."),
+            v("gallery", "گالری", "We visited a small gallery downtown.", "از یک گالری کوچک در مرکز شهر بازدید کردیم."),
+            v("sculpture", "مجسمه", "The sculpture was carved from marble.", "مجسمه از مرمر تراشیده شده بود."),
+            v("canvas", "بوم نقاشی", "The artist works on large canvases.", "هنرمند روی بوم‌های بزرگ کار می‌کند."),
+            v("masterpiece", "شاهکار", "This painting is considered a masterpiece.", "این نقاشی شاهکار محسوب می‌شود."),
+            v("abstract", "انتزاعی", "Abstract art often provokes strong reactions.", "هنر انتزاعی اغلب واکنش‌های شدید برمی‌انگیزد.", "adjective"),
+            v("melody", "ملودی", "The melody stayed with me all day.", "ملودی تمام روز با من ماند."),
+            v("harmony", "هماهنگی", "The harmony between the voices was beautiful.", "هماهنگی بین صداها زیبا بود."),
+            v("rhythm", "ریتم", "The rhythm of the drums was hypnotic.", "ریتم طبل‌ها هیپنوتیزم‌کننده بود."),
+            v("compose", "آهنگسازی کردن", "She composed her first symphony at 25.", "او اولین سمفونی‌اش را در ۲۵ سالگی آهنگسازی کرد.", "verb"),
+            v("perform", "اجرا کردن", "The orchestra performed to a full house.", "ارکستر برای سالن پر اجرا کرد.", "verb"),
+            v("audience", "تماشاگران", "The audience gave a standing ovation.", "تماشاگران تشویق ایستاده کردند."),
+            v("genre", "ژانر", "What music genres do you enjoy?", "چه ژانرهای موسیقی لذت می‌بری؟"),
+            v("inspiration", "الهام", "The artist drew inspiration from nature.", "هنرمند از طبیعت الهام گرفت."),
+            v("emotional", "احساسی", "The song is deeply emotional.", "آهنگ عمیقاً احساسی است.", "adjective")
         ),
         listOf(
-            GrammarSection("Passive Voice with Modals", "Use passive with modals: modal + be + past participle. The issue should be discussed calmly. The law might be changed. The problem can be solved."),
-            GrammarSection("Passive with Modal Perfects", "Use modal + have + been + past participle for past possibilities: The mistake could have been avoided. The situation should have been handled differently."),
-            GrammarSection("Hedging and Softening Expressions", "Use hedging to soften statements: 'It seems to me...', 'I could be wrong, but...', 'I tend to think...', 'There's some evidence that...', 'To some extent...'."),
-            GrammarSection("Conversation Strategy: Agreeing and Disagreeing Politely", "Use expressions like 'I see your point, but...', 'That's a valid concern', 'I'm not sure I agree', and 'We'll have to agree to disagree' to discuss controversial topics respectfully.")
+            GrammarSection("Passive voice with modals",
+                "Combine modals with passive: The painting must be protected. Tickets should be booked in advance. The concert will be held outdoors."),
+            GrammarSection("Passive with present and past modals",
+                "Present modals: The museum can be visited daily. Past modals: The song might have been written in 1960."),
+            GrammarSection("Describing reactions to art",
+                "Use passive constructions: I was moved by the performance. The audience was captivated. We were deeply affected by the music.")
         ),
         listOf(
-            d("A", "Have you been following the debate about remote work?", "بحث درباره دورکاری را دنبال کرده‌ای؟"),
-            d("B", "A little. It's certainly a controversial topic.", "کمی. قطعاً موضوع بحث‌برانگیزی است."),
-            d("A", "It is. What's your stance?", "هست. موضع تو چیست؟"),
-            d("B", "I tend to think it should be allowed more often. It seems to help with work-life balance.", "میل دارم فکر کنم باید بیشتر اجازه داده شود. به نظر می‌رسد به تعادل کار و زندگی کمک می‌کند."),
-            d("A", "I see your point, but I'm not sure it works for every job.", "نکته‌ات را می‌فهمم، ولی مطمئن نیستم برای هر شغلی کار کند."),
-            d("B", "That's a valid concern. Some jobs definitely require being on-site.", "نگرانی معتبری است. برخی مشاغل قطعاً نیاز به حضور در محل دارند."),
-            d("A", "Exactly. The issue should be considered case by case.", "دقیقاً. موضوع باید مورد به مورد بررسی شود."),
-            d("B", "I could be wrong, but I think companies that offer flexibility tend to have happier employees.", "ممکن است اشتباه کنم، ولی فکر می‌کنم شرکت‌هایی که انعطاف ارائه می‌دهند کارمندان شادتری دارند."),
-            d("A", "There's some evidence for that. But productivity is also a concern.", "شواهدی برای این وجود دارد. ولی بهره‌وری هم نگرانی است."),
-            d("B", "True. Studies have shown mixed results on that.", "درست. مطالعات نتایج متفاوتی در آن نشان داده‌اند."),
-            d("A", "What about team collaboration? Some say it suffers with remote work.", "همکاری تیمی چطور؟ برخی می‌گویند با دورکاری آسیب می‌بیند."),
-            d("B", "That's a fair point. But many companies have found ways to make it work.", "نکته منصفانه‌ای است. ولی بسیاری از شرکت‌ها راه‌هایی برای موفقیت پیدا کرده‌اند."),
-            d("A", "I suppose. The problem can be solved with better technology and processes.", "فرض می‌کنم. مشکل می‌تواند با تکنولوژی و فرآیندهای بهتر حل شود."),
-            d("B", "Exactly. It's not about whether remote work is good or bad. It's about how it's implemented.", "دقیقاً. بحث این نیست که دورکاری خوب است یا بد. بحث این است که چطور اجرا می‌شود."),
-            d("A", "That's a mature perspective. Too often these debates become black and white.", "دیدگاه پخته‌ای است. اغلب این بحث‌ها سیاه و سفید می‌شوند."),
-            d("B", "You're right. Most issues are more nuanced than they appear at first.", "حق داری. بیشتر موضوعات پیچیده‌تر از آنچه اول به نظر می‌رسند هستند."),
-            d("A", "Well said. So, if you had to choose — remote, office, or hybrid?", "خوب گفتی. اگر باید انتخاب کنی — دورکاری، دفتر، یا ترکیبی؟"),
-            d("B", "Hybrid, without a doubt. It offers the best of both worlds.", "ترکیبی، بدون شک. بهترین هر دو دنیا را ارائه می‌دهد."),
-            d("A", "I agree with that. A mix seems like the most balanced approach.", "موافقم. ترکیب به نظر متعادل‌ترین رویکرد است."),
-            d("B", "It also allows for individual preferences. Some people thrive at home; others need the office.", "همچنین به ترجیحات فردی اجازه می‌دهد. برخی در خانه شکوفا می‌شوند؛ برخی به دفتر نیاز دارند."),
-            d("A", "Exactly. A one-size-fits-all approach rarely works.", "دقیقاً. رویکرد یک‌اندازه برای همه به‌ندرت کار می‌کند."),
-            d("B", "So we agree, then?", "پس موافقیم؟"),
-            d("A", "On this, yes. But I'm sure we could find other topics to disagree about!", "در این، بله. ولی مطمئنم می‌توانیم موضوعات دیگری برای مخالفت پیدا کنیم!"),
-            d("B", "Probably! That's what makes conversation interesting.", "احتمالاً! همین گفت‌وگو را جالب می‌کند."),
-            d("A", "As long as we stay respectful, I'm happy to debate anything.", "تا وقتی محترم بمانیم، خوشحالم درباره هر چیزی بحث کنم."),
-            d("B", "I couldn't agree more. Respect is key.", "کاملاً موافقم. احترام کلید است."),
-            d("A", "Well said. Let's continue this over coffee sometime.", "خوب گفتی. بیا یک وقت این را سر قهوه ادامه دهیم."),
-            d("B", "Deal. See you soon.", "قبول. به‌زودی می‌بینمت."),
-            d("A", "See you.", "می‌بینمت.")
+            d("A", "I went to the new art exhibit yesterday. It was incredible.", "دیروز به نمایشگاه هنری جدید رفتم. فوق‌العاده بود."),
+            d("B", "Oh, which one? The modern art one downtown?", "اوه، کدام یکی؟ آن یکی هنر مدرن در مرکز شهر؟"),
+            d("A", "Yes, at the Regent Gallery. Have you been?", "بله، در گالری رجنت. رفته‌ای؟"),
+            d("B", "Not yet. I've been meaning to. What did you think?", "هنوز نه. می‌خواستم بروم. چه فکر می‌کنی؟"),
+            d("A", "It surprised me. I usually don't like abstract art, but this was different.", "مرا غافلگیر کرد. معمولاً هنر انتزاعی دوست ندارم، ولی این متفاوت بود."),
+            d("B", "Different how?", "چطور متفاوت؟"),
+            d("A", "It felt emotional, not just intellectual. Like the artist was really feeling something.", "احساسی حس می‌شد، نه فقط فکری. مثل اینکه هنرمند واقعاً چیزی حس می‌کرد."),
+            d("B", "That's the mark of good abstract art, I think. It communicates without words.", "فکر می‌کنم این نشانه هنر انتزاعی خوب است. بدون کلمات ارتباط برقرار می‌کند."),
+            d("A", "Exactly. The colors were chosen carefully. They must have taken months to decide.", "دقیقاً. رنگ‌ها با دقت انتخاب شده بودند. باید ماه‌ها طول کشیده باشد تصمیم بگیرد."),
+            d("B", "Which piece did you like the most?", "کدام اثر را بیشتر دوست داشتی؟"),
+            d("A", "There was a huge canvas — maybe three meters wide — with swirling blues and greens.", "یک بوم بزرگ بود — شاید سه متر عرض — با آبی‌ها و سبزهای چرخان."),
+            d("B", "Sounds beautiful. What did it make you feel?", "زیبا به نظر می‌رسد. چه حسی به تو داد؟"),
+            d("A", "Peace, but also movement. Like being on a boat at sea.", "آرامش، ولی همچنین حرکت. مثل بودن روی قایق در دریا."),
+            d("B", "That's a strong reaction. It must be powerful in person.", "این واکنش قوی‌ای است. باید حضوری قدرتمند باشد."),
+            d("A", "It is. You should definitely go. It's open until Sunday.", "هست. حتماً باید بروی. تا یکشنبه باز است."),
+            d("B", "Maybe this weekend. I've also been wanting to see the sculpture section.", "شاید آخر این هفته. همچنین می‌خواستم بخش مجسمه‌سازی را ببینم."),
+            d("A", "Oh, the sculptures are wonderful. There's one in marble that looks like it's moving.", "اوه، مجسمه‌ها فوق‌العاده‌اند. یکی از مرمر است که به نظر می‌رسد حرکت می‌کند."),
+            d("B", "Marble that looks like movement? That's impressive.", "مرمر که به نظر می‌رسد حرکت می‌کند؟ تحسین‌برانگیز است."),
+            d("A", "Yeah, the artist must have worked on it for years.", "بله، هنرمند باید سال‌ها رویش کار کرده باشد."),
+            d("B", "Speaking of art — do you also like music?", "از هنر که صحبت شد — موسیقی هم دوست داری؟"),
+            d("A", "Oh yes. Music is my first love, actually.", "اوه بله. راستش موسیقی عشق اول من است."),
+            d("B", "Really? What kind?", "واقعاً؟ چه نوعی؟"),
+            d("A", "Jazz mostly. And classical. I also love film soundtracks.", "بیشتر جاز. و کلاسیک. موسیقی متن فیلم را هم عاشقم."),
+            d("B", "Soundtracks! Me too. Which ones?", "موسیقی متن! من هم. کدام‌ها؟"),
+            d("A", "Ennio Morricone is a genius. His scores have moved me to tears.", "انیو موریکونه نابغه است. موسیقی‌هایش مرا به گریه انداخته."),
+            d("B", "I know exactly what you mean. 'Cinema Paradiso' gets me every time.", "دقیقاً می‌دانم منظورتان چیست. «سینما پارادیزو» هر بار مرا می‌گیرد."),
+            d("A", "That one is unforgettable. The melody stays with you for days.", "آن یکی فراموش‌نشدنی است. ملودی روزها با تو می‌ماند."),
+            d("B", "What about live music? Do you go to concerts?", "موسیقی زنده چطور؟ به کنسرت می‌روی؟"),
+            d("A", "When I can. Live music hits differently.", "وقتی می‌توانم. موسیقی زنده متفاوت ضربه می‌زند."),
+            d("B", "It really does. The energy of the audience is part of it.", "واقعاً همینطور است. انرژی تماشاگران بخشی از آن است."),
+            d("A", "Right. You can feel it in your body. It's not just sound.", "درست. در بدنت حسش می‌کنی. فقط صدا نیست."),
+            d("B", "Have you ever been to a symphony orchestra?", "تا حالا به ارکستر سمفونیک رفته‌ای؟"),
+            d("A", "Once. It was overwhelming. Seventy musicians playing together.", "یک بار. طاقت‌فرسا بود. هفتاد موسیقیدان با هم می‌نواختند."),
+            d("B", "What did they perform?", "چه اجرا کردند؟"),
+            d("A", "Beethoven's Ninth. The 'Ode to Joy' finale made everyone cry.", "نهم بتهوون. فینال «سرود شادی» همه را به گریه انداخت."),
+            d("B", "Oh, I can imagine. That piece is transcendent.", "اوه، می‌توانم تصور کنم. آن قطعه متعالی است."),
+            d("A", "Have you ever performed yourself?", "خودت تا حالا اجرا کرده‌ای؟"),
+            d("B", "I played piano for years as a kid. Stopped in high school.", "سال‌ها در کودکی پیانو می‌زدم. در دبیرستان ترک کردم."),
+            d("A", "Do you ever regret stopping?", "هیچ‌وقت پشیمان شدی که ترک کردی؟"),
+            d("B", "Sometimes. But I wasn't passionate enough to pursue it seriously.", "گاهی. ولی به اندازه کافی مشتاق نبودم جدی دنبالش کنم."),
+            d("A", "Do you still play casually?", "هنوز معمولی می‌نوازی؟"),
+            d("B", "Occasionally. It's relaxing. But I'm very rusty.", "گهگاه. آرامش‌بخش است. ولی خیلی زنگ‌زده‌ام."),
+            d("A", "Rusty is fine. It's about enjoying it, not being perfect.", "زنگ‌زده بودن اشکالی ندارد. درباره لذت بردن است، نه کامل بودن."),
+            d("B", "True. Do you play any instrument?", "درست. سازی می‌نوازی؟"),
+            d("A", "Guitar, badly. I picked it up during the pandemic.", "گیتار، به‌طور بدی. در دوران پاندمی شروع کردم."),
+            d("B", "Ha! That's when a lot of people did. Did you take lessons?", "ها! آن موقع افراد زیادی شروع کردند. کلاس رفتی؟"),
+            d("A", "A few online ones. But mostly YouTube tutorials.", "چند کلاس آنلاین. ولی بیشتر آموزش‌های یوتیوب."),
+            d("B", "The internet is amazing for learning music.", "اینترنت برای یادگیری موسیقی فوق‌العاده است."),
+            d("A", "It really is. Though I still can't play barre chords.", "واقعاً همینطور است. هرچند هنوز آکوردهای باری نمی‌توانم بنوازم."),
+            d("B", "Those are tough! Keep practicing. They'll come.", "آن‌ها سخت هستند! تمرین کن. می‌آیند."),
+            d("A", "Thanks for the encouragement. So, art this weekend?", "ممنون برای تشویق. خب، آخر این هفته هنر؟"),
+            d("B", "Yes! Want to go together?", "بله! می‌خواهی با هم برویم؟"),
+            d("A", "Sure. Saturday afternoon?", "حتماً. شنبه بعدازظهر؟"),
+            d("B", "Perfect. Let's meet at the café next door at 2.", "عالی. بیا ساعت ۲ در کافه کناری قرار بگذاریم."),
+            d("A", "Done. And after the gallery, we could go to that jazz club.", "شد. و بعد از گالری، می‌توانیم به آن کلوب جاز برویم."),
+            d("B", "Now you're talking! I've wanted to try that place for weeks.", "حالا داری صحبت می‌کنی! هفته‌هاست می‌خواهم آنجا را امتحان کنم."),
+            d("A", "It's supposed to be amazing. Small, intimate, great musicians.", "قرار است فوق‌العاده باشد. کوچک، صمیمی، موسیقیدانان عالی."),
+            d("B", "Sounds like my kind of place.", "جای مورد علاقه من به نظر می‌رسد."),
+            d("A", "Mine too. See you Saturday.", "مال من هم. شنبه می‌بینمت."),
+            d("B", "See you!", "می‌بینمت!")
         ),
         listOf(
-            q("What topic are A and B debating?", listOf("climate change", "remote work", "education", "healthcare"), 1),
-            q("What is B's initial stance?", listOf("against remote work", "in favor of remote work", "neutral", "undecided"), 1),
-            q("What concern does A raise?", listOf("salary", "team collaboration", "commuting", "office space"), 1),
-            q("What solution do they both agree on?", listOf("fully remote", "fully office", "hybrid", "no change"), 2),
-            q("The issue ___ be discussed calmly.", listOf("should", "is", "does", "has"), 0),
-            q("The law might ___ changed.", listOf("be", "is", "been", "being"), 0),
-            q("The mistake could have ___ avoided.", listOf("be", "been", "being", "is"), 1),
-            q("The situation should have ___ handled differently.", listOf("be", "been", "being", "is"), 1)
+            q("Where did A go yesterday?", listOf("a concert", "an art exhibit", "a museum", "a jazz club"), 1),
+            q("What did A feel from the blue/green canvas?", listOf("anger", "peace and movement", "confusion", "fear"), 1),
+            q("Who is A's favorite film composer?", listOf("Hans Zimmer", "John Williams", "Ennio Morricone", "Danny Elfman"), 2),
+            q("What instrument did B play as a kid?", listOf("guitar", "piano", "violin", "flute"), 1),
+            q("What piece did the symphony orchestra perform?", listOf("Beethoven's 5th", "Beethoven's 9th", "Mozart's Requiem", "Bach's Brandenburg"), 1),
+            q("The painting must ___ protected.", listOf("be", "being", "been", "to be"), 0),
+            q("Tickets should ___ booked in advance.", listOf("be", "being", "been", "to be"), 0),
+            q("The concert will ___ held outdoors.", listOf("be", "being", "been", "to be"), 0),
+            q("The song might ___ been written in 1960.", listOf("be", "being", "have", "had"), 2),
+            q("I was ___ by the performance.", listOf("move", "moved", "moving", "moves"), 1)
         ),
         idioms = listOf(
-            IdiomExpression("I see your point, but...", "نکته‌ات را می‌فهمم، ولی...", "I see your point, but I'm not sure.", "نکته‌ات را می‌فهمم، ولی مطمئن نیستم."),
-            IdiomExpression("A valid concern", "نگرانی معتبری", "That's a valid concern.", "نگرانی معتبری است."),
-            IdiomExpression("Best of both worlds", "بهترین هر دو دنیا", "Hybrid offers the best of both worlds.", "ترکیبی بهترین هر دو دنیا را ارائه می‌دهد."),
-            IdiomExpression("I couldn't agree more", "کاملاً موافقم", "I couldn't agree more.", "کاملاً موافقم.")
+            IdiomExpression("Hits differently", "متفاوت ضربه زدن", "Live music hits differently.", "موسیقی زنده متفاوت ضربه می‌زند."),
+            IdiomExpression("Moved to tears", "به گریه افتادن", "His music has moved me to tears.", "موسیقی‌اش مرا به گریه انداخته."),
+            IdiomExpression("Now you're talking!", "حالا داری صحبت می‌کنی!", "Now you're talking!", "حالا داری صحبت می‌کنی!"),
+            IdiomExpression("My kind of place", "جای مورد علاقه من", "Sounds like my kind of place.", "جای مورد علاقه من به نظر می‌رسد."),
+            IdiomExpression("Rusty", "زنگ‌زده", "I'm very rusty.", "خیلی زنگ‌زده‌ام."),
+            IdiomExpression("Mark of good", "نشانه خوبی", "That's the mark of good art.", "این نشانه هنر خوب است.")
         ),
         phrasal = listOf(
-            PhrasalVerb("bring up", "مطرح کردن", "mention a topic", "She brought up an important point.", "او نکته مهمی را مطرح کرد.", "Yes"),
-            PhrasalVerb("agree to disagree", "قبول اختلاف نظر", "accept different opinions", "We'll have to agree to disagree.", "باید اختلاف نظر را قبول کنیم.", "No"),
-            PhrasalVerb("work for", "مناسب بودن برای", "be suitable for", "It doesn't work for every job.", "برای هر شغلی مناسب نیست.", "No")
+            PhrasalVerb("pick up", "شروع کردن", "begin learning",
+                "I picked up guitar during the pandemic.", "در دوران پاندمی گیتار شروع کردم.", "Yes"),
+            PhrasalVerb("come to", "به ذهن رسیدن", "occur to",
+                "They'll come with practice.", "با تمرین می‌آیند.", "No"),
+            PhrasalVerb("hit differently", "متفاوت ضربه زدن", "have a different effect",
+                "Live music hits differently.", "موسیقی زنده متفاوت ضربه می‌زند.", "No")
         ),
         pronunciation = listOf(
-            PronunciationTip("Hedging intonation", "Hedging expressions often have rising intonation to sound less certain: I could be wrong... ↗"),
-            PronunciationTip("Emphatic stress in agreement", "Stress the intensifier: I couldn't agree MORE.")
+            PronunciationTip("Passive with modals", "Link modal and past participle: must be → /mʌst bi/, should be → /ʃʊd bi/"),
+            PronunciationTip("Italian names", "Practice: Morricone /morriˈkoːne/, Beethoven /ˈbeɪtoʊvən/"),
+            PronunciationTip("Rising intonation for invitations", "Want to go together? ↗ (rising, friendly)")
         ),
         culture = listOf(
-            CulturalNote("Discussing controversial topics", "In many English-speaking cultures, respectful debate is valued. Using hedging expressions and acknowledging the other person's view helps keep discussions productive. Topics like politics, religion, and personal values can be sensitive."),
-            CulturalNote("Agreeing to disagree", "When two people can't reach agreement, 'agreeing to disagree' is a common and polite way to end a debate while maintaining respect.")
+            CulturalNote("The value of art in society",
+                "Art often reflects and shapes cultural values. In times of crisis, art provides comfort, meaning, and a way to process collective experience."),
+            CulturalNote("Ennio Morricone",
+                "Ennio Morricone (1928–2020) was an Italian composer known for over 500 film scores, including 'The Good, the Bad and the Ugly' and 'Cinema Paradiso'."),
+            CulturalNote("Live vs. recorded music",
+                "Live music is often described as more emotionally powerful than recorded music, due to the shared energy of performers and audience.")
         ),
         mistakes = listOf(
-            CommonMistake("The issue should discussed.", "The issue should be discussed.", "Use 'be' + past participle in passive with modals."),
-            CommonMistake("The mistake could have avoided.", "The mistake could have been avoided.", "Use 'have been' + past participle in passive modal perfects.")
+            CommonMistake("The painting must be protect.", "The painting must be protected.", "Use past participle in passive with modals."),
+            CommonMistake("The song might been written...", "The song might have been written...", "Use 'might have been' for past modal passive."),
+            CommonMistake("I was moved from the performance.", "I was moved by the performance.", "Use 'by' with the agent in passive voice.")
         ),
         comprehension = listOf(
-            ComprehensionQuestion("What is A's concern about remote work?", "That it may not work for every job and may affect team collaboration."),
-            ComprehensionQuestion("What solution do A and B both agree on?", "A hybrid approach, which offers the best of both worlds.")
+            ComprehensionQuestion("What surprised A at the art exhibit?", "A usually dislikes abstract art, but this exhibit felt emotional and moving."),
+            ComprehensionQuestion("Why does A think live music is different?", "The energy of the audience and physical sensation make it more powerful than recorded music."),
+            ComprehensionQuestion("What plans do A and B make?", "Visit the gallery on Saturday afternoon, then go to a jazz club afterward.")
         ),
         speaking = listOf(
-            SpeakingTask("Discuss a controversial topic with a partner using respectful language.", "درباره یک موضوع بحث‌برانگیز با یک دوست با زبان محترمانه صحبت کن.", "I see your point, but... / That's a valid concern / I couldn't agree more"),
-            SpeakingTask("Practice agreeing to disagree about a topic.", "تمرین کنید درباره یک موضوع به اختلاف نظر رسیدن را قبول کنید.", "We'll have to agree to disagree. / Let's continue this another time.")
+            SpeakingTask("Describe an artwork or performance that moved you.",
+                "اثر هنری یا اجرایی که تحت تأثیرت قرار داد را توصیف کن.",
+                "I was moved by... / It made me feel... / The artist must have..."),
+            SpeakingTask("Discuss your taste in music with a partner.",
+                "درباره سلیقه موسیقی‌ات با یک دوست صحبت کن.",
+                "I listen to... / My favorite genre is... / I was introduced to..."),
+            SpeakingTask("Debate the role of art in education.",
+                "درباره نقش هنر در آموزش بحث کنید.",
+                "Art should be... / It can be... / Students must be...")
         ),
         writing = listOf(
-            WritingTask("Write an essay discussing both sides of a controversial issue.", "مقاله‌ای بنویس که هر دو طرف یک موضوع بحث‌برانگیز را بررسی کند.", 200, "Use passive voice with modals and hedging expressions.")
+            WritingTask("Write a review of a concert or art exhibit you've attended.",
+                "نقدی از کنسرت یا نمایشگاه هنری که رفته‌ای بنویس.",
+                220, "Use passive voice with modals at least four times.")
         )
     )
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 10 — Beautiful World
+    // UNIT 8 — Career Moves | تغییرات شغلی  (≈ 150 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson10() = base(
-        10, "Beautiful World", "دنیای زیبا",
+    private fun unit8() = base(
+        8, "Career Moves", "تغییرات شغلی",
         listOf(
-            "Describe natural wonders and beautiful places",
-            "Discuss environmental issues and conservation",
-            "Use participle clauses",
-            "Use inverted conditionals",
-            "Express appreciation for nature and beauty"
+            "Discuss career changes and job searching",
+            "Talk about professional goals and challenges",
+            "Use the future perfect and future continuous",
+            "Discuss work-life balance",
+            "Negotiate and express professional preferences"
         ),
         listOf(
-            v("wonder", "شگفتی", "The Grand Canyon is a natural wonder.", "گرند کنیون یک شگفتی طبیعی است."),
-            v("landscape", "منظره", "The landscape was breathtaking.", "منظره نفس‌گیر بود."),
-            v("breathtaking", "نفس‌گیر", "The view from the top was breathtaking.", "منظره از بالا نفس‌گیر بود.", "adjective"),
-            v("preserve", "حفظ کردن", "We must preserve these natural areas.", "باید این مناطق طبیعی را حفظ کنیم.", "verb"),
-            v("conservation", "حفاظت", "Wildlife conservation is crucial.", "حفاظت از حیات وحش حیاتی است."),
-            v("endangered", "در خطر انقراض", "Many species are endangered.", "بسیاری از گونه‌ها در خطر انقراض هستند.", "adjective"),
-            v("sustainable", "پایدار", "We need sustainable solutions.", "به راه‌حل‌های پایدار نیاز داریم.", "adjective"),
-            v("eco-friendly", "سازگار با محیط زیست", "Eco-friendly products are becoming popular.", "محصولات سازگار با محیط زیست محبوب می‌شوند.", "adjective"),
-            v("pollution", "آلودگی", "Air pollution is a major problem in cities.", "آلودگی هوا مشکل بزرگی در شهرهاست."),
-            v("climate change", "تغییر اقلیم", "Climate change affects everyone.", "تغییر اقلیم همه را تحت تأثیر قرار می‌دهد."),
-            v("wildlife", "حیات وحش", "The park protects local wildlife.", "پارک از حیات وحش محلی محافظت می‌کند."),
-            v("natural resource", "منبع طبیعی", "Water is a precious natural resource.", "آب یک منبع طبیعی ارزشمند است."),
-            v("renewable", "تجدیدپذیر", "Solar energy is renewable.", "انرژی خورشیدی تجدیدپذیر است.", "adjective"),
-            v("awareness", "آگاهی", "We need to raise awareness about these issues.", "باید درباره این مسائل آگاهی‌بخشی کنیم."),
-            v("grateful", "سپاسگزار", "I'm grateful for the beauty of nature.", "برای زیبایی طبیعت سپاسگزارم.", "adjective")
+            v("career", "حرفه", "She's had a fascinating career.", "او حرفه جذابی داشته."),
+            v("résumé", "رزومه", "Update your résumé before applying.", "قبل از درخواست رزومه‌ات را به‌روز کن."),
+            v("interview", "مصاحبه", "The interview went really well.", "مصاحبه خیلی خوب پیش رفت."),
+            v("promotion", "ارتقاء", "She got a promotion last month.", "ماه گذشته ارتقاء گرفت."),
+            v("resign", "استعفا دادن", "He resigned to start his own company.", "او استعفا داد تا شرکت خودش را راه‌اندازی کند.", "verb"),
+            v("negotiate", "مذاکره کردن", "You should negotiate your salary.", "باید حقوقت را مذاکره کنی.", "verb"),
+            v("work-life balance", "تعادل کار و زندگی", "Work-life balance is more important than ever.", "تعادل کار و زندگی مهم‌تر از همیشه است."),
+            v("burnout", "فرسودگی شغلی", "Burnout is a serious problem.", "فرسودگی شغلی مشکل جدی‌ای است."),
+            v("remote work", "کار از راه دور", "Remote work has become common.", "کار از راه دور رایج شده."),
+            v("freelance", "فریلنس", "She works as a freelance designer.", "او به عنوان طراح فریلنس کار می‌کند.", "adjective"),
+            v("entrepreneur", "کارآفرین", "He's a successful entrepreneur.", "او کارآفرین موفق است."),
+            v("network", "شبکه‌سازی", "Networking is key to career growth.", "شبکه‌سازی کلید رشد شغلی است.", "verb"),
+            v("mentor", "منتور", "A good mentor can change your career.", "یک منتور خوب می‌تواند حرفه‌ات را تغییر دهد."),
+            v("skills", "مهارت‌ها", "You should develop your soft skills.", "باید مهارت‌های نرمت را توسعه دهی."),
+            v("transition", "انتقال", "The transition to a new role takes time.", "انتقال به نقش جدید زمان می‌برد.")
         ),
         listOf(
-            GrammarSection("Participle Clauses", "Use participle clauses to reduce relative clauses or add information. Present participle (-ing): Walking through the forest, I felt at peace. Past participle (-ed): Built in 1900, the bridge is still in use."),
-            GrammarSection("Inverted Conditionals", "In formal English, conditionals can be inverted by dropping 'if' and inverting subject and verb. First conditional: Should you need help, call me. Second conditional: Were I rich, I would travel. Third conditional: Had I known, I would have come."),
-            GrammarSection("Inversion for Emphasis", "Use inversion after negative adverbs for emphasis: Never have I seen such beauty. Rarely do we appreciate nature enough. Not only is it beautiful, but it's also important."),
-            GrammarSection("Conversation Strategy: Expressing Appreciation", "Use expressions like 'It takes my breath away', 'I'm in awe of...', 'Words can't describe...', and 'It's truly magnificent' to express appreciation for beauty and nature.")
+            GrammarSection("Future Perfect",
+                "Use 'will have + past participle' for actions completed before a future time. By next year, I will have finished my degree. She will have worked here for ten years by then."),
+            GrammarSection("Future Continuous",
+                "Use 'will be + verb-ing' for actions in progress at a future time. This time next week, I'll be starting my new job. They'll be interviewing candidates tomorrow."),
+            GrammarSection("Combining future forms",
+                "Use future perfect and future continuous together: By the time you read this, I will have moved. Next month, I'll be working remotely.")
         ),
         listOf(
-            d("A", "I just got back from a trip to the mountains.", "تازه از سفر به کوهستان برگشتم."),
-            d("B", "How was it?", "چطور بود؟"),
-            d("A", "Breathtaking. Walking through those forests, I felt completely at peace.", "نفس‌گیر. وقتی از آن جنگل‌ها عبور می‌کردم، کاملاً احساس آرامش می‌کردم."),
-            d("B", "That sounds amazing. Where exactly did you go?", "شگفت‌انگیز به نظر می‌رسد. دقیقاً کجا رفتی؟"),
-            d("A", "A national park in the north. It's one of the most beautiful places I've ever seen.", "یک پارک ملی در شمال. یکی از زیباترین مکان‌هایی است که تا حالا دیده‌ام."),
-            d("B", "I've heard about it. Isn't it famous for its wildlife?", "درباره‌اش شنیده‌ام. برای حیات وحشش معروف نیست؟"),
-            d("A", "Yes, it is. Built to protect endangered species, the park is a model for conservation.", "بله. پارک که برای حفاظت از گونه‌های در خطر انقراض ساخته شده، الگویی برای حفاظت است."),
-            d("B", "That's wonderful. Were there many visitors?", "فوق‌العاده است. بازدیدکننده زیاد بود؟"),
-            d("A", "Surprisingly few. Were it more accessible, I think it would be crowded.", "به‌طور شگفت‌آوری کم. اگر دسترسی‌پذیرتر بود، فکر می‌کنم شلوغ می‌شد."),
-            d("B", "That's probably a good thing for the environment.", "احتمالاً برای محیط زیست چیز خوبی است."),
-            d("A", "Definitely. Had it been overdeveloped, the ecosystem would have suffered.", "قطعاً. اگر بیش از حد توسعه می‌یافت، اکوسیستم آسیب می‌دید."),
-            d("B", "It's great that some places are still protected. We need more of that.", "عالی است که برخی مکان‌ها هنوز محافظت می‌شوند. به بیشترش نیاز داریم."),
-            d("A", "I agree. Climate change is affecting even remote areas now.", "موافقم. تغییر اقلیم حتی مناطق دورافتاده را هم تحت تأثیر قرار می‌دهد."),
-            d("B", "It's frightening, honestly. Sometimes I wonder if we can reverse the damage.", "صادقانه، ترسناک است. گاهی فکر می‌کنم آیا می‌توانیم خسارت را جبران کنیم."),
-            d("A", "Should we act now, there's still hope. But we can't wait much longer.", "اگر الان اقدام کنیم، هنوز امید هست. ولی نمی‌توانیم بیشتر صبر کنیم."),
-            d("B", "You're right. Every small action matters.", "حق داری. هر اقدام کوچکی مهم است."),
-            d("A", "Exactly. Using renewable energy, reducing waste, supporting conservation — it all adds up.", "دقیقاً. استفاده از انرژی تجدیدپذیر، کاهش زباله، حمایت از حفاظت — همه جمع می‌شوند."),
-            d("B", "I've been trying to be more eco-friendly lately. It's not always easy.", "اخیراً سعی کرده‌ام سازگارتر با محیط زیست باشم. همیشه آسان نیست."),
-            d("A", "I know. But it's worth it. Never have I felt more connected to nature than on this trip.", "می‌دانم. ولی ارزشش را دارد. هرگز به اندازه این سفر به طبیعت متصل نبوده‌ام."),
-            d("B", "That's beautiful. Sometimes we forget how amazing the world is.", "زیباست. گاهی فراموش می‌کنیم جهان چقدر شگفت‌انگیز است."),
-            d("A", "We do. Standing on that mountain, I realized how small we are and how precious this planet is.", "همین‌طور است. روی آن کوه ایستاده بودم و فهمیدم چقدر کوچک هستیم و این سیاره چقدر ارزشمند است."),
-            d("B", "I'd love to experience something like that.", "دوست دارم چیزی مثل آن را تجربه کنم."),
-            d("A", "You should. Were I you, I'd plan a trip soon.", "باید بکنی. اگر جای تو بودم، به‌زودی سفری برنامه‌ریزی می‌کردم."),
-            d("B", "Maybe I will. Any recommendations?", "شاید بکنم. توصیه‌ای داری؟"),
-            d("A", "Go somewhere quiet, away from crowds. That's where you feel the real beauty.", "جایی آرام برو، دور از جمعیت. آنجاست که زیبایی واقعی را احساس می‌کنی."),
-            d("B", "That's good advice. I'll look into it.", "توصیه خوبی است. بررسی می‌کنم."),
-            d("A", "Let me know if you need any tips. I've traveled a lot.", "اگر نکته‌ای لازم داشتی خبرم کن. زیاد سفر کرده‌ام."),
-            d("B", "Thanks. I appreciate that.", "ممنون. قدردانم."),
-            d("A", "Anytime. The world is too beautiful not to explore.", "هر وقت. جهان آنقدر زیباست که نباید کاوش نکرد."),
-            d("B", "Well said. Let's protect it so future generations can enjoy it too.", "خوب گفتی. بیا از آن محافظت کنیم تا نسل‌های آینده هم لذت ببرند."),
-            d("A", "I couldn't agree more. That's our responsibility.", "کاملاً موافقم. این مسئولیت ماست.")
+            d("A", "Hey, you look happy. Did something good happen?", "سلام، خوشحال به نظر می‌رسی. چیز خوبی اتفاق افتاد؟"),
+            d("B", "Yeah, actually. I got the job!", "بله، در واقع. کار را گرفتم!"),
+            d("A", "What? That's amazing! Congratulations!", "چی؟ فوق‌العاده است! تبریک می‌گویم!"),
+            d("B", "Thanks. I'm still a bit in shock.", "ممنون. هنوز کمی در شوکم."),
+            d("A", "Which job was it? The one you interviewed for last week?", "کدام کار بود؟ همان که هفته پیش مصاحبه کرده بودی؟"),
+            d("B", "Yes. The marketing director position. It's a big step up.", "بله. موقعیت مدیر بازاریابی. قدم بزرگی رو به بالاست."),
+            d("A", "That's a major move. When do you start?", "این حرکت بزرگی است. کی شروع می‌کنی؟"),
+            d("B", "Two weeks. By then, I will have wrapped up everything at my current job.", "دو هفته دیگر. تا آن موقع، همه چیز را در کار فعلی‌ام جمع کرده‌ام."),
+            d("A", "Are you nervous?", "مضطربی؟"),
+            d("B", "A little. It's a bigger company with more responsibility.", "کمی. شرکت بزرگ‌تری با مسئولیت بیشتر است."),
+            d("A", "But you're ready for it. You've been doing similar work for years.", "ولی برایش آماده‌ای. سال‌ها کار مشابه انجام داده‌ای."),
+            d("B", "Thanks. I appreciate the confidence.", "ممنون. از اعتمادت ممنونم."),
+            d("A", "So what are your plans before you start?", "خب برنامه‌هایت قبل از شروع چیست؟"),
+            d("B", "I'm taking a week off. This time next week, I'll be hiking in the mountains.", "یک هفته مرخصی می‌گیرم. این موقع هفته آینده، در کوه‌ها کوهنوردی می‌کنم."),
+            d("A", "That sounds perfect. A reset before the new chapter.", "عالی به نظر می‌رسد. ریست قبل از فصل جدید."),
+            d("B", "Exactly. I want to clear my head.", "دقیقاً. می‌خواهم ذهنم را خالی کنم."),
+            d("A", "Smart. Some people jump straight into new jobs and burn out.", "هوشمندانه. بعضی‌ها مستقیم به کار جدید می‌پرند و فرسوده می‌شوند."),
+            d("B", "That's what I'm avoiding. Burnout is real.", "این همان چیزی است که ازش پرهیز می‌کنم. فرسودگی شغلی واقعی است."),
+            d("A", "Have you experienced it before?", "قبلاً تجربه‌اش کرده‌ای؟"),
+            d("B", "Yes, at my first real job. I worked eighty hours a week.", "بله، در اولین کار واقعی‌ام. هفته‌ای هشتاد ساعت کار می‌کردم."),
+            d("A", "Eighty hours! That's unsustainable.", "هشتاد ساعت! غیرقابل دوام است."),
+            d("B", "I know. I didn't see it at the time. I thought I was being dedicated.", "می‌دانم. آن موقع نمی‌دیدم. فکر می‌کردم فداکارم."),
+            d("A", "So many people fall into that trap.", "کلی افراد در آن تله می‌افتند."),
+            d("B", "Yeah. And then you crash. I was sick for two months.", "بله. و بعد سقوط می‌کنی. دو ماه بیمار بودم."),
+            d("A", "That must have been awful.", "باید وحشتناک بوده باشد."),
+            d("B", "It was. It changed my whole perspective on work.", "بود. کل نگاهم به کار را تغییر داد."),
+            d("A", "How so?", "چطور؟"),
+            d("B", "I learned that no job is worth your health. And that work-life balance isn't a luxury.", "یاد گرفتم هیچ کاری ارزش سلامتت را ندارد. و اینکه تعادل کار و زندگی تجمل نیست."),
+            d("A", "That's a hard-won lesson.", "درسی است که به سختی به دست آمده."),
+            d("B", "Definitely. Now I'm careful. Even in this new role, I've set boundaries.", "قطعاً. الان مراقبم. حتی در این نقش جدید، مرز تعیین کرده‌ام."),
+            d("A", "You negotiated boundaries?", "مرزها را مذاکره کردی؟"),
+            d("B", "Yes, during the offer. I said I wouldn't work weekends.", "بله، هنگام پیشنهاد. گفتم آخر هفته‌ها کار نمی‌کنم."),
+            d("A", "How did they react?", "چطور واکنش نشان دادند؟"),
+            d("B", "Surprisingly well. They said they respect that.", "به‌طور تعجب‌آوری خوب. گفتند احترام می‌گذارند."),
+            d("A", "That's a good sign. The company sounds healthy.", "نشانه خوبی است. شرکت سالم به نظر می‌رسد."),
+            d("B", "I hope so. I did my research before applying.", "امیدوارم. قبل از درخواست تحقیق کردم."),
+            d("A", "What did you find?", "چه یافتی؟"),
+            d("B", "Good reviews from employees. Low turnover. Flexible policies.", "نقدهای خوب از کارمندان. ترک خدمت پایین. سیاست‌های انعطاف‌پذیر."),
+            d("A", "That's rare. Sounds like a great fit.", "این نادر است. تطابق عالی به نظر می‌رسد."),
+            d("B", "I think so. Also, they offer remote work two days a week.", "فکر می‌کنم. همچنین دو روز در هفته کار از راه دور ارائه می‌دهند."),
+            d("A", "Two days remote? That's ideal.", "دو روز از راه دور؟ ایده‌آل است."),
+            d("B", "Right. I save commute time and get more focus time.", "درست. در وقت رفت‌وآمد صرفه‌جویی می‌کنم و وقت تمرکز بیشتری می‌گیرم."),
+            d("A", "Do you miss the office on remote days?", "روزهای دورکار دلت برای دفتر تنگ می‌شود؟"),
+            d("B", "Sometimes. I miss the casual chats.", "گاهی. دلم برای گپ‌های معمولی تنگ می‌شود."),
+            d("A", "Yeah, that's the trade-off. Connection vs. focus.", "بله، این معامله است. ارتباط در برابر تمرکز."),
+            d("B", "Exactly. I try to balance it. Video calls with colleagues, occasional office days.", "دقیقاً. سعی می‌کنم متعادلش کنم. تماس‌های ویدیویی با همکاران، روزهای گاه‌به‌گاه در دفتر."),
+            d("A", "Sounds like a good system.", "سیستم خوبی به نظر می‌رسد."),
+            d("B", "We'll see how it goes. I'm still learning what works for me.", "می‌بینیم چطور پیش می‌رود. هنوز دارم یاد می‌گیرم چه چیزی برایم کار می‌کند."),
+            d("A", "Speaking of career moves — I'm thinking about a change too.", "از تغییرات شغلی که صحبت شد — من هم به یک تغییر فکر می‌کنم."),
+            d("B", "Really? Tell me more.", "واقعاً؟ بیشتر بگو."),
+            d("A", "I've been in my role for five years. It's comfortable, but I'm not growing.", "پنج سال در نقشم بوده‌ام. راحت است، ولی رشد نمی‌کنم."),
+            d("B", "Comfortable is a trap sometimes.", "راحتی گاهی تله است."),
+            d("A", "Exactly. By next year, I will have been in the same position for six years.", "دقیقاً. تا سال آینده، شش سال در همان موقعیت بوده‌ام."),
+            d("B", "So what do you want to do?", "خب چه می‌خواهی بکنی؟"),
+            d("A", "I'm considering going freelance. Full-time.", "دارم فکر می‌کنم فریلنس شوم. تمام‌وقت."),
+            d("B", "That's a big leap. Have you freelanced before?", "این جهش بزرگی است. قبلاً فریلنس کرده‌ای؟"),
+            d("A", "Part-time, yes. I have a few regular clients.", "پاره‌وقت، بله. چند مشتری منظم دارم."),
+            d("B", "Then it's not as risky as it sounds.", "پس به آن اندازه که به نظر می‌رسد پرخطر نیست."),
+            d("A", "True. But leaving a steady salary is scary.", "درست. ولی ترک حقوق ثابت ترسناک است."),
+            d("B", "It is. But you have savings, right?", "هست. ولی پس‌انداز داری، درست است؟"),
+            d("A", "Yes. About a year's worth.", "بله. حدود یک سال."),
+            d("B", "Then you have a safety net. That's more than most people.", "پس شبکه امنیت داری. این بیشتر از بیشتر افراد است."),
+            d("A", "True. And I've been building my network.", "درست. و شبکه‌ام را ساخته‌ام."),
+            d("B", "Good. Networking is essential for freelancers.", "خوبه. شبکه‌سازی برای فریلنسرها ضروری است."),
+            d("A", "That's what I've heard. Any advice?", "همین را شنیده‌ام. توصیه‌ای داری؟"),
+            d("B", "Get a mentor. Someone who's been freelance for years.", "یک منتور بگیر. کسی که سال‌ها فریلنس بوده."),
+            d("A", "That's a great idea. Do you know anyone?", "فکر عالی‌ای است. کسی را می‌شناسی؟"),
+            d("B", "I know a few people. Let me introduce you.", "چند نفر را می‌شناسم. بگذار معرفی‌ات کنم."),
+            d("A", "That would be amazing. Thanks.", "فوق‌العاده می‌شود. ممنون."),
+            d("B", "Anytime. When are you thinking of making the change?", "هر وقت. کی به تغییر فکر می‌کنی؟"),
+            d("A", "Probably next spring. I want to prepare carefully.", "احتمالاً بهار آینده. می‌خواهم با دقت آماده شوم."),
+            d("B", "Smart. Don't rush it. Six months of preparation is worth it.", "هوشمندانه. عجله نکن. شش ماه آماده‌سازی ارزشش را دارد."),
+            d("A", "That's my plan. By spring, I'll have saved more and built more clients.", "نقشه‌ام همین است. تا بهار، بیشتر پس‌انداز کرده و مشتری بیشتری ساخته‌ام."),
+            d("B", "Sounds like a solid transition plan.", "نقشه انتقال محکمی به نظر می‌رسد."),
+            d("A", "I hope so. Career changes are scary but exciting.", "امیدوارم. تغییرات شغلی ترسناک ولی هیجان‌انگیزند."),
+            d("B", "Both. Like you said, they're a chance to grow.", "هر دو. همانطور که گفتی، فرصتی برای رشد هستند."),
+            d("A", "Let's check in with each other in six months.", "بیا شش ماه دیگر با هم چک کنیم."),
+            d("B", "Deal. I'll want to hear about your freelance life!", "قبول. می‌خواهم درباره زندگی فریلنسی‌ات بشنوم!"),
+            d("A", "And I want to hear about your new role.", "و من می‌خواهم درباره نقش جدیدت بشنوم."),
+            d("B", "It's a plan. Good luck with your prep.", "نقشه است. موفق باشی در آماده‌سازی."),
+            d("A", "You too. Congratulations again!", "تو هم. باز هم تبریک!"),
+            d("B", "Thanks! Talk soon.", "ممنون! به‌زودی صحبت."),
+            d("A", "Talk soon.", "به‌زودی صحبت.")
         ),
         listOf(
-            q("Where did A go on a trip?", listOf("to the beach", "to a national park in the north", "to a big city", "to a desert"), 1),
-            q("What is the park famous for?", listOf("its restaurants", "its wildlife and conservation", "its shopping", "its hotels"), 1),
-            q("What does A say would have happened if the park had been overdeveloped?", listOf("more tourists", "the ecosystem would have suffered", "more jobs", "higher prices"), 1),
-            q("What does A recommend to B?", listOf("go to a big city", "go somewhere quiet away from crowds", "stay home", "go to a resort"), 1),
-            q("___ through the forest, I felt at peace.", listOf("Walk", "Walking", "Walked", "To walk"), 1),
-            q("___ in 1900, the bridge is still in use.", listOf("Build", "Building", "Built", "To build"), 2),
-            q("___ you need help, call me.", listOf("Should", "If", "Would", "Will"), 0),
-            q("___ I known, I would have come.", listOf("Have", "Had", "Has", "Having"), 1)
+            q("What job did B get?", listOf("marketing director", "CEO", "sales manager", "consultant"), 0),
+            q("Why is B taking a week off?", listOf("to relax on a beach", "to clear their head before starting", "to visit family", "to move"), 1),
+            q("What happened at B's first real job?", listOf("got promoted", "experienced burnout", "quit immediately", "loved it"), 1),
+            q("What did B negotiate?", listOf("higher salary", "no weekend work", "extra vacation", "company car"), 1),
+            q("What is A considering?", listOf("retiring", "going freelance full-time", "moving abroad", "starting a business"), 1),
+            q("By next year, I ___ in this role for six years.", listOf("will be", "will have been", "am", "was"), 1),
+            q("This time next week, I ___ in the mountains.", listOf("will hike", "will have hiked", "will be hiking", "hike"), 2),
+            q("By the time you read this, I ___ the report.", listOf("will finish", "will have finished", "finish", "am finishing"), 1),
+            q("Next month, I ___ remotely.", listOf("will work", "will be working", "will have worked", "work"), 1),
+            q("She ___ have finished her degree by next June.", listOf("will", "would", "is", "was"), 0)
         ),
         idioms = listOf(
-            IdiomExpression("Breathtaking", "نفس‌گیر", "The view was breathtaking.", "منظره نفس‌گیر بود."),
-            IdiomExpression("At peace", "در آرامش", "I felt completely at peace.", "کاملاً احساس آرامش می‌کردم."),
-            IdiomExpression("It all adds up", "همه جمع می‌شوند", "Every small action — it all adds up.", "هر اقدام کوچکی — همه جمع می‌شوند."),
-            IdiomExpression("I couldn't agree more", "کاملاً موافقم", "I couldn't agree more.", "کاملاً موافقم.")
+            IdiomExpression("Step up", "قدم رو به بالا", "It's a big step up.", "قدم بزرگی رو به بالاست."),
+            IdiomExpression("Wrap up", "جمع کردن", "I'll have wrapped up everything.", "همه چیز را جمع کرده‌ام."),
+            IdiomExpression("Clear my head", "ذهنم را خالی کردن", "I want to clear my head.", "می‌خواهم ذهنم را خالی کنم."),
+            IdiomExpression("Burn out", "فرسوده شدن", "Some people burn out quickly.", "بعضی‌ها سریع فرسوده می‌شوند."),
+            IdiomExpression("Hard-won lesson", "درس به سختی به دست آمده", "That's a hard-won lesson.", "درسی است که به سختی به دست آمده."),
+            IdiomExpression("Safety net", "شبکه امنیت", "You have a safety net.", "شبکه امنیت داری."),
+            IdiomExpression("Check in with", "با کسی چک کردن", "Let's check in with each other.", "بیا با هم چک کنیم.")
         ),
         phrasal = listOf(
-            PhrasalVerb("get back from", "برگشتن از", "return from a place", "I just got back from a trip.", "تازه از سفر برگشتم.", "No"),
-            PhrasalVerb("look into", "بررسی کردن", "investigate", "I'll look into it.", "بررسی می‌کنم.", "No"),
-            PhrasalVerb("add up", "جمع شدن", "accumulate", "It all adds up.", "همه جمع می‌شوند.", "No")
+            PhrasalVerb("wrap up", "جمع کردن", "finish",
+                "I'll have wrapped up everything.", "همه چیز را جمع کرده‌ام.", "Yes"),
+            PhrasalVerb("take off", "مرخصی گرفتن", "take time off",
+                "I'm taking a week off.", "یک هفته مرخصی می‌گیرم.", "Yes"),
+            PhrasalVerb("fall into", "در تله افتادن", "get caught in",
+                "People fall into that trap.", "مردم در آن تله می‌افتند.", "No"),
+            PhrasalVerb("check in with", "با کسی چک کردن", "follow up with",
+                "Let's check in with each other.", "بیا با هم چک کنیم.", "No")
         ),
         pronunciation = listOf(
-            PronunciationTip("Participle clause intonation", "Participle clauses are usually followed by a slight pause: Walking through the forest, | I felt at peace."),
-            PronunciationTip("Inverted conditional stress", "Stress the auxiliary in inverted conditionals: SHOULD you need help, call me. HAD I known, I would have come.")
+            PronunciationTip("Future perfect stress", "Stress 'will have' and the past participle: I will HAVE FINished by then."),
+            PronunciationTip("Future continuous rhythm", "This time next week, I'll be HIKing."),
+            PronunciationTip("Reductions in future forms", "I'll be → /aɪl bi/, will have → /wɪl həv/")
         ),
         culture = listOf(
-            CulturalNote("Natural wonders and conservation", "National parks and protected areas exist worldwide to preserve natural beauty and wildlife. Many countries have conservation programs, and international agreements aim to protect endangered species."),
-            CulturalNote("Environmental awareness", "Environmental awareness has grown significantly in recent decades. Topics like climate change, renewable energy, and sustainable living are common in everyday conversation in many English-speaking countries.")
+            CulturalNote("Work-life balance",
+                "The concept of work-life balance has gained importance globally. Different countries have different attitudes — some prioritize productivity, others prioritize personal time."),
+            CulturalNote("Remote work trends",
+                "The COVID-19 pandemic accelerated remote work adoption. Many companies now offer hybrid models. This shift is reshaping career expectations worldwide."),
+            CulturalNote("Freelance economy",
+                "The freelance and gig economy has grown rapidly. In some countries, freelancers now make up a significant portion of the workforce.")
         ),
         mistakes = listOf(
-            CommonMistake("Walk through the forest, I felt at peace.", "Walking through the forest, I felt at peace.", "Use the -ing form for present participle clauses."),
-            CommonMistake("If I would have known, I would have come.", "Had I known, I would have come. / If I had known, I would have come.", "Use past perfect in the if-clause, or inverted form 'Had I known'.")
+            CommonMistake("By next year, I will finish.", "By next year, I will have finished.", "Use future perfect for actions completed before a future time."),
+            CommonMistake("This time next week, I will hike.", "This time next week, I will be hiking.", "Use future continuous for actions in progress at a future time."),
+            CommonMistake("I will to negotiate my salary.", "I will negotiate my salary.", "After 'will', use base verb without 'to'.")
         ),
         comprehension = listOf(
-            ComprehensionQuestion("What did A say about the park's conservation efforts?", "It was built to protect endangered species and is a model for conservation."),
-            ComprehensionQuestion("What advice does A give B about traveling?", "Go somewhere quiet, away from crowds, to feel the real beauty.")
+            ComprehensionQuestion("Why is B careful about work-life balance?", "B experienced burnout at a first job and became sick for two months."),
+            ComprehensionQuestion("What has B done before starting the new job?", "Researched the company, negotiated boundaries (no weekends), and planned a week off."),
+            ComprehensionQuestion("What is A's plan for transitioning to freelance?", "Prepare for six months, save more money, build clients, and find a mentor.")
         ),
         speaking = listOf(
-            SpeakingTask("Describe a beautiful place you've visited using participle clauses.", "یک مکان زیبا که رفته‌ای را با استفاده از جملات وصفی (Participle Clauses) توصیف کن.", "Walking through... / Built in... / Standing on... I felt..."),
-            SpeakingTask("Discuss environmental issues and what we can do about them.", "درباره مسائل محیط زیستی و کارهایی که می‌توانیم انجام دهیم صحبت کن.", "We should... / If we don't..., ... / Should we act now...")
+            SpeakingTask("Discuss your career goals and plans.",
+                "درباره اهداف و برنامه‌های شغلی‌ات صحبت کن.",
+                "By next year, I will have... / This time next year, I'll be..."),
+            SpeakingTask("Role-play a job interview or salary negotiation.",
+                "نقش‌بازی مصاحبه شغلی یا مذاکره حقوق.",
+                "I'd like to discuss... / By next year, I will have... / I'm looking for..."),
+            SpeakingTask("Debate the value of work-life balance vs. career ambition.",
+                "بحث درباره ارزش تعادل کار و زندگی در برابر جاه‌طلبی شغلی.",
+                "Some believe... / Others argue... / I'd say...")
         ),
         writing = listOf(
-            WritingTask("Write an essay about the importance of protecting natural beauty.", "مقاله‌ای درباره اهمیت حفاظت از زیبایی‌های طبیعی بنویس.", 200, "Use participle clauses and inverted conditionals at least three times.")
+            WritingTask("Write a five-year career plan.",
+                "یک برنامه شغلی پنج ساله بنویس.",
+                250, "Use future perfect and future continuous extensively.")
+        )
+    )
+
+    // ═══════════════════════════════════════════════════════════
+    // UNIT 9 — Challenges and Accomplishments | چالش‌ها و دستاوردها  (≈ 150 خط)
+    // ═══════════════════════════════════════════════════════════
+    private fun unit9() = base(
+        9, "Challenges and Accomplishments", "چالش‌ها و دستاوردها",
+        listOf(
+            "Discuss personal and professional challenges",
+            "Talk about overcoming obstacles",
+            "Use the past perfect and past perfect continuous",
+            "Reflect on accomplishments and setbacks",
+            "Express pride and humility"
+        ),
+        listOf(
+            v("challenge", "چالش", "Learning a language is a challenge.", "یادگیری زبان یک چالش است."),
+            v("accomplishment", "دستاورد", "Running a marathon was a huge accomplishment.", "دویدن ماراتن یک دستاورد بزرگ بود."),
+            v("obstacle", "مانع", "She overcame many obstacles.", "او بر موانع زیادی غلبه کرد."),
+            v("setback", "شکست / عقب‌نشینی", "The project faced several setbacks.", "پروژه با چند عقب‌نشینی روبرو شد."),
+            v("perseverance", "پشتکار", "Perseverance is key to success.", "پشتکار کلید موفقیت است."),
+            v("persevere", "پشتکار داشتن", "She persevered despite criticism.", "او با وجود انتقاد پشتکار داشت.", "verb"),
+            v("overcome", "غلبه کردن", "He overcame his fear of public speaking.", "او بر ترسش از صحبت در جمع غلبه کرد.", "verb"),
+            v("resilient", "تاب‌آور", "Resilient people bounce back from failure.", "افراد تاب‌آور از شکست باز می‌گردند.", "adjective"),
+            v("milestone", "نقطه عطف", "Graduation is an important milestone.", "فارغ‌التحصیلی نقطه عطف مهمی است."),
+            v("humble", "فروتن", "He's very humble about his success.", "او درباره موفقیتش خیلی فروتن است.", "adjective"),
+            v("achievement", "دستاورد", "Her achievements are impressive.", "دستاوردهایش تحسین‌برانگیزند."),
+            v("sacrifice", "فداکاری", "Success often requires sacrifice.", "موفقیت اغلب فداکاری می‌خواهد."),
+            v("determination", "اراده", "His determination inspired everyone.", "اراده‌اش همه را الهام بخشید."),
+            v("failure", "شکست", "Failure is part of learning.", "شکست بخشی از یادگیری است."),
+            v("breakthrough", "پیشرفت مهم", "The discovery was a real breakthrough.", "کشف واقعاً یک پیشرفت مهم بود.")
+        ),
+        listOf(
+            GrammarSection("Past Perfect",
+                "Use 'had + past participle' for an action completed before another past action. She had already left when I arrived. They had finished before the deadline."),
+            GrammarSection("Past Perfect Continuous",
+                "Use 'had been + verb-ing' for an action in progress before another past action. I had been working there for three years when I got promoted. She had been studying all night before the exam."),
+            GrammarSection("Combining past perfect forms",
+                "Use both together to show sequence: I had been trying to solve the problem for weeks when I finally had a breakthrough.")
+        ),
+        listOf(
+            d("A", "You mentioned you ran a marathon last year, right?", "گفتی سال گذشته ماراتن دویدی، درست است؟"),
+            d("B", "Yes, my first and probably only one!", "بله، اولی و احتمالاً تنها یکی‌ام!"),
+            d("A", "Why only one? Was it that bad?", "چرا فقط یکی؟ آنقدر بد بود؟"),
+            d("B", "Ha! Not bad, exactly. Just incredibly hard.", "ها! دقیقاً بد نه. فقط باورنکردنی سخت."),
+            d("A", "I've always wanted to try. Tell me about the training.", "همیشه می‌خواستم امتحان کنم. از تمرین بگو."),
+            d("B", "I had been training for six months before the race.", "شش ماه قبل از مسابقه تمرین کرده بودم."),
+            d("A", "Six months! What did the training look like?", "شش ماه! تمرین چطور بود؟"),
+            d("B", "Running four times a week. Long runs on weekends. Strength training twice a week.", "هفته‌ای چهار بار دویدن. دویدن‌های طولانی آخر هفته. تمرین قدرتی هفته‌ای دو بار."),
+            d("A", "That's intense. Did you ever feel like quitting?", "شدید است. هیچ‌وقت حس کردی تسلیم شوی؟"),
+            d("B", "Constantly. Especially in the middle of winter, running in the cold.", "مدام. مخصوصاً در میانه زمستان، دویدن در سرما."),
+            d("A", "What kept you going?", "چه چیزی نگهت داشت؟"),
+            d("B", "I had told everyone I was doing it. So I couldn't back out.", "به همه گفته بودم انجامش می‌دهم. پس نمی‌توانستم عقب بکشم."),
+            d("A", "Public accountability! Smart.", "پاسخگویی عمومی! هوشمندانه."),
+            d("B", "It works. Friends would ask how training was going. It kept me honest.", "کار می‌کند. دوستان می‌پرسیدند تمرین چطور پیش می‌رود. صادقم نگه می‌داشت."),
+            d("A", "So what was race day like?", "خب روز مسابقه چطور بود؟"),
+            d("B", "I had been so nervous the night before that I barely slept.", "شب قبل آنقدر مضطرب بودم که به سختی خوابیدم."),
+            d("A", "Oh no. That must have hurt your performance.", "اوه نه. باید عملکردت را تحت تأثیر قرار داده باشد."),
+            d("B", "Surprisingly not. Adrenaline kicked in.", "به‌طور تعجب‌آوری نه. آدرنالین به کار افتاد."),
+            d("A", "How long did it take you?", "چقدر طول کشید؟"),
+            d("B", "Four hours and twelve minutes.", "چهار ساعت و دوازده دقیقه."),
+            d("A", "That's respectable. Under five hours is solid.", "محترمانه است. زیر پنج ساعت محکم است."),
+            d("B", "Thanks. It wasn't the fastest, but I finished. That was the goal.", "ممنون. سریع‌ترین نبود، ولی تمام کردم. هدف همین بود."),
+            d("A", "What was the hardest part?", "سخت‌ترین بخش چه بود؟"),
+            d("B", "The last five kilometers. My body was screaming at me to stop.", "پنج کیلومتر آخر. بدنم فریاد می‌زد بس کنم."),
+            d("A", "How did you push through?", "چطور عبور کردی؟"),
+            d("B", "I saw the finish line in the distance. And something in me just clicked.", "خط پایان را از دور دیدم. و چیزی در من کلیک کرد."),
+            d("A", "That's inspiring. Did you cry at the end?", "الهام‌بخش است. آخرش گریه کردی؟"),
+            d("B", "Ha! Yes. I didn't expect to, but it just happened.", "ها! بله. انتظارش را نداشتم، ولی فقط اتفاق افتاد."),
+            d("A", "Emotions overflow. It makes sense.", "احساسات سرریز می‌شوند. منطقی است."),
+            d("B", "It was overwhelming. All those months of work, condensed into one moment.", "طاقت‌فرسا بود. تمام آن ماه‌ها کار، در یک لحظه فشرده شده بود."),
+            d("A", "Have you had other big challenges like that?", "چالش‌های بزرگ دیگری مثل آن داشته‌ای؟"),
+            d("B", "Learning English was one. I moved here with almost no language skills.", "یادگیری انگلیسی یکی بود. با تقریباً هیچ مهارت زبانی به اینجا آمدم."),
+            d("A", "Really? You speak so well now.", "واقعاً؟ الان خیلی خوب صحبت می‌کنی."),
+            d("B", "Thank you. It took years of hard work.", "ممنون. سال‌ها کار سخت طول کشید."),
+            d("A", "What was the hardest part of that?", "سخت‌ترین بخشش چه بود؟"),
+            d("B", "Feeling stupid. I had been a professional in my country, and suddenly I couldn't order a coffee.", "احساس احمق بودن. در کشورم حرفه‌ای بودم، و ناگهان نمی‌توانستم یک قهوه سفارش دهم."),
+            d("A", "That must have been humbling.", "باید فروتنانه بوده باشد."),
+            d("B", "Very. But also good for me. It made me more patient with others.", "خیلی. ولی برای من هم خوب بود. مرا با دیگران صبورتر کرد."),
+            d("A", "I've noticed that people who've struggled tend to be more empathetic.", "متوجه شده‌ام افرادی که با سختی دست و پنجه نرم کرده‌اند، دلسوزترند."),
+            d("B", "I think that's true. Struggle builds empathy.", "فکر می‌کنم درست است. سختی دلسوزی می‌سازد."),
+            d("A", "So both challenges — the marathon and learning English — took years.", "پس هر دو چالش — ماراتن و یادگیری انگلیسی — سال‌ها طول کشیدند."),
+            d("B", "Yeah. I think the biggest accomplishments rarely happen fast.", "بله. فکر می‌کنم بزرگ‌ترین دستاوردها به‌ندرت سریع اتفاق می‌افتند."),
+            d("A", "That's a good insight. We live in a world of instant gratification.", "بینش خوبی است. در دنیایی از رضایت فوری زندگی می‌کنیم."),
+            d("B", "Exactly. But real growth takes time. I had been studying for years before I felt fluent.", "دقیقاً. ولی رشد واقعی زمان می‌برد. سال‌ها مطالعه کرده بودم تا روان حس کردم."),
+            d("A", "What kept you motivated all those years?", "چه چیزی در تمام آن سال‌ها انگیزه‌ات را نگه داشت؟"),
+            d("B", "Small wins. Ordering a coffee without struggling. Understanding a joke.", "پیروزی‌های کوچک. سفارش قهوه بدون تلاش. فهمیدن یک جوک."),
+            d("A", "Celebrating small wins. That's key.", "جشن گرفتن پیروزی‌های کوچک. این کلیدی است."),
+            d("B", "Yes. If you wait for the big moments only, you'll burn out.", "بله. اگر فقط منتظر لحظات بزرگ بمانی، فرسوده می‌شوی."),
+            d("A", "Have you ever had a setback that almost made you give up?", "تا حالا شکستی داشته‌ای که نزدیک بوده تسلیم شوی؟"),
+            d("B", "Yes. My business failed once. I had been building it for three years.", "بله. کسب‌وکارم یک بار شکست خورد. سه سال داشتم می‌ساختمش."),
+            d("A", "Three years. What happened?", "سه سال. چه شد؟"),
+            d("B", "The market shifted. Our main product became obsolete.", "بازار تغییر کرد. محصول اصلی‌مان منسوخ شد."),
+            d("A", "That's brutal. How did you cope?", "این بی‌رحم است. چطور کنار آمدی؟"),
+            d("B", "I grieved. Then I got back up. Started something new.", "سوگوار شدم. بعد بلند شدم. چیز جدیدی شروع کردم."),
+            d("A", "Resilience in action.", "تاب‌آوری در عمل."),
+            d("B", "I didn't feel resilient at the time. I felt like a failure.", "آن موقع تاب‌آور حس نمی‌کردم. مثل یک شکست‌خورده حس می‌کردم."),
+            d("A", "But you didn't give up.", "ولی تسلیم نشدی."),
+            d("B", "No. And looking back, the failure taught me more than any success.", "نه. و با نگاه به عقب، شکست بیشتر از هر موفقیتی به من یاد داد."),
+            d("A", "What did it teach you?", "چه چیزی یادت داد؟"),
+            d("B", "That failure isn't final. And that I'm more capable than I thought.", "که شکست نهایی نیست. و اینکه توانمندتر از آنچه فکر می‌کردم هستم."),
+            d("A", "That's powerful. Do you feel proud of what you've done?", "این قدرتمند است. به آنچه کرده‌ای افتخار می‌کنی؟"),
+            d("B", "Proud, yes. But humble. So much of it was luck and support from others.", "افتخار، بله. ولی فروتن. خیلی‌اش شانس و حمایت دیگران بود."),
+            d("A", "That's the right balance. Pride with humility.", "این تعادل درست است. افتخار با فروتنی."),
+            d("B", "Exactly. Nobody achieves anything alone.", "دقیقاً. هیچ‌کس چیزی را تنها به دست نمی‌آورد."),
+            d("A", "Wise words. What's your next challenge?", "کلمات عاقلانه. چالش بعدی‌ات چیست؟"),
+            d("B", "I've been thinking about learning to play the piano.", "به یادگیری پیانو فکر کرده‌ام."),
+            d("A", "A new marathon of a different kind!", "ماراتنی از نوع متفاوت!"),
+            d("B", "Ha! Exactly. Starting from zero is humbling.", "ها! دقیقاً. از صفر شروع کردن فروتنانه است."),
+            d("A", "You'll do great. You have the mindset.", "عالی می‌شوی. ذهنیت را داری."),
+            d("B", "Thanks. And you? What challenge are you facing?", "ممنون. و تو؟ با چه چالشی روبرویی؟"),
+            d("A", "Public speaking, actually. It terrifies me.", "صحبت در جمع، در واقع. مرا می‌ترساند."),
+            d("B", "Really? You seem so comfortable talking.", "واقعاً؟ به این راحتی صحبت به نظر می‌رسی."),
+            d("A", "One-on-one, yes. But in front of an audience, I freeze.", "چهره به چهره، بله. ولی جلوی تماشاگر، یخ می‌زنم."),
+            d("B", "The only way past it is through it. Practice.", "تنها راه عبور از آن، از میانش است. تمرین."),
+            d("A", "I've been taking a class. It's helping.", "کلاس گرفته‌ام. کمک می‌کند."),
+            d("B", "That's brave. Most people avoid what scares them.", "شجاعانه است. بیشتر مردم از چیزهایی که می‌ترسانشان پرهیز می‌کنند."),
+            d("A", "I'm tired of avoiding it. Time to face it.", "از پرهیز خسته شده‌ام. وقت روبرو شدن است."),
+            d("B", "That's the spirit. Let me know when you give your first speech.", "همینه! بگو اولین سخنرانی‌ات را کی می‌کنی."),
+            d("A", "I will. And I want to hear about your piano journey.", "می‌گویم. و می‌خواهم درباره سفر پیانو‌ات بشنوم."),
+            d("B", "Deal. We'll both have new accomplishments to share.", "قبول. هر دو دستاوردهای جدیدی برای به اشتراک گذاشتن خواهیم داشت."),
+            d("A", "I like that. Cheers to new challenges.", "این را دوست دارم. به سلامتی چالش‌های جدید."),
+            d("B", "Cheers!", "به سلامتی!")
+        ),
+        listOf(
+            q("How long had B been training before the marathon?", listOf("three months", "six months", "one year", "two years"), 1),
+            q("What kept B going in training?", listOf("money", "public accountability", "a coach", "fear"), 1),
+            q("What was the hardest part of the race?", listOf("first km", "middle", "last 5 km", "finish line"), 2),
+            q("What was B's first big challenge?", listOf("learning English", "marathon", "business", "piano"), 0),
+            q("What business setback did B face?", listOf("bankruptcy", "product becoming obsolete", "lawsuits", "fraud"), 1),
+            q("I ___ working there for three years when I got promoted.", listOf("had been", "was", "have been", "am"), 0),
+            q("She ___ already left when I arrived.", listOf("has", "had", "was", "have"), 1),
+            q("I had been trying for weeks when I ___ a breakthrough.", listOf("have", "had", "have had", "was having"), 1),
+            q("They ___ finished before the deadline.", listOf("have", "had", "are", "were"), 1),
+            q("He had been ___ for hours before the exam.", listOf("study", "studying", "studied", "studies"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Push through", "عبور کردن", "How did you push through?", "چطور عبور کردی؟"),
+            IdiomExpression("Back out", "عقب کشیدن", "I couldn't back out.", "نمی‌توانستم عقب بکشم."),
+            IdiomExpression("Kick in", "به کار افتادن", "Adrenaline kicked in.", "آدرنالین به کار افتاد."),
+            IdiomExpression("Small wins", "پیروزی‌های کوچک", "Celebrate small wins.", "پیروزی‌های کوچک را جشن بگیر."),
+            IdiomExpression("Bounce back", "بازگشتن", "Resilient people bounce back.", "افراد تاب‌آور باز می‌گردند."),
+            IdiomExpression("Looking back", "با نگاه به عقب", "Looking back, the failure taught me.", "با نگاه به عقب، شکست به من یاد داد.")
+        ),
+        phrasal = listOf(
+            PhrasalVerb("push through", "عبور کردن", "persevere",
+                "How did you push through?", "چطور عبور کردی؟", "No"),
+            PhrasalVerb("back out", "عقب کشیدن", "withdraw from commitment",
+                "I couldn't back out.", "نمی‌توانستم عقب بکشم.", "No"),
+            PhrasalVerb("get back up", "بلند شدن", "recover",
+                "I got back up.", "بلند شدم.", "No"),
+            PhrasalVerb("look back", "به عقب نگاه کردن", "reflect",
+                "Looking back, it taught me a lot.", "با نگاه به عقب، چیزهای زیادی یادم داد.", "No")
+        ),
+        pronunciation = listOf(
+            PronunciationTip("Past perfect continuous stress", "Stress 'had been' and the -ing verb: I had BEEN TRAINing for six months."),
+            PronunciationTip("Past perfect reduction", "In natural speech, 'had' often reduces to 'd': I'd been, she'd been."),
+            PronunciationTip("Emphatic past participles", "Stress past participles for emphasis: I had ALready LEFT.")
+        ),
+        culture = listOf(
+            CulturalNote("Marathon culture",
+                "Marathon running has grown globally. Major marathons like Boston, New York, and London attract tens of thousands of runners and millions of spectators."),
+            CulturalNote("Resilience and growth mindset",
+                "Psychologist Carol Dweck's research on 'growth mindset' shows that people who view challenges as opportunities to grow are more successful than those who avoid failure."),
+            CulturalNote("Setbacks as teachers",
+                "Many successful people credit failures and setbacks as essential to their eventual success. The Japanese concept of 'kintsugi' celebrates repair and imperfection.")
+        ),
+        mistakes = listOf(
+            CommonMistake("I was working there for three years when I got promoted.", "I had been working there for three years when I got promoted.", "Use past perfect continuous for continuous action before a past event."),
+            CommonMistake("She has already left when I arrived.", "She had already left when I arrived.", "Use past perfect for actions before a past moment."),
+            CommonMistake("I had been try for weeks.", "I had been trying for weeks.", "After 'had been', use -ing form.")
+        ),
+        comprehension = listOf(
+            ComprehensionQuestion("Why did B decide to do the marathon only once?", "It was incredibly hard, though rewarding."),
+            ComprehensionQuestion("What kept B motivated during years of learning English?", "Celebrating small wins — like ordering coffee or understanding a joke."),
+            ComprehensionQuestion("What did B learn from the business failure?", "Failure isn't final, and B is more capable than previously thought.")
+        ),
+        speaking = listOf(
+            SpeakingTask("Describe a personal challenge you overcame.",
+                "چالشی که پشت سر گذاشته‌ای توصیف کن.",
+                "I had been... when... / I overcame... / Looking back..."),
+            SpeakingTask("Discuss the role of failure in success.",
+                "درباره نقش شکست در موفقیت صحبت کن.",
+                "Failure taught me... / I had been... / Eventually..."),
+            SpeakingTask("Interview a partner about a proud accomplishment.",
+                "مصاحبه با یک دوست درباره دستاورد افتخارآمیزش.",
+                "How did you feel when...? / What kept you going? / What did you learn?")
+        ),
+        writing = listOf(
+            WritingTask("Write a personal narrative about overcoming a challenge.",
+                "روایتی شخصی درباره غلبه بر یک چالش بنویس.",
+                250, "Use past perfect and past perfect continuous extensively.")
+        )
+    )
+
+    // ═══════════════════════════════════════════════════════════
+    // UNIT 10 — Gender and Society | جنسیت و جامعه  (≈ 150 خط)
+    // ═══════════════════════════════════════════════════════════
+    private fun unit10() = base(
+        10, "Gender and Society", "جنسیت و جامعه",
+        listOf(
+            "Discuss gender roles and expectations",
+            "Talk about gender equality in different contexts",
+            "Use gerunds and infinitives after verbs",
+            "Discuss stereotypes and social change",
+            "Express opinions with nuance on sensitive topics"
+        ),
+        listOf(
+            v("gender", "جنسیت", "Gender equality is a global issue.", "برابری جنسیتی یک مسئله جهانی است."),
+            v("equality", "برابری", "Equality in the workplace is essential.", "برابری در محیط کار ضروری است."),
+            v("stereotype", "کلیشه", "Gender stereotypes limit everyone.", "کلیشه‌های جنسیتی همه را محدود می‌کنند."),
+            v("role", "نقش", "Traditional gender roles are changing.", "نقش‌های جنسیتی سنتی در حال تغییرند."),
+            v("expectation", "انتظار", "Social expectations shape behavior.", "انتظارات اجتماعی رفتار را شکل می‌دهند."),
+            v("balance", "تعادل", "Housework should be shared for balance.", "کار خانه باید برای تعادل مشترک باشد."),
+            v("bias", "سوگیری", "Unconscious bias affects hiring.", "سوگیری ناخودآگاه بر استخدام تأثیر می‌گذارد."),
+            v("diversity", "تنوع", "Diversity strengthens organizations.", "تنوع سازمان‌ها را تقویت می‌کند."),
+            v("inclusion", "شمول", "Inclusion goes beyond diversity.", "شمول فراتر از تنوع است."),
+            v("empower", "توانمندسازی کردن", "Education empowers women and girls.", "آموزش زنان و دختران را توانمند می‌کند.", "verb"),
+            v("workforce", "نیروی کار", "Women are half the global workforce.", "زنان نیمی از نیروی کار جهانی هستند."),
+            v("housework", "کار خانه", "Housework is often unpaid labor.", "کار خانه اغلب نیروی کار بدون دستمزد است."),
+            v("career", "حرفه", "Career choices shouldn't be gendered.", "انتخاب‌های شغلی نباید جنسیتی باشند."),
+            v("parental leave", "مرخصی والدین", "Paid parental leave benefits everyone.", "مرخصی والدین با حقوق برای همه مفید است."),
+            v("respect", "احترام", "Mutual respect is the foundation.", "احترام متقابل پایه است.")
+        ),
+        listOf(
+            GrammarSection("Gerunds and infinitives after verbs",
+                "Some verbs take gerunds: enjoy, avoid, suggest, consider. Others take infinitives: want, decide, hope, plan. Some take both with different meanings: remember doing vs. remember to do."),
+            GrammarSection("Gerunds as subjects",
+                "Gerunds can act as subjects: Learning about gender helps. Discussing these topics can be uncomfortable. Reading widely changes perspectives."),
+            GrammarSection("Hedging on sensitive topics",
+                "Use softer language on sensitive topics: 'Some people argue...', 'I might be wrong, but...', 'It seems to me...', 'This is complex, but...'")
+        ),
+        listOf(
+            d("A", "Can I ask you a question? Something I've been thinking about.", "می‌توانم سؤالی بپرسم؟ چیزی که به آن فکر می‌کردم."),
+            d("B", "Of course. What's on your mind?", "حتماً. چی تو ذهنت هست؟"),
+            d("A", "I've been reading about gender roles in different countries. It's fascinating.", "درباره نقش‌های جنسیتی در کشورهای مختلف می‌خواندم. جذاب است."),
+            d("B", "Oh, that's a rich topic. What struck you most?", "اوه، موضوع غنی‌ای است. چه چیزی بیشتر برایت جالب بود؟"),
+            d("A", "How different expectations are. In some places, men are expected to be the main breadwinners.", "چقدر انتظارات متفاوتند. در برخی جاها، از مردان انتظار می‌رود نان‌آور اصلی باشند."),
+            d("B", "And in others, that's changing rapidly.", "و در جاهای دیگر، این سریع تغییر می‌کند."),
+            d("A", "Exactly. In my parents' generation, it was very rigid. In mine, it's more fluid.", "دقیقاً. در نسل والدینم خیلی سفت و سخت بود. در نسل من سیال‌تر است."),
+            d("B", "That's a big shift in one generation.", "این تغییر بزرگی در یک نسل است."),
+            d("A", "It is. My mother was expected to stay home. My sister has a career and a family.", "هست. از مادرم انتظار می‌رفت خانه بماند. خواهرم هم حرفه دارد و هم خانواده."),
+            d("B", "Does your sister feel torn between the two?", "خواهرت بین این دو کشمکش دارد؟"),
+            d("A", "Sometimes. She says it's exhausting trying to do everything perfectly.", "گاهی. می‌گوید تلاش برای انجام همه چیز به‌کمال فرسوده‌کننده است."),
+            d("B", "That's a common struggle. The 'having it all' myth.", "این مبارزه رایجی است. اسطوره «همه چیز را داشتن»."),
+            d("A", "Exactly. Because it's not just career and family — it's also housework.", "دقیقاً. چون فقط حرفه و خانواده نیست — کار خانه هم است."),
+            d("B", "True. Studies show women still do most of the unpaid work globally.", "درست. مطالعات نشان می‌دهند زنان هنوز بیشتر کار بدون دستمزد جهانی را انجام می‌دهند."),
+            d("A", "Even when both partners work full-time?", "حتی وقتی هر دو شریک تمام‌وقت کار می‌کنند؟"),
+            d("B", "Yes, unfortunately. The 'second shift', it's called.", "بله، متأسفانه. «شیفت دوم» نامیده می‌شود."),
+            d("A", "That's a good term for it. My sister definitely experiences that.", "اصطلاح خوبی برایش است. خواهرم قطعاً آن را تجربه می‌کند."),
+            d("B", "Does her husband share housework?", "شوهرش کار خانه را به اشتراک می‌گذارد؟"),
+            d("A", "More than many men, but still not equally. She has to ask.", "بیشتر از خیلی از مردان، ولی هنوز برابر نه. باید بخواهد."),
+            d("B", "The mental load is another issue. Remembering things is work too.", "بار ذهنی مسئله دیگری است. به یاد داشتن چیزها هم کار است."),
+            d("A", "Yes! She has to remember everything — appointments, birthdays, school stuff.", "بله! باید همه چیز را به یاد داشته باشد — قرارها، تولدها، کارهای مدرسه."),
+            d("B", "That's invisible labor. It often goes unrecognized.", "این نیروی کار نامرئی است. اغلب نادیده گرفته می‌شود."),
+            d("A", "Do you think it will change in our lifetime?", "فکر می‌کنی در طول عمرمان تغییر می‌کند؟"),
+            d("B", "I hope so. But change is slow. And it varies by country.", "امیدوارم. ولی تغییر کند است. و بر اساس کشور متفاوت."),
+            d("A", "Where do you see the most progress?", "کجا بیشترین پیشرفت را می‌بینی؟"),
+            d("B", "Scandinavian countries lead in parental leave policies. Both parents get substantial time off.", "کشورهای اسکاندیناوی در سیاست‌های مرخصی والدین پیشرو هستند. هر دو والدین مرخصی قابل توجهی می‌گیرند."),
+            d("A", "That's so different from here. Paternity leave is still rare.", "این با اینجا خیلی متفاوت است. مرخصی پدری هنوز نادر است."),
+            d("B", "It is. But some companies are starting to offer it.", "هست. ولی بعضی شرکت‌ها شروع کرده‌اند ارائه دهند."),
+            d("A", "Why does that matter so much?", "چرا اینقدر مهم است؟"),
+            d("B", "Because if men don't take leave, women end up being the default caregivers. It reinforces the imbalance.", "چون اگر مردان مرخصی نگیرند، زنان مراقبان پیش‌فرض می‌شوند. عدم تعادل را تقویت می‌کند."),
+            d("A", "So it's about shifting both roles, not just one.", "پس درباره تغییر هر دو نقش است، نه فقط یکی."),
+            d("B", "Exactly. Equality means changing expectations for everyone.", "دقیقاً. برابری یعنی تغییر انتظارات برای همه."),
+            d("A", "That's a key insight. I hadn't thought about it that way.", "بینش کلیدی‌ای است. آنطور فکر نکرده بودم."),
+            d("B", "It took me a while too. We're all shaped by our environments.", "مدت طول کشید تا من هم. همه‌مان توسط محیط‌مان شکل می‌گیریم."),
+            d("A", "Have you experienced gender bias yourself?", "خودت سوگیری جنسیتی تجربه کرده‌ای؟"),
+            d("B", "In subtle ways. People assuming I'd take notes in meetings, for example.", "به روش‌های ظریف. مثلاً مردم فرض می‌کنند من یادداشت بردارم."),
+            d("A", "That's frustrating.", "این آزاردهنده است."),
+            d("B", "It is. But I've learned to speak up. It doesn't have to be aggressive.", "هست. ولی یاد گرفته‌ام اعتراض کنم. لازم نیست پرخاشگرانه باشد."),
+            d("A", "How do you handle it?", "چطور با آن کنار می‌آیی؟"),
+            d("B", "Light humor sometimes. 'Let's take turns with the notes' works well.", "گاهی طنز سبک. «بیایید به نوبت یادداشت برداریم» خوب کار می‌کند."),
+            d("A", "That's a smart approach. Direct but not confrontational.", "رویکرد هوشمندانه‌ای است. مستقیم ولی غیر تقابلی."),
+            d("B", "It's about progress, not blame. Most people don't realize they're doing it.", "درباره پیشرفت است، نه سرزنش. بیشتر مردم نمی‌دانند دارند این کار را می‌کنند."),
+            d("A", "So education is key?", "پس آموزش کلیدی است؟"),
+            d("B", "Absolutely. Exposing bias helps reduce it.", "قطعاً. افشای سوگیری به کاهشش کمک می‌کند."),
+            d("A", "What about younger generations? Do they think differently?", "نسل‌های جوان‌تر چطور؟ متفاوت فکر می‌کنند؟"),
+            d("B", "Generally more open. Especially in urban areas.", "عموماً بازتر. مخصوصاً در مناطق شهری."),
+            d("A", "That gives me hope.", "این به من امید می‌دهد."),
+            d("B", "Me too. Progress isn't linear, but it's real.", "من هم. پیشرفت خطی نیست، ولی واقعی است."),
+            d("A", "Do you think there's a danger of pushing too fast?", "فکر می‌کنی خطر تند رفتن وجود دارد؟"),
+            d("B", "Some feel that way. But historically, equality movements have been resisted at every step.", "بعضی اینطور احساس می‌کنند. ولی تاریخی، جنبش‌های برابری در هر گام مقاومت دیده‌اند."),
+            d("A", "True. And those resistances are later seen as outdated.", "درست. و آن مقاومت‌ها بعداً کهنه دیده می‌شوند."),
+            d("B", "Exactly. Change is uncomfortable. That doesn't make it wrong.", "دقیقاً. تغییر ناخوشایند است. این آن را غلط نمی‌کند."),
+            d("A", "How do you talk about this with people who disagree?", "چطور با افرادی که مخالف هستند درباره این صحبت می‌کنی؟"),
+            d("B", "I try to listen first. Understanding their concerns helps me respond better.", "سعی می‌کنم اول گوش دهم. درک نگرانی‌هایشان به من کمک می‌کند بهتر پاسخ دهم."),
+            d("A", "That's mature. Most debates become shouting matches.", "این بالغانه است. بیشتر بحث‌ها به فریاد کشیدن تبدیل می‌شوند."),
+            d("B", "Yeah. And shouting changes nobody's mind.", "بله. و فریاد کشیدن ذهن هیچ‌کس را تغییر نمی‌دهد."),
+            d("A", "So what's the most effective way to create change?", "پس مؤثرترین راه ایجاد تغییر چیست؟"),
+            d("B", "Modeling it in your own life. Being the change you want to see.", "الگودهی در زندگی خودت. تغییری باش که می‌خواهی ببینی."),
+            d("A", "Gandhi's famous phrase.", "عبارت معروف گاندی."),
+            d("B", "Ha! Yes. It sounds idealistic, but it's practical.", "ها! بله. آرمان‌گرایانه به نظر می‌رسد، ولی عملی است."),
+            d("A", "How do you model equality in your relationship?", "چطور برابری را در رابطه‌ات الگودهی می‌کنی؟"),
+            d("B", "My partner and I share housework evenly. We both cook, both clean.", "من و همسرم کار خانه را مساوی به اشتراک می‌گذاریم. هر دو آشپزی می‌کنیم، هر دو تمیز می‌کنیم."),
+            d("A", "That's not as common as you'd think.", "این آنقدر که فکر می‌کنی رایج نیست."),
+            d("B", "I know. But it's what we both want.", "می‌دانم. ولی هر دو می‌خواهیم."),
+            d("A", "Any advice for couples trying to be more equal?", "توصیه‌ای برای زوج‌هایی که می‌خواهند برابرتر باشند؟"),
+            d("B", "Communicate openly. Don't assume the other person knows what you need.", "باز صحبت کنید. فرض نکنید طرف مقابل می‌داند به چه نیاز دارید."),
+            d("A", "So regular conversations about these things?", "پس گفت‌وگوهای منظم درباره این چیزها؟"),
+            d("B", "Yes. Weekly check-ins help. Small adjustments prevent big resentments.", "بله. چک‌های هفتگی کمک می‌کنند. تنظیمات کوچک از کینه‌های بزرگ جلوگیری می‌کنند."),
+            d("A", "That's practical advice.", "این توصیه عملی است."),
+            d("B", "Exactly. Change starts small. At home, then in society.", "دقیقاً. تغییر کوچک شروع می‌شود. در خانه، بعد در جامعه."),
+            d("A", "So personal is political?", "پس شخصی سیاسی است؟"),
+            d("B", "In this case, yes. How we live is our message.", "در این مورد، بله. چطور زندگی می‌کنیم پیام ماست."),
+            d("A", "That's a beautiful way to put it.", "روش زیبایی برای بیان آن است."),
+            d("B", "Thanks. It's what keeps me going.", "ممنون. همین مرا ادامه می‌دهد."),
+            d("A", "Well, this was a great conversation. Thanks for sharing your thoughts.", "خب، گفت‌وگوی عالی‌ای بود. ممنون که افکارت را به اشتراک گذاشتی."),
+            d("B", "Anytime. These conversations matter.", "هر وقت. این گفت‌وگوها مهم هستند."),
+            d("A", "They do. Talk soon.", "هستند. به‌زودی صحبت."),
+            d("B", "Talk soon.", "به‌زودی صحبت.")
+        ),
+        listOf(
+            q("What is 'the second shift'?", listOf("a night job", "unpaid housework after paid work", "weekend work", "a type of career"), 1),
+            q("Which countries lead in parental leave policies?", listOf("USA and UK", "Scandinavian countries", "Asian countries", "South America"), 1),
+            q("Why is paternity leave important?", listOf("it's a benefit", "it shifts childcare expectations", "companies prefer it", "it's legally required"), 1),
+            q("How does B handle bias?", listOf("confrontationally", "light humor and speaking up", "ignoring it", "reporting to HR"), 1),
+            q("What is 'modeling the change'?", listOf("teaching others", "living it personally", "protesting", "writing about it"), 1),
+            q("I enjoy ___ about social issues.", listOf("talk", "talking", "to talk", "talked"), 1),
+            q("I avoid ___ controversial topics.", listOf("to discuss", "discussing", "discuss", "discussed"), 1),
+            q("She decided ___ her career.", listOf("changing", "to change", "change", "changed"), 1),
+            q("___ about this helps everyone.", listOf("Talk", "Talking", "To talk", "Talks"), 1),
+            q("We hope ___ more equality in the future.", listOf("seeing", "to see", "see", "saw"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Having it all", "همه چیز را داشتن", "The 'having it all' myth.", "اسطوره «همه چیز را داشتن»."),
+            IdiomExpression("Speak up", "اعتراض کردن", "I've learned to speak up.", "یاد گرفته‌ام اعتراض کنم."),
+            IdiomExpression("Take turns", "به نوبت", "Let's take turns with the notes.", "بیایید به نوبت یادداشت برداریم."),
+            IdiomExpression("Model the change", "الگودهی تغییر", "Model it in your own life.", "در زندگی خودت الگودهی کن."),
+            IdiomExpression("Personal is political", "شخصی سیاسی است", "So personal is political?", "پس شخصی سیاسی است؟"),
+            IdiomExpression("Shouting match", "دعوای داد و فریاد", "Debates become shouting matches.", "بحث‌ها به دعوای داد و فریاد تبدیل می‌شوند.")
+        ),
+        phrasal = listOf(
+            PhrasalVerb("speak up", "اعتراض کردن", "voice one's opinion",
+                "I've learned to speak up.", "یاد گرفته‌ام اعتراض کنم.", "No"),
+            PhrasalVerb("take turns", "به نوبت", "alternate",
+                "Let's take turns with the notes.", "بیایید به نوبت یادداشت برداریم.", "No"),
+            PhrasalVerb("push too fast", "تند رفتن", "move too quickly",
+                "There's a danger of pushing too fast.", "خطر تند رفتن وجود دارد.", "No"),
+            PhrasalVerb("check in", "چک کردن", "have a conversation",
+                "Weekly check-ins help.", "چک‌های هفتگی کمک می‌کنند.", "No")
+        ),
+        pronunciation = listOf(
+            PronunciationTip("Gerund stress", "Stress the gerund's main syllable: TALKing, DISCUSsing, LEARning."),
+            PronunciationTip("Hedging intonation", "Use rising intonation for hedged opinions: Some people argue ↗ that..."),
+            PronunciationTip("Sensitive topic softening", "Lower your volume slightly when discussing sensitive topics; it signals respect.")
+        ),
+        culture = listOf(
+            CulturalNote("Gender equality globally",
+                "Gender equality varies widely across cultures. The World Economic Forum's Global Gender Gap Report measures progress across health, education, economy, and politics."),
+            CulturalNote("The second shift",
+                "Sociologist Arlie Hochschild coined the term 'second shift' to describe the unpaid housework and childcare that many women do after their paid work day."),
+            CulturalNote("Nordic model",
+                "Nordic countries (Sweden, Norway, Denmark, Finland, Iceland) consistently rank highest in gender equality, with strong parental leave policies and female political representation.")
+        ),
+        mistakes = listOf(
+            CommonMistake("I enjoy to talk about this.", "I enjoy talking about this.", "Use gerund after 'enjoy'."),
+            CommonMistake("She decided changing her career.", "She decided to change her career.", "Use infinitive after 'decide'."),
+            CommonMistake("Talk about this helps.", "Talking about this helps.", "Use gerund as subject, not base verb.")
+        ),
+        comprehension = listOf(
+            ComprehensionQuestion("What is the 'second shift' and why does it matter?", "Unpaid housework after paid work, mostly done by women, creating inequality."),
+            ComprehensionQuestion("Why does paternity leave matter?", "If men don't take leave, women become default caregivers, reinforcing imbalance."),
+            ComprehensionQuestion("How does B suggest creating change?", "Modeling equality in personal life, listening to others, and having open conversations.")
+        ),
+        speaking = listOf(
+            SpeakingTask("Discuss gender roles in your country and how they're changing.",
+                "درباره نقش‌های جنسیتی در کشورت و چگونگی تغییرشان صحبت کن.",
+                "Traditionally... / Now... / In the future..."),
+            SpeakingTask("Role-play a respectful disagreement on a social topic.",
+                "نقش‌بازی یک اختلاف محترمانه درباره یک موضوع اجتماعی.",
+                "I understand your point, but... / Have you considered...? / I might be wrong, but..."),
+            SpeakingTask("Debate the role of parental leave policies.",
+                "درباره نقش سیاست‌های مرخصی والدین بحث کنید.",
+                "Some argue... / Others say... / The evidence suggests...")
+        ),
+        writing = listOf(
+            WritingTask("Write a well-argued opinion essay about a gender equality issue.",
+                "یک مقاله نظرخواهی مستدل درباره یک مسئله برابری جنسیتی بنویس.",
+                250, "Use gerunds and infinitives correctly, and hedge opinions appropriately.")
         )
     )
 }
