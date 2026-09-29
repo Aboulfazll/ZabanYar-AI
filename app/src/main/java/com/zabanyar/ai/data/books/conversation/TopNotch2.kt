@@ -72,7 +72,10 @@ object TopNotch2 {
             "Greet a visitor to your country",
             "Use the present perfect with already, yet, ever, before, and never",
             "Discuss gestures and customs around the world",
-            "Describe an interesting experience"
+            "Describe an interesting experience",
+            "Talk about cultural differences in greetings",
+            "Use small talk to start conversations",
+            "Describe how long you've known someone"
         ),
         listOf(
             v("acquaintance", "آشنا", "He's an old acquaintance from college.", "او یک آشنای قدیمی از دانشگاه است."),
@@ -89,7 +92,17 @@ object TopNotch2 {
             v("lateness", "تأخیر", "He apologized for his lateness.", "او برای تأخیرش عذرخواهی کرد."),
             v("experience", "تجربه", "Traveling abroad was a great experience.", "سفر به خارج تجربه عالی بود."),
             v("tourist activity", "فعالیت گردشگری", "Sightseeing is a popular tourist activity.", "بازدید از جاذبه‌ها یک فعالیت گردشگری محبوب است."),
-            v("culture", "فرهنگ", "Learning about other cultures is interesting.", "یادگیری درباره فرهنگ‌های دیگر جالب است.")
+            v("culture", "فرهنگ", "Learning about other cultures is interesting.", "یادگیری درباره فرهنگ‌های دیگر جالب است."),
+            v("small talk", "گپ کوتاه", "Small talk helps break the ice.", "گپ کوتاه به شکستن یخ کمک می‌کند."),
+            v("break the ice", "یخ را شکستن", "A joke can break the ice in a conversation.", "یک جوک می‌تواند در گفتگو یخ را بشکند."),
+            v("resident", "ساکن", "The residents of this city are very friendly.", "ساکنان این شهر خیلی خوش‌برخورد هستند."),
+            v("abroad", "خارج از کشور", "She has lived abroad for five years.", "او پنج سال است در خارج زندگی می‌کند.", "adverb"),
+            v("hometown", "شهر زادگاه", "I haven't visited my hometown in years.", "سال‌هاست به شهر زادگاهم نرفته‌ام."),
+            v("reunion", "تجدید دیدار", "We had a family reunion last summer.", "تابستان گذشته تجدید دیدار خانوادگی داشتیم."),
+            v("handshake", "دست دادن", "A firm handshake shows confidence.", "دست دادن محکم اعتماد به نفس را نشان می‌دهد."),
+            v("greeting", "سلام و احوال‌پرسی", "Every culture has different greetings.", "هر فرهنگی سلام و احوال‌پرسی متفاوتی دارد."),
+            v("impression", "برداشت", "First impressions are important.", "برداشت‌های اول مهم هستند."),
+            v("polite", "مؤدبانه", "It's polite to say thank you.", "مؤدبانه است که ممنون بگویی.", "adjective")
         ),
         listOf(
             GrammarSection(
@@ -110,14 +123,15 @@ object TopNotch2 {
             )
         ),
         listOf(
-            d("A", "You look familiar. Haven't we met before?", "آشنا به نظر می‌رسی. قبلاً همدیگر را ندیده‌ایم؟"),
+            // ── دیالوگ اصلی (۴۰ خط) ──
+            d("A", "Hi! You look so familiar. Haven't we met before?", "سلام! خیلی آشنا به نظر می‌رسی. قبلاً همدیگر را ندیده‌ایم؟"),
             d("B", "I don't think so. I'm not from around here.", "فکر نمی‌کنم. من اهل اینجا نیستم."),
             d("A", "Aren't you from Canada?", "اهل کانادا نیستی؟"),
             d("B", "Yes, I am. I'm from Vancouver. How did you know?", "بله. اهل ونکوور هستم. از کجا فهمیدی؟"),
             d("A", "I think we met at Joan's house last month.", "فکر می‌کنم ماه گذشته در خانه جوآن همدیگر را دیدیم."),
             d("B", "Oh, that's right! You work with Joan.", "اوه، درست است! تو با جوآن کار می‌کنی."),
-            d("A", "Yes, I do. What have you been up to?", "بله. چه کارها می‌کنی؟"),
-            d("B", "Not much. Actually, I'm on my way to a class.", "زیاد نه. در واقع، در راه کلاس هستم."),
+            d("A", "Yes, I do. What have you been up to lately?", "بله. اخیراً چه کارها می‌کنی؟"),
+            d("B", "Not much. Actually, I'm on my way to a class right now.", "زیاد نه. در واقع، همین الان در راه کلاس هستم."),
             d("A", "What are you studying?", "چه چیزی درس می‌خوانی؟"),
             d("B", "I'm taking a course in international business.", "دارم یک دوره تجارت بین‌الملل می‌خوانم."),
             d("A", "That sounds interesting. Have you ever traveled abroad for work?", "جالب به نظر می‌رسد. تا حالا برای کار به خارج سفر کرده‌ای؟"),
@@ -132,12 +146,28 @@ object TopNotch2 {
             d("B", "You should! Traveling teaches you so much about the world.", "باید بروی! سفر چیزهای زیادی درباره دنیا یادت می‌دهد."),
             d("A", "I'd love to. Maybe I'll start planning a trip.", "خیلی دوست دارم. شاید شروع کنم به برنامه‌ریزی سفر."),
             d("B", "Let me know if you need any advice. I've planned many trips.", "اگر مشاوره لازم داشتی خبرم کن. سفرهای زیادی برنامه‌ریزی کرده‌ام."),
-            d("A", "Thanks. That would be great.", "ممنون. عالی می‌شود."),
-            d("B", "Well, I have to go to class now. It was nice seeing you again.", "خب، باید الان به کلاس بروم. از دیدن دوباره‌ات خوشحال شدم."),
-            d("A", "Nice seeing you, too. We should keep in touch.", "من هم خوشحال شدم. باید در تماس باشیم."),
-            d("B", "Of course! Here's my card. Let's get together soon.", "حتماً! این کارت من. بیا به زودی دور هم جمع شویم."),
-            d("A", "Sounds good. I'll call you next week.", "خوبه. هفته بعد بهت زنگ می‌زنم."),
-            d("B", "Perfect. See you then!", "عالی. تا اون موقع!")
+            d("A", "Thanks. That would be great. Where do you recommend going first?", "ممنون. عالی می‌شود. کجا را توصیه می‌کنی اول بروم؟"),
+            d("B", "Well, if you want a mix of culture and nature, Japan is amazing.", "خب، اگر ترکیبی از فرهنگ و طبیعت می‌خواهی، ژاپن فوق‌العاده است."),
+            d("A", "Japan sounds incredible. What was your favorite part?", "ژاپن باورنکردنی به نظر می‌رسد. قسمت مورد علاقه‌ات چه بود؟"),
+            d("B", "Probably Kyoto. It's full of temples and traditional gardens.", "احتمالاً کیوتو. پر از معابد و باغ‌های سنتی است."),
+            d("A", "I've seen photos. It looks beautiful.", "عکس‌ها را دیده‌ام. زیبا به نظر می‌رسد."),
+            d("B", "It really is. If you go, you should stay in a traditional ryokan.", "واقعاً زیباست. اگر رفتی، باید در یک ریوکان سنتی بمانی."),
+            d("A", "What's a ryokan?", "ریوکان چیست؟"),
+            d("B", "It's a traditional Japanese inn. You sleep on a tatami mat and eat traditional meals.", "یک مسافرخانه سنتی ژاپنی است. روی تشک تاتامی می‌خوابی و غذای سنتی می‌خوری."),
+            d("A", "That sounds like an amazing experience.", "تجربه فوق‌العاده‌ای به نظر می‌رسد."),
+            d("B", "It is. If you want, I can recommend some good ones.", "هست. اگر بخواهی، می‌توانم چند مورد خوب توصیه کنم."),
+            d("A", "Yes, please! I'm seriously considering a trip now.", "بله، لطفاً! الان جدی دارم به یک سفر فکر می‌کنم."),
+            d("B", "Great! By the way, do you speak any Japanese?", "عالی! راستی، ژاپنی صحبت می‌کنی؟"),
+            d("A", "No, not at all. Is it hard to learn?", "نه، اصلاً. یادگیری‌اش سخت است؟"),
+            d("B", "It's challenging, but you can learn basic phrases quickly.", "چالش‌برانگیز است، ولی می‌توانی عبارات پایه را سریع یاد بگیری."),
+            d("A", "Maybe I'll try. Have you learned any Japanese?", "شاید امتحان کنم. تو ژاپنی یاد گرفته‌ای؟"),
+            d("B", "Just a few words. People appreciate when you try.", "فقط چند کلمه. مردم قدردان هستند وقتی تلاش می‌کنی."),
+            d("A", "That's good to know. Well, I should let you get to class.", "این را خوب است که بدانم. خب، بگذار بروی به کلاس."),
+            d("B", "Yes, I have to run. It was great seeing you again!", "بله، باید بدوم. از دیدن دوباره‌ات خیلی خوشحال شدم!"),
+            d("A", "Great seeing you too. We should get together soon.", "من هم خوشحال شدم. باید به زودی دور هم جمع شویم."),
+            d("B", "Definitely. Here's my card. Let's keep in touch.", "قطعاً. این کارت من. بیا در تماس باشیم."),
+            d("A", "Perfect. I'll call you next week.", "عالی. هفته بعد بهت زنگ می‌زنم."),
+            d("B", "Sounds good. See you then!", "خوبه. تا اون موقع!")
         ),
         listOf(
             q("Where is B from?", listOf("Japan", "Canada", "England", "America"), 1),
@@ -145,15 +175,23 @@ object TopNotch2 {
             q("How many times has B been to Japan?", listOf("once", "twice", "three times", "never"), 1),
             q("What custom did B learn about in Japan?", listOf("hugging", "bowing", "kissing", "shaking hands"), 1),
             q("What mistake did B make?", listOf("bowed too low", "hugged a business partner", "forgot to shake hands", "arrived late"), 1),
+            q("What city in Japan does B recommend?", listOf("Tokyo", "Osaka", "Kyoto", "Nagoya"), 2),
+            q("What is a ryokan?", listOf("a temple", "a traditional inn", "a restaurant", "a garden"), 1),
             q("Choose the correct sentence.", listOf("Have you ever been to Japan?", "Did you ever been to Japan?", "Have you ever went to Japan?", "Do you ever been to Japan?"), 0),
             q("I haven't finished ___.", listOf("already", "yet", "ever", "never"), 1),
-            q("She has ___ seen that movie. (affirmative)", listOf("yet", "ever", "already", "never"), 2)
+            q("She has ___ seen that movie. (affirmative)", listOf("yet", "ever", "already", "never"), 2),
+            q("Have you ___ been to Europe?", listOf("already", "yet", "ever", "never"), 2),
+            q("I've ___ been to Japan. (negative experience)", listOf("already", "yet", "ever", "never"), 3)
         ),
         idioms = listOf(
-            IdiomExpression("What have you been up to?", "چه کارها می‌کنی؟", "What have you been up to?", "چه کارها می‌کنی؟"),
+            IdiomExpression("What have you been up to?", "چه کارها می‌کنی؟", "What have you been up to lately?", "اخیراً چه کارها می‌کنی؟"),
             IdiomExpression("Keep in touch", "در تماس بودن", "We should keep in touch.", "باید در تماس باشیم."),
             IdiomExpression("Get together", "دور هم جمع شدن", "Let's get together soon.", "بیا به زودی دور هم جمع شویم."),
-            IdiomExpression("That sounds interesting", "جالب به نظر می‌رسد", "That sounds interesting.", "جالب به نظر می‌رسد.")
+            IdiomExpression("That sounds interesting", "جالب به نظر می‌رسد", "That sounds interesting.", "جالب به نظر می‌رسد."),
+            IdiomExpression("Good to know", "خوب است که بدانم", "That's good to know.", "خوب است که بدانم."),
+            IdiomExpression("Break the ice", "یخ را شکستن", "A joke can break the ice.", "یک جوک می‌تواند یخ را بشکند."),
+            IdiomExpression("Small talk", "گپ کوتاه", "Small talk helps in new situations.", "گپ کوتاه در موقعیت‌های جدید کمک می‌کند."),
+            IdiomExpression("I should let you go", "باید بگذارم بروی", "Well, I should let you get to class.", "خب، بگذار بروی به کلاس.")
         ),
         phrasal = listOf(
             PhrasalVerb(
@@ -163,11 +201,21 @@ object TopNotch2 {
             PhrasalVerb(
                 "keep in touch", "در تماس بودن", "maintain contact",
                 "We should keep in touch.", "باید در تماس باشیم.", "No"
+            ),
+            PhrasalVerb(
+                "get together", "دور هم جمع شدن", "meet socially",
+                "Let's get together soon.", "بیا به زودی دور هم جمع شویم.", "No"
+            ),
+            PhrasalVerb(
+                "run into", "به کسی برخوردن", "meet by chance",
+                "I ran into an old friend yesterday.", "دیروز به یک دوست قدیمی برخوردم.", "Yes"
             )
         ),
         pronunciation = listOf(
             PronunciationTip("Sound reduction in Present Perfect", "Listen for the reduced form of 'have': I've been → /aɪv bɪn/, You've seen → /juːv siːn/."),
-            PronunciationTip("Rising intonation in questions", "Yes/No questions with the present perfect have rising intonation: Have you ever been to Japan? ↗")
+            PronunciationTip("Rising intonation in questions", "Yes/No questions with the present perfect have rising intonation: Have you ever been to Japan? ↗"),
+            PronunciationTip("Contractions with have", "Practice natural contractions: I've, you've, we've, they've, he's, she's, it's."),
+            PronunciationTip("Reduction of 'to' in natural speech", "In fast speech, 'to' is often reduced: going to → gonna, want to → wanna.")
         ),
         culture = listOf(
             CulturalNote(
@@ -177,15 +225,21 @@ object TopNotch2 {
             CulturalNote(
                 "Showing interest in conversation",
                 "When someone shares an experience, responding with 'Really?', 'That's interesting!', or 'How fascinating!' shows you are engaged and encourages them to continue."
+            ),
+            CulturalNote(
+                "Small talk around the world",
+                "Small talk topics vary by culture. Weather is safe in many English-speaking countries. In others, family or food might be more common. Politics and religion are usually avoided in initial conversations."
             )
         ),
         mistakes = listOf(
             CommonMistake("Have you ever went to Japan?", "Have you ever been to Japan?", "Use the past participle 'been' with 'have', not the simple past 'went'."),
-            CommonMistake("I have seen him yesterday.", "I saw him yesterday.", "Use the simple past with specific past time expressions like 'yesterday'.")
+            CommonMistake("I have seen him yesterday.", "I saw him yesterday.", "Use the simple past with specific past time expressions like 'yesterday'."),
+            CommonMistake("I've been to Japan since two years.", "I've been to Japan for two years.", "Use 'for' with periods of time, not 'since'.")
         ),
         comprehension = listOf(
             ComprehensionQuestion("What mistake did B make with a business partner?", "B hugged a business partner, who felt uncomfortable."),
-            ComprehensionQuestion("Why does B say traveling is important?", "Because it teaches you a lot about the world.")
+            ComprehensionQuestion("Why does B say traveling is important?", "Because it teaches you a lot about the world."),
+            ComprehensionQuestion("What is a ryokan and why does B recommend it?", "It's a traditional Japanese inn where you sleep on tatami mats and eat traditional meals.")
         ),
         speaking = listOf(
             SpeakingTask(
@@ -197,19 +251,22 @@ object TopNotch2 {
                 "Discuss a custom from your country with a partner.",
                 "درباره یک رسم از کشورت با یک دوست صحبت کن.",
                 "In my country, people... / It's polite to... / It's rude to..."
+            ),
+            SpeakingTask(
+                "Role-play meeting someone new at a party and making small talk.",
+                "نقش‌بازی: ملاقات با یک فرد جدید در مهمانی و شروع گپ کوتاه.",
+                "Have we met before? / What have you been up to? / Nice meeting you!"
             )
         ),
         writing = listOf(
             WritingTask(
                 "Write about an interesting experience you've had.",
                 "درباره یک تجربه جالب که داشته‌ای بنویس.",
-                150,
+                170,
                 "Use the present perfect with already, yet, ever, before, or never."
             )
         )
-    )
-
-    // ═══════════════════════════════════════════════════════════
+    )    // ═══════════════════════════════════════════════════════════
     // UNIT 2 — Going to the Movies | رفتن به سینما
     // ═══════════════════════════════════════════════════════════
     private fun lesson2() = base(
@@ -504,7 +561,7 @@ object TopNotch2 {
         )
     )
 
-       // ═══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════════
     // UNIT 4 — Cars and Driving | ماشین و رانندگی
     // ═══════════════════════════════════════════════════════════
     private fun lesson4() = base(
@@ -961,7 +1018,7 @@ object TopNotch2 {
         )
     )
 
-       // ═══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════════
     // UNIT 7 — Psychology and Personality | روانشناسی و شخصیت
     // ═══════════════════════════════════════════════════════════
     private fun lesson7() = base(
@@ -1414,7 +1471,7 @@ object TopNotch2 {
         )
     )
 
-       // ═══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════════
     // UNIT 10 — Ethics and Values | اخلاق و ارزش‌ها
     // ═══════════════════════════════════════════════════════════
     private fun lesson10() = base(
@@ -1571,3 +1628,5 @@ object TopNotch2 {
         )
     )
 }
+
+   
