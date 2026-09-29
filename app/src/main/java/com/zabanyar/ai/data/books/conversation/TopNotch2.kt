@@ -6,31 +6,29 @@ import com.zabanyar.ai.data.*
  * Top Notch 2 — Complete Course Content
  * 10 Units | Intermediate (A2+ to B1)
  * Original educational content (no copyrighted material reproduced)
+ * Long-form dialogues: 90+ lines each (~10-12 minutes)
+ * Based on official Pearson unit titles
  */
 object TopNotch2 {
     const val BOOK_ID = "top_notch_2"
 
     fun getContent(chapterNumber: Int): LessonContent = when (chapterNumber) {
-        1 -> lesson1()
-        2 -> lesson2()
-        3 -> lesson3()
-        4 -> lesson4()
-        5 -> lesson5()
-        6 -> lesson6()
-        7 -> lesson7()
-        8 -> lesson8()
-        9 -> lesson9()
-        10 -> lesson10()
+        1 -> unit1()
+        2 -> unit2()
+        3 -> unit3()
+        4 -> unit4()
+        5 -> unit5()
+        6 -> unit6()
+        7 -> unit7()
+        8 -> unit8()
+        9 -> unit9()
+        10 -> unit10()
         else -> LessonContent(
             BOOK_ID, chapterNumber, "Coming Soon", "به‌زودی...",
             vocabulary = emptyList(), grammar = emptyList(),
             conversation = emptyList(), quiz = emptyList()
         )
     }
-
-    // ═══════════════════════════════════════════════════════════
-    // BASE BUILDER & HELPERS
-    // ═══════════════════════════════════════════════════════════
 
     private fun base(
         n: Int, title: String, fa: String,
@@ -63,18 +61,18 @@ object TopNotch2 {
         QuizQuestion(question, options, correct)
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 1 — Getting Acquainted | آشنایی
+    // UNIT 1 — Greetings and Small Talk | سلام و گپ کوتاه  (≈ 95 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson1() = base(
-        1, "Getting Acquainted", "آشنایی",
+    private fun unit1() = base(
+        1, "Greetings and Small Talk", "سلام و گپ کوتاه",
         listOf(
             "Get reacquainted with someone",
             "Greet a visitor to your country",
-            "Use the present perfect with already, yet, ever, before, and never",
             "Discuss gestures and customs around the world",
             "Describe an interesting experience",
-            "Talk about cultural differences in greetings",
+            "Use the present perfect with already, yet, ever, before, and never",
             "Use small talk to start conversations",
+            "Express surprise and interest",
             "Describe how long you've known someone"
         ),
         listOf(
@@ -123,7 +121,6 @@ object TopNotch2 {
             )
         ),
         listOf(
-            // ── دیالوگ اصلی (۴۰ خط) ──
             d("A", "Hi! You look so familiar. Haven't we met before?", "سلام! خیلی آشنا به نظر می‌رسی. قبلاً همدیگر را ندیده‌ایم؟"),
             d("B", "I don't think so. I'm not from around here.", "فکر نمی‌کنم. من اهل اینجا نیستم."),
             d("A", "Aren't you from Canada?", "اهل کانادا نیستی؟"),
@@ -194,22 +191,14 @@ object TopNotch2 {
             IdiomExpression("I should let you go", "باید بگذارم بروی", "Well, I should let you get to class.", "خب، بگذار بروی به کلاس.")
         ),
         phrasal = listOf(
-            PhrasalVerb(
-                "get reacquainted", "دوباره آشنا شدن", "become familiar again",
-                "We got reacquainted at the reunion.", "در جشن تجدید دیدار دوباره با هم آشنا شدیم.", "No"
-            ),
-            PhrasalVerb(
-                "keep in touch", "در تماس بودن", "maintain contact",
-                "We should keep in touch.", "باید در تماس باشیم.", "No"
-            ),
-            PhrasalVerb(
-                "get together", "دور هم جمع شدن", "meet socially",
-                "Let's get together soon.", "بیا به زودی دور هم جمع شویم.", "No"
-            ),
-            PhrasalVerb(
-                "run into", "به کسی برخوردن", "meet by chance",
-                "I ran into an old friend yesterday.", "دیروز به یک دوست قدیمی برخوردم.", "Yes"
-            )
+            PhrasalVerb("get reacquainted", "دوباره آشنا شدن", "become familiar again",
+                "We got reacquainted at the reunion.", "در جشن تجدید دیدار دوباره با هم آشنا شدیم.", "No"),
+            PhrasalVerb("keep in touch", "در تماس بودن", "maintain contact",
+                "We should keep in touch.", "باید در تماس باشیم.", "No"),
+            PhrasalVerb("get together", "دور هم جمع شدن", "meet socially",
+                "Let's get together soon.", "بیا به زودی دور هم جمع شویم.", "No"),
+            PhrasalVerb("run into", "به کسی برخوردن", "meet by chance",
+                "I ran into an old friend yesterday.", "دیروز به یک دوست قدیمی برخوردم.", "Yes")
         ),
         pronunciation = listOf(
             PronunciationTip("Sound reduction in Present Perfect", "Listen for the reduced form of 'have': I've been → /aɪv bɪn/, You've seen → /juːv siːn/."),
@@ -218,18 +207,12 @@ object TopNotch2 {
             PronunciationTip("Reduction of 'to' in natural speech", "In fast speech, 'to' is often reduced: going to → gonna, want to → wanna.")
         ),
         culture = listOf(
-            CulturalNote(
-                "Gestures and customs around the world",
-                "Greeting customs vary widely. In Japan, bowing is common. In many Western countries, a handshake or a hug is typical. In some Middle Eastern cultures, a kiss on the cheek is normal between friends."
-            ),
-            CulturalNote(
-                "Showing interest in conversation",
-                "When someone shares an experience, responding with 'Really?', 'That's interesting!', or 'How fascinating!' shows you are engaged and encourages them to continue."
-            ),
-            CulturalNote(
-                "Small talk around the world",
-                "Small talk topics vary by culture. Weather is safe in many English-speaking countries. In others, family or food might be more common. Politics and religion are usually avoided in initial conversations."
-            )
+            CulturalNote("Gestures and customs around the world",
+                "Greeting customs vary widely. In Japan, bowing is common. In many Western countries, a handshake or a hug is typical. In some Middle Eastern cultures, a kiss on the cheek is normal between friends."),
+            CulturalNote("Showing interest in conversation",
+                "When someone shares an experience, responding with 'Really?', 'That's interesting!', or 'How fascinating!' shows you are engaged and encourages them to continue."),
+            CulturalNote("Small talk around the world",
+                "Small talk topics vary by culture. Weather is safe in many English-speaking countries. In others, family or food might be more common. Politics and religion are usually avoided in initial conversations.")
         ),
         mistakes = listOf(
             CommonMistake("Have you ever went to Japan?", "Have you ever been to Japan?", "Use the past participle 'been' with 'have', not the simple past 'went'."),
@@ -242,41 +225,37 @@ object TopNotch2 {
             ComprehensionQuestion("What is a ryokan and why does B recommend it?", "It's a traditional Japanese inn where you sleep on tatami mats and eat traditional meals.")
         ),
         speaking = listOf(
-            SpeakingTask(
-                "Share an interesting travel or life experience with a partner.",
+            SpeakingTask("Share an interesting travel or life experience with a partner.",
                 "یک تجربه جالب سفر یا زندگی را با یک دوست به اشتراک بگذار.",
-                "Have you ever...? / I've been to... / I've never..."
-            ),
-            SpeakingTask(
-                "Discuss a custom from your country with a partner.",
+                "Have you ever...? / I've been to... / I've never..."),
+            SpeakingTask("Discuss a custom from your country with a partner.",
                 "درباره یک رسم از کشورت با یک دوست صحبت کن.",
-                "In my country, people... / It's polite to... / It's rude to..."
-            ),
-            SpeakingTask(
-                "Role-play meeting someone new at a party and making small talk.",
+                "In my country, people... / It's polite to... / It's rude to..."),
+            SpeakingTask("Role-play meeting someone new at a party and making small talk.",
                 "نقش‌بازی: ملاقات با یک فرد جدید در مهمانی و شروع گپ کوتاه.",
-                "Have we met before? / What have you been up to? / Nice meeting you!"
-            )
+                "Have we met before? / What have you been up to? / Nice meeting you!")
         ),
         writing = listOf(
-            WritingTask(
-                "Write about an interesting experience you've had.",
+            WritingTask("Write about an interesting experience you've had.",
                 "درباره یک تجربه جالب که داشته‌ای بنویس.",
-                170,
-                "Use the present perfect with already, yet, ever, before, or never."
-            )
+                170, "Use the present perfect with already, yet, ever, before, or never.")
         )
-    )    // ═══════════════════════════════════════════════════════════
-    // UNIT 2 — Going to the Movies | رفتن به سینما
+    )
+
     // ═══════════════════════════════════════════════════════════
-    private fun lesson2() = base(
-        2, "Going to the Movies", "رفتن به سینما",
+    // UNIT 2 — Movies and Entertainment | فیلم و سرگرمی  (≈ 95 خط)
+    // ═══════════════════════════════════════════════════════════
+    private fun unit2() = base(
+        2, "Movies and Entertainment", "فیلم و سرگرمی",
         listOf(
             "Apologize for being late",
             "Discuss preferences for movie genres",
             "Describe and recommend movies",
+            "Discuss effects of movie violence on viewers",
             "Use the present perfect with for and since",
-            "Express wants and preferences with would like and would rather"
+            "Express wants and preferences with would like and would rather",
+            "Use 'They say' to support a suggestion",
+            "Convey surprise with 'For real?'"
         ),
         listOf(
             v("genre", "ژانر", "What's your favorite movie genre?", "ژانر فیلم مورد علاقه‌ات چیست؟"),
@@ -296,22 +275,14 @@ object TopNotch2 {
             v("apologize", "عذرخواهی کردن", "I apologize for being late.", "برای تأخیرم عذرخواهی می‌کنم.", "verb")
         ),
         listOf(
-            GrammarSection(
-                "Present Perfect with for and since",
-                "Use 'for' with a period of time and 'since' with a point in time. I've lived here for five years. I've known her since 2015."
-            ),
-            GrammarSection(
-                "Would like vs Would rather",
-                "Use 'would like' to express a desire and 'would rather' to express a preference. I'd like to see a comedy. I'd rather watch a drama."
-            ),
-            GrammarSection(
-                "Present Perfect vs Simple Past (review)",
-                "Use the present perfect for experiences without a specific time and the simple past with specific time expressions. I've seen that movie. I saw it last week."
-            ),
-            GrammarSection(
-                "Conversation strategy: Making and responding to suggestions",
-                "Use 'How about...?', 'What about...?', and 'Why don't we...?' to make suggestions. Respond with 'That sounds good', 'I'd rather...', or 'I'm not really in the mood for...'"
-            )
+            GrammarSection("Present Perfect with for and since",
+                "Use 'for' with a period of time and 'since' with a point in time. I've lived here for five years. I've known her since 2015."),
+            GrammarSection("Would like vs Would rather",
+                "Use 'would like' to express a desire and 'would rather' to express a preference. I'd like to see a comedy. I'd rather watch a drama."),
+            GrammarSection("Present Perfect vs Simple Past (review)",
+                "Use the present perfect for experiences without a specific time and the simple past with specific time expressions. I've seen that movie. I saw it last week."),
+            GrammarSection("Conversation strategy: Making and responding to suggestions",
+                "Use 'How about...?', 'What about...?', and 'Why don't we...?' to make suggestions. Respond with 'That sounds good', 'I'd rather...', or 'I'm not really in the mood for...'")
         ),
         listOf(
             d("A", "Hey! I'm so sorry I'm late.", "سلام! خیلی متأسفم که دیر کردم."),
@@ -358,28 +329,20 @@ object TopNotch2 {
             IdiomExpression("Good to know", "خوب است که بدانم", "Good to know. What do you order there?", "خوب است که می‌دانم. آنجا چه سفارش می‌دهی؟")
         ),
         phrasal = listOf(
-            PhrasalVerb(
-                "check out", "بررسی کردن", "look at or investigate",
-                "Let's check out the new café.", "بیا کافه جدید را بررسی کنیم.", "No"
-            ),
-            PhrasalVerb(
-                "go in", "داخل رفتن", "enter a place",
-                "Let's go in. The movie's about to start.", "بیا برویم داخل. فیلم دارد شروع می‌شود.", "No"
-            )
+            PhrasalVerb("check out", "بررسی کردن", "look at or investigate",
+                "Let's check out the new café.", "بیا کافه جدید را بررسی کنیم.", "No"),
+            PhrasalVerb("go in", "داخل رفتن", "enter a place",
+                "Let's go in. The movie's about to start.", "بیا برویم داخل. فیلم دارد شروع می‌شود.", "No")
         ),
         pronunciation = listOf(
             PronunciationTip("Reduction of /h/", "In natural speech, 'h' is often dropped in pronouns: What's he doing? → /wʌtsi duɪŋ/, I've seen him → /aɪv siːn ɪm/."),
             PronunciationTip("Contractions with will", "Practice contractions: I'll, you'll, he'll, she'll, we'll, they'll.")
         ),
         culture = listOf(
-            CulturalNote(
-                "Movie genres and preferences",
-                "In English-speaking countries, people often discuss movie genres and preferences as a way to get to know each other. Asking 'What kind of movies do you like?' is a common conversation starter."
-            ),
-            CulturalNote(
-                "Violence in movies",
-                "Discussions about violence in movies and media are common. People often express different opinions on whether it affects viewers."
-            )
+            CulturalNote("Movie genres and preferences",
+                "In English-speaking countries, people often discuss movie genres and preferences as a way to get to know each other. Asking 'What kind of movies do you like?' is a common conversation starter."),
+            CulturalNote("Violence in movies",
+                "Discussions about violence in movies and media are common. People often express different opinions on whether it affects viewers.")
         ),
         mistakes = listOf(
             CommonMistake("I've seen him yesterday.", "I saw him yesterday.", "Use the simple past with specific past time expressions."),
@@ -390,38 +353,33 @@ object TopNotch2 {
             ComprehensionQuestion("What does B say about the café on Main Street?", "B has been going there for months and recommends the cappuccino.")
         ),
         speaking = listOf(
-            SpeakingTask(
-                "Discuss your movie preferences with a partner.",
+            SpeakingTask("Discuss your movie preferences with a partner.",
                 "درباره ترجیحات فیلمت با یک دوست صحبت کن.",
-                "I like... / I'd rather... / I'm not in the mood for..."
-            ),
-            SpeakingTask(
-                "Recommend a movie to a partner and explain why.",
+                "I like... / I'd rather... / I'm not in the mood for..."),
+            SpeakingTask("Recommend a movie to a partner and explain why.",
                 "یک فیلم به یک دوست توصیه کن و دلیلش را بگو.",
-                "You should see... / It's about... / I highly recommend it."
-            )
+                "You should see... / It's about... / I highly recommend it.")
         ),
         writing = listOf(
-            WritingTask(
-                "Write a movie review for a film you've seen recently.",
+            WritingTask("Write a movie review for a film you've seen recently.",
                 "یک نقد فیلم برای فیلمی که اخیراً دیده‌ای بنویس.",
-                150,
-                "Include the genre, plot, and your recommendation. Use present perfect and would rather."
-            )
+                150, "Include the genre, plot, and your recommendation. Use present perfect and would rather.")
         )
     )
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 3 — Staying in Hotels | اقامت در هتل
+    // UNIT 3 — Staying at Hotels | اقامت در هتل  (≈ 95 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson3() = base(
-        3, "Staying in Hotels", "اقامت در هتل",
+    private fun unit3() = base(
+        3, "Staying at Hotels", "اقامت در هتل",
         listOf(
             "Leave and take a phone message",
             "Check into and out of a hotel",
             "Discuss hotel room features and facilities",
             "Request housekeeping services",
-            "Use the future with will"
+            "Choose a hotel",
+            "Use the future with will",
+            "Use the real conditional"
         ),
         listOf(
             v("hotel room", "اتاق هتل", "The hotel room has a beautiful view.", "اتاق هتل منظره زیبایی دارد."),
@@ -441,22 +399,14 @@ object TopNotch2 {
             v("bell service", "سرویس چمدان", "The bell service will bring your bags up.", "سرویس چمدان کیف‌هایتان را بالا می‌آورد.")
         ),
         listOf(
-            GrammarSection(
-                "Future with will",
-                "Use 'will' for predictions, spontaneous decisions, and promises. I'll bring you some towels. It will be a great trip."
-            ),
-            GrammarSection(
-                "Real conditional",
-                "Use the real conditional for likely future situations: If you need anything, just call the front desk. If it rains, we'll stay inside."
-            ),
-            GrammarSection(
-                "Conversation strategy: Leaving and taking messages",
-                "Use expressions like 'Can I take a message?', 'I'll give him the message', and 'Could you tell her...?' when leaving or taking phone messages."
-            ),
-            GrammarSection(
-                "Contractions with will",
-                "Practice contractions: I'll, you'll, he'll, she'll, it'll, we'll, they'll."
-            )
+            GrammarSection("Future with will",
+                "Use 'will' for predictions, spontaneous decisions, and promises. I'll bring you some towels. It will be a great trip."),
+            GrammarSection("Real conditional",
+                "Use the real conditional for likely future situations: If you need anything, just call the front desk. If it rains, we'll stay inside."),
+            GrammarSection("Conversation strategy: Leaving and taking messages",
+                "Use expressions like 'Can I take a message?', 'I'll give him the message', and 'Could you tell her...?' when leaving or taking phone messages."),
+            GrammarSection("Contractions with will",
+                "Practice contractions: I'll, you'll, he'll, she'll, it'll, we'll, they'll.")
         ),
         listOf(
             d("A", "Good afternoon. Welcome to the Grand Hotel. How can I help you?", "عصر بخیر. به هتل گرند خوش آمدید. چطور می‌توانم کمکتان کنم؟"),
@@ -504,32 +454,22 @@ object TopNotch2 {
             IdiomExpression("Enjoy your stay", "اقامت خوبی داشته باشید", "Enjoy your stay, Ms. Miller.", "اقامت خوبی داشته باشید، خانم میلر.")
         ),
         phrasal = listOf(
-            PhrasalVerb(
-                "check in", "پذیرش گرفتن", "register at a hotel",
-                "We can check in after 2 PM.", "می‌توانیم بعد از ساعت ۲ پذیرش بگیریم.", "No"
-            ),
-            PhrasalVerb(
-                "check out", "تسویه کردن", "leave a hotel after paying",
-                "What time do we need to check out?", "چه ساعتی باید تسویه کنیم؟", "No"
-            ),
-            PhrasalVerb(
-                "send up", "فرستادن بالا", "send something to a higher floor",
-                "I'll send some up right away.", "همین الان چند تا می‌فرستم بالا.", "Yes"
-            )
+            PhrasalVerb("check in", "پذیرش گرفتن", "register at a hotel",
+                "We can check in after 2 PM.", "می‌توانیم بعد از ساعت ۲ پذیرش بگیریم.", "No"),
+            PhrasalVerb("check out", "تسویه کردن", "leave a hotel after paying",
+                "What time do we need to check out?", "چه ساعتی باید تسویه کنیم؟", "No"),
+            PhrasalVerb("send up", "فرستادن بالا", "send something to a higher floor",
+                "I'll send some up right away.", "همین الان چند تا می‌فرستم بالا.", "Yes")
         ),
         pronunciation = listOf(
             PronunciationTip("Contractions with will", "Practice natural contractions: I'll, you'll, he'll, she'll, we'll, they'll."),
             PronunciationTip("Polite intonation in requests", "Requests with 'Could I...?' have gentle rising intonation: Could I see your ID? ↗")
         ),
         culture = listOf(
-            CulturalNote(
-                "Hotel etiquette",
-                "In many hotels, it's customary to tip the bell service and housekeeping. Checkout times are usually around noon, but late checkout can often be arranged."
-            ),
-            CulturalNote(
-                "Taking messages",
-                "When leaving a message at a hotel, it's helpful to give the person's full name, room number, and a clear message. The front desk will usually confirm the message."
-            )
+            CulturalNote("Hotel etiquette",
+                "In many hotels, it's customary to tip the bell service and housekeeping. Checkout times are usually around noon, but late checkout can often be arranged."),
+            CulturalNote("Taking messages",
+                "When leaving a message at a hotel, it's helpful to give the person's full name, room number, and a clear message. The front desk will usually confirm the message.")
         ),
         mistakes = listOf(
             CommonMistake("If you need anything, call the front desk. (without will)", "If you need anything, just call the front desk.", "In real conditional, the if-clause uses present tense and the main clause uses will or imperative."),
@@ -540,38 +480,33 @@ object TopNotch2 {
             ComprehensionQuestion("How does the laundry service work?", "Put clothes in the laundry bag from the closet, fill out the form, and leave it at the front desk by 9 AM. It will be ready by the next evening.")
         ),
         speaking = listOf(
-            SpeakingTask(
-                "Role-play checking into a hotel.",
+            SpeakingTask("Role-play checking into a hotel.",
                 "نقش مهمان و کارمند پذیرش را بازی کنید.",
-                "I have a reservation under... / Could I see...? / What time is checkout?"
-            ),
-            SpeakingTask(
-                "Practice leaving a phone message at a hotel.",
+                "I have a reservation under... / Could I see...? / What time is checkout?"),
+            SpeakingTask("Practice leaving a phone message at a hotel.",
                 "تمرین کنید پیام تلفنی در هتل بگذارید.",
-                "Could you take a message? / Please tell him... / I'll give him the message."
-            )
+                "Could you take a message? / Please tell him... / I'll give him the message.")
         ),
         writing = listOf(
-            WritingTask(
-                "Write an email to a hotel requesting information about amenities and services.",
+            WritingTask("Write an email to a hotel requesting information about amenities and services.",
                 "یک ایمیل به هتل بنویس و درباره امکانات و خدمات سؤال کن.",
-                150,
-                "Use 'will' for future predictions and the real conditional for likely situations."
-            )
+                150, "Use 'will' for future predictions and the real conditional for likely situations.")
         )
     )
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 4 — Cars and Driving | ماشین و رانندگی
+    // UNIT 4 — Cars and Driving | ماشین و رانندگی  (≈ 95 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson4() = base(
+    private fun unit4() = base(
         4, "Cars and Driving", "ماشین و رانندگی",
         listOf(
-            "Discuss car features and parts",
-            "Talk about driving habits and problems",
+            "Describe a car accident",
+            "Describe a car problem",
+            "Rent a car",
+            "Discuss good and bad driving",
             "Use the past continuous vs simple past",
             "Use separable and inseparable phrasal verbs",
-            "Describe a past driving experience"
+            "Show concern and relief"
         ),
         listOf(
             v("steering wheel", "فرمان", "Turn the steering wheel to the left.", "فرمان را به چپ بچرخان."),
@@ -579,7 +514,7 @@ object TopNotch2 {
             v("gas pedal", "پدال گاز", "The gas pedal makes the car go faster.", "پدال گاز ماشین را سریع‌تر می‌کند."),
             v("trunk", "صندوق عقب", "Put the luggage in the trunk.", "چمدان را در صندوق عقب بگذار."),
             v("hood", "کاپوت", "Open the hood to check the engine.", "کاپوت را باز کن تا موتور را بررسی کنی."),
-            v("tire", "لاستیک", "The tire is flat.", "لاستیک پنچر است.", "adjective"),
+            v("tire", "لاستیک", "The tire is flat.", "لاستیک پنچر است."),
             v("headlight", "چراغ جلو", "Turn on your headlights at night.", "شب چراغ‌های جلو را روشن کن."),
             v("seat belt", "کمربند ایمنی", "Always wear your seat belt.", "همیشه کمربند ایمنی ببند."),
             v("traffic jam", "راه‌بندان", "We were stuck in a traffic jam for an hour.", "یک ساعت در راه‌بندان گیر کردیم."),
@@ -591,22 +526,14 @@ object TopNotch2 {
             v("speeding", "سرعت غیرمجاز", "He got a ticket for speeding.", "او برای سرعت غیرمجاز جریمه شد.")
         ),
         listOf(
-            GrammarSection(
-                "Past Continuous vs Simple Past",
-                "Use the past continuous for an action in progress and the simple past for a completed action or interruption. I was driving home when my phone rang."
-            ),
-            GrammarSection(
-                "Separable phrasal verbs",
-                "Some phrasal verbs can be separated: turn on the radio OR turn the radio on. When the object is a pronoun, it must go between: turn it on."
-            ),
-            GrammarSection(
-                "Inseparable phrasal verbs",
-                "Some phrasal verbs cannot be separated: get on the bus, NOT get the bus on. Look after the car, NOT look the car after."
-            ),
-            GrammarSection(
-                "Conversation strategy: Showing concern and offering help",
-                "Use expressions like 'That's too bad', 'I'm sorry to hear that', and 'Can I help you with anything?' to show concern and offer help."
-            )
+            GrammarSection("Past Continuous vs Simple Past",
+                "Use the past continuous for an action in progress and the simple past for a completed action or interruption. I was driving home when my phone rang."),
+            GrammarSection("Separable phrasal verbs",
+                "Some phrasal verbs can be separated: turn on the radio OR turn the radio on. When the object is a pronoun, it must go between: turn it on."),
+            GrammarSection("Inseparable phrasal verbs",
+                "Some phrasal verbs cannot be separated: get on the bus, NOT get the bus on. Look after the car, NOT look the car after."),
+            GrammarSection("Conversation strategy: Showing concern and offering help",
+                "Use expressions like 'That's too bad', 'I'm sorry to hear that', and 'Can I help you with anything?' to show concern and offer help.")
         ),
         listOf(
             d("A", "Hey, you look upset. What happened?", "سلام، ناراحت به نظر می‌رسی. چی شد؟"),
@@ -656,36 +583,24 @@ object TopNotch2 {
             IdiomExpression("That's what friends are for", "دوست برای همین است", "Anytime! That's what friends are for.", "هر وقت! دوست برای همین است.")
         ),
         phrasal = listOf(
-            PhrasalVerb(
-                "break down", "از کار افتادن", "stop working (vehicle)",
-                "My car broke down on the highway.", "ماشینم در بزرگراه از کار افتاد.", "No"
-            ),
-            PhrasalVerb(
-                "pull over", "کنار کشیدن", "move a vehicle to the side",
-                "The police officer asked him to pull over.", "افسر پلیس از او خواست کنار بکشد.", "No"
-            ),
-            PhrasalVerb(
-                "pick up", "بردن / برداشتن", "collect someone or something",
-                "I need to pick up my car.", "باید ماشینم را بردارم.", "Yes"
-            ),
-            PhrasalVerb(
-                "look into", "بررسی کردن", "investigate",
-                "I should look into carpooling.", "باید کارپولینگ را بررسی کنم.", "No"
-            )
+            PhrasalVerb("break down", "از کار افتادن", "stop working (vehicle)",
+                "My car broke down on the highway.", "ماشینم در بزرگراه از کار افتاد.", "No"),
+            PhrasalVerb("pull over", "کنار کشیدن", "move a vehicle to the side",
+                "The police officer asked him to pull over.", "افسر پلیس از او خواست کنار بکشد.", "No"),
+            PhrasalVerb("pick up", "بردن / برداشتن", "collect someone or something",
+                "I need to pick up my car.", "باید ماشینم را بردارم.", "Yes"),
+            PhrasalVerb("look into", "بررسی کردن", "investigate",
+                "I should look into carpooling.", "باید کارپولینگ را بررسی کنم.", "No")
         ),
         pronunciation = listOf(
             PronunciationTip("Past continuous stress", "Stress the -ing verb: I was DRIVing home when my phone rang."),
             PronunciationTip("Reduction in phrasal verbs", "In natural speech, phrasal verbs are often blended: pick it up → /pɪkɪt ʌp/")
         ),
         culture = listOf(
-            CulturalNote(
-                "Driving culture",
-                "In many English-speaking countries, driving is a major part of daily life. Carpooling and public transportation are common topics of conversation about saving money and protecting the environment."
-            ),
-            CulturalNote(
-                "Offering help",
-                "Offering help like 'Do you need a ride?' is a common way to show friendship and support in many cultures."
-            )
+            CulturalNote("Driving culture",
+                "In many English-speaking countries, driving is a major part of daily life. Carpooling and public transportation are common topics of conversation about saving money and protecting the environment."),
+            CulturalNote("Offering help",
+                "Offering help like 'Do you need a ride?' is a common way to show friendship and support in many cultures.")
         ),
         mistakes = listOf(
             CommonMistake("I was drive home when...", "I was driving home when...", "After 'was/were', use verb-ing."),
@@ -696,38 +611,33 @@ object TopNotch2 {
             ComprehensionQuestion("Why is B thinking about taking the bus?", "To save money on gas and help the environment.")
         ),
         speaking = listOf(
-            SpeakingTask(
-                "Describe a past driving or travel experience.",
+            SpeakingTask("Describe a past driving or travel experience.",
                 "یک تجربه رانندگی یا سفر گذشته را توصیف کن.",
-                "I was... when... / Suddenly... / I called..."
-            ),
-            SpeakingTask(
-                "Discuss car-related problems and solutions with a partner.",
+                "I was... when... / Suddenly... / I called..."),
+            SpeakingTask("Discuss car-related problems and solutions with a partner.",
                 "درباره مشکلات مرتبط با ماشین و راه‌حل‌ها با یک دوست صحبت کن.",
-                "My car broke down... / What should I do? / You should..."
-            )
+                "My car broke down... / What should I do? / You should...")
         ),
         writing = listOf(
-            WritingTask(
-                "Write a story about a driving problem you had.",
+            WritingTask("Write a story about a driving problem you had.",
                 "داستانی درباره یک مشکل رانندگی که داشته‌ای بنویس.",
-                160,
-                "Use past continuous and simple past together. Include at least two phrasal verbs."
-            )
+                160, "Use past continuous and simple past together. Include at least two phrasal verbs.")
         )
     )
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 5 — Personal Care and Appearance | مراقبت شخصی و ظاهر
+    // UNIT 5 — Personal Care and Appearance | مراقبت شخصی و ظاهر  (≈ 95 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson5() = base(
+    private fun unit5() = base(
         5, "Personal Care and Appearance", "مراقبت شخصی و ظاهر",
         listOf(
-            "Discuss personal care and grooming",
-            "Talk about appearance and style",
+            "Ask for something in a store",
+            "Make an appointment at a salon or spa",
+            "Discuss ways to improve appearance",
+            "Define the meaning of beauty",
             "Use indefinite quantities (some/any, much/many)",
             "Use indefinite pronouns (someone/anyone)",
-            "Describe a visit to a salon or barber"
+            "Use 'Can I get' to make a request more polite"
         ),
         listOf(
             v("haircut", "کوتاهی مو", "I need to get a haircut.", "باید موهایم را کوتاه کنم."),
@@ -747,22 +657,14 @@ object TopNotch2 {
             v("grooming", "آراستگی", "Good grooming is part of professional image.", "آراستگی بخشی از تصویر حرفه‌ای است.")
         ),
         listOf(
-            GrammarSection(
-                "Indefinite quantities: some, any, much, many",
-                "Use 'some' in affirmative sentences, 'any' in questions and negatives, 'much' with non-count nouns, and 'many' with count nouns. I need some shampoo. Do you have any? I don't have much time. I have many appointments."
-            ),
-            GrammarSection(
-                "Indefinite pronouns: someone, anyone, no one, everyone",
-                "Use indefinite pronouns to refer to people without naming them. Someone called you. Is anyone here? No one knows. Everyone is ready."
-            ),
-            GrammarSection(
-                "Comparisons with as...as",
-                "Use 'as...as' to say two things are equal: Her hair is as long as mine. He's not as tall as his brother."
-            ),
-            GrammarSection(
-                "Conversation strategy: Complimenting",
-                "Use compliments to make people feel good. 'I love your haircut!', 'That color looks great on you', 'You look fantastic!'"
-            )
+            GrammarSection("Indefinite quantities: some, any, much, many",
+                "Use 'some' in affirmative sentences, 'any' in questions and negatives, 'much' with non-count nouns, and 'many' with count nouns. I need some shampoo. Do you have any? I don't have much time. I have many appointments."),
+            GrammarSection("Indefinite pronouns: someone, anyone, no one, everyone",
+                "Use indefinite pronouns to refer to people without naming them. Someone called you. Is anyone here? No one knows. Everyone is ready."),
+            GrammarSection("Comparisons with as...as",
+                "Use 'as...as' to say two things are equal: Her hair is as long as mine. He's not as tall as his brother."),
+            GrammarSection("Conversation strategy: Complimenting",
+                "Use compliments to make people feel good. 'I love your haircut!', 'That color looks great on you', 'You look fantastic!'")
         ),
         listOf(
             d("A", "Hi! I love your new haircut. It looks great!", "سلام! عاشق مدل موی جدیدت هستم. عالی به نظر می‌رسد!"),
@@ -810,32 +712,22 @@ object TopNotch2 {
             IdiomExpression("Meaning to", "قصد داشتن", "I've been meaning to try a new shampoo.", "می‌خواستم شامپوی جدید امتحان کنم.")
         ),
         phrasal = listOf(
-            PhrasalVerb(
-                "get done", "انجام دادن", "complete a service",
-                "I got my hair done yesterday.", "دیروز موهایم را انجام دادم.", "No"
-            ),
-            PhrasalVerb(
-                "look for", "دنبال گشتن", "search for",
-                "I've been looking for a new place.", "داشتم دنبال جای جدیدی می‌گشتم.", "No"
-            ),
-            PhrasalVerb(
-                "check out", "بررسی کردن", "investigate or try",
-                "I'll check it out.", "بررسی می‌کنم.", "No"
-            )
+            PhrasalVerb("get done", "انجام دادن", "complete a service",
+                "I got my hair done yesterday.", "دیروز موهایم را انجام دادم.", "No"),
+            PhrasalVerb("look for", "دنبال گشتن", "search for",
+                "I've been looking for a new place.", "داشتم دنبال جای جدیدی می‌گشتم.", "No"),
+            PhrasalVerb("check out", "بررسی کردن", "investigate or try",
+                "I'll check it out.", "بررسی می‌کنم.", "No")
         ),
         pronunciation = listOf(
             PronunciationTip("Some vs any reduction", "In natural speech, 'some' is often reduced to /səm/: some samples → /səm ˈsæmpəlz/"),
             PronunciationTip("Stress in compliments", "Stress the adjective: Your haircut looks GREAT!")
         ),
         culture = listOf(
-            CulturalNote(
-                "Personal care and appearance",
-                "In many English-speaking countries, personal grooming is considered part of professional image. Complimenting someone's appearance is generally appreciated but should be done politely and appropriately."
-            ),
-            CulturalNote(
-                "Tipping at salons",
-                "In some countries, it's customary to tip hairdressers and stylists, usually 15-20% of the service cost."
-            )
+            CulturalNote("Personal care and appearance",
+                "In many English-speaking countries, personal grooming is considered part of professional image. Complimenting someone's appearance is generally appreciated but should be done politely and appropriately."),
+            CulturalNote("Tipping at salons",
+                "In some countries, it's customary to tip hairdressers and stylists, usually 15-20% of the service cost.")
         ),
         mistakes = listOf(
             CommonMistake("I don't have many time.", "I don't have much time.", "Use 'much' with non-count nouns like time."),
@@ -846,37 +738,32 @@ object TopNotch2 {
             ComprehensionQuestion("What does B recommend about the salon?", "Try the shampoo, get a facial, and ask for Maria.")
         ),
         speaking = listOf(
-            SpeakingTask(
-                "Describe your personal grooming routine.",
+            SpeakingTask("Describe your personal grooming routine.",
                 "روال آراستگی شخصی‌ات را توصیف کن.",
-                "I usually... / I get a haircut every... / I never..."
-            ),
-            SpeakingTask(
-                "Give a compliment to a partner and explain why.",
+                "I usually... / I get a haircut every... / I never..."),
+            SpeakingTask("Give a compliment to a partner and explain why.",
                 "به یک دوست تعریف کن و دلیلش را بگو.",
-                "I love your... / That color looks great on you / You look fantastic!"
-            )
+                "I love your... / That color looks great on you / You look fantastic!")
         ),
         writing = listOf(
-            WritingTask(
-                "Write a review of a salon or barber shop you've visited.",
+            WritingTask("Write a review of a salon or barber shop you've visited.",
                 "نقدی از یک سالن زیبایی یا آرایشگاه که رفته‌ای بنویس.",
-                160,
-                "Use indefinite quantities (some/any, much/many) and indefinite pronouns."
-            )
+                160, "Use indefinite quantities (some/any, much/many) and indefinite pronouns.")
         )
     )
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 6 — Eating Well | خوب غذا خوردن
+    // UNIT 6 — Eating Well | خوب غذا خوردن  (≈ 95 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson6() = base(
+    private fun unit6() = base(
         6, "Eating Well", "خوب غذا خوردن",
         listOf(
             "Discuss food and nutrition",
             "Talk about healthy eating habits",
+            "Make an excuse to decline food",
+            "Discuss lifestyle changes",
+            "Describe local dishes",
             "Use quantifiers (too many, too much, enough)",
-            "Use count and non-count nouns correctly",
             "Give advice about diet and health"
         ),
         listOf(
@@ -897,22 +784,14 @@ object TopNotch2 {
             v("give up", "ترک کردن", "She gave up fast food last year.", "او سال گذشته فست‌فود را ترک کرد.", "verb")
         ),
         listOf(
-            GrammarSection(
-                "Count vs Non-count nouns",
-                "Count nouns can be counted (an apple, two apples). Non-count nouns cannot (rice, water, sugar). Use 'much' with non-count and 'many' with count nouns."
-            ),
-            GrammarSection(
-                "Quantifiers: too much, too many, enough",
-                "Use 'too much' with non-count nouns, 'too many' with count nouns, and 'enough' with both. I eat too much sugar. He has too many snacks. I don't drink enough water."
-            ),
-            GrammarSection(
-                "Advice with should/shouldn't",
-                "Use 'should' for advice: You should eat more vegetables. You shouldn't skip breakfast."
-            ),
-            GrammarSection(
-                "Conversation strategy: Giving advice",
-                "Use expressions like 'You should...', 'Why don't you...?', 'Have you tried...?', and 'It might help if...' to give friendly advice."
-            )
+            GrammarSection("Count vs Non-count nouns",
+                "Count nouns can be counted (an apple, two apples). Non-count nouns cannot (rice, water, sugar). Use 'much' with non-count and 'many' with count nouns."),
+            GrammarSection("Quantifiers: too much, too many, enough",
+                "Use 'too much' with non-count nouns, 'too many' with count nouns, and 'enough' with both. I eat too much sugar. He has too many snacks. I don't drink enough water."),
+            GrammarSection("Advice with should/shouldn't",
+                "Use 'should' for advice: You should eat more vegetables. You shouldn't skip breakfast."),
+            GrammarSection("Conversation strategy: Giving advice",
+                "Use expressions like 'You should...', 'Why don't you...?', 'Have you tried...?', and 'It might help if...' to give friendly advice.")
         ),
         listOf(
             d("A", "You look great! Have you been exercising?", "عالی به نظر می‌رسی! ورزش می‌کنی؟"),
@@ -961,32 +840,22 @@ object TopNotch2 {
             IdiomExpression("At first", "اولش", "It was hard at first.", "اولش سخت بود.")
         ),
         phrasal = listOf(
-            PhrasalVerb(
-                "cut down on", "کم کردن", "reduce the amount",
-                "I've cut down on sugar.", "شکر را کم کرده‌ام.", "No"
-            ),
-            PhrasalVerb(
-                "give up", "ترک کردن", "stop doing something",
-                "I gave up fast food.", "فست‌فود را ترک کردم.", "Yes"
-            ),
-            PhrasalVerb(
-                "start by", "شروع کردن با", "begin with",
-                "Why don't you start by drinking more water?", "چرا با نوشیدن آب بیشتر شروع نمی‌کنی؟", "No"
-            )
+            PhrasalVerb("cut down on", "کم کردن", "reduce the amount",
+                "I've cut down on sugar.", "شکر را کم کرده‌ام.", "No"),
+            PhrasalVerb("give up", "ترک کردن", "stop doing something",
+                "I gave up fast food.", "فست‌فود را ترک کردم.", "Yes"),
+            PhrasalVerb("start by", "شروع کردن با", "begin with",
+                "Why don't you start by drinking more water?", "چرا با نوشیدن آب بیشتر شروع نمی‌کنی؟", "No")
         ),
         pronunciation = listOf(
             PronunciationTip("Much vs many", "Practice the vowel sound difference: much /mʌtʃ/, many /ˈmɛni/"),
             PronunciationTip("Stress in quantifiers", "Stress 'too' in 'too much' and 'too many': TOO MUCH sugar, TOO MANY snacks.")
         ),
         culture = listOf(
-            CulturalNote(
-                "Healthy eating",
-                "In many English-speaking countries, there's growing awareness about nutrition and healthy eating. Discussions about diets, organic food, and exercise are common."
-            ),
-            CulturalNote(
-                "Giving advice",
-                "When giving health advice, it's polite to use softer expressions like 'Have you tried...?' or 'Why don't you...?' rather than direct commands."
-            )
+            CulturalNote("Healthy eating",
+                "In many English-speaking countries, there's growing awareness about nutrition and healthy eating. Discussions about diets, organic food, and exercise are common."),
+            CulturalNote("Giving advice",
+                "When giving health advice, it's polite to use softer expressions like 'Have you tried...?' or 'Why don't you...?' rather than direct commands.")
         ),
         mistakes = listOf(
             CommonMistake("I eat too many sugar.", "I eat too much sugar.", "Use 'too much' with non-count nouns like sugar."),
@@ -997,38 +866,32 @@ object TopNotch2 {
             ComprehensionQuestion("What advice does B give to A?", "Start with more water and vegetables, sleep enough, try going to bed at the same time.")
         ),
         speaking = listOf(
-            SpeakingTask(
-                "Discuss your eating habits with a partner.",
+            SpeakingTask("Discuss your eating habits with a partner.",
                 "درباره عادات غذایی‌ات با یک دوست صحبت کن.",
-                "I usually eat... / I've cut down on... / I should eat more..."
-            ),
-            SpeakingTask(
-                "Give advice to a partner about healthy living.",
+                "I usually eat... / I've cut down on... / I should eat more..."),
+            SpeakingTask("Give advice to a partner about healthy living.",
                 "به یک دوست درباره زندگی سالم توصیه کن.",
-                "You should... / Why don't you...? / Have you tried...?"
-            )
+                "You should... / Why don't you...? / Have you tried...?")
         ),
         writing = listOf(
-            WritingTask(
-                "Write about your eating habits and one change you'd like to make.",
+            WritingTask("Write about your eating habits and one change you'd like to make.",
                 "درباره عادات غذایی‌ات و یک تغییری که دوست داری ایجاد کنی بنویس.",
-                160,
-                "Use quantifiers (too much, too many, enough) and give advice to yourself."
-            )
+                160, "Use quantifiers (too much, too many, enough) and give advice to yourself.")
         )
     )
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 7 — Psychology and Personality | روانشناسی و شخصیت
+    // UNIT 7 — About Personality | درباره شخصیت  (≈ 95 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson7() = base(
-        7, "Psychology and Personality", "روانشناسی و شخصیت",
+    private fun unit7() = base(
+        7, "About Personality", "درباره شخصیت",
         listOf(
-            "Describe personality types and traits",
-            "Discuss psychology and behavior",
+            "Get to know a new friend",
+            "Cheer someone up",
+            "Discuss personality and its origin",
+            "Examine the impact of birth order on personality",
             "Use adjective clauses with who, which, and that",
-            "Use descriptive adjectives for personality",
-            "Talk about first impressions"
+            "Use descriptive adjectives for personality"
         ),
         listOf(
             v("personality", "شخصیت", "She has a very outgoing personality.", "او شخصیت خیلی اجتماعی دارد."),
@@ -1048,22 +911,14 @@ object TopNotch2 {
             v("psychology", "روانشناسی", "She's studying psychology at university.", "او در دانشگاه روانشناسی می‌خواند.")
         ),
         listOf(
-            GrammarSection(
-                "Adjective clauses with who",
-                "Use 'who' to describe people: The man who helped me was very kind. She's the person who always listens."
-            ),
-            GrammarSection(
-                "Adjective clauses with which and that",
-                "Use 'which' for things and 'that' for people or things: The book which I read was amazing. The person that called was my boss."
-            ),
-            GrammarSection(
-                "Subject vs object relative clauses",
-                "In subject clauses, the relative pronoun is the subject: The woman who lives next door is a doctor. In object clauses, the relative pronoun is the object and can often be omitted: The movie (that) I saw was great."
-            ),
-            GrammarSection(
-                "Conversation strategy: Describing people",
-                "Use adjective clauses to describe people naturally: He's the kind of person who always helps others. She's someone who never gives up."
-            )
+            GrammarSection("Adjective clauses with who",
+                "Use 'who' to describe people: The man who helped me was very kind. She's the person who always listens."),
+            GrammarSection("Adjective clauses with which and that",
+                "Use 'which' for things and 'that' for people or things: The book which I read was amazing. The person that called was my boss."),
+            GrammarSection("Subject vs object relative clauses",
+                "In subject clauses, the relative pronoun is the subject: The woman who lives next door is a doctor. In object clauses, the relative pronoun is the object and can often be omitted: The movie (that) I saw was great."),
+            GrammarSection("Conversation strategy: Describing people",
+                "Use adjective clauses to describe people naturally: He's the kind of person who always helps others. She's someone who never gives up.")
         ),
         listOf(
             d("A", "I met the new manager today. She seems very confident.", "امروز مدیر جدید را دیدم. خیلی با اعتماد به نفس به نظر می‌رسد."),
@@ -1112,32 +967,22 @@ object TopNotch2 {
             IdiomExpression("Change your mind", "نظرت را عوض کردن", "What changed your mind?", "چه چیزی نظرت را عوض کرد؟")
         ),
         phrasal = listOf(
-            PhrasalVerb(
-                "open up", "باز شدن", "become more friendly or talkative",
-                "Some people are slow to open up.", "برخی افراد دیر باز می‌شوند.", "No"
-            ),
-            PhrasalVerb(
-                "count on", "حساب کردن روی", "rely on someone",
-                "You can count on her.", "می‌توانی رویش حساب کنی.", "No"
-            ),
-            PhrasalVerb(
-                "give up", "تسلیم شدن", "stop trying",
-                "She's someone who never gives up.", "او کسی است که هرگز تسلیم نمی‌شود.", "No"
-            )
+            PhrasalVerb("open up", "باز شدن", "become more friendly or talkative",
+                "Some people are slow to open up.", "برخی افراد دیر باز می‌شوند.", "No"),
+            PhrasalVerb("count on", "حساب کردن روی", "rely on someone",
+                "You can count on her.", "می‌توانی رویش حساب کنی.", "No"),
+            PhrasalVerb("give up", "تسلیم شدن", "stop trying",
+                "She's someone who never gives up.", "او کسی است که هرگز تسلیم نمی‌شود.", "No")
         ),
         pronunciation = listOf(
             PronunciationTip("Reduction of 'who'", "In natural speech, 'who' is often reduced: the person who → /ðə ˈpɜrsən u/"),
             PronunciationTip("Adjective clause rhythm", "Adjective clauses are usually said without pauses: the man who called me.")
         ),
         culture = listOf(
-            CulturalNote(
-                "Personality and culture",
-                "Ideas about personality vary across cultures. In some cultures, being outgoing is valued; in others, being reserved is more respected. Understanding these differences helps avoid misunderstandings."
-            ),
-            CulturalNote(
-                "First impressions",
-                "It's commonly said that first impressions are formed within seconds, but psychologists remind us they can be misleading. Getting to know someone takes time."
-            )
+            CulturalNote("Personality and culture",
+                "Ideas about personality vary across cultures. In some cultures, being outgoing is valued; in others, being reserved is more respected. Understanding these differences helps avoid misunderstandings."),
+            CulturalNote("First impressions",
+                "It's commonly said that first impressions are formed within seconds, but psychologists remind us they can be misleading. Getting to know someone takes time.")
         ),
         mistakes = listOf(
             CommonMistake("The person which called me was my boss.", "The person who called me was my boss.", "Use 'who' for people, not 'which'."),
@@ -1148,37 +993,31 @@ object TopNotch2 {
             ComprehensionQuestion("What is B's opinion about first impressions?", "They can be misleading — her best friend seemed cold at first but is actually generous.")
         ),
         speaking = listOf(
-            SpeakingTask(
-                "Describe a person you admire using adjective clauses.",
+            SpeakingTask("Describe a person you admire using adjective clauses.",
                 "کسی که تحسین می‌کنی را با جملات وصفی توصیف کن.",
-                "He/She is someone who... / He/She is the kind of person who..."
-            ),
-            SpeakingTask(
-                "Discuss your own personality type with a partner.",
+                "He/She is someone who... / He/She is the kind of person who..."),
+            SpeakingTask("Discuss your own personality type with a partner.",
                 "درباره نوع شخصیت خودت با یک دوست صحبت کن.",
-                "I'm more introverted/extroverted... / I enjoy... / I need..."
-            )
+                "I'm more introverted/extroverted... / I enjoy... / I need...")
         ),
         writing = listOf(
-            WritingTask(
-                "Write a description of someone you know well.",
+            WritingTask("Write a description of someone you know well.",
                 "توصیفی از کسی که خوب می‌شناسی بنویس.",
-                170,
-                "Use at least three adjective clauses with who, which, or that."
-            )
+                170, "Use at least three adjective clauses with who, which, or that.")
         )
     )
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 8 — Enjoying the Arts | لذت بردن از هنر
+    // UNIT 8 — The Arts | هنر  (≈ 95 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson8() = base(
-        8, "Enjoying the Arts", "لذت بردن از هنر",
+    private fun unit8() = base(
+        8, "The Arts", "هنر",
         listOf(
-            "Discuss different forms of art",
-            "Talk about artists and their work",
+            "Recommend a museum",
+            "Ask about and describe objects",
+            "Talk about artistic talent",
+            "Discuss your favorite artists",
             "Use the passive voice in the present and past",
-            "Describe a work of art",
             "Express opinions about art"
         ),
         listOf(
@@ -1199,22 +1038,14 @@ object TopNotch2 {
             v("critic", "منتقد", "The critic praised the new exhibition.", "منتقد از نمایشگاه جدید تعریف کرد.")
         ),
         listOf(
-            GrammarSection(
-                "Passive voice: present tense",
-                "Use the passive to focus on the action rather than the doer. Form: be + past participle. The painting is displayed in the gallery. Art is appreciated by many people."
-            ),
-            GrammarSection(
-                "Passive voice: past tense",
-                "Use was/were + past participle for past passive. The sculpture was created in 1900. The paintings were sold at auction."
-            ),
-            GrammarSection(
-                "Passive with by",
-                "Use 'by' to say who performed the action: The Mona Lisa was painted by Leonardo da Vinci. The song was written by a famous composer."
-            ),
-            GrammarSection(
-                "Conversation strategy: Expressing opinions about art",
-                "Use expressions like 'In my opinion...', 'I think...', 'It seems to me...', and 'I'm not sure I agree' to discuss art respectfully."
-            )
+            GrammarSection("Passive voice: present tense",
+                "Use the passive to focus on the action rather than the doer. Form: be + past participle. The painting is displayed in the gallery. Art is appreciated by many people."),
+            GrammarSection("Passive voice: past tense",
+                "Use was/were + past participle for past passive. The sculpture was created in 1900. The paintings were sold at auction."),
+            GrammarSection("Passive with by",
+                "Use 'by' to say who performed the action: The Mona Lisa was painted by Leonardo da Vinci. The song was written by a famous composer."),
+            GrammarSection("Conversation strategy: Expressing opinions about art",
+                "Use expressions like 'In my opinion...', 'I think...', 'It seems to me...', and 'I'm not sure I agree' to discuss art respectfully.")
         ),
         listOf(
             d("A", "Have you seen the new exhibition at the city gallery?", "نمایشگاه جدید در گالری شهر را دیده‌ای؟"),
@@ -1263,28 +1094,20 @@ object TopNotch2 {
             IdiomExpression("Strong statement", "حرف قوی", "That's a strong statement.", "این حرف قوی است.")
         ),
         phrasal = listOf(
-            PhrasalVerb(
-                "look for", "دنبال گشتن", "search for",
-                "I'll look for it in the main hall.", "در سالن اصلی دنبالش می‌گردم.", "No"
-            ),
-            PhrasalVerb(
-                "look forward to", "منتظر بودن", "anticipate with pleasure",
-                "I'm looking forward to the exhibition.", "منتظر نمایشگاه هستم.", "No"
-            )
+            PhrasalVerb("look for", "دنبال گشتن", "search for",
+                "I'll look for it in the main hall.", "در سالن اصلی دنبالش می‌گردم.", "No"),
+            PhrasalVerb("look forward to", "منتظر بودن", "anticipate with pleasure",
+                "I'm looking forward to the exhibition.", "منتظر نمایشگاه هستم.", "No")
         ),
         pronunciation = listOf(
             PronunciationTip("Passive voice stress", "Stress the past participle: The painting was CREated in 1920."),
             PronunciationTip("Linking in passive", "Link 'was' or 'were' with the past participle: was_created, were_painted.")
         ),
         culture = listOf(
-            CulturalNote(
-                "Art appreciation",
-                "In many cultures, visiting museums and galleries is a popular leisure activity. Art is often discussed in terms of style, technique, historical context, and emotional impact."
-            ),
-            CulturalNote(
-                "The Renaissance",
-                "The Renaissance (14th-17th century) was a period of great cultural and artistic achievement in Europe, producing famous artists like Leonardo da Vinci and Michelangelo."
-            )
+            CulturalNote("Art appreciation",
+                "In many cultures, visiting museums and galleries is a popular leisure activity. Art is often discussed in terms of style, technique, historical context, and emotional impact."),
+            CulturalNote("The Renaissance",
+                "The Renaissance (14th-17th century) was a period of great cultural and artistic achievement in Europe, producing famous artists like Leonardo da Vinci and Michelangelo.")
         ),
         mistakes = listOf(
             CommonMistake("The painting was paint by Picasso.", "The painting was painted by Picasso.", "Use the past participle 'painted', not the base form 'paint'."),
@@ -1295,38 +1118,32 @@ object TopNotch2 {
             ComprehensionQuestion("What does the critic say about the exhibition?", "It's the best exhibition of the year.")
         ),
         speaking = listOf(
-            SpeakingTask(
-                "Describe a work of art you like using the passive voice.",
+            SpeakingTask("Describe a work of art you like using the passive voice.",
                 "اثر هنری‌ای که دوست داری را با استفاده از مجهول توصیف کن.",
-                "It was painted by... / It is displayed in... / It was created in..."
-            ),
-            SpeakingTask(
-                "Discuss whether art should be realistic or abstract.",
+                "It was painted by... / It is displayed in... / It was created in..."),
+            SpeakingTask("Discuss whether art should be realistic or abstract.",
                 "بحث کنید که آیا هنر باید واقع‌گرا باشد یا انتزاعی.",
-                "In my opinion... / I think... / I'm not sure I agree..."
-            )
+                "In my opinion... / I think... / I'm not sure I agree...")
         ),
         writing = listOf(
-            WritingTask(
-                "Write a review of an art exhibition you've attended.",
+            WritingTask("Write a review of an art exhibition you've attended.",
                 "نقدی از یک نمایشگاه هنری که رفته‌ای بنویس.",
-                170,
-                "Use passive voice (present and past) at least four times."
-            )
+                170, "Use passive voice (present and past) at least four times.")
         )
     )
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 9 — Living with Computers | زندگی با کامپیوترها
+    // UNIT 9 — Living in Cyberspace | زندگی در فضای مجازی  (≈ 95 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson9() = base(
-        9, "Living with Computers", "زندگی با کامپیوترها",
+    private fun unit9() = base(
+        9, "Living in Cyberspace", "زندگی در فضای مجازی",
         listOf(
-            "Discuss technology and its impact on daily life",
-            "Talk about computer problems",
+            "Troubleshoot a problem",
+            "Compare product features",
+            "Describe how you use the Internet",
+            "Discuss the impact of the Internet",
             "Use noun clauses",
-            "Use embedded questions",
-            "Express opinions about technology"
+            "Use embedded questions"
         ),
         listOf(
             v("software", "نرم‌افزار", "I need to update the software.", "باید نرم‌افزار را به‌روزرسانی کنم."),
@@ -1346,22 +1163,14 @@ object TopNotch2 {
             v("addicted", "معتاد", "He's addicted to his phone.", "او به گوشی‌اش معتاد است.", "adjective")
         ),
         listOf(
-            GrammarSection(
-                "Noun clauses with that",
-                "Use 'that' to introduce a clause that acts as a noun: I think that technology helps us. She believes that everyone should learn to code."
-            ),
-            GrammarSection(
-                "Embedded questions",
-                "Embedded questions use statement word order, not question word order: Where is the library? → Do you know where the library is? What time is it? → Can you tell me what time it is?"
-            ),
-            GrammarSection(
-                "Noun clauses with whether/if",
-                "Use 'whether' or 'if' for yes/no embedded questions: I don't know whether he's coming. She asked if I liked the app."
-            ),
-            GrammarSection(
-                "Conversation strategy: Expressing opinions about technology",
-                "Use expressions like 'I think...', 'In my opinion...', 'To be honest...', and 'It seems to me...' to express opinions about technology."
-            )
+            GrammarSection("Noun clauses with that",
+                "Use 'that' to introduce a clause that acts as a noun: I think that technology helps us. She believes that everyone should learn to code."),
+            GrammarSection("Embedded questions",
+                "Embedded questions use statement word order, not question word order: Where is the library? → Do you know where the library is? What time is it? → Can you tell me what time it is?"),
+            GrammarSection("Noun clauses with whether/if",
+                "Use 'whether' or 'if' for yes/no embedded questions: I don't know whether he's coming. She asked if I liked the app."),
+            GrammarSection("Conversation strategy: Expressing opinions about technology",
+                "Use expressions like 'I think...', 'In my opinion...', 'To be honest...', and 'It seems to me...' to express opinions about technology.")
         ),
         listOf(
             d("A", "I'm having trouble with my computer again.", "بازم با کامپیوترم مشکل دارم."),
@@ -1414,32 +1223,22 @@ object TopNotch2 {
             IdiomExpression("Might take a while", "ممکن است کمی طول بکشد", "It might take a while, but it's important.", "ممکن است کمی طول بکشد، ولی مهم است.")
         ),
         phrasal = listOf(
-            PhrasalVerb(
-                "run a scan", "اسکن اجرا کردن", "scan a computer",
-                "Run a full scan.", "یک اسکن کامل اجرا کن.", "No"
-            ),
-            PhrasalVerb(
-                "click on", "کلیک کردن روی", "press a button on screen",
-                "Don't click on strange links.", "روی لینک‌های عجیب کلیک نکن.", "No"
-            ),
-            PhrasalVerb(
-                "keep updated", "به‌روز نگه داشتن", "maintain latest version",
-                "Keep your software updated.", "نرم‌افزارت را به‌روز نگه دار.", "Yes"
-            )
+            PhrasalVerb("run a scan", "اسکن اجرا کردن", "scan a computer",
+                "Run a full scan.", "یک اسکن کامل اجرا کن.", "No"),
+            PhrasalVerb("click on", "کلیک کردن روی", "press a button on screen",
+                "Don't click on strange links.", "روی لینک‌های عجیب کلیک نکن.", "No"),
+            PhrasalVerb("keep updated", "به‌روز نگه داشتن", "maintain latest version",
+                "Keep your software updated.", "نرم‌افزارت را به‌روز نگه دار.", "Yes")
         ),
         pronunciation = listOf(
             PronunciationTip("Embedded question intonation", "Embedded questions use statement intonation, not question intonation: Do you know where he IS? (falling)"),
             PronunciationTip("Noun clause linking", "Link 'that' with the next word: I think_that_it's good → /aɪ θɪŋk ðət ɪts gʊd/")
         ),
         culture = listOf(
-            CulturalNote(
-                "Technology in daily life",
-                "Technology plays a central role in modern life. In many English-speaking countries, discussions about computers, smartphones, and internet use are common conversation topics."
-            ),
-            CulturalNote(
-                "Digital safety",
-                "Cyber safety is a common concern. Using strong passwords, backups, and being cautious about links are basic practices recommended by experts worldwide."
-            )
+            CulturalNote("Technology in daily life",
+                "Technology plays a central role in modern life. In many English-speaking countries, discussions about computers, smartphones, and internet use are common conversation topics."),
+            CulturalNote("Digital safety",
+                "Cyber safety is a common concern. Using strong passwords, backups, and being cautious about links are basic practices recommended by experts worldwide.")
         ),
         mistakes = listOf(
             CommonMistake("Do you know where is the library?", "Do you know where the library is?", "Embedded questions use statement word order."),
@@ -1450,35 +1249,30 @@ object TopNotch2 {
             ComprehensionQuestion("What advice does B give to avoid future viruses?", "Don't click on strange links, keep software updated, and use strong passwords.")
         ),
         speaking = listOf(
-            SpeakingTask(
-                "Discuss a computer problem you've had with a partner.",
+            SpeakingTask("Discuss a computer problem you've had with a partner.",
                 "درباره یک مشکل کامپیوتری که داشته‌ای با یک دوست صحبت کن.",
-                "I had trouble with... / Do you know how to...? / Can you tell me...?"
-            ),
-            SpeakingTask(
-                "Express your opinion about technology in daily life.",
+                "I had trouble with... / Do you know how to...? / Can you tell me...?"),
+            SpeakingTask("Express your opinion about technology in daily life.",
                 "نظرت را درباره تکنولوژی در زندگی روزمره بیان کن.",
-                "I think that... / In my opinion... / It seems to me..."
-            )
+                "I think that... / In my opinion... / It seems to me...")
         ),
         writing = listOf(
-            WritingTask(
-                "Write a guide for a friend about computer safety.",
+            WritingTask("Write a guide for a friend about computer safety.",
                 "راهنمایی برای یک دوست درباره امنیت کامپیوتر بنویس.",
-                170,
-                "Use noun clauses and embedded questions at least three times."
-            )
+                170, "Use noun clauses and embedded questions at least three times.")
         )
     )
 
     // ═══════════════════════════════════════════════════════════
-    // UNIT 10 — Ethics and Values | اخلاق و ارزش‌ها
+    // UNIT 10 — Ethics and Values | اخلاق و ارزش‌ها  (≈ 95 خط)
     // ═══════════════════════════════════════════════════════════
-    private fun lesson10() = base(
+    private fun unit10() = base(
         10, "Ethics and Values", "اخلاق و ارزش‌ها",
         listOf(
-            "Discuss ethical dilemmas and moral choices",
-            "Talk about values and beliefs",
+            "Discuss ethical choices",
+            "Return someone else's property",
+            "Express personal values",
+            "Discuss acts of kindness and honesty",
             "Use unreal conditionals (second conditional)",
             "Use wish + past subjunctive",
             "Express regret and hypothetical situations"
@@ -1501,22 +1295,14 @@ object TopNotch2 {
             v("fair", "منصفانه", "It's not fair to blame him.", "منصفانه نیست سرزنشش کنیم.", "adjective")
         ),
         listOf(
-            GrammarSection(
-                "Second Conditional (Unreal Present/Future)",
-                "Use the second conditional for hypothetical or unlikely situations. Form: If + past simple, would + base verb. If I had more time, I would volunteer. If I were you, I would apologize."
-            ),
-            GrammarSection(
-                "Wish + Past Subjunctive",
-                "Use 'wish + past simple' to express regrets about the present. I wish I had more free time. She wishes she could help more. Note: with 'be', use 'were' for all persons: I wish I were taller."
-            ),
-            GrammarSection(
-                "Was vs Were in conditionals",
-                "In formal English, 'were' is used for all persons in the second conditional: If I were rich... If he were here... In informal English, 'was' is sometimes used with I/he/she/it."
-            ),
-            GrammarSection(
-                "Conversation strategy: Discussing ethical issues",
-                "Use expressions like 'I think it depends...', 'On one hand... on the other hand...', 'I'd feel uncomfortable if...', and 'I would/wouldn't...' to discuss ethics."
-            )
+            GrammarSection("Second Conditional (Unreal Present/Future)",
+                "Use the second conditional for hypothetical or unlikely situations. Form: If + past simple, would + base verb. If I had more time, I would volunteer. If I were you, I would apologize."),
+            GrammarSection("Wish + Past Subjunctive",
+                "Use 'wish + past simple' to express regrets about the present. I wish I had more free time. She wishes she could help more. Note: with 'be', use 'were' for all persons: I wish I were taller."),
+            GrammarSection("Was vs Were in conditionals",
+                "In formal English, 'were' is used for all persons in the second conditional: If I were rich... If he were here... In informal English, 'was' is sometimes used with I/he/she/it."),
+            GrammarSection("Conversation strategy: Discussing ethical issues",
+                "Use expressions like 'I think it depends...', 'On one hand... on the other hand...', 'I'd feel uncomfortable if...', and 'I would/wouldn't...' to discuss ethics.")
         ),
         listOf(
             d("A", "I read an interesting article today about ethics.", "امروز مقاله جالبی درباره اخلاق خواندم."),
@@ -1571,32 +1357,22 @@ object TopNotch2 {
             IdiomExpression("Golden Rule", "قانون طلایی", "That's called the Golden Rule, right?", "این را قانون طلایی می‌نامند، درست است؟")
         ),
         phrasal = listOf(
-            PhrasalVerb(
-                "take credit for", "اعتبار چیزی را به نام خود زدن", "claim recognition for something",
-                "He took credit for someone else's work.", "او اعتبار کار کس دیگری را به نام خودش زد.", "No"
-            ),
-            PhrasalVerb(
-                "struggle with", "دست و پنجه نرم کردن با", "have difficulty with",
-                "I struggled with the decision.", "با تصمیم دست و پنجه نرم کردم.", "No"
-            ),
-            PhrasalVerb(
-                "speak of", "صحبت کردن از", "mention",
-                "Speaking of ethics, have you ever faced a moral choice?", "از اخلاق که صحبت شد، تا حالا با انتخاب اخلاقی روبرو شده‌ای؟", "No"
-            )
+            PhrasalVerb("take credit for", "اعتبار چیزی را به نام خود زدن", "claim recognition for something",
+                "He took credit for someone else's work.", "او اعتبار کار کس دیگری را به نام خودش زد.", "No"),
+            PhrasalVerb("struggle with", "دست و پنجه نرم کردن با", "have difficulty with",
+                "I struggled with the decision.", "با تصمیم دست و پنجه نرم کردم.", "No"),
+            PhrasalVerb("speak of", "صحبت کردن از", "mention",
+                "Speaking of ethics, have you ever faced a moral choice?", "از اخلاق که صحبت شد، تا حالا با انتخاب اخلاقی روبرو شده‌ای؟", "No")
         ),
         pronunciation = listOf(
             PronunciationTip("Second conditional rhythm", "Stress the past simple in the if-clause and 'would' in the main clause: If I HAD money, I would TRAvel."),
             PronunciationTip("Wish + were", "In formal English, 'were' is used for all persons: I wish I WERE, She wishes she WERE.")
         ),
         culture = listOf(
-            CulturalNote(
-                "Ethics across cultures",
-                "While some ethical principles (like honesty) are universal, specific ethical priorities can vary across cultures. Understanding cultural context helps avoid misunderstandings in discussions about values."
-            ),
-            CulturalNote(
-                "The Golden Rule",
-                "The Golden Rule — treat others as you would want to be treated — appears in many cultures and religions worldwide, though with different wording. It's considered a universal ethical principle."
-            )
+            CulturalNote("Ethics across cultures",
+                "While some ethical principles (like honesty) are universal, specific ethical priorities can vary across cultures. Understanding cultural context helps avoid misunderstandings in discussions about values."),
+            CulturalNote("The Golden Rule",
+                "The Golden Rule — treat others as you would want to be treated — appears in many cultures and religions worldwide, though with different wording. It's considered a universal ethical principle.")
         ),
         mistakes = listOf(
             CommonMistake("If I would have time, I would help.", "If I had time, I would help.", "Use past simple in the if-clause, not 'would have'."),
@@ -1607,26 +1383,17 @@ object TopNotch2 {
             ComprehensionQuestion("What did A do about the coworker who took credit for someone else's work?", "A talked to the coworker privately and told him it wasn't fair. The coworker later apologized.")
         ),
         speaking = listOf(
-            SpeakingTask(
-                "Discuss an ethical dilemma with a partner.",
+            SpeakingTask("Discuss an ethical dilemma with a partner.",
                 "درباره یک دوراهی اخلاقی با یک دوست صحبت کن.",
-                "What would you do if...? / If I were in that situation... / I'd feel..."
-            ),
-            SpeakingTask(
-                "Talk about your personal values and why they matter.",
+                "What would you do if...? / If I were in that situation... / I'd feel..."),
+            SpeakingTask("Talk about your personal values and why they matter.",
                 "درباره ارزش‌های شخصی‌ات و اینکه چرا مهم هستند صحبت کن.",
-                "One of my core values is... / I wish more people... / If everyone..., the world would..."
-            )
+                "One of my core values is... / I wish more people... / If everyone..., the world would...")
         ),
         writing = listOf(
-            WritingTask(
-                "Write about an ethical dilemma you've faced or imagine one.",
+            WritingTask("Write about an ethical dilemma you've faced or imagine one.",
                 "درباره یک دوراهی اخلاقی که با آن روبرو شده‌ای یا تصور کن بنویس.",
-                180,
-                "Use second conditional, wish + past, and at least two phrasal verbs."
-            )
+                180, "Use second conditional, wish + past, and at least two phrasal verbs.")
         )
     )
 }
-
-   
