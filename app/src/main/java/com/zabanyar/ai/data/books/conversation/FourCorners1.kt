@@ -573,7 +573,8 @@ object FourCorners1 {
             WritingTask("Write about your daily routine.", "درباره روتین روزانه‌ات بنویس.", 120, "Use simple present and adverbs of frequency.")
         )
     )
-}    ═══════════════════════════════════════════════════════════════
+
+    // ═══════════════════════════════════════════════════════════════
     // UNIT 5 — Free time | اوقات فراغت
     // ═══════════════════════════════════════════════════════════════
     private fun unit5() = base(
@@ -1102,7 +1103,8 @@ object FourCorners1 {
             WritingTask("Write directions from your home to a place nearby.", "از خانه‌ات تا یک مکان نزدیک مسیر بنویس.", 130, "Use imperatives and prepositions of place.")
         )
     )
-}     ═══════════════════════════════════════════════════════════════
+
+    // ═══════════════════════════════════════════════════════════════
     // UNIT 9 — Experiences | تجربیات
     // ═══════════════════════════════════════════════════════════════
     private fun unit9() = base(
@@ -1203,7 +1205,7 @@ object FourCorners1 {
         pronunciation = listOf(
             PronunciationTip("-ed endings", "Regular verbs: /t/ worked, /d/ played, /ɪd/ visited."),
             PronunciationTip("Irregular verbs", "go/went, see/saw, eat/ate, buy/bought, have/had, meet/met."),
-            PronunciationTip("Past tense rhythm", "I WENT to the BEACH. She ATE pizza."),
+            PronunciationTip("Past tense rhythm", "I WENT to the BEACH. She ATE pizza.")
         ),
         culture = listOf(
             CulturalNote("Storytelling", "Telling stories about the past is a common way to build connections."),
@@ -1601,7 +1603,7 @@ object FourCorners1 {
         pronunciation = listOf(
             PronunciationTip("'Going to' reduction", "'Going to' reduces to 'gonna' in informal speech. I'm gonna travel."),
             PronunciationTip("Will contraction", "'Will' contracts to 'll: I'll, you'll, she'll, we'll, they'll."),
-            PronunciationTip("Future intonation", "I'm GOing to TRAvel. (stress content words)"),
+            PronunciationTip("Future intonation", "I'm GOing to TRAvel. (stress content words)")
         ),
         culture = listOf(
             CulturalNote("Summer vacations", "Summer vacations vary across cultures. In many countries, July and August are holiday months."),
