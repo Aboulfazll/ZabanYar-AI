@@ -344,9 +344,9 @@ object EmpowerC1 {
             ),
             commonMistakes = listOf(
                 CommonMistake("It was more hotter than I expected.", "It was hotter than I expected.", "Do not double the comparative."),
-                CommonMistake("I'm going to meet the instructor yesterday.", "I'm meeting the instructor yesterday.", "Use past tense for past arrangements."),
+                CommonMistake("I'm meeting the instructor tomorrow.", "I'm going to meet the instructor tomorrow.", "For arrangements already made, use present continuous; for intentions, use 'going to'."),
                 CommonMistake("You should to try it.", "You should try it.", "After 'should', use base verb without 'to'."),
-                CommonMistake("The experience was more thrilling than any I've had.", "The experience was more thrilling than any I've had.", "Correct comparative structure.")
+                CommonMistake("The experience was more thrilling than any I've had.", "The experience was more thrilling than any I've ever had.", "Use present perfect with 'ever' for life experiences.")
             ),
             conversation = listOf(
                 DialogueLine("Kai", "Have you ever done anything extreme?",
@@ -690,10 +690,6 @@ object EmpowerC1 {
                     "او در پاسخش با تدبیر بود.",
                     collocations = "tactful response, tactful approach",
                     wordFamily = "tact, tactfully"),
-                VocabWord("intricate", "پیچیده", "/ˈɪntrɪkət/", "adjective",
-                    "The mind is an intricate system.",
-                    "ذهن یک سیستم پیچیده است.",
-                    collocations = "intricate system, intricate detail"),
                 VocabWord("manipulate", "دستکاری کردن", "/məˈnɪpjuleɪt/", "verb",
                     "The experiment manipulated the participants' senses.",
                     "آزمایش حواس شرکت‌کنندگان را دستکاری کرد.",
@@ -899,10 +895,6 @@ object EmpowerC1 {
                     "برابری در محیط کار یک حق اساسی است.",
                     collocations = "gender equality, racial equality",
                     wordFamily = "equal, unequal"),
-                VocabWord("recall", "به یاد آوردن", "/rɪˈkɔːl/", "verb",
-                    "I can't recall the exact details.",
-                    "جزئیات دقیق را به یاد نمی‌آورم.",
-                    collocations = "recall a memory, clearly recall"),
                 VocabWord("speculate", "گمانه‌زنی کردن", "/ˈspekjəleɪt/", "verb",
                     "We can only speculate about what happened.",
                     "فقط می‌توانیم درباره آنچه رخ داد گمانه‌زنی کنیم.",
@@ -1779,7 +1771,7 @@ object EmpowerC1 {
                     "می‌دانم. کارخانه‌های قدیمی به آپارتمان بازسازی شده‌اند."),
                 DialogueLine("Ron", "And the new infrastructure is much better. The roads are wider, too.",
                     "و زیرساخت جدید خیلی بهتر است. جاده‌ها هم عریض‌تر هستند."),
-                Lizzie", "In a similar vein, they're redeveloping the waterfront next year.",
+                DialogueLine("Lizzie", "In a similar vein, they're redeveloping the waterfront next year.",
                     "به همین ترتیب، سال آینده منطقه ساحلی را توسعه مجدد می‌دهند."),
                 DialogueLine("Ron", "That's exciting. The city skyline is changing fast.",
                     "هیجان‌انگیز است. خط آسمان شهر سریع تغییر می‌کند."),
@@ -1913,10 +1905,10 @@ object EmpowerC1 {
                     "او او را متقاعد کرد که بیاید.",
                     collocations = "persuade someone to, try to persuade",
                     wordFamily = "persuasion, persuasive"),
-                VocabWord("guillible", "زودباور", "/ˈɡʌləbəl/", "adjective",
-                    "He's too guillible; he believes everything.",
+                VocabWord("gullible", "زودباور", "/ˈɡʌləbəl/", "adjective",
+                    "He's too gullible; he believes everything.",
                     "او بیش از حد زودباور است؛ همه چیز را باور می‌کند.",
-                    collocations = "extremely guillible, guillible person")
+                    collocations = "extremely gullible, gullible person")
             ),
             idioms = listOf(
                 IdiomExpression("a white lie", "دروغ مصلحتی",
@@ -1967,7 +1959,7 @@ object EmpowerC1 {
                     "Wish + past simple for present regrets: 'I wish I knew.' Wish + past perfect for past regrets: 'I wish I had known.'")
             ),
             commonMistakes = listOf(
-                CommonMistake("You should have told me.", "You should have told me.", "Correct."),
+                CommonMistake("You should of told me.", "You should have told me.", "Use 'should have', not 'should of'."),
                 CommonMistake("I wish I would have known.", "I wish I had known.", "Use past perfect after 'wish' for past regrets."),
                 CommonMistake("He is said that he is rich.", "He is said to be rich.", "Use 'is said to be' not 'is said that'."),
                 CommonMistake("She persuaded him come.", "She persuaded him to come.", "Use 'to' + infinitive after 'persuade'.")
@@ -1985,7 +1977,7 @@ object EmpowerC1 {
                     "مثل چه چیزی؟"),
                 DialogueLine("Ethan", "Finding a four-leaf clover, for example.",
                     "مثلاً پیدا کردن شبدر چهارپر."),
-                Ava", "Or not walking under a ladder.",
+                DialogueLine("Ava", "Or not walking under a ladder.",
                     "یا زیر نردبان راه نرفتن."),
                 DialogueLine("Ethan", "Exactly. I wish I hadn't walked under one last week.",
                     "دقیقاً. ای کاش هفته پیش زیر یکی راه نرفته بودم."),
