@@ -5,7 +5,7 @@ import com.zabanyar.ai.data.books.story.StoryContent
 import com.zabanyar.ai.data.books.story.StoryParagraph
 
 /**
- * 📚 گروه ۱۵ — مدرن (سطح متوسط)
+ * 📚 گروه ۱۵ — مدرن (سطح پیشرفته)
  *  ۴۳. گتسبی بزرگ
  *  ۴۴. خوشه‌های خشم
  *  ۴۵. بلندی‌های بادگیر
