@@ -8,7 +8,7 @@ object EnGroup12 {
     //  ۱: Ulysses
     // ═══════════════════════════════════════════════════════
     private fun story1() = EnStory(
-        storyId = "adv_ulysses",
+        storyId = "adv_ulysses_en",
         chapters = listOf(
             EnChapter(1, "The Tower", listOf(
                 "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed, and he intoned a mock-ecclesiastical blessing over the grey sweet mother of us all, the mighty and forgotten sea.",
@@ -148,7 +148,7 @@ object EnGroup12 {
     //  ۲: To the Lighthouse
     // ═══════════════════════════════════════════════════════
     private fun story2() = EnStory(
-        storyId = "adv_to_the_lighthouse",
+        storyId = "adv_to_the_lighthouse_en",
         chapters = listOf(
             EnChapter(1, "The Window", listOf(
                 "Yes, of course, if it's fine tomorrow, said Mrs. Ramsay, and her words carried across the room like a small promise, a small certainty in a world that was full of uncertainty, a small gift given freely to her son James, who was six years old and who had been waiting for this moment for what seemed to him like years.",
