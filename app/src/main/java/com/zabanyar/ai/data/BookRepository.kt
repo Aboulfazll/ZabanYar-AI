@@ -30,7 +30,7 @@ data class Book(
     val chapterTitles: List<String> = emptyList(),
     val views: String = "0",
     val isNew: Boolean = false,
-    val coverUrl: String = ""  // 🖼️ آدرس عکس جلد کتاب (اختیاری)
+    val coverUrl: String = ""
 )
 
 object BookRepository {
@@ -42,6 +42,20 @@ object BookRepository {
         // ═══════════════════════════════════════════════════════
 
         // ---------- Top Notch ----------
+        Book(
+            id = "top_notch_fundamentals", title = "Top Notch Fundamentals", titlePersian = "تاپ ناچ مقدماتی",
+            author = "Joan Saslow", category = BookCategory.CONVERSATION,
+            level = "مبتدی", levelEmoji = "🌱", totalChapters = 14,
+            gradientStart = 0xFF4A148C, gradientEnd = 0xFF7E57C2,
+            coverUrl = "https://covers.openlibrary.org/b/isbn/9780133928798-L.jpg",
+            chapterTitles = listOf(
+                "Greetings", "Names and Titles", "Countries and Nationalities",
+                "Numbers and Age", "Family Members", "Jobs and Occupations",
+                "Classroom Objects", "Daily Activities", "Time and Days",
+                "Food and Drinks", "Clothes and Colors", "Weather and Seasons",
+                "Places in the City", "Review"
+            )
+        ),
         Book(
             id = "top_notch_1", title = "Top Notch 1", titlePersian = "تاپ ناچ ۱",
             author = "Joan Saslow", category = BookCategory.CONVERSATION,
@@ -146,9 +160,22 @@ object BookRepository {
             )
         ),
 
-        // ---------- English File ----------
+        // ---------- American English File ----------
         Book(
-            id = "english_file_1", title = "English File 1", titlePersian = "اینگلیش فایل ۱",
+            id = "american_english_file_starter", title = "American English File Starter", titlePersian = "امریکن اینگلیش فایل مقدماتی",
+            author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
+            level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
+            gradientStart = 0xFF0D47A1, gradientEnd = 0xFF42A5F5,
+            coverUrl = "https://covers.openlibrary.org/b/isbn/9780194774389-L.jpg",
+            chapterTitles = listOf(
+                "Hello!", "Your World", "All About You",
+                "Family and Friends", "The Way We Live", "Food and Drink",
+                "My Time", "Places and Things", "Free Time",
+                "Past Events", "Work and Study", "Future Plans"
+            )
+        ),
+        Book(
+            id = "american_english_file_1", title = "American English File 1", titlePersian = "امریکن اینگلیش فایل ۱",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
             level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
             gradientStart = 0xFF0D47A1, gradientEnd = 0xFF4FC3F7,
@@ -160,7 +187,7 @@ object BookRepository {
             )
         ),
         Book(
-            id = "english_file_2", title = "English File 2", titlePersian = "اینگلیش فایل ۲",
+            id = "american_english_file_2", title = "American English File 2", titlePersian = "امریکن اینگلیش فایل ۲",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
             level = "مبتدی", levelEmoji = "🌱", totalChapters = 12,
             gradientStart = 0xFF1976D2, gradientEnd = 0xFF64B5F6,
@@ -172,7 +199,7 @@ object BookRepository {
             )
         ),
         Book(
-            id = "english_file_3", title = "English File 3", titlePersian = "اینگلیش فایل ۳",
+            id = "american_english_file_3", title = "American English File 3", titlePersian = "امریکن اینگلیش فایل ۳",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
             level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
             gradientStart = 0xFF512DA8, gradientEnd = 0xFF9575CD,
@@ -185,7 +212,7 @@ object BookRepository {
             )
         ),
         Book(
-            id = "english_file_4", title = "English File 4", titlePersian = "اینگلیش فایل ۴",
+            id = "american_english_file_4", title = "American English File 4", titlePersian = "امریکن اینگلیش فایل ۴",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
             level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
             gradientStart = 0xFF6A1B9A, gradientEnd = 0xFFBA68C8,
@@ -198,7 +225,7 @@ object BookRepository {
             )
         ),
         Book(
-            id = "english_file_5", title = "English File 5", titlePersian = "اینگلیش فایل ۵",
+            id = "american_english_file_5", title = "American English File 5", titlePersian = "امریکن اینگلیش فایل ۵",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
             level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
             gradientStart = 0xFFB71C1C, gradientEnd = 0xFFEF9A9A,
@@ -276,6 +303,91 @@ object BookRepository {
                 "Science", "Philosophy", "Future"
             )
         ),
+        Book(
+            id = "evolve_6", title = "Evolve 6", titlePersian = "ایوولو ۶",
+            author = "Leslie Anne Hendra", category = BookCategory.CONVERSATION,
+            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
+            gradientStart = 0xFF4E342E, gradientEnd = 0xFFA1887F,
+            coverUrl = "https://covers.openlibrary.org/b/isbn/9781108403326-L.jpg",
+            chapterTitles = listOf(
+                "Global Perspectives", "Social Change", "Technology & Ethics",
+                "Leadership", "Innovation", "Cultural Identity",
+                "Economics", "Politics & Power", "Arts & Expression",
+                "Science & Society", "Human Rights", "The Future of Humanity"
+            )
+        ),
+
+        // ---------- Empower ----------
+        Book(
+            id = "empower_c1", title = "Empower C1", titlePersian = "امپاور C1",
+            author = "Adrian Doff", category = BookCategory.CONVERSATION,
+            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
+            gradientStart = 0xFF1A237E, gradientEnd = 0xFF3F51B5,
+            coverUrl = "https://covers.openlibrary.org/b/isbn/9781107469108-L.jpg",
+            chapterTitles = listOf(
+                "Language and Communication", "Identity and Society",
+                "Education and Learning", "Work and Careers",
+                "Technology and Innovation", "Health and Wellbeing",
+                "Culture and Arts", "Environment and Sustainability",
+                "Politics and Power", "Global Issues", "Relationships",
+                "The Future"
+            )
+        ),
+
+        // ---------- Passages ----------
+        Book(
+            id = "passages_1", title = "Passages 1", titlePersian = "پسیجز ۱",
+            author = "Jack C. Richards", category = BookCategory.CONVERSATION,
+            level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
+            gradientStart = 0xFF00695C, gradientEnd = 0xFF26A69A,
+            coverUrl = "https://covers.openlibrary.org/b/isbn/9781108706212-L.jpg",
+            chapterTitles = listOf(
+                "Friends and Family", "City Life", "Fashion and Style",
+                "Travel and Adventure", "Food and Health", "Entertainment",
+                "Work and Study", "Environment", "Culture and Society",
+                "Technology", "Personal Growth", "Future Plans"
+            )
+        ),
+        Book(
+            id = "passages_2", title = "Passages 2", titlePersian = "پسیجز ۲",
+            author = "Jack C. Richards", category = BookCategory.CONVERSATION,
+            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
+            gradientStart = 0xFF283593, gradientEnd = 0xFF5C6BC0,
+            coverUrl = "https://covers.openlibrary.org/b/isbn/9781108706267-L.jpg",
+            chapterTitles = listOf(
+                "Globalization", "Cultural Identity", "Media and Communication",
+                "Ethics and Morality", "Innovation", "Social Change",
+                "Economics", "Politics", "Philosophy",
+                "Science and Technology", "The Environment", "The Future"
+            )
+        ),
+
+        // ---------- Summit ----------
+        Book(
+            id = "summit_1", title = "Summit 1", titlePersian = "سامیت ۱",
+            author = "Joan Saslow", category = BookCategory.CONVERSATION,
+            level = "متوسط", levelEmoji = "🚀", totalChapters = 10,
+            gradientStart = 0xFFBF360C, gradientEnd = 0xFFFF8A65,
+            coverUrl = "https://covers.openlibrary.org/b/isbn/9780134506322-L.jpg",
+            chapterTitles = listOf(
+                "New Perspectives", "Musical Moods", "Personal Heroes",
+                "The World of Work", "Food for Thought", "Finding Adventure",
+                "The Power of Ideas", "Looking Good", "The Natural World", "Life Choices"
+            )
+        ),
+        Book(
+            id = "summit_2", title = "Summit 2", titlePersian = "سامیت ۲",
+            author = "Joan Saslow", category = BookCategory.CONVERSATION,
+            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 10,
+            gradientStart = 0xFF4A148C, gradientEnd = 0xFF7E57C2,
+            coverUrl = "https://covers.openlibrary.org/b/isbn/9780134506520-L.jpg",
+            chapterTitles = listOf(
+                "Going Global", "Communication", "The Art of Storytelling",
+                "Living with Technology", "The World of Business",
+                "Change Makers", "Environment & Ethics", "Media & Society",
+                "The Individual and Society", "Future Visions"
+            )
+        ),
 
         // ═══════════════════════════════════════════════════════
         //  📝 گرامر
@@ -303,8 +415,7 @@ object BookRepository {
         ),
 
         // ═══════════════════════════════════════════════════════
-        //  📕 داستان‌ها — سطح ساده 🌱
-        //  (coverUrl خالی = Open Library خودکار از عنوان پیدا می‌کنه)
+        //  📕 داستان‌ها
         // ═══════════════════════════════════════════════════════
         Book(
             id = "curse_of_mummy", title = "Curse of the Mummy", titlePersian = "نفرین مومیایی",
