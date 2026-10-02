@@ -60,6 +60,10 @@ object Summit2 {
     private fun q(question: String, options: List<String>, correct: Int) =
         QuizQuestion(question, options, correct)
 
+    // ✅ Overload for short-answer questions (پاسخ کوتاه)
+    private fun q(question: String, answer: String) =
+        QuizQuestion(question, listOf(answer), 0)
+
     // ═══════════════════════════════════════════════════════════
     // UNIT 1 — Dreams and Goals | رویاها و اهداف
     // ═══════════════════════════════════════════════════════════
@@ -404,8 +408,7 @@ object Summit2 {
             d("B", "Bye.", "خداحافظ.")
         ),
         listOf(
-            q("What did A lie about?", "Telling someone about a friend's divorce",
-            listOf("a financial issue", "a friend's divorce", "a work matter", "a family secret"), 1),
+            q("What did A lie about?", listOf("a financial issue", "a friend's divorce", "a work matter", "a family secret"), 1),
             q("Why did A lie?", listOf("to protect the friend", "to avoid conflict", "to cover up an earlier mistake", "to gain advantage"), 2),
             q("Where did A's values come from?", listOf("school", "grandmother", "friends", "books"), 1),
             q("What did B's brother lie about?", listOf("money", "a big issue", "a job", "a relationship"), 1),
