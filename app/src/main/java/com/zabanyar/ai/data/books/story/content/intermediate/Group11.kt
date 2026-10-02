@@ -343,1039 +343,1044 @@ object Group11 {
                         "اما هر چه آینده در بر داشت، حالا در حرکت بود، و همین به‌تنهایی برایش کافی بود؛ حرکت زندگی بود و سکون مرگ، و شاهزاده آندری بولکونسکی زندگی را انتخاب کرده بود."
                     )
                 )
-            ),        StoryChapter(
-            number = 3, title = "The Battle of Austerlitz", titlePersian = "نبرد آسترلیتز",
-            paragraphs = listOf(
-                StoryParagraph(
-                    "In December 1805, the Russian and Austrian armies met Napoleon near the small town of Austerlitz, in a battle that would decide the fate of central Europe and the reputation of two great empires.",
-                    "در دسامبر ۱۸۰۵، ارتش‌های روسیه و اتریش نزدیک شهر کوچک آسترلیتز با ناپلئون روبرو شدند، در نبردی که سرنوشت اروپای مرکزی و آوازه‌ی دو امپراتوری بزرگ را تعیین می‌کرد."
-                ),
-                StoryParagraph(
-                    "For weeks, Prince Andrei had been travelling with the Russian army, and he had watched the officers and generals around him with growing disappointment and quiet anger.",
-                    "هفته‌ها بود که شاهزاده آندری همراه ارتش روسیه سفر می‌کرد و افسران و ژنرال‌های اطرافش را با ناامیدی روزافزون و خشم آرام تماشا می‌کرد."
-                ),
-                StoryParagraph(
-                    "Most of them were more interested in promotions, medals, and political intrigue than in the actual business of war, and their endless flattery and empty boasting disgusted him more than he could express.",
-                    "اکثرشان بیشتر به ترفیع، مدال و دسیسه‌های سیاسی علاقه داشتند تا به خود کار جنگ، و چاپلوسی بی‌پایان و لاف‌زنی پوچشان او را بیش از آنچه می‌توانست بگوید منزجر می‌کرد."
-                ),
-                StoryParagraph(
-                    "He had come here to find glory, to test himself against danger, to become a man whose name would be remembered, but so far he had found only confusion and vanity.",
-                    "او آمده بود اینجا تا افتخار بیابد، خودش را در برابر خطر بیازماید، مردی شود که نامش به یاد بماند، اما تا این لحظه فقط آشفتگی و خودپسندی یافته بود."
-                ),
-                StoryParagraph(
-                    "The Russian and Austrian commanders had decided on a plan that they believed would crush Napoleon once and for all, and they were confident of an easy victory against the smaller French army.",
-                    "فرماندهان روسی و اتریشی نقشه‌ای طراحی کرده بودند که باور داشتند ناپلئون را برای همیشه نابود می‌کند، و به پیروزی آسانی علیه ارتش کوچک‌تر فرانسوی مطمئن بودند."
-                ),
-                StoryParagraph(
-                    "Andrei, who had studied military strategy deeply, felt uneasy about their plan, and he suspected that Napoleon, who was famous for his cunning, might be planning something far cleverer than they imagined.",
-                    "آندری که استراتژی نظامی را عمیقاً مطالعه کرده بود، از نقشه‌شان احساس نگرانی می‌کرد و گمان می‌برد ناپلئون که به زیرکی‌اش معروف بود، ممکن بود نقشه‌ای بسیار هوشمندانه‌تر از آنچه تصور می‌کردند بکشد."
-                ),
-                StoryParagraph(
-                    "He tried to warn his superiors, but they dismissed his concerns as the nervousness of an inexperienced young officer who did not yet understand the realities of war.",
-                    "او سعی کرد به مافوق‌هایش هشدار دهد، اما آن‌ها نگرانی‌هایش را به‌عنوان اضطراب افسر جوان بی‌تجربه‌ای که هنوز واقعیت‌های جنگ را نمی‌فهمد رد کردند."
-                ),
-                StoryParagraph(
-                    "The night before the battle, Andrei could not sleep, and he stood at the window of his quarters, looking out at the dark, frozen countryside and imagining the glory that awaited him on the battlefield.",
-                    "شب قبل از نبرد، آندری نمی‌توانست بخوابد و کنار پنجره‌ی اقامتگاهش ایستاد و به دشت تاریک و یخ‌زده نگاه کرد و افتخاری را که در میدان نبرد در انتظارش بود تصور کرد."
-                ),
-                StoryParagraph(
-                    "In his mind, he saw himself seizing the flag of his regiment and leading a desperate charge, saving the army from disaster, and being celebrated as a hero whose name would live forever.",
-                    "در ذهنش خود را می‌دید که پرچم هنگش را می‌قاپد و حمله‌ای ناامیدانه را رهبری می‌کند، ارتش را از فاجعه نجات می‌دهد و به‌عنوان قهرمانی جشن گرفته می‌شود که نامش تا ابد زنده می‌ماند."
-                ),
-                StoryParagraph(
-                    "At dawn, the fighting began, and a thick fog covered the frozen fields, hiding the movements of the armies from one another and filling the air with an eerie, unnatural silence.",
-                    "سپیده‌دم، نبرد آغاز شد و مه غلیظی دشت‌های یخ‌زده را پوشاند و حرکات ارتش‌ها را از یکدیگر پنهان کرد و هوا را با سکوتی عجیب و غیرطبیعی پر کرد."
-                ),
-                StoryParagraph(
-                    "Then, suddenly, the French attacked, and they attacked exactly where the allied commanders had least expected them, breaking through the lines with terrifying speed and precision.",
-                    "سپس، ناگهان، فرانسوی‌ها حمله کردند، و دقیقاً همان‌جا حمله کردند که فرماندهان متحد کمترین انتظارش را داشتند، و با سرعت و دقتی وحشتناک خطوط را شکستند."
-                ),
-                StoryParagraph(
-                    "The allied army fell into chaos; regiments lost their officers, soldiers fled in every direction, and the carefully planned battle turned into a desperate, bloody retreat within hours.",
-                    "ارتش متحد در آشفتگی فرو رفت؛ هنگ‌ها افسرانشان را از دست دادند، سربازان به هر سو فرار کردند و نبرد دقیقاً طراحی‌شده در عرض چند ساعت به عقب‌نشینی ناامیدانه و خونینی تبدیل شد."
-                ),
-                StoryParagraph(
-                    "Andrei, riding with his regiment, watched the disaster unfold around him with horror and disbelief, and he understood in that moment that everything he had been told about the army's strength was a lie.",
-                    "آندری که همراه هنگش سوار بود، با وحشت و ناباوری فاجعه را در اطرافش می‌دید، و در آن لحظه فهمید که هر چه درباره‌ی قدرت ارتش به او گفته بودند دروغی بیش نبود."
-                ),
-                StoryParagraph(
-                    "When he saw the standard-bearer of his regiment fall, mortally wounded, Andrei seized the flag and rushed forward on foot, determined to lead the soldiers in one last, desperate charge.",
-                    "وقتی دید پرچم‌دار هنگش زخم مرگبار خورد و افتاد، آندری پرچم را گرفت و پیاده به پیش دوید و مصمم بود سربازان را در یک حمله‌ی آخر و ناامیدانه رهبری کند."
-                ),
-                StoryParagraph(
-                    "For a moment, the soldiers, inspired by his courage, followed him forward, and Andrei felt a wild, triumphant joy surge through his body, as if he had finally found the glory he had been seeking all along.",
-                    "برای لحظه‌ای، سربازان که از شجاعتش الهام گرفته بودند، از او به پیش پیروی کردند، و آندری شادی وحشی و پیروزمندانه‌ای را در بدنش حس کرد، گویی بالاخره همان افتخاری را یافته بود که تمام مدت در جست‌وجویش بود."
-                ),
-                StoryParagraph(
-                    "Then a bullet struck him, and everything went silent, and the world seemed to slow down to a strange, still dream in which nothing mattered anymore, neither glory nor honor nor any of the things men killed each other for.",
-                    "سپس گلوله‌ای به او اصابت کرد و همه‌چیز ساکت شد، و دنیا به رؤیایی عجیب و ساکن آهسته شد که در آن دیگر هیچ چیز اهمیتی نداشت، نه افتخار، نه شرافت، نه هیچ‌کدام از چیزهایی که آدم‌ها برایشان یکدیگر را می‌کشتند."
-                ),
-                StoryParagraph(
-                    "He fell to the ground and lay there on his back, staring up at the vast, empty sky above him, and for the first time in years, he felt completely and utterly peaceful.",
-                    "او روی زمین افتاد و به پشت دراز کشید و به آسمان پهناور و خالی بالای سرش خیره شد، و برای اولین بار در سال‌ها، کاملاً و مطلقاً آرامش را حس کرد."
-                ),
-                StoryParagraph(
-                    "How quiet, how peaceful, how unlike the way I always imagined glory, he thought, as the clouds drifted slowly across the grey sky above the frozen fields of Austerlitz.",
-                    "او فکر کرد: چقدر آرام، چقدر صلح‌آمیز، چقدر برخلاف تصوری که همیشه از افتخار داشتم، در حالی که ابرها آهسته در آسمان خاکستری بالای دشت‌های یخ‌زده‌ی آسترلیتز شناور بودند."
-                ),
-                StoryParagraph(
-                    "He thought of his wife Lise, whom he had left behind without kindness, and of his sister Marya, whose gentle face now seemed to him more beautiful than all the glory in the world.",
-                    "به همسرش لیزا فکر کرد که بدون مهربانی رهایش کرده بود، و به خواهرش ماریا، که چهره‌ی مهربانش حالا از تمام افتخار دنیا زیباتر به نظرش می‌رسید."
-                ),
-                StoryParagraph(
-                    "He thought of his father, whose harsh words had sent him here, and he wondered, with a strange detachment, whether the old man would be proud or disappointed when news of his death finally reached home.",
-                    "به پدرش فکر کرد که کلمات خشنش او را به اینجا فرستاده بود، و با جداافتادگی عجیبی از خود پرسید که آیا پیرمرد وقتی خبر مرگش بالاخره به خانه برسد، افتخار می‌کند یا ناامید می‌شود."
-                ),
-                StoryParagraph(
-                    "Then, through the drifting smoke and the grey afternoon light, a figure on horseback appeared above him, and Andrei slowly recognized the small, stocky man in the plain grey coat.",
-                    "سپس، از میان دودهای شناور و نور خاکستری بعدازظهر، سوارکاری بالای سرش ظاهر شد، و آندری به‌آرامی مرد کوچک‌اندام و تنومند با پالتوی خاکستری ساده را شناخت."
-                ),
-                StoryParagraph(
-                    "It was Napoleon himself, riding slowly across the battlefield, inspecting the dead and wounded with the calm curiosity of a man who had seen such scenes a thousand times before.",
-                    "خود ناپلئون بود که آهسته در میدان نبرد سوار می‌شد و با کنجکاوی آرام مردی که هزار بار پیش چنین صحنه‌هایی را دیده بود، کشته‌ها و زخمی‌ها را بررسی می‌کرد."
-                ),
-                StoryParagraph(
-                    "The Emperor stopped his horse beside Andrei and looked down at him for a long moment, and then, turning to one of his officers, he said calmly that this was a noble death.",
-                    "امپراتور اسبش را کنار آندری نگه داشت و لحظه‌ای طولانی به او نگاه کرد، و سپس، رو به یکی از افسرانش کرد و آرام گفت که این مرگی نجیبانه است."
-                ),
-                StoryParagraph(
-                    "But Andrei was still alive, and in that moment, as he stared up at the man he had once admired as the greatest genius of the age, his view of greatness changed forever.",
-                    "اما آندری هنوز زنده بود، و در آن لحظه، همانطور که به مردی خیره می‌شد که زمانی او را بزرگ‌ترین نابغه‌ی عصر می‌دانست، دیدگاهش نسبت به بزرگی برای همیشه تغییر کرد."
-                ),
-                StoryParagraph(
-                    "He realized, with a clarity that pierced through his pain, that Napoleon, the conqueror of Europe, the man whose name made kings tremble, was nothing but a small, insignificant man.",
-                    "او با وضوحی که از دردش نفوذ می‌کرد، دریافت که ناپلئون، فاتح اروپا، مردی که نامش پادشاهان را می‌لرزاند، چیزی جز مردی کوچک و بی‌اهمیت نبود."
-                ),
-                StoryParagraph(
-                    "In that moment, he saw the true smallness of all earthly fame, and he understood, at last, that the only things that mattered were love, kindness, and the quiet beauty of ordinary life.",
-                    "در آن لحظه، کوچکی واقعی تمام شهرت زمینی را دید، و بالاخره فهمید که تنها چیزهایی که اهمیت داشتند عشق، مهربانی و زیبایی آرام زندگی معمولی بودند."
-                ),
-                StoryParagraph(
-                    "Later, after the French had moved on, soldiers from his own regiment found Andrei on the field, barely alive, and carried him to a nearby hospital, where doctors struggled for hours to save his life.",
-                    "بعدها، پس از آنکه فرانسوی‌ها گذشتند، سربازانی از هنگ خودش آندری را در میدان یافتند، به‌سختی زنده، و او را به بیمارستانی نزدیک بردند، جایی که پزشکان ساعت‌ها برای نجات جانش تلاش کردند."
-                ),
-                StoryParagraph(
-                    "He survived the operation, but he was weak and feverish, and for many days he drifted in and out of consciousness, dreaming strange dreams about the sky and the clouds and a girl singing somewhere far away.",
-                    "او از عمل جان به‌در برد، اما ضعیف و تب‌دار بود و روزهای بسیاری میان هشیاری و بی‌هشیاری شناور بود و رؤیاهای عجیب می‌دید؛ درباره‌ی آسمان و ابرها و دختری که جایی دور آواز می‌خواند."
-                ),
-                StoryParagraph(
-                    "When he finally woke, clear-headed at last, he knew that the man who had left for this war was not the same man who would return from it, and that the life he had once known could never be rebuilt on the old foundations.",
-                    "وقتی بالاخره بیدار شد، بالاخره هشیار، دانست که مردی که به این جنگ آمده بود همان مردی نبود که از آن بازمی‌گشت، و زندگی‌ای که زمانی می‌شناخت دیگر هرگز بر پایه‌های قدیمی بازسازی نمی‌شد."
-                ),
-                StoryParagraph(
-                    "The hero he had dreamed of becoming had died in the mud of Austerlitz, and in his place, slowly, painfully, a new man was beginning to be born.",
-                    "قهرمانی که آرزوی شدنش را داشت، در گل و لای آسترلیتز مرده بود و به‌جای او، آهسته و دردناک، مردی جدید شروع به متولد شدن کرده بود."
-                ),
-                StoryParagraph(
-                    "What that new man would become, Andrei did not yet know, but he knew that whatever it was, it would be honest, and it would be built not on glory, but on truth.",
-                    "آن مرد جدید چه می‌شد را آندری هنوز نمی‌دانست، اما می‌دانست که هر چه باشد، صادقانه خواهد بود، و نه بر افتخار، بلکه بر حقیقت بنا خواهد شد."
-                ),
-                StoryParagraph(
-                    "As winter slowly gave way to spring, he began to recover, and he began to plan his return home, no longer as the proud young officer who had left, but as a man who had been broken and was now slowly, carefully putting himself back together.",
-                    "وقتی زمستان آهسته جای خود را به بهار داد، او شروع به بهبودی کرد و شروع کرد به برنامه‌ریزی برای بازگشت به خانه، دیگر نه به‌عنوان افسر جوان مغروری که رفته بود، بلکه به‌عنوان مردی که شکسته شده و حالا آهسته و بادقت خودش را دوباره می‌ساخت."
+            ),
+            StoryChapter(
+                number = 3, title = "The Battle of Austerlitz", titlePersian = "نبرد آسترلیتز",
+                paragraphs = listOf(
+                    StoryParagraph(
+                        "In December 1805, the Russian and Austrian armies met Napoleon near the small town of Austerlitz, in a battle that would decide the fate of central Europe and the reputation of two great empires.",
+                        "در دسامبر ۱۸۰۵، ارتش‌های روسیه و اتریش نزدیک شهر کوچک آسترلیتز با ناپلئون روبرو شدند، در نبردی که سرنوشت اروپای مرکزی و آوازه‌ی دو امپراتوری بزرگ را تعیین می‌کرد."
+                    ),
+                    StoryParagraph(
+                        "For weeks, Prince Andrei had been travelling with the Russian army, and he had watched the officers and generals around him with growing disappointment and quiet anger.",
+                        "هفته‌ها بود که شاهزاده آندری همراه ارتش روسیه سفر می‌کرد و افسران و ژنرال‌های اطرافش را با ناامیدی روزافزون و خشم آرام تماشا می‌کرد."
+                    ),
+                    StoryParagraph(
+                        "Most of them were more interested in promotions, medals, and political intrigue than in the actual business of war, and their endless flattery and empty boasting disgusted him more than he could express.",
+                        "اکثرشان بیشتر به ترفیع، مدال و دسیسه‌های سیاسی علاقه داشتند تا به خود کار جنگ، و چاپلوسی بی‌پایان و لاف‌زنی پوچشان او را بیش از آنچه می‌توانست بگوید منزجر می‌کرد."
+                    ),
+                    StoryParagraph(
+                        "He had come here to find glory, to test himself against danger, to become a man whose name would be remembered, but so far he had found only confusion and vanity.",
+                        "او آمده بود اینجا تا افتخار بیابد، خودش را در برابر خطر بیازماید، مردی شود که نامش به یاد بماند، اما تا این لحظه فقط آشفتگی و خودپسندی یافته بود."
+                    ),
+                    StoryParagraph(
+                        "The Russian and Austrian commanders had decided on a plan that they believed would crush Napoleon once and for all, and they were confident of an easy victory against the smaller French army.",
+                        "فرماندهان روسی و اتریشی نقشه‌ای طراحی کرده بودند که باور داشتند ناپلئون را برای همیشه نابود می‌کند، و به پیروزی آسانی علیه ارتش کوچک‌تر فرانسوی مطمئن بودند."
+                    ),
+                    StoryParagraph(
+                        "Andrei, who had studied military strategy deeply, felt uneasy about their plan, and he suspected that Napoleon, who was famous for his cunning, might be planning something far cleverer than they imagined.",
+                        "آندری که استراتژی نظامی را عمیقاً مطالعه کرده بود، از نقشه‌شان احساس نگرانی می‌کرد و گمان می‌برد ناپلئون که به زیرکی‌اش معروف بود، ممکن بود نقشه‌ای بسیار هوشمندانه‌تر از آنچه تصور می‌کردند بکشد."
+                    ),
+                    StoryParagraph(
+                        "He tried to warn his superiors, but they dismissed his concerns as the nervousness of an inexperienced young officer who did not yet understand the realities of war.",
+                        "او سعی کرد به مافوق‌هایش هشدار دهد، اما آن‌ها نگرانی‌هایش را به‌عنوان اضطراب افسر جوان بی‌تجربه‌ای که هنوز واقعیت‌های جنگ را نمی‌فهمد رد کردند."
+                    ),
+                    StoryParagraph(
+                        "The night before the battle, Andrei could not sleep, and he stood at the window of his quarters, looking out at the dark, frozen countryside and imagining the glory that awaited him on the battlefield.",
+                        "شب قبل از نبرد، آندری نمی‌توانست بخوابد و کنار پنجره‌ی اقامتگاهش ایستاد و به دشت تاریک و یخ‌زده نگاه کرد و افتخاری را که در میدان نبرد در انتظارش بود تصور کرد."
+                    ),
+                    StoryParagraph(
+                        "In his mind, he saw himself seizing the flag of his regiment and leading a desperate charge, saving the army from disaster, and being celebrated as a hero whose name would live forever.",
+                        "در ذهنش خود را می‌دید که پرچم هنگش را می‌قاپد و حمله‌ای ناامیدانه را رهبری می‌کند، ارتش را از فاجعه نجات می‌دهد و به‌عنوان قهرمانی جشن گرفته می‌شود که نامش تا ابد زنده می‌ماند."
+                    ),
+                    StoryParagraph(
+                        "At dawn, the fighting began, and a thick fog covered the frozen fields, hiding the movements of the armies from one another and filling the air with an eerie, unnatural silence.",
+                        "سپیده‌دم، نبرد آغاز شد و مه غلیظی دشت‌های یخ‌زده را پوشاند و حرکات ارتش‌ها را از یکدیگر پنهان کرد و هوا را با سکوتی عجیب و غیرطبیعی پر کرد."
+                    ),
+                    StoryParagraph(
+                        "Then, suddenly, the French attacked, and they attacked exactly where the allied commanders had least expected them, breaking through the lines with terrifying speed and precision.",
+                        "سپس، ناگهان، فرانسوی‌ها حمله کردند، و دقیقاً همان‌جا حمله کردند که فرماندهان متحد کمترین انتظارش را داشتند، و با سرعت و دقتی وحشتناک خطوط را شکستند."
+                    ),
+                    StoryParagraph(
+                        "The allied army fell into chaos; regiments lost their officers, soldiers fled in every direction, and the carefully planned battle turned into a desperate, bloody retreat within hours.",
+                        "ارتش متحد در آشفتگی فرو رفت؛ هنگ‌ها افسرانشان را از دست دادند، سربازان به هر سو فرار کردند و نبرد دقیقاً طراحی‌شده در عرض چند ساعت به عقب‌نشینی ناامیدانه و خونینی تبدیل شد."
+                    ),
+                    StoryParagraph(
+                        "Andrei, riding with his regiment, watched the disaster unfold around him with horror and disbelief, and he understood in that moment that everything he had been told about the army's strength was a lie.",
+                        "آندری که همراه هنگش سوار بود، با وحشت و ناباوری فاجعه را در اطرافش می‌دید، و در آن لحظه فهمید که هر چه درباره‌ی قدرت ارتش به او گفته بودند دروغی بیش نبود."
+                    ),
+                    StoryParagraph(
+                        "When he saw the standard-bearer of his regiment fall, mortally wounded, Andrei seized the flag and rushed forward on foot, determined to lead the soldiers in one last, desperate charge.",
+                        "وقتی دید پرچم‌دار هنگش زخم مرگبار خورد و افتاد، آندری پرچم را گرفت و پیاده به پیش دوید و مصمم بود سربازان را در یک حمله‌ی آخر و ناامیدانه رهبری کند."
+                    ),
+                    StoryParagraph(
+                        "For a moment, the soldiers, inspired by his courage, followed him forward, and Andrei felt a wild, triumphant joy surge through his body, as if he had finally found the glory he had been seeking all along.",
+                        "برای لحظه‌ای، سربازان که از شجاعتش الهام گرفته بودند، از او به پیش پیروی کردند، و آندری شادی وحشی و پیروزمندانه‌ای را در بدنش حس کرد، گویی بالاخره همان افتخاری را یافته بود که تمام مدت در جست‌وجویش بود."
+                    ),
+                    StoryParagraph(
+                        "Then a bullet struck him, and everything went silent, and the world seemed to slow down to a strange, still dream in which nothing mattered anymore, neither glory nor honor nor any of the things men killed each other for.",
+                        "سپس گلوله‌ای به او اصابت کرد و همه‌چیز ساکت شد، و دنیا به رؤیایی عجیب و ساکن آهسته شد که در آن دیگر هیچ چیز اهمیتی نداشت، نه افتخار، نه شرافت، نه هیچ‌کدام از چیزهایی که آدم‌ها برایشان یکدیگر را می‌کشتند."
+                    ),
+                    StoryParagraph(
+                        "He fell to the ground and lay there on his back, staring up at the vast, empty sky above him, and for the first time in years, he felt completely and utterly peaceful.",
+                        "او روی زمین افتاد و به پشت دراز کشید و به آسمان پهناور و خالی بالای سرش خیره شد، و برای اولین بار در سال‌ها، کاملاً و مطلقاً آرامش را حس کرد."
+                    ),
+                    StoryParagraph(
+                        "How quiet, how peaceful, how unlike the way I always imagined glory, he thought, as the clouds drifted slowly across the grey sky above the frozen fields of Austerlitz.",
+                        "او فکر کرد: چقدر آرام، چقدر صلح‌آمیز، چقدر برخلاف تصوری که همیشه از افتخار داشتم، در حالی که ابرها آهسته در آسمان خاکستری بالای دشت‌های یخ‌زده‌ی آسترلیتز شناور بودند."
+                    ),
+                    StoryParagraph(
+                        "He thought of his wife Lise, whom he had left behind without kindness, and of his sister Marya, whose gentle face now seemed to him more beautiful than all the glory in the world.",
+                        "به همسرش لیزا فکر کرد که بدون مهربانی رهایش کرده بود، و به خواهرش ماریا، که چهره‌ی مهربانش حالا از تمام افتخار دنیا زیباتر به نظرش می‌رسید."
+                    ),
+                    StoryParagraph(
+                        "He thought of his father, whose harsh words had sent him here, and he wondered, with a strange detachment, whether the old man would be proud or disappointed when news of his death finally reached home.",
+                        "به پدرش فکر کرد که کلمات خشنش او را به اینجا فرستاده بود، و با جداافتادگی عجیبی از خود پرسید که آیا پیرمرد وقتی خبر مرگش بالاخره به خانه برسد، افتخار می‌کند یا ناامید می‌شود."
+                    ),
+                    StoryParagraph(
+                        "Then, through the drifting smoke and the grey afternoon light, a figure on horseback appeared above him, and Andrei slowly recognized the small, stocky man in the plain grey coat.",
+                        "سپس، از میان دودهای شناور و نور خاکستری بعدازظهر، سوارکاری بالای سرش ظاهر شد، و آندری به‌آرامی مرد کوچک‌اندام و تنومند با پالتوی خاکستری ساده را شناخت."
+                    ),
+                    StoryParagraph(
+                        "It was Napoleon himself, riding slowly across the battlefield, inspecting the dead and wounded with the calm curiosity of a man who had seen such scenes a thousand times before.",
+                        "خود ناپلئون بود که آهسته در میدان نبرد سوار می‌شد و با کنجکاوی آرام مردی که هزار بار پیش چنین صحنه‌هایی را دیده بود، کشته‌ها و زخمی‌ها را بررسی می‌کرد."
+                    ),
+                    StoryParagraph(
+                        "The Emperor stopped his horse beside Andrei and looked down at him for a long moment, and then, turning to one of his officers, he said calmly that this was a noble death.",
+                        "امپراتور اسبش را کنار آندری نگه داشت و لحظه‌ای طولانی به او نگاه کرد، و سپس، رو به یکی از افسرانش کرد و آرام گفت که این مرگی نجیبانه است."
+                    ),
+                    StoryParagraph(
+                        "But Andrei was still alive, and in that moment, as he stared up at the man he had once admired as the greatest genius of the age, his view of greatness changed forever.",
+                        "اما آندری هنوز زنده بود، و در آن لحظه، همانطور که به مردی خیره می‌شد که زمانی او را بزرگ‌ترین نابغه‌ی عصر می‌دانست، دیدگاهش نسبت به بزرگی برای همیشه تغییر کرد."
+                    ),
+                    StoryParagraph(
+                        "He realized, with a clarity that pierced through his pain, that Napoleon, the conqueror of Europe, the man whose name made kings tremble, was nothing but a small, insignificant man.",
+                        "او با وضوحی که از دردش نفوذ می‌کرد، دریافت که ناپلئون، فاتح اروپا، مردی که نامش پادشاهان را می‌لرزاند، چیزی جز مردی کوچک و بی‌اهمیت نبود."
+                    ),
+                    StoryParagraph(
+                        "In that moment, he saw the true smallness of all earthly fame, and he understood, at last, that the only things that mattered were love, kindness, and the quiet beauty of ordinary life.",
+                        "در آن لحظه، کوچکی واقعی تمام شهرت زمینی را دید، و بالاخره فهمید که تنها چیزهایی که اهمیت داشتند عشق، مهربانی و زیبایی آرام زندگی معمولی بودند."
+                    ),
+                    StoryParagraph(
+                        "Later, after the French had moved on, soldiers from his own regiment found Andrei on the field, barely alive, and carried him to a nearby hospital, where doctors struggled for hours to save his life.",
+                        "بعدها، پس از آنکه فرانسوی‌ها گذشتند، سربازانی از هنگ خودش آندری را در میدان یافتند، به‌سختی زنده، و او را به بیمارستانی نزدیک بردند، جایی که پزشکان ساعت‌ها برای نجات جانش تلاش کردند."
+                    ),
+                    StoryParagraph(
+                        "He survived the operation, but he was weak and feverish, and for many days he drifted in and out of consciousness, dreaming strange dreams about the sky and the clouds and a girl singing somewhere far away.",
+                        "او از عمل جان به‌در برد، اما ضعیف و تب‌دار بود و روزهای بسیاری میان هشیاری و بی‌هشیاری شناور بود و رؤیاهای عجیب می‌دید؛ درباره‌ی آسمان و ابرها و دختری که جایی دور آواز می‌خواند."
+                    ),
+                    StoryParagraph(
+                        "When he finally woke, clear-headed at last, he knew that the man who had left for this war was not the same man who would return from it, and that the life he had once known could never be rebuilt on the old foundations.",
+                        "وقتی بالاخره بیدار شد، بالاخره هشیار، دانست که مردی که به این جنگ آمده بود همان مردی نبود که از آن بازمی‌گشت، و زندگی‌ای که زمانی می‌شناخت دیگر هرگز بر پایه‌های قدیمی بازسازی نمی‌شد."
+                    ),
+                    StoryParagraph(
+                        "The hero he had dreamed of becoming had died in the mud of Austerlitz, and in his place, slowly, painfully, a new man was beginning to be born.",
+                        "قهرمانی که آرزوی شدنش را داشت، در گل و لای آسترلیتز مرده بود و به‌جای او، آهسته و دردناک، مردی جدید شروع به متولد شدن کرده بود."
+                    ),
+                    StoryParagraph(
+                        "What that new man would become, Andrei did not yet know, but he knew that whatever it was, it would be honest, and it would be built not on glory, but on truth.",
+                        "آن مرد جدید چه می‌شد را آندری هنوز نمی‌دانست، اما می‌دانست که هر چه باشد، صادقانه خواهد بود، و نه بر افتخار، بلکه بر حقیقت بنا خواهد شد."
+                    ),
+                    StoryParagraph(
+                        "As winter slowly gave way to spring, he began to recover, and he began to plan his return home, no longer as the proud young officer who had left, but as a man who had been broken and was now slowly, carefully putting himself back together.",
+                        "وقتی زمستان آهسته جای خود را به بهار داد، او شروع به بهبودی کرد و شروع کرد به برنامه‌ریزی برای بازگشت به خانه، دیگر نه به‌عنوان افسر جوان مغروری که رفته بود، بلکه به‌عنوان مردی که شکسته شده و حالا آهسته و بادقت خودش را دوباره می‌ساخت."
+                    )
                 )
-            )
-        ),
-        StoryChapter(
-            number = 4, title = "War, Love, and Redemption", titlePersian = "جنگ، عشق و رستگاری",
-            paragraphs = listOf(
-                StoryParagraph(
-                    "While Andrei was slowly recovering from his wounds in a distant hospital, his old friend Pierre Bezukhov was living through his own storms in Moscow, and discovering, in pain, the truths he had long avoided.",
-                    "در حالی که آندری آهسته در بیمارستانی دور از زخم‌هایش بهبود می‌یافت، دوست قدیمی‌اش پیر بزوخوف در مسکو طوفان‌های خودش را می‌گذراند و دردمندانه حقیقت‌هایی را کشف می‌کرد که مدت‌ها از آن‌ها گریخته بود."
-                ),
-                StoryParagraph(
-                    "After the death of his father, Pierre had unexpectedly inherited an enormous fortune and the title of Count, and overnight, everyone who had once ignored him suddenly wanted to be his closest friend.",
-                    "پس از مرگ پدرش، پیر به‌طور غیرمنتظره‌ای ثروتی عظیم و عنوان کنت را به ارث برده بود و یک‌شبه، هر کس که زمانی نادیده‌اش می‌گرفت، ناگهان می‌خواست نزدیک‌ترین دوستش باشد."
-                ),
-                StoryParagraph(
-                    "The beautiful Princess Helene Kuragina, whose father Prince Vasily had been scheming to marry her into a rich family, set her sights on Pierre, and her cold charm and her family's manipulations swept him into a marriage he never truly wanted.",
-                    "شاهزاده‌خانم زیبای هلن کوراگینا، که پدرش شاهزاده واسیلی نقشه‌ی ازدواج او با خانواده‌ای ثروتمند را می‌کشید، پیر را هدف گرفت، و جذابیت سردش و دسیسه‌های خانواده‌اش او را به ازدواجی راندند که هرگز واقعاً نمی‌خواست."
-                ),
-                StoryParagraph(
-                    "Within a few months of their wedding, Pierre discovered, from gossip and then from his own eyes, that his wife was having an affair with a young officer named Dolokhov, a reckless man who seemed to take pleasure in humiliating him.",
-                    "چند ماه پس از ازدواجشان، پیر از شایعات و سپس با چشمان خودش کشف کرد که همسرش با افسری جوان به نام دولوخوف رابطه دارد، مردی بی‌پروا که به نظر می‌رسید از تحقیر او لذت می‌برد."
-                ),
-                StoryParagraph(
-                    "At a public dinner party, Dolokhov openly mocked Pierre in front of everyone, and Pierre, unable to control his rage, challenged him to a duel, something he had never dreamed of doing in his entire life.",
-                    "در مهمانی شامی علنی، دولوخوف آشکارا پیر را در برابر همه مسخره کرد، و پیر که نمی‌توانست خشمش را کنترل کند، او را به دوئل دعوت کرد، کاری که در تمام عمرش هرگز خوابش را هم ندیده بود."
-                ),
-                StoryParagraph(
-                    "The duel took place the next morning in a snowy field outside the city, and Pierre, who had never fired a pistol before, somehow managed to wound Dolokhov, leaving him bleeding in the snow.",
-                    "دوئل صبح روز بعد در دشتی برفی بیرون شهر برگزار شد، و پیر که قبلاً هرگز با تپانچه شلیک نکرده بود، به‌نحوی توانست دولوخوف را زخمی کند و او را در برف خونین رها کند."
-                ),
-                StoryParagraph(
-                    "Standing over the wounded man, Pierre felt no triumph, only horror at what he had done, and in that moment, he realized that the society he had once admired was built on lies, vanity, and casual cruelty.",
-                    "پیر که بالای سر مرد زخمی ایستاده بود، هیچ پیروزی حس نکرد، فقط وحشت از کاری که کرده بود، و در آن لحظه دریافت که جامعه‌ای که زمانی تحسینش می‌کرد بر پایه‌ی دروغ، خودپسندی و قساوت روزمره بنا شده بود."
-                ),
-                StoryParagraph(
-                    "He left Helene that same week and travelled alone to St. Petersburg, searching desperately for some meaning in life that would be greater and truer than the empty pleasures of wealth and society.",
-                    "او همان هفته هلن را ترک کرد و تنها به سن‌پترزبورگ سفر کرد و ناامیدانه در جست‌وجوی معنایی در زندگی بود که بزرگ‌تر و حقیقی‌تر از لذت‌های پوچ ثروت و جامعه باشد."
-                ),
-                StoryParagraph(
-                    "At a post station on the road, he met an old man named Bazdeev, a well-known Freemason, who spoke to him with quiet wisdom about the brotherhood of all men, the search for inner peace, and the duty to help others.",
-                    "در ایستگاهی در راه، پیرمردی به نام بازدیف آشنا شد، فراماسونی مشهور، که با حکمت آرامی با او درباره‌ی برادری همه‌ی انسان‌ها، جست‌وجوی آرامش درونی و وظیفه‌ی کمک به دیگران سخن گفت."
-                ),
-                StoryParagraph(
-                    "The old man's words touched something deep and long-buried inside Pierre, and for the first time since childhood, he began to hope that his life might still have a purpose worth living for.",
-                    "کلمات آن پیرمرد چیزی عمیق و مدفون در درون پیر را لمس کرد، و برای اولین بار از کودکی، او شروع کرد به امیدواری که زندگی‌اش ممکن است هنوز هدفی داشته باشد که ارزش زیستن داشته باشد."
-                ),
-                StoryParagraph(
-                    "He joined the Freemasons and threw himself into their rituals and charitable works with all the passion of a man desperate to believe in something, and he returned to his estates determined to improve the lives of his peasants.",
-                    "او به فراماسون‌ها پیوست و با تمام شور مردی که ناامیدانه می‌خواست به چیزی ایمان بیاورد، خود را در آیین‌ها و کارهای خیرخواهانه‌شان غرق کرد، و با عزمی راسخ برای بهبود زندگی رعایایش به املاکش بازگشت."
-                ),
-                StoryParagraph(
-                    "But the peasants, who had suffered for generations under cruel lords, did not trust his kindness, and they refused most of his reforms, and Pierre slowly realized that doing good was not as simple as he had believed.",
-                    "اما رعایا، که نسل‌ها زیر ظلم اربابان بی‌رحم رنج برده بودند، به مهربانی‌اش اعتماد نکردند و اکثر اصلاحاتش را رد کردند، و پیر آهسته دریافت که نیکی کردن آن‌قدر که باور داشت ساده نیست."
-                ),
-                StoryParagraph(
-                    "Still, he continued his search, and in the years that followed, he travelled, he read, he questioned everything, and he slowly began to understand that peace of mind was not a thing to be found, but a thing to be built.",
-                    "با این حال، به جست‌وجویش ادامه داد، و در سال‌های بعد، سفر کرد، خواند، همه چیز را زیر سؤال برد، و آهسته شروع کرد به فهمیدن اینکه آرامش ذهن چیزی نیست که یافته شود، بلکه چیزی است که باید ساخته شود."
-                ),
-                StoryParagraph(
-                    "It was during this time that he began to spend more evenings with the Rostov family, one of the oldest and warmest noble families in Moscow, whose home was always full of laughter, music, and life.",
-                    "در همین زمان بود که او شروع کرد به گذراندن شب‌های بیشتری با خانواده‌ی روستوف، یکی از قدیمی‌ترین و گرم‌ترین خانواده‌های اصیل مسکو، که خانه‌اش همیشه پر از خنده، موسیقی و زندگی بود."
-                ),
-                StoryParagraph(
-                    "The youngest daughter of the family, Natasha Rostova, was a girl of seventeen, beautiful, lively, and full of song, and Pierre, though many years older than her, found himself more and more drawn to her brightness.",
-                    "کوچک‌ترین دختر خانواده، ناتاشا روستوا، دختری هفده‌ساله، زیبا، سرزنده و پر از آواز بود، و پیر، هرچند سال‌ها از او بزرگ‌تر بود، خود را بیشتر و بیشتر کشیده به درخشندگی‌اش می‌یافت."
-                ),
-                StoryParagraph(
-                    "When Prince Andrei returned from the war, still grieving and still searching for a reason to live, he met Natasha at a ball in St. Petersburg, and in that single evening, something in him woke up from a long and terrible sleep.",
-                    "وقتی شاهزاده آندری از جنگ بازگشت، هنوز غمگین و هنوز در جست‌وجوی دلیلی برای زندگی، در رقصی در سن‌پترزبورگ با ناتاشا آشنا شد، و در همان یک شب، چیزی در او از خوابی طولانی و هولناک بیدار شد."
-                ),
-                StoryParagraph(
-                    "They fell in love, and though his family objected because of her youth, they became engaged, agreeing to wait a year before the wedding, as old Prince Nikolai had insisted.",
-                    "آن‌ها عاشق شدند و هرچند خانواده‌اش به دلیل جوانی او مخالفت کردند، نامزد کردند و توافق کردند، همان‌طور که شاهزاده نیکلای پیر اصرار داشت، یک سال پیش از ازدواج صبر کنند."
-                ),
-                StoryParagraph(
-                    "Andrei then went abroad for his health, leaving Natasha behind in Moscow, and during his absence, lonely and unsure of herself, she was seduced by the handsome and reckless Anatole Kuragin, Helene's brother.",
-                    "آندری سپس برای سلامتی‌اش به خارج رفت و ناتاشا را در مسکو رها کرد، و در غیابش، او که تنها و مردد بود، توسط آناتول کوراگین زیبا و بی‌پروا، برادر هلن، فریب خورد."
-                ),
-                StoryParagraph(
-                    "Anatole promised to elope with her, and Natasha, blinded by his charm, broke off her engagement with Andrei in a letter that wounded him more deeply than any wound he had ever received in battle.",
-                    "آناتول قول فرار با او را داد، و ناتاشا که از جذابیتش کور شده بود، نامزدی‌اش را با آندری در نامه‌ای به هم زد؛ نامه‌ای که او را عمیق‌تر از هر زخمی که در نبرد خورده بود زخمی کرد."
-                ),
-                StoryParagraph(
-                    "The elopement was discovered at the last moment, and Pierre, who had learned of the whole affair, confronted Anatole and forced him to leave Moscow forever, but the damage had already been done.",
-                    "فرار در آخرین لحظه کشف شد، و پیر که از کل ماجرا باخبر شده بود، آناتول را تحت فشار گذاشت و مجبورش کرد برای همیشه مسکو را ترک کند، اما آسیب از قبل وارد شده بود."
-                ),
-                StoryParagraph(
-                    "When Natasha realized how she had been used, she fell into a deep despair and became seriously ill, and Pierre, visiting her during her illness, realized with great surprise that he himself had fallen in love with her.",
-                    "وقتی ناتاشا فهمید چطور از او استفاده شده، در ناامیدی عمیقی فرو رفت و به‌شدت بیمار شد، و پیر که در طول بیماری‌اش به دیدنش می‌رفت، با تعجب بسیار دریافت که خودش عاشق او شده است."
-                ),
-                StoryParagraph(
-                    "But he said nothing, because he was still married to Helene and because Natasha was still suffering, and so he buried his love deep inside him and continued to care for her like a brother.",
-                    "اما چیزی نگفت، چون هنوز با هلن ازدواج کرده بود و چون ناتاشا هنوز در رنج بود، و بنابراین عشقش را عمیقاً در درونش دفن کرد و مثل یک برادر از او مراقبت کرد."
-                ),
-                StoryParagraph(
-                    "In June of 1812, Napoleon invaded Russia with an army of more than half a million men, and the long, terrible war that had been threatening for years finally arrived on Russian soil.",
-                    "در ژوئن ۱۸۱۲، ناپلئون با ارتشى بیش از نیم میلیون نفر به روسیه حمله کرد، و جنگ طولانی و هولناکی که سال‌ها تهدید کرده بود بالاخره به خاک روسیه رسید."
-                ),
-                StoryParagraph(
-                    "The Russian army retreated slowly, drawing the French deeper and deeper into the vast, unforgiving land, and Prince Andrei, though still broken-hearted, returned to the front to fight once more.",
-                    "ارتش روسیه آهسته عقب‌نشینی می‌کرد و فرانسوی‌ها را عمیق‌تر و عمیق‌تر به سرزمین پهناور و بی‌رحم می‌کشاند، و شاهزاده آندری، هرچند هنوز دل‌شکسته، برای جنگیدن دوباره به جبهه بازگشت."
-                ),
-                StoryParagraph(
-                    "Pierre, driven by a strange need to witness the truth of war with his own eyes, joined the army as a civilian observer and marched with the soldiers towards the great battle that was coming.",
-                    "پیر، که نیازی عجیب به دیدن حقیقت جنگ با چشمان خودش او را می‌راند، به‌عنوان ناظری غیرنظامی به ارتش پیوست و همراه سربازان به سمت نبرد بزرگی که در راه بود راهپیمایی کرد."
-                ),
-                StoryParagraph(
-                    "On the seventh of September, the two old friends met briefly before the Battle of Borodino, and in that short meeting, they exchanged words that neither of them would ever forget.",
-                    "در هفتم سپتامبر، این دو دوست قدیمی پیش از نبرد بورودینو برای لحظه‌ای همدیگر را دیدند، و در آن ملاقات کوتاه، کلماتی ردوبدل کردند که هیچ‌کدام هرگز فراموش نمی‌کرد."
-                ),
-                StoryParagraph(
-                    "Andrei told Pierre that he had forgiven Natasha, and that he had come to understand, after everything, that loving and suffering were inseparable, and that perhaps that was what it meant to be alive.",
-                    "آندری به پیر گفت که ناتاشا را بخشیده، و بعد از همه چیز فهمیده که دوست داشتن و رنج کشیدن جدانشدنی‌اند، و شاید همین معنای زنده بودن باشد."
-                ),
-                StoryParagraph(
-                    "The Battle of Borodino raged for a full day, and tens of thousands of soldiers fell on both sides, and when the sun set, neither army could claim a clear victory.",
-                    "نبرد بورودینو یک روز کامل به‌طول انجامید، و ده‌ها هزار سرباز از هر دو طرف افتادند، و وقتی خورشید غروب کرد، هیچ‌کدام از دو ارتش نمی‌توانست پیروزی روشنی ادعا کند."
-                ),
-                StoryParagraph(
-                    "Prince Andrei was mortally wounded by a shell and carried to a field hospital, and in the bed beside him lay a wounded man he slowly recognized as Anatole Kuragin, the very man who had betrayed Natasha.",
-                    "شاهزاده آندری با گلوله‌ی خمپاره‌ای زخم مرگبار خورد و به بیمارستان صحرایی برده شد، و در تخت کنارش مردی زخمی دراز کشیده بود که به‌آرامی شناختش: آناتول کوراگین، همان مردی که به ناتاشا خیانت کرده بود."
-                ),
-                StoryParagraph(
-                    "Seeing his enemy suffering, Andrei felt something break inside him, and all the hatred and desire for revenge that he had carried for so long dissolved into a strange, unexpected pity.",
-                    "آندری با دیدن رنج دشمنش، احساس کرد چیزی در درونش شکست، و همه‌ی نفرت و میل به انتقامى که مدت‌ها حمل کرده بود در ترحمی عجیب و غیرمنتظره حل شد."
-                ),
-                StoryParagraph(
-                    "He forgave Anatole in his heart, and in that forgiveness, he found a peace he had never known before, a peace that was deeper and truer than anything he had ever found in glory or in pride.",
-                    "او در قلبش آناتول را بخشید، و در آن بخشش، آرامشی یافت که هرگز پیش‌تر نمی‌شناخت، آرامشی که عمیق‌تر و حقیقی‌تر از هر چیزی بود که تا حالا در افتخار یا غرور یافته بود."
-                ),
-                StoryParagraph(
-                    "While being moved to Moscow with other wounded soldiers, Andrei was placed in the same convoy as the Rostov family, who were fleeing the advancing French army.",
-                    "هنگام انتقال به مسکو همراه سایر سربازان زخمی، آندری در همان کاروانی قرار گرفت که خانواده‌ی روستوف در آن بودند، که از ارتش پیشروی فرانسوی‌ها فرار می‌کردند."
-                ),
-                StoryParagraph(
-                    "Natasha, learning of his condition, insisted on caring for him herself, and in those final days, she stayed by his side day and night, asking for nothing, expecting nothing, only loving him.",
-                    "ناتاشا که از وضعیتش باخبر شد، اصرار کرد خودش از او مراقبت کند، و در آن روزهای آخر، شبانه‌روز کنارش ماند، چیزی نخواست، انتظاری نداشت، فقط دوستش داشت."
-                ),
-                StoryParagraph(
-                    "In those last days together, they forgave each other completely, and they found, in the simple act of being together, a happiness that had nothing to do with the world outside.",
-                    "در آن روزهای آخر با هم، کاملاً یکدیگر را بخشیدند، و در عمل ساده‌ی با هم بودن، شادی‌ای یافتند که هیچ ربطی به دنیای بیرون نداشت."
-                ),
-                StoryParagraph(
-                    "Prince Andrei Bolkonsky died peacefully in Natasha's arms, and she wept for him as if her own soul had departed from her body, and in a way, a part of her did.",
-                    "شاهزاده آندری بولکونسکی در آغوش ناتاشا آرام مرد، و او چنان برایش گریست که گویی روح خودش از بدنش رفته بود، و به نوعی، بخشی از او واقعاً رفت."
-                ),
-                StoryParagraph(
-                    "Meanwhile, Pierre had stayed in Moscow, disguised as a peasant, planning to assassinate Napoleon himself, but he was captured by French soldiers and taken prisoner before he could act.",
-                    "در همین حال، پیر در مسکو مانده بود، با لباس دهقانی، و نقشه‌ی ترور خود ناپلئون را می‌کشید، اما پیش از آنکه بتواند عمل کند، سربازان فرانسوی او را اسیر کردند و به اسارت بردند."
-                ),
-                StoryParagraph(
-                    "In prison, he met a simple peasant named Platon Karataev, a man with no education and no wealth, but with a deep and simple wisdom that Pierre had never encountered in any book or any salon.",
-                    "در زندان، با دهقانی ساده به نام پلاتون کاراتایف آشنا شد، مردی بی‌سواد و بی‌ثروت، اما با حکمتی عمیق و ساده که پیر در هیچ کتابی و هیچ مجلسی ندیده بود."
-                ),
-                StoryParagraph(
-                    "From Platon, Pierre learned that true happiness lies not in wealth or glory or the admiration of others, but in simple love, in kindness to every living creature, and in accepting each day as a gift.",
-                    "پیر از پلاتون آموخت که خوشبختی واقعی نه در ثروت و افتخار و تحسین دیگران است، بلکه در عشق ساده، در مهربانی با هر موجود زنده، و در پذیرفتن هر روز به‌عنوان هدیه‌ای است."
-                ),
-                StoryParagraph(
-                    "When Platon was killed by French soldiers, Pierre was devastated, but he carried the peasant's wisdom in his heart for the rest of his life, and it saved him more than once in the dark years that followed.",
-                    "وقتی پلاتون توسط سربازان فرانسوی کشته شد، پیر ویران شد، اما حکمت آن دهقان را تا آخر عمر در قلبش حمل کرد، و آن حکمت بیش از یک بار او را در سال‌های تاریک بعدی نجات داد."
-                ),
-                StoryParagraph(
-                    "After the war finally ended and Helene had died of an illness, Pierre was finally free, and he went to find Natasha, who was still mourning the death of Andrei and slowly recovering from her own grief.",
-                    "پس از آنکه جنگ بالاخره تمام شد و هلن از بیماری مرده بود، پیر بالاخره آزاد بود و به دنبال ناتاشا رفت، که هنوز در سوگ مرگ آندری بود و آهسته از غم خودش بهبود می‌یافت."
-                ),
-                StoryParagraph(
-                    "He told her that he loved her, and that he had loved her for years, and she, in her quiet and shattered way, admitted that she too had begun to love him, though she had not known it herself.",
-                    "او به او گفت که دوستش دارد و سال‌هاست که دوستش دارد، و او، به شیوه‌ی آرام و شکسته‌اش، اعتراف کرد که او هم شروع به دوست داشتنش کرده، هرچند خودش نمی‌دانست."
-                ),
-                StoryParagraph(
-                    "They were married a few months later, and they built, slowly and patiently, a life together that was not glamorous or exciting, but was real, and warm, and full of love.",
-                    "چند ماه بعد ازدواج کردند، و آهسته و صبورانه، زندگی‌ای با هم ساختند که پرزرق‌وبرق و هیجان‌انگیز نبود، اما واقعی بود، و گرم، و پر از عشق."
-                ),
-                StoryParagraph(
-                    "Pierre became involved in secret political societies, dreaming of a better Russia, and Natasha supported him in everything, though she worried about the dangers he was taking on.",
-                    "پیر در انجمن‌های سیاسی مخفی درگیر شد و رؤیای روسیه‌ای بهتر را در سر می‌پروراند، و ناتاشا در همه چیز حمایتش کرد، هرچند نگران خطرهایی بود که به جان می‌خرید."
-                ),
-                StoryParagraph(
-                    "They had children, and as the years passed, Pierre came to understand that the meaning he had been searching for all his life had been with him all along, in the simple, ordinary joys of family and love.",
-                    "صاحب فرزندانی شدند، و با گذشت سال‌ها، پیر دریافت که معنایی که تمام عمر در جست‌وجویش بود، تمام مدت با او بوده، در شادی‌های ساده و معمولی خانواده و عشق."
-                ),
-                StoryParagraph(
-                    "In the end, War and Peace was not about war at all, or at least not only about war, but about the long, painful, beautiful process of learning how to live, how to love, and how to die with peace in one's heart.",
-                    "در پایان، جنگ و صلح اصلاً درباره‌ی جنگ نبود، یا حداقل نه فقط درباره‌ی جنگ، بلکه درباره‌ی فرآیند طولانی، دردناک و زیبای یادگیری چگونگی زیستن، چگونگی عشق ورزیدن، و چگونگی مردن با آرامش در قلب بود."
-                ),
-                StoryParagraph(
-                    "And in that sense, every human life, whether lived in palaces or in prisons, whether celebrated in history or forgotten by all, was a story of equal grandeur and equal worth.",
-                    "و از این نظر، هر زندگی انسانی، چه در کاخ‌ها و چه در زندان‌ها گذرانده شده باشد، چه در تاریخ جشن گرفته شده یا توسط همه فراموش شده باشد، داستانی با عظمت برابر و ارزش برابر بود."
-                ),
-                StoryParagraph(
-                    "This was the truth that Tolstoy wanted his readers to find, hidden beneath the battles and the balls, the duels and the dancing, the laughter and the tears of his enormous, magnificent story.",
-                    "این همان حقیقتی بود که تولستوی می‌خواست خوانندگانش آن را بیابند، پنهان در زیر نبردها و رقص‌ها، دوئل‌ها و پایکوبی‌ها، خنده‌ها و اشک‌های داستان عظیم و باشکوهش."
-                )
-            )
-        )
-    )
-),// ─────────────── ۳۲: جنایت و مکافات ───────────────
-private fun story32() = StoryContent(
-    storyId = "int_crime_and_punishment",
-    chapters = listOf(
-        StoryChapter(
-            number = 1, title = "The Poor Student", titlePersian = "دانشجوی فقیر",
-            paragraphs = listOf(
-                StoryParagraph(
-                    "In a narrow, dirty street in one of the poorest quarters of St. Petersburg, a young former student named Rodion Raskolnikov lived in a tiny attic room that he could barely afford to rent.",
-                    "در خیابانی باریک و کثیف در یکی از فقیرترین محله‌های سن‌پترزبورگ، دانشجوی جوان سابقی به نام رودیون راسکولنیکوف در اتاق زیرشیروانی کوچکی زندگی می‌کرد که به‌سختی می‌توانست اجاره‌اش را بپردازد."
-                ),
-                StoryParagraph(
-                    "The room was so low that a tall man could not stand upright in it, and so cramped that it seemed more like a cupboard than a place for a human being to live.",
-                    "اتاق آن‌قدر کوتاه بود که مردی بلندقد نمی‌توانست در آن راست بایستد، و آن‌قدر تنگ بود که بیشتر شبیه گنجه‌ای به نظر می‌رسید تا جایی برای زندگی یک انسان."
-                ),
-                StoryParagraph(
-                    "Raskolnikov had once been a brilliant and promising law student, admired by his teachers and respected by his classmates for his sharp mind and his proud, independent spirit.",
-                    "راسکولنیکوف زمانی دانشجوی حقوقی درخشان و امیدوار بود، که استادانش تحسینش می‌کردند و هم‌کلاسی‌هایش به خاطر ذهن تیزش و روح مغرور و مستقلی که داشت احترامش می‌گذاشتند."
-                ),
-                StoryParagraph(
-                    "But poverty had slowly crushed him; he had been forced to abandon his studies, his clothes had become rags, and he had eaten almost nothing for two full days before the story began.",
-                    "اما فقر آهسته او را خرد کرده بود؛ مجبور شده بود تحصیلش را رها کند، لباس‌هایش ژنده شده بود و پیش از آغاز داستان، تقریباً دو روز کامل هیچ نخورده بود."
-                ),
-                StoryParagraph(
-                    "He owed money to his landlady, a mean and suspicious woman who had stopped bringing him meals and who now looked at him every day with silent, bitter reproach.",
-                    "او به صاحب‌خانه‌اش بدهکار بود، زنی پست و مشکوک که دیگر برایش غذا نمی‌آورد و حالا هر روز با سرزنشی خاموش و تلخ به او نگاه می‌کرد."
-                ),
-                StoryParagraph(
-                    "Raskolnikov had also stopped paying attention to his appearance; his hair was unkempt, his face was pale and thin, and there was a strange, feverish light in his eyes that frightened those who looked at him closely.",
-                    "راسکولنیکوف هم توجه به ظاهرش را رها کرده بود؛ موهایش ژولیده بود، صورتش رنگ‌پریده و لاغر و نوری عجیب و تب‌آلود در چشمانش بود که هر کس دقیق نگاهش می‌کرد را می‌ترساند."
-                ),
-                StoryParagraph(
-                    "Yet despite all this, he did not feel sorry for himself; on the contrary, he felt a deep, burning contempt for a world that allowed such suffering to exist in the first place.",
-                    "با این حال، با وجود همه‌ی این‌ها، برای خودش احساس ترحم نمی‌کرد؛ برعکس، احساس تحقیری عمیق و سوزان نسبت به دنیایی داشت که اجازه می‌داد چنین رنجی از ابتدا وجود داشته باشد."
-                ),
-                StoryParagraph(
-                    "For weeks, he had been avoiding people, wandering the streets of the city in silence, thinking thoughts that he did not dare to share with anyone, and slowly forming a plan that he knew was terrible.",
-                    "هفته‌ها بود که از مردم پرهیز می‌کرد، در سکوت در خیابان‌های شهر پرسه می‌زد، افکاری می‌اندیشید که جرئت نمی‌کرد با کسی در میان بگذارد، و آهسته نقشه‌ای می‌کشید که می‌دانست هولناک است."
-                ),
-                StoryParagraph(
-                    "One evening, shortly before sunset, he walked to the house of an old woman named Alyona Ivanovna, a pawnbroker known throughout the neighborhood for her cruelty and her greed.",
-                    "یک شب، کمی پیش از غروب، به خانه‌ی پیرزنی به نام آلیونا ایوانوونا رفت، رباخواری که در سراسر محله به بی‌رحمی و طمعش شناخته شده بود."
-                ),
-                StoryParagraph(
-                    "Alyona was a small, thin woman of about sixty, with sharp, wicked eyes and a mean, suspicious manner, and she lent money to desperate people at interest rates that were little better than robbery.",
-                    "آلیونا زنی کوچک‌اندام و لاغر حدوداً شصت‌ساله بود، با چشمانی تیز و شیطانی و حالتی پست و مشکوک، و به افراد درمانده با نرخ بهره‌ای پول قرض می‌داد که کمی بهتر از دزدی بود."
-                ),
-                StoryParagraph(
-                    "Raskolnikov had pawned his father's old silver watch to her several weeks earlier, and he had returned that evening to pawn another small item and to study her habits more carefully.",
-                    "راسکولنیکوف چند هفته پیش ساعت نقره‌ای قدیمی پدرش را نزد او گرو گذاشته بود و آن شب بازگشته بود تا چیز کوچک دیگری گرو بگذارد و عادت‌هایش را دقیق‌تر بررسی کند."
-                ),
-                StoryParagraph(
-                    "While he stood in her cramped apartment, he noted how she kept her keys on a ring around her neck, how she stored her money in a locked chest, and how she lived alone with her younger sister, a gentle, simple-minded woman named Lizaveta.",
-                    "در حالی که در آپارتمان تنگش ایستاده بود، متوجه شد که چطور کلیدها را روی حلقه‌ای دور گردنش نگه می‌دارد، پولش را در صندوقی قفل‌شده می‌گذارد، و چگونه تنها با خواهر کوچک‌ترش، زنی مهربان و ساده‌دل به نام لیزاویتا، زندگی می‌کند."
-                ),
-                StoryParagraph(
-                    "Alyona spoke to him coldly and rudely, as she always did, and Raskolnikov replied with the same quiet, distant politeness he had been practicing for weeks.",
-                    "آلیونا مثل همیشه سرد و بی‌ادبانه با او حرف زد و راسکولنیکوف با همان ادب آرام و دوری که هفته‌ها تمرین کرده بود پاسخ داد."
-                ),
-                StoryParagraph(
-                    "As he was leaving her house, a strange thought passed through his mind, a thought so dark and so tempting that he immediately pushed it away and walked quickly into the street.",
-                    "وقتی داشت از خانه‌اش بیرون می‌رفت، فکری عجیب از ذهنش گذشت، فکری چنان تاریک و چنان وسوسه‌انگیز که فوراً آن را از خود راند و سریع به خیابان رفت."
-                ),
-                StoryParagraph(
-                    "But the thought would not leave him, and it followed him through the streets of the city like a shadow that could not be shaken off, whispering to him in a voice that grew louder with every passing day.",
-                    "اما فکر رهایش نمی‌کرد و مثل سایه‌ای که نمی‌شد از آن خلاص شد، در خیابان‌های شهر دنبالش می‌آمد و با صدایی که هر روز بلندتر می‌شد با او زمزمه می‌کرد."
-                ),
-                StoryParagraph(
-                    "That same evening, having left Alyona's house, Raskolnikov wandered into a cheap, dirty tavern, where he ordered a glass of beer and sat alone in a dark corner, watching the drunken crowd around him.",
-                    "همان شب، پس از ترک خانه‌ی آلیونا، راسکولنیکوف به میخانه‌ای ارزان و کثیف سرگردان شد، جایی که یک لیوان آبجو سفارش داد و تنها در گوشه‌ای تاریک نشست و جمعیت مست اطرافش را تماشا کرد."
-                ),
-                StoryParagraph(
-                    "There, a drunkard named Marmeladov approached him and began, without any introduction, to tell him the long, miserable story of his life.",
-                    "آنجا، مستی به نام مارملادوف به او نزدیک شد و بدون هیچ مقدمه‌ای شروع کرد به تعریف داستان طولانی و رقت‌انگیز زندگی‌اش."
-                ),
-                StoryParagraph(
-                    "Marmeladov had once been a government clerk, but drink had ruined him, and he had sold even his wife's stockings to buy more vodka, leaving his family in complete destitution.",
-                    "مارملادوف زمانی کارمند دولت بود، اما نوشیدن نابودش کرده بود، و حتی جوراب‌های همسرش را فروخته بود تا ودکای بیشتری بخرد، و خانواده‌اش را کاملاً بی‌چیز رها کرده بود."
-                ),
-                StoryParagraph(
-                    "His wife Katerina Ivanovna, a proud woman of noble birth who had fallen into poverty, was slowly dying of consumption, and his three small children were often left without food for days at a time.",
-                    "همسرش کاترینا ایوانوونا، زنی مغرور از تبار اصیل که به فقر افتاده بود، آهسته از بیماری سل می‌مرد، و سه فرزند کوچکش اغلب روزها بدون غذا رها می‌شدند."
-                ),
-                StoryParagraph(
-                    "But the worst of it, Marmeladov said, weeping openly, was that his eldest daughter Sonya, a girl of eighteen, had been forced to become a prostitute in order to feed the family and keep the younger children alive.",
-                    "اما بدترینش، مارملادوف در حالی که آشکارا گریه می‌کرد گفت، این بود که دختر بزرگش سونیا، دختری هجده‌ساله، مجبور شده بود برای سیر کردن خانواده و زنده نگه داشتن بچه‌های کوچک‌تر به روسپیگری روی بیاورد."
-                ),
-                StoryParagraph(
-                    "She has taken the yellow ticket, Marmeladov said quietly, and she lives apart from us now, because she does not wish to shame us in the eyes of the neighbors, and yet she brings us every penny she earns and asks for nothing in return.",
-                    "مارملادوف آرام گفت: او کارت زرد گرفته و حالا جدا از ما زندگی می‌کند، چون نمی‌خواهد ما را در نظر همسایه‌ها شرمنده کند، و با این حال هر سکه‌ای که به دست می‌آورد برایمان می‌آورد و در عوض هیچ نمی‌خواهد."
-                ),
-                StoryParagraph(
-                    "Raskolnikov listened to this story with a strange, painful attention, and something in his chest tightened, because he sensed that he and this wretched man were connected by something he could not yet name.",
-                    "راسکولنیکوف با توجهی عجیب و دردناک به این داستان گوش داد و چیزی در سینه‌اش فشرده شد، چون حس می‌کرد او و این مرد نگون‌بخت با چیزی به هم مرتبط‌اند که هنوز نمی‌توانست نامش را ببرد."
-                ),
-                StoryParagraph(
-                    "When Marmeladov finally stumbled off into the night, Raskolnikov walked with him as far as his home, and there he saw with his own eyes the misery that the drunkard had described.",
-                    "وقتی مارملادوف بالاخره تلوتلوخوران در شب ناپدید شد، راسکولنیکوف تا خانه‌اش همراهی‌اش کرد، و آنجا با چشمان خودش بدبختی‌ای که آن مست توصیف کرده بود را دید."
-                ),
-                StoryParagraph(
-                    "Katerina Ivanovna was coughing blood into a handkerchief and shouting at her crying children, and the whole apartment smelled of illness, poverty, and despair.",
-                    "کاترینا ایوانوونا در دستمالش خون سرفه می‌کرد و بر سر بچه‌های گریانش فریاد می‌زد، و تمام آپارتمان بوی بیماری، فقر و ناامیدی می‌داد."
-                ),
-                StoryParagraph(
-                    "Raskolnikov quietly left some coins on the windowsill before slipping out, though he had almost no money himself, and as he walked away, he felt a strange and unexpected warmth in his chest.",
-                    "راسکولنیکوف بی‌صدا چند سکه روی طاقچه گذاشت و بعد بیرون خزید، هرچند خودش تقریباً هیچ پولی نداشت، و وقتی دور می‌شد، گرمای عجیب و غیرمنتظره‌ای در سینه‌اش حس کرد."
-                ),
-                StoryParagraph(
-                    "But that warmth did not last long, because the dark thought was still waiting for him, patient and quiet, and it grew stronger with every step he took back towards his own miserable room.",
-                    "اما آن گرما زیاد دوام نیاورد، چون فکر تاریک هنوز صبور و ساکت منتظرش بود، و با هر قدمی که به سمت اتاق رقت‌انگیز خودش برمی‌گشت قوی‌تر می‌شد."
-                ),
-                StoryParagraph(
-                    "When he finally reached his attic, he threw himself onto his broken sofa and lay there in the dark, staring at the ceiling, while his mind raced with ideas that both terrified and fascinated him.",
-                    "وقتی بالاخره به زیرشیروانی‌اش رسید، خود را روی مبل شکسته‌اش انداخت و در تاریکی دراز کشید و به سقف خیره شد، در حالی که ذهنش با ایده‌هایی می‌دوید که هم وحشتزده‌اش می‌کرد و هم مجذوبش."
-                ),
-                StoryParagraph(
-                    "He had read somewhere that certain extraordinary men, men like Napoleon, had the right to step over ordinary moral laws in order to achieve something great for humanity.",
-                    "جایی خوانده بود که بعضی مردان استثنایی، مردانی مثل ناپلئون، حق دارند برای دستیابی به چیزی بزرگ برای بشریت، از قوانین اخلاقی معمولی عبور کنند."
-                ),
-                StoryParagraph(
-                    "Was he such a man, he wondered, or was he only a coward, a louse, a trembling creature that did not dare to take what it wanted, and this question haunted him night and day.",
-                    "او از خود می‌پرسید آیا او چنین مردی است، یا فقط ترسویی است، شپشی، موجودی لرزان که جرئت نمی‌کند آنچه می‌خواهد را بگیرد، و این پرسش شبانه‌روز تعقیبش می‌کرد."
-                ),
-                StoryParagraph(
-                    "The old pawnbroker was a worthless, cruel creature, he told himself again and again, and her death would free many people from debt and suffering, including her poor, gentle sister Lizaveta.",
-                    "رباخوار پیر موجودی بی‌ارزش و بی‌رحم بود، بارها و بارها به خودش می‌گفت، و مرگش بسیاری از مردم را از بدهی و رنج آزاد می‌کرد، از جمله خواهر مهربان و ساده‌اش لیزاویتا."
-                ),
-                StoryParagraph(
-                    "And her money, which she hoarded and never used, could pay for his studies, could support his poor mother and his sister Dunya, could help him become the great man he knew he was meant to be.",
-                    "و پولش، که انبار کرده بود و هرگز استفاده نمی‌کرد، می‌توانست تحصیلش را بپردازد، می‌توانست مادر فقیرش و خواهرش دونیا را حمایت کند، می‌توانست به او کمک کند مرد بزرگی شود که می‌دانست برای آن آفریده شده است."
-                ),
-                StoryParagraph(
-                    "But every time he tried to convince himself with these arguments, a small, honest voice deep inside him whispered that none of this was true, that he was simply a murderer in the making.",
-                    "اما هر بار که تلاش می‌کرد خودش را با این استدلال‌ها قانع کند، صدایی کوچک و صادق در عمق درونش زمزمه می‌کرد که هیچ‌کدام از این‌ها درست نیست، که او فقط قاتلی در حال شکل‌گیری است."
-                ),
-                StoryParagraph(
-                    "The battle inside him continued for many days, and it was a battle he knew he could not win, because the dark thought had already taken root in his soul, and it would not be torn out.",
-                    "نبرد درونی‌اش روزها ادامه یافت، و نبردی بود که می‌دانست نمی‌تواند ببرد، چون فکر تاریک از قبل در روحش ریشه دوانده بود و کنده نمی‌شد."
-                ),
-                StoryParagraph(
-                    "One afternoon, walking through the Hay Market, he overheard a conversation between two young students that would change everything, because one of them was saying, quite casually, that killing Alyona would be a good deed.",
-                    "یک بعدازظهر، در حال قدم زدن در بازار علف، گفت‌وگویی بین دو دانشجوی جوان شنید که همه چیز را تغییر می‌داد، چون یکی از آن‌ها کاملاً اتفاقی می‌گفت کشتن آلیونا یک کار خوب خواهد بود."
-                ),
-                StoryParagraph(
-                    "The student argued that Alyona was a useless, wicked woman who deserved to die, and that her money could be used to help thousands of suffering people instead of being hoarded in her filthy chest.",
-                    "آن دانشجو استدلال می‌کرد که آلیونا زنی بی‌فایده و پلید است که سزاوار مرگ است، و پولش می‌تواند به‌جای انبار شدن در صندوق کثیفش، برای کمک به هزاران نفر دردمند استفاده شود."
-                ),
-                StoryParagraph(
-                    "Raskolnikov stood frozen, listening, and it felt to him as if fate itself had spoken through the mouths of these two strangers, confirming the terrible plan that had been forming in his mind.",
-                    "راسکولنیکوف یخ‌زده ایستاد و گوش داد، و به نظرش رسید که خود تقدیر از دهان این دو غریبه سخن گفته و نقشه‌ی هولناکی که در ذهنش شکل گرفته بود را تأیید کرده است."
-                ),
-                StoryParagraph(
-                    "He walked home in a daze, and that evening, he stopped eating, stopped sleeping, and stopped speaking to anyone, spending his hours lying on his sofa, planning the details of the crime with an attention that frightened even himself.",
-                    "گیج به خانه رفت و آن شب، دیگر نخورد، نخوابید و با هیچ‌کس حرف نزد، و ساعت‌هایش را روی مبلش دراز کشیده و با توجهی که حتی خودش را می‌ترساند، جزئیات جنایت را برنامه‌ریزی می‌کرد."
-                ),
-                StoryParagraph(
-                    "He learned Alyona's schedule, he figured out how to make a loop to carry the axe under his coat, he rehearsed the whole thing in his mind until every step felt inevitable and almost familiar.",
-                    "برنامه‌ی آلیونا را آموخت، فهمید چطور حلقه‌ای بسازد تا تبر را زیر کتش حمل کند، تمام ماجرا را در ذهنش مرور کرد تا هر قدم اجتناب‌ناپذیر و تقریباً آشنا به نظر برسد."
-                ),
-                StoryParagraph(
-                    "And then, on a hot evening in July, just as the sun was setting and the streets were emptying, he slipped out of his room, put the axe under his coat, and walked slowly towards the old woman's house.",
-                    "و سپس، در شبی گرم در ماه ژوئیه، درست وقتی خورشید غروب می‌کرد و خیابان‌ها خالی می‌شد، از اتاقش بیرون خزید، تبر را زیر کتش گذاشت و آهسته به سمت خانه‌ی پیرزن رفت."
-                ),
-                StoryParagraph(
-                    "He told himself, as he walked, that he was not a murderer but a man of destiny, a man following a higher law, but deep inside, he knew, with sickening certainty, that he was lying to himself.",
-                    "در حال راه رفتن به خودش می‌گفت که قاتل نیست بلکه مردی سرنوشت‌ساز است، مردی که از قانونی برتر پیروی می‌کند، اما در عمق وجودش، با اطمینانی تهوع‌آور، می‌دانست که به خودش دروغ می‌گوید."
-                )
-            )
-        ),
-        StoryChapter(
-            number = 2, title = "The Crime", titlePersian = "جنایت",
-            paragraphs = listOf(
-                StoryParagraph(
-                    "Raskolnikov reached Alyona Ivanovna's building just after seven o'clock in the evening, and as he climbed the dark, narrow staircase, he could hear his own heart beating so loudly that he was certain everyone in the building must hear it too.",
-                    "راسکولنیکوف کمی بعد از ساعت هفت شب به ساختمان آلیونا ایوانوونا رسید، و در حالی که از پله‌های تاریک و باریک بالا می‌رفت، می‌توانست صدای قلب خودش را چنان بلند بشنود که مطمئن بود همه‌ی اهل ساختمان هم می‌شنوند."
-                ),
-                StoryParagraph(
-                    "His hands were cold and clammy, and his legs felt weak beneath him, as if his body already knew, on some deep and primitive level, what his mind was still refusing to accept.",
-                    "دست‌هایش سرد و عرق‌آلود بود و پاهایش زیرش سست می‌شد، گویی بدنش در سطحی عمیق و بدوی از قبل می‌دانست آنچه ذهنش هنوز از پذیرشش سر باز می‌زد."
-                ),
-                StoryParagraph(
-                    "He paused on the landing to catch his breath, and for a brief moment, he considered turning around and going home, but the thought of retreating filled him with an unbearable shame.",
-                    "روی پاگرد توقف کرد تا نفس بگیرد، و برای لحظه‌ای کوتاه به بازگشت و رفتن به خانه فکر کرد، اما فکر عقب‌نشینی او را پر از شرمی تحمل‌ناپذیر کرد."
-                ),
-                StoryParagraph(
-                    "He continued up the stairs, and when he reached Alyona's door, he rang the bell three times, exactly as he had planned, and waited with his hand pressed against the wall for support.",
-                    "به بالا رفتن از پله‌ها ادامه داد، و وقتی به در خانه‌ی آلیونا رسید، دقیقاً همان‌طور که برنامه‌ریزی کرده بود سه بار زنگ زد، و با دستی که به دیوار فشار می‌داد منتظر ماند."
-                ),
-                StoryParagraph(
-                    "The old woman opened the door and peered out at him with her usual suspicious expression, and Raskolnikov, forcing his voice to remain steady, told her that he had brought another item to pawn.",
-                    "پیرزن در را باز کرد و مثل همیشه با حالت مشکوکش به بیرون نگاه کرد، و راسکولنیکوف که صدایش را به‌زور ثابت نگه می‌داشت، به او گفت که چیز دیگری برای گرو گذاشتن آورده است."
-                ),
-                StoryParagraph(
-                    "Alyona hesitated for a moment, but she let him in, as she had done many times before, and she closed the door behind him with a soft click that seemed, to Raskolnikov, to seal his fate forever.",
-                    "آلیونا لحظه‌ای تردید کرد، اما راهش داد، همانطور که بارها پیش از این کرده بود، و در را پشت سرش با تق‌تق ملایمی بست که به نظر راسکولنیکوف، سرنوشتش را برای همیشه مُهر کرد."
-                ),
-                StoryParagraph(
-                    "Inside the cramped apartment, the air was stale and heavy, and there was only a single candle burning on the table, casting long, dancing shadows on the walls.",
-                    "در آپارتمان تنگ، هوا مانده و سنگین بود، و فقط یک شمع روی میز می‌سوخت و سایه‌های بلند و رقصنده روی دیوارها می‌انداخت."
-                ),
-                StoryParagraph(
-                    "Alyona walked over to the window to examine the item he had given her, turning her back to him for a single, fateful moment, and in that single moment, everything changed.",
-                    "آلیونا به سمت پنجره رفت تا چیزی که به او داده بود را بررسی کند و برای لحظه‌ای سرنوشت‌ساز پشتش را به او کرد، و در همان لحظه‌ی واحد، همه چیز تغییر کرد."
-                ),
-                StoryParagraph(
-                    "Raskolnikov pulled the axe from under his coat with trembling hands, and before he could think, before he could hesitate, he brought it down upon the old woman's head with all his strength.",
-                    "راسکولنیکوف با دستانی لرزان تبر را از زیر کتش بیرون کشید، و پیش از آنکه بتواند فکر کند، پیش از آنکه بتواند تردید کند، آن را با تمام قدرتش بر سر پیرزن فرود آورد."
-                ),
-                StoryParagraph(
-                    "Alyona collapsed to the floor without a sound, and Raskolnikov stood over her for a moment, breathing hard, staring at the blood spreading slowly across the floorboards beneath her head.",
-                    "آلیونا بی‌صدا روی زمین فرو افتاد و راسکولنیکوف لحظه‌ای بالای سرش ایستاد، به‌سختی نفس می‌کشید و به خونی که آهسته زیر سرش روی تخته‌های کف پخش می‌شد خیره شد."
-                ),
-                StoryParagraph(
-                    "He felt nothing at that moment, no guilt, no horror, only a strange, cold emptiness, as if the part of him that could feel such things had been switched off entirely.",
-                    "در آن لحظه هیچ حس نکرد، نه گناه، نه وحشت، فقط خالی‌بودنی عجیب و سرد، گویی بخشی از او که می‌توانست چنین چیزهایی را حس کند کاملاً خاموش شده بود."
-                ),
-                StoryParagraph(
-                    "He then rushed to the bedroom to look for her keys and her money, moving quickly and silently, his hands searching the room with a desperate, mechanical precision.",
-                    "سپس به اتاق خواب هجوم برد تا کلیدها و پولش را پیدا کند، سریع و بی‌صدا حرکت می‌کرد و دست‌هایش با دقتی ناامیدانه و ماشینی اتاق را می‌گشتند."
-                ),
-                StoryParagraph(
-                    "He found a purse full of banknotes, and he stuffed it into his pocket without counting, and he was just about to leave when he heard a soft sound behind him, the sound of footsteps in the doorway.",
-                    "کیفی پر از اسکناس پیدا کرد و بدون شمردن آن را در جیبش فرو کرد، و درست داشت می‌رفت که صدای ملایمی پشت سرش شنید، صدای قدم‌هایی در چارچوب در."
-                ),
-                StoryParagraph(
-                    "He turned around slowly, and there in the doorway stood Lizaveta, Alyona's gentle and innocent sister, holding a bundle of clothes in her arms, staring at the dead body of her sister with wide, horrified eyes.",
-                    "آهسته برگشت، و آنجا در چارچوب در، لیزاویتا ایستاده بود، خواهر مهربان و بی‌گناه آلیونا، بقچه‌ای لباس در آغوش داشت و با چشمانی گشاد و وحشت‌زده به جسد خواهرش خیره شده بود."
-                ),
-                StoryParagraph(
-                    "For a long moment, neither of them moved; Lizaveta was too terrified to scream, and Raskolnikov was frozen, unable to decide what to do, unable even to think clearly.",
-                    "لحظه‌ای طولانی، هیچ‌کدام تکان نخوردند؛ لیزاویتا آن‌قدر وحشت‌زده بود که نمی‌توانست فریاد بزند، و راسکولنیکوف یخ‌زده بود و نمی‌توانست تصمیم بگیرد چه کند، حتی نمی‌توانست واضح فکر کند."
-                ),
-                StoryParagraph(
-                    "Then, in a sudden movement that he himself did not fully understand, he raised the axe again and brought it down upon Lizaveta's head, killing her as well.",
-                    "سپس، در حرکتی ناگهانی که خودش هم کاملاً نمی‌فهمید، تبر را دوباره بالا برد و بر سر لیزاویتا فرود آورد و او را نیز کشت."
-                ),
-                StoryParagraph(
-                    "The moment it was done, he felt a wave of horror sweep through him, not for the old woman, whom he had convinced himself deserved to die, but for the young, innocent sister whose only crime had been to enter the room at the wrong moment.",
-                    "همان لحظه که انجام شد، موجی از وحشت او را فرا گرفت، نه برای پیرزن، که خودش را قانع کرده بود سزاوار مرگ است، بلکه برای خواهر جوان و بی‌گناهی که تنها گناهش این بود که در لحظه‌ی اشتباه وارد اتاق شده بود."
-                ),
-                StoryParagraph(
-                    "He stood there, shaking, staring at the two bodies on the floor, and he realized with a terrible clarity that nothing would ever be the same again, that he had crossed a line from which there was no return.",
-                    "آنجا ایستاد، می‌لرزید و به دو جسد روی زمین خیره شد، و با وضوحی هولناک دریافت که دیگر هیچ‌چیز مثل قبل نخواهد بود، که از خطی عبور کرده که بازگشتی از آن نیست."
-                ),
-                StoryParagraph(
-                    "He forced himself to move, and he quickly searched the apartment for anything valuable, taking money, jewelry, and a few small items, though his hands were trembling so badly that he dropped more than he collected.",
-                    "خودش را مجبور به حرکت کرد و سریع آپارتمان را برای هر چیز باارزشی گشت، پول، جواهرات و چند چیز کوچک برداشت، هرچند دست‌هایش آن‌قدر بد می‌لرزیدند که بیشتر از آنکه جمع کند، می‌انداخت."
-                ),
-                StoryParagraph(
-                    "He then went to the kitchen to wash the blood from his hands and the axe, but the water was cold and rusty, and the blood clung to his skin like a stain that would never come off.",
-                    "سپس به آشپزخانه رفت تا خون را از دست‌ها و تبرش بشوید، اما آب سرد و زنگ‌زده بود و خون مثل لکه‌ای که هرگز پاک نمی‌شد به پوستش چسبیده بود."
-                ),
-                StoryParagraph(
-                    "Just as he was finishing, he heard footsteps on the stairs outside, and his blood ran cold, because he knew that if someone found him here, everything would be over.",
-                    "درست وقتی داشت تمام می‌کرد، صدای قدم‌هایی از پله‌های بیرون شنید و خونش یخ کرد، چون می‌دانست اگر کسی او را اینجا پیدا کند، همه چیز تمام است."
-                ),
-                StoryParagraph(
-                    "He slipped out of the apartment and hid in an empty room on the same floor, pressing himself against the wall and holding his breath while two men entered Alyona's flat and began to cry out in horror at what they found.",
-                    "از آپارتمان بیرون خزید و در اتاقی خالی در همان طبقه پنهان شد، خودش را به دیوار فشار داد و نفسش را نگه داشت، در حالی که دو مرد وارد آپارتمان آلیونا شدند و با وحشت از آنچه یافتند فریاد کشیدند."
-                ),
-                StoryParagraph(
-                    "For what felt like an eternity, he crouched in the darkness, listening to the men's panicked voices, hearing them run down the stairs to fetch help, and knowing that he had only a few seconds to escape.",
-                    "برای مدتی که به نظر ابدیت می‌رسید، در تاریکی خمیده ماند و به صداهای هراس‌زده‌ی آن مردان گوش داد، شنید که برای آوردن کمک از پله‌ها پایین دویدند، و می‌دانست که فقط چند ثانیه برای فرار دارد."
-                ),
-                StoryParagraph(
-                    "When the coast was clear, he ran down the stairs and out into the street, and he walked quickly through the dark alleys of the city, keeping his head down, trying to look like an ordinary man on an ordinary errand.",
-                    "وقتی راه خالی شد، از پله‌ها پایین دوید و به خیابان زد، و سریع از میان کوچه‌های تاریک شهر گذشت، سرش را پایین گرفته بود و تلاش می‌کرد مثل مردی معمولی در کاری معمولی به نظر برسد."
-                ),
-                StoryParagraph(
-                    "But his legs were shaking, his heart was pounding, and every shadow seemed to him to be a policeman, every voice a witness, every step behind him the sound of the law closing in.",
-                    "اما پاهایش می‌لرزید، قلبش می‌کوبید، و هر سایه برایش پلیسی به نظر می‌رسید، هر صدایی شاهدی، هر قدمی پشت سرش صدای قانونی که نزدیک می‌شد."
-                ),
-                StoryParagraph(
-                    "When he finally reached his own building, he climbed the stairs as quietly as he could, entered his room, and locked the door behind him with trembling hands.",
-                    "وقتی بالاخره به ساختمان خودش رسید، تا حد امکان بی‌صدا از پله‌ها بالا رفت، وارد اتاقش شد و با دستانی لرزان در را پشت سرش قفل کرد."
-                ),
-                StoryParagraph(
-                    "He then threw himself onto his sofa and lay there, fully clothed, shaking, unable to think, unable to move, unable even to close his eyes, because every time he did, he saw the two bodies on the floor.",
-                    "سپس خود را روی مبلش انداخت و همان‌جا با لباس دراز کشید، می‌لرزید، نمی‌توانست فکر کند، نمی‌توانست حرکت کند، حتی نمی‌توانست چشمانش را ببندد، چون هر بار که می‌بست، دو جسد روی زمین را می‌دید."
-                ),
-                StoryParagraph(
-                    "He had hidden the stolen items under a loose stone in an inner courtyard on the way home, and now he realized, with a strange and bitter clarity, that he had not even looked at them, so great had been his horror.",
-                    "اشیا دزدیده‌شده را در راه بازگشت زیر سنگی لق در حیاطی داخلی پنهان کرده بود، و حالا با وضوحی عجیب و تلخ دریافت که حتی به آن‌ها نگاه هم نکرده بود، چنان وحشتش زیاد بود."
-                ),
-                StoryParagraph(
-                    "He tried to wash his hands again, but the blood was gone by now, or at least it seemed gone, and yet he could still smell it, still feel it on his skin, still taste it in his mouth.",
-                    "دوباره تلاش کرد دست‌هایش را بشوید، اما خون تا حالا رفته بود، یا حداقل به نظر می‌رسید رفته باشد، و با این حال هنوز بویش را حس می‌کرد، هنوز روی پوستش حسش می‌کرد، هنوز در دهانش می‌چشیدش."
-                ),
-                StoryParagraph(
-                    "He checked his clothes for stains, and finding only a small spot on his trousers, he cut the fringed edge off with a knife and burned the piece in the candle flame, watching the fabric curl and blacken.",
-                    "لباس‌هایش را برای لکه بررسی کرد و فقط لکه‌ی کوچکی روی شلوارش یافت، پس لبه‌ی ریش‌ریش آن را با چاقو برید و تکه را در شعله‌ی شمع سوزاند و تماشا کرد که پارچه جمع شد و سیاه شد."
-                ),
-                StoryParagraph(
-                    "He then sat on the edge of his sofa for a long time, staring at the wall, listening to the sounds of the city outside, waiting for the knock on the door that he was certain would come at any moment.",
-                    "سپس مدت طولانی روی لبه‌ی مبلش نشست و به دیوار خیره شد و به صداهای شهر بیرون گوش داد و منتظر ضربه‌ای به در ماند که مطمئن بود هر لحظه می‌آید."
-                ),
-                StoryParagraph(
-                    "But the knock did not come, and slowly, terribly slowly, the night passed, and the first grey light of dawn began to creep through the window, and Raskolnikov was still awake, still shaking, still waiting.",
-                    "اما ضربه نیامد و آهسته، به‌طرز هولناکی آهسته، شب گذشت و اولین نور خاکستری سحر شروع کرد از پنجره داخل شدن، و راسکولنیکوف هنوز بیدار بود، هنوز می‌لرزید، هنوز منتظر بود."
-                ),
-                StoryParagraph(
-                    "He knew, somewhere deep in the exhausted corners of his mind, that he had won nothing, that he had killed two women for nothing, that the money he had taken would never give him what he truly wanted.",
-                    "در گوشه‌های خسته‌ی ذهنش، جایی عمیق، می‌دانست که هیچ چیزی نبرده بود، که دو زن را برای هیچ کشته بود، که پولی که گرفته بود هرگز آنچه واقعاً می‌خواست را به او نمی‌داد."
-                ),
-                StoryParagraph(
-                    "And he knew, with a certainty that chilled him to the bone, that the punishment for what he had done would not come from the police, or from a court, or from any prison, but from something far worse inside himself.",
-                    "و با اطمینانی که تا مغز استخوانش را سرد کرد می‌دانست که مجازات کاری که کرده بود نه از پلیس می‌آمد، نه از دادگاه، نه از هیچ زندانی، بلکه از چیزی بسیار بدتر در درون خودش."
-                ),
-                StoryParagraph(
-                    "He had imagined, before the murder, that he would feel like a Napoleon after it was done, that he would feel powerful, free, above the ordinary rules of ordinary men, but instead, he felt smaller and weaker than he had ever felt before.",
-                    "پیش از قتل تصور کرده بود که پس از انجامش مثل ناپلئون احساس می‌کند، احساس قدرت، آزادی، برتری از قوانین معمولی مردان معمولی، اما در عوض، کوچک‌تر و ضعیف‌تر از هر زمان دیگری در عمرش احساس می‌کرد."
-                ),
-                StoryParagraph(
-                    "He tried to laugh at himself, at his own foolishness, at the proud theories that had led him here, but the laughter stuck in his throat and turned into something closer to a sob.",
-                    "تلاش کرد به خودش بخندد، به حماقت خودش، به نظریه‌های مغرورانه‌ای که او را به اینجا کشانده بود، اما خنده در گلویش گیر کرد و به چیزی شبیه به هق‌هق تبدیل شد."
-                ),
-                StoryParagraph(
-                    "The first day after the murder was the longest of his life, and he spent it lying on his sofa in a kind of waking dream, drifting between sleep and waking, between past and present, between horror and numbness.",
-                    "اولین روز پس از قتل، طولانی‌ترین روز زندگی‌اش بود، و آن را روی مبلش در نوعی رؤیای بیداری گذراند، میان خواب و بیداری شناور، میان گذشته و حال، میان وحشت و بی‌حسی."
-                ),
-                StoryParagraph(
-                    "And when, at last, evening came and the shadows of the city began to lengthen, he understood, with a strange and terrible calm, that the man who had walked up those stairs to Alyona's flat was not the man who lay here now.",
-                    "و وقتی بالاخره شب رسید و سایه‌های شهر شروع به بلند شدن کردند، با آرامشی عجیب و هولناک فهمید که مردی که از آن پله‌ها بالا رفته بود به آپارتمان آلیونا، همان مردی نبود که حالا اینجا دراز کشیده است."
-                ),
-                StoryParagraph(
-                    "He had wanted to become something greater than himself, and he had succeeded, but not in the way he had intended; he had become a murderer, and that was the only title he would ever truly earn.",
-                    "می‌خواست چیزی بزرگ‌تر از خودش شود و موفق شده بود، اما نه به شکلی که در نظر داشت؛ او قاتل شده بود، و این تنها عنوانی بود که واقعاً به دست می‌آورد."
-                ),
-                StoryParagraph(
-                    "Yet somewhere, in the darkest and most hidden corner of his soul, a small, stubborn spark still flickered, a spark that whispered that perhaps, despite everything, there might still be a way back to life.",
-                    "اما جایی، در تاریک‌ترین و پنهان‌ترین گوشه‌ی روحش، شراره‌ای کوچک و سرسخت هنوز سوسو می‌زد، شراره‌ای که زمزمه می‌کرد شاید با وجود همه چیز، هنوز راهی برای بازگشت به زندگی باشد."
-                )
-            )
-        ),
-        StoryChapter(
-            number = 3, title = "The Weight of Guilt", titlePersian = "سنگینی گناه",
-            paragraphs = listOf(
-                StoryParagraph(
-                    "For several days after the murders, Raskolnikov lay in his room in a state of delirium, drifting in and out of consciousness, and he could not tell whether the visions that filled his mind were dreams or memories.",
-                    "چند روز پس از قتل‌ها، راسکولنیکوف در اتاقش در حالتی از هذیان دراز کشید و میان هشیاری و بی‌هشیاری شناور بود، و نمی‌توانست تشخیص دهد که رؤیاهایی که ذهنش را پر می‌کردند خواب بودند یا خاطره."
-                ),
-                StoryParagraph(
-                    "He saw the old woman's face again and again, her sharp eyes staring at him in silent accusation, and he saw Lizaveta's terrified expression, her mouth opening as if to scream but making no sound.",
-                    "بارها و بارها چهره‌ی پیرزن را می‌دید، چشمان تیز و اتهام‌آمیزش در سکوت به او خیره بودند، و حالت وحشت‌زده‌ی لیزاویتا را می‌دید، دهانش باز می‌شد گویی می‌خواهد فریاد بزند اما هیچ صدایی در نمی‌آمد."
-                ),
-                StoryParagraph(
-                    "Then a servant knocked at his door, bringing him a summons from the police station, and Raskolnikov's heart nearly stopped, because he was certain, absolutely certain, that he had been discovered.",
-                    "سپس خدمتکاری در اتاقش زد و احضاریه‌ای از کلانتری برایش آورد، و قلب راسکولنیکوف تقریباً ایستاد، چون مطمئن بود، کاملاً مطمئن، که کشف شده است."
-                ),
-                StoryParagraph(
-                    "He dressed with trembling hands, gathered his scattered thoughts as best he could, and walked to the station, rehearsing excuses in his head, planning his defense, preparing for the worst.",
-                    "با دستانی لرزان لباس پوشید، تا آنجا که می‌توانست افکار پراکنده‌اش را جمع کرد، و به سمت کلانتری راه افتاد، در ذهنش عذر و بهانه تمرین می‌کرد، دفاعش را برنامه‌ریزی می‌کرد، خود را برای بدترین حالت آماده می‌کرد."
-                ),
-                StoryParagraph(
-                    "But when he arrived, the clerk looked at him with mild annoyance and told him, in a bored voice, that the matter concerned an unpaid debt to his landlady, nothing more.",
-                    "اما وقتی رسید، کارمند با نارضایتی ملایمی به او نگاه کرد و با صدایی خسته گفت که موضوع درباره‌ی بدهی پرداخت‌نشده به صاحب‌خانه‌اش است، چیز دیگری نیست."
-                ),
-                StoryParagraph(
-                    "The relief that washed over Raskolnikov was so intense that he nearly laughed out loud, and the policemen, seeing his strange reaction, looked at him with suspicion and asked him if he was feeling unwell.",
-                    "آسودگی‌ای که راسکولنیکوف را فرا گرفت چنان شدید بود که تقریباً بلند خندید، و پلیس‌ها که واکنش عجیبش را دیدند، با شک به او نگاه کردند و پرسیدند حالش خوب است یا نه."
-                ),
-                StoryParagraph(
-                    "He left the station in a daze, and as he walked home through the crowded streets, he felt suddenly dizzy, and he collapsed on a bench in a small square, unable to continue.",
-                    "گیج از کلانتری بیرون رفت و در حالی که از میان خیابان‌های شلوغ به خانه می‌رفت، ناگهان احساس سرگیجه کرد و روی نیمکتی در میدان کوچکی افتاد و نتوانست ادامه دهد."
-                ),
-                StoryParagraph(
-                    "A kind stranger helped him up and even gave him some money for a cab, but Raskolnikov, suspicious of everyone, threw the money into the river as soon as the stranger had gone away.",
-                    "غریبه‌ای مهربان کمکش کرد بلند شود و حتی پولی برای کالسکه به او داد، اما راسکولنیکوف که به همه مشکوک بود، به‌محض رفتن آن غریبه پول را در رودخانه انداخت."
-                ),
-                StoryParagraph(
-                    "When he finally reached his room, he threw himself on his sofa and fell into a deep, feverish sleep, and as he slept, a terrible dream came to him, a dream far worse than anything he had yet endured.",
-                    "وقتی بالاخره به اتاقش رسید، خود را روی مبلش انداخت و در خوابی عمیق و تب‌آلود فرو رفت، و در خواب، رؤیای هولناکی به سراغش آمد، رؤیایی بسیار بدتر از هر چیزی که تا حالا تحمل کرده بود."
-                ),
-                StoryParagraph(
-                    "In the dream, he was back in Alyona's apartment, striking her again and again with the axe, but no matter how many times he hit her, she would not die.",
-                    "در خواب، دوباره در آپارتمان آلیونا بود، بارها و بارها با تبر به او می‌کوبید، اما هر چقدر ضربه می‌زد، نمی‌مرد."
-                ),
-                StoryParagraph(
-                    "She sat there on the floor, silent and still, watching him with her cold, mocking eyes, and then, slowly, she began to laugh, a terrible, soundless laugh that seemed to come from somewhere far away.",
-                    "او همان‌جا روی زمین نشسته بود، ساکت و بی‌حرکت، با چشمانی سرد و طعنه‌آمیز نگاهش می‌کرد، و سپس، آهسته، شروع کرد به خندیدن، خنده‌ای هولناک و بی‌صدا که به نظر از جایی دور می‌آمد."
-                ),
-                StoryParagraph(
-                    "Raskolnikov tried to run, but his legs would not move, and the old woman grew larger and larger, filling the whole room, until he woke up screaming, drenched in sweat, his heart pounding in his chest.",
-                    "راسکولنیکوف تلاش کرد فرار کند، اما پاهایش حرکت نمی‌کردند، و پیرزن بزرگ‌تر و بزرگ‌تر شد، تمام اتاق را پر کرد، تا وقتی فریادزنان بیدار شد، غرق در عرق، و قلبش در سینه‌اش می‌کوبید."
-                ),
-                StoryParagraph(
-                    "Just at that moment, there was a loud knock at his door, and Raskolnikov froze, convinced that the police had come for him at last, and that his brief, terrible freedom was finally over.",
-                    "همان لحظه، ضربه‌ای بلند به درش خورد و راسکولنیکوف یخ زد، مطمئن شد بالاخره پلیس برایش آمده و آزادی کوتاه و هولناکش بالاخره تمام شده است."
-                ),
-                StoryParagraph(
-                    "But the man who entered was not a policeman; it was Razumikhin, a former classmate and a kind, loyal, and talkative friend whom Raskolnikov had once been close to.",
-                    "اما مردی که وارد شد پلیس نبود؛ رازومیخین بود، هم‌کلاسی سابق و دوستی مهربان، وفادار و پرحرف که راسکولنیکوف زمانی با او نزدیک بود."
-                ),
-                StoryParagraph(
-                    "Razumikhin had been looking for him for days, worried about his health, and he was genuinely shocked by his friend's pale, gaunt appearance and wild, feverish eyes.",
-                    "رازومیخین روزها بود دنبالش می‌گشت و نگران سلامتی‌اش بود، و از ظاهر رنگ‌پریده و لاغر و چشمان وحشی و تب‌آلود دوستش واقعاً شوکه شد."
-                ),
-                StoryParagraph(
-                    "He had brought Raskolnikov clean clothes, some money, and news from his mother and sister, who were on their way to St. Petersburg to see him.",
-                    "او برای راسکولنیکوف لباس تمیز، کمی پول و خبری از مادر و خواهرش آورده بود که در راه سن‌پترزبورگ برای دیدنش بودند."
-                ),
-                StoryParagraph(
-                    "Raskolnikov, however, could not accept any of this kindness; suspicion had become his second nature, and he pushed Razumikhin away with cold, bitter words that wounded the loyal friend deeply.",
-                    "اما راسکولنیکوف نمی‌توانست هیچ‌کدام از این مهربانی‌ها را بپذیرد؛ بدگمانی طبیعت دومش شده بود و رازومیخین را با کلماتی سرد و تلخ از خود راند، کلماتی که دوست وفادارش را عمیقاً زخمی کرد."
-                ),
-                StoryParagraph(
-                    "But Razumikhin, being the man he was, did not give up; he promised to return the next day and the day after that, and he told Raskolnikov, quite firmly, that he would not be abandoned no matter how hard he pushed people away.",
-                    "اما رازومیخین، چون مردی که بود، رها نکرد؛ قول داد روز بعد و روز بعد از آن برگردد، و با اطمینان به راسکولنیکوف گفت که هر چقدر هم مردم را از خود براند، رها نخواهد شد."
-                ),
-                StoryParagraph(
-                    "When Razumikhin had gone, Raskolnikov lay on his sofa for a long time, thinking about what he had done, and about what he would do next, and about the terrible, unending weight that now pressed upon his soul.",
-                    "وقتی رازومیخین رفت، راسکولنیکوف مدت طولانی روی مبلش دراز کشید و به آنچه کرده بود فکر کرد، و به آنچه بعداً می‌کرد، و به وزن هولناک و بی‌پایانی که حالا بر روحش فشار می‌آورد."
-                ),
-                StoryParagraph(
-                    "He had believed that the murder would make him free, but instead, it had bound him tighter than any chain, and it had cut him off from every human being who might have loved him.",
-                    "باور داشت که قتل آزادش می‌کند، اما در عوض، او را محکم‌تر از هر زنجیری بسته بود، و او را از هر انسانی که ممکن بود دوستش داشته باشد جدا کرده بود."
-                ),
-                StoryParagraph(
-                    "The investigation into the murders had begun, and a clever, patient investigator named Porfiry Petrovich had been assigned to the case, a man who had studied Raskolnikov's mind from the very beginning.",
-                    "تحقیق درباره‌ی قتل‌ها آغاز شده بود، و بازپرسی زیرک و صبور به نام پورفیری پتروویچ به پرونده گمارده شده بود، مردی که از همان ابتدا ذهن راسکولنیکوف را مطالعه کرده بود."
-                ),
-                StoryParagraph(
-                    "Porfiry had read an article that Raskolnikov had written months earlier, in which the young student argued that extraordinary men had the right to step over moral laws for the sake of a greater purpose.",
-                    "پورفیری مقاله‌ای خوانده بود که راسکولنیکوف ماه‌ها پیش نوشته بود، در آن دانشجوی جوان استدلال می‌کرد که مردان استثنایی حق دارند برای هدفی بزرگ‌تر از قوانین اخلاقی عبور کنند."
-                ),
-                StoryParagraph(
-                    "This article, more than any other clue, made Porfiry suspect that Raskolnikov might be the murderer, and from that moment on, he began to weave a careful, patient trap.",
-                    "این مقاله، بیش از هر سرنخ دیگری، پورفیری را مشکوک کرد که راسکولنیکوف ممکن است قاتل باشد، و از آن لحظه به بعد، شروع کرد به تنیدن تله‌ای دقیق و صبورانه."
-                ),
-                StoryParagraph(
-                    "When Raskolnikov came to the police station to register some pawned items, he and Porfiry met for the first time, and the meeting was strange and unsettling for both of them.",
-                    "وقتی راسکولنیکوف برای ثبت اشیای گروگذاشته‌شده به کلانتری رفت، او و پورفیری برای اولین بار همدیگر را دیدند، و این ملاقات برای هر دو عجیب و نگران‌کننده بود."
-                ),
-                StoryParagraph(
-                    "Porfiry smiled constantly, speaking in a soft, gentle voice, but his questions were sharp as knives, and he watched Raskolnikov's face for every flicker of emotion, every tiny, unconscious reaction.",
-                    "پورفیری مدام لبخند می‌زد و با صدایی نرم و ملایم صحبت می‌کرد، اما سوالاتش مثل چاقو تیز بود، و برای هر تکان احساس، هر واکنش کوچک و ناخودآگاه، چهره‌ی راسکولنیکوف را می‌پایید."
-                ),
-                StoryParagraph(
-                    "He asked Raskolnikov about his article, about his theory of extraordinary men, and about whether he himself believed he was one of those men, and Raskolnikov, trying to remain calm, felt cold sweat forming on his forehead.",
-                    "او از راسکولنیکوف درباره‌ی مقاله‌اش پرسید، درباره‌ی نظریه‌اش درباره‌ی مردان استثنایی، و اینکه آیا خودش باور دارد یکی از آن مردان است، و راسکولنیکوف که تلاش می‌کرد آرام بماند، عرق سردی روی پیشانی‌اش حس کرد."
-                ),
-                StoryParagraph(
-                    "When Raskolnikov finally left the office, he felt both relieved and more terrified than before, because he sensed, somehow, that Porfiry had not been fooled for a single moment.",
-                    "وقتی راسکولنیکوف بالاخره از دفتر بیرون رفت، هم آسوده شد و هم بیشتر از قبل ترسید، چون حس کرد، به‌نحوی، که پورفیری حتی برای یک لحظه فریب نخورده است."
-                ),
-                StoryParagraph(
-                    "A few days later, Porfiry appeared unexpectedly at Raskolnikov's own room, and their second meeting was even more disturbing than the first, because this time, there were no formalities to hide behind.",
-                    "چند روز بعد، پورفیری به‌طور غیرمنتظره در اتاق خود راسکولنیکوف ظاهر شد، و ملاقات دومشان حتی نگران‌کننده‌تر از اولی بود، چون این بار تشریفاتی نبود که پشتش پنهان شوند."
-                ),
-                StoryParagraph(
-                    "The investigator mentioned the murders, described them in careful detail, and then, quite casually, asked Raskolnikov what he thought of the whole affair.",
-                    "بازپرس به قتل‌ها اشاره کرد، با جزئیات دقیق توصیفشان کرد، و سپس، کاملاً اتفاقی، از راسکولنیکوف پرسید که درباره‌ی کل ماجرا چه فکر می‌کند."
-                ),
-                StoryParagraph(
-                    "Raskolnikov tried to answer calmly, but his hands were shaking, and his voice cracked more than once, and he knew that Porfiry saw everything, that Porfiry was only waiting for him to break down.",
-                    "راسکولنیکوف تلاش کرد آرام پاسخ دهد، اما دست‌هایش می‌لرزیدند و صدایش بیش از یک بار شکست، و می‌دانست که پورفیری همه چیز را می‌بیند، که پورفیری فقط منتظر است او فرو بریزد."
-                ),
-                StoryParagraph(
-                    "At the very moment of greatest tension, a strange man burst into the room and confessed to the murders, claiming that he, and not Raskolnikov, had killed Alyona and Lizaveta.",
-                    "در همان لحظه‌ی بیشترین تنش، مردی عجیب به اتاق هجوم برد و به قتل‌ها اعتراف کرد و ادعا کرد که او، نه راسکولنیکوف، آلیونا و لیزاویتا را کشته است."
-                ),
-                StoryParagraph(
-                    "Raskolnikov left the room in a daze, hardly able to believe his luck, but Porfiry was not fooled; he knew that the confession was false, and he continued to wait, patient as always.",
-                    "راسکولنیکوف گیج از اتاق بیرون رفت و به‌سختی می‌توانست باورش کند، اما پورفیری فریب نخورد؛ می‌دانست که آن اعتراف دروغین است، و مثل همیشه صبورانه ادامه داد به انتظار."
-                ),
-                StoryParagraph(
-                    "The game between the two men had only just begun, and both of them knew that it could only end in one way, with Raskolnikov either confessing on his own or being broken by the weight of his own conscience.",
-                    "بازی میان آن دو مرد تازه شروع شده بود، و هر دو می‌دانستند که فقط به یک شکل می‌تواند پایان یابد، یا راسکولنیکوف خودش اعتراف می‌کند، یا زیر وزن وجدان خودش خرد می‌شود."
-                ),
-                StoryParagraph(
-                    "Raskolnikov began to wander the streets of St. Petersburg like a ghost, unable to eat, unable to sleep, unable to find peace in any corner of the city, pursued by a guilt that would not let him rest.",
-                    "راسکولنیکوف شروع کرد مثل شبحی در خیابان‌های سن‌پترزبورگ پرسه زدن، نه می‌توانست بخورد، نه بخوابد، نه در هیچ گوشه‌ای از شهر آرامش بیابد، تعقیب‌شده توسط گناهی که رهایش نمی‌کرد."
-                ),
-                StoryParagraph(
-                    "He visited the scenes of his old life, the university, the streets where he had once walked as a free man, and everywhere he went, he felt like a stranger, like someone who no longer belonged to the human race.",
-                    "او به صحنه‌های زندگی گذشته‌اش سر زد، دانشگاه، خیابان‌هایی که زمانی به‌عنوان مردی آزاد در آن‌ها قدم زده بود، و هر جا می‌رفت، مثل غریبه‌ای احساس می‌کرد، مثل کسی که دیگر به نسل بشر تعلق ندارد."
-                ),
-                StoryParagraph(
-                    "His mother and sister arrived in the city, and when he saw them, he was overcome with shame, because he knew that they had sacrificed everything for him and that he had betrayed them in the worst way possible.",
-                    "مادر و خواهرش به شهر رسیدند، و وقتی آن‌ها را دید، شرم او را فرا گرفت، چون می‌دانست که آن‌ها همه چیز را برایش فدا کرده بودند و او به بدترین شکل ممکن به آن‌ها خیانت کرده بود."
-                ),
-                StoryParagraph(
-                    "His sister Dunya had accepted a proposal of marriage from a wealthy but cruel man named Luzhin, partly to help her brother, partly to save her family from ruin, and Raskolnikov, when he learned of it, felt a fresh wave of self-loathing.",
-                    "خواهرش دونیا پیشنهاد ازدواج مردی ثروتمند اما بی‌رحم به نام لوژین را پذیرفته بود، نیمه برای کمک به برادرش، نیمه برای نجات خانواده‌اش از تباهی، و راسکولنیکوف وقتی از آن باخبر شد، موج تازه‌ای از نفرت از خودش حس کرد."
-                ),
-                StoryParagraph(
-                    "He forbade the marriage, he argued with his mother, he drove his sister to tears, and then, when they had gone, he sat alone in his room and wept like a child, because he knew that everything he touched turned to ruin.",
-                    "او ازدواج را ممنوع کرد، با مادرش بحث کرد، خواهرش را به گریه انداخت، و سپس، وقتی رفتند، تنها در اتاقش نشست و مثل بچه‌ای گریه کرد، چون می‌دانست هر چیزی که لمس می‌کند به تباهی تبدیل می‌شود."
-                ),
-                StoryParagraph(
-                    "In the middle of all this, he found himself drawn, again and again, to the home of Marmeladov, the drunkard he had met in the tavern, and to Marmeladov's daughter Sonya, the young woman who had sacrificed everything for her family.",
-                    "در میانه‌ی همه‌ی این‌ها، خودش را بارها و بارها کشیده به خانه‌ی مارملادوف، همان مستی که در میخانه دیده بود، و به سونیا دختر مارملادوف، زن جوانی که همه چیز را برای خانواده‌اش فدا کرده بود."
-                ),
-                StoryParagraph(
-                    "There was something in Sonya that drew him, something that had nothing to do with her poverty or her profession, but with the simple, unshakeable goodness that shone from her gentle face.",
-                    "چیزی در سونیا او را می‌کشید، چیزی که هیچ ربطی به فقر یا حرفه‌اش نداشت، بلکه به نیکی ساده و تزلزل‌ناپذیری داشت که از چهره‌ی مهربانش می‌درخشید."
-                ),
-                StoryParagraph(
-                    "He did not yet understand why he felt this way, but he sensed, dimly, that this young woman held the key to something he had been searching for all his life, without ever knowing what it was.",
-                    "او هنوز نمی‌فهمید چرا اینطور احساس می‌کند، اما به‌طور محو حس می‌کرد که این زن جوان کلیدی برای چیزی دارد که تمام عمر در جست‌وجویش بود، بی‌آنکه بداند چیست."
-                ),
-                StoryParagraph(
-                    "And so, without fully realizing it, he began to walk a path that would lead him, slowly and painfully, not towards escape, but towards a confession that would save his soul.",
-                    "و بنابراین، بدون آنکه کاملاً متوجه باشد، شروع کرد به قدم زدن در مسیری که او را، آهسته و دردناک، نه به سوی فرار، بلکه به سوی اعترافی می‌برد که روحش را نجات می‌داد."
-                )
-            )
-        ),
-        StoryChapter(
-            number = 4, title = "Redemption and Love", titlePersian = "رستگاری و عشق",
-            paragraphs = listOf(
-                StoryParagraph(
-                    "One evening, soon after his painful meeting with his mother and sister, Raskolnikov went to Sonya's small rented room for the first time, driven by a need he could not fully explain.",
-                    "یک شب، کمی پس از دیدار دردناکش با مادر و خواهرش، راسکولنیکوف برای اولین بار به اتاق کوچک اجاره‌ای سونیا رفت، رانده‌شده توسط نیازی که کاملاً نمی‌توانست توضیح دهد."
-                ),
-                StoryParagraph(
-                    "Sonya was the daughter of the drunkard Marmeladov, a young woman of eighteen who had been forced into prostitution by the poverty of her family, and yet she remained one of the gentlest souls in all of St. Petersburg.",
-                    "سونیا دختر مارملادوف مست بود، زن جوانی هجده‌ساله که فقر خانواده‌اش او را به روسپیگری کشانده بود، و با این حال یکی از مهربان‌ترین روح‌های تمام سن‌پترزبورگ باقی مانده بود."
-                ),
-                StoryParagraph(
-                    "Her room was small and poor, but she kept it clean and tidy, and there was something peaceful about it, something that seemed to belong to another world, far from the filth and misery of the streets outside.",
-                    "اتاقش کوچک و فقیرانه بود، اما آن را تمیز و مرتب نگه می‌داشت، و چیزی آرامش‌بخش در آن بود، چیزی که به نظر می‌رسید به دنیای دیگری تعلق دارد، دور از کثافت و بدبختی خیابان‌های بیرون."
-                ),
-                StoryParagraph(
-                    "When Raskolnikov entered, Sonya looked up at him with her large, gentle eyes, and she did not seem surprised to see him, as if she had somehow been expecting him all along.",
-                    "وقتی راسکولنیکوف وارد شد، سونیا با چشمان بزرگ و مهربانش به او نگاه کرد، و به نظر نمی‌رسید از دیدنش تعجب کرده باشد، گویی به‌نحوی تمام مدت منتظرش بود."
-                ),
-                StoryParagraph(
-                    "He sat down across from her, and for a long moment, neither of them spoke, and in that silence, Raskolnikov felt, for the first time in weeks, something like a faint trace of peace.",
-                    "او روبه‌رویش نشست، و برای لحظه‌ای طولانی، هیچ‌کدام حرف نزدند، و در آن سکوت، راسکولنیکوف برای اولین بار در هفته‌ها، چیزی شبیه رد محوی از آرامش حس کرد."
-                ),
-                StoryParagraph(
-                    "He then asked her to read him a passage from the Bible, the story of Lazarus, the man whom Jesus had raised from the dead after four days in the tomb.",
-                    "سپس از او خواست برایش بخشی از انجیل را بخواند، داستان ایلعازر، مردی که عیسی پس از چهار روز در قبر، او را از مردگان برخاسته بود."
-                ),
-                StoryParagraph(
-                    "Sonya hesitated for a moment, because she had not read aloud to anyone in a long time, but then she took the old, worn Bible from a shelf and began to read in a low, trembling voice.",
-                    "سونیا لحظه‌ای تردید کرد، چون مدت‌ها بود برای کسی بلند نخوانده بود، اما سپس انجیل قدیمی و فرسوده را از قفسه‌ای برداشت و با صدایی آهسته و لرزان شروع به خواندن کرد."
-                ),
-                StoryParagraph(
-                    "As she read the story of the dead man who rose again, her voice grew stronger, and something stirred deep inside Raskolnikov, something that had been buried under years of pride, bitterness, and despair.",
-                    "وقتی داستان مرد مرده‌ای را می‌خواند که دوباره برخاست، صدایش قوی‌تر شد، و چیزی در عمق درون راسکولنیکوف تکان خورد، چیزی که زیر سال‌ها غرور، تلخی و ناامیدی مدفون شده بود."
-                ),
-                StoryParagraph(
-                    "When she had finished, he looked at her for a long time without speaking, and then, in a broken whisper, he told her that he had come to her because he had no one else, and that he needed to tell her something terrible.",
-                    "وقتی تمام کرد، مدت طولانی بدون حرف زدن نگاهش کرد، و سپس، در زمزمه‌ای شکسته، به او گفت که به او پناه آورده چون کس دیگری را ندارد، و باید چیز هولناکی به او بگوید."
-                ),
-                StoryParagraph(
-                    "Sonya did not interrupt him, did not look away, but simply waited, patient and gentle, and her quiet presence gave him the courage he needed to speak the words he had been carrying for so long.",
-                    "سونیا حرفش را قطع نکرد، نگاهش را برنگرداند، بلکه فقط منتظر ماند، صبور و مهربان، و حضور آرامش شجاعتی که لازم داشت را به او داد تا کلماتی را که این‌قدر طولانی حمل کرده بود بر زبان بیاورد."
-                ),
-                StoryParagraph(
-                    "I killed the old pawnbroker and her sister Lizaveta, he said at last, and he told her everything, the plan, the murder, the escape, the guilt, the horror, and the endless, unending suffering that had followed.",
-                    "او بالاخره گفت: من رباخوار پیر و خواهرش لیزاویتا را کشتم، و همه چیز را برایش تعریف کرد، نقشه، قتل، فرار، گناه، وحشت و رنج بی‌پایان و بی‌پایانی که به دنبالش آمده بود."
-                ),
-                StoryParagraph(
-                    "When he was finished, he expected her to recoil from him in horror, to scream, to run, to call the police, but Sonya did none of these things.",
-                    "وقتی تمام کرد، انتظار داشت با وحشت از او دور شود، فریاد بزند، فرار کند، پلیس خبر کند، اما سونیا هیچ‌کدام از این کارها را نکرد."
-                ),
-                StoryParagraph(
-                    "Instead, she rose slowly from her chair, walked over to him, and without a word, she embraced him, and she wept, not for herself, not even for the victims, but for him, for the terrible suffering that had broken his soul.",
-                    "در عوض، آهسته از صندلی بلند شد، به طرفش رفت، و بدون کلمه‌ای، او را در آغوش گرفت و گریست، نه برای خودش، نه حتی برای قربانیان، بلکه برای او، برای رنج هولناکی که روحش را شکسته بود."
-                ),
-                StoryParagraph(
-                    "Raskolnikov was stunned by her reaction, and something inside him cracked open, and for the first time since the murders, he allowed himself to feel the full weight of what he had done.",
-                    "راسکولنیکوف از واکنشش شوکه شد، و چیزی در درونش شکافت و باز شد، و برای اولین بار پس از قتل‌ها، اجازه داد وزن کامل کاری که کرده بود را حس کند."
-                ),
-                StoryParagraph(
-                    "He buried his face in her shoulder and wept, and he wept for a long time, and Sonya held him, and neither of them spoke, because there were no words that could express what was happening between them.",
-                    "صورتش را در شانه‌اش پنهان کرد و گریست، و مدت طولانی گریست، و سونیا او را نگه داشت، و هیچ‌کدام حرف نزدند، چون کلمه‌ای نبود که بتواند بیان کند چه چیزی میانشان می‌گذشت."
-                ),
-                StoryParagraph(
-                    "When at last he pulled away, he looked at her with new eyes, and he understood, with a clarity that pierced through all his confusion, that this woman, this fallen woman, was perhaps the purest soul he had ever met.",
-                    "وقتی بالاخره کنار کشید، با چشمانی جدید به او نگاه کرد، و با وضوحی که از تمام سردرگمی‌اش نفوذ می‌کرد، فهمید که این زن، این زن افتاده، شاید خالص‌ترین روحی بود که تا حالا دیده بود."
-                ),
-                StoryParagraph(
-                    "She had broken the laws of society, just as he had, but where his crime had been born of pride and hatred, hers had been born of love and sacrifice, and that made all the difference in the world.",
-                    "او هم مثل او قوانین جامعه را شکسته بود، اما آنجا که جنایت او از غرور و نفرت زاده شده بود، جنایت او از عشق و فداکاری زاده شده بود، و همین تمام تفاوت دنیا را می‌ساخت."
-                ),
-                StoryParagraph(
-                    "Sonya told him that he must confess his crime, that he must go to the crossroads, kiss the earth he had defiled, and tell the world what he had done, and she promised to stand by him no matter what happened.",
-                    "سونیا به او گفت که باید به جنایتش اعتراف کند، باید به چهارراه برود، زمینی را که آلوده کرده بوسد و به دنیا بگوید چه کرده، و قول داد هر چه پیش بیاید کنارش بماند."
-                ),
-                StoryParagraph(
-                    "Raskolnikov was terrified by her words, because confessing meant the end of everything he had ever known, but deep down, he knew she was right, and he knew that she was the only person in the world whose judgment he truly trusted.",
-                    "راسکولنیکوف از کلماتش وحشت کرد، چون اعتراف یعنی پایان هر چیزی که می‌شناخت، اما در عمق وجودش، می‌دانست که حق با اوست، و می‌دانست که او تنها فرد دنیاست که واقعاً به قضاوتش اعتماد دارد."
-                ),
-                StoryParagraph(
-                    "A few days later, Porfiry Petrovich came to Raskolnikov's room one last time, and this time, there were no games, no hints, no careful words; he simply told him, plainly, that he knew he was the murderer.",
-                    "چند روز بعد، پورفیری پتروویچ یک بار آخر به اتاق راسکولنیکوف آمد، و این بار، هیچ بازی، هیچ اشاره، هیچ کلمه‌ی محتاطانه‌ای نبود؛ او صریح گفت که می‌داند او قاتل است."
-                ),
-                StoryParagraph(
-                    "Porfiry advised him to confess and accept his punishment, telling him that a confession would be far lighter than the endless torture of hiding, and that in prison, there might still be a chance for peace.",
-                    "پورفیری به او توصیه کرد اعتراف کند و مجازاتش را بپذیرد و گفت که اعتراف بسیار سبک‌تر از شکنجه‌ی بی‌پایان پنهان شدن خواهد بود، و در زندان، شاید هنوز فرصتی برای آرامش باشد."
-                ),
-                StoryParagraph(
-                    "Raskolnikov listened to him in silence, and when Porfiry had gone, he sat alone in his room for hours, wrestling with the last remnants of his pride, until at last, exhausted, he made his decision.",
-                    "راسکولنیکوف در سکوت به او گوش داد، و وقتی پورفیری رفت، ساعت‌ها تنها در اتاقش نشست و با آخرین بازمانده‌های غرورش کشتی گرفت، تا بالاخره، خسته، تصمیمش را گرفت."
-                ),
-                StoryParagraph(
-                    "That evening, at Sonya's insistence, he went out into the street and stopped at a crossroads, and he knelt down, and he kissed the earth, and he whispered, loud enough for passersby to hear, that he was a murderer.",
-                    "آن شب، به اصرار سونیا، به خیابان رفت و در چهارراهی توقف کرد، و به زانو افتاد، و زمین را بوسید، و زمزمه کرد، به‌اندازه‌ای بلند که عابران بشنوند، که او قاتل است."
-                ),
-                StoryParagraph(
-                    "Some of the people around him laughed, others looked at him with pity, but Raskolnikov did not care; he had done what Sonya had asked of him, and for the first time in months, he felt almost peaceful.",
-                    "بعضی از مردم اطرافش خندیدند، بعضی با ترحم نگاهش کردند، اما راسکولنیکوف اهمیت نداد؛ او کاری که سونیا خواسته بود انجام داده بود، و برای اولین بار در ماه‌ها، تقریباً احساس آرامش کرد."
-                ),
-                StoryParagraph(
-                    "A few minutes later, he walked into the police station and, in a quiet, steady voice, confessed to the murders of Alyona Ivanovna and Lizaveta Ivanovna, and then he sat down and waited for them to take him away.",
-                    "چند دقیقه بعد، وارد کلانتری شد و با صدایی آرام و ثابت، به قتل‌های آلیونا ایوانوونا و لیزاویتا ایوانوونا اعتراف کرد، و سپس نشست و منتظر ماند تا او را ببرند."
-                ),
-                StoryParagraph(
-                    "The officers were surprised, but they took his confession calmly and prepared the paperwork for his arrest, and within an hour, Raskolnikov was sitting in a prison cell, feeling stranger and freer than he had felt in weeks.",
-                    "افسران تعجب کردند، اما اعترافش را آرام گرفتند و کاغذبازی دستگیری‌اش را آماده کردند، و در عرض یک ساعت، راسکولنیکوف در سلولی نشسته بود، و عجیب‌تر و آزادتر از هفته‌ها احساس می‌کرد."
-                ),
-                StoryParagraph(
-                    "He was tried for the murders, and because of his confession and his evident remorse, he was sentenced to eight years of hard labour in Siberia, rather than to death, as many had expected.",
-                    "او برای قتل‌ها محاکمه شد، و به‌خاطر اعتراف و پشیمانی آشکارش، به هشت سال کار سخت در سیبری محکوم شد، نه به اعدام، همان‌طور که بسیاری انتظار داشتند."
-                ),
-                StoryParagraph(
-                    "Sonya, when she heard the sentence, did not weep, did not despair, did not argue; she simply packed her things, said goodbye to her family, and prepared to follow him to Siberia.",
-                    "سونیا وقتی حکم را شنید، نه گریه کرد، نه ناامید شد، نه بحث کرد؛ فقط وسایلش را بست، با خانواده‌اش خداحافظی کرد و آماده شد تا به سیبری دنبالش برود."
-                ),
-                StoryParagraph(
-                    "Her mother and sister were horrified, and they begged her not to go, but Sonya was unmoved; she told them that she loved him, that he needed her, and that she would not abandon him no matter what.",
-                    "مادر و خواهرش وحشت کردند و التماس کردند نرود، اما سونیا تکان نخورد؛ به آن‌ها گفت که دوستش دارد، که او به او نیاز دارد، و هر چه پیش بیاید رهایش نمی‌کند."
-                ),
-                StoryParagraph(
-                    "And so, a few weeks later, on a cold, grey morning in November, Raskolnikov and Sonya set off together for the long, difficult journey to Siberia, and neither of them knew what awaited them at the end of it.",
-                    "و بنابراین، چند هفته بعد، در صبحی سرد و خاکستری در ماه نوامبر، راسکولنیکوف و سونیا با هم برای سفر طولانی و دشوار به سیبری راه افتادند، و هیچ‌کدام نمی‌دانستند در انتهایش چه چیزی در انتظارشان است."
-                ),
-                StoryParagraph(
-                    "The journey took many weeks, and Raskolnikov sat in silence for most of it, thinking about his crime, about his punishment, about the strange twist of fate that had brought him here.",
-                    "سفر هفته‌های بسیاری طول کشید، و راسکولنیکوف بیشترش را در سکوت نشست، به جنایتش فکر می‌کرد، به مجازاتش، به پیچش عجیب تقدیری که او را به اینجا آورده بود."
-                ),
-                StoryParagraph(
-                    "But as the miles passed, something began to change in him, something subtle and slow, and by the time they reached the prison colony in Siberia, he was not the same man who had left St. Petersburg.",
-                    "اما با گذشت مایل‌ها، چیزی در او شروع به تغییر کرد، چیزی ظریف و آهسته، و تا زمانی که به مستعمره‌ی زندان در سیبری رسیدند، او همان مردی نبود که سن‌پترزبورگ را ترک کرده بود."
-                ),
-                StoryParagraph(
-                    "In prison, Raskolnikov was at first withdrawn and bitter, refusing to speak to the other prisoners, unable to accept his situation, unable to forgive himself for what he had done.",
-                    "در زندان، راسکولنیکوف ابتدا در خود فرو رفته و تلخ بود، از حرف زدن با سایر زندانیان امتناع می‌کرد، نمی‌توانست وضعیتش را بپذیرد، نمی‌توانست خودش را برای کاری که کرده بود ببخشد."
-                ),
-                StoryParagraph(
-                    "Sonya settled in a small town near the prison, and every Sunday, she came to visit him, bringing him bread, books, and news of the outside world, and slowly, patiently, she began to break through his walls.",
-                    "سونیا در شهر کوچکی نزدیک زندان ساکن شد، و هر یکشنبه، به دیدنش می‌آمد، نان، کتاب و خبرهایی از دنیای بیرون برایش می‌آورد، و آهسته و صبورانه، شروع کرد به شکستن دیوارهایش."
-                ),
-                StoryParagraph(
-                    "At first, Raskolnikov accepted her visits coldly, almost with resentment, because her kindness seemed to him an accusation of everything he was not, but she did not waver, and she did not stop coming.",
-                    "اول، راسکولنیکوف دیدارهایش را سرد پذیرفت، تقریباً با کینه، چون مهربانی‌اش برایش اتهامی بود به هر چیزی که نبود، اما او متزلزل نشد و از آمدن دست نکشید."
-                ),
-                StoryParagraph(
-                    "Months passed, and then a year, and slowly, without his even realizing it, Raskolnikov began to look forward to her visits, and to feel, in her presence, the first real peace he had known since the murders.",
-                    "ماه‌ها گذشت، و سپس یک سال، و آهسته، بی‌آنکه خودش حتی متوجه شود، راسکولنیکوف شروع کرد به انتظار دیدارهایش، و در حضورش، اولین آرامش واقعی را که از زمان قتل‌ها شناخته بود حس کرد."
-                ),
-                StoryParagraph(
-                    "One day, watching her from across the prison yard, Raskolnikov suddenly understood, with a shock that went through his entire body, that he loved her, and that he had perhaps loved her from the very beginning.",
-                    "یک روز، در حالی که از آن طرف حیاط زندان تماشایش می‌کرد، راسکولنیکوف ناگهان فهمید، با شوکي که در تمام بدنش پیچید، که دوستش دارد، و شاید از همان ابتدا دوستش داشته است."
-                ),
-                StoryParagraph(
-                    "He threw himself at her feet and wept, and for the first time, he wept not out of guilt, or despair, or self-hatred, but out of love, out of gratitude, out of the simple, overwhelming recognition that he was not alone.",
-                    "خود را به پای او انداخت و گریست، و برای اولین بار، نه از گناه گریست، نه از ناامیدی، نه از نفرت از خود، بلکه از عشق، از سپاسگزاری، از شناخت ساده و فراگیر اینکه تنها نیست."
-                ),
-                StoryParagraph(
-                    "Sonya knelt beside him and held him, and she too wept, and in that moment, on the cold, distant soil of Siberia, both of them began, at last, to heal from the wounds that life had given them.",
-                    "سونیا کنارش زانو زد و او را در آغوش گرفت، و او هم گریست، و در آن لحظه، روی خاک سرد و دورافتاده‌ی سیبری، هر دوی آن‌ها بالاخره شروع کردند به بهبودی از زخم‌هایی که زندگی به آن‌ها زده بود."
-                ),
-                StoryParagraph(
-                    "Raskolnikov still had many years of his sentence to serve, and he knew that the road ahead would be long and difficult, but for the first time in his life, he had something worth serving his sentence for.",
-                    "راسکولنیکوف هنوز سال‌های بسیاری از محکومیتش را باید می‌گذراند، و می‌دانست که راه پیش‌رو طولانی و دشوار خواهد بود، اما برای اولین بار در زندگی‌اش، چیزی داشت که ارزش گذراندن دوران محکومیتش را داشته باشد."
-                ),
-                StoryParagraph(
-                    "He had killed two women because he believed he was extraordinary, because he believed the rules of ordinary men did not apply to him, and now, sitting in a prison in Siberia, he finally understood how wrong he had been.",
-                    "او دو زن را کشته بود چون باور داشت استثنایی است، چون باور داشت قوانین مردان معمولی به او مربوط نمی‌شود، و حالا، در زندانی در سیبری نشسته، بالاخره فهمید که چقدر اشتباه کرده بود."
-                ),
-                StoryParagraph(
-                    "There were no extraordinary men, he realized, or rather, every man was extraordinary, in his own small way, and the only true greatness lay not in rising above others, but in loving them.",
-                    "مرد استثنایی وجود نداشت، دریافت، یا بهتر بگویم، هر انسانی استثنایی بود، به شیوه‌ی کوچک خودش، و تنها عظمت واقعی در برتری از دیگران نبود، بلکه در دوست داشتن آن‌ها بود."
-                ),
-                StoryParagraph(
-                    "Sonya had taught him this, not with words or arguments or theories, but with her life, with her quiet sacrifice, with the way she gave everything she had and asked for nothing in return.",
-                    "سونیا این را به او آموخته بود، نه با کلمات یا بحث یا نظریه‌ها، بلکه با زندگی‌اش، با فداکاری آرامش، با شیوه‌ای که هر چه داشت می‌داد و در عوض چیزی نمی‌خواست."
-                ),
-                StoryParagraph(
-                    "He thought of his mother, who had died during his imprisonment, of his sister Dunya, who had forgiven him and built a life of her own, and he wept for the years he had wasted in pride and hatred.",
-                    "به مادرش فکر کرد که در طول زندانیش مرده بود، به خواهرش دونیا که بخشیده بودش و زندگی خودش را ساخته بود، و برای سال‌هایی که در غرور و نفرت هدر داده بود گریست."
-                ),
-                StoryParagraph(
-                    "When the novel ends, Raskolnikov still has seven years of his sentence left to serve, and he is still on the long road towards true peace, but he is no longer alone on that road.",
-                    "وقتی رمان به پایان می‌رسد، راسکولنیکوف هنوز هفت سال از محکومیتش را باید بگذراند، و هنوز در مسیر طولانی به سوی آرامش واقعی است، اما دیگر در آن مسیر تنها نیست."
-                ),
-                StoryParagraph(
-                    "Sonya remains by his side, patient and loving, and every Sunday, she still comes to visit him, and every Sunday, they sit together and talk about the future they will build when he is free.",
-                    "سونیا کنارش می‌ماند، صبور و پر عشق، و هر یکشنبه هنوز به دیدنش می‌آید، و هر یکشنبه با هم می‌نشینند و درباره‌ی آینده‌ای که وقتی آزاد شود خواهند ساخت حرف می‌زنند."
-                ),
-                StoryParagraph(
-                    "And slowly, painfully, one day at a time, the man who had once believed himself to be above all other men was learning, at last, what it truly means to be human.",
-                    "و آهسته، دردناک، روزی یکی، مردی که زمانی خودش را بالاتر از همه‌ی مردان دیگر می‌دانست، بالاخره داشت می‌آموخت معنای واقعی انسان بودن چیست."
-                ),
-                StoryParagraph(
-                    "This was the redemption that Dostoevsky wanted his readers to find, hidden beneath all the suffering and the crime, the quiet, humble truth that love could heal what nothing else could.",
-                    "این همان رستگاری بود که داستایوفسکی می‌خواست خوانندگانش آن را بیابند، پنهان در زیر تمام رنج و جنایت، حقیقت آرام و فروتنانه‌ای که عشق می‌توانست چیزی را درمان کند که هیچ چیز دیگری نمی‌توانست."
+            ),
+            StoryChapter(
+                number = 4, title = "War, Love, and Redemption", titlePersian = "جنگ، عشق و رستگاری",
+                paragraphs = listOf(
+                    StoryParagraph(
+                        "While Andrei was slowly recovering from his wounds in a distant hospital, his old friend Pierre Bezukhov was living through his own storms in Moscow, and discovering, in pain, the truths he had long avoided.",
+                        "در حالی که آندری آهسته در بیمارستانی دور از زخم‌هایش بهبود می‌یافت، دوست قدیمی‌اش پیر بزوخوف در مسکو طوفان‌های خودش را می‌گذراند و دردمندانه حقیقت‌هایی را کشف می‌کرد که مدت‌ها از آن‌ها گریخته بود."
+                    ),
+                    StoryParagraph(
+                        "After the death of his father, Pierre had unexpectedly inherited an enormous fortune and the title of Count, and overnight, everyone who had once ignored him suddenly wanted to be his closest friend.",
+                        "پس از مرگ پدرش، پیر به‌طور غیرمنتظره‌ای ثروتی عظیم و عنوان کنت را به ارث برده بود و یک‌شبه، هر کس که زمانی نادیده‌اش می‌گرفت، ناگهان می‌خواست نزدیک‌ترین دوستش باشد."
+                    ),
+                    StoryParagraph(
+                        "The beautiful Princess Helene Kuragina, whose father Prince Vasily had been scheming to marry her into a rich family, set her sights on Pierre, and her cold charm and her family's manipulations swept him into a marriage he never truly wanted.",
+                        "شاهزاده‌خانم زیبای هلن کوراگینا، که پدرش شاهزاده واسیلی نقشه‌ی ازدواج او با خانواده‌ای ثروتمند را می‌کشید، پیر را هدف گرفت، و جذابیت سردش و دسیسه‌های خانواده‌اش او را به ازدواجی راندند که هرگز واقعاً نمی‌خواست."
+                    ),
+                    StoryParagraph(
+                        "Within a few months of their wedding, Pierre discovered, from gossip and then from his own eyes, that his wife was having an affair with a young officer named Dolokhov, a reckless man who seemed to take pleasure in humiliating him.",
+                        "چند ماه پس از ازدواجشان، پیر از شایعات و سپس با چشمان خودش کشف کرد که همسرش با افسری جوان به نام دولوخوف رابطه دارد، مردی بی‌پروا که به نظر می‌رسید از تحقیر او لذت می‌برد."
+                    ),
+                    StoryParagraph(
+                        "At a public dinner party, Dolokhov openly mocked Pierre in front of everyone, and Pierre, unable to control his rage, challenged him to a duel, something he had never dreamed of doing in his entire life.",
+                        "در مهمانی شامی علنی، دولوخوف آشکارا پیر را در برابر همه مسخره کرد، و پیر که نمی‌توانست خشمش را کنترل کند، او را به دوئل دعوت کرد، کاری که در تمام عمرش هرگز خوابش را هم ندیده بود."
+                    ),
+                    StoryParagraph(
+                        "The duel took place the next morning in a snowy field outside the city, and Pierre, who had never fired a pistol before, somehow managed to wound Dolokhov, leaving him bleeding in the snow.",
+                        "دوئل صبح روز بعد در دشتی برفی بیرون شهر برگزار شد، و پیر که قبلاً هرگز با تپانچه شلیک نکرده بود، به‌نحوی توانست دولوخوف را زخمی کند و او را در برف خونین رها کند."
+                    ),
+                    StoryParagraph(
+                        "Standing over the wounded man, Pierre felt no triumph, only horror at what he had done, and in that moment, he realized that the society he had once admired was built on lies, vanity, and casual cruelty.",
+                        "پیر که بالای سر مرد زخمی ایستاده بود، هیچ پیروزی حس نکرد، فقط وحشت از کاری که کرده بود، و در آن لحظه دریافت که جامعه‌ای که زمانی تحسینش می‌کرد بر پایه‌ی دروغ، خودپسندی و قساوت روزمره بنا شده بود."
+                    ),
+                    StoryParagraph(
+                        "He left Helene that same week and travelled alone to St. Petersburg, searching desperately for some meaning in life that would be greater and truer than the empty pleasures of wealth and society.",
+                        "او همان هفته هلن را ترک کرد و تنها به سن‌پترزبورگ سفر کرد و ناامیدانه در جست‌وجوی معنایی در زندگی بود که بزرگ‌تر و حقیقی‌تر از لذت‌های پوچ ثروت و جامعه باشد."
+                    ),
+                    StoryParagraph(
+                        "At a post station on the road, he met an old man named Bazdeev, a well-known Freemason, who spoke to him with quiet wisdom about the brotherhood of all men, the search for inner peace, and the duty to help others.",
+                        "در ایستگاهی در راه، پیرمردی به نام بازدیف آشنا شد، فراماسونی مشهور، که با حکمت آرامی با او درباره‌ی برادری همه‌ی انسان‌ها، جست‌وجوی آرامش درونی و وظیفه‌ی کمک به دیگران سخن گفت."
+                    ),
+                    StoryParagraph(
+                        "The old man's words touched something deep and long-buried inside Pierre, and for the first time since childhood, he began to hope that his life might still have a purpose worth living for.",
+                        "کلمات آن پیرمرد چیزی عمیق و مدفون در درون پیر را لمس کرد، و برای اولین بار از کودکی، او شروع کرد به امیدواری که زندگی‌اش ممکن است هنوز هدفی داشته باشد که ارزش زیستن داشته باشد."
+                    ),
+                    StoryParagraph(
+                        "He joined the Freemasons and threw himself into their rituals and charitable works with all the passion of a man desperate to believe in something, and he returned to his estates determined to improve the lives of his peasants.",
+                        "او به فراماسون‌ها پیوست و با تمام شور مردی که ناامیدانه می‌خواست به چیزی ایمان بیاورد، خود را در آیین‌ها و کارهای خیرخواهانه‌شان غرق کرد، و با عزمی راسخ برای بهبود زندگی رعایایش به املاکش بازگشت."
+                    ),
+                    StoryParagraph(
+                        "But the peasants, who had suffered for generations under cruel lords, did not trust his kindness, and they refused most of his reforms, and Pierre slowly realized that doing good was not as simple as he had believed.",
+                        "اما رعایا، که نسل‌ها زیر ظلم اربابان بی‌رحم رنج برده بودند، به مهربانی‌اش اعتماد نکردند و اکثر اصلاحاتش را رد کردند، و پیر آهسته دریافت که نیکی کردن آن‌قدر که باور داشت ساده نیست."
+                    ),
+                    StoryParagraph(
+                        "Still, he continued his search, and in the years that followed, he travelled, he read, he questioned everything, and he slowly began to understand that peace of mind was not a thing to be found, but a thing to be built.",
+                        "با این حال، به جست‌وجویش ادامه داد، و در سال‌های بعد، سفر کرد، خواند، همه چیز را زیر سؤال برد، و آهسته شروع کرد به فهمیدن اینکه آرامش ذهن چیزی نیست که یافته شود، بلکه چیزی است که باید ساخته شود."
+                    ),
+                    StoryParagraph(
+                        "It was during this time that he began to spend more evenings with the Rostov family, one of the oldest and warmest noble families in Moscow, whose home was always full of laughter, music, and life.",
+                        "در همین زمان بود که او شروع کرد به گذراندن شب‌های بیشتری با خانواده‌ی روستوف، یکی از قدیمی‌ترین و گرم‌ترین خانواده‌های اصیل مسکو، که خانه‌اش همیشه پر از خنده، موسیقی و زندگی بود."
+                    ),
+                    StoryParagraph(
+                        "The youngest daughter of the family, Natasha Rostova, was a girl of seventeen, beautiful, lively, and full of song, and Pierre, though many years older than her, found himself more and more drawn to her brightness.",
+                        "کوچک‌ترین دختر خانواده، ناتاشا روستوا، دختری هفده‌ساله، زیبا، سرزنده و پر از آواز بود، و پیر، هرچند سال‌ها از او بزرگ‌تر بود، خود را بیشتر و بیشتر کشیده به درخشندگی‌اش می‌یافت."
+                    ),
+                    StoryParagraph(
+                        "When Prince Andrei returned from the war, still grieving and still searching for a reason to live, he met Natasha at a ball in St. Petersburg, and in that single evening, something in him woke up from a long and terrible sleep.",
+                        "وقتی شاهزاده آندری از جنگ بازگشت، هنوز غمگین و هنوز در جست‌وجوی دلیلی برای زندگی، در رقصی در سن‌پترزبورگ با ناتاشا آشنا شد، و در همان یک شب، چیزی در او از خوابی طولانی و هولناک بیدار شد."
+                    ),
+                    StoryParagraph(
+                        "They fell in love, and though his family objected because of her youth, they became engaged, agreeing to wait a year before the wedding, as old Prince Nikolai had insisted.",
+                        "آن‌ها عاشق شدند و هرچند خانواده‌اش به دلیل جوانی او مخالفت کردند، نامزد کردند و توافق کردند، همان‌طور که شاهزاده نیکلای پیر اصرار داشت، یک سال پیش از ازدواج صبر کنند."
+                    ),
+                    StoryParagraph(
+                        "Andrei then went abroad for his health, leaving Natasha behind in Moscow, and during his absence, lonely and unsure of herself, she was seduced by the handsome and reckless Anatole Kuragin, Helene's brother.",
+                        "آندری سپس برای سلامتی‌اش به خارج رفت و ناتاشا را در مسکو رها کرد، و در غیابش، او که تنها و مردد بود، توسط آناتول کوراگین زیبا و بی‌پروا، برادر هلن، فریب خورد."
+                    ),
+                    StoryParagraph(
+                        "Anatole promised to elope with her, and Natasha, blinded by his charm, broke off her engagement with Andrei in a letter that wounded him more deeply than any wound he had ever received in battle.",
+                        "آناتول قول فرار با او را داد، و ناتاشا که از جذابیتش کور شده بود، نامزدی‌اش را با آندری در نامه‌ای به هم زد؛ نامه‌ای که او را عمیق‌تر از هر زخمی که در نبرد خورده بود زخمی کرد."
+                    ),
+                    StoryParagraph(
+                        "The elopement was discovered at the last moment, and Pierre, who had learned of the whole affair, confronted Anatole and forced him to leave Moscow forever, but the damage had already been done.",
+                        "فرار در آخرین لحظه کشف شد، و پیر که از کل ماجرا باخبر شده بود، آناتول را تحت فشار گذاشت و مجبورش کرد برای همیشه مسکو را ترک کند، اما آسیب از قبل وارد شده بود."
+                    ),
+                    StoryParagraph(
+                        "When Natasha realized how she had been used, she fell into a deep despair and became seriously ill, and Pierre, visiting her during her illness, realized with great surprise that he himself had fallen in love with her.",
+                        "وقتی ناتاشا فهمید چطور از او استفاده شده، در ناامیدی عمیقی فرو رفت و به‌شدت بیمار شد، و پیر که در طول بیماری‌اش به دیدنش می‌رفت، با تعجب بسیار دریافت که خودش عاشق او شده است."
+                    ),
+                    StoryParagraph(
+                        "But he said nothing, because he was still married to Helene and because Natasha was still suffering, and so he buried his love deep inside him and continued to care for her like a brother.",
+                        "اما چیزی نگفت، چون هنوز با هلن ازدواج کرده بود و چون ناتاشا هنوز در رنج بود، و بنابراین عشقش را عمیقاً در درونش دفن کرد و مثل یک برادر از او مراقبت کرد."
+                    ),
+                    StoryParagraph(
+                        "In June of 1812, Napoleon invaded Russia with an army of more than half a million men, and the long, terrible war that had been threatening for years finally arrived on Russian soil.",
+                        "در ژوئن ۱۸۱۲، ناپلئون با ارتشى بیش از نیم میلیون نفر به روسیه حمله کرد، و جنگ طولانی و هولناکی که سال‌ها تهدید کرده بود بالاخره به خاک روسیه رسید."
+                    ),
+                    StoryParagraph(
+                        "The Russian army retreated slowly, drawing the French deeper and deeper into the vast, unforgiving land, and Prince Andrei, though still broken-hearted, returned to the front to fight once more.",
+                        "ارتش روسیه آهسته عقب‌نشینی می‌کرد و فرانسوی‌ها را عمیق‌تر و عمیق‌تر به سرزمین پهناور و بی‌رحم می‌کشاند، و شاهزاده آندری، هرچند هنوز دل‌شکسته، برای جنگیدن دوباره به جبهه بازگشت."
+                    ),
+                    StoryParagraph(
+                        "Pierre, driven by a strange need to witness the truth of war with his own eyes, joined the army as a civilian observer and marched with the soldiers towards the great battle that was coming.",
+                        "پیر، که نیازی عجیب به دیدن حقیقت جنگ با چشمان خودش او را می‌راند، به‌عنوان ناظری غیرنظامی به ارتش پیوست و همراه سربازان به سمت نبرد بزرگی که در راه بود راهپیمایی کرد."
+                    ),
+                    StoryParagraph(
+                        "On the seventh of September, the two old friends met briefly before the Battle of Borodino, and in that short meeting, they exchanged words that neither of them would ever forget.",
+                        "در هفتم سپتامبر، این دو دوست قدیمی پیش از نبرد بورودینو برای لحظه‌ای همدیگر را دیدند، و در آن ملاقات کوتاه، کلماتی ردوبدل کردند که هیچ‌کدام هرگز فراموش نمی‌کرد."
+                    ),
+                    StoryParagraph(
+                        "Andrei told Pierre that he had forgiven Natasha, and that he had come to understand, after everything, that loving and suffering were inseparable, and that perhaps that was what it meant to be alive.",
+                        "آندری به پیر گفت که ناتاشا را بخشیده، و بعد از همه چیز فهمیده که دوست داشتن و رنج کشیدن جدانشدنی‌اند، و شاید همین معنای زنده بودن باشد."
+                    ),
+                    StoryParagraph(
+                        "The Battle of Borodino raged for a full day, and tens of thousands of soldiers fell on both sides, and when the sun set, neither army could claim a clear victory.",
+                        "نبرد بورودینو یک روز کامل به‌طول انجامید، و ده‌ها هزار سرباز از هر دو طرف افتادند، و وقتی خورشید غروب کرد، هیچ‌کدام از دو ارتش نمی‌توانست پیروزی روشنی ادعا کند."
+                    ),
+                    StoryParagraph(
+                        "Prince Andrei was mortally wounded by a shell and carried to a field hospital, and in the bed beside him lay a wounded man he slowly recognized as Anatole Kuragin, the very man who had betrayed Natasha.",
+                        "شاهزاده آندری با گلوله‌ی خمپاره‌ای زخم مرگبار خورد و به بیمارستان صحرایی برده شد، و در تخت کنارش مردی زخمی دراز کشیده بود که به‌آرامی شناختش: آناتول کوراگین، همان مردی که به ناتاشا خیانت کرده بود."
+                    ),
+                    StoryParagraph(
+                        "Seeing his enemy suffering, Andrei felt something break inside him, and all the hatred and desire for revenge that he had carried for so long dissolved into a strange, unexpected pity.",
+                        "آندری با دیدن رنج دشمنش، احساس کرد چیزی در درونش شکست، و همه‌ی نفرت و میل به انتقامى که مدت‌ها حمل کرده بود در ترحمی عجیب و غیرمنتظره حل شد."
+                    ),
+                    StoryParagraph(
+                        "He forgave Anatole in his heart, and in that forgiveness, he found a peace he had never known before, a peace that was deeper and truer than anything he had ever found in glory or in pride.",
+                        "او در قلبش آناتول را بخشید، و در آن بخشش، آرامشی یافت که هرگز پیش‌تر نمی‌شناخت، آرامشی که عمیق‌تر و حقیقی‌تر از هر چیزی بود که تا حالا در افتخار یا غرور یافته بود."
+                    ),
+                    StoryParagraph(
+                        "While being moved to Moscow with other wounded soldiers, Andrei was placed in the same convoy as the Rostov family, who were fleeing the advancing French army.",
+                        "هنگام انتقال به مسکو همراه سایر سربازان زخمی، آندری در همان کاروانی قرار گرفت که خانواده‌ی روستوف در آن بودند، که از ارتش پیشروی فرانسوی‌ها فرار می‌کردند."
+                    ),
+                    StoryParagraph(
+                        "Natasha, learning of his condition, insisted on caring for him herself, and in those final days, she stayed by his side day and night, asking for nothing, expecting nothing, only loving him.",
+                        "ناتاشا که از وضعیتش باخبر شد، اصرار کرد خودش از او مراقبت کند، و در آن روزهای آخر، شبانه‌روز کنارش ماند، چیزی نخواست، انتظاری نداشت، فقط دوستش داشت."
+                    ),
+                    StoryParagraph(
+                        "In those last days together, they forgave each other completely, and they found, in the simple act of being together, a happiness that had nothing to do with the world outside.",
+                        "در آن روزهای آخر با هم، کاملاً یکدیگر را بخشیدند، و در عمل ساده‌ی با هم بودن، شادی‌ای یافتند که هیچ ربطی به دنیای بیرون نداشت."
+                    ),
+                    StoryParagraph(
+                        "Prince Andrei Bolkonsky died peacefully in Natasha's arms, and she wept for him as if her own soul had departed from her body, and in a way, a part of her did.",
+                        "شاهزاده آندری بولکونسکی در آغوش ناتاشا آرام مرد، و او چنان برایش گریست که گویی روح خودش از بدنش رفته بود، و به نوعی، بخشی از او واقعاً رفت."
+                    ),
+                    StoryParagraph(
+                        "Meanwhile, Pierre had stayed in Moscow, disguised as a peasant, planning to assassinate Napoleon himself, but he was captured by French soldiers and taken prisoner before he could act.",
+                        "در همین حال، پیر در مسکو مانده بود، با لباس دهقانی، و نقشه‌ی ترور خود ناپلئون را می‌کشید، اما پیش از آنکه بتواند عمل کند، سربازان فرانسوی او را اسیر کردند و به اسارت بردند."
+                    ),
+                    StoryParagraph(
+                        "In prison, he met a simple peasant named Platon Karataev, a man with no education and no wealth, but with a deep and simple wisdom that Pierre had never encountered in any book or any salon.",
+                        "در زندان، با دهقانی ساده به نام پلاتون کاراتایف آشنا شد، مردی بی‌سواد و بی‌ثروت، اما با حکمتی عمیق و ساده که پیر در هیچ کتابی و هیچ مجلسی ندیده بود."
+                    ),
+                    StoryParagraph(
+                        "From Platon, Pierre learned that true happiness lies not in wealth or glory or the admiration of others, but in simple love, in kindness to every living creature, and in accepting each day as a gift.",
+                        "پیر از پلاتون آموخت که خوشبختی واقعی نه در ثروت و افتخار و تحسین دیگران است، بلکه در عشق ساده، در مهربانی با هر موجود زنده، و در پذیرفتن هر روز به‌عنوان هدیه‌ای است."
+                    ),
+                    StoryParagraph(
+                        "When Platon was killed by French soldiers, Pierre was devastated, but he carried the peasant's wisdom in his heart for the rest of his life, and it saved him more than once in the dark years that followed.",
+                        "وقتی پلاتون توسط سربازان فرانسوی کشته شد، پیر ویران شد، اما حکمت آن دهقان را تا آخر عمر در قلبش حمل کرد، و آن حکمت بیش از یک بار او را در سال‌های تاریک بعدی نجات داد."
+                    ),
+                    StoryParagraph(
+                        "After the war finally ended and Helene had died of an illness, Pierre was finally free, and he went to find Natasha, who was still mourning the death of Andrei and slowly recovering from her own grief.",
+                        "پس از آنکه جنگ بالاخره تمام شد و هلن از بیماری مرده بود، پیر بالاخره آزاد بود و به دنبال ناتاشا رفت، که هنوز در سوگ مرگ آندری بود و آهسته از غم خودش بهبود می‌یافت."
+                    ),
+                    StoryParagraph(
+                        "He told her that he loved her, and that he had loved her for years, and she, in her quiet and shattered way, admitted that she too had begun to love him, though she had not known it herself.",
+                        "او به او گفت که دوستش دارد و سال‌هاست که دوستش دارد، و او، به شیوه‌ی آرام و شکسته‌اش، اعتراف کرد که او هم شروع به دوست داشتنش کرده، هرچند خودش نمی‌دانست."
+                    ),
+                    StoryParagraph(
+                        "They were married a few months later, and they built, slowly and patiently, a life together that was not glamorous or exciting, but was real, and warm, and full of love.",
+                        "چند ماه بعد ازدواج کردند، و آهسته و صبورانه، زندگی‌ای با هم ساختند که پرزرق‌وبرق و هیجان‌انگیز نبود، اما واقعی بود، و گرم، و پر از عشق."
+                    ),
+                    StoryParagraph(
+                        "Pierre became involved in secret political societies, dreaming of a better Russia, and Natasha supported him in everything, though she worried about the dangers he was taking on.",
+                        "پیر در انجمن‌های سیاسی مخفی درگیر شد و رؤیای روسیه‌ای بهتر را در سر می‌پروراند، و ناتاشا در همه چیز حمایتش کرد، هرچند نگران خطرهایی بود که به جان می‌خرید."
+                    ),
+                    StoryParagraph(
+                        "They had children, and as the years passed, Pierre came to understand that the meaning he had been searching for all his life had been with him all along, in the simple, ordinary joys of family and love.",
+                        "صاحب فرزندانی شدند، و با گذشت سال‌ها، پیر دریافت که معنایی که تمام عمر در جست‌وجویش بود، تمام مدت با او بوده، در شادی‌های ساده و معمولی خانواده و عشق."
+                    ),
+                    StoryParagraph(
+                        "In the end, War and Peace was not about war at all, or at least not only about war, but about the long, painful, beautiful process of learning how to live, how to love, and how to die with peace in one's heart.",
+                        "در پایان، جنگ و صلح اصلاً درباره‌ی جنگ نبود، یا حداقل نه فقط درباره‌ی جنگ، بلکه درباره‌ی فرآیند طولانی، دردناک و زیبای یادگیری چگونگی زیستن، چگونگی عشق ورزیدن، و چگونگی مردن با آرامش در قلب بود."
+                    ),
+                    StoryParagraph(
+                        "And in that sense, every human life, whether lived in palaces or in prisons, whether celebrated in history or forgotten by all, was a story of equal grandeur and equal worth.",
+                        "و از این نظر، هر زندگی انسانی، چه در کاخ‌ها و چه در زندان‌ها گذرانده شده باشد، چه در تاریخ جشن گرفته شده یا توسط همه فراموش شده باشد، داستانی با عظمت برابر و ارزش برابر بود."
+                    ),
+                    StoryParagraph(
+                        "This was the truth that Tolstoy wanted his readers to find, hidden beneath the battles and the balls, the duels and the dancing, the laughter and the tears of his enormous, magnificent story.",
+                        "این همان حقیقتی بود که تولستوی می‌خواست خوانندگانش آن را بیابند، پنهان در زیر نبردها و رقص‌ها، دوئل‌ها و پایکوبی‌ها، خنده‌ها و اشک‌های داستان عظیم و باشکوهش."
+                    )
                 )
             )
         )
     )
-),    // ─────────────── ۳۳: آنا کارنینا ───────────────
+
+    // ─────────────── ۳۲: جنایت و مکافات ───────────────
+    private fun story32() = StoryContent(
+        storyId = "int_crime_and_punishment",
+        chapters = listOf(
+            StoryChapter(
+                number = 1, title = "The Poor Student", titlePersian = "دانشجوی فقیر",
+                paragraphs = listOf(
+                    StoryParagraph(
+                        "In a narrow, dirty street in one of the poorest quarters of St. Petersburg, a young former student named Rodion Raskolnikov lived in a tiny attic room that he could barely afford to rent.",
+                        "در خیابانی باریک و کثیف در یکی از فقیرترین محله‌های سن‌پترزبورگ، دانشجوی جوان سابقی به نام رودیون راسکولنیکوف در اتاق زیرشیروانی کوچکی زندگی می‌کرد که به‌سختی می‌توانست اجاره‌اش را بپردازد."
+                    ),
+                    StoryParagraph(
+                        "The room was so low that a tall man could not stand upright in it, and so cramped that it seemed more like a cupboard than a place for a human being to live.",
+                        "اتاق آن‌قدر کوتاه بود که مردی بلندقد نمی‌توانست در آن راست بایستد، و آن‌قدر تنگ بود که بیشتر شبیه گنجه‌ای به نظر می‌رسید تا جایی برای زندگی یک انسان."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov had once been a brilliant and promising law student, admired by his teachers and respected by his classmates for his sharp mind and his proud, independent spirit.",
+                        "راسکولنیکوف زمانی دانشجوی حقوقی درخشان و امیدوار بود، که استادانش تحسینش می‌کردند و هم‌کلاسی‌هایش به خاطر ذهن تیزش و روح مغرور و مستقلی که داشت احترامش می‌گذاشتند."
+                    ),
+                    StoryParagraph(
+                        "But poverty had slowly crushed him; he had been forced to abandon his studies, his clothes had become rags, and he had eaten almost nothing for two full days before the story began.",
+                        "اما فقر آهسته او را خرد کرده بود؛ مجبور شده بود تحصیلش را رها کند، لباس‌هایش ژنده شده بود و پیش از آغاز داستان، تقریباً دو روز کامل هیچ نخورده بود."
+                    ),
+                    StoryParagraph(
+                        "He owed money to his landlady, a mean and suspicious woman who had stopped bringing him meals and who now looked at him every day with silent, bitter reproach.",
+                        "او به صاحب‌خانه‌اش بدهکار بود، زنی پست و مشکوک که دیگر برایش غذا نمی‌آورد و حالا هر روز با سرزنشی خاموش و تلخ به او نگاه می‌کرد."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov had also stopped paying attention to his appearance; his hair was unkempt, his face was pale and thin, and there was a strange, feverish light in his eyes that frightened those who looked at him closely.",
+                        "راسکولنیکوف هم توجه به ظاهرش را رها کرده بود؛ موهایش ژولیده بود، صورتش رنگ‌پریده و لاغر و نوری عجیب و تب‌آلود در چشمانش بود که هر کس دقیق نگاهش می‌کرد را می‌ترساند."
+                    ),
+                    StoryParagraph(
+                        "Yet despite all this, he did not feel sorry for himself; on the contrary, he felt a deep, burning contempt for a world that allowed such suffering to exist in the first place.",
+                        "با این حال، با وجود همه‌ی این‌ها، برای خودش احساس ترحم نمی‌کرد؛ برعکس، احساس تحقیری عمیق و سوزان نسبت به دنیایی داشت که اجازه می‌داد چنین رنجی از ابتدا وجود داشته باشد."
+                    ),
+                    StoryParagraph(
+                        "For weeks, he had been avoiding people, wandering the streets of the city in silence, thinking thoughts that he did not dare to share with anyone, and slowly forming a plan that he knew was terrible.",
+                        "هفته‌ها بود که از مردم پرهیز می‌کرد، در سکوت در خیابان‌های شهر پرسه می‌زد، افکاری می‌اندیشید که جرئت نمی‌کرد با کسی در میان بگذارد، و آهسته نقشه‌ای می‌کشید که می‌دانست هولناک است."
+                    ),
+                    StoryParagraph(
+                        "One evening, shortly before sunset, he walked to the house of an old woman named Alyona Ivanovna, a pawnbroker known throughout the neighborhood for her cruelty and her greed.",
+                        "یک شب، کمی پیش از غروب، به خانه‌ی پیرزنی به نام آلیونا ایوانوونا رفت، رباخواری که در سراسر محله به بی‌رحمی و طمعش شناخته شده بود."
+                    ),
+                    StoryParagraph(
+                        "Alyona was a small, thin woman of about sixty, with sharp, wicked eyes and a mean, suspicious manner, and she lent money to desperate people at interest rates that were little better than robbery.",
+                        "آلیونا زنی کوچک‌اندام و لاغر حدوداً شصت‌ساله بود، با چشمانی تیز و شیطانی و حالتی پست و مشکوک، و به افراد درمانده با نرخ بهره‌ای پول قرض می‌داد که کمی بهتر از دزدی بود."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov had pawned his father's old silver watch to her several weeks earlier, and he had returned that evening to pawn another small item and to study her habits more carefully.",
+                        "راسکولنیکوف چند هفته پیش ساعت نقره‌ای قدیمی پدرش را نزد او گرو گذاشته بود و آن شب بازگشته بود تا چیز کوچک دیگری گرو بگذارد و عادت‌هایش را دقیق‌تر بررسی کند."
+                    ),
+                    StoryParagraph(
+                        "While he stood in her cramped apartment, he noted how she kept her keys on a ring around her neck, how she stored her money in a locked chest, and how she lived alone with her younger sister, a gentle, simple-minded woman named Lizaveta.",
+                        "در حالی که در آپارتمان تنگش ایستاده بود، متوجه شد که چطور کلیدها را روی حلقه‌ای دور گردنش نگه می‌دارد، پولش را در صندوقی قفل‌شده می‌گذارد، و چگونه تنها با خواهر کوچک‌ترش، زنی مهربان و ساده‌دل به نام لیزاویتا، زندگی می‌کند."
+                    ),
+                    StoryParagraph(
+                        "Alyona spoke to him coldly and rudely, as she always did, and Raskolnikov replied with the same quiet, distant politeness he had been practicing for weeks.",
+                        "آلیونا مثل همیشه سرد و بی‌ادبانه با او حرف زد و راسکولنیکوف با همان ادب آرام و دوری که هفته‌ها تمرین کرده بود پاسخ داد."
+                    ),
+                    StoryParagraph(
+                        "As he was leaving her house, a strange thought passed through his mind, a thought so dark and so tempting that he immediately pushed it away and walked quickly into the street.",
+                        "وقتی داشت از خانه‌اش بیرون می‌رفت، فکری عجیب از ذهنش گذشت، فکری چنان تاریک و چنان وسوسه‌انگیز که فوراً آن را از خود راند و سریع به خیابان رفت."
+                    ),
+                    StoryParagraph(
+                        "But the thought would not leave him, and it followed him through the streets of the city like a shadow that could not be shaken off, whispering to him in a voice that grew louder with every passing day.",
+                        "اما فکر رهایش نمی‌کرد و مثل سایه‌ای که نمی‌شد از آن خلاص شد، در خیابان‌های شهر دنبالش می‌آمد و با صدایی که هر روز بلندتر می‌شد با او زمزمه می‌کرد."
+                    ),
+                    StoryParagraph(
+                        "That same evening, having left Alyona's house, Raskolnikov wandered into a cheap, dirty tavern, where he ordered a glass of beer and sat alone in a dark corner, watching the drunken crowd around him.",
+                        "همان شب، پس از ترک خانه‌ی آلیونا، راسکولنیکوف به میخانه‌ای ارزان و کثیف سرگردان شد، جایی که یک لیوان آبجو سفارش داد و تنها در گوشه‌ای تاریک نشست و جمعیت مست اطرافش را تماشا کرد."
+                    ),
+                    StoryParagraph(
+                        "There, a drunkard named Marmeladov approached him and began, without any introduction, to tell him the long, miserable story of his life.",
+                        "آنجا، مستی به نام مارملادوف به او نزدیک شد و بدون هیچ مقدمه‌ای شروع کرد به تعریف داستان طولانی و رقت‌انگیز زندگی‌اش."
+                    ),
+                    StoryParagraph(
+                        "Marmeladov had once been a government clerk, but drink had ruined him, and he had sold even his wife's stockings to buy more vodka, leaving his family in complete destitution.",
+                        "مارملادوف زمانی کارمند دولت بود، اما نوشیدن نابودش کرده بود، و حتی جوراب‌های همسرش را فروخته بود تا ودکای بیشتری بخرد، و خانواده‌اش را کاملاً بی‌چیز رها کرده بود."
+                    ),
+                    StoryParagraph(
+                        "His wife Katerina Ivanovna, a proud woman of noble birth who had fallen into poverty, was slowly dying of consumption, and his three small children were often left without food for days at a time.",
+                        "همسرش کاترینا ایوانوونا، زنی مغرور از تبار اصیل که به فقر افتاده بود، آهسته از بیماری سل می‌مرد، و سه فرزند کوچکش اغلب روزها بدون غذا رها می‌شدند."
+                    ),
+                    StoryParagraph(
+                        "But the worst of it, Marmeladov said, weeping openly, was that his eldest daughter Sonya, a girl of eighteen, had been forced to become a prostitute in order to feed the family and keep the younger children alive.",
+                        "اما بدترینش، مارملادوف در حالی که آشکارا گریه می‌کرد گفت، این بود که دختر بزرگش سونیا، دختری هجده‌ساله، مجبور شده بود برای سیر کردن خانواده و زنده نگه داشتن بچه‌های کوچک‌تر به روسپیگری روی بیاورد."
+                    ),
+                    StoryParagraph(
+                        "She has taken the yellow ticket, Marmeladov said quietly, and she lives apart from us now, because she does not wish to shame us in the eyes of the neighbors, and yet she brings us every penny she earns and asks for nothing in return.",
+                        "مارملادوف آرام گفت: او کارت زرد گرفته و حالا جدا از ما زندگی می‌کند، چون نمی‌خواهد ما را در نظر همسایه‌ها شرمنده کند، و با این حال هر سکه‌ای که به دست می‌آورد برایمان می‌آورد و در عوض هیچ نمی‌خواهد."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov listened to this story with a strange, painful attention, and something in his chest tightened, because he sensed that he and this wretched man were connected by something he could not yet name.",
+                        "راسکولنیکوف با توجهی عجیب و دردناک به این داستان گوش داد و چیزی در سینه‌اش فشرده شد، چون حس می‌کرد او و این مرد نگون‌بخت با چیزی به هم مرتبط‌اند که هنوز نمی‌توانست نامش را ببرد."
+                    ),
+                    StoryParagraph(
+                        "When Marmeladov finally stumbled off into the night, Raskolnikov walked with him as far as his home, and there he saw with his own eyes the misery that the drunkard had described.",
+                        "وقتی مارملادوف بالاخره تلوتلوخوران در شب ناپدید شد، راسکولنیکوف تا خانه‌اش همراهی‌اش کرد، و آنجا با چشمان خودش بدبختی‌ای که آن مست توصیف کرده بود را دید."
+                    ),
+                    StoryParagraph(
+                        "Katerina Ivanovna was coughing blood into a handkerchief and shouting at her crying children, and the whole apartment smelled of illness, poverty, and despair.",
+                        "کاترینا ایوانوونا در دستمالش خون سرفه می‌کرد و بر سر بچه‌های گریانش فریاد می‌زد، و تمام آپارتمان بوی بیماری، فقر و ناامیدی می‌داد."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov quietly left some coins on the windowsill before slipping out, though he had almost no money himself, and as he walked away, he felt a strange and unexpected warmth in his chest.",
+                        "راسکولنیکوف بی‌صدا چند سکه روی طاقچه گذاشت و بعد بیرون خزید، هرچند خودش تقریباً هیچ پولی نداشت، و وقتی دور می‌شد، گرمای عجیب و غیرمنتظره‌ای در سینه‌اش حس کرد."
+                    ),
+                    StoryParagraph(
+                        "But that warmth did not last long, because the dark thought was still waiting for him, patient and quiet, and it grew stronger with every step he took back towards his own miserable room.",
+                        "اما آن گرما زیاد دوام نیاورد، چون فکر تاریک هنوز صبور و ساکت منتظرش بود، و با هر قدمی که به سمت اتاق رقت‌انگیز خودش برمی‌گشت قوی‌تر می‌شد."
+                    ),
+                    StoryParagraph(
+                        "When he finally reached his attic, he threw himself onto his broken sofa and lay there in the dark, staring at the ceiling, while his mind raced with ideas that both terrified and fascinated him.",
+                        "وقتی بالاخره به زیرشیروانی‌اش رسید، خود را روی مبل شکسته‌اش انداخت و در تاریکی دراز کشید و به سقف خیره شد، در حالی که ذهنش با ایده‌هایی می‌دوید که هم وحشتزده‌اش می‌کرد و هم مجذوبش."
+                    ),
+                    StoryParagraph(
+                        "He had read somewhere that certain extraordinary men, men like Napoleon, had the right to step over ordinary moral laws in order to achieve something great for humanity.",
+                        "جایی خوانده بود که بعضی مردان استثنایی، مردانی مثل ناپلئون، حق دارند برای دستیابی به چیزی بزرگ برای بشریت، از قوانین اخلاقی معمولی عبور کنند."
+                    ),
+                    StoryParagraph(
+                        "Was he such a man, he wondered, or was he only a coward, a louse, a trembling creature that did not dare to take what it wanted, and this question haunted him night and day.",
+                        "او از خود می‌پرسید آیا او چنین مردی است، یا فقط ترسویی است، شپشی، موجودی لرزان که جرئت نمی‌کند آنچه می‌خواهد را بگیرد، و این پرسش شبانه‌روز تعقیبش می‌کرد."
+                    ),
+                    StoryParagraph(
+                        "The old pawnbroker was a worthless, cruel creature, he told himself again and again, and her death would free many people from debt and suffering, including her poor, gentle sister Lizaveta.",
+                        "رباخوار پیر موجودی بی‌ارزش و بی‌رحم بود، بارها و بارها به خودش می‌گفت، و مرگش بسیاری از مردم را از بدهی و رنج آزاد می‌کرد، از جمله خواهر مهربان و ساده‌اش لیزاویتا."
+                    ),
+                    StoryParagraph(
+                        "And her money, which she hoarded and never used, could pay for his studies, could support his poor mother and his sister Dunya, could help him become the great man he knew he was meant to be.",
+                        "و پولش، که انبار کرده بود و هرگز استفاده نمی‌کرد، می‌توانست تحصیلش را بپردازد، می‌توانست مادر فقیرش و خواهرش دونیا را حمایت کند، می‌توانست به او کمک کند مرد بزرگی شود که می‌دانست برای آن آفریده شده است."
+                    ),
+                    StoryParagraph(
+                        "But every time he tried to convince himself with these arguments, a small, honest voice deep inside him whispered that none of this was true, that he was simply a murderer in the making.",
+                        "اما هر بار که تلاش می‌کرد خودش را با این استدلال‌ها قانع کند، صدایی کوچک و صادق در عمق درونش زمزمه می‌کرد که هیچ‌کدام از این‌ها درست نیست، که او فقط قاتلی در حال شکل‌گیری است."
+                    ),
+                    StoryParagraph(
+                        "The battle inside him continued for many days, and it was a battle he knew he could not win, because the dark thought had already taken root in his soul, and it would not be torn out.",
+                        "نبرد درونی‌اش روزها ادامه یافت، و نبردی بود که می‌دانست نمی‌تواند ببرد، چون فکر تاریک از قبل در روحش ریشه دوانده بود و کنده نمی‌شد."
+                    ),
+                    StoryParagraph(
+                        "One afternoon, walking through the Hay Market, he overheard a conversation between two young students that would change everything, because one of them was saying, quite casually, that killing Alyona would be a good deed.",
+                        "یک بعدازظهر، در حال قدم زدن در بازار علف، گفت‌وگویی بین دو دانشجوی جوان شنید که همه چیز را تغییر می‌داد، چون یکی از آن‌ها کاملاً اتفاقی می‌گفت کشتن آلیونا یک کار خوب خواهد بود."
+                    ),
+                    StoryParagraph(
+                        "The student argued that Alyona was a useless, wicked woman who deserved to die, and that her money could be used to help thousands of suffering people instead of being hoarded in her filthy chest.",
+                        "آن دانشجو استدلال می‌کرد که آلیونا زنی بی‌فایده و پلید است که سزاوار مرگ است، و پولش می‌تواند به‌جای انبار شدن در صندوق کثیفش، برای کمک به هزاران نفر دردمند استفاده شود."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov stood frozen, listening, and it felt to him as if fate itself had spoken through the mouths of these two strangers, confirming the terrible plan that had been forming in his mind.",
+                        "راسکولنیکوف یخ‌زده ایستاد و گوش داد، و به نظرش رسید که خود تقدیر از دهان این دو غریبه سخن گفته و نقشه‌ی هولناکی که در ذهنش شکل گرفته بود را تأیید کرده است."
+                    ),
+                    StoryParagraph(
+                        "He walked home in a daze, and that evening, he stopped eating, stopped sleeping, and stopped speaking to anyone, spending his hours lying on his sofa, planning the details of the crime with an attention that frightened even himself.",
+                        "گیج به خانه رفت و آن شب، دیگر نخورد، نخوابید و با هیچ‌کس حرف نزد، و ساعت‌هایش را روی مبلش دراز کشیده و با توجهی که حتی خودش را می‌ترساند، جزئیات جنایت را برنامه‌ریزی می‌کرد."
+                    ),
+                    StoryParagraph(
+                        "He learned Alyona's schedule, he figured out how to make a loop to carry the axe under his coat, he rehearsed the whole thing in his mind until every step felt inevitable and almost familiar.",
+                        "برنامه‌ی آلیونا را آموخت، فهمید چطور حلقه‌ای بسازد تا تبر را زیر کتش حمل کند، تمام ماجرا را در ذهنش مرور کرد تا هر قدم اجتناب‌ناپذیر و تقریباً آشنا به نظر برسد."
+                    ),
+                    StoryParagraph(
+                        "And then, on a hot evening in July, just as the sun was setting and the streets were emptying, he slipped out of his room, put the axe under his coat, and walked slowly towards the old woman's house.",
+                        "و سپس، در شبی گرم در ماه ژوئیه، درست وقتی خورشید غروب می‌کرد و خیابان‌ها خالی می‌شد، از اتاقش بیرون خزید، تبر را زیر کتش گذاشت و آهسته به سمت خانه‌ی پیرزن رفت."
+                    ),
+                    StoryParagraph(
+                        "He told himself, as he walked, that he was not a murderer but a man of destiny, a man following a higher law, but deep inside, he knew, with sickening certainty, that he was lying to himself.",
+                        "در حال راه رفتن به خودش می‌گفت که قاتل نیست بلکه مردی سرنوشت‌ساز است، مردی که از قانونی برتر پیروی می‌کند، اما در عمق وجودش، با اطمینانی تهوع‌آور، می‌دانست که به خودش دروغ می‌گوید."
+                    )
+                )
+            ),
+            StoryChapter(
+                number = 2, title = "The Crime", titlePersian = "جنایت",
+                paragraphs = listOf(
+                    StoryParagraph(
+                        "Raskolnikov reached Alyona Ivanovna's building just after seven o'clock in the evening, and as he climbed the dark, narrow staircase, he could hear his own heart beating so loudly that he was certain everyone in the building must hear it too.",
+                        "راسکولنیکوف کمی بعد از ساعت هفت شب به ساختمان آلیونا ایوانوونا رسید، و در حالی که از پله‌های تاریک و باریک بالا می‌رفت، می‌توانست صدای قلب خودش را چنان بلند بشنود که مطمئن بود همه‌ی اهل ساختمان هم می‌شنوند."
+                    ),
+                    StoryParagraph(
+                        "His hands were cold and clammy, and his legs felt weak beneath him, as if his body already knew, on some deep and primitive level, what his mind was still refusing to accept.",
+                        "دست‌هایش سرد و عرق‌آلود بود و پاهایش زیرش سست می‌شد، گویی بدنش در سطحی عمیق و بدوی از قبل می‌دانست آنچه ذهنش هنوز از پذیرشش سر باز می‌زد."
+                    ),
+                    StoryParagraph(
+                        "He paused on the landing to catch his breath, and for a brief moment, he considered turning around and going home, but the thought of retreating filled him with an unbearable shame.",
+                        "روی پاگرد توقف کرد تا نفس بگیرد، و برای لحظه‌ای کوتاه به بازگشت و رفتن به خانه فکر کرد، اما فکر عقب‌نشینی او را پر از شرمی تحمل‌ناپذیر کرد."
+                    ),
+                    StoryParagraph(
+                        "He continued up the stairs, and when he reached Alyona's door, he rang the bell three times, exactly as he had planned, and waited with his hand pressed against the wall for support.",
+                        "به بالا رفتن از پله‌ها ادامه داد، و وقتی به در خانه‌ی آلیونا رسید، دقیقاً همان‌طور که برنامه‌ریزی کرده بود سه بار زنگ زد، و با دستی که به دیوار فشار می‌داد منتظر ماند."
+                    ),
+                    StoryParagraph(
+                        "The old woman opened the door and peered out at him with her usual suspicious expression, and Raskolnikov, forcing his voice to remain steady, told her that he had brought another item to pawn.",
+                        "پیرزن در را باز کرد و مثل همیشه با حالت مشکوکش به بیرون نگاه کرد، و راسکولنیکوف که صدایش را به‌زور ثابت نگه می‌داشت، به او گفت که چیز دیگری برای گرو گذاشتن آورده است."
+                    ),
+                    StoryParagraph(
+                        "Alyona hesitated for a moment, but she let him in, as she had done many times before, and she closed the door behind him with a soft click that seemed, to Raskolnikov, to seal his fate forever.",
+                        "آلیونا لحظه‌ای تردید کرد، اما راهش داد، همانطور که بارها پیش از این کرده بود، و در را پشت سرش با تق‌تق ملایمی بست که به نظر راسکولنیکوف، سرنوشتش را برای همیشه مُهر کرد."
+                    ),
+                    StoryParagraph(
+                        "Inside the cramped apartment, the air was stale and heavy, and there was only a single candle burning on the table, casting long, dancing shadows on the walls.",
+                        "در آپارتمان تنگ، هوا مانده و سنگین بود، و فقط یک شمع روی میز می‌سوخت و سایه‌های بلند و رقصنده روی دیوارها می‌انداخت."
+                    ),
+                    StoryParagraph(
+                        "Alyona walked over to the window to examine the item he had given her, turning her back to him for a single, fateful moment, and in that single moment, everything changed.",
+                        "آلیونا به سمت پنجره رفت تا چیزی که به او داده بود را بررسی کند و برای لحظه‌ای سرنوشت‌ساز پشتش را به او کرد، و در همان لحظه‌ی واحد، همه چیز تغییر کرد."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov pulled the axe from under his coat with trembling hands, and before he could think, before he could hesitate, he brought it down upon the old woman's head with all his strength.",
+                        "راسکولنیکوف با دستانی لرزان تبر را از زیر کتش بیرون کشید، و پیش از آنکه بتواند فکر کند، پیش از آنکه بتواند تردید کند، آن را با تمام قدرتش بر سر پیرزن فرود آورد."
+                    ),
+                    StoryParagraph(
+                        "Alyona collapsed to the floor without a sound, and Raskolnikov stood over her for a moment, breathing hard, staring at the blood spreading slowly across the floorboards beneath her head.",
+                        "آلیونا بی‌صدا روی زمین فرو افتاد و راسکولنیکوف لحظه‌ای بالای سرش ایستاد، به‌سختی نفس می‌کشید و به خونی که آهسته زیر سرش روی تخته‌های کف پخش می‌شد خیره شد."
+                    ),
+                    StoryParagraph(
+                        "He felt nothing at that moment, no guilt, no horror, only a strange, cold emptiness, as if the part of him that could feel such things had been switched off entirely.",
+                        "در آن لحظه هیچ حس نکرد، نه گناه، نه وحشت، فقط خالی‌بودنی عجیب و سرد، گویی بخشی از او که می‌توانست چنین چیزهایی را حس کند کاملاً خاموش شده بود."
+                    ),
+                    StoryParagraph(
+                        "He then rushed to the bedroom to look for her keys and her money, moving quickly and silently, his hands searching the room with a desperate, mechanical precision.",
+                        "سپس به اتاق خواب هجوم برد تا کلیدها و پولش را پیدا کند، سریع و بی‌صدا حرکت می‌کرد و دست‌هایش با دقتی ناامیدانه و ماشینی اتاق را می‌گشتند."
+                    ),
+                    StoryParagraph(
+                        "He found a purse full of banknotes, and he stuffed it into his pocket without counting, and he was just about to leave when he heard a soft sound behind him, the sound of footsteps in the doorway.",
+                        "کیفی پر از اسکناس پیدا کرد و بدون شمردن آن را در جیبش فرو کرد، و درست داشت می‌رفت که صدای ملایمی پشت سرش شنید، صدای قدم‌هایی در چارچوب در."
+                    ),
+                    StoryParagraph(
+                        "He turned around slowly, and there in the doorway stood Lizaveta, Alyona's gentle and innocent sister, holding a bundle of clothes in her arms, staring at the dead body of her sister with wide, horrified eyes.",
+                        "آهسته برگشت، و آنجا در چارچوب در، لیزاویتا ایستاده بود، خواهر مهربان و بی‌گناه آلیونا، بقچه‌ای لباس در آغوش داشت و با چشمانی گشاد و وحشت‌زده به جسد خواهرش خیره شده بود."
+                    ),
+                    StoryParagraph(
+                        "For a long moment, neither of them moved; Lizaveta was too terrified to scream, and Raskolnikov was frozen, unable to decide what to do, unable even to think clearly.",
+                        "لحظه‌ای طولانی، هیچ‌کدام تکان نخوردند؛ لیزاویتا آن‌قدر وحشت‌زده بود که نمی‌توانست فریاد بزند، و راسکولنیکوف یخ‌زده بود و نمی‌توانست تصمیم بگیرد چه کند، حتی نمی‌توانست واضح فکر کند."
+                    ),
+                    StoryParagraph(
+                        "Then, in a sudden movement that he himself did not fully understand, he raised the axe again and brought it down upon Lizaveta's head, killing her as well.",
+                        "سپس، در حرکتی ناگهانی که خودش هم کاملاً نمی‌فهمید، تبر را دوباره بالا برد و بر سر لیزاویتا فرود آورد و او را نیز کشت."
+                    ),
+                    StoryParagraph(
+                        "The moment it was done, he felt a wave of horror sweep through him, not for the old woman, whom he had convinced himself deserved to die, but for the young, innocent sister whose only crime had been to enter the room at the wrong moment.",
+                        "همان لحظه که انجام شد، موجی از وحشت او را فرا گرفت، نه برای پیرزن، که خودش را قانع کرده بود سزاوار مرگ است، بلکه برای خواهر جوان و بی‌گناهی که تنها گناهش این بود که در لحظه‌ی اشتباه وارد اتاق شده بود."
+                    ),
+                    StoryParagraph(
+                        "He stood there, shaking, staring at the two bodies on the floor, and he realized with a terrible clarity that nothing would ever be the same again, that he had crossed a line from which there was no return.",
+                        "آنجا ایستاد، می‌لرزید و به دو جسد روی زمین خیره شد، و با وضوحی هولناک دریافت که دیگر هیچ‌چیز مثل قبل نخواهد بود، که از خطی عبور کرده که بازگشتی از آن نیست."
+                    ),
+                    StoryParagraph(
+                        "He forced himself to move, and he quickly searched the apartment for anything valuable, taking money, jewelry, and a few small items, though his hands were trembling so badly that he dropped more than he collected.",
+                        "خودش را مجبور به حرکت کرد و سریع آپارتمان را برای هر چیز باارزشی گشت، پول، جواهرات و چند چیز کوچک برداشت، هرچند دست‌هایش آن‌قدر بد می‌لرزیدند که بیشتر از آنکه جمع کند، می‌انداخت."
+                    ),
+                    StoryParagraph(
+                        "He then went to the kitchen to wash the blood from his hands and the axe, but the water was cold and rusty, and the blood clung to his skin like a stain that would never come off.",
+                        "سپس به آشپزخانه رفت تا خون را از دست‌ها و تبرش بشوید، اما آب سرد و زنگ‌زده بود و خون مثل لکه‌ای که هرگز پاک نمی‌شد به پوستش چسبیده بود."
+                    ),
+                    StoryParagraph(
+                        "Just as he was finishing, he heard footsteps on the stairs outside, and his blood ran cold, because he knew that if someone found him here, everything would be over.",
+                        "درست وقتی داشت تمام می‌کرد، صدای قدم‌هایی از پله‌های بیرون شنید و خونش یخ کرد، چون می‌دانست اگر کسی او را اینجا پیدا کند، همه چیز تمام است."
+                    ),
+                    StoryParagraph(
+                        "He slipped out of the apartment and hid in an empty room on the same floor, pressing himself against the wall and holding his breath while two men entered Alyona's flat and began to cry out in horror at what they found.",
+                        "از آپارتمان بیرون خزید و در اتاقی خالی در همان طبقه پنهان شد، خودش را به دیوار فشار داد و نفسش را نگه داشت، در حالی که دو مرد وارد آپارتمان آلیونا شدند و با وحشت از آنچه یافتند فریاد کشیدند."
+                    ),
+                    StoryParagraph(
+                        "For what felt like an eternity, he crouched in the darkness, listening to the men's panicked voices, hearing them run down the stairs to fetch help, and knowing that he had only a few seconds to escape.",
+                        "برای مدتی که به نظر ابدیت می‌رسید، در تاریکی خمیده ماند و به صداهای هراس‌زده‌ی آن مردان گوش داد، شنید که برای آوردن کمک از پله‌ها پایین دویدند، و می‌دانست که فقط چند ثانیه برای فرار دارد."
+                    ),
+                    StoryParagraph(
+                        "When the coast was clear, he ran down the stairs and out into the street, and he walked quickly through the dark alleys of the city, keeping his head down, trying to look like an ordinary man on an ordinary errand.",
+                        "وقتی راه خالی شد، از پله‌ها پایین دوید و به خیابان زد، و سریع از میان کوچه‌های تاریک شهر گذشت، سرش را پایین گرفته بود و تلاش می‌کرد مثل مردی معمولی در کاری معمولی به نظر برسد."
+                    ),
+                    StoryParagraph(
+                        "But his legs were shaking, his heart was pounding, and every shadow seemed to him to be a policeman, every voice a witness, every step behind him the sound of the law closing in.",
+                        "اما پاهایش می‌لرزید، قلبش می‌کوبید، و هر سایه برایش پلیسی به نظر می‌رسید، هر صدایی شاهدی، هر قدمی پشت سرش صدای قانونی که نزدیک می‌شد."
+                    ),
+                    StoryParagraph(
+                        "When he finally reached his own building, he climbed the stairs as quietly as he could, entered his room, and locked the door behind him with trembling hands.",
+                        "وقتی بالاخره به ساختمان خودش رسید، تا حد امکان بی‌صدا از پله‌ها بالا رفت، وارد اتاقش شد و با دستانی لرزان در را پشت سرش قفل کرد."
+                    ),
+                    StoryParagraph(
+                        "He then threw himself onto his sofa and lay there, fully clothed, shaking, unable to think, unable to move, unable even to close his eyes, because every time he did, he saw the two bodies on the floor.",
+                        "سپس خود را روی مبلش انداخت و همان‌جا با لباس دراز کشید، می‌لرزید، نمی‌توانست فکر کند، نمی‌توانست حرکت کند، حتی نمی‌توانست چشمانش را ببندد، چون هر بار که می‌بست، دو جسد روی زمین را می‌دید."
+                    ),
+                    StoryParagraph(
+                        "He had hidden the stolen items under a loose stone in an inner courtyard on the way home, and now he realized, with a strange and bitter clarity, that he had not even looked at them, so great had been his horror.",
+                        "اشیا دزدیده‌شده را در راه بازگشت زیر سنگی لق در حیاطی داخلی پنهان کرده بود، و حالا با وضوحی عجیب و تلخ دریافت که حتی به آن‌ها نگاه هم نکرده بود، چنان وحشتش زیاد بود."
+                    ),
+                    StoryParagraph(
+                        "He tried to wash his hands again, but the blood was gone by now, or at least it seemed gone, and yet he could still smell it, still feel it on his skin, still taste it in his mouth.",
+                        "دوباره تلاش کرد دست‌هایش را بشوید، اما خون تا حالا رفته بود، یا حداقل به نظر می‌رسید رفته باشد، و با این حال هنوز بویش را حس می‌کرد، هنوز روی پوستش حسش می‌کرد، هنوز در دهانش می‌چشیدش."
+                    ),
+                    StoryParagraph(
+                        "He checked his clothes for stains, and finding only a small spot on his trousers, he cut the fringed edge off with a knife and burned the piece in the candle flame, watching the fabric curl and blacken.",
+                        "لباس‌هایش را برای لکه بررسی کرد و فقط لکه‌ی کوچکی روی شلوارش یافت، پس لبه‌ی ریش‌ریش آن را با چاقو برید و تکه را در شعله‌ی شمع سوزاند و تماشا کرد که پارچه جمع شد و سیاه شد."
+                    ),
+                    StoryParagraph(
+                        "He then sat on the edge of his sofa for a long time, staring at the wall, listening to the sounds of the city outside, waiting for the knock on the door that he was certain would come at any moment.",
+                        "سپس مدت طولانی روی لبه‌ی مبلش نشست و به دیوار خیره شد و به صداهای شهر بیرون گوش داد و منتظر ضربه‌ای به در ماند که مطمئن بود هر لحظه می‌آید."
+                    ),
+                    StoryParagraph(
+                        "But the knock did not come, and slowly, terribly slowly, the night passed, and the first grey light of dawn began to creep through the window, and Raskolnikov was still awake, still shaking, still waiting.",
+                        "اما ضربه نیامد و آهسته، به‌طرز هولناکی آهسته، شب گذشت و اولین نور خاکستری سحر شروع کرد از پنجره داخل شدن، و راسکولنیکوف هنوز بیدار بود، هنوز می‌لرزید، هنوز منتظر بود."
+                    ),
+                    StoryParagraph(
+                        "He knew, somewhere deep in the exhausted corners of his mind, that he had won nothing, that he had killed two women for nothing, that the money he had taken would never give him what he truly wanted.",
+                        "در گوشه‌های خسته‌ی ذهنش، جایی عمیق، می‌دانست که هیچ چیزی نبرده بود، که دو زن را برای هیچ کشته بود، که پولی که گرفته بود هرگز آنچه واقعاً می‌خواست را به او نمی‌داد."
+                    ),
+                    StoryParagraph(
+                        "And he knew, with a certainty that chilled him to the bone, that the punishment for what he had done would not come from the police, or from a court, or from any prison, but from something far worse inside himself.",
+                        "و با اطمینانی که تا مغز استخوانش را سرد کرد می‌دانست که مجازات کاری که کرده بود نه از پلیس می‌آمد، نه از دادگاه، نه از هیچ زندانی، بلکه از چیزی بسیار بدتر در درون خودش."
+                    ),
+                    StoryParagraph(
+                        "He had imagined, before the murder, that he would feel like a Napoleon after it was done, that he would feel powerful, free, above the ordinary rules of ordinary men, but instead, he felt smaller and weaker than he had ever felt before.",
+                        "پیش از قتل تصور کرده بود که پس از انجامش مثل ناپلئون احساس می‌کند، احساس قدرت، آزادی، برتری از قوانین معمولی مردان معمولی، اما در عوض، کوچک‌تر و ضعیف‌تر از هر زمان دیگری در عمرش احساس می‌کرد."
+                    ),
+                    StoryParagraph(
+                        "He tried to laugh at himself, at his own foolishness, at the proud theories that had led him here, but the laughter stuck in his throat and turned into something closer to a sob.",
+                        "تلاش کرد به خودش بخندد، به حماقت خودش، به نظریه‌های مغرورانه‌ای که او را به اینجا کشانده بود، اما خنده در گلویش گیر کرد و به چیزی شبیه به هق‌هق تبدیل شد."
+                    ),
+                    StoryParagraph(
+                        "The first day after the murder was the longest of his life, and he spent it lying on his sofa in a kind of waking dream, drifting between sleep and waking, between past and present, between horror and numbness.",
+                        "اولین روز پس از قتل، طولانی‌ترین روز زندگی‌اش بود، و آن را روی مبلش در نوعی رؤیای بیداری گذراند، میان خواب و بیداری شناور، میان گذشته و حال، میان وحشت و بی‌حسی."
+                    ),
+                    StoryParagraph(
+                        "And when, at last, evening came and the shadows of the city began to lengthen, he understood, with a strange and terrible calm, that the man who had walked up those stairs to Alyona's flat was not the man who lay here now.",
+                        "و وقتی بالاخره شب رسید و سایه‌های شهر شروع به بلند شدن کردند، با آرامشی عجیب و هولناک فهمید که مردی که از آن پله‌ها بالا رفته بود به آپارتمان آلیونا، همان مردی نبود که حالا اینجا دراز کشیده است."
+                    ),
+                    StoryParagraph(
+                        "He had wanted to become something greater than himself, and he had succeeded, but not in the way he had intended; he had become a murderer, and that was the only title he would ever truly earn.",
+                        "می‌خواست چیزی بزرگ‌تر از خودش شود و موفق شده بود، اما نه به شکلی که در نظر داشت؛ او قاتل شده بود، و این تنها عنوانی بود که واقعاً به دست می‌آورد."
+                    ),
+                    StoryParagraph(
+                        "Yet somewhere, in the darkest and most hidden corner of his soul, a small, stubborn spark still flickered, a spark that whispered that perhaps, despite everything, there might still be a way back to life.",
+                        "اما جایی، در تاریک‌ترین و پنهان‌ترین گوشه‌ی روحش، شراره‌ای کوچک و سرسخت هنوز سوسو می‌زد، شراره‌ای که زمزمه می‌کرد شاید با وجود همه چیز، هنوز راهی برای بازگشت به زندگی باشد."
+                    )
+                )
+            ),
+            StoryChapter(
+                number = 3, title = "The Weight of Guilt", titlePersian = "سنگینی گناه",
+                paragraphs = listOf(
+                    StoryParagraph(
+                        "For several days after the murders, Raskolnikov lay in his room in a state of delirium, drifting in and out of consciousness, and he could not tell whether the visions that filled his mind were dreams or memories.",
+                        "چند روز پس از قتل‌ها، راسکولنیکوف در اتاقش در حالتی از هذیان دراز کشید و میان هشیاری و بی‌هشیاری شناور بود، و نمی‌توانست تشخیص دهد که رؤیاهایی که ذهنش را پر می‌کردند خواب بودند یا خاطره."
+                    ),
+                    StoryParagraph(
+                        "He saw the old woman's face again and again, her sharp eyes staring at him in silent accusation, and he saw Lizaveta's terrified expression, her mouth opening as if to scream but making no sound.",
+                        "بارها و بارها چهره‌ی پیرزن را می‌دید، چشمان تیز و اتهام‌آمیزش در سکوت به او خیره بودند، و حالت وحشت‌زده‌ی لیزاویتا را می‌دید، دهانش باز می‌شد گویی می‌خواهد فریاد بزند اما هیچ صدایی در نمی‌آمد."
+                    ),
+                    StoryParagraph(
+                        "Then a servant knocked at his door, bringing him a summons from the police station, and Raskolnikov's heart nearly stopped, because he was certain, absolutely certain, that he had been discovered.",
+                        "سپس خدمتکاری در اتاقش زد و احضاریه‌ای از کلانتری برایش آورد، و قلب راسکولنیکوف تقریباً ایستاد، چون مطمئن بود، کاملاً مطمئن، که کشف شده است."
+                    ),
+                    StoryParagraph(
+                        "He dressed with trembling hands, gathered his scattered thoughts as best he could, and walked to the station, rehearsing excuses in his head, planning his defense, preparing for the worst.",
+                        "با دستانی لرزان لباس پوشید، تا آنجا که می‌توانست افکار پراکنده‌اش را جمع کرد، و به سمت کلانتری راه افتاد، در ذهنش عذر و بهانه تمرین می‌کرد، دفاعش را برنامه‌ریزی می‌کرد، خود را برای بدترین حالت آماده می‌کرد."
+                    ),
+                    StoryParagraph(
+                        "But when he arrived, the clerk looked at him with mild annoyance and told him, in a bored voice, that the matter concerned an unpaid debt to his landlady, nothing more.",
+                        "اما وقتی رسید، کارمند با نارضایتی ملایمی به او نگاه کرد و با صدایی خسته گفت که موضوع درباره‌ی بدهی پرداخت‌نشده به صاحب‌خانه‌اش است، چیز دیگری نیست."
+                    ),
+                    StoryParagraph(
+                        "The relief that washed over Raskolnikov was so intense that he nearly laughed out loud, and the policemen, seeing his strange reaction, looked at him with suspicion and asked him if he was feeling unwell.",
+                        "آسودگی‌ای که راسکولنیکوف را فرا گرفت چنان شدید بود که تقریباً بلند خندید، و پلیس‌ها که واکنش عجیبش را دیدند، با شک به او نگاه کردند و پرسیدند حالش خوب است یا نه."
+                    ),
+                    StoryParagraph(
+                        "He left the station in a daze, and as he walked home through the crowded streets, he felt suddenly dizzy, and he collapsed on a bench in a small square, unable to continue.",
+                        "گیج از کلانتری بیرون رفت و در حالی که از میان خیابان‌های شلوغ به خانه می‌رفت، ناگهان احساس سرگیجه کرد و روی نیمکتی در میدان کوچکی افتاد و نتوانست ادامه دهد."
+                    ),
+                    StoryParagraph(
+                        "A kind stranger helped him up and even gave him some money for a cab, but Raskolnikov, suspicious of everyone, threw the money into the river as soon as the stranger had gone away.",
+                        "غریبه‌ای مهربان کمکش کرد بلند شود و حتی پولی برای کالسکه به او داد، اما راسکولنیکوف که به همه مشکوک بود، به‌محض رفتن آن غریبه پول را در رودخانه انداخت."
+                    ),
+                    StoryParagraph(
+                        "When he finally reached his room, he threw himself on his sofa and fell into a deep, feverish sleep, and as he slept, a terrible dream came to him, a dream far worse than anything he had yet endured.",
+                        "وقتی بالاخره به اتاقش رسید، خود را روی مبلش انداخت و در خوابی عمیق و تب‌آلود فرو رفت، و در خواب، رؤیای هولناکی به سراغش آمد، رؤیایی بسیار بدتر از هر چیزی که تا حالا تحمل کرده بود."
+                    ),
+                    StoryParagraph(
+                        "In the dream, he was back in Alyona's apartment, striking her again and again with the axe, but no matter how many times he hit her, she would not die.",
+                        "در خواب، دوباره در آپارتمان آلیونا بود، بارها و بارها با تبر به او می‌کوبید، اما هر چقدر ضربه می‌زد، نمی‌مرد."
+                    ),
+                    StoryParagraph(
+                        "She sat there on the floor, silent and still, watching him with her cold, mocking eyes, and then, slowly, she began to laugh, a terrible, soundless laugh that seemed to come from somewhere far away.",
+                        "او همان‌جا روی زمین نشسته بود، ساکت و بی‌حرکت، با چشمانی سرد و طعنه‌آمیز نگاهش می‌کرد، و سپس، آهسته، شروع کرد به خندیدن، خنده‌ای هولناک و بی‌صدا که به نظر از جایی دور می‌آمد."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov tried to run, but his legs would not move, and the old woman grew larger and larger, filling the whole room, until he woke up screaming, drenched in sweat, his heart pounding in his chest.",
+                        "راسکولنیکوف تلاش کرد فرار کند، اما پاهایش حرکت نمی‌کردند، و پیرزن بزرگ‌تر و بزرگ‌تر شد، تمام اتاق را پر کرد، تا وقتی فریادزنان بیدار شد، غرق در عرق، و قلبش در سینه‌اش می‌کوبید."
+                    ),
+                    StoryParagraph(
+                        "Just at that moment, there was a loud knock at his door, and Raskolnikov froze, convinced that the police had come for him at last, and that his brief, terrible freedom was finally over.",
+                        "همان لحظه، ضربه‌ای بلند به درش خورد و راسکولنیکوف یخ زد، مطمئن شد بالاخره پلیس برایش آمده و آزادی کوتاه و هولناکش بالاخره تمام شده است."
+                    ),
+                    StoryParagraph(
+                        "But the man who entered was not a policeman; it was Razumikhin, a former classmate and a kind, loyal, and talkative friend whom Raskolnikov had once been close to.",
+                        "اما مردی که وارد شد پلیس نبود؛ رازومیخین بود، هم‌کلاسی سابق و دوستی مهربان، وفادار و پرحرف که راسکولنیکوف زمانی با او نزدیک بود."
+                    ),
+                    StoryParagraph(
+                        "Razumikhin had been looking for him for days, worried about his health, and he was genuinely shocked by his friend's pale, gaunt appearance and wild, feverish eyes.",
+                        "رازومیخین روزها بود دنبالش می‌گشت و نگران سلامتی‌اش بود، و از ظاهر رنگ‌پریده و لاغر و چشمان وحشی و تب‌آلود دوستش واقعاً شوکه شد."
+                    ),
+                    StoryParagraph(
+                        "He had brought Raskolnikov clean clothes, some money, and news from his mother and sister, who were on their way to St. Petersburg to see him.",
+                        "او برای راسکولنیکوف لباس تمیز، کمی پول و خبری از مادر و خواهرش آورده بود که در راه سن‌پترزبورگ برای دیدنش بودند."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov, however, could not accept any of this kindness; suspicion had become his second nature, and he pushed Razumikhin away with cold, bitter words that wounded the loyal friend deeply.",
+                        "اما راسکولنیکوف نمی‌توانست هیچ‌کدام از این مهربانی‌ها را بپذیرد؛ بدگمانی طبیعت دومش شده بود و رازومیخین را با کلماتی سرد و تلخ از خود راند، کلماتی که دوست وفادارش را عمیقاً زخمی کرد."
+                    ),
+                    StoryParagraph(
+                        "But Razumikhin, being the man he was, did not give up; he promised to return the next day and the day after that, and he told Raskolnikov, quite firmly, that he would not be abandoned no matter how hard he pushed people away.",
+                        "اما رازومیخین، چون مردی که بود، رها نکرد؛ قول داد روز بعد و روز بعد از آن برگردد، و با اطمینان به راسکولنیکوف گفت که هر چقدر هم مردم را از خود براند، رها نخواهد شد."
+                    ),
+                    StoryParagraph(
+                        "When Razumikhin had gone, Raskolnikov lay on his sofa for a long time, thinking about what he had done, and about what he would do next, and about the terrible, unending weight that now pressed upon his soul.",
+                        "وقتی رازومیخین رفت، راسکولنیکوف مدت طولانی روی مبلش دراز کشید و به آنچه کرده بود فکر کرد، و به آنچه بعداً می‌کرد، و به وزن هولناک و بی‌پایانی که حالا بر روحش فشار می‌آورد."
+                    ),
+                    StoryParagraph(
+                        "He had believed that the murder would make him free, but instead, it had bound him tighter than any chain, and it had cut him off from every human being who might have loved him.",
+                        "باور داشت که قتل آزادش می‌کند، اما در عوض، او را محکم‌تر از هر زنجیری بسته بود، و او را از هر انسانی که ممکن بود دوستش داشته باشد جدا کرده بود."
+                    ),
+                    StoryParagraph(
+                        "The investigation into the murders had begun, and a clever, patient investigator named Porfiry Petrovich had been assigned to the case, a man who had studied Raskolnikov's mind from the very beginning.",
+                        "تحقیق درباره‌ی قتل‌ها آغاز شده بود، و بازپرسی زیرک و صبور به نام پورفیری پتروویچ به پرونده گمارده شده بود، مردی که از همان ابتدا ذهن راسکولنیکوف را مطالعه کرده بود."
+                    ),
+                    StoryParagraph(
+                        "Porfiry had read an article that Raskolnikov had written months earlier, in which the young student argued that extraordinary men had the right to step over moral laws for the sake of a greater purpose.",
+                        "پورفیری مقاله‌ای خوانده بود که راسکولنیکوف ماه‌ها پیش نوشته بود، در آن دانشجوی جوان استدلال می‌کرد که مردان استثنایی حق دارند برای هدفی بزرگ‌تر از قوانین اخلاقی عبور کنند."
+                    ),
+                    StoryParagraph(
+                        "This article, more than any other clue, made Porfiry suspect that Raskolnikov might be the murderer, and from that moment on, he began to weave a careful, patient trap.",
+                        "این مقاله، بیش از هر سرنخ دیگری، پورفیری را مشکوک کرد که راسکولنیکوف ممکن است قاتل باشد، و از آن لحظه به بعد، شروع کرد به تنیدن تله‌ای دقیق و صبورانه."
+                    ),
+                    StoryParagraph(
+                        "When Raskolnikov came to the police station to register some pawned items, he and Porfiry met for the first time, and the meeting was strange and unsettling for both of them.",
+                        "وقتی راسکولنیکوف برای ثبت اشیای گروگذاشته‌شده به کلانتری رفت، او و پورفیری برای اولین بار همدیگر را دیدند، و این ملاقات برای هر دو عجیب و نگران‌کننده بود."
+                    ),
+                    StoryParagraph(
+                        "Porfiry smiled constantly, speaking in a soft, gentle voice, but his questions were sharp as knives, and he watched Raskolnikov's face for every flicker of emotion, every tiny, unconscious reaction.",
+                        "پورفیری مدام لبخند می‌زد و با صدایی نرم و ملایم صحبت می‌کرد، اما سوالاتش مثل چاقو تیز بود، و برای هر تکان احساس، هر واکنش کوچک و ناخودآگاه، چهره‌ی راسکولنیکوف را می‌پایید."
+                    ),
+                    StoryParagraph(
+                        "He asked Raskolnikov about his article, about his theory of extraordinary men, and about whether he himself believed he was one of those men, and Raskolnikov, trying to remain calm, felt cold sweat forming on his forehead.",
+                        "او از راسکولنیکوف درباره‌ی مقاله‌اش پرسید، درباره‌ی نظریه‌اش درباره‌ی مردان استثنایی، و اینکه آیا خودش باور دارد یکی از آن مردان است، و راسکولنیکوف که تلاش می‌کرد آرام بماند، عرق سردی روی پیشانی‌اش حس کرد."
+                    ),
+                    StoryParagraph(
+                        "When Raskolnikov finally left the office, he felt both relieved and more terrified than before, because he sensed, somehow, that Porfiry had not been fooled for a single moment.",
+                        "وقتی راسکولنیکوف بالاخره از دفتر بیرون رفت، هم آسوده شد و هم بیشتر از قبل ترسید، چون حس کرد، به‌نحوی، که پورفیری حتی برای یک لحظه فریب نخورده است."
+                    ),
+                    StoryParagraph(
+                        "A few days later, Porfiry appeared unexpectedly at Raskolnikov's own room, and their second meeting was even more disturbing than the first, because this time, there were no formalities to hide behind.",
+                        "چند روز بعد، پورفیری به‌طور غیرمنتظره در اتاق خود راسکولنیکوف ظاهر شد، و ملاقات دومشان حتی نگران‌کننده‌تر از اولی بود، چون این بار تشریفاتی نبود که پشتش پنهان شوند."
+                    ),
+                    StoryParagraph(
+                        "The investigator mentioned the murders, described them in careful detail, and then, quite casually, asked Raskolnikov what he thought of the whole affair.",
+                        "بازپرس به قتل‌ها اشاره کرد، با جزئیات دقیق توصیفشان کرد، و سپس، کاملاً اتفاقی، از راسکولنیکوف پرسید که درباره‌ی کل ماجرا چه فکر می‌کند."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov tried to answer calmly, but his hands were shaking, and his voice cracked more than once, and he knew that Porfiry saw everything, that Porfiry was only waiting for him to break down.",
+                        "راسکولنیکوف تلاش کرد آرام پاسخ دهد، اما دست‌هایش می‌لرزیدند و صدایش بیش از یک بار شکست، و می‌دانست که پورفیری همه چیز را می‌بیند، که پورفیری فقط منتظر است او فرو بریزد."
+                    ),
+                    StoryParagraph(
+                        "At the very moment of greatest tension, a strange man burst into the room and confessed to the murders, claiming that he, and not Raskolnikov, had killed Alyona and Lizaveta.",
+                        "در همان لحظه‌ی بیشترین تنش، مردی عجیب به اتاق هجوم برد و به قتل‌ها اعتراف کرد و ادعا کرد که او، نه راسکولنیکوف، آلیونا و لیزاویتا را کشته است."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov left the room in a daze, hardly able to believe his luck, but Porfiry was not fooled; he knew that the confession was false, and he continued to wait, patient as always.",
+                        "راسکولنیکوف گیج از اتاق بیرون رفت و به‌سختی می‌توانست باورش کند، اما پورفیری فریب نخورد؛ می‌دانست که آن اعتراف دروغین است، و مثل همیشه صبورانه ادامه داد به انتظار."
+                    ),
+                    StoryParagraph(
+                        "The game between the two men had only just begun, and both of them knew that it could only end in one way, with Raskolnikov either confessing on his own or being broken by the weight of his own conscience.",
+                        "بازی میان آن دو مرد تازه شروع شده بود، و هر دو می‌دانستند که فقط به یک شکل می‌تواند پایان یابد، یا راسکولنیکوف خودش اعتراف می‌کند، یا زیر وزن وجدان خودش خرد می‌شود."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov began to wander the streets of St. Petersburg like a ghost, unable to eat, unable to sleep, unable to find peace in any corner of the city, pursued by a guilt that would not let him rest.",
+                        "راسکولنیکوف شروع کرد مثل شبحی در خیابان‌های سن‌پترزبورگ پرسه زدن، نه می‌توانست بخورد، نه بخوابد، نه در هیچ گوشه‌ای از شهر آرامش بیابد، تعقیب‌شده توسط گناهی که رهایش نمی‌کرد."
+                    ),
+                    StoryParagraph(
+                        "He visited the scenes of his old life, the university, the streets where he had once walked as a free man, and everywhere he went, he felt like a stranger, like someone who no longer belonged to the human race.",
+                        "او به صحنه‌های زندگی گذشته‌اش سر زد، دانشگاه، خیابان‌هایی که زمانی به‌عنوان مردی آزاد در آن‌ها قدم زده بود، و هر جا می‌رفت، مثل غریبه‌ای احساس می‌کرد، مثل کسی که دیگر به نسل بشر تعلق ندارد."
+                    ),
+                    StoryParagraph(
+                        "His mother and sister arrived in the city, and when he saw them, he was overcome with shame, because he knew that they had sacrificed everything for him and that he had betrayed them in the worst way possible.",
+                        "مادر و خواهرش به شهر رسیدند، و وقتی آن‌ها را دید، شرم او را فرا گرفت، چون می‌دانست که آن‌ها همه چیز را برایش فدا کرده بودند و او به بدترین شکل ممکن به آن‌ها خیانت کرده بود."
+                    ),
+                    StoryParagraph(
+                        "His sister Dunya had accepted a proposal of marriage from a wealthy but cruel man named Luzhin, partly to help her brother, partly to save her family from ruin, and Raskolnikov, when he learned of it, felt a fresh wave of self-loathing.",
+                        "خواهرش دونیا پیشنهاد ازدواج مردی ثروتمند اما بی‌رحم به نام لوژین را پذیرفته بود، نیمه برای کمک به برادرش، نیمه برای نجات خانواده‌اش از تباهی، و راسکولنیکوف وقتی از آن باخبر شد، موج تازه‌ای از نفرت از خودش حس کرد."
+                    ),
+                    StoryParagraph(
+                        "He forbade the marriage, he argued with his mother, he drove his sister to tears, and then, when they had gone, he sat alone in his room and wept like a child, because he knew that everything he touched turned to ruin.",
+                        "او ازدواج را ممنوع کرد، با مادرش بحث کرد، خواهرش را به گریه انداخت، و سپس، وقتی رفتند، تنها در اتاقش نشست و مثل بچه‌ای گریه کرد، چون می‌دانست هر چیزی که لمس می‌کند به تباهی تبدیل می‌شود."
+                    ),
+                    StoryParagraph(
+                        "In the middle of all this, he found himself drawn, again and again, to the home of Marmeladov, the drunkard he had met in the tavern, and to Marmeladov's daughter Sonya, the young woman who had sacrificed everything for her family.",
+                        "در میانه‌ی همه‌ی این‌ها، خودش را بارها و بارها کشیده به خانه‌ی مارملادوف، همان مستی که در میخانه دیده بود، و به سونیا دختر مارملادوف، زن جوانی که همه چیز را برای خانواده‌اش فدا کرده بود."
+                    ),
+                    StoryParagraph(
+                        "There was something in Sonya that drew him, something that had nothing to do with her poverty or her profession, but with the simple, unshakeable goodness that shone from her gentle face.",
+                        "چیزی در سونیا او را می‌کشید، چیزی که هیچ ربطی به فقر یا حرفه‌اش نداشت، بلکه به نیکی ساده و تزلزل‌ناپذیری داشت که از چهره‌ی مهربانش می‌درخشید."
+                    ),
+                    StoryParagraph(
+                        "He did not yet understand why he felt this way, but he sensed, dimly, that this young woman held the key to something he had been searching for all his life, without ever knowing what it was.",
+                        "او هنوز نمی‌فهمید چرا اینطور احساس می‌کند، اما به‌طور محو حس می‌کرد که این زن جوان کلیدی برای چیزی دارد که تمام عمر در جست‌وجویش بود، بی‌آنکه بداند چیست."
+                    ),
+                    StoryParagraph(
+                        "And so, without fully realizing it, he began to walk a path that would lead him, slowly and painfully, not towards escape, but towards a confession that would save his soul.",
+                        "و بنابراین، بدون آنکه کاملاً متوجه باشد، شروع کرد به قدم زدن در مسیری که او را، آهسته و دردناک، نه به سوی فرار، بلکه به سوی اعترافی می‌برد که روحش را نجات می‌داد."
+                    )
+                )
+            ),
+            StoryChapter(
+                number = 4, title = "Redemption and Love", titlePersian = "رستگاری و عشق",
+                paragraphs = listOf(
+                    StoryParagraph(
+                        "One evening, soon after his painful meeting with his mother and sister, Raskolnikov went to Sonya's small rented room for the first time, driven by a need he could not fully explain.",
+                        "یک شب، کمی پس از دیدار دردناکش با مادر و خواهرش، راسکولنیکوف برای اولین بار به اتاق کوچک اجاره‌ای سونیا رفت، رانده‌شده توسط نیازی که کاملاً نمی‌توانست توضیح دهد."
+                    ),
+                    StoryParagraph(
+                        "Sonya was the daughter of the drunkard Marmeladov, a young woman of eighteen who had been forced into prostitution by the poverty of her family, and yet she remained one of the gentlest souls in all of St. Petersburg.",
+                        "سونیا دختر مارملادوف مست بود، زن جوانی هجده‌ساله که فقر خانواده‌اش او را به روسپیگری کشانده بود، و با این حال یکی از مهربان‌ترین روح‌های تمام سن‌پترزبورگ باقی مانده بود."
+                    ),
+                    StoryParagraph(
+                        "Her room was small and poor, but she kept it clean and tidy, and there was something peaceful about it, something that seemed to belong to another world, far from the filth and misery of the streets outside.",
+                        "اتاقش کوچک و فقیرانه بود، اما آن را تمیز و مرتب نگه می‌داشت، و چیزی آرامش‌بخش در آن بود، چیزی که به نظر می‌رسید به دنیای دیگری تعلق دارد، دور از کثافت و بدبختی خیابان‌های بیرون."
+                    ),
+                    StoryParagraph(
+                        "When Raskolnikov entered, Sonya looked up at him with her large, gentle eyes, and she did not seem surprised to see him, as if she had somehow been expecting him all along.",
+                        "وقتی راسکولنیکوف وارد شد، سونیا با چشمان بزرگ و مهربانش به او نگاه کرد، و به نظر نمی‌رسید از دیدنش تعجب کرده باشد، گویی به‌نحوی تمام مدت منتظرش بود."
+                    ),
+                    StoryParagraph(
+                        "He sat down across from her, and for a long moment, neither of them spoke, and in that silence, Raskolnikov felt, for the first time in weeks, something like a faint trace of peace.",
+                        "او روبه‌رویش نشست، و برای لحظه‌ای طولانی، هیچ‌کدام حرف نزدند، و در آن سکوت، راسکولنیکوف برای اولین بار در هفته‌ها، چیزی شبیه رد محوی از آرامش حس کرد."
+                    ),
+                    StoryParagraph(
+                        "He then asked her to read him a passage from the Bible, the story of Lazarus, the man whom Jesus had raised from the dead after four days in the tomb.",
+                        "سپس از او خواست برایش بخشی از انجیل را بخواند، داستان ایلعازر، مردی که عیسی پس از چهار روز در قبر، او را از مردگان برخاسته بود."
+                    ),
+                    StoryParagraph(
+                        "Sonya hesitated for a moment, because she had not read aloud to anyone in a long time, but then she took the old, worn Bible from a shelf and began to read in a low, trembling voice.",
+                        "سونیا لحظه‌ای تردید کرد، چون مدت‌ها بود برای کسی بلند نخوانده بود، اما سپس انجیل قدیمی و فرسوده را از قفسه‌ای برداشت و با صدایی آهسته و لرزان شروع به خواندن کرد."
+                    ),
+                    StoryParagraph(
+                        "As she read the story of the dead man who rose again, her voice grew stronger, and something stirred deep inside Raskolnikov, something that had been buried under years of pride, bitterness, and despair.",
+                        "وقتی داستان مرد مرده‌ای را می‌خواند که دوباره برخاست، صدایش قوی‌تر شد، و چیزی در عمق درون راسکولنیکوف تکان خورد، چیزی که زیر سال‌ها غرور، تلخی و ناامیدی مدفون شده بود."
+                    ),
+                    StoryParagraph(
+                        "When she had finished, he looked at her for a long time without speaking, and then, in a broken whisper, he told her that he had come to her because he had no one else, and that he needed to tell her something terrible.",
+                        "وقتی تمام کرد، مدت طولانی بدون حرف زدن نگاهش کرد، و سپس، در زمزمه‌ای شکسته، به او گفت که به او پناه آورده چون کس دیگری را ندارد، و باید چیز هولناکی به او بگوید."
+                    ),
+                    StoryParagraph(
+                        "Sonya did not interrupt him, did not look away, but simply waited, patient and gentle, and her quiet presence gave him the courage he needed to speak the words he had been carrying for so long.",
+                        "سونیا حرفش را قطع نکرد، نگاهش را برنگرداند، بلکه فقط منتظر ماند، صبور و مهربان، و حضور آرامش شجاعتی که لازم داشت را به او داد تا کلماتی را که این‌قدر طولانی حمل کرده بود بر زبان بیاورد."
+                    ),
+                    StoryParagraph(
+                        "I killed the old pawnbroker and her sister Lizaveta, he said at last, and he told her everything, the plan, the murder, the escape, the guilt, the horror, and the endless, unending suffering that had followed.",
+                        "او بالاخره گفت: من رباخوار پیر و خواهرش لیزاویتا را کشتم، و همه چیز را برایش تعریف کرد، نقشه، قتل، فرار، گناه، وحشت و رنج بی‌پایان و بی‌پایانی که به دنبالش آمده بود."
+                    ),
+                    StoryParagraph(
+                        "When he was finished, he expected her to recoil from him in horror, to scream, to run, to call the police, but Sonya did none of these things.",
+                        "وقتی تمام کرد، انتظار داشت با وحشت از او دور شود، فریاد بزند، فرار کند، پلیس خبر کند، اما سونیا هیچ‌کدام از این کارها را نکرد."
+                    ),
+                    StoryParagraph(
+                        "Instead, she rose slowly from her chair, walked over to him, and without a word, she embraced him, and she wept, not for herself, not even for the victims, but for him, for the terrible suffering that had broken his soul.",
+                        "در عوض، آهسته از صندلی بلند شد، به طرفش رفت، و بدون کلمه‌ای، او را در آغوش گرفت و گریست، نه برای خودش، نه حتی برای قربانیان، بلکه برای او، برای رنج هولناکی که روحش را شکسته بود."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov was stunned by her reaction, and something inside him cracked open, and for the first time since the murders, he allowed himself to feel the full weight of what he had done.",
+                        "راسکولنیکوف از واکنشش شوکه شد، و چیزی در درونش شکافت و باز شد، و برای اولین بار پس از قتل‌ها، اجازه داد وزن کامل کاری که کرده بود را حس کند."
+                    ),
+                    StoryParagraph(
+                        "He buried his face in her shoulder and wept, and he wept for a long time, and Sonya held him, and neither of them spoke, because there were no words that could express what was happening between them.",
+                        "صورتش را در شانه‌اش پنهان کرد و گریست، و مدت طولانی گریست، و سونیا او را نگه داشت، و هیچ‌کدام حرف نزدند، چون کلمه‌ای نبود که بتواند بیان کند چه چیزی میانشان می‌گذشت."
+                    ),
+                    StoryParagraph(
+                        "When at last he pulled away, he looked at her with new eyes, and he understood, with a clarity that pierced through all his confusion, that this woman, this fallen woman, was perhaps the purest soul he had ever met.",
+                        "وقتی بالاخره کنار کشید، با چشمانی جدید به او نگاه کرد، و با وضوحی که از تمام سردرگمی‌اش نفوذ می‌کرد، فهمید که این زن، این زن افتاده، شاید خالص‌ترین روحی بود که تا حالا دیده بود."
+                    ),
+                    StoryParagraph(
+                        "She had broken the laws of society, just as he had, but where his crime had been born of pride and hatred, hers had been born of love and sacrifice, and that made all the difference in the world.",
+                        "او هم مثل او قوانین جامعه را شکسته بود، اما آنجا که جنایت او از غرور و نفرت زاده شده بود، جنایت او از عشق و فداکاری زاده شده بود، و همین تمام تفاوت دنیا را می‌ساخت."
+                    ),
+                    StoryParagraph(
+                        "Sonya told him that he must confess his crime, that he must go to the crossroads, kiss the earth he had defiled, and tell the world what he had done, and she promised to stand by him no matter what happened.",
+                        "سونیا به او گفت که باید به جنایتش اعتراف کند، باید به چهارراه برود، زمینی را که آلوده کرده بوسد و به دنیا بگوید چه کرده، و قول داد هر چه پیش بیاید کنارش بماند."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov was terrified by her words, because confessing meant the end of everything he had ever known, but deep down, he knew she was right, and he knew that she was the only person in the world whose judgment he truly trusted.",
+                        "راسکولنیکوف از کلماتش وحشت کرد، چون اعتراف یعنی پایان هر چیزی که می‌شناخت، اما در عمق وجودش، می‌دانست که حق با اوست، و می‌دانست که او تنها فرد دنیاست که واقعاً به قضاوتش اعتماد دارد."
+                    ),
+                    StoryParagraph(
+                        "A few days later, Porfiry Petrovich came to Raskolnikov's room one last time, and this time, there were no games, no hints, no careful words; he simply told him, plainly, that he knew he was the murderer.",
+                        "چند روز بعد، پورفیری پتروویچ یک بار آخر به اتاق راسکولنیکوف آمد، و این بار، هیچ بازی، هیچ اشاره، هیچ کلمه‌ی محتاطانه‌ای نبود؛ او صریح گفت که می‌داند او قاتل است."
+                    ),
+                    StoryParagraph(
+                        "Porfiry advised him to confess and accept his punishment, telling him that a confession would be far lighter than the endless torture of hiding, and that in prison, there might still be a chance for peace.",
+                        "پورفیری به او توصیه کرد اعتراف کند و مجازاتش را بپذیرد و گفت که اعتراف بسیار سبک‌تر از شکنجه‌ی بی‌پایان پنهان شدن خواهد بود، و در زندان، شاید هنوز فرصتی برای آرامش باشد."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov listened to him in silence, and when Porfiry had gone, he sat alone in his room for hours, wrestling with the last remnants of his pride, until at last, exhausted, he made his decision.",
+                        "راسکولنیکوف در سکوت به او گوش داد، و وقتی پورفیری رفت، ساعت‌ها تنها در اتاقش نشست و با آخرین بازمانده‌های غرورش کشتی گرفت، تا بالاخره، خسته، تصمیمش را گرفت."
+                    ),
+                    StoryParagraph(
+                        "That evening, at Sonya's insistence, he went out into the street and stopped at a crossroads, and he knelt down, and he kissed the earth, and he whispered, loud enough for passersby to hear, that he was a murderer.",
+                        "آن شب، به اصرار سونیا، به خیابان رفت و در چهارراهی توقف کرد، و به زانو افتاد، و زمین را بوسید، و زمزمه کرد، به‌اندازه‌ای بلند که عابران بشنوند، که او قاتل است."
+                    ),
+                    StoryParagraph(
+                        "Some of the people around him laughed, others looked at him with pity, but Raskolnikov did not care; he had done what Sonya had asked of him, and for the first time in months, he felt almost peaceful.",
+                        "بعضی از مردم اطرافش خندیدند، بعضی با ترحم نگاهش کردند، اما راسکولنیکوف اهمیت نداد؛ او کاری که سونیا خواسته بود انجام داده بود، و برای اولین بار در ماه‌ها، تقریباً احساس آرامش کرد."
+                    ),
+                    StoryParagraph(
+                        "A few minutes later, he walked into the police station and, in a quiet, steady voice, confessed to the murders of Alyona Ivanovna and Lizaveta Ivanovna, and then he sat down and waited for them to take him away.",
+                        "چند دقیقه بعد، وارد کلانتری شد و با صدایی آرام و ثابت، به قتل‌های آلیونا ایوانوونا و لیزاویتا ایوانوونا اعتراف کرد، و سپس نشست و منتظر ماند تا او را ببرند."
+                    ),
+                    StoryParagraph(
+                        "The officers were surprised, but they took his confession calmly and prepared the paperwork for his arrest, and within an hour, Raskolnikov was sitting in a prison cell, feeling stranger and freer than he had felt in weeks.",
+                        "افسران تعجب کردند، اما اعترافش را آرام گرفتند و کاغذبازی دستگیری‌اش را آماده کردند، و در عرض یک ساعت، راسکولنیکوف در سلولی نشسته بود، و عجیب‌تر و آزادتر از هفته‌ها احساس می‌کرد."
+                    ),
+                    StoryParagraph(
+                        "He was tried for the murders, and because of his confession and his evident remorse, he was sentenced to eight years of hard labour in Siberia, rather than to death, as many had expected.",
+                        "او برای قتل‌ها محاکمه شد، و به‌خاطر اعتراف و پشیمانی آشکارش، به هشت سال کار سخت در سیبری محکوم شد، نه به اعدام، همان‌طور که بسیاری انتظار داشتند."
+                    ),
+                    StoryParagraph(
+                        "Sonya, when she heard the sentence, did not weep, did not despair, did not argue; she simply packed her things, said goodbye to her family, and prepared to follow him to Siberia.",
+                        "سونیا وقتی حکم را شنید، نه گریه کرد، نه ناامید شد، نه بحث کرد؛ فقط وسایلش را بست، با خانواده‌اش خداحافظی کرد و آماده شد تا به سیبری دنبالش برود."
+                    ),
+                    StoryParagraph(
+                        "Her mother and sister were horrified, and they begged her not to go, but Sonya was unmoved; she told them that she loved him, that he needed her, and that she would not abandon him no matter what.",
+                        "مادر و خواهرش وحشت کردند و التماس کردند نرود، اما سونیا تکان نخورد؛ به آن‌ها گفت که دوستش دارد، که او به او نیاز دارد، و هر چه پیش بیاید رهایش نمی‌کند."
+                    ),
+                    StoryParagraph(
+                        "And so, a few weeks later, on a cold, grey morning in November, Raskolnikov and Sonya set off together for the long, difficult journey to Siberia, and neither of them knew what awaited them at the end of it.",
+                        "و بنابراین، چند هفته بعد، در صبحی سرد و خاکستری در ماه نوامبر، راسکولنیکوف و سونیا با هم برای سفر طولانی و دشوار به سیبری راه افتادند، و هیچ‌کدام نمی‌دانستند در انتهایش چه چیزی در انتظارشان است."
+                    ),
+                    StoryParagraph(
+                        "The journey took many weeks, and Raskolnikov sat in silence for most of it, thinking about his crime, about his punishment, about the strange twist of fate that had brought him here.",
+                        "سفر هفته‌های بسیاری طول کشید، و راسکولنیکوف بیشترش را در سکوت نشست، به جنایتش فکر می‌کرد، به مجازاتش، به پیچش عجیب تقدیری که او را به اینجا آورده بود."
+                    ),
+                    StoryParagraph(
+                        "But as the miles passed, something began to change in him, something subtle and slow, and by the time they reached the prison colony in Siberia, he was not the same man who had left St. Petersburg.",
+                        "اما با گذشت مایل‌ها، چیزی در او شروع به تغییر کرد، چیزی ظریف و آهسته، و تا زمانی که به مستعمره‌ی زندان در سیبری رسیدند، او همان مردی نبود که سن‌پترزبورگ را ترک کرده بود."
+                    ),
+                    StoryParagraph(
+                        "In prison, Raskolnikov was at first withdrawn and bitter, refusing to speak to the other prisoners, unable to accept his situation, unable to forgive himself for what he had done.",
+                        "در زندان، راسکولنیکوف ابتدا در خود فرو رفته و تلخ بود، از حرف زدن با سایر زندانیان امتناع می‌کرد، نمی‌توانست وضعیتش را بپذیرد، نمی‌توانست خودش را برای کاری که کرده بود ببخشد."
+                    ),
+                    StoryParagraph(
+                        "Sonya settled in a small town near the prison, and every Sunday, she came to visit him, bringing him bread, books, and news of the outside world, and slowly, patiently, she began to break through his walls.",
+                        "سونیا در شهر کوچکی نزدیک زندان ساکن شد، و هر یکشنبه، به دیدنش می‌آمد، نان، کتاب و خبرهایی از دنیای بیرون برایش می‌آورد، و آهسته و صبورانه، شروع کرد به شکستن دیوارهایش."
+                    ),
+                    StoryParagraph(
+                        "At first, Raskolnikov accepted her visits coldly, almost with resentment, because her kindness seemed to him an accusation of everything he was not, but she did not waver, and she did not stop coming.",
+                        "اول، راسکولنیکوف دیدارهایش را سرد پذیرفت، تقریباً با کینه، چون مهربانی‌اش برایش اتهامی بود به هر چیزی که نبود، اما او متزلزل نشد و از آمدن دست نکشید."
+                    ),
+                    StoryParagraph(
+                        "Months passed, and then a year, and slowly, without his even realizing it, Raskolnikov began to look forward to her visits, and to feel, in her presence, the first real peace he had known since the murders.",
+                        "ماه‌ها گذشت، و سپس یک سال، و آهسته، بی‌آنکه خودش حتی متوجه شود، راسکولنیکوف شروع کرد به انتظار دیدارهایش، و در حضورش، اولین آرامش واقعی را که از زمان قتل‌ها شناخته بود حس کرد."
+                    ),
+                    StoryParagraph(
+                        "One day, watching her from across the prison yard, Raskolnikov suddenly understood, with a shock that went through his entire body, that he loved her, and that he had perhaps loved her from the very beginning.",
+                        "یک روز، در حالی که از آن طرف حیاط زندان تماشایش می‌کرد، راسکولنیکوف ناگهان فهمید، با شوکي که در تمام بدنش پیچید، که دوستش دارد، و شاید از همان ابتدا دوستش داشته است."
+                    ),
+                    StoryParagraph(
+                        "He threw himself at her feet and wept, and for the first time, he wept not out of guilt, or despair, or self-hatred, but out of love, out of gratitude, out of the simple, overwhelming recognition that he was not alone.",
+                        "خود را به پای او انداخت و گریست، و برای اولین بار، نه از گناه گریست، نه از ناامیدی، نه از نفرت از خود، بلکه از عشق، از سپاسگزاری، از شناخت ساده و فراگیر اینکه تنها نیست."
+                    ),
+                    StoryParagraph(
+                        "Sonya knelt beside him and held him, and she too wept, and in that moment, on the cold, distant soil of Siberia, both of them began, at last, to heal from the wounds that life had given them.",
+                        "سونیا کنارش زانو زد و او را در آغوش گرفت، و او هم گریست، و در آن لحظه، روی خاک سرد و دورافتاده‌ی سیبری، هر دوی آن‌ها بالاخره شروع کردند به بهبودی از زخم‌هایی که زندگی به آن‌ها زده بود."
+                    ),
+                    StoryParagraph(
+                        "Raskolnikov still had many years of his sentence to serve, and he knew that the road ahead would be long and difficult, but for the first time in his life, he had something worth serving his sentence for.",
+                        "راسکولنیکوف هنوز سال‌های بسیاری از محکومیتش را باید می‌گذراند، و می‌دانست که راه پیش‌رو طولانی و دشوار خواهد بود، اما برای اولین بار در زندگی‌اش، چیزی داشت که ارزش گذراندن دوران محکومیتش را داشته باشد."
+                    ),
+                    StoryParagraph(
+                        "He had killed two women because he believed he was extraordinary, because he believed the rules of ordinary men did not apply to him, and now, sitting in a prison in Siberia, he finally understood how wrong he had been.",
+                        "او دو زن را کشته بود چون باور داشت استثنایی است، چون باور داشت قوانین مردان معمولی به او مربوط نمی‌شود، و حالا، در زندانی در سیبری نشسته، بالاخره فهمید که چقدر اشتباه کرده بود."
+                    ),
+                    StoryParagraph(
+                        "There were no extraordinary men, he realized, or rather, every man was extraordinary, in his own small way, and the only true greatness lay not in rising above others, but in loving them.",
+                        "مرد استثنایی وجود نداشت، دریافت، یا بهتر بگویم، هر انسانی استثنایی بود، به شیوه‌ی کوچک خودش، و تنها عظمت واقعی در برتری از دیگران نبود، بلکه در دوست داشتن آن‌ها بود."
+                    ),
+                    StoryParagraph(
+                        "Sonya had taught him this, not with words or arguments or theories, but with her life, with her quiet sacrifice, with the way she gave everything she had and asked for nothing in return.",
+                        "سونیا این را به او آموخته بود، نه با کلمات یا بحث یا نظریه‌ها، بلکه با زندگی‌اش، با فداکاری آرامش، با شیوه‌ای که هر چه داشت می‌داد و در عوض چیزی نمی‌خواست."
+                    ),
+                    StoryParagraph(
+                        "He thought of his mother, who had died during his imprisonment, of his sister Dunya, who had forgiven him and built a life of her own, and he wept for the years he had wasted in pride and hatred.",
+                        "به مادرش فکر کرد که در طول زندانیش مرده بود، به خواهرش دونیا که بخشیده بودش و زندگی خودش را ساخته بود، و برای سال‌هایی که در غرور و نفرت هدر داده بود گریست."
+                    ),
+                    StoryParagraph(
+                        "When the novel ends, Raskolnikov still has seven years of his sentence left to serve, and he is still on the long road towards true peace, but he is no longer alone on that road.",
+                        "وقتی رمان به پایان می‌رسد، راسکولنیکوف هنوز هفت سال از محکومیتش را باید بگذراند، و هنوز در مسیر طولانی به سوی آرامش واقعی است، اما دیگر در آن مسیر تنها نیست."
+                    ),
+                    StoryParagraph(
+                        "Sonya remains by his side, patient and loving, and every Sunday, she still comes to visit him, and every Sunday, they sit together and talk about the future they will build when he is free.",
+                        "سونیا کنارش می‌ماند، صبور و پر عشق، و هر یکشنبه هنوز به دیدنش می‌آید، و هر یکشنبه با هم می‌نشینند و درباره‌ی آینده‌ای که وقتی آزاد شود خواهند ساخت حرف می‌زنند."
+                    ),
+                    StoryParagraph(
+                        "And slowly, painfully, one day at a time, the man who had once believed himself to be above all other men was learning, at last, what it truly means to be human.",
+                        "و آهسته، دردناک، روزی یکی، مردی که زمانی خودش را بالاتر از همه‌ی مردان دیگر می‌دانست، بالاخره داشت می‌آموخت معنای واقعی انسان بودن چیست."
+                    ),
+                    StoryParagraph(
+                        "This was the redemption that Dostoevsky wanted his readers to find, hidden beneath all the suffering and the crime, the quiet, humble truth that love could heal what nothing else could.",
+                        "این همان رستگاری بود که داستایوفسکی می‌خواست خوانندگانش آن را بیابند، پنهان در زیر تمام رنج و جنایت، حقیقت آرام و فروتنانه‌ای که عشق می‌توانست چیزی را درمان کند که هیچ چیز دیگری نمی‌توانست."
+                    )
+                )
+            )
+        )
+    )
+
+    // ─────────────── ۳۳: آنا کارنینا ───────────────
     private fun story33() = StoryContent(
         storyId = "int_anna_karenina",
         chapters = listOf(
