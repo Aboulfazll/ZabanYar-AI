@@ -54,7 +54,7 @@ Repo: github.com/Aboulfazll/ZabanYar-AI
 7. assets/dictionary.json
 8. PROJECT_STATUS.md (این فایل)
 
-## 🔄 فایل‌های ویرایش‌شده (۱۲ عدد)
+## 🔄 فایل‌های ویرایش‌شده (۱۵ عدد)
 1. MainActivity.kt
 2. AppNavHost.kt
 3. LessonDetailScreen.kt
@@ -67,6 +67,17 @@ Repo: github.com/Aboulfazll/ZabanYar-AI
 10. SimpleStoryContent.kt
 11. MainHome.kt
 12. UserManager.kt
+13. LessonContentRepository.kt (اصلاح نام‌ها برای Build)
+14. TopNotchRepository.kt (افزودن getDefaultContent)
+15. Group11.kt (intermediate) — حذف کاماهای اضافه
+
+## 🔧 فایل‌های اصلاح‌شده برای Build (۴ عدد اضافه)
+- LessonContentRepository.kt — تطبیق نام Object و تابع همه کتاب‌ها
+- TopNotchRepository.kt — افزودن getDefaultContent + import TopNotchFundamentals
+- Group11.kt (intermediate) — حذف کاماهای اضافه در پایان story31 و story32
+- Passages2.kt — افزودن overload تابع q برای پاسخ‌های کوتاه
+- Summit2.kt — افزودن overload تابع q + اصلاح یک فراخوانی معیوب
+- TopNotchFundamentals.kt — rename (حذف فاصله) + حذف کاراکتر فارسی اضافه
 
 ═══════════════════════════════════════════════════════════════
 # 📊 آمار کامل پروژه
