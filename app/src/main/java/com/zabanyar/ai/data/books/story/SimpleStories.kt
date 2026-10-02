@@ -96,16 +96,16 @@ object SimpleStories {
         Book(id = "steadfast_tin_soldier", title = "The Steadfast Tin Soldier", titlePersian = "سرباز قلعه ثابت‌قدم", author = "Hans Christian Andersen", level = "Simple", category = BookCategory.STORY, totalChapters = 7),
 
         // ═══════════════════════════════════════════════════════
-        // Group 11 — Sherlock Holmes (NEW ✅)
+        // Group 11 — Sherlock Holmes (اصلاح‌شده: ۴ فصل)
         // ═══════════════════════════════════════════════════════
-        Book(id = "sherlock_case_identity", title = "A Case of Identity", titlePersian = "معمای هویت", author = "Arthur Conan Doyle", level = "Simple", category = BookCategory.STORY, totalChapters = 7),
-        Book(id = "sherlock_boscombe_valley", title = "The Boscombe Valley Mystery", titlePersian = "معمای دره بوسکوم", author = "Arthur Conan Doyle", level = "Simple", category = BookCategory.STORY, totalChapters = 7),
-        Book(id = "sherlock_five_orange_pips", title = "The Five Orange Pips", titlePersian = "پنج دانه پرتقال", author = "Arthur Conan Doyle", level = "Simple", category = BookCategory.STORY, totalChapters = 7),
-        Book(id = "sherlock_twisted_lip", title = "The Man with the Twisted Lip", titlePersian = "مرد با لب شکری", author = "Arthur Conan Doyle", level = "Simple", category = BookCategory.STORY, totalChapters = 7),
-        Book(id = "sherlock_engineers_thumb", title = "The Engineer's Thumb", titlePersian = "انگشت شست مهندس", author = "Arthur Conan Doyle", level = "Simple", category = BookCategory.STORY, totalChapters = 7),
+        Book(id = "sherlock_case_identity", title = "A Case of Identity", titlePersian = "معمای هویت", author = "Arthur Conan Doyle", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
+        Book(id = "sherlock_boscombe_valley", title = "The Boscombe Valley Mystery", titlePersian = "معمای دره بوسکوم", author = "Arthur Conan Doyle", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
+        Book(id = "sherlock_five_orange_pips", title = "The Five Orange Pips", titlePersian = "پنج دانه پرتقال", author = "Arthur Conan Doyle", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
+        Book(id = "sherlock_twisted_lip", title = "The Man with the Twisted Lip", titlePersian = "مرد با لب شکری", author = "Arthur Conan Doyle", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
+        Book(id = "sherlock_engineers_thumb", title = "The Engineer's Thumb", titlePersian = "انگشت شست مهندس", author = "Arthur Conan Doyle", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
 
         // ═══════════════════════════════════════════════════════
-        // Group 12 — Aesop's Fables (NEW ✅)
+        // Group 12 — Aesop's Fables
         // ═══════════════════════════════════════════════════════
         Book(id = "lion_and_mouse", title = "The Lion and the Mouse", titlePersian = "شیر و موش", author = "Aesop", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
         Book(id = "tortoise_and_hare", title = "The Tortoise and the Hare", titlePersian = "لاک‌پشت و خرگوش", author = "Aesop", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
@@ -114,7 +114,7 @@ object SimpleStories {
         Book(id = "ant_and_grasshopper", title = "The Ant and the Grasshopper", titlePersian = "مورچه و ملخ", author = "Aesop", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
 
         // ═══════════════════════════════════════════════════════
-        // Group 13 — Aesop's Fables (NEW ✅)
+        // Group 13 — Aesop's Fables
         // ═══════════════════════════════════════════════════════
         Book(id = "wolf_in_sheep_clothing", title = "The Wolf in Sheep's Clothing", titlePersian = "گرگ در لباس گوسفند", author = "Aesop", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
         Book(id = "country_mouse_city_mouse", title = "The Country Mouse and the City Mouse", titlePersian = "موش روستایی و موش شهری", author = "Aesop", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
@@ -123,7 +123,7 @@ object SimpleStories {
         Book(id = "golden_goose", title = "The Golden Goose", titlePersian = "غاز طلایی", author = "Brothers Grimm", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
 
         // ═══════════════════════════════════════════════════════
-        // Group 14 — Aesop's Fables (NEW ✅)
+        // Group 14 — Aesop's Fables
         // ═══════════════════════════════════════════════════════
         Book(id = "two_frogs", title = "The Two Frogs", titlePersian = "دو قورباغه", author = "Aesop", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
         Book(id = "bear_and_travelers", title = "The Bear and the Travelers", titlePersian = "خرس و دو مسافر", author = "Aesop", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
@@ -132,7 +132,7 @@ object SimpleStories {
         Book(id = "wind_and_sun", title = "The North Wind and the Sun", titlePersian = "باد و خورشید", author = "Aesop", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
 
         // ═══════════════════════════════════════════════════════
-        // Group 15 — Aesop's Fables (NEW ✅)
+        // Group 15 — Aesop's Fables
         // ═══════════════════════════════════════════════════════
         Book(id = "dog_and_reflection", title = "The Dog and His Reflection", titlePersian = "سگ و انعکاسش", author = "Aesop", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
         Book(id = "goose_golden_eggs_v2", title = "The Goose That Laid Golden Eggs", titlePersian = "مرغ تخم‌طلا", author = "Aesop", level = "Simple", category = BookCategory.STORY, totalChapters = 4),
