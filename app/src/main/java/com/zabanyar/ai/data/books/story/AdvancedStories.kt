@@ -114,7 +114,7 @@ object AdvancedStories {
         Book(id = "adv_song_of_solomon", title = "Song of Solomon", titlePersian = "", author = "Toni Morrison", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
 
         // ═══════════════════════════════════════════════════════
-        // بخش سوم: انگلیسی خالص جدید — EnGroup11-15 (NEW ✅)
+        // بخش سوم: انگلیسی خالص جدید — EnGroup11-15
         // ═══════════════════════════════════════════════════════
 
         // EnGroup11
@@ -122,11 +122,11 @@ object AdvancedStories {
         Book(id = "adv_wuthering_heights", title = "Wuthering Heights", titlePersian = "", author = "Emily Brontë", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
         Book(id = "adv_frankenstein", title = "Frankenstein", titlePersian = "", author = "Mary Shelley", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
 
-        // EnGroup12 (⚠️ storyId ها با _en تغییر کردن تا با Group5/6 تداخل نکنن)
+        // EnGroup12
         Book(id = "adv_ulysses_en", title = "Ulysses", titlePersian = "", author = "James Joyce", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
         Book(id = "adv_to_the_lighthouse_en", title = "To the Lighthouse", titlePersian = "", author = "Virginia Woolf", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
 
-        // EnGroup13 (⚠️ storyId ها با _en تغییر کردن تا با Group3/6 تداخل نکنن)
+        // EnGroup13
         Book(id = "adv_the_trial_en", title = "The Trial", titlePersian = "", author = "Franz Kafka", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
         Book(id = "adv_the_stranger_en", title = "The Stranger", titlePersian = "", author = "Albert Camus", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
 
@@ -135,8 +135,8 @@ object AdvancedStories {
         Book(id = "adv_the_metamorphosis", title = "The Metamorphosis", titlePersian = "", author = "Franz Kafka", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
 
         // EnGroup15
-        Book(id = "adv_brothers_karamazov", title = "The Brothers Karamazov", titlePersian = "", author = "Fyodor Dostoevsky", level = "Advanced", category = BookCategory.STORY, totalChapters = 4),
-        Book(id = "adv_madame_bovary", title = "Madame Bovary", titlePersian = "", author = "Gustave Flaubert", level = "Advanced", category = BookCategory.STORY, totalChapters = 4),
+        Book(id = "adv_brothers_karamazov", title = "The Brothers Karamazov", titlePersian = "", author = "Fyodor Dostoevsky", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
+        Book(id = "adv_madame_bovary", title = "Madame Bovary", titlePersian = "", author = "Gustave Flaubert", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
 
         // ═══════════════════════════════════════════════════════
         // بخش چهارم: جدید دوزبانه — Group11-15
