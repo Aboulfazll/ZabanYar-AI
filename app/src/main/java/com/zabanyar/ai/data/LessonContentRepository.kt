@@ -14,7 +14,7 @@ object LessonContentRepository {
             "top_notch_1", "top_notch_2", "top_notch_3",
             "evolve_1", "evolve_2", "evolve_3", "evolve_4", "evolve_5",
             "english_file_1", "english_file_2", "english_file_3", "english_file_4", "english_file_5",
-            "four_corners_intro", "four_corners_1", "four_corners_2", "four_corners_3", "four_corners_4",
+            "four_corners_1", "four_corners_2", "four_corners_3", "four_corners_4",
             // 📝 گرامر
             "basic_grammar", "understanding_grammar", "advanced_grammar"
             -> true
@@ -40,7 +40,6 @@ object LessonContentRepository {
             "english_file_4" -> AmericanEnglishFile4.getContent(chapterNumber)
             "english_file_5" -> AmericanEnglishFile5.getContent(chapterNumber)
 
-            "four_corners_intro" -> FourCornersIntro.getContent(chapterNumber)
             "four_corners_1" -> FourCorners1.getContent(chapterNumber)
             "four_corners_2" -> FourCorners2.getContent(chapterNumber)
             "four_corners_3" -> FourCorners3.getContent(chapterNumber)
