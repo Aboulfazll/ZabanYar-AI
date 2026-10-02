@@ -5,16 +5,17 @@ import com.zabanyar.ai.data.books.grammar.*
 
 object LessonContentRepository {
 
-    /**
-     * بررسی می‌کنه که آیا این کتاب محتوای واقعی داره یا نه
-     */
     fun hasContent(bookId: String): Boolean {
         return when (bookId) {
             // 💬 مکالمه
-            "top_notch_1", "top_notch_2", "top_notch_3",
-            "evolve_1", "evolve_2", "evolve_3", "evolve_4", "evolve_5",
+            "top_notch_fundamentals", "top_notch_1", "top_notch_2", "top_notch_3",
+            "evolve_1", "evolve_2", "evolve_3", "evolve_4", "evolve_5", "evolve_6",
+            "english_file_starter",
             "english_file_1", "english_file_2", "english_file_3", "english_file_4", "english_file_5",
+            "empower_1",
             "four_corners_1", "four_corners_2", "four_corners_3", "four_corners_4",
+            "passages_1", "passages_2",
+            "summit_1", "summit_2",
             // 📝 گرامر
             "basic_grammar", "understanding_grammar", "advanced_grammar"
             -> true
@@ -24,26 +25,42 @@ object LessonContentRepository {
 
     fun getLessonContent(bookId: String, chapterNumber: Int): LessonContent {
         return when (bookId) {
-            // ==================== 💬 مکالمه ====================
-            "top_notch_1", "top_notch_2", "top_notch_3" ->
-                TopNotchRepository.getContent(bookId, chapterNumber)
+            // ==================== 💬 TopNotch ====================
+            "top_notch_fundamentals" -> TopNotchFundamentals.getContent(chapterNumber)
+            "top_notch_1" -> TopNotch1.getContent(chapterNumber)
+            "top_notch_2" -> TopNotch2.getContent(chapterNumber)
+            "top_notch_3" -> TopNotch3.getContent(chapterNumber)
 
+            // ==================== 💬 Evolve ====================
             "evolve_1" -> Evolve1.getContent(chapterNumber)
             "evolve_2" -> Evolve2.getContent(chapterNumber)
             "evolve_3" -> Evolve3.getContent(chapterNumber)
             "evolve_4" -> Evolve4.getContent(chapterNumber)
             "evolve_5" -> Evolve5.getContent(chapterNumber)
+            "evolve_6" -> Evolve6.getContent(chapterNumber)
 
+            // ==================== 💬 American English File ====================
+            "english_file_starter" -> AmericanEnglishFileStarter.getContent(chapterNumber)
             "english_file_1" -> AmericanEnglishFile1.getContent(chapterNumber)
             "english_file_2" -> AmericanEnglishFile2.getContent(chapterNumber)
             "english_file_3" -> AmericanEnglishFile3.getContent(chapterNumber)
             "english_file_4" -> AmericanEnglishFile4.getContent(chapterNumber)
             "english_file_5" -> AmericanEnglishFile5.getContent(chapterNumber)
 
+            // ==================== 💬 Empower ====================
+            "empower_1" -> Empower1.getContent(chapterNumber)
+
+            // ==================== 💬 Four Corners ====================
             "four_corners_1" -> FourCorners1.getContent(chapterNumber)
             "four_corners_2" -> FourCorners2.getContent(chapterNumber)
             "four_corners_3" -> FourCorners3.getContent(chapterNumber)
             "four_corners_4" -> FourCorners4.getContent(chapterNumber)
+
+            // ==================== 💬 Passages & Summit ====================
+            "passages_1" -> Passages1.getContent(chapterNumber)
+            "passages_2" -> Passages2.getContent(chapterNumber)
+            "summit_1" -> Summit1.getContent(chapterNumber)
+            "summit_2" -> Summit2.getContent(chapterNumber)
 
             // ==================== 📝 گرامر ====================
             "basic_grammar" -> BasicGrammar.getContent(chapterNumber)
