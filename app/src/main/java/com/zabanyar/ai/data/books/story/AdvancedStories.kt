@@ -111,6 +111,35 @@ object AdvancedStories {
         // EnGroup10
         Book(id = "adv_namesake", title = "The Namesake", titlePersian = "", author = "Jhumpa Lahiri", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
         Book(id = "adv_half_yellow_sun", title = "Half of a Yellow Sun", titlePersian = "", author = "Chimamanda Ngozi Adichie", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
-        Book(id = "adv_song_of_solomon", title = "Song of Solomon", titlePersian = "", author = "Toni Morrison", level = "Advanced", category = BookCategory.STORY, totalChapters = 5)
+        Book(id = "adv_song_of_solomon", title = "Song of Solomon", titlePersian = "", author = "Toni Morrison", level = "Advanced", category = BookCategory.STORY, totalChapters = 5),
+
+        // ═══════════════════════════════════════════════════════
+        // بخش سوم: جدید (۱۵ داستان) — Group11 تا Group15
+        // ═══════════════════════════════════════════════════════
+
+        // Group 11 — Russian Classics
+        Book(id = "adv_hero_our_time", title = "A Hero of Our Time", titlePersian = "قهرمان زمان ما", author = "Mikhail Lermontov", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+        Book(id = "adv_dead_souls", title = "Dead Souls", titlePersian = "ارواح مرده", author = "Nikolai Gogol", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+        Book(id = "adv_notes_underground", title = "Notes from Underground", titlePersian = "یادداشت‌های زیرزمینی", author = "Fyodor Dostoevsky", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+
+        // Group 12 — Existentialism
+        Book(id = "adv_twilight_idols", title = "Twilight of the Idols", titlePersian = "گرگ و میش بت‌ها", author = "Friedrich Nietzsche", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+        Book(id = "adv_nausea", title = "Nausea", titlePersian = "تهوع", author = "Jean-Paul Sartre", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+        Book(id = "adv_the_fall", title = "The Fall", titlePersian = "سقوط", author = "Albert Camus", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+
+        // Group 13 — Modern Literature
+        Book(id = "adv_heart_of_darkness_v2", title = "Heart of Darkness", titlePersian = "قلب تاریکی", author = "Joseph Conrad", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+        Book(id = "adv_lord_jim", title = "Lord Jim", titlePersian = "لرد جیم", author = "Joseph Conrad", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+        Book(id = "adv_brave_new_world_v2", title = "Brave New World", titlePersian = "دنیای قشنگ نو", author = "Aldous Huxley", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+
+        // Group 14 — 20th Century
+        Book(id = "adv_gone_with_the_wind", title = "Gone with the Wind", titlePersian = "بربادرفته", author = "Margaret Mitchell", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+        Book(id = "adv_billy_budd", title = "Billy Budd", titlePersian = "بیلی باد", author = "Herman Melville", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+        Book(id = "adv_quiet_american", title = "The Quiet American", titlePersian = "آمریکایی آرام", author = "Graham Greene", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+
+        // Group 15 — Existentialism & Modern
+        Book(id = "adv_birth_tragedy", title = "The Birth of Tragedy", titlePersian = "تولد تراژدی", author = "Friedrich Nietzsche", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+        Book(id = "adv_mans_search_meaning", title = "Man's Search for Meaning", titlePersian = "انسان در جستجوی معنا", author = "Viktor Frankl", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
+        Book(id = "adv_love_cholera", title = "Love in the Time of Cholera", titlePersian = "عشق در زمان وبا", author = "Gabriel García Márquez", level = "Advanced", category = BookCategory.STORY, totalChapters = 6),
     )
 }
