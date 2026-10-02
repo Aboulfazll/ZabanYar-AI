@@ -8,7 +8,7 @@ object EnGroup13 {
     //  ۱: The Trial
     // ═══════════════════════════════════════════════════════
     private fun story1() = EnStory(
-        storyId = "adv_the_trial",
+        storyId = "adv_the_trial_en",
         chapters = listOf(
             EnChapter(1, "The Arrest", listOf(
                 "Someone must have slandered Josef K., for one morning, without having done anything truly wrong, he was arrested, and the arrest came not with a warrant or a warning but with two men in dark coats appearing at the door of his rented room and informing him that he was under arrest.",
@@ -201,7 +201,7 @@ object EnGroup13 {
     //  ۲: The Stranger
     // ═══════════════════════════════════════════════════════
     private fun story2() = EnStory(
-        storyId = "adv_the_stranger",
+        storyId = "adv_the_stranger_en",
         chapters = listOf(
             EnChapter(1, "The Death of Maman", listOf(
                 "Maman died today, or yesterday maybe, and I don't know, and I received a telegram from the home saying that your mother has passed away, and the funeral will be tomorrow, and this tells me nothing.",
