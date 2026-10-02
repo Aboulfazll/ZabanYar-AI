@@ -1,6 +1,6 @@
 package com.zabanyar.ai.data.books.conversation
 
-import com.zabanyar.ai.data.*د
+import com.zabanyar.ai.data.*
 
 /**
  * Top Notch Fundamentals — Complete Course Content
