@@ -7,10 +7,12 @@ object LessonContentRepository {
 
     fun hasContent(bookId: String): Boolean {
         return when (bookId) {
+            // 💬 مکالمه
             "top_notch_fundamentals", "top_notch_1", "top_notch_2", "top_notch_3",
             "evolve_1", "evolve_2", "evolve_3", "evolve_4", "evolve_5", "evolve_6",
             "english_file_starter",
             "english_file_1", "english_file_2", "english_file_3", "english_file_4", "english_file_5",
+            "empower_c1",
             "four_corners_1", "four_corners_2", "four_corners_3", "four_corners_4",
             "passages_1", "passages_2",
             "summit_1", "summit_2",
@@ -44,6 +46,9 @@ object LessonContentRepository {
             "english_file_4" -> AmericanEnglishFile4.getContent(chapterNumber)
             "english_file_5" -> AmericanEnglishFile5.getContent(chapterNumber)
 
+            // ==================== Empower ====================
+            "empower_c1" -> EmpowerC1.getChapter(chapterNumber)
+
             // ==================== Four Corners ====================
             "four_corners_1" -> FourCorners1.getContent(chapterNumber)
             "four_corners_2" -> FourCorners2.getContent(chapterNumber)
@@ -61,6 +66,7 @@ object LessonContentRepository {
             "understanding_grammar" -> UnderstandingGrammar.getChapter(chapterNumber)
             "advanced_grammar" -> AdvancedGrammar.getChapter(chapterNumber)
 
+            // ==================== پیش‌فرض ====================
             else -> getDefaultContent(bookId, chapterNumber)
         }
     }
