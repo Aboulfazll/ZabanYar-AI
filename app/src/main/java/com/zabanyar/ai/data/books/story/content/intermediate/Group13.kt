@@ -315,8 +315,9 @@ object Group13 {
     )
 
     // ─────────────── ۳۹: سه تفنگدار ───────────────
+    // ⚠️ توجه: storyId اینجا به v2 تغییر کرد چون در Group8 هم سه تفنگدار هست
     private fun story39() = StoryContent(
-        storyId = "int_three_musketeers_int",
+        storyId = "int_three_musketeers_v2",
         chapters = listOf(
             StoryChapter(
                 number = 1, title = "The Young Man", titlePersian = "مرد جوان",
