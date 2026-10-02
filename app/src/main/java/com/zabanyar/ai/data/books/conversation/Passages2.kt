@@ -61,9 +61,12 @@ object Passages2 {
     private fun q(question: String, options: List<String>, correct: Int) =
         QuizQuestion(question, options, correct)
 
+    // ✅ Overload for short-answer questions (پاسخ کوتاه)
+    private fun q(question: String, answer: String) =
+        QuizQuestion(question, listOf(answer), 0)
+
     // ═══════════════════════════════════════════════════════════════
     // UNIT 1 — Relationships | روابط
-    // Lesson A: The best of friends / Lesson B: Make new friends, but keep the old
     // ═══════════════════════════════════════════════════════════════
     private fun unit1() = base(
         1, "Relationships", "روابط",
@@ -191,7 +194,6 @@ object Passages2 {
 
     // ═══════════════════════════════════════════════════════════════
     // UNIT 2 — Clothes and appearance | لباس و ظاهر
-    // Lesson A: The way we dress / Lesson B: How we appear to others
     // ═══════════════════════════════════════════════════════════════
     private fun unit2() = base(
         2, "Clothes and appearance", "لباس و ظاهر",
@@ -313,7 +315,6 @@ object Passages2 {
 
     // ═══════════════════════════════════════════════════════════════
     // UNIT 3 — Science and technology | علم و تکنولوژی
-    // Lesson A: Good science, bad science / Lesson B: Technology and you
     // ═══════════════════════════════════════════════════════════════
     private fun unit3() = base(
         3, "Science and technology", "علم و تکنولوژی",
@@ -439,7 +440,6 @@ object Passages2 {
 
     // ═══════════════════════════════════════════════════════════════
     // UNIT 4 — Superstitions and beliefs | خرافات و باورها
-    // Lesson A: Superstitions / Lesson B: Believe it or not
     // ═══════════════════════════════════════════════════════════════
     private fun unit4() = base(
         4, "Superstitions and beliefs", "خرافات و باورها",
@@ -566,7 +566,6 @@ object Passages2 {
 
     // ═══════════════════════════════════════════════════════════════
     // UNIT 5 — Television and reading | تلویزیون و خواندن
-    // Lesson A: Television / Lesson B: Trends in reading
     // ═══════════════════════════════════════════════════════════════
     private fun unit5() = base(
         5, "Television and reading", "تلویزیون و خواندن",
@@ -621,7 +620,7 @@ object Passages2 {
             d("B", "That's interesting. Do you have a favorite author?", "جالب است. نویسنده مورد علاقه‌ای داری؟"),
             d("A", "Yes, I love Malcolm Gladwell. His books are fascinating.", "بله، مالکوم گلدول را دوست دارم. کتاب‌هایش جالب هستند."),
             d("B", "I've heard of him. What's his best book?", "درباره‌اش شنیده‌ام. بهترین کتابش چیست؟"),
-            d("A", "Probably Outliers. It's about success and opportunity.", "احتمالاًOutliers. درباره موفقیت و فرصت است."),
+            d("A", "Probably Outliers. It's about success and opportunity.", "احتمالاً Outliers. درباره موفقیت و فرصت است."),
             d("B", "I'll add it to my list. Do you prefer physical books or e-readers?", "به لیستم اضافه می‌کنم. کتاب فیزیکی را ترجیح می‌دهی یا کتابخوان الکترونیکی؟"),
             d("A", "Physical books. I love the feel of paper. What about you?", "کتاب فیزیکی. حس کاغذ را دوست دارم. تو چطور؟"),
             d("B", "I used to feel the same way, but now I mostly read on my tablet. It's more convenient.", "قبلاً همین حس را داشتم، ولی الان بیشتر روی تبلتم می‌خوانم. راحت‌تر است."),
@@ -694,7 +693,6 @@ object Passages2 {
 
     // ═══════════════════════════════════════════════════════════════
     // UNIT 6 — Musicians and music | نوازندگان و موسیقی
-    // Lesson A: A world of music / Lesson B: Getting your big break
     // ═══════════════════════════════════════════════════════════════
     private fun unit6() = base(
         6, "Musicians and music", "نوازندگان و موسیقی",
@@ -816,7 +814,6 @@ object Passages2 {
 
     // ═══════════════════════════════════════════════════════════════
     // UNIT 7 — Changing times | زمان‌های در حال تغییر
-    // Lesson A: Lifestyles in transition / Lesson B: Preserving the past
     // ═══════════════════════════════════════════════════════════════
     private fun unit7() = base(
         7, "Changing times", "زمان‌های در حال تغییر",
@@ -944,7 +941,6 @@ object Passages2 {
 
     // ═══════════════════════════════════════════════════════════════
     // UNIT 8 — Consumer culture | فرهنگ مصرف‌گرایی
-    // Lesson A: What's new on the market? / Lesson B: Consumer beware
     // ═══════════════════════════════════════════════════════════════
     private fun unit8() = base(
         8, "Consumer culture", "فرهنگ مصرف‌گرایی",
@@ -1072,7 +1068,6 @@ object Passages2 {
 
     // ═══════════════════════════════════════════════════════════════
     // UNIT 9 — Animals | حیوانات
-    // Lesson A: Animals in our lives / Lesson B: People and their pets
     // ═══════════════════════════════════════════════════════════════
     private fun unit9() = base(
         9, "Animals", "حیوانات",
@@ -1196,7 +1191,6 @@ object Passages2 {
 
     // ═══════════════════════════════════════════════════════════════
     // UNIT 10 — Language | زبان
-    // Lesson A: Communication skills / Lesson B: Great communicators
     // ═══════════════════════════════════════════════════════════════
     private fun unit10() = base(
         10, "Language", "زبان",
@@ -1326,7 +1320,6 @@ object Passages2 {
 
     // ═══════════════════════════════════════════════════════════════
     // UNIT 11 — Exceptional people | افراد استثنایی
-    // Lesson A: High achievers / Lesson B: Personal heroes
     // ═══════════════════════════════════════════════════════════════
     private fun unit11() = base(
         11, "Exceptional people", "افراد استثنایی",
@@ -1449,7 +1442,6 @@ object Passages2 {
 
     // ═══════════════════════════════════════════════════════════════
     // UNIT 12 — Business matters | مسائل تجاری
-    // Lesson A: Entrepreneurs / Lesson B: The new worker
     // ═══════════════════════════════════════════════════════════════
     private fun unit12() = base(
         12, "Business matters", "مسائل تجاری",
