@@ -7,7 +7,6 @@ object LessonContentRepository {
 
     fun hasContent(bookId: String): Boolean {
         return when (bookId) {
-            // 💬 مکالمه
             "top_notch_fundamentals", "top_notch_1", "top_notch_2", "top_notch_3",
             "evolve_1", "evolve_2", "evolve_3", "evolve_4", "evolve_5", "evolve_6",
             "english_file_starter",
@@ -16,7 +15,6 @@ object LessonContentRepository {
             "four_corners_1", "four_corners_2", "four_corners_3", "four_corners_4",
             "passages_1", "passages_2",
             "summit_1", "summit_2",
-            // 📝 گرامر
             "basic_grammar", "understanding_grammar", "advanced_grammar"
             -> true
             else -> false
@@ -32,12 +30,13 @@ object LessonContentRepository {
             "top_notch_3" -> TopNotch3.getContent(chapterNumber)
 
             // ==================== 💬 Evolve ====================
+            // توجه: Evolve1 از getContent استفاده می‌کند ولی Evolve2..6 از getChapter
             "evolve_1" -> Evolve1.getContent(chapterNumber)
-            "evolve_2" -> Evolve2.getContent(chapterNumber)
-            "evolve_3" -> Evolve3.getContent(chapterNumber)
-            "evolve_4" -> Evolve4.getContent(chapterNumber)
-            "evolve_5" -> Evolve5.getContent(chapterNumber)
-            "evolve_6" -> Evolve6.getContent(chapterNumber)
+            "evolve_2" -> Evolve2.getChapter(chapterNumber)
+            "evolve_3" -> Evolve3.getChapter(chapterNumber)
+            "evolve_4" -> Evolve4.getChapter(chapterNumber)
+            "evolve_5" -> Evolve5.getChapter(chapterNumber)
+            "evolve_6" -> Evolve6.getChapter(chapterNumber)
 
             // ==================== 💬 American English File ====================
             "english_file_starter" -> AmericanEnglishFileStarter.getContent(chapterNumber)
@@ -63,11 +62,11 @@ object LessonContentRepository {
             "summit_2" -> Summit2.getContent(chapterNumber)
 
             // ==================== 📝 گرامر ====================
-            "basic_grammar" -> BasicGrammar.getContent(chapterNumber)
-            "understanding_grammar" -> UnderstandingGrammar.getContent(chapterNumber)
-            "advanced_grammar" -> AdvancedGrammar.getContent(chapterNumber)
+            // توجه: اگر اینها getChapter دارند، تغییر دهید به getChapter
+            "basic_grammar" -> BasicGrammar.getChapter(chapterNumber)
+            "understanding_grammar" -> UnderstandingGrammar.getChapter(chapterNumber)
+            "advanced_grammar" -> AdvancedGrammar.getChapter(chapterNumber)
 
-            // ==================== پیش‌فرض ====================
             else -> getDefaultContent(bookId, chapterNumber)
         }
     }
