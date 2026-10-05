@@ -59,14 +59,14 @@ object BookRepository {
         Book(
             id = "top_notch_1", title = "Top Notch 1", titlePersian = "تاپ ناچ ۱",
             author = "Joan Saslow", category = BookCategory.CONVERSATION,
-            level = "مبتدی", levelEmoji = "🌱", totalChapters = 14,
+            level = "مبتدی", levelEmoji = "🌱", totalChapters = 10,
             gradientStart = 0xFF6A1B9A, gradientEnd = 0xFFAB47BC,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780133928651-L.jpg",
             chapterTitles = listOf(
-                "Names and Occupations", "About People", "Places and Things",
-                "Family", "Events and Times", "Cities and Countries",
-                "Clothes", "Daily Life", "Shopping", "Food",
-                "Health", "Weekend Activities", "Home and Neighborhood", "Review"
+                "Getting Acquainted", "Going Out", "The Extended Family",
+                "Food and Restaurants", "Technology and You", "Staying in Shape",
+                "On Vacation", "Shopping for Clothes", "Taking Transportation",
+                "Shopping Smart"
             )
         ),
         Book(
@@ -89,8 +89,9 @@ object BookRepository {
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780133929023-L.jpg",
             chapterTitles = listOf(
                 "Cultural Literacy", "Shopping and Consumerism", "Personal Care",
-                "Modern Technology", "Holidays", "Eating Well",
-                "Environment", "Education", "Jobs and Careers", "Life Changes"
+                "Communication", "Appearances", "A Good Read",
+                "Art and Music", "Career Moves", "Challenges and Accomplishments",
+                "Gender and Society"
             )
         ),
 
@@ -114,10 +115,10 @@ object BookRepository {
             gradientStart = 0xFFE65100, gradientEnd = 0xFFFFB74D,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780521126157-L.jpg",
             chapterTitles = listOf(
-                "Welcome to Class", "Daily Activities", "People Around Us",
-                "What Are You Wearing?", "Food and Drinks", "Places in Town",
-                "Daily Routine", "Shopping Time", "Weather and Seasons",
-                "Travel Plans", "Health and Body", "Free Time"
+                "New friends", "People and places", "What's that",
+                "Daily life", "Free time", "Work and play",
+                "Food", "In the neighborhood", "Experiences",
+                "Celebrations", "Health", "Plans"
             )
         ),
         Book(
@@ -127,10 +128,10 @@ object BookRepository {
             gradientStart = 0xFFD32F2F, gradientEnd = 0xFFE57373,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780521126164-L.jpg",
             chapterTitles = listOf(
-                "Life Stories", "Hobbies and Interests", "At Home",
-                "Food and Health", "Looking Back", "Traveling",
-                "School Days", "Memories", "Plans and Dreams",
-                "Work and Jobs", "Around the World", "The Future"
+                "My interests", "Descriptions", "Rain or shine",
+                "Life at home", "Health", "What's on TV",
+                "Shopping", "Fun in the city", "People",
+                "In a restaurant", "Entertainment", "Time for a Change"
             )
         ),
         Book(
@@ -140,10 +141,10 @@ object BookRepository {
             gradientStart = 0xFF00838F, gradientEnd = 0xFF4DD0E1,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780521126171-L.jpg",
             chapterTitles = listOf(
-                "New Friends", "Everyday Life", "Entertainment",
-                "Getting Around", "Shopping Trends", "Food Culture",
-                "Career Paths", "Travel Stories", "Health & Wellness",
-                "Technology Today", "Cultural Differences", "Success Stories"
+                "Family life", "Shopping", "Food",
+                "The body", "Health", "TV and movies",
+                "Sports", "Travel", "Technology",
+                "School", "The environment", "Plans and dreams"
             )
         ),
         Book(
@@ -153,10 +154,10 @@ object BookRepository {
             gradientStart = 0xFF00695C, gradientEnd = 0xFF4DB6AC,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780521126188-L.jpg",
             chapterTitles = listOf(
-                "Getting Along", "Personal Style", "Making Changes",
-                "In the News", "Modern Life", "Around the World",
-                "Education Today", "Career Goals", "Healthy Living",
-                "Technology & Media", "Cultural Differences", "The Future"
+                "The news", "Communicating", "Food",
+                "Behavior", "Travel and tourism", "The way we are",
+                "New ways of thinking", "Lessons in life", "Can you explain it",
+                "Perspectives", "The real world", "Finding solutions"
             )
         ),
 
@@ -168,10 +169,11 @@ object BookRepository {
             gradientStart = 0xFF0D47A1, gradientEnd = 0xFF42A5F5,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780194774389-L.jpg",
             chapterTitles = listOf(
-                "Hello!", "Your World", "All About You",
-                "Family and Friends", "The Way We Live", "Food and Drink",
-                "My Time", "Places and Things", "Free Time",
-                "Past Events", "Work and Study", "Future Plans"
+                "Hello", "World Music", "Are you on vacation",
+                "Meet the family", "A big breakfast", "He speaks English at work",
+                "Life at the end of the world", "What are they doing",
+                "In the jungle in Guatemala", "Before they were stars",
+                "It changed my life", "What did you do"
             )
         ),
         Book(
@@ -181,9 +183,11 @@ object BookRepository {
             gradientStart = 0xFF0D47A1, gradientEnd = 0xFF4FC3F7,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780194031376-L.jpg",
             chapterTitles = listOf(
-                "First Day at School", "My World", "All About Me",
-                "Family and Friends", "How We Live", "Things and Places",
-                "My Time", "Food and Drink", "Free Time", "Past Events", "Work and Study", "Future Plans"
+                "Where are you from", "Charlotte's choice", "Mr and Mrs Clark and Percy",
+                "Parents and teenagers", "No way", "A lucky escape",
+                "The story behind the photo", "Practical English Hotel problem",
+                "Working for a living", "A city for all seasons",
+                "What would you do", "Sporting superstitions"
             )
         ),
         Book(
@@ -193,9 +197,11 @@ object BookRepository {
             gradientStart = 0xFF1976D2, gradientEnd = 0xFF64B5F6,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780194031451-L.jpg",
             chapterTitles = listOf(
-                "Where Are You From?", "Everyday Life", "Past Events",
-                "Clothes and Fashion", "Food and Restaurants", "Around Town",
-                "Holidays", "Health Issues", "Relationships", "Education", "Travel Plans", "Future Plans"
+                "Where are you from", "Charlotte's choice", "Mr and Mrs Clark and Percy",
+                "Parents and teenagers", "No way", "A lucky escape",
+                "The story behind the photo", "Practical English Hotel problem",
+                "Working for a living", "A city for all seasons",
+                "What would you do", "Sporting superstitions"
             )
         ),
         Book(
@@ -205,36 +211,37 @@ object BookRepository {
             gradientStart = 0xFF512DA8, gradientEnd = 0xFF9575CD,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780194031529-L.jpg",
             chapterTitles = listOf(
-                "Fashion & Shopping", "Modern Life", "Personal Stories",
-                "Environmental Issues", "Art and Music", "Books and Literature",
-                "Career Development", "Travel Experiences", "Health & Fitness",
-                "Technology & Innovation", "Society & Culture", "Future Goals"
+                "Where are you from", "Charlotte's choice", "Mr and Mrs Clark and Percy",
+                "Parents and teenagers", "No way", "A lucky escape",
+                "The story behind the photo", "Practical English Hotel problem",
+                "Working for a living", "A city for all seasons",
+                "What would you do", "Sporting superstitions"
             )
         ),
         Book(
             id = "american_english_file_4", title = "American English File 4", titlePersian = "امریکن اینگلیش فایل ۴",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
-            level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
+            level = "متوسط", levelEmoji = "🚀", totalChapters = 10,
             gradientStart = 0xFF6A1B9A, gradientEnd = 0xFFBA68C8,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780194031604-L.jpg",
             chapterTitles = listOf(
-                "Communication", "Modern Life", "Money Matters",
-                "Adventure Travel", "Food & Culture", "Health & Lifestyle",
-                "Education Systems", "Relationships", "Work-Life Balance",
-                "Environment", "Politics & Society", "Global Issues"
+                "Questions and answers", "Call the doctor", "The truth about air travel",
+                "Eco guilt", "Are you a risk taker", "Music and emotion",
+                "Don't argue", "Breaking news", "Truth and lies",
+                "The power of words"
             )
         ),
         Book(
             id = "american_english_file_5", title = "American English File 5", titlePersian = "امریکن اینگلیش فایل ۵",
             author = "Christina Latham-Koenig", category = BookCategory.CONVERSATION,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
+            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 10,
             gradientStart = 0xFFB71C1C, gradientEnd = 0xFFEF9A9A,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780194031673-L.jpg",
             chapterTitles = listOf(
-                "Cultural Awareness", "Urban Stories", "Ethics & Morality",
-                "Innovation & Change", "Global Economy", "Arts & Society",
-                "Media & Technology", "Political Discourse", "Philosophy",
-                "Science & Future", "Environmental Ethics", "Human Nature"
+                "Bad behavior", "After the crisis", "A close call",
+                "Secrets and lies", "Gamers", "Nobody's perfect",
+                "Behind the scenes", "Emergency", "A change of plan",
+                "Heroes and villains"
             )
         ),
 
@@ -246,10 +253,10 @@ object BookRepository {
             gradientStart = 0xFF1B5E20, gradientEnd = 0xFF81C784,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9781108403272-L.jpg",
             chapterTitles = listOf(
-                "Nice to Meet You", "Everyday Life", "Family Ties",
-                "Free Time", "At Home", "Food and Drinks",
-                "Shopping", "Travel", "Health Basics",
-                "Work and Study", "People and Places", "Future Plans"
+                "People", "Countries", "Things",
+                "Family", "Daily Life", "Free Time",
+                "Food", "Clothes", "Past Events",
+                "Travel", "Future Plans", "Experiences"
             )
         ),
         Book(
@@ -259,10 +266,11 @@ object BookRepository {
             gradientStart = 0xFF00695C, gradientEnd = 0xFF4DB6AC,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9781108403289-L.jpg",
             chapterTitles = listOf(
-                "New Experiences", "Daily Routines", "Relationships",
-                "Entertainment", "Food & Health", "City Life",
-                "Sports & Fitness", "Travel Stories", "Memories",
-                "Technology", "Plans", "Dreams"
+                "Everyday Life", "Family and Friends", "Home and Neighborhood",
+                "Food and Health", "Shopping and Money", "Work and Study",
+                "Travel and Transport", "Weather and Seasons", "Hobbies and Sports",
+                "Technology and Communication", "Holidays and Celebrations",
+                "Plans and Dreams"
             )
         ),
         Book(
@@ -272,10 +280,10 @@ object BookRepository {
             gradientStart = 0xFF0277BD, gradientEnd = 0xFF4FC3F7,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9781108403296-L.jpg",
             chapterTitles = listOf(
-                "Communication", "Lifestyle", "Modern Society",
-                "Career Paths", "Cultural Diversity", "Education",
-                "Media & News", "Environment", "Relationships",
-                "Personal Growth", "Future Trends", "Success Stories"
+                "Life Changes", "Technology and Life", "Health and Wellness",
+                "Travel and Adventure", "Culture and Society", "Work and Careers",
+                "The Environment", "Personal Growth", "Media and Communication",
+                "Education and Learning", "Culture and Arts", "Review and Goals"
             )
         ),
         Book(
@@ -285,9 +293,10 @@ object BookRepository {
             gradientStart = 0xFF37474F, gradientEnd = 0xFF90A4AE,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9781108403302-L.jpg",
             chapterTitles = listOf(
-                "Unit 1", "Unit 2", "Unit 3", "Unit 4",
-                "Unit 5", "Unit 6", "Unit 7", "Unit 8",
-                "Unit 9", "Unit 10", "Unit 11", "Unit 12"
+                "Plans, Goals and Possibilities", "The Way We Are", "Getting There",
+                "Life Lessons", "A Change of Plan", "Living Together",
+                "Media and Technology", "The Natural World", "Big and Small",
+                "Looking Back", "Great Ideas", "Moving On"
             )
         ),
         Book(
@@ -297,10 +306,12 @@ object BookRepository {
             gradientStart = 0xFFE65100, gradientEnd = 0xFFFFCC80,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9781108403319-L.jpg",
             chapterTitles = listOf(
-                "Identity", "Society & Culture", "Innovation",
-                "Ethics & Values", "Globalization", "Sustainability",
-                "Psychology", "Politics", "Art & Media",
-                "Science", "Philosophy", "Future"
+                "Choices and Consequences", "The Power of Language",
+                "Innovation and Tradition", "Global Challenges",
+                "Success and Failure", "Media and Truth",
+                "The Future of Education", "Work Life Balance",
+                "Migration and Identity", "The Art of Persuasion",
+                "Science and Ethics", "Visions of Tomorrow"
             )
         ),
         Book(
@@ -310,10 +321,12 @@ object BookRepository {
             gradientStart = 0xFF4E342E, gradientEnd = 0xFFA1887F,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9781108403326-L.jpg",
             chapterTitles = listOf(
-                "Global Perspectives", "Social Change", "Technology & Ethics",
-                "Leadership", "Innovation", "Cultural Identity",
-                "Economics", "Politics & Power", "Arts & Expression",
-                "Science & Society", "Human Rights", "The Future of Humanity"
+                "Ideas That Shape Our Future", "The Power of Persuasion",
+                "Work in the 21st Century", "Global Perspectives",
+                "The Art of Storytelling", "Science and Society",
+                "Media and Influence", "Art and Expression",
+                "Environment and Responsibility", "Identity and Belonging",
+                "Truth and Knowledge", "Visions of Tomorrow"
             )
         ),
 
@@ -321,16 +334,13 @@ object BookRepository {
         Book(
             id = "empower_c1", title = "Empower C1", titlePersian = "امپاور C1",
             author = "Adrian Doff", category = BookCategory.CONVERSATION,
-            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
+            level = "پیشرفته", levelEmoji = "🏆", totalChapters = 10,
             gradientStart = 0xFF1A237E, gradientEnd = 0xFF3F51B5,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9781107469108-L.jpg",
             chapterTitles = listOf(
-                "Language and Communication", "Identity and Society",
-                "Education and Learning", "Work and Careers",
-                "Technology and Innovation", "Health and Wellbeing",
-                "Culture and Arts", "Environment and Sustainability",
-                "Politics and Power", "Global Issues", "Relationships",
-                "The Future"
+                "Language", "Going to Extremes", "Travel and Adventure",
+                "Consciousness", "Fairness", "Perspectives",
+                "Connections", "Body and Health", "Cities", "Occasions"
             )
         ),
 
@@ -342,10 +352,10 @@ object BookRepository {
             gradientStart = 0xFF00695C, gradientEnd = 0xFF26A69A,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9781108706212-L.jpg",
             chapterTitles = listOf(
-                "Friends and Family", "City Life", "Fashion and Style",
-                "Travel and Adventure", "Food and Health", "Entertainment",
-                "Work and Study", "Environment", "Culture and Society",
-                "Technology", "Personal Growth", "Future Plans"
+                "Friends and family", "Mistakes and mysteries", "Exploring new cities",
+                "Early birds and night owls", "Communication", "What's the real story",
+                "The Information Age", "Putting the mind to work", "Generally speaking",
+                "The art of complaining", "Values", "Moving around"
             )
         ),
         Book(
@@ -355,10 +365,10 @@ object BookRepository {
             gradientStart = 0xFF283593, gradientEnd = 0xFF5C6BC0,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9781108706267-L.jpg",
             chapterTitles = listOf(
-                "Globalization", "Cultural Identity", "Media and Communication",
-                "Ethics and Morality", "Innovation", "Social Change",
-                "Economics", "Politics", "Philosophy",
-                "Science and Technology", "The Environment", "The Future"
+                "Relationships", "Clothes and appearance", "Science and technology",
+                "Superstitions and beliefs", "Television and reading",
+                "Musicians and music", "Changing times", "Consumer culture",
+                "Animals", "Language", "Exceptional people", "Business matters"
             )
         ),
 
@@ -370,9 +380,10 @@ object BookRepository {
             gradientStart = 0xFFBF360C, gradientEnd = 0xFFFF8A65,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780134506322-L.jpg",
             chapterTitles = listOf(
-                "New Perspectives", "Musical Moods", "Personal Heroes",
-                "The World of Work", "Food for Thought", "Finding Adventure",
-                "The Power of Ideas", "Looking Good", "The Natural World", "Life Choices"
+                "Dreams and Goals", "Character and Responsibility",
+                "Help in Emergencies", "Housing", "Innovation",
+                "Protecting Our World", "In the Public Eye",
+                "Honesty is the Best Policy", "Sports", "Controversial Issues"
             )
         ),
         Book(
@@ -382,10 +393,10 @@ object BookRepository {
             gradientStart = 0xFF4A148C, gradientEnd = 0xFF7E57C2,
             coverUrl = "https://covers.openlibrary.org/b/isbn/9780134506520-L.jpg",
             chapterTitles = listOf(
-                "Going Global", "Communication", "The Art of Storytelling",
-                "Living with Technology", "The World of Business",
-                "Change Makers", "Environment & Ethics", "Media & Society",
-                "The Individual and Society", "Future Visions"
+                "Dreams and Goals", "Character and Responsibility",
+                "Help in Emergencies", "Housing", "Innovation",
+                "Protecting Our World", "In the Public Eye",
+                "Honesty is the Best Policy", "Sports", "Controversial Issues"
             )
         ),
 
@@ -397,21 +408,44 @@ object BookRepository {
             author = "Raymond Murphy", category = BookCategory.GRAMMAR,
             level = "مبتدی", levelEmoji = "🌱", totalChapters = 13,
             gradientStart = 0xFF00695C, gradientEnd = 0xFF26A69A,
-            coverUrl = "https://covers.openlibrary.org/b/isbn/9780521133531-L.jpg"
+            coverUrl = "https://covers.openlibrary.org/b/isbn/9780521133531-L.jpg",
+            chapterTitles = listOf(
+                "Verb To Be", "Present Simple", "Present Continuous",
+                "Past Simple", "Past Continuous", "Present Perfect",
+                "Future Forms", "Modal Verbs", "Conditionals",
+                "Passive Voice", "Reported Speech", "Questions and Negatives",
+                "Review"
+            )
         ),
         Book(
             id = "understanding_grammar", title = "Understanding English Grammar", titlePersian = "درک گرامر انگلیسی",
             author = "Betty Azar", category = BookCategory.GRAMMAR,
             level = "متوسط", levelEmoji = "🚀", totalChapters = 12,
             gradientStart = 0xFF0277BD, gradientEnd = 0xFF4FC3F7,
-            coverUrl = "https://covers.openlibrary.org/b/isbn/9780134271350-L.jpg"
+            coverUrl = "https://covers.openlibrary.org/b/isbn/9780134271350-L.jpg",
+            chapterTitles = listOf(
+                "Perfect Tenses Overview", "Advanced Conditional Structure",
+                "Advanced Passive Structures", "Advanced Reported Speech",
+                "Relative Clauses Advanced", "Gerunds and Infinitives",
+                "Subjunctive and Wish", "Modal Perfects",
+                "Advanced Passive and Causative", "Phrasal Verbs and Idioms",
+                "Emphatic Structures and Invers", "Review and Advanced Practice"
+            )
         ),
         Book(
             id = "advanced_grammar", title = "Advanced Grammar in Use", titlePersian = "گرامر پیشرفته",
             author = "Martin Hewings", category = BookCategory.GRAMMAR,
             level = "پیشرفته", levelEmoji = "🏆", totalChapters = 12,
             gradientStart = 0xFF4527A0, gradientEnd = 0xFF7E57C2,
-            coverUrl = "https://covers.openlibrary.org/b/isbn/9781107131036-L.jpg"
+            coverUrl = "https://covers.openlibrary.org/b/isbn/9781107131036-L.jpg",
+            chapterTitles = listOf(
+                "Subjunctive and Unreal Past", "Inversion and Emphasis",
+                "Complex Noun Phrases", "Advanced Reported Structures",
+                "Aspect and Time Reference", "Discourse Markers and Cohesion",
+                "Advanced Modality", "Formal and Academic Writing",
+                "Complex Syntax", "Word Formation and Vocabulary",
+                "Style and Rhetoric", "Integration and Mastery"
+            )
         ),
 
         // ═══════════════════════════════════════════════════════
