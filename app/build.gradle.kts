@@ -69,22 +69,23 @@ dependencies {
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
 
-    // Gson (برای ذخیره کاربر)
+    // Gson
     implementation("com.google.code.gson:gson:2.10.1")
 
-    // Retrofit + OkHttp (برای ارتباط با AI)
+    // Retrofit + OkHttp
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
-    // 👇👇👇 این ۲ خط جدید اضافه شد 👇👇👇
-
-    // 🖼️ Coil - برای نمایش عکس‌های آنلاین (در LibraryScreen و LessonDetailScreen)
+    // Coil
     implementation("io.coil-kt:coil-compose:2.6.0")
 
-    // 🎧 Media3 - برای پخش صدا در پس‌زمینه (در PodcastScreen)
+    // Media3 (ExoPlayer + Cache)
     implementation("androidx.media3:media3-exoplayer:1.3.1")
     implementation("androidx.media3:media3-common:1.3.1")
     implementation("androidx.media3:media3-session:1.3.1")
+    implementation("androidx.media3:media3-ui:1.3.1")
+    implementation("androidx.media3:media3-datasource-okhttp:1.3.1")
+    implementation("androidx.media3:media3-database:1.3.1")
 }
