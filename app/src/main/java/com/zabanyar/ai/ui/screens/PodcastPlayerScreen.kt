@@ -1,5 +1,6 @@
 package com.zabanyar.ai.ui.screens
 
+import android.net.Uri
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -27,8 +28,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.media3.common.MediaItem
+import androidx.media3.common.PlaybackParameters
+import androidx.media3.common.Player
+import androidx.media3.exoplayer.ExoPlayer
 import com.zabanyar.ai.data.Podcast
-import com.zabanyar.ai.data.SpeechHelper
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -39,8 +43,19 @@ fun PodcastPlayerScreen(
     onBack: () -> Unit
 ) {
     val context = LocalContext.current
-    val speechHelper = remember { SpeechHelper(context) }
     val listState = rememberLazyListState()
+
+    // ─── ساخت ExoPlayer با کش ───
+    val exoPlayer = remember {
+        ExoPlayer.Builder(context)
+            .setMediaSourceFactory(PodcastCache.mediaSourceFactory(context))
+            .build()
+            .apply {
+                val audioUrl = "https://github.com/Aboulfazll/ZabanYar-AI/releases/download/v1.0-podcasts/${podcast.id}.mp3"
+                setMediaItem(MediaItem.fromUri(Uri.parse(audioUrl)))
+                prepare()
+            }
+    }
 
     // ─── حالت‌ها ───
     var isPlaying by remember { mutableStateOf(false) }
@@ -49,42 +64,40 @@ fun PodcastPlayerScreen(
     var playbackSpeed by remember { mutableFloatStateOf(1.0f) }
     var showSettingsPopup by remember { mutableStateOf(false) }
     var isMuted by remember { mutableStateOf(false) }
-
-    // زمان تقریبی
     var currentSeconds by remember { mutableIntStateOf(0) }
-    val totalSeconds = remember(podcast) {
-        // تخمین: هر خط حدود ۵ ثانیه
-        maxOf(transcript.size * 5, 60)
-    }
+    var totalSeconds by remember { mutableIntStateOf(60) }
 
-    DisposableEffect(Unit) {
+    // ─── گوش دادن به وضعیت پلیر ───
+    DisposableEffect(exoPlayer) {
+        val listener = object : Player.Listener {
+            override fun onIsPlayingChanged(playing: Boolean) {
+                isPlaying = playing
+            }
+        }
+        exoPlayer.addListener(listener)
         onDispose {
-            speechHelper.stop()
-            speechHelper.shutdown()
+            exoPlayer.removeListener(listener)
+            exoPlayer.release()
         }
     }
 
-    // ─── پخش خط به خط ───
-    LaunchedEffect(isPlaying) {
-        if (isPlaying) {
-            speechHelper.setSpeed(playbackSpeed)
-            for (i in (currentLineIndex.coerceAtLeast(0)) until transcript.size) {
-                if (!isPlaying) break
-                currentLineIndex = i
-                currentSeconds = i * 5
-                // اسکرول به خط فعلی
-                listState.animateScrollToItem(i)
-                // خواندن خط
-                speechHelper.speak(transcript[i])
-                // صبر تا پایان پخش
-                val waitTime = (transcript[i].length * 60 / playbackSpeed).toLong().coerceIn(1500, 8000)
-                delay(waitTime)
+    // ─── به‌روزرسانی زمان ───
+    LaunchedEffect(Unit) {
+        while (true) {
+            currentSeconds = (exoPlayer.currentPosition / 1000).toInt()
+            val dur = (exoPlayer.duration / 1000).toInt()
+            if (dur > 0) totalSeconds = dur
+
+            // محاسبه خط فعال بر اساس موقعیت
+            if (transcript.isNotEmpty() && totalSeconds > 0) {
+                val line = ((currentSeconds.toFloat() / totalSeconds) * transcript.size)
+                    .toInt().coerceIn(0, transcript.size - 1)
+                if (line != currentLineIndex) {
+                    currentLineIndex = line
+                    listState.animateScrollToItem(line)
+                }
             }
-            if (currentLineIndex >= transcript.size - 1) {
-                isPlaying = false
-                currentLineIndex = -1
-                currentSeconds = 0
-            }
+            delay(300)
         }
     }
 
@@ -101,7 +114,7 @@ fun PodcastPlayerScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = {
-                        speechHelper.stop()
+                        exoPlayer.pause()
                         onBack()
                     }) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
@@ -120,7 +133,7 @@ fun PodcastPlayerScreen(
             Column(modifier = Modifier.fillMaxSize()) {
 
                 // ═══════════════════════════════════
-                //  کارت هدر پادکست
+                //  کارت هدر پادکست (بدون تغییر)
                 // ═══════════════════════════════════
                 Card(
                     modifier = Modifier
@@ -133,7 +146,6 @@ fun PodcastPlayerScreen(
                     Column(modifier = Modifier.padding(14.dp)) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
 
-                            // ─── کاور مربعی با گرادیان ───
                             Box(
                                 modifier = Modifier
                                     .size(80.dp)
@@ -156,7 +168,6 @@ fun PodcastPlayerScreen(
 
                             Spacer(Modifier.width(12.dp))
 
-                            // ─── اطلاعات ───
                             Column(modifier = Modifier.weight(1f)) {
                                 Text(
                                     podcast.title,
@@ -174,11 +185,9 @@ fun PodcastPlayerScreen(
                                 )
                                 Spacer(Modifier.height(6.dp))
 
-                                // امتیاز + مدت
                                 Row(verticalAlignment = Alignment.CenterVertically) {
                                     Icon(
-                                        Icons.Filled.Star,
-                                        null,
+                                        Icons.Filled.Star, null,
                                         tint = Color(0xFFFF9800),
                                         modifier = Modifier.size(14.dp)
                                     )
@@ -201,14 +210,12 @@ fun PodcastPlayerScreen(
 
                         Spacer(Modifier.height(12.dp))
 
-                        // ─── نام گوینده + تاریخ ───
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Icon(
-                                Icons.Filled.Person,
-                                null,
+                                Icons.Filled.Person, null,
                                 tint = Color(0xFF3949AB),
                                 modifier = Modifier.size(16.dp)
                             )
@@ -238,7 +245,7 @@ fun PodcastPlayerScreen(
                 }
 
                 // ═══════════════════════════════════
-                //  Transcript (متن رونویسی)
+                //  Transcript
                 // ═══════════════════════════════════
                 LazyColumn(
                     state = listState,
@@ -265,11 +272,13 @@ fun PodcastPlayerScreen(
                                     }
                                 )
                                 .clickable {
-                                    currentLineIndex = index
-                                    currentSeconds = index * 5
-                                    speechHelper.stop()
-                                    speechHelper.setSpeed(playbackSpeed)
-                                    speechHelper.speak(transcript[index])
+                                    // Seek به موقعیت متناظر این خط
+                                    if (transcript.isNotEmpty() && totalSeconds > 0) {
+                                        val seekTo = ((index.toFloat() / transcript.size) * totalSeconds * 1000).toLong()
+                                        exoPlayer.seekTo(seekTo)
+                                        currentLineIndex = index
+                                        exoPlayer.play()
+                                    }
                                 }
                                 .padding(12.dp)
                         ) {
@@ -301,14 +310,13 @@ fun PodcastPlayerScreen(
                 ) {
                     Column(modifier = Modifier.padding(12.dp)) {
 
-                        // ─── Waveform ───
                         Waveform(
-                            progress = if (totalSeconds > 0) currentSeconds.toFloat() / totalSeconds else 0f
+                            progress = if (totalSeconds > 0)
+                                currentSeconds.toFloat() / totalSeconds else 0f
                         )
 
                         Spacer(Modifier.height(8.dp))
 
-                        // ─── زمان ───
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween
@@ -328,7 +336,6 @@ fun PodcastPlayerScreen(
 
                         Spacer(Modifier.height(8.dp))
 
-                        // ─── دکمه‌های کنترل ───
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly,
@@ -338,7 +345,7 @@ fun PodcastPlayerScreen(
                             IconButton(
                                 onClick = {
                                     isMuted = !isMuted
-                                    if (isMuted) speechHelper.stop()
+                                    exoPlayer.volume = if (isMuted) 0f else 1f
                                 },
                                 modifier = Modifier.size(44.dp)
                             ) {
@@ -350,20 +357,17 @@ fun PodcastPlayerScreen(
                                 )
                             }
 
-                            // Rewind
+                            // Rewind (skip back)
                             IconButton(
                                 onClick = {
-                                    val newIndex = (currentLineIndex - 1).coerceAtLeast(0)
-                                    currentLineIndex = newIndex
-                                    currentSeconds = newIndex * 5
-                                    speechHelper.stop()
-                                    isPlaying = true
+                                    val newPos = (exoPlayer.currentPosition - skipSeconds * 1000L)
+                                        .coerceAtLeast(0)
+                                    exoPlayer.seekTo(newPos)
                                 },
                                 modifier = Modifier.size(44.dp)
                             ) {
                                 Icon(
-                                    Icons.Filled.Replay,
-                                    "عقب",
+                                    Icons.Filled.Replay, "عقب",
                                     tint = Color(0xFF455A64),
                                     modifier = Modifier.size(26.dp)
                                 )
@@ -376,13 +380,8 @@ fun PodcastPlayerScreen(
                                     .clip(CircleShape)
                                     .background(Color(0xFF00695C))
                                     .clickable {
-                                        if (isPlaying) {
-                                            speechHelper.stop()
-                                            isPlaying = false
-                                        } else {
-                                            if (currentLineIndex < 0) currentLineIndex = 0
-                                            isPlaying = true
-                                        }
+                                        if (exoPlayer.isPlaying) exoPlayer.pause()
+                                        else exoPlayer.play()
                                     },
                                 contentAlignment = Alignment.Center
                             ) {
@@ -395,21 +394,17 @@ fun PodcastPlayerScreen(
                                 )
                             }
 
-                            // Forward
+                            // Forward (skip forward)
                             IconButton(
                                 onClick = {
-                                    val newIndex = (currentLineIndex + 1)
-                                        .coerceAtMost(transcript.size - 1)
-                                    currentLineIndex = newIndex
-                                    currentSeconds = newIndex * 5
-                                    speechHelper.stop()
-                                    isPlaying = true
+                                    val newPos = (exoPlayer.currentPosition + skipSeconds * 1000L)
+                                        .coerceAtMost(exoPlayer.duration)
+                                    exoPlayer.seekTo(newPos)
                                 },
                                 modifier = Modifier.size(44.dp)
                             ) {
                                 Icon(
-                                    Icons.Filled.Forward,
-                                    "جلو",
+                                    Icons.Filled.Forward, "جلو",
                                     tint = Color(0xFF455A64),
                                     modifier = Modifier.size(26.dp)
                                 )
@@ -421,8 +416,7 @@ fun PodcastPlayerScreen(
                                 modifier = Modifier.size(44.dp)
                             ) {
                                 Icon(
-                                    Icons.Filled.Settings,
-                                    "تنظیمات",
+                                    Icons.Filled.Settings, "تنظیمات",
                                     tint = Color(0xFF455A64),
                                     modifier = Modifier.size(22.dp)
                                 )
@@ -442,7 +436,7 @@ fun PodcastPlayerScreen(
                     onSkipSelected = { skipSeconds = it },
                     onSpeedSelected = {
                         playbackSpeed = it
-                        speechHelper.setSpeed(it)
+                        exoPlayer.playbackParameters = PlaybackParameters(it)
                     },
                     onDismiss = { showSettingsPopup = false }
                 )
@@ -452,7 +446,7 @@ fun PodcastPlayerScreen(
 }
 
 // ═══════════════════════════════════════════════════════
-//  Waveform (نمایش گرافیکی موج)
+//  Waveform (بدون تغییر)
 // ═══════════════════════════════════════════════════════
 @Composable
 private fun Waveform(progress: Float) {
@@ -485,7 +479,7 @@ private fun Waveform(progress: Float) {
 }
 
 // ═══════════════════════════════════════════════════════
-//  پاپ‌آپ تنظیمات (Skip + Speed)
+//  پاپ‌آپ تنظیمات (بدون تغییر)
 // ═══════════════════════════════════════════════════════
 @Composable
 private fun PlayerSettingsPopup(
@@ -505,7 +499,6 @@ private fun PlayerSettingsPopup(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                // ─── Skip ستون ───
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
                         "Skip",
@@ -542,7 +535,6 @@ private fun PlayerSettingsPopup(
                     }
                 }
 
-                // ─── Speed ستون ───
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
                         "Speed",
