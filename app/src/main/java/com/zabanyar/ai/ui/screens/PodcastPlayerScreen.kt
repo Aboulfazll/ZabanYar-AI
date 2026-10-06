@@ -33,6 +33,7 @@ import androidx.media3.common.PlaybackParameters
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import com.zabanyar.ai.data.Podcast
+import com.zabanyar.ai.data.PodcastCache
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -45,7 +46,7 @@ fun PodcastPlayerScreen(
     val context = LocalContext.current
     val listState = rememberLazyListState()
 
-    // ─── ساخت ExoPlayer با کش ───
+    // ─── ساخت ExoPlayer با کش آفلاین ───
     val exoPlayer = remember {
         ExoPlayer.Builder(context)
             .setMediaSourceFactory(PodcastCache.mediaSourceFactory(context))
@@ -81,20 +82,21 @@ fun PodcastPlayerScreen(
         }
     }
 
-    // ─── به‌روزرسانی زمان ───
+    // ─── به‌روزرسانی زمان و خط فعال ───
     LaunchedEffect(Unit) {
         while (true) {
             currentSeconds = (exoPlayer.currentPosition / 1000).toInt()
             val dur = (exoPlayer.duration / 1000).toInt()
             if (dur > 0) totalSeconds = dur
 
-            // محاسبه خط فعال بر اساس موقعیت
             if (transcript.isNotEmpty() && totalSeconds > 0) {
                 val line = ((currentSeconds.toFloat() / totalSeconds) * transcript.size)
                     .toInt().coerceIn(0, transcript.size - 1)
                 if (line != currentLineIndex) {
                     currentLineIndex = line
-                    listState.animateScrollToItem(line)
+                    try {
+                        listState.animateScrollToItem(line)
+                    } catch (_: Exception) {}
                 }
             }
             delay(300)
@@ -133,7 +135,7 @@ fun PodcastPlayerScreen(
             Column(modifier = Modifier.fillMaxSize()) {
 
                 // ═══════════════════════════════════
-                //  کارت هدر پادکست (بدون تغییر)
+                //  کارت هدر پادکست
                 // ═══════════════════════════════════
                 Card(
                     modifier = Modifier
@@ -272,7 +274,6 @@ fun PodcastPlayerScreen(
                                     }
                                 )
                                 .clickable {
-                                    // Seek به موقعیت متناظر این خط
                                     if (transcript.isNotEmpty() && totalSeconds > 0) {
                                         val seekTo = ((index.toFloat() / transcript.size) * totalSeconds * 1000).toLong()
                                         exoPlayer.seekTo(seekTo)
@@ -357,7 +358,7 @@ fun PodcastPlayerScreen(
                                 )
                             }
 
-                            // Rewind (skip back)
+                            // Rewind
                             IconButton(
                                 onClick = {
                                     val newPos = (exoPlayer.currentPosition - skipSeconds * 1000L)
@@ -394,7 +395,7 @@ fun PodcastPlayerScreen(
                                 )
                             }
 
-                            // Forward (skip forward)
+                            // Forward
                             IconButton(
                                 onClick = {
                                     val newPos = (exoPlayer.currentPosition + skipSeconds * 1000L)
@@ -446,7 +447,7 @@ fun PodcastPlayerScreen(
 }
 
 // ═══════════════════════════════════════════════════════
-//  Waveform (بدون تغییر)
+//  Waveform
 // ═══════════════════════════════════════════════════════
 @Composable
 private fun Waveform(progress: Float) {
@@ -479,7 +480,7 @@ private fun Waveform(progress: Float) {
 }
 
 // ═══════════════════════════════════════════════════════
-//  پاپ‌آپ تنظیمات (بدون تغییر)
+//  پاپ‌آپ تنظیمات
 // ═══════════════════════════════════════════════════════
 @Composable
 private fun PlayerSettingsPopup(
