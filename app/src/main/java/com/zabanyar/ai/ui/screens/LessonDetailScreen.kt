@@ -1,5 +1,6 @@
 package com.zabanyar.ai.ui.screens
 
+import android.net.Uri
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -27,9 +28,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.media3.common.MediaItem
+import androidx.media3.exoplayer.ExoPlayer
 import com.zabanyar.ai.data.Book
 import com.zabanyar.ai.data.BookRepository
 import com.zabanyar.ai.data.DialogueLine
+import com.zabanyar.ai.data.LessonAudioCache
 import com.zabanyar.ai.data.LessonContent
 import com.zabanyar.ai.data.ProgressManager
 import com.zabanyar.ai.data.SpeechHelper
@@ -37,7 +41,9 @@ import com.zabanyar.ai.data.VocabWord
 import com.zabanyar.ai.data.books.story.StoryChapter
 import com.zabanyar.ai.data.books.story.StoryParagraph
 import com.zabanyar.ai.data.books.story.StoryRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -52,24 +58,54 @@ fun LessonDetailScreen(
     onChapterSelected: (Int) -> Unit = {}
 ) {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+
+    // ─── TTS (برای داستان‌ها و کلمات تک) ───
     val speechHelper = remember { SpeechHelper(context) }
+
+    // ─── ExoPlayer (برای MP3 درس‌ها) ───
+    val exoPlayer = remember {
+        ExoPlayer.Builder(context).build().apply { volume = 1f }
+    }
+
+    // ─── وضعیت دانلود ───
+    var audioReady by remember { mutableStateOf(LessonAudioCache.isReady(context)) }
+    var downloadProgress by remember { mutableStateOf(-1f) }
+    var downloadError by remember { mutableStateOf<String?>(null) }
+
+    // ─── دانلود ZIP در اولین باز شدن ───
+    LaunchedEffect(bookId) {
+        if (!audioReady && bookId.isNotEmpty()) {
+            downloadProgress = 0f
+            downloadError = null
+            val ok = withContext(Dispatchers.IO) {
+                LessonAudioCache.ensureDownloaded(context) { p ->
+                    downloadProgress = p
+                }
+            }
+            downloadProgress = -1f
+            if (ok) {
+                audioReady = true
+            } else {
+                downloadError = "دانلود صداها ناموفق بود — از TTS استفاده می‌شود"
+            }
+        }
+    }
 
     DisposableEffect(Unit) {
         onDispose {
             speechHelper.stop()
             speechHelper.shutdown()
+            exoPlayer.release()
         }
     }
 
     val book = remember(bookId) {
         if (bookId.isEmpty()) null
-        else BookRepository.getBookById(bookId)
-            ?: StoryRepository.getStoryById(bookId)
+        else BookRepository.getBookById(bookId) ?: StoryRepository.getStoryById(bookId)
     }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
-    val scope = rememberCoroutineScope()
-
     var showTranslation by remember { mutableStateOf(ProgressManager.isShowTranslation(context)) }
     val isStory = storyChapter != null
 
@@ -79,16 +115,35 @@ fun LessonDetailScreen(
 
     val allChapters: List<StoryChapter> = remember(bookId) {
         if (bookId.isEmpty()) emptyList()
-        else try {
-            StoryRepository.getChapters(bookId)
-        } catch (e: Exception) {
-            emptyList()
-        }
+        else try { StoryRepository.getChapters(bookId) } catch (e: Exception) { emptyList() }
     }
 
-    // ═══════════════════════════════════════════════════════
-    //  🆕 State های خواندن خط به خط
-    // ═══════════════════════════════════════════════════════
+    // ─── توقف همه پخش‌ها ───
+    fun stopAll() {
+        speechHelper.stop()
+        try { exoPlayer.stop() } catch (_: Exception) {}
+    }
+
+    /**
+     * اگر فایل MP3 فصل موجود بود پخش کن، وگرنه TTS
+     */
+    fun playChapterAudio(fallbackText: String) {
+        if (audioReady && bookId.isNotEmpty()) {
+            val file = LessonAudioCache.findLessonAudio(context, bookId, chapterNumber)
+            if (file != null && file.exists()) {
+                speechHelper.stop()
+                exoPlayer.stop()
+                exoPlayer.clearMediaItems()
+                exoPlayer.setMediaItem(MediaItem.fromUri(Uri.fromFile(file)))
+                exoPlayer.prepare()
+                exoPlayer.play()
+                return
+            }
+        }
+        speechHelper.speak(fallbackText)
+    }
+
+    // ─── پخش خط به خط داستان ───
     var playingLineIndex by remember { mutableIntStateOf(-1) }
     val storyListState = rememberLazyListState()
 
@@ -189,13 +244,13 @@ fun LessonDetailScreen(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .background(
-                                        if (isCurrent) Color(0xFFE8EAF6)
-                                        else Color.Transparent
+                                        if (isCurrent) Color(0xFFE8EAF6) else Color.Transparent
                                     )
                                     .clickable {
                                         scope.launch { drawerState.close() }
                                         if (!isCurrent) {
                                             stopLinePlayback()
+                                            stopAll()
                                             onChapterSelected(chapter.number)
                                         }
                                     }
@@ -244,6 +299,7 @@ fun LessonDetailScreen(
                     navigationIcon = {
                         IconButton(onClick = {
                             stopLinePlayback()
+                            stopAll()
                             onBack()
                         }) {
                             Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back", tint = Color.White)
@@ -267,11 +323,7 @@ fun LessonDetailScreen(
                         IconButton(onClick = {
                             scope.launch { drawerState.open() }
                         }) {
-                            Icon(
-                                imageVector = Icons.Filled.Menu,
-                                contentDescription = "منوی فصل‌ها",
-                                tint = Color.White
-                            )
+                            Icon(Icons.Filled.Menu, "منوی فصل‌ها", tint = Color.White)
                         }
                     },
                     colors = TopAppBarDefaults.topAppBarColors(containerColor = PrimaryColor)
@@ -285,9 +337,38 @@ fun LessonDetailScreen(
                     .padding(padding)
             ) {
 
-                // ═══════════════════════════════════════════════════════
-                //  🆕 هدر فشرده
-                // ═══════════════════════════════════════════════════════
+                // ═══════ نوار وضعیت دانلود ═══════
+                if (downloadProgress >= 0f) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(Color(0xFFFFF8E1))
+                            .padding(12.dp)
+                    ) {
+                        Text(
+                            "🎧 در حال آماده‌سازی فایل‌های صوتی... ${(downloadProgress * 100).toInt()}%",
+                            fontSize = 12.sp, color = Color(0xFFBF360C),
+                            fontWeight = FontWeight.Bold
+                        )
+                        Spacer(Modifier.height(6.dp))
+                        LinearProgressIndicator(
+                            progress = { downloadProgress },
+                            modifier = Modifier.fillMaxWidth(),
+                            color = Color(0xFF00695C)
+                        )
+                    }
+                }
+                if (downloadError != null) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(Color(0xFFFFEBEE))
+                            .padding(10.dp)
+                    ) {
+                        Text(downloadError!!, fontSize = 11.sp, color = Color(0xFFC62828))
+                    }
+                }
+
                 CompactHeaderCard(
                     book = book,
                     chapterNumber = chapterNumber,
@@ -313,7 +394,6 @@ fun LessonDetailScreen(
                                 chapter = storyChapter,
                                 gradientStart = bookCoverGradientStart,
                                 gradientEnd = bookCoverGradientEnd,
-                                speechHelper = speechHelper,
                                 isPlayingAll = playingLineIndex >= 0,
                                 onPlayAll = {
                                     if (playingLineIndex >= 0) stopLinePlayback()
@@ -369,7 +449,7 @@ fun LessonDetailScreen(
                                 Tab(
                                     selected = selectedTab == index,
                                     onClick = {
-                                        speechHelper.stop()
+                                        stopAll()
                                         selectedTab = index
                                     },
                                     text = {
@@ -422,12 +502,13 @@ fun LessonDetailScreen(
                                 item {
                                     PlayAllCard(
                                         title = "پخش کل واژگان",
-                                        subtitle = "${lesson.vocabulary.size} کلمه",
+                                        subtitle = if (audioReady) "${lesson.vocabulary.size} کلمه • MP3"
+                                                   else "${lesson.vocabulary.size} کلمه • TTS",
                                         gradientStart = bookCoverGradientStart,
                                         gradientEnd = bookCoverGradientEnd,
                                         onPlayAll = {
                                             val fullText = lesson.vocabulary.joinToString(". ") { it.english }
-                                            speechHelper.speak(fullText)
+                                            playChapterAudio(fullText)
                                         }
                                     )
                                 }
@@ -444,12 +525,13 @@ fun LessonDetailScreen(
                                 item {
                                     PlayAllCard(
                                         title = "پخش کل مکالمه",
-                                        subtitle = "${lesson.conversation.size} دیالوگ",
+                                        subtitle = if (audioReady) "${lesson.conversation.size} دیالوگ • MP3"
+                                                   else "${lesson.conversation.size} دیالوگ • TTS",
                                         gradientStart = bookCoverGradientStart,
                                         gradientEnd = bookCoverGradientEnd,
                                         onPlayAll = {
                                             val fullText = lesson.conversation.joinToString(". ") { it.english }
-                                            speechHelper.speak(fullText)
+                                            playChapterAudio(fullText)
                                         }
                                     )
                                 }
@@ -513,7 +595,7 @@ fun LessonDetailScreen(
 }
 
 // ═══════════════════════════════════════════════════════
-//  🆕 هدر فشرده (کتاب کنار عنوان)
+//  CompactHeaderCard
 // ═══════════════════════════════════════════════════════
 @Composable
 fun CompactHeaderCard(
@@ -545,7 +627,6 @@ fun CompactHeaderCard(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // عکس کتاب - کوچک سمت راست
             Box(
                 modifier = Modifier
                     .size(55.dp, 72.dp)
@@ -571,7 +652,6 @@ fun CompactHeaderCard(
             Spacer(Modifier.width(12.dp))
 
             Column(modifier = Modifier.weight(1f)) {
-                // شماره فصل
                 Text(
                     "Chapter $chapterNumber • فصل $chapterNumber",
                     fontSize = 11.sp,
@@ -579,8 +659,6 @@ fun CompactHeaderCard(
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(Modifier.height(2.dp))
-
-                // عنوان انگلیسی
                 Text(
                     title,
                     fontSize = 15.sp,
@@ -589,8 +667,6 @@ fun CompactHeaderCard(
                     maxLines = 2,
                     lineHeight = 18.sp
                 )
-
-                // عنوان فارسی
                 if (titlePersian.isNotEmpty()) {
                     Spacer(Modifier.height(2.dp))
                     Text(
@@ -600,10 +676,7 @@ fun CompactHeaderCard(
                         maxLines = 1
                     )
                 }
-
                 Spacer(Modifier.height(3.dp))
-
-                // اطلاعات
                 Text(
                     if (isStory) "$storyParagraphCount خط"
                     else "$vocabCount کلمه • $dialogueCount دیالوگ",
@@ -616,7 +689,7 @@ fun CompactHeaderCard(
 }
 
 // ═══════════════════════════════════════════════════════
-//  کارت «پخش کل»
+//  PlayAllCard
 // ═══════════════════════════════════════════════════════
 @Composable
 fun PlayAllCard(
@@ -656,14 +729,13 @@ fun PlayAllCard(
 }
 
 // ═══════════════════════════════════════════════════════
-//  🆕 Story Audio Card با دکمه Play/Stop
+//  StoryAudioCard
 // ═══════════════════════════════════════════════════════
 @Composable
 fun StoryAudioCard(
     chapter: StoryChapter,
     gradientStart: Long,
     gradientEnd: Long,
-    speechHelper: SpeechHelper,
     isPlayingAll: Boolean,
     onPlayAll: () -> Unit
 ) {
@@ -709,7 +781,7 @@ fun StoryAudioCard(
 }
 
 // ═══════════════════════════════════════════════════════
-//  🆕 Story Paragraph Card با هایلایت
+//  StoryParagraphCard
 // ═══════════════════════════════════════════════════════
 @Composable
 fun StoryParagraphCard(
@@ -763,8 +835,7 @@ fun StoryParagraphCard(
                     )
             ) {
                 Icon(
-                    Icons.Filled.VolumeUp,
-                    "پخش",
+                    Icons.Filled.VolumeUp, "پخش",
                     tint = if (isHighlighted) Color(0xFFBF360C) else accentColor,
                     modifier = Modifier.size(17.dp)
                 )
@@ -774,7 +845,7 @@ fun StoryParagraphCard(
 }
 
 // ═══════════════════════════════════════════════════════
-//  Lesson Section Card
+//  LessonSectionCard
 // ═══════════════════════════════════════════════════════
 @Composable
 fun LessonSectionCard(
