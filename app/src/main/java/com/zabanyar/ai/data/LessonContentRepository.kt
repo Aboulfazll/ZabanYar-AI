@@ -16,7 +16,16 @@ object LessonContentRepository {
             "four_corners_1", "four_corners_2", "four_corners_3", "four_corners_4",
             "passages_1", "passages_2",
             "summit_1", "summit_2",
-            "basic_grammar", "understanding_grammar", "advanced_grammar"
+            "basic_grammar", "understanding_grammar", "advanced_grammar",
+
+            // ✨ American English File 4th Edition (NEW)
+            "american_english_file_4th_starter",
+            "american_english_file_4th_level1",
+            "american_english_file_4th_level2",
+            "american_english_file_4th_level3",
+            "american_english_file_4th_level4",
+            "american_english_file_4th_level5"
+
             -> true
             else -> false
         }
@@ -38,13 +47,21 @@ object LessonContentRepository {
             "evolve_5" -> Evolve5.getChapter(chapterNumber)
             "evolve_6" -> Evolve6.getChapter(chapterNumber)
 
-            // ==================== American English File ====================
+            // ==================== American English File (قدیمی) ====================
             "english_file_starter" -> AmericanEnglishFileStarter.getContent(chapterNumber)
             "english_file_1" -> AmericanEnglishFile1.getContent(chapterNumber)
             "english_file_2" -> AmericanEnglishFile2.getContent(chapterNumber)
             "english_file_3" -> AmericanEnglishFile3.getContent(chapterNumber)
             "english_file_4" -> AmericanEnglishFile4.getContent(chapterNumber)
             "english_file_5" -> AmericanEnglishFile5.getContent(chapterNumber)
+
+            // ==================== ✨ American English File 4th Edition (NEW) ====================
+            "american_english_file_4th_starter" -> AmericanEnglishFile4thStarter.getContent(chapterNumber)
+            "american_english_file_4th_level1" -> AmericanEnglishFile4thLevel1.getContent(chapterNumber)
+            "american_english_file_4th_level2" -> AmericanEnglishFile4thLevel2.getContent(chapterNumber)
+            "american_english_file_4th_level3" -> AmericanEnglishFile4thLevel3.getContent(chapterNumber)
+            "american_english_file_4th_level4" -> AmericanEnglishFile4thLevel4.getContent(chapterNumber)
+            "american_english_file_4th_level5" -> AmericanEnglishFile4thLevel5.getContent(chapterNumber)
 
             // ==================== Empower ====================
             "empower_c1" -> EmpowerC1.getChapter(chapterNumber)
