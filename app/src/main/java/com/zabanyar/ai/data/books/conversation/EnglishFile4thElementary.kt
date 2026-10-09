@@ -4,2162 +4,1899 @@ import com.zabanyar.ai.data.*
 
 /**
  * English File 4th Edition — Elementary (Book 1)
- * 48 Chapters: 12 Files × 3 Lessons + 6 Practical English + 6 Revise & Check
+ * 12 Files (A/B/C) + 6 Practical English + 6 Revise & Check = 48 lessons
  * British English | A1-A2
  */
 object EnglishFile4thElementary {
     const val BOOK_ID = "english_file_4th_elementary"
 
-    fun getContent(chapterNumber: Int): LessonContent = when (chapterNumber) {
-        1 -> file1A(); 2 -> file1B(); 3 -> file1C()
-        4 -> file2A(); 5 -> file2B(); 6 -> file2C()
-        7 -> practicalEnglish1(); 8 -> reviseAndCheck1And2()
-        9 -> file3A(); 10 -> file3B(); 11 -> file3C()
-        12 -> file4A(); 13 -> file4B(); 14 -> file4C()
-        15 -> practicalEnglish2(); 16 -> reviseAndCheck3And4()
-        17 -> file5A(); 18 -> file5B(); 19 -> file5C()
-        20 -> file6A(); 21 -> file6B(); 22 -> file6C()
-        23 -> practicalEnglish3(); 24 -> reviseAndCheck5And6()
-        25 -> file7A(); 26 -> file7B(); 27 -> file7C()
-        28 -> file8A(); 29 -> file8B(); 30 -> file8C()
-        31 -> practicalEnglish4(); 32 -> reviseAndCheck7And8()
-        33 -> file9A(); 34 -> file9B(); 35 -> file9C()
-        36 -> file10A(); 37 -> file10B(); 38 -> file10C()
-        39 -> practicalEnglish5(); 40 -> reviseAndCheck9And10()
-        41 -> file11A(); 42 -> file11B(); 43 -> file11C()
-        44 -> file12A(); 45 -> file12B(); 46 -> file12C()
-        47 -> practicalEnglish6(); 48 -> reviseAndCheck11And12()
-        else -> LessonContent(
-            BOOK_ID, chapterNumber, "Coming Soon", "به‌زودی...",
-            vocabulary = emptyList(), grammar = emptyList(),
-            conversation = emptyList(), quiz = emptyList()
-        )
+    fun getContent(n: Int): LessonContent = when (n) {
+        // File 1
+        1 -> f1A(); 2 -> f1B(); 3 -> f1C()
+        // File 2
+        4 -> f2A(); 5 -> f2B(); 6 -> f2C()
+        7 -> pe1(); 8 -> rc12()
+        // File 3
+        9 -> f3A(); 10 -> f3B(); 11 -> f3C()
+        // File 4
+        12 -> f4A(); 13 -> f4B(); 14 -> f4C()
+        15 -> pe2(); 16 -> rc34()
+        // File 5
+        17 -> f5A(); 18 -> f5B(); 19 -> f5C()
+        // File 6
+        20 -> f6A(); 21 -> f6B(); 22 -> f6C()
+        23 -> pe3(); 24 -> rc56()
+        // File 7
+        25 -> f7A(); 26 -> f7B(); 27 -> f7C()
+        // File 8
+        28 -> f8A(); 29 -> f8B(); 30 -> f8C()
+        31 -> pe4(); 32 -> rc78()
+        // File 9
+        33 -> f9A(); 34 -> f9B(); 35 -> f9C()
+        // File 10
+        36 -> f10A(); 37 -> f10B(); 38 -> f10C()
+        39 -> pe5(); 40 -> rc910()
+        // File 11
+        41 -> f11A(); 42 -> f11B(); 43 -> f11C()
+        // File 12
+        44 -> f12A(); 45 -> f12B(); 46 -> f12C()
+        47 -> pe6(); 48 -> rc1112()
+        else -> empty(n)
     }
 
-    private fun base(n: Int, title: String, fa: String,
-        objectives: List<String>, vocab: List<VocabWord>,
-        grammar: List<GrammarSection>, dialogue: List<DialogueLine>,
-        quiz: List<QuizQuestion>,
+    private fun empty(n: Int) = LessonContent(
+        BOOK_ID, n, "Coming Soon", "به‌زودی...",
+        vocabulary = emptyList(), grammar = emptyList(),
+        conversation = emptyList(), quiz = emptyList()
+    )
+
+    private fun base(
+        n: Int, title: String, fa: String,
+        obj: List<String>, vocab: List<VocabWord>,
+        gr: List<GrammarSection>, dlg: List<DialogueLine>,
+        qz: List<QuizQuestion>,
         idioms: List<IdiomExpression> = emptyList(),
-        pronunciation: List<PronunciationTip> = emptyList(),
-        culture: List<CulturalNote> = emptyList(),
-        mistakes: List<CommonMistake> = emptyList()
+        pron: List<PronunciationTip> = emptyList(),
+        cult: List<CulturalNote> = emptyList(),
+        mis: List<CommonMistake> = emptyList()
     ) = LessonContent(
         bookId = BOOK_ID, chapterNumber = n, title = title, titlePersian = fa,
-        objectives = objectives, vocabulary = vocab, idioms = idioms,
-        pronunciationTips = pronunciation, culturalNotes = culture,
-        grammar = grammar, commonMistakes = mistakes,
-        conversation = dialogue, quiz = quiz
+        objectives = obj, vocabulary = vocab, idioms = idioms,
+        pronunciationTips = pron, culturalNotes = cult,
+        grammar = gr, commonMistakes = mis,
+        conversation = dlg, quiz = qz
     )
 
     private fun v(e: String, p: String, ex: String, ep: String, pos: String = "noun") =
         VocabWord(e, p, partOfSpeech = pos, example = ex, examplePersian = ep)
     private fun d(s: String, e: String, p: String) = DialogueLine(s, e, p)
-    private fun q(qq: String, o: List<String>, c: Int) = QuizQuestion(qq, o, c)
+    private fun q(x: String, o: List<String>, c: Int) = QuizQuestion(x, o, c)
 
-    // ═══ 1A ═══
-    private fun file1A() = base(1, "Welcome to the class", "به کلاس خوش آمدید",
-        listOf("Greet people and introduce yourself", "Use verb be (singular)", "Use subject pronouns", "Say numbers 0-10"),
+    // ═══════════════════ FILE 1 ═══════════════════
+
+    private fun f1A() = base(
+        1, "1A — Welcome to the class", "۱A — به کلاس خوش آمدید",
+        listOf("Greet people", "Use verb be (singular)", "Say numbers 0-10"),
         listOf(
-            v("hello","سلام","Hello, I'm David.","سلام، من دیویید هستم.","interjection"),
-            v("name","نام","What's your name?","نامت چیست؟"),
-            v("teacher","معلم","She's the teacher.","او معلم است."),
-            v("student","دانش‌آموز","I'm a student.","من دانش‌آموز هستم."),
-            v("class","کلاس","Welcome to the class.","به کلاس خوش آمدید."),
-            v("friend","دوست","He's my friend.","او دوست من است."),
-            v("nice","خوب","Nice to meet you.","از آشنایی خوشحالم.","adjective"),
-            v("coffee","قهوه","A coffee, please.","یک قهوه، لطفاً.")
+            v("hello", "سلام", "Hello, I'm David.", "سلام، من دیویدم.", "interjection"),
+            v("name", "نام", "What's your name?", "نامت چیست؟"),
+            v("teacher", "معلم", "She's the teacher.", "او معلم است."),
+            v("student", "دانش‌آموز", "I'm a student.", "من دانش‌آموزم."),
+            v("class", "کلاس", "Welcome to the class.", "به کلاس خوش آمدید."),
+            v("friend", "دوست", "He's my friend.", "او دوست من است.")
         ),
         listOf(
-            GrammarSection("Verb be (singular)","I am, you are, he/she/it is. Contractions: I'm, you're, he's, she's, it's."),
-            GrammarSection("Subject pronouns","I, you, he, she, it. Use 'he' for men, 'she' for women, 'it' for things.")
+            GrammarSection("Verb be (singular)", "I am, you are, he/she/it is. Contractions: I'm, you're, he's, she's, it's."),
+            GrammarSection("Subject pronouns", "I, you, he, she, it.")
         ),
         listOf(
-            d("Teacher","Hello. I'm Carla. I'm your teacher.","سلام. من کارلا هستم. معلم شما هستم."),
-            d("David","Hi, Carla. I'm David.","سلام کارلا. من دیویید هستم."),
-            d("Teacher","Nice to meet you, David. Are you a student?","از آشنایی خوشحالم دیویید. دانش‌آموزی؟"),
-            d("David","Yes, I am. I'm from Italy.","بله. اهل ایتالیام."),
-            d("Teacher","Welcome! Is that your friend?","خوش آمدی! آن دوستت است؟"),
-            d("David","Yes, she's Maria. She's from Spain.","بله، او ماریاست. اهل اسپانیاست."),
-            d("Maria","Hello. Nice to meet you.","سلام. از آشنایی خوشحالم."),
-            d("Teacher","Nice to meet you too, Maria. Welcome!","من هم خوشحالم ماریا. خوش آمدی!")
+            d("T", "Hello. I'm Carla. I'm your teacher.", "سلام. من کارلا هستم. معلم شما هستم."),
+            d("D", "Hi, Carla. I'm David.", "سلام کارلا. من دیویدم."),
+            d("T", "Nice to meet you, David. Are you a student?", "خوشحالم دیوید. دانش‌آموزی؟"),
+            d("D", "Yes, I am. I'm from Italy.", "بله. اهل ایتالیام."),
+            d("T", "Welcome! Is that your friend?", "خوش آمدی! آن دوستت است؟"),
+            d("D", "Yes, she's Maria. She's from Spain.", "بله، ماریاست. اهل اسپانیاست."),
+            d("M", "Hello. Nice to meet you.", "سلام. از آشنایی خوشحالم."),
+            d("T", "Welcome to the class!", "به کلاس خوش آمدید!")
         ),
         listOf(
-            q("Where is David from?",listOf("Spain","Italy","France"),1),
-            q("Who is the teacher?",listOf("David","Maria","Carla"),2),
-            q("___ you a student?",listOf("Am","Is","Are"),2),
-            q("___ is my friend. (Maria)",listOf("He","She","It"),1)
+            q("Where is David from?", listOf("Spain", "Italy", "France"), 1),
+            q("Who is the teacher?", listOf("David", "Maria", "Carla"), 2),
+            q("___ you a student?", listOf("Am", "Is", "Are"), 2),
+            q("___ is my friend. (Maria)", listOf("He", "She", "It"), 1)
         ),
-        idioms = listOf(IdiomExpression("Nice to meet you","از آشنایی خوشحالم","Nice to meet you!","از آشنایی خوشحالم!")),
-        pronunciation = listOf(PronunciationTip("Contractions","Practice: I'm /aɪm/, you're /jʊər/, he's /hiːz/, she's /ʃiːz/.")),
-        culture = listOf(CulturalNote("First names","In English-speaking classrooms, teachers and students often use first names.")),
-        mistakes = listOf(CommonMistake("I is David.","I am David.","Use 'am' with 'I'."))
+        idioms = listOf(IdiomExpression("Nice to meet you", "از آشنایی خوشحالم", "Nice to meet you!", "از آشنایی خوشحالم!")),
+        pron = listOf(PronunciationTip("Contractions", "I'm /aɪm/, you're /jʊər/, he's /hiːz/.")),
+        cult = listOf(CulturalNote("First names", "English speakers often use first names immediately.")),
+        mis = listOf(CommonMistake("I is David.", "I am David.", "Use 'am' with 'I'."))
     )
 
-    // ═══ 1B ═══
-    private fun file1B() = base(2, "One world", "یک جهان",
-        listOf("Talk about countries and nationalities","Use verb be (plural)","Say numbers 11-30"),
+    private fun f1B() = base(
+        2, "1B — One world", "۱B — یک جهان",
+        listOf("Talk about countries", "Use verb be (plural)", "Talk about nationalities"),
         listOf(
-            v("country","کشور","Which country are you from?","اهل کدام کشوری؟"),
-            v("nationality","ملیت","What's your nationality?","ملیتت چیست؟"),
-            v("British","بریتانیایی","They're British.","آن‌ها بریتانیایی هستند.","adjective"),
-            v("American","آمریکایی","He's American.","او آمریکایی است.","adjective"),
-            v("Chinese","چینی","She's Chinese.","او چینی است.","adjective"),
-            v("world","جهان","It's a small world.","جهان کوچکی است."),
-            v("city","شهر","London is a big city.","لندن شهر بزرگی است."),
-            v("flag","پرچم","The flag is red.","پرچم قرمز است.")
+            v("country", "کشور", "Which country are you from?", "اهل کدام کشوری؟"),
+            v("nationality", "ملیت", "What's your nationality?", "ملیتت چیست؟"),
+            v("British", "بریتانیایی", "They're British.", "آن‌ها بریتانیایی هستند.", "adjective"),
+            v("American", "آمریکایی", "He's American.", "او آمریکایی است.", "adjective"),
+            v("world", "جهان", "It's a small world.", "جهان کوچکی است."),
+            v("city", "شهر", "London is big.", "لندن بزرگ است.")
         ),
         listOf(
-            GrammarSection("Verb be (plural)","We are, you are, they are. Contractions: we're, you're, they're."),
-            GrammarSection("Questions with be","Where are you from? What's your nationality? Are they British?")
+            GrammarSection("Verb be (plural)", "We are, you are, they are. Contractions: we're, you're, they're."),
+            GrammarSection("Questions with be", "Where are you from? Are they British?")
         ),
         listOf(
-            d("Tom","Hi! Are you from Britain?","سلام! اهل بریتانیایی؟"),
-            d("Lena","No, we aren't. We're from Germany.","نه. اهل آلمانیم."),
-            d("Tom","Oh sorry! Are you on holiday?","اوه ببخشید! در تعطیلات هستید؟"),
-            d("Lena","Yes, we are. Two weeks.","بله. دو هفته."),
-            d("Tom","And who's he?","و او کیست؟"),
-            d("Lena","He's my brother. He's a student in Berlin.","او برادرم است. در برلین دانشجو است."),
-            d("Tom","Are you all from Germany?","همگی اهل آلمانید؟"),
-            d("Lena","Yes. But our mother is Italian.","بله. ولی مادرمان ایتالیایی است."),
-            d("Tom","It's a small world!","جهان کوچکی است!")
+            d("Tom", "Are you from Britain?", "اهل بریتانیایی؟"),
+            d("Lena", "No, we aren't. We're from Germany.", "نه. اهل آلمانیم."),
+            d("Tom", "Are you on holiday?", "در تعطیلات هستید؟"),
+            d("Lena", "Yes, we are. Two weeks.", "بله. دو هفته."),
+            d("Tom", "Who's he?", "او کیست؟"),
+            d("Lena", "My brother. He's a student in Berlin.", "برادرم. در برلین دانشجو است."),
+            d("Tom", "Are you all from Germany?", "همگی اهل آلمانید؟"),
+            d("Lena", "Yes, but our mother is Italian.", "بله، ولی مادرمان ایتالیایی است.")
         ),
         listOf(
-            q("Where is Lena from?",listOf("Britain","Germany","Italy"),1),
-            q("Where is her brother a student?",listOf("Munich","Berlin","Rome"),1),
-            q("We ___ from Germany.",listOf("am","is","are"),2),
-            q("___ they British?",listOf("Am","Is","Are"),2)
+            q("Where is Lena from?", listOf("Britain", "Germany", "Italy"), 1),
+            q("Where is her brother a student?", listOf("Munich", "Berlin", "Rome"), 1),
+            q("We ___ from Germany.", listOf("am", "is", "are"), 2),
+            q("___ they British?", listOf("Am", "Is", "Are"), 2)
+        ),
+        idioms = listOf(IdiomExpression("On holiday", "در تعطیلات", "We're on holiday.", "در تعطیلاتیم.")),
+        pron = listOf(PronunciationTip("Nationalities", "GERmany → iTALian → chiNESE")),
+        cult = listOf(CulturalNote("Capital letters", "Nationalities start with capital letters.")),
+        mis = listOf(CommonMistake("We is from Germany.", "We are from Germany.", "Use 'are' with we."))
+    )
+
+    private fun f1C() = base(
+        3, "1C — What's your email?", "۱C — ایمیلت چیه؟",
+        listOf("Give personal info", "Use possessive adjectives", "Spell names"),
+        listOf(
+            v("email", "ایمیل", "What's your email?", "ایمیلت چیه؟"),
+            v("phone number", "شماره تلفن", "My phone number is...", "شماره تلفنم..."),
+            v("address", "آدرس", "What's your address?", "آدرست چیه؟"),
+            v("surname", "نام خانوادگی", "My surname is Smith.", "فامیلیم اسمیت است."),
+            v("spell", "هجی کردن", "How do you spell it?", "چطور هجی می‌کنی؟", "verb"),
+            v("number", "شماره", "What's your number?", "شمارت چیه؟")
+        ),
+        listOf(
+            GrammarSection("Possessive adjectives", "my, your, his, her. My name... His phone..."),
+            GrammarSection("Wh- questions", "What's your name? Where's your address? Who's your teacher?")
+        ),
+        listOf(
+            d("A", "What's your surname?", "فامیلیت چیه؟"),
+            d("B", "Kowalski. K-O-W-A-L-S-K-I.", "کوالسکی. ک-و-ا-ل-س-ک-ی."),
+            d("A", "And your first name?", "و اسم کوچکت؟"),
+            d("B", "Maria. M-A-R-I-A.", "ماریا. م-ا-ر-ی-ا."),
+            d("A", "What's your email?", "ایمیلت چیه؟"),
+            d("B", "maria.kowalski@gmail.com.", "ماریا.کوالسکی@gmail.com."),
+            d("A", "Can you repeat that?", "تکرار می‌کنی؟"),
+            d("B", "M-A-R-I-A dot K-O-W-A-L-S-K-I at gmail dot com.", "م-ا-ر-ی-ا نقطه ک-و-ا-ل-س-ک-ی ات gmail نقطه com.")
+        ),
+        listOf(
+            q("What's B's surname?", listOf("Maria", "Kowalski", "Smith"), 1),
+            q("What's B's email domain?", listOf("yahoo", "gmail", "hotmail"), 1),
+            q("This is Tom. ___ phone is new.", listOf("Her", "His", "My"), 1),
+            q("___ is your email?", listOf("What", "Who", "Where"), 0)
+        ),
+        idioms = listOf(IdiomExpression("Got it", "فهمیدم", "Got it, thanks.", "فهمیدم، ممنون.")),
+        pron = listOf(PronunciationTip("Spelling", "A /eɪ/, E /iː/, I /aɪ/, O /oʊ/, U /juː/")),
+        cult = listOf(CulturalNote("Email", "'@' is 'at', '.' is 'dot'.")),
+        mis = listOf(CommonMistake("How you spell?", "How do you spell?", "Use 'do'."))
+    )
+
+    // ═══════════════════ FILE 2 ═══════════════════
+
+    private fun f2A() = base(
+        4, "2A — Are you tidy or untidy?", "۲A — مرتبی یا نامرتب؟",
+        listOf("Talk about objects", "Use a/an", "Use this/that/these/those"),
+        listOf(
+            v("tidy", "مرتب", "My desk is tidy.", "میزم مرتب است.", "adjective"),
+            v("untidy", "نامرتب", "His room is untidy.", "اتاقش نامرتب است.", "adjective"),
+            v("desk", "میز", "Books on the desk.", "کتاب‌ها روی میز."),
+            v("charger", "شارژر", "I need my charger.", "شارژرم را لازم دارم."),
+            v("umbrella", "چتر", "Take an umbrella.", "چتر بردار."),
+            v("keys", "کلیدها", "Where are my keys?", "کلیدهام کجاست؟")
+        ),
+        listOf(
+            GrammarSection("a / an", "a before consonants: a book. an before vowels: an umbrella."),
+            GrammarSection("this/that/these/those", "this (near, sing.), that (far, sing.), these (near, pl.), those (far, pl.)."),
+            GrammarSection("in / on / under", "in the bag, on the desk, under the chair.")
+        ),
+        listOf(
+            d("A", "Are you tidy or untidy?", "مرتبی یا نامرتب؟"),
+            d("B", "Very untidy! My desk is a mess.", "خیلی نامرتب! میزم به هم ریخته."),
+            d("A", "What's on your desk?", "چی روی میزته؟"),
+            d("B", "Books, papers, an old coffee cup.", "کتاب، کاغذ، یک فنجان قهوه قدیمی."),
+            d("A", "Where are your keys?", "کلیدهایت کجاست؟"),
+            d("B", "Not in my bag!", "در کیسم نیست!"),
+            d("A", "Under the papers?", "زیر کاغذها؟"),
+            d("B", "Yes! Here they are.", "بله! ایناهاشون.")
+        ),
+        listOf(
+            q("Where are B's keys?", listOf("in the bag", "under the papers", "on the desk"), 1),
+            q("What's on B's desk?", listOf("books and papers", "a laptop", "shoes"), 0),
+            q("There is ___ umbrella.", listOf("a", "an", "the"), 1),
+            q("___ books are mine.", listOf("This", "These", "That"), 1)
+        ),
+        idioms = listOf(IdiomExpression("A mess", "به هم ریخته", "My desk is a mess.", "میزم به هم ریخته.")),
+        pron = listOf(PronunciationTip("Plural -s", "/s/ books, /z/ keys, /ɪz/ watches")),
+        cult = listOf(CulturalNote("Tidiness", "Attitudes to tidiness vary.")),
+        mis = listOf(CommonMistake("a umbrella", "an umbrella", "Use 'an' before vowels."))
+    )
+
+    private fun f2B() = base(
+        5, "2B — Made in America", "۲B — ساخت آمریکا",
+        listOf("Use adjectives", "Talk about colours", "Use modifiers"),
+        listOf(
+            v("colour", "رنگ", "What colour?", "چه رنگی؟"),
+            v("red", "قرمز", "The flag is red.", "پرچم قرمز است.", "adjective"),
+            v("blue", "آبی", "A blue jacket.", "یک کاپشن آبی.", "adjective"),
+            v("big", "بزرگ", "Canada is big.", "کانادا بزرگ است.", "adjective"),
+            v("small", "کوچک", "A small world.", "جهان کوچک.", "adjective"),
+            v("beautiful", "زیبا", "A beautiful city.", "شهر زیبا.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Adjectives", "Before nouns: a big country. After be: Canada is big."),
+            GrammarSection("Modifiers", "very, really, quite. It's very big.")
+        ),
+        listOf(
+            d("A", "What colour is the American flag?", "پرچم آمریکا چه رنگیه؟"),
+            d("B", "Red, white, blue. Fifty stars.", "قرمز، سفید، آبی. پنجاه ستاره."),
+            d("A", "Many American products here?", "محصولات آمریکایی زیاد اینجاست؟"),
+            d("B", "A lot. iPhones, Coca-Cola, McDonald's.", "زیاد. آیفون، کوکاکولا، مک‌دونالد."),
+            d("A", "Favourite American brand?", "برند آمریکایی مورد علاقه؟"),
+            d("B", "Apple. Their products are beautiful.", "اپل. محصولاتشان زیباست."),
+            d("A", "But quite expensive.", "ولی کاملاً گران."),
+            d("B", "Very expensive! But good quality.", "خیلی گران! ولی کیفیت خوب.")
+        ),
+        listOf(
+            q("Colours of American flag?", listOf("red, white, blue", "red, yellow, green", "blue, black"), 0),
+            q("Which brand does B like?", listOf("Nike", "Apple", "Levi's"), 1),
+            q("Canada is a ___ country.", listOf("big", "bigger", "biggest"), 0),
+            q("It's ___ beautiful city.", listOf("very", "much", "many"), 0)
+        ),
+        idioms = listOf(IdiomExpression("Me too", "من هم", "Me too!", "من هم!")),
+        pron = listOf(PronunciationTip("Adjective stress", "a BIG country, a BEAUtiful city")),
+        cult = listOf(CulturalNote("Global brands", "Many American brands make products worldwide.")),
+        mis = listOf(CommonMistake("a country big", "a big country", "Adjective before noun."))
+    )
+
+    private fun f2C() = base(
+        6, "2C — Slow down!", "۲C — آهسته‌تر!",
+        listOf("Use imperatives", "Use let's", "Talk about feelings"),
+        listOf(
+            v("slow down", "آهسته‌تر", "Slow down!", "آهسته‌تر!", "verb"),
+            v("hungry", "گرسنه", "I'm hungry.", "گرسنه‌ام.", "adjective"),
+            v("thirsty", "تشنه", "She's thirsty.", "تشنه است.", "adjective"),
+            v("hot", "گرم", "It's hot.", "گرم است.", "adjective"),
+            v("cold", "سرد", "I'm cold.", "سردم است.", "adjective"),
+            v("tired", "خسته", "We're tired.", "خسته‌ایم.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Imperatives", "Open the door. Don't close it. Turn off the TV."),
+            GrammarSection("Let's", "Let's eat. Let's go home.")
+        ),
+        listOf(
+            d("A", "Lisa, slow down! You're driving too fast.", "لیزا، آهسته! تند می‌رانی."),
+            d("B", "Sorry! I'm tired.", "ببخشید! خسته‌ام."),
+            d("A", "Are you hungry?", "گرسنه‌ای؟"),
+            d("B", "Yes, very. And thirsty too.", "بله، خیلی. و تشنه."),
+            d("A", "Let's stop at the next cafe.", "بیا در کافه بعدی توقف کنیم."),
+            d("B", "Good idea. I need a coffee.", "فکر خوبی. قهوه لازم دارم."),
+            d("A", "Are you cold?", "سردت است؟"),
+            d("B", "No, hot. Open the window, please.", "نه، گرمم. پنجره را باز کن.")
+        ),
+        listOf(
+            q("Why is B driving fast?", listOf("happy", "tired", "excited"), 1),
+            q("What does A suggest?", listOf("stop at a cafe", "go home", "drive faster"), 0),
+            q("___ the window. It's hot.", listOf("Open", "Close", "Don't"), 0),
+            q("I'm ___. Let's eat.", listOf("thirsty", "hungry", "tired"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Good idea", "فکر خوبی", "Good idea!", "فکر خوبی!")),
+        pron = listOf(PronunciationTip("Imperatives", "Falling intonation: OPEN the door.")),
+        cult = listOf(CulturalNote("Safe driving", "Drive slowly near homes.")),
+        mis = listOf(CommonMistake("Don't to open", "Don't open", "Use base verb."))
+    )
+
+    // ═══════════════════ PRACTICAL ENGLISH 1 ═══════════════════
+
+    private fun pe1() = base(
+        7, "PE1 — Checking in", "انگلیسی کاربردی ۱ — پذیرش هتل",
+        listOf("Check into a hotel", "Spell your name", "Polite requests"),
+        listOf(
+            v("reception", "پذیرش", "Go to reception.", "به پذیرش برو."),
+            v("check in", "پذیرش شدن", "I'd like to check in.", "می‌خواهم پذیرش شوم.", "verb"),
+            v("reservation", "رزرو", "I have a reservation.", "رزرو دارم."),
+            v("key card", "کارت کلید", "Here's your key card.", "این کارت کلید."),
+            v("lift", "آسانسور", "The lift is on the left.", "آسانسور سمت چپ."),
+            v("passport", "پاسپورت", "Your passport, please.", "پاسپورت لطفاً.")
+        ),
+        listOf(
+            GrammarSection("Polite requests", "I'd like... Can I...? Could you...?"),
+            GrammarSection("Checking in", "I have a reservation. My name is...")
+        ),
+        listOf(
+            d("R", "Good evening. Can I help you?", "عصر بخیر. کمکی کنم؟"),
+            d("G", "Yes, I have a reservation. Kowalski.", "بله، رزرو دارم. کوالسکی."),
+            d("R", "How do you spell that?", "چطور هجی می‌کنید؟"),
+            d("G", "K-O-W-A-L-S-K-I.", "ک-و-ا-ل-س-ک-ی."),
+            d("R", "Can I see your passport?", "پاسپورتتان؟"),
+            d("G", "Here you are.", "بفرمایید."),
+            d("R", "You're in room 305. Is breakfast included?", "اتاق ۳۰۵. صبحانه شامل؟"),
+            d("G", "Yes, 7 to 10 in the restaurant.", "بله، ۷ تا ۱۰ در رستوران."),
+            d("R", "Where's the lift?", "آسانسور کجاست؟"),
+            d("G", "On the left. Enjoy your stay!", "سمت چپ. اقامت خوبی داشته باشید!")
+        ),
+        listOf(
+            q("What room is the guest in?", listOf("305", "350", "503"), 0),
+            q("What time is breakfast?", listOf("6-9", "7-10", "8-11"), 1),
+            q("___ I see your passport?", listOf("Can", "Do", "Am"), 0),
+            q("I ___ like to check in.", listOf("would", "will", "am"), 0)
+        ),
+        idioms = listOf(IdiomExpression("Here you are", "بفرمایید", "Here you are.", "بفرمایید.")),
+        pron = listOf(PronunciationTip("Polite rise", "Can I see your PASSPORT? ↗")),
+        cult = listOf(CulturalNote("Hotel ID", "Need passport or ID to check in.")),
+        mis = listOf(CommonMistake("I have reservation.", "I have a reservation.", "Add 'a'."))
+    )
+
+    // ═══════════════════ REVISE & CHECK 1&2 ═══════════════════
+
+    private fun rc12() = base(
+        8, "R&C 1 & 2", "مرور ۱ و ۲",
+        listOf("Review verb be", "Review possessives", "Review a/an and this/that"),
+        listOf(
+            v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
+            v("exercise", "تمرین", "Do the exercises.", "تمرین‌ها را انجام بده."),
+            v("mistake", "اشتباه", "Learn from mistakes.", "از اشتباهات یاد بگیر."),
+            v("practice", "تمرین", "Practice daily.", "هر روز تمرین کن.", "verb"),
+            v("grammar", "گرامر", "Grammar is important.", "گرامر مهم است."),
+            v("vocabulary", "واژگان", "Learn vocabulary.", "واژگان یاد بگیر.")
+        ),
+        listOf(
+            GrammarSection("Verb be review", "I am, you are, he/she/it is, we/you/they are."),
+            GrammarSection("Articles", "a book, an umbrella, the book."),
+            GrammarSection("Possessives", "my, your, his, her, its, our, their.")
+        ),
+        listOf(
+            d("T", "Review Files 1-2. What did we learn?", "مرور فایل‌های ۱-۲. چه یاد گرفتیم؟"),
+            d("A", "Verb be! I am, you are, he is...", "فعل be! I am، you are، he is..."),
+            d("B", "Possessive adjectives. My, your, his, her.", "صفت ملکی. My، your، his، her."),
+            d("T", "What about a/an?", "a/an چطور؟"),
+            d("A", "a before consonants, an before vowels.", "a قبل از صامت، an قبل از مصوت."),
+            d("T", "Excellent! You remember.", "عالی! یادت هست."),
+            d("B", "And this/that/these/those.", "و this/that/these/those."),
+            d("T", "Great job!", "آفرین!")
+        ),
+        listOf(
+            q("Which be with 'they'?", listOf("am", "is", "are"), 2),
+            q("Which article before 'umbrella'?", listOf("a", "an", "the"), 1),
+            q("___ is my book. (near)", listOf("This", "These", "Those"), 0),
+            q("___ open the door!", listOf("Not", "Don't", "No"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Let's review", "بیایید مرور کنیم", "Let's review.", "بیایید مرور کنیم.")),
+        pron = listOf(PronunciationTip("Intonation", "Statements fall, questions rise.")),
+        cult = listOf(CulturalNote("Review", "Regular review is essential.")),
+        mis = listOf(CommonMistake("They is happy.", "They are happy.", "Use 'are' for plural."))
+    )
+
+    // ═══════════════════ FILE 3 ═══════════════════
+
+    private fun f3A() = base(
+        9, "3A — Britain: the good and the bad", "۳A — بریتانیا: خوب و بد",
+        listOf("Present simple (+/-)", "Likes and dislikes", "Talk about countries"),
+        listOf(
+            v("weather", "هوا", "The weather is bad.", "هوا بد است."),
+            v("food", "غذا", "British food isn't famous.", "غذای بریتانیایی معروف نیست."),
+            v("people", "مردم", "The people are friendly.", "مردم خوش‌برخوردند."),
+            v("city", "شهر", "A great city.", "شهر بزرگی."),
+            v("countryside", "حومه", "Beautiful countryside.", "حومه زیبا."),
+            v("tea", "چای", "They love tea.", "عاشق چای هستند.")
+        ),
+        listOf(
+            GrammarSection("Present simple (+)","I like, he likes."),
+            GrammarSection("Present simple (-)","I don't like, he doesn't like.")
+        ),
+        listOf(
+            d("A", "What do you think of Britain?", "نظرت درباره بریتانیا؟"),
+            d("B", "The people are very friendly.", "مردم خیلی خوش‌برخوردند."),
+            d("A", "And the bad thing?", "و بدی‌اش؟"),
+            d("B", "The weather! It rains all the time.", "هوا! همیشه باران."),
+            d("A", "But the countryside is beautiful.", "ولی حومه زیباست."),
+            d("B", "Yes, and I love British tea too.", "بله، و چای بریتانیایی را هم دوست دارم."),
+            d("A", "Do you like British food?", "غذای بریتانیایی دوست داری؟"),
+            d("B", "Not really. I don't like fish and chips.", "نه زیاد. ماهی و سیب‌زمینی دوست ندارم.")
+        ),
+        listOf(
+            q("What does B like?", listOf("food", "people", "weather"), 1),
+            q("What doesn't B like?", listOf("tea", "fish and chips", "countryside"), 1),
+            q("I ___ fish and chips.", listOf("not like", "don't like", "doesn't like"), 1),
+            q("She ___ British tea.", listOf("love", "loves", "loving"), 1)
+        ),
+        idioms = listOf(IdiomExpression("All the time", "همیشه", "It rains all the time.", "همیشه باران می‌آید.")),
+        pron = listOf(PronunciationTip("Third-person -s", "likes /laɪks/, loves /lʌvz/")),
+        cult = listOf(CulturalNote("Pubs", "Important part of British social life.")),
+        mis = listOf(CommonMistake("I no like tea.", "I don't like tea.", "Use don't/doesn't."))
+    )
+
+    private fun f3B() = base(
+        10, "3B — Love me, love my dog", "۳B — منو دوست داشته باش، سگمو هم",
+        listOf("Present simple questions", "Question words", "Talk about pets"),
+        listOf(
+            v("dog", "سگ", "I have a dog.", "سگ دارم."),
+            v("cat", "گربه", "Two cats.", "دو گربه."),
+            v("pet", "حیوان خانگی", "Any pets?", "حیوان خانگی؟"),
+            v("walk", "پیاده‌روی", "Walk the dog.", "سگ را پیاده‌روی ببر.", "verb"),
+            v("feed", "غذا دادن", "Who feeds the cat?", "کی به گربه غذا می‌دهد؟", "verb"),
+            v("sleep", "خوابیدن", "The cat sleeps.", "گربه می‌خوابد.", "verb")
+        ),
+        listOf(
+            GrammarSection("Present simple questions", "Do you...? Does he...? Yes, I do. / No, I don't."),
+            GrammarSection("Question words", "What, Where, When, Who, Why, How.")
+        ),
+        listOf(
+            d("A", "Do you have any pets?", "حیوان خانگی داری؟"),
+            d("B", "Yes, a dog. His name is Barry.", "بله، یک سگ. اسمش بری."),
+            d("A", "What's he like?", "چه جوریه؟"),
+            d("B", "Very friendly. Loves people.", "خیلی خوش‌برخورد. عاشق مردم."),
+            d("A", "Do you walk him every day?", "هر روز پیاده‌روی می‌بری؟"),
+            d("B", "Yes, twice a day.", "بله، دو بار در روز."),
+            d("A", "Does he like other dogs?", "سگ‌های دیگر دوست دارد؟"),
+            d("B", "Most. But not big dogs.", "بیشترشان. ولی سگ بزرگ نه.")
+        ),
+        listOf(
+            q("What pet does B have?", listOf("cat", "dog", "bird"), 1),
+            q("How often walk?", listOf("once", "twice", "three times"), 1),
+            q("___ you like dogs?", listOf("Do", "Does", "Are"), 0),
+            q("___ she have a cat?", listOf("Do", "Does", "Is"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Twice a day", "دو بار در روز", "Twice a day.", "دو بار در روز.")),
+        pron = listOf(PronunciationTip("Do/Does", "Weak: Do you /də jə/")),
+        cult = listOf(CulturalNote("Pets", "50% of UK homes have a pet.")),
+        mis = listOf(CommonMistake("Does she likes cats?", "Does she like cats?", "Use base verb."))
+    )
+
+    private fun f3C() = base(
+        11, "3C — From morning to night", "۳C — از صبح تا شب",
+        listOf("Daily routines", "Time expressions", "Adverbs of frequency"),
+        listOf(
+            v("wake up", "بیدار شدن", "I wake up at 7.", "ساعت ۷ بیدار می‌شوم.", "verb"),
+            v("get up", "بلند شدن", "She gets up early.", "زود بلند می‌شود.", "verb"),
+            v("have breakfast", "صبحانه خوردن", "Have breakfast at 8.", "ساعت ۸ صبحانه.", "verb"),
+            v("go to work", "به سر کار رفتن", "Go to work at 9.", "ساعت ۹ به کار.", "verb"),
+            v("come home", "به خانه آمدن", "Come home at 6.", "ساعت ۶ به خانه.", "verb"),
+            v("go to bed", "خوابیدن", "Go to bed at 11.", "ساعت ۱۱ خواب.", "verb")
+        ),
+        listOf(
+            GrammarSection("Present simple + time", "I get up at 7. She has lunch at 12.30."),
+            GrammarSection("Adverbs of frequency", "always, usually, often, sometimes, never — before main verb."),
+            GrammarSection("Telling time", "at 7, at half past 8, at quarter to 9.")
+        ),
+        listOf(
+            d("A", "What time do you get up?", "چه ساعتی بیدار می‌شوی؟"),
+            d("B", "Usually at 7.", "معمولاً ساعت ۷."),
+            d("A", "Breakfast?", "صبحانه؟"),
+            d("B", "Always. Coffee and toast.", "همیشه. قهوه و نان تست."),
+            d("A", "Go to work?", "به سر کار؟"),
+            d("B", "Leave at 8.30. Start work at 9.", "ساعت ۸:۳۰ می‌روم. ساعت ۹ شروع."),
+            d("A", "Finish?", "تمام؟"),
+            d("B", "5.30. Then gym.", "۵:۳۰. بعد باشگاه.")
+        ),
+        listOf(
+            q("What time get up?", listOf("6:00", "7:00", "8:00"), 1),
+            q("After work?", listOf("home", "gym", "park"), 1),
+            q("I ___ get up early.", listOf("usual", "usually", "usualy"), 1),
+            q("Lunch ___ 12.30.", listOf("in", "on", "at"), 2)
+        ),
+        idioms = listOf(IdiomExpression("Half past", "نیم ساعت بعد", "Half past 8.", "ساعت ۸:۳۰.")),
+        pron = listOf(PronunciationTip("Time", "7.15 = quarter past seven")),
+        cult = listOf(CulturalNote("Routines", "Vary across cultures.")),
+        mis = listOf(CommonMistake("at 7 in the morning AM", "at 7 in the morning", "No 'AM' with 'in the morning'."))
+    )
+
+    // ═══════════════════ FILE 4 ═══════════════════
+
+    private fun f4A() = base(
+        12, "4A — Blue Zones", "۴A — مناطق آبی",
+        listOf("Present simple review", "Healthy lifestyle", "Frequency expressions"),
+        listOf(
+            v("healthy", "سالم", "Healthy lifestyle.", "سبک زندگی سالم.", "adjective"),
+            v("exercise", "ورزش", "Exercise daily.", "هر روز ورزش."),
+            v("diet", "رژیم", "Mediterranean diet.", "رژیم مدیترانه‌ای."),
+            v("stress", "استرس", "Too much stress.", "استرس زیاد."),
+            v("vegetables", "سبزیجات", "Lots of vegetables.", "سبزیجات زیاد."),
+            v("fruit", "میوه", "Fruit is good.", "میوه خوب است.")
+        ),
+        listOf(
+            GrammarSection("Present simple review", "I exercise. She doesn't smoke. Do you eat vegetables?"),
+            GrammarSection("Frequency", "every day, once a week, twice a month.")
+        ),
+        listOf(
+            d("A", "What are Blue Zones?", "مناطق آبی چیست؟"),
+            d("B", "Places where people live long lives.", "مکان‌هایی که مردم عمر طولانی دارند."),
+            d("A", "Where?", "کجا؟"),
+            d("B", "Japan, Italy, Greece, California.", "ژاپن، ایتالیا، یونان، کالیفرنیا."),
+            d("A", "Secret?", "راز؟"),
+            d("B", "Healthy lifestyle. Vegetables and fruit.", "سبک زندگی سالم. سبزیجات و میوه."),
+            d("A", "How often meat?", "چند وقت یکبار گوشت؟"),
+            d("B", "Once or twice a week.", "یک یا دو بار در هفته.")
+        ),
+        listOf(
+            q("Where are Blue Zones?", listOf("Japan, Italy, Greece", "Japan, China, Korea", "Italy, France, Spain"), 0),
+            q("How often meat?", listOf("every day", "once or twice a week", "never"), 1),
+            q("How often ___ you exercise?", listOf("do", "does", "are"), 0),
+            q("She ___ eat fast food.", listOf("don't", "doesn't", "isn't"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Long life", "زندگی طولانی", "Long lives.", "زندگی طولانی.")),
+        pron = listOf(PronunciationTip("Frequency", "EVery day, TWICE a week")),
+        cult = listOf(CulturalNote("Blue Zones", "Regions with long-living populations.")),
+        mis = listOf(CommonMistake("How often you exercise?", "How often do you exercise?", "Use 'do'."))
+    )
+
+    private fun f4B() = base(
+        13, "4B — Vote for me!", "۴B — به من رأی بده!",
+        listOf("Can/Can't", "Abilities", "Adverbs of manner"),
+        listOf(
+            v("vote", "رأی دادن", "Vote for me!", "به من رأی بده!", "verb"),
+            v("leader", "رهبر", "A good leader.", "رهبر خوب."),
+            v("promise", "قول دادن", "I promise.", "قول می‌دهم.", "verb"),
+            v("change", "تغییر", "We need change.", "به تغییر نیاز داریم."),
+            v("future", "آینده", "Think about future.", "به آینده فکر کن."),
+            v("honest", "صادق", "He's honest.", "او صادق است.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Can / Can't", "Ability: I can swim. Permission: Can I go? You can't smoke."),
+            GrammarSection("Adverbs of manner", "quickly, slowly, well, badly. She speaks well.")
+        ),
+        listOf(
+            d("A", "Are you going to vote?", "رأی می‌دهی؟"),
+            d("B", "Yes. But don't know who.", "بله. ولی نمی‌دانم به کی."),
+            d("A", "What in a leader?", "چه چیزی در یک رهبر؟"),
+            d("B", "Honest and smart. Can make change.", "صادق و باهوش. بتواند تغییر دهد."),
+            d("A", "Can you trust politicians?", "به سیاستمداران اعتماد داری؟"),
+            d("B", "Not always. But some are good.", "نه همیشه. ولی بعضی خوبند."),
+            d("A", "Most important things?", "مهم‌ترین چیزها؟"),
+            d("B", "Education, healthcare. Everyone can go to school.", "آموزش، بهداشت. همه به مدرسه بروند.")
+        ),
+        listOf(
+            q("Leader qualities?", listOf("rich", "honest and smart", "famous"), 1),
+            q("Most important?", listOf("education and healthcare", "sports", "music"), 0),
+            q("She ___ speak 3 languages.", listOf("can", "cans", "can to"), 0),
+            q("He speaks English ___.", listOf("good", "well", "nice"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Good for you", "آفرین", "Good for you!", "آفرین!")),
+        pron = listOf(PronunciationTip("Can/Can't", "can /kæn/ vs. can't /kɑːnt/")),
+        cult = listOf(CulturalNote("Voting", "Right and responsibility.")),
+        mis = listOf(CommonMistake("She cans swim.", "She can swim.", "No -s on modals."))
+    )
+
+    private fun f4C() = base(
+        14, "4C — A quiet life?", "۴C — یک زندگی آرام؟",
+        listOf("Present continuous", "Contrast with present simple", "Describe scenes"),
+        listOf(
+            v("quiet", "آرام", "A quiet life.", "زندگی آرام.", "adjective"),
+            v("noisy", "پر سر و صدا", "Noisy city.", "شهر پر سر و صدا.", "adjective"),
+            v("relax", "استراحت", "I'm relaxing.", "دارم استراحت می‌کنم.", "verb"),
+            v("enjoy", "لذت بردن", "Enjoying sunshine.", "از آفتاب لذت می‌برم.", "verb"),
+            v("read", "خواندن", "Reading a book.", "کتاب می‌خوانم.", "verb"),
+            v("watch", "تماشا", "Watching TV.", "تلویزیون تماشا می‌کنم.", "verb")
+        ),
+        listOf(
+            GrammarSection("Present continuous", "am/is/are + -ing. I'm reading. She's writing."),
+            GrammarSection("vs. Present simple", "I'm reading now. I read every day."),
+            GrammarSection("Questions", "What are you doing? Are they playing?")
+        ),
+        listOf(
+            d("A", "What are you doing?", "چه کار می‌کنی؟"),
+            d("B", "Relaxing. Reading a book.", "استراحت. کتاب می‌خوانم."),
+            d("A", "Good?", "خوبه؟"),
+            d("B", "About quiet countryside life.", "درباره زندگی آرام در حومه."),
+            d("A", "Family doing?", "خانواده چه کار می‌کنند؟"),
+            d("B", "Wife cooking. Children playing outside.", "همسرم آشپزی. بچه‌ها بیرون بازی."),
+            d("A", "What are they playing?", "چه بازی می‌کنند؟"),
+            d("B", "Football, I think.", "فوتبال، فکر می‌کنم.")
+        ),
+        listOf(
+            q("What is B doing?", listOf("watching TV", "reading", "cooking"), 1),
+            q("Children doing?", listOf("playing football", "reading", "sleeping"), 0),
+            q("She ___ writing.", listOf("am", "is", "are"), 1),
+            q("They ___ playing.", listOf("am", "is", "are"), 2)
+        ),
+        idioms = listOf(IdiomExpression("Me neither", "من هم (منفی)", "Me neither.", "من هم.")),
+        pron = listOf(PronunciationTip("Present continuous stress", "I'm READing")),
+        cult = listOf(CulturalNote("Quiet evenings", "People value quiet time at home.")),
+        mis = listOf(CommonMistake("What you are doing?", "What are you doing?", "Verb before subject."))
+    )
+
+    // ═══════════════════ PE 2 ═══════════════════
+
+    private fun pe2() = base(
+        15, "PE2 — At a restaurant", "انگلیسی کاربردی ۲ — در رستوران",
+        listOf("Order food", "Ask for bill", "Polite requests"),
+        listOf(
+            v("menu", "منو", "See the menu?", "منو را ببینم؟"),
+            v("order", "سفارش", "Ready to order?", "آماده سفارش؟", "verb"),
+            v("starter", "پیش‌غذا", "Soup for starters.", "سوپ برای پیش‌غذا."),
+            v("main course", "غذای اصلی", "Chicken for main.", "مرغ برای اصلی."),
+            v("dessert", "دسر", "Would you like dessert?", "دسر میل دارید؟"),
+            v("bill", "صورت‌حساب", "The bill, please.", "صورت‌حساب لطفاً.")
+        ),
+        listOf(
+            GrammarSection("Ordering", "I'll have... I'd like... Can I have...?"),
+            GrammarSection("Polite requests", "Could I have...? Would you like...?")
+        ),
+        listOf(
+            d("W", "A table for two?", "میز برای دو نفر؟"),
+            d("A", "Yes, please. Menu?", "بله. منو؟"),
+            d("W", "Here you are. Something to drink?", "بفرمایید. نوشیدنی؟"),
+            d("A", "Still water, please.", "آب بدون گاز لطفاً."),
+            d("B", "Sparkling for me.", "برای من گازدار."),
+            d("W", "Ready to order?", "آماده سفارش؟"),
+            d("A", "Soup for starters, then chicken.", "سوپ برای پیش‌غذا، بعد مرغ."),
+            d("B", "Vegetarian pasta, please.", "پاستای گیاهی لطفاً."),
+            d("W", "Anything else?", "چیز دیگری؟"),
+            d("A", "The bill, please.", "صورت‌حساب لطفاً.")
+        ),
+        listOf(
+            q("B's main course?", listOf("chicken", "pasta", "salad"), 1),
+            q("A's water?", listOf("still", "sparkling", "hot"), 0),
+            q("I ___ have the soup.", listOf("will", "am", "do"), 0),
+            q("Can we ___ the bill?", listOf("have", "has", "having"), 0)
+        ),
+        idioms = listOf(IdiomExpression("Anything else?", "چیز دیگری؟", "Anything else?", "چیز دیگری؟")),
+        pron = listOf(PronunciationTip("Polite", "Could I have the MENU? ↗")),
+        cult = listOf(CulturalNote("Tipping", "10-15% in UK.")),
+        mis = listOf(CommonMistake("I want chicken.", "I'd like chicken.", "Polite: I'd like."))
+    )
+
+    private fun rc34() = base(
+        16, "R&C 3 & 4", "مرور ۳ و ۴",
+        listOf("Review present simple", "Review can/can't", "Review present continuous"),
+        listOf(
+            v("review", "مرور", "Let's review.", "مرور کنیم.", "verb"),
+            v("exercise", "تمرین", "Do exercises.", "تمرین‌ها."),
+            v("grammar", "گرامر", "Grammar.", "گرامر."),
+            v("practice", "تمرین", "Practice daily.", "هر روز تمرین.", "verb"),
+            v("mistake", "اشتباه", "Correct mistakes.", "اشتباهات را درست کن."),
+            v("vocabulary", "واژگان", "Vocabulary.", "واژگان.")
+        ),
+        listOf(
+            GrammarSection("Present simple review", "I work. She doesn't work. Do you work?"),
+            GrammarSection("Present continuous review", "I'm working. Are they playing?"),
+            GrammarSection("Contrast", "I work every day. I'm working now.")
+        ),
+        listOf(
+            d("T", "Review Files 3-4.", "مرور فایل‌های ۳-۴."),
+            d("A", "Present simple for habits.", "حال ساده برای عادت."),
+            d("B", "Present continuous for now.", "حال استمراری برای الان."),
+            d("T", "Example?", "مثال؟"),
+            d("A", "I usually get up at 7, but today at 9.", "معمولاً ۷ بیدار، امروز ۹."),
+            d("T", "Adverbs of frequency?", "قیدهای تکرار؟"),
+            d("B", "Always, usually, sometimes, never. Before main verb.", "always، usually، sometimes، never. قبل از فعل."),
+            d("T", "Great!", "عالی!")
+        ),
+        listOf(
+            q("Habits?", listOf("present continuous", "present simple", "past"), 1),
+            q("Adverb position?", listOf("before main verb", "after main verb", "at end"), 0),
+            q("She ___ swim well.", listOf("can", "cans", "can to"), 0),
+            q("They ___ playing now.", listOf("am", "is", "are"), 2)
+        ),
+        idioms = listOf(IdiomExpression("Let's review", "مرور کنیم", "Let's review.", "مرور کنیم.")),
+        pron = listOf(PronunciationTip("Intonation", "Falling for statements.")),
+        cult = listOf(CulturalNote("Review", "Essential for learning.")),
+        mis = listOf(CommonMistake("She can swims.", "She can swim.", "Base verb after can."))
+    )
+
+    // ═══════════════════ FILE 5 ═══════════════════
+
+    private fun f5A() = base(
+        17, "5A — Past lives", "۵A — زندگی‌های گذشته",
+        listOf("Past simple: was/were", "Talk about the past", "Time expressions"),
+        listOf(
+            v("born", "متولد", "I was born in 1990.", "متولد ۱۹۹۰.", "verb"),
+            v("yesterday", "دیروز", "I was tired yesterday.", "دیروز خسته بودم."),
+            v("last night", "دیشب", "Last night was fun.", "دیشب خوب بود."),
+            v("famous", "معروف", "A famous writer.", "نویسنده معروف.", "adjective"),
+            v("child", "کودک", "When I was a child.", "وقتی بچه بودم."),
+            v("school", "مدرسه", "At school together.", "با هم در مدرسه.")
+        ),
+        listOf(
+            GrammarSection("Past simple: was/were", "I/he/she/it was. You/we/they were. Negative: wasn't/weren't."),
+            GrammarSection("Time expressions", "yesterday, last night, last week, in 1990.")
+        ),
+        listOf(
+            d("A", "Where were you born?", "کجا متولد شدی؟"),
+            d("B", "In a small city in Canada.", "در شهر کوچکی در کانادا."),
+            d("A", "Were you a good student?", "شاگرد خوبی بودی؟"),
+            d("B", "Yes. Very quiet.", "بله. خیلی ساکت."),
+            d("A", "First job?", "اولین شغل؟"),
+            d("B", "A waiter in a restaurant.", "پیشخدمت رستوران."),
+            d("A", "Tired?", "خسته؟"),
+            d("B", "Yes, but happy.", "بله، ولی خوشحال.")
+        ),
+        listOf(
+            q("Where was B born?", listOf("America", "Canada", "England"), 1),
+            q("First job?", listOf("teacher", "waiter", "doctor"), 1),
+            q("I ___ tired yesterday.", listOf("am", "was", "were"), 1),
+            q("They ___ at home.", listOf("was", "were", "am"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Be born", "متولد شدن", "I was born in Canada.", "در کانادا متولد شدم.")),
+        pron = listOf(PronunciationTip("Was/Were", "Weak: was /wəz/, were /wər/")),
+        cult = listOf(CulturalNote("Past talk", "Common icebreaker.")),
+        mis = listOf(CommonMistake("I were tired.", "I was tired.", "Use 'was' with I."))
+    )
+
+    private fun f5B() = base(
+        18, "5B — Past simple: regular & irregular", "۵B — گذشته: باقاعده و بی‌قاعده",
+        listOf("Past simple regular verbs", "Past simple irregular verbs", "Talk about events"),
+        listOf(
+            v("visited", "بازدید کرد", "Visited many museums.", "از موزه‌های زیادی بازدید کردم.", "verb"),
+            v("worked", "کار کرد", "Worked in a hospital.", "در بیمارستان کار کردم.", "verb"),
+            v("went", "رفت", "Went to the beach.", "به ساحل رفتم.", "verb"),
+            v("saw", "دید", "Saw a great movie.", "فیلم عالی دیدم.", "verb"),
+            v("bought", "خرید", "Bought a phone.", "موبایل خریدم.", "verb"),
+            v("had", "داشت", "Had dinner at 8.", "ساعت ۸ شام خوردم.", "verb")
+        ),
+        listOf(
+            GrammarSection("Regular verbs", "work → worked, visit → visited, stay → stayed."),
+            GrammarSection("Irregular verbs", "go → went, see → saw, buy → bought, have → had."),
+            GrammarSection("Past questions", "Did you...? Where did you go?")
+        ),
+        listOf(
+            d("A", "How was your weekend?", "آخر هفته چطور بود؟"),
+            d("B", "Great! Went to the mountains.", "عالی! به کوهستان رفتم."),
+            d("A", "What did you do?", "چی کار کردی؟"),
+            d("B", "Walked, took photos.", "پیاده‌روی، عکس گرفتم."),
+            d("A", "Where did you stay?", "کجا ماندی؟"),
+            d("B", "A small hotel. Very quiet.", "هتل کوچک. خیلی ساکت."),
+            d("A", "Food?", "غذا؟"),
+            d("B", "Traditional. Delicious.", "سنتی. خوشمزه.")
+        ),
+        listOf(
+            q("Where did B go?", listOf("beach", "mountains", "city"), 1),
+            q("Where stayed?", listOf("hotel", "grandmother's", "friend's"), 0),
+            q("We ___ to the beach.", listOf("go", "went", "gone"), 1),
+            q("She ___ a phone.", listOf("buy", "bought", "buying"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Overnight", "شب ماندن", "Stayed overnight.", "شب ماندیم.")),
+        pron = listOf(PronunciationTip("-ed endings", "/t/ walked, /d/ stayed, /ɪd/ visited")),
+        cult = listOf(CulturalNote("Weekends", "Outdoor activities popular.")),
+        mis = listOf(CommonMistake("I goed to beach.", "I went to beach.", "Go is irregular."))
+    )
+
+    private fun f5C() = base(
+        19, "5C — A trip to India", "۵C — سفر به هند",
+        listOf("Present perfect with ever/never", "Travel experiences", "Past simple vs present perfect"),
+        listOf(
+            v("trip", "سفر", "Trip to India.", "سفر به هند."),
+            v("abroad", "خارج", "Been abroad?", "خارج بوده‌ای؟"),
+            v("amazing", "شگفت‌انگیز", "Amazing experience.", "تجربه شگفت‌انگیز.", "adjective"),
+            v("crowded", "شلوغ", "Crowded streets.", "خیابان‌های شلوغ.", "adjective"),
+            v("culture", "فرهنگ", "Rich culture.", "فرهنگ غنی."),
+            v("experience", "تجربه", "Amazing experience.", "تجربه شگفت‌انگیز.")
+        ),
+        listOf(
+            GrammarSection("Present perfect with ever/never", "Have you ever been to...? I've never tried..."),
+            GrammarSection("Present perfect vs past simple", "I've been to India. / I went there in 2020.")
+        ),
+        listOf(
+            d("A", "Have you ever been to India?", "تا حالا هند بوده‌ای؟"),
+            d("B", "Yes! Went last year. Amazing.", "بله! سال پیش رفتم. شگفت‌انگیز."),
+            d("A", "How long were you there?", "چقدر آنجا بودی؟"),
+            d("B", "Three weeks. Delhi, Agra, Mumbai.", "سه هفته. دهلی، آگرا، بمبئی."),
+            d("A", "Saw the Taj Mahal?", "تاج‌محل را دیدی؟"),
+            d("B", "Yes. One of the most beautiful places I've ever seen.", "بله. یکی از زیباترین مکان‌هایی که دیده‌ام."),
+            d("A", "Try Indian food?", "غذای هندی امتحان کردی؟"),
+            d("B", "Of course! Spicy but delicious.", "البته! تند ولی خوشمزه.")
+        ),
+        listOf(
+            q("How long in India?", listOf("one week", "two weeks", "three weeks"), 2),
+            q("Which cities?", listOf("Delhi, Agra, Mumbai", "Delhi, Kolkata, Mumbai", "Agra, Chennai, Mumbai"), 0),
+            q("Have you ever ___ to Japan?", listOf("be", "been", "being"), 1),
+            q("I ___ to India in 2020.", listOf("have been", "went", "go"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Lucky you!", "خوش به حالت!", "Lucky you!", "خوش به حالت!")),
+        pron = listOf(PronunciationTip("Present perfect contractions", "I've /aɪv/, you've /juːv/")),
+        cult = listOf(CulturalNote("Taj Mahal", "UNESCO World Heritage Site.")),
+        mis = listOf(CommonMistake("I have been to India last year.", "I went to India last year.", "Past simple with specific time."))
+    )
+
+    // ═══════════════════ FILE 6 ═══════════════════
+
+    private fun f6A() = base(
+        20, "6A — A house with a history", "۶A — خانه‌ای با تاریخچه",
+        listOf("Past simple questions", "Describe past events", "Talk about houses"),
+        listOf(
+            v("house", "خانه", "An old house.", "خانه قدیمی."),
+            v("history", "تاریخچه", "Has a history.", "تاریخچه دارد."),
+            v("writer", "نویسنده", "A famous writer.", "نویسنده معروف."),
+            v("lived", "زندگی کرد", "Lived there.", "آنجا زندگی کرد.", "verb"),
+            v("built", "ساخت", "Built in 1800.", "در ۱۸۰۰ ساخته شد.", "verb"),
+            v("old", "قدیمی", "200 years old.", "۲۰۰ ساله.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Past simple questions", "Did you...? Where did you go? What did you see?"),
+            GrammarSection("Short answers", "Yes, I did. / No, I didn't.")
+        ),
+        listOf(
+            d("A", "Did you travel last year?", "سال پیش سفر کردی؟"),
+            d("B", "Yes, I did. Visited an old house in Italy.", "بله. از خانه قدیمی در ایتالیا بازدید کردم."),
+            d("A", "Did you like it?", "دوستش داشتی؟"),
+            d("B", "Loved it. 200 years old.", "عاشقش شدم. ۲۰۰ ساله."),
+            d("A", "Who lived there?", "کی آنجا زندگی می‌کرد؟"),
+            d("B", "A famous writer.", "نویسنده معروفی."),
+            d("A", "Did you buy anything?", "چیزی خریدی؟"),
+            d("B", "A book about the house.", "کتابی درباره خانه.")
+        ),
+        listOf(
+            q("Where did B travel?", listOf("France", "Italy", "Spain"), 1),
+            q("How old was the house?", listOf("50", "100", "200"), 2),
+            q("___ you travel last year?", listOf("Did", "Do", "Are"), 0),
+            q("She ___ a new job.", listOf("start", "started", "starting"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Change my life", "زندگی‌ام را تغییر دادن", "Changed my life.", "زندگی‌ام را تغییر داد.")),
+        pron = listOf(PronunciationTip("-ed", "/t/ worked, /d/ traveled, /ɪd/ visited")),
+        cult = listOf(CulturalNote("Historic homes", "Many European houses are centuries old.")),
+        mis = listOf(CommonMistake("Did you traveled?", "Did you travel?", "Base verb after did."))
+    )
+
+    private fun f6B() = base(
+        21, "6B — #mydinnerlastnight", "۶B — #شام_دیشبم",
+        listOf("Countable/uncountable", "Quantifiers", "Food and meals"),
+        listOf(
+            v("rice", "برنج", "Ate rice.", "برنج خوردم."),
+            v("bread", "نان", "Bought bread.", "نان خریدم."),
+            v("water", "آب", "Drank water.", "آب نوشیدم."),
+            v("apple", "سیب", "Two apples.", "دو سیب."),
+            v("some", "مقداری", "Some cheese.", "مقداری پنیر.", "adverb"),
+            v("any", "هیچ", "Any milk?", "شیر داری؟", "adverb")
+        ),
+        listOf(
+            GrammarSection("Countable vs uncountable", "Countable: apple, book. Uncountable: water, bread."),
+            GrammarSection("Quantifiers", "some (+), any (?/-), much (uncountable), many (countable).")
+        ),
+        listOf(
+            d("A", "Dinner last night?", "شام دیشب؟"),
+            d("B", "Rice and chicken. Some salad.", "برنج و مرغ. کمی سالاد."),
+            d("A", "Cook yourself?", "خودت پختی؟"),
+            d("B", "No, restaurant. Many people there.", "نه، رستوران. افراد زیادی آنجا."),
+            d("A", "Dessert?", "دسر؟"),
+            d("B", "Some ice cream. And a lot of water.", "کمی بستنی. و آب زیاد."),
+            d("A", "Bill?", "صورت‌حساب؟"),
+            d("B", "40 dollars. Not cheap!", "۴۰ دلار. ارزان نبود!")
+        ),
+        listOf(
+            q("Dinner?", listOf("pizza", "rice and chicken", "pasta"), 1),
+            q("Bill?", listOf("$20", "$40", "$60"), 1),
+            q("I have ___ cheese.", listOf("some", "any", "much"), 0),
+            q("Do you have ___ milk?", listOf("some", "any", "much"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Eat out", "بیرون غذا خوردن", "Don't eat out often.", "زیاد بیرون غذا نمی‌خورم.")),
+        pron = listOf(PronunciationTip("Some/Any", "some /səm/ weak")),
+        cult = listOf(CulturalNote("Eating out", "Common in many countries.")),
+        mis = listOf(CommonMistake("How many water?", "How much water?", "Much with uncountable."))
+    )
+
+    private fun f6C() = base(
+        22, "6C — The most dangerous place", "۶C — خطرناک‌ترین مکان",
+        listOf("Superlatives", "Comparatives", "Present perfect with ever"),
+        listOf(
+            v("dangerous", "خطرناک", "Most dangerous.", "خطرناک‌ترین.", "adjective"),
+            v("beautiful", "زیبا", "Most beautiful.", "زیباترین.", "adjective"),
+            v("high", "بلند", "Highest mountain.", "بلندترین کوه.", "adjective"),
+            v("deep", "عمیق", "Deepest ocean.", "عمیق‌ترین اقیانوس.", "adjective"),
+            v("place", "مکان", "A place.", "مکان."),
+            v("ever", "هرگز", "Best I've ever seen.", "بهترین چیزی که دیده‌ام.", "adverb")
+        ),
+        listOf(
+            GrammarSection("Superlatives", "the + -est / the most + adj. the highest, the most beautiful."),
+            GrammarSection("Present perfect with ever", "Have you ever been to...? I've never seen...")
+        ),
+        listOf(
+            d("A", "Most dangerous place you've been to?", "خطرناک‌ترین جایی که بودی؟"),
+            d("B", "Sahara Desert. Very hot!", "صحرای صحرا. خیلی گرم!"),
+            d("A", "Most beautiful?", "زیباترین؟"),
+            d("B", "Grand Canyon. Amazing. Have you been?", "گرند کنیون. شگفت‌انگیز. بوده‌ای؟"),
+            d("A", "Never been. But seen photos.", "هرگز نبوده‌ام. ولی عکس دیده‌ام."),
+            d("B", "You should go. One of the most beautiful places on Earth.", "باید بروی. یکی از زیباترین مکان‌های زمین."),
+            d("A", "Maybe one day.", "شاید یک روز."),
+            d("B", "You'll love it.", "عاشقش می‌شوی.")
+        ),
+        listOf(
+            q("Where has B been?", listOf("desert", "mountains", "island"), 0),
+            q("Most beautiful place B saw?", listOf("Sahara", "Grand Canyon", "Alps"), 1),
+            q("___ mountain in the world.", listOf("high", "higher", "highest"), 2),
+            q("Have you ever ___ to Japan?", listOf("be", "been", "being"), 1)
+        ),
+        idioms = listOf(IdiomExpression("One of the...", "یکی از...", "One of the most beautiful.", "یکی از زیباترین.")),
+        pron = listOf(PronunciationTip("Superlatives", "the HIGHest, the MOST beautiful")),
+        cult = listOf(CulturalNote("Grand Canyon", "Famous natural wonder.")),
+        mis = listOf(CommonMistake("the most highest", "the highest", "No 'most' with -est."))
+    )
+
+    private fun pe3() = base(
+        23, "PE3 — Shopping", "انگلیسی کاربردی ۳ — خرید",
+        listOf("Shop for clothes", "Ask about prices", "Pay for items"),
+        listOf(
+            v("size", "سایز", "What size?", "چه سایزی؟"),
+            v("try on", "پرو کردن", "Can I try it on?", "می‌توانم پرو کنم؟", "verb"),
+            v("fit", "اندازه بودن", "Doesn't fit.", "اندازه نیست.", "verb"),
+            v("price", "قیمت", "What's the price?", "قیمتش؟"),
+            v("cash", "نقد", "Pay in cash.", "نقد پرداخت کن."),
+            v("card", "کارت", "Pay by card.", "با کارت پرداخت کن.")
+        ),
+        listOf(
+            GrammarSection("Shopping phrases", "Can I try it on? How much is it? I'll take it."),
+            GrammarSection("Too/enough", "Too big. Not big enough.")
+        ),
+        listOf(
+            d("SA", "Can I help you?", "کمکی کنم؟"),
+            d("A", "Yes, looking for a jacket.", "بله، دنبال کاپشنم."),
+            d("SA", "What size?", "چه سایزی؟"),
+            d("A", "Medium. Can I try this on?", "متوسط. می‌توانم پرو کنم؟"),
+            d("SA", "Of course.", "البته."),
+            d("A", "Too small. Have a large?", "کوچک است. بزرگ دارید؟"),
+            d("SA", "Here you are.", "بفرمایید."),
+            d("A", "Fits. How much?", "اندازه است. چقدر؟"),
+            d("SA", "$80.", "۸۰ دلار."),
+            d("A", "A bit expensive. Anything cheaper?", "کمی گران. ارزان‌تر دارید؟"),
+            d("SA", "Black one, $50.", "مشکی، ۵۰ دلار."),
+            d("A", "I'll take it.", "همین را می‌خرم.")
+        ),
+        listOf(
+            q("What size did A buy?", listOf("small", "medium", "large"), 2),
+            q("Black jacket price?", listOf("$80", "$50", "$30"), 1),
+            q("Can I ___ it on?", listOf("try", "fit", "take"), 0),
+            q("I'll ___ it.", listOf("take", "get", "buy"), 0)
+        ),
+        idioms = listOf(IdiomExpression("I'll take it", "همین را می‌خرم", "I'll take it.", "همین را می‌خرم.")),
+        pron = listOf(PronunciationTip("Polite", "Can I try it ON? ↗")),
+        cult = listOf(CulturalNote("Sizes", "US 6 = UK 10 = EU 36")),
+        mis = listOf(CommonMistake("I want to try.", "Can I try it on?", "Complete phrase."))
+    )
+
+    private fun rc56() = base(
+        24, "R&C 5 & 6", "مرور ۵ و ۶",
+        listOf("Review past simple", "Review quantifiers", "Review comparatives"),
+        listOf(
+            v("review", "مرور", "Let's review.", "مرور کنیم.", "verb"),
+            v("exercise", "تمرین", "Do exercises.", "تمرین‌ها."),
+            v("grammar", "گرامر", "Grammar.", "گرامر."),
+            v("practice", "تمرین", "Practice.", "تمرین.", "verb"),
+            v("mistake", "اشتباه", "Fix mistakes.", "اشتباهات را درست کن."),
+            v("vocabulary", "واژگان", "Vocabulary.", "واژگان.")
+        ),
+        listOf(
+            GrammarSection("Past simple review", "was/were. Regular -ed. Irregular."),
+            GrammarSection("Quantifiers", "some, any, much, many."),
+            GrammarSection("Comparatives/superlatives", "bigger, the biggest, more beautiful.")
+        ),
+        listOf(
+            d("T", "Review Files 5-6.", "مرور فایل‌های ۵-۶."),
+            d("A", "Past simple for past events.", "حال گذشته برای رویدادهای گذشته."),
+            d("B", "Some/any, much/many.", "some/any، much/many."),
+            d("T", "Comparatives?", "مقایسه‌ای‌ها؟"),
+            d("A", "bigger, the biggest, more expensive.", "bigger، the biggest، more expensive."),
+            d("T", "Great job!", "آفرین!")
+        ),
+        listOf(
+            q("Past of 'go'?", listOf("goed", "went", "gone"), 1),
+            q("Countable?", listOf("water", "apple", "bread"), 1),
+            q("Comparative of 'big'?", listOf("bigger", "more big", "biggest"), 0),
+            q("Uncountable?", listOf("apple", "water", "book"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Let's review", "مرور کنیم", "Let's review.", "مرور کنیم.")),
+        pron = listOf(PronunciationTip("Past -ed", "/t/, /d/, /ɪd/")),
+        cult = listOf(CulturalNote("Review", "Essential.")),
+        mis = listOf(CommonMistake("more cheaper", "cheaper", "No 'more' with -er."))
+    )
+
+    // ═══════════════════ FILE 7 ═══════════════════
+
+    private fun f7A() = base(
+        25, "7A — Firsts and lasts", "۷A — اولین‌ها و آخرین‌ها",
+        listOf("Present perfect", "Life experiences", "Use ever/never"),
+        listOf(
+            v("first", "اولین", "First time.", "اولین بار."),
+            v("last", "آخرین", "Last time.", "آخرین بار."),
+            v("ever", "هرگز", "Ever been?", "هرگز بوده‌ای؟", "adverb"),
+            v("never", "هرگز", "Never been.", "هرگز نبوده‌ام.", "adverb"),
+            v("tried", "امتحان کرد", "Tried sushi.", "سوشی امتحان کردم.", "verb"),
+            v("visited", "بازدید کرد", "Visited Paris.", "پاریس را دیدم.", "verb")
+        ),
+        listOf(
+            GrammarSection("Present perfect", "have/has + past participle. I've been. She's visited."),
+            GrammarSection("Ever / Never", "Have you ever...? I've never...")
+        ),
+        listOf(
+            d("A", "Have you ever tried sushi?", "تا حالا سوشی امتحان کردی؟"),
+            d("B", "Yes, many times. Love it.", "بله، بارها. عاشقشم."),
+            d("A", "Ever been to Japan?", "تا حالا ژاپن بوده‌ای؟"),
+            d("B", "Never. But want to go.", "هرگز. ولی می‌خواهم بروم."),
+            d("A", "First time you tried sushi?", "اولین بار سوشی؟"),
+            d("B", "In London, 2018.", "در لندن، ۲۰۱۸."),
+            d("A", "Ever tried making it yourself?", "خودت درست کردی؟"),
+            d("B", "No, too difficult!", "نه، خیلی سخته!")
+        ),
+        listOf(
+            q("Has B tried sushi?", listOf("no", "yes", "maybe"), 1),
+            q("Has B been to Japan?", listOf("no", "yes", "once"), 0),
+            q("I've ___ tried it.", listOf("ever", "never", "already"), 1),
+            q("Have you ___ been to Paris?", listOf("ever", "never", "already"), 0)
+        ),
+        idioms = listOf(IdiomExpression("Have you ever...?", "تا حالا...؟", "Have you ever been?", "تا حالا بوده‌ای؟")),
+        pron = listOf(PronunciationTip("Present perfect", "I've /aɪv/, she's /ʃiːz/")),
+        cult = listOf(CulturalNote("Food", "Sushi is popular worldwide.")),
+        mis = listOf(CommonMistake("I've saw it.", "I've seen it.", "Past participle."))
+    )
+
+    private fun f7B() = base(
+        26, "7B — The name of the band", "۷B — اسم گروه",
+        listOf("Present perfect with yet/already/just", "Music and entertainment", "Talk about recent events"),
+        listOf(
+            v("band", "گروه", "My favorite band.", "گروه مورد علاقه‌ام."),
+            v("concert", "کنسرت", "A concert tonight.", "امشب کنسرت."),
+            v("ticket", "بلیت", "Tickets sold out.", "بلیت‌ها تمام شد."),
+            v("album", "آلبوم", "New album.", "آلبوم جدید."),
+            v("song", "آهنگ", "Amazing song.", "آهنگ شگفت‌انگیز."),
+            v("fan", "طرفدار", "Big fan.", "طرفدار پر و پا قرص.")
+        ),
+        listOf(
+            GrammarSection("Yet / Already / Just", "I've already done it. I haven't seen it yet. I've just arrived."),
+            GrammarSection("Present perfect vs past", "I've seen it. / I saw it yesterday.")
+        ),
+        listOf(
+            d("A", "Seen the new Coldplay album?", "آلبوم جدید کلدپلی را دیدی؟"),
+            d("B", "Yes, already. It's amazing.", "بله، قبلاً. شگفت‌انگیز."),
+            d("A", "Have you heard the new song?", "آهنگ جدید را شنیدی؟"),
+            d("B", "Not yet. Any good?", "هنوز نه. خوبه؟"),
+            d("A", "Very good. Just listened to it.", "خیلی خوب. همین الان گوش دادم."),
+            d("B", "Concert tickets?", "بلیت کنسرت؟"),
+            d("A", "Sold out already!", "قبلاً تمام شد!"),
+            d("B", "That's a pity.", "حیف شد.")
+        ),
+        listOf(
+            q("Has B heard new song?", listOf("yes", "no", "maybe"), 1),
+            q("Concert tickets?", listOf("available", "sold out", "cheap"), 1),
+            q("I've ___ finished.", listOf("yet", "already", "ever"), 1),
+            q("Haven't seen it ___.", listOf("yet", "already", "just"), 0)
+        ),
+        idioms = listOf(IdiomExpression("That's a pity", "حیف شد", "That's a pity.", "حیف شد.")),
+        pron = listOf(PronunciationTip("Already/Yet", "Stress: alREADY, YET")),
+        cult = listOf(CulturalNote("Concerts", "Popular entertainment.")),
+        mis = listOf(CommonMistake("I've seen it yesterday.", "I saw it yesterday.", "Specific time = past simple."))
+    )
+
+    private fun f7C() = base(
+        27, "7C — The story behind the photo", "۷C — داستان پشت عکس",
+        listOf("Present perfect vs past simple", "Talk about photos", "Narrate events"),
+        listOf(
+            v("photo", "عکس", "A nice photo.", "عکس قشنگی."),
+            v("story", "داستان", "The story behind.", "داستان پشت."),
+            v("ago", "پیش", "Two years ago.", "دو سال پیش."),
+            v("since", "از", "Since 2020.", "از ۲۰۲۰."),
+            v("for", "به مدت", "For three years.", "سه سال."),
+            v("met", "ملاقات کرد", "We met at work.", "در محل کار ملاقات کردیم.", "verb")
+        ),
+        listOf(
+            GrammarSection("Present perfect with for/since", "I've lived here for 3 years. I've known her since 2020."),
+            GrammarSection("Present perfect vs past simple", "Life experience vs specific past event.")
+        ),
+        listOf(
+            d("A", "Who's in this photo?", "در این عکس کیست؟"),
+            d("B", "My best friend. Met him at work.", "بهترین دوستم. در محل کار ملاقاتش کردم."),
+            d("A", "How long have you known him?", "چقدر است که می‌شناسی‌اش؟"),
+            d("B", "For ten years.", "ده سال."),
+            d("A", "Where was this taken?", "کجا گرفته شده؟"),
+            d("B", "Paris, two years ago.", "پاریس، دو سال پیش."),
+            d("A", "Nice! Have you been back?", "خوبه! برگشتی؟"),
+            d("B", "No, not yet.", "نه، هنوز نه.")
+        ),
+        listOf(
+            q("Who's in photo?", listOf("brother", "best friend", "teacher"), 1),
+            q("How long known?", listOf("5 years", "10 years", "15 years"), 1),
+            q("I've known her ___ 2020.", listOf("for", "since", "from"), 1),
+            q("I've lived here ___ 3 years.", listOf("for", "since", "from"), 0)
+        ),
+        idioms = listOf(IdiomExpression("Not yet", "هنوز نه", "Not yet.", "هنوز نه.")),
+        pron = listOf(PronunciationTip("For/Since", "Weak: for /fə/, since /sɪns/")),
+        cult = listOf(CulturalNote("Photos", "Sharing photos is common.")),
+        mis = listOf(CommonMistake("I've known her since 3 years.", "I've known her for 3 years.", "For + duration."))
+    )
+
+    // ═══════════════════ FILE 8 ═══════════════════
+
+    private fun f8A() = base(
+        28, "8A — Plans and dreams", "۸A — برنامه‌ها و رؤیاها",
+        listOf("Going to for future", "Plans and intentions", "Talk about the future"),
+        listOf(
+            v("plan", "برنامه", "Plan for summer.", "برنامه تابستان."),
+            v("going to", "قرار است", "Going to travel.", "قرار است سفر کنم.", "verb"),
+            v("future", "آینده", "The future.", "آینده."),
+            v("dream", "رؤیا", "A dream job.", "شغل رؤیایی."),
+            v("holiday", "تعطیلات", "Summer holiday.", "تعطیلات تابستان."),
+            v("university", "دانشگاه", "Going to university.", "به دانشگاه می‌روم.")
+        ),
+        listOf(
+            GrammarSection("Going to", "am/is/are + going to + verb. I'm going to travel."),
+            GrammarSection("Future time expressions", "tomorrow, next week, next year, this summer.")
+        ),
+        listOf(
+            d("A", "Plans for summer?", "برنامه تابستان؟"),
+            d("B", "Going to travel to Italy.", "قرار است به ایتالیا سفر کنم."),
+            d("A", "Nice! Where exactly?", "خوبه! کجا؟"),
+            d("B", "Rome and Florence.", "رم و فلورانس."),
+            d("A", "How long?", "چقدر؟"),
+            d("B", "Two weeks. Then back to work.", "دو هفته. بعد سر کار."),
+            d("A", "Going to learn Italian?", "قراره ایتالیایی یاد بگیری؟"),
+            d("B", "A little! Just phrases.", "کمی! فقط جمله‌ها.")
+        ),
+        listOf(
+            q("Where is B going?", listOf("France", "Italy", "Spain"), 1),
+            q("How long?", listOf("one week", "two weeks", "three weeks"), 1),
+            q("I ___ going to travel.", listOf("am", "is", "are"), 0),
+            q("She ___ going to study.", listOf("am", "is", "are"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Back to work", "برگشتن به کار", "Then back to work.", "بعد برگشتن به کار.")),
+        pron = listOf(PronunciationTip("Going to", "Often 'gonna' in fast speech")),
+        cult = listOf(CulturalNote("Summer holidays", "Europeans often take long holidays.")),
+        mis = listOf(CommonMistake("I going to travel.", "I'm going to travel.", "Don't forget 'am'."))
+    )
+
+    private fun f8B() = base(
+        29, "8B — The future of travel", "۸B — آینده سفر",
+        listOf("Will/won't for predictions", "Talk about future", "Compare will and going to"),
+        listOf(
+            v("will", "خواهد", "I will travel.", "سفر خواهم کرد.", "verb"),
+            v("predict", "پیش‌بینی", "Predict the future.", "آینده را پیش‌بینی کن.", "verb"),
+            v("probably", "احتمالاً", "Probably will.", "احتمالاً خواهد.", "adverb"),
+            v("maybe", "شاید", "Maybe tomorrow.", "شاید فردا.", "adverb"),
+            v("future", "آینده", "The future.", "آینده."),
+            v("change", "تغییر", "Things will change.", "چیزها تغییر خواهند کرد.", "verb")
+        ),
+        listOf(
+            GrammarSection("Will / Won't", "Predictions: It will rain. I won't go."),
+            GrammarSection("Will vs going to", "Will = prediction. Going to = plan.")
+        ),
+        listOf(
+            d("A", "How will travel change?", "سفر چطور تغییر خواهد کرد؟"),
+            d("B", "Probably faster and cheaper.", "احتمالاً سریع‌تر و ارزان‌تر."),
+            d("A", "Will we still use planes?", "هنوز از هواپیما استفاده خواهیم کرد؟"),
+            d("B", "Maybe. But electric planes are coming.", "شاید. ولی هواپیماهای برقی می‌آیند."),
+            d("A", "Will it be safe?", "امن خواهد بود؟"),
+            d("B", "I think so. Technology will help.", "فکر می‌کنم. تکنولوژی کمک خواهد کرد."),
+            d("A", "Where will you go next?", "دفعه بعد کجا خواهی رفت؟"),
+            d("B", "I'm going to Japan next year.", "قرار است سال بعد به ژاپن بروم.")
+        ),
+        listOf(
+            q("How will travel change?", listOf("slower", "faster/cheaper", "more expensive"), 1),
+            q("Where is B going next year?", listOf("Italy", "Japan", "France"), 1),
+            q("It ___ rain tomorrow.", listOf("will", "is", "does"), 0),
+            q("I ___ go tomorrow.", listOf("won't", "don't", "not will"), 0)
+        ),
+        idioms = listOf(IdiomExpression("I think so", "فکر می‌کنم", "I think so.", "فکر می‌کنم.")),
+        pron = listOf(PronunciationTip("Will", "Contraction: I'll /aɪl/, won't /woʊnt/")),
+        cult = listOf(CulturalNote("Future tech", "Electric planes are in development.")),
+        mis = listOf(CommonMistake("I will to go.", "I will go.", "No 'to' after will."))
+    )
+
+    private fun f8C() = base(
+        30, "8C — A wedding in the family", "۸C — عروسی در خانواده",
+        listOf("Present continuous for future", "Arrangements", "Family events"),
+        listOf(
+            v("wedding", "عروسی", "A wedding.", "عروسی."),
+            v("marry", "ازدواج کردن", "Marrying in June.", "در ژوئن ازدواج می‌کند.", "verb"),
+            v("guest", "مهمان", "Many guests.", "مهمان‌های زیاد."),
+            v("ceremony", "مراسم", "At the ceremony.", "در مراسم."),
+            v("party", "مهمانی", "A big party.", "مهمانی بزرگ."),
+            v("dress", "لباس", "A white dress.", "لباس سفید.")
+        ),
+        listOf(
+            GrammarSection("Present continuous for future", "I'm meeting Tom tomorrow. We're having a party on Saturday."),
+            GrammarSection("Arrangements", "Fixed plans in the near future.")
+        ),
+        listOf(
+            d("A", "What are you doing this weekend?", "این آخر هفته چه کار می‌کنی؟"),
+            d("B", "My sister's wedding!", "عروسی خواهرم!"),
+            d("A", "Congratulations! Where?", "تبریک! کجا؟"),
+            d("B", "At a hotel in the countryside.", "در هتلی در حومه."),
+            d("A", "How many guests?", "چند مهمان؟"),
+            d("B", "About a hundred.", "حدود صد نفر."),
+            d("A", "What are you wearing?", "چی می‌پوشی؟"),
+            d("B", "A blue dress. My sister has a white one.", "لباس آبی. خواهرم سفید دارد.")
+        ),
+        listOf(
+            q("Whose wedding?", listOf("brother", "sister", "cousin"), 1),
+            q("How many guests?", listOf("50", "100", "200"), 1),
+            q("I ___ meeting Tom tomorrow.", listOf("am", "is", "are"), 0),
+            q("We ___ having a party.", listOf("am", "is", "are"), 2)
+        ),
+        idioms = listOf(IdiomExpression("Congratulations!", "تبریک!", "Congratulations!", "تبریک!")),
+        pron = listOf(PronunciationTip("Present continuous future", "We're HAVing a party.")),
+        cult = listOf(CulturalNote("Weddings", "Vary widely across cultures.")),
+        mis = listOf(CommonMistake("I meet Tom tomorrow.", "I'm meeting Tom tomorrow.", "Use present continuous for arrangements."))
+    )
+
+    private fun pe4() = base(
+        31, "PE4 — At the doctor's", "انگلیسی کاربردی ۴ — پیش دکتر",
+        listOf("Describe symptoms", "Make an appointment", "Give advice"),
+        listOf(
+            v("doctor", "دکتر", "See the doctor.", "دکتر را ببین."),
+            v("appointment", "نوبت", "Make an appointment.", "نوبت بگیر."),
+            v("headache", "سردرد", "A headache.", "سردرد."),
+            v("stomachache", "دل‌درد", "Stomachache.", "دل‌درد."),
+            v("fever", "تب", "A fever.", "تب."),
+            v("medicine", "دارو", "Take medicine.", "دارو بخور.")
+        ),
+        listOf(
+            GrammarSection("Symptoms", "I have a headache. I feel sick. It hurts."),
+            GrammarSection("Advice", "You should rest. Take this medicine.")
+        ),
+        listOf(
+            d("D", "What's the problem?", "مشکل چیست؟"),
+            d("P", "I have a headache and a fever.", "سردرد و تب دارم."),
+            d("D", "How long?", "چقدر؟"),
+            d("P", "Since yesterday.", "از دیروز."),
+            d("D", "Any other symptoms?", "علائم دیگر؟"),
+            d("P", "A sore throat too.", "گلودرد هم."),
+            d("D", "You should rest and drink water.", "باید استراحت کنی و آب بخوری."),
+            d("P", "Do I need medicine?", "دارو لازم دارم؟"),
+            d("D", "Yes. Take this twice a day.", "بله. این را دو بار در روز بخور."),
+            d("P", "Thank you, doctor.", "ممنون دکتر.")
+        ),
+        listOf(
+            q("What symptoms?", listOf("headache/fever", "stomachache", "back pain"), 0),
+            q("How long sick?", listOf("today", "since yesterday", "one week"), 1),
+            q("You ___ rest.", listOf("should", "should to", "are"), 0),
+            q("I ___ a headache.", listOf("have", "has", "am"), 0)
+        ),
+        idioms = listOf(IdiomExpression("What's the problem?", "مشکل چیست؟", "What's the problem?", "مشکل چیست؟")),
+        pron = listOf(PronunciationTip("Symptom stress", "HEADache, STOMachache")),
+        cult = listOf(CulturalNote("Appointments", "Usually needed in UK/US.")),
+        mis = listOf(CommonMistake("I have headache.", "I have a headache.", "Add 'a'."))
+    )
+
+    private fun rc78() = base(
+        32, "R&C 7 & 8", "مرور ۷ و ۸",
+        listOf("Review present perfect", "Review will/going to", "Review for/since"),
+        listOf(
+            v("review", "مرور", "Let's review.", "مرور کنیم.", "verb"),
+            v("exercise", "تمرین", "Do exercises.", "تمرین‌ها."),
+            v("grammar", "گرامر", "Grammar.", "گرامر."),
+            v("practice", "تمرین", "Practice.", "تمرین.", "verb"),
+            v("mistake", "اشتباه", "Fix mistakes.", "اشتباهات."),
+            v("vocabulary", "واژگان", "Vocabulary.", "واژگان.")
+        ),
+        listOf(
+            GrammarSection("Present perfect", "have/has + pp. For/since."),
+            GrammarSection("Future", "Will (prediction) / Going to (plan)."),
+            GrammarSection("Present continuous future", "Arrangements.")
+        ),
+        listOf(
+            d("T", "Review Files 7-8.", "مرور ۷-۸."),
+            d("A", "Present perfect for experiences.", "حال کامل برای تجربه‌ها."),
+            d("B", "Will and going to for future.", "will و going to برای آینده."),
+            d("T", "Difference?", "تفاوت؟"),
+            d("A", "Will = prediction. Going to = plan.", "will = پیش‌بینی. going to = برنامه."),
+            d("T", "Present perfect with for/since?", "حال کامل با for/since؟"),
+            d("B", "For three years. Since 2020.", "سه سال. از ۲۰۲۰."),
+            d("T", "Perfect!", "عالی!")
+        ),
+        listOf(
+            q("Life experience tense?", listOf("past simple", "present perfect", "future"), 1),
+            q("Plan future?", listOf("will", "going to", "present simple"), 1),
+            q("I've known her ___ 2020.", listOf("for", "since", "from"), 1),
+            q("I've lived here ___ 5 years.", listOf("for", "since", "from"), 0)
+        ),
+        idioms = listOf(IdiomExpression("Let's review", "مرور کنیم", "Let's review.", "مرور کنیم.")),
+        pron = listOf(PronunciationTip("Contractions", "I've, I'll, I'm")),
+        cult = listOf(CulturalNote("Review", "Essential.")),
+        mis = listOf(CommonMistake("I've seen yesterday.", "I saw yesterday.", "Past simple with specific time."))
+    )
+
+    // ═══════════════════ FILE 9 ═══════════════════
+
+    private fun f9A() = base(
+        33, "9A — A room with a view", "۹A — اتاقی با منظره",
+        listOf("Describe places", "Prepositions of place", "There is/are"),
+        listOf(
+            v("view", "منظره", "A nice view.", "منظره قشنگ."),
+            v("balcony", "بالکن", "A balcony.", "بالکن."),
+            v("floor", "طبقه", "Third floor.", "طبقه سوم."),
+            v("lift", "آسانسور", "Take the lift.", "آسانسور بگیر."),
+            v("quiet", "آرام", "Quiet area.", "منطقه آرام.", "adjective"),
+            v("near", "نزدیک", "Near the beach.", "نزدیک ساحل.", "preposition")
+        ),
+        listOf(
+            GrammarSection("There is/are", "There's a view. There are two beds. Is there...? Are there...?"),
+            GrammarSection("Prepositions", "in, on, under, next to, opposite, near.")
+        ),
+        listOf(
+            d("A", "Where's your hotel?", "هتلت کجاست؟"),
+            d("B", "Near the beach. Beautiful view.", "نزدیک ساحل. منظره زیبا."),
+            d("A", "Which floor?", "کدام طبقه؟"),
+            d("B", "Third floor. With a balcony.", "طبقه سوم. با بالکن."),
+            d("A", "Is it quiet?", "آرام است؟"),
+            d("B", "Yes. There are only a few rooms.", "بله. فقط چند اتاق."),
+            d("A", "Is there a restaurant?", "رستوران هست؟"),
+            d("B", "Yes, on the first floor.", "بله، طبقه اول.")
+        ),
+        listOf(
+            q("Where's the hotel?", listOf("city center", "near beach", "mountains"), 1),
+            q("Which floor?", listOf("first", "second", "third"), 2),
+            q("___ a view from the room.", listOf("There is", "There are", "Is there"), 0),
+            q("___ two beds.", listOf("There is", "There are", "Is"), 1)
+        ),
+        idioms = listOf(IdiomExpression("A few", "چندتا", "A few rooms.", "چند اتاق.")),
+        pron = listOf(PronunciationTip("There is/are", "Linking: there_is, there_are")),
+        cult = listOf(CulturalNote("Hotel floors", "UK: ground floor = US: 1st floor.")),
+        mis = listOf(CommonMistake("There is many rooms.", "There are many rooms.", "Plural = there are."))
+    )
+
+    private fun f9B() = base(
+        34, "9B — I need a hero", "۹B — به یک قهرمان نیاز دارم",
+        listOf("Adjectives of character", "Describe people", "Question forms"),
+        listOf(
+            v("hero", "قهرمان", "A real hero.", "قهرمان واقعی."),
+            v("brave", "شجاع", "Very brave.", "خیلی شجاع.", "adjective"),
+            v("kind", "مهربان", "A kind person.", "فرد مهربان.", "adjective"),
+            v("smart", "باهوش", "Smart student.", "دانش‌آموز باهوش.", "adjective"),
+            v("funny", "بامزه", "Funny guy.", "پسر بامزه.", "adjective"),
+            v("honest", "صادق", "Honest man.", "مرد صادق.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Character adjectives", "brave, kind, smart, funny, honest, shy."),
+            GrammarSection("Questions about people", "What's he like? What does he look like?")
+        ),
+        listOf(
+            d("A", "Who's your hero?", "قهرمانت کیست؟"),
+            d("B", "My grandfather. Very brave.", "پدربزرگم. خیلی شجاع."),
+            d("A", "What's he like?", "چه جور آدمی است؟"),
+            d("B", "Kind, honest, funny. Everyone loves him.", "مهربان، صادق، بامزه. همه دوستش دارند."),
+            d("A", "What does he do?", "چه کار می‌کند؟"),
+            d("B", "Retired now. Was a doctor.", "الان بازنشسته. دکتر بود."),
+            d("A", "How old is he?", "چند ساله است؟"),
+            d("B", "85. Still very active.", "۸۵. هنوز خیلی فعال.")
+        ),
+        listOf(
+            q("Who is B's hero?", listOf("father", "grandfather", "teacher"), 1),
+            q("What was his job?", listOf("teacher", "doctor", "engineer"), 1),
+            q("___ he like? (personality)", listOf("What's", "What does", "How"), 0),
+            q("He's very ___.", listOf("kind", "kindly", "kindness"), 0)
+        ),
+        idioms = listOf(IdiomExpression("Everyone loves him", "همه دوستش دارند", "Everyone loves him.", "همه دوستش دارند.")),
+        pron = listOf(PronunciationTip("Adjective stress", "He's KIND. He's BRAVE.")),
+        cult = listOf(CulturalNote("Heroes", "Vary by culture.")),
+        mis = listOf(CommonMistake("How is he like?", "What's he like?", "Use What for personality."))
+    )
+
+    private fun f9C() = base(
+        35, "9C — A lucky escape", "۹C — یک فرار خوش‌شانس",
+        listOf("Narrative past", "Past continuous", "Tell a story"),
+        listOf(
+            v("escape", "فرار", "A lucky escape.", "فرار خوش‌شانس."),
+            v("when", "وقتی", "When I arrived...", "وقتی رسیدم...", "conjunction"),
+            v("while", "در حالی که", "While I was walking...", "در حالی که راه می‌رفتم...", "conjunction"),
+            v("suddenly", "ناگهان", "Suddenly, ...", "ناگهان، ...", "adverb"),
+            v("lucky", "خوش‌شانس", "Very lucky.", "خیلی خوش‌شانس.", "adjective"),
+            v("accident", "تصادف", "A car accident.", "تصادف ماشین.")
+        ),
+        listOf(
+            GrammarSection("Past continuous", "was/were + -ing. I was walking. They were driving."),
+            GrammarSection("Past continuous + past simple", "While I was walking, I saw him. When she arrived, we were eating.")
+        ),
+        listOf(
+            d("A", "You look pale. What happened?", "رنگ‌پریده‌ای. چی شد؟"),
+            d("B", "A lucky escape. Car accident.", "فرار خوش‌شانس. تصادف ماشین."),
+            d("A", "What were you doing?", "چه کار می‌کردی؟"),
+            d("B", "Walking. Suddenly a car came fast.", "راه می‌رفتم. ناگهان ماشین تند آمد."),
+            d("A", "Were you hurt?", "آسیب دیدی؟"),
+            d("B", "No. Jumped away just in time.", "نه. درست به موقع پریدم."),
+            d("A", "So lucky!", "چقدر خوش‌شانس!"),
+            d("B", "I know. Very scary.", "می‌دانم. خیلی ترسناک.")
+        ),
+        listOf(
+            q("What happened?", listOf("accident", "theft", "fire"), 0),
+            q("Was B hurt?", listOf("yes", "no", "a little"), 1),
+            q("I ___ walking when I saw him.", listOf("was", "were", "am"), 0),
+            q("They ___ driving.", listOf("was", "were", "are"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Just in time", "درست به موقع", "Just in time.", "درست به موقع.")),
+        pron = listOf(PronunciationTip("Past continuous", "was /wəz/, were /wər/")),
+        cult = listOf(CulturalNote("Road safety", "Always check before crossing.")),
+        mis = listOf(CommonMistake("I was walk.", "I was walking.", "Add -ing."))
+    )
+
+    // ═══════════════════ FILE 10 ═══════════════════
+
+    private fun f10A() = base(
+        36, "10A — The best medicine", "۱۰A — بهترین دارو",
+        listOf("Comparatives and superlatives review", "Health", "Give opinions"),
+        listOf(
+            v("medicine", "دارو", "Best medicine.", "بهترین دارو."),
+            v("laugh", "خندیدن", "Laughter is medicine.", "خنده داروست.", "verb"),
+            v("healthy", "سالم", "Healthy food.", "غذای سالم.", "adjective"),
+            v("rest", "استراحت", "Get some rest.", "استراحت کن.", "verb"),
+            v("stress", "استرس", "Less stress.", "استرس کمتر."),
+            v("better", "بهتر", "Feel better.", "بهتر شو.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Comparatives", "good → better, bad → worse, healthy → healthier."),
+            GrammarSection("Superlatives", "the best, the worst, the healthiest.")
+        ),
+        listOf(
+            d("A", "What's the best medicine?", "بهترین دارو چیست؟"),
+            d("B", "Laughter, I think.", "خنده، فکر می‌کنم."),
+            d("A", "Better than medicine?", "بهتر از دارو؟"),
+            d("B", "For stress, yes. Laughing is healthier.", "برای استرس، بله. خندیدن سالم‌تر است."),
+            d("A", "What else?", "چیز دیگر؟"),
+            d("B", "Rest. And good food.", "استراحت. و غذای خوب."),
+            d("A", "What's the worst thing?", "بدترین چیز؟"),
+            d("B", "Too much stress.", "استرس زیاد.")
+        ),
+        listOf(
+            q("Best medicine?", listOf("pills", "laughter", "sleep"), 1),
+            q("Worst thing?", listOf("stress", "coffee", "rain"), 0),
+            q("Laughter is ___ than medicine.", listOf("good", "better", "best"), 1),
+            q("The ___ thing is stress.", listOf("bad", "worse", "worst"), 2)
+        ),
+        idioms = listOf(IdiomExpression("Laughter is medicine", "خنده داروست", "Laughter is medicine.", "خنده داروست.")),
+        pron = listOf(PronunciationTip("Comparatives", "BETter, WORSE, BEST")),
+        cult = listOf(CulturalNote("Laughter therapy", "Used in some hospitals.")),
+        mis = listOf(CommonMistake("more better", "better", "No 'more' with better."))
+    )
+
+    private fun f10B() = base(
+        37, "10B — The best-dressed man", "۱۰B — خوش‌پوش‌ترین مرد",
+        listOf("Present perfect + superlatives", "Talk about achievements", "Fashion"),
+        listOf(
+            v("dressed", "پوشیده", "Well-dressed.", "خوش‌پوش."),
+            v("fashion", "مد", "Fashion week.", "هفته مد."),
+            v("style", "سبک", "Personal style.", "سبک شخصی."),
+            v("designer", "طراح", "A designer.", "طراح."),
+            v("award", "جایزه", "Won an award.", "جایزه برد."),
+            v("career", "حرفه", "A long career.", "حرفه طولانی.")
+        ),
+        listOf(
+            GrammarSection("Present perfect + superlatives", "He's the best designer I've ever seen."),
+            GrammarSection("Achievements", "He's won three awards. She's worked for 20 years.")
+        ),
+        listOf(
+            d("A", "Who's the best-dressed man?", "خوش‌پوش‌ترین مرد کیست؟"),
+            d("B", "David Beckham, I think.", "دیوید بکهام، فکر می‌کنم."),
+            d("A", "Why?", "چرا؟"),
+            d("B", "Great style. Simple but elegant.", "سبک عالی. ساده ولی شیک."),
+            d("A", "Does he design clothes?", "لباس طراحی می‌کند؟"),
+            d("B", "Yes. He's worked with big brands.", "بله. با برندهای بزرگ کار کرده."),
+            d("A", "The best designer you've seen?", "بهترین طراح که دیده‌ای؟"),
+            d("B", "Maybe. He's had a great career.", "شاید. حرفه عالی داشته.")
+        ),
+        listOf(
+            q("Who's best-dressed?", listOf("Beckham", "Bowie", "Styles"), 0),
+            q("Does he design clothes?", listOf("no", "yes", "sometimes"), 1),
+            q("He's the best I've ___ seen.", listOf("ever", "never", "already"), 0),
+            q("She's ___ for 20 years.", listOf("work", "worked", "working"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Well-dressed", "خوش‌پوش", "Well-dressed man.", "مرد خوش‌پوش.")),
+        pron = listOf(PronunciationTip("Superlatives", "the BEST-dressed")),
+        cult = listOf(CulturalNote("Fashion", "Beckham is a style icon.")),
+        mis = listOf(CommonMistake("the most best", "the best", "Best is already superlative."))
+    )
+
+    private fun f10C() = base(
+        38, "10C — Never give up", "۱۰C — هرگز تسلیم نشو",
+        listOf("Imperatives", "Give advice", "Talk about motivation"),
+        listOf(
+            v("give up", "تسلیم شدن", "Never give up.", "هرگز تسلیم نشو.", "verb"),
+            v("try", "تلاش کردن", "Keep trying.", "به تلاش ادامه بده.", "verb"),
+            v("believe", "باور کردن", "Believe in yourself.", "به خودت باور داشته باش.", "verb"),
+            v("success", "موفقیت", "Success comes slowly.", "موفقیت آهسته می‌آید."),
+            v("fail", "شکست خوردن", "Don't be afraid to fail.", "از شکست نترس.", "verb"),
+            v("dream", "رؤیا", "Follow your dreams.", "رؤیاهایت را دنبال کن.")
+        ),
+        listOf(
+            GrammarSection("Imperatives for advice", "Never give up. Keep trying. Believe in yourself."),
+            GrammarSection("Should / Shouldn't", "You should try. You shouldn't quit.")
+        ),
+        listOf(
+            d("A", "I failed my exam.", "در امتحانم شکست خوردم."),
+            d("B", "Don't give up! Try again.", "تسلیم نشو! دوباره تلاش کن."),
+            d("A", "But it's so hard.", "ولی خیلی سخته."),
+            d("B", "Success comes slowly. Believe in yourself.", "موفقیت آهسته می‌آید. به خودت باور داشته باش."),
+            d("A", "You think I can do it?", "فکر می‌کنی می‌توانم؟"),
+            d("B", "Yes. Don't be afraid to fail.", "بله. از شکست نترس."),
+            d("A", "You're right. I'll try again.", "حق با توست. دوباره تلاش می‌کنم."),
+            d("B", "That's the spirit!", "همین روحیه را می‌خواهم!")
+        ),
+        listOf(
+            q("What did A fail?", listOf("exam", "test", "course"), 0),
+            q("What should A do?", listOf("give up", "try again", "rest"), 1),
+            q("___ give up!", listOf("Not", "Never", "No"), 1),
+            q("You ___ try again.", listOf("should", "should to", "are"), 0)
+        ),
+        idioms = listOf(IdiomExpression("That's the spirit!", "همین روحیه را می‌خواهم!", "That's the spirit!", "همین روحیه را می‌خواهم!")),
+        pron = listOf(PronunciationTip("Imperatives", "Falling: NEVER give UP.")),
+        cult = listOf(CulturalNote("Motivation", "Common in self-help culture.")),
+        mis = listOf(CommonMistake("Don't to give up.", "Don't give up.", "No 'to' after don't."))
+    )
+
+    private fun pe5() = base(
+        39, "PE5 — Asking for directions", "انگلیسی کاربردی ۵ — پرسیدن آدرس",
+        listOf("Ask for directions", "Give directions", "Use imperatives"),
+        listOf(
+            v("turn left", "به چپ بپیچ", "Turn left.", "به چپ بپیچ.", "verb"),
+            v("turn right", "به راست بپیچ", "Turn right.", "به راست بپیچ.", "verb"),
+            v("go straight", "مستقیم برو", "Go straight.", "مستقیم برو.", "verb"),
+            v("corner", "گوشه", "At the corner.", "در گوشه."),
+            v("traffic lights", "چراغ راهنما", "At the lights.", "در چراغ‌ها."),
+            v("opposite", "روبه‌روی", "Opposite the bank.", "روبه‌روی بانک.", "preposition")
+        ),
+        listOf(
+            GrammarSection("Imperatives for directions", "Turn left. Go straight. Take the second right."),
+            GrammarSection("Prepositions of place", "on, at, next to, opposite, between.")
+        ),
+        listOf(
+            d("A", "Excuse me, where's the station?", "ببخشید، ایستگاه کجاست؟"),
+            d("B", "Go straight down this street.", "این خیابان را مستقیم برو."),
+            d("A", "Straight. OK.", "مستقیم. باشه."),
+            d("B", "Then turn left at the traffic lights.", "بعد در چراغ راهنما به چپ بپیچ."),
+            d("A", "Left at the lights.", "چپ در چراغ‌ها."),
+            d("B", "It's opposite the bank.", "روبه‌روی بانک است."),
+            d("A", "Is it far?", "دور است؟"),
+            d("B", "About five minutes on foot.", "حدود پنج دقیقه پیاده.")
+        ),
+        listOf(
+            q("Which way to turn?", listOf("left", "right", "straight"), 0),
+            q("Where's the station?", listOf("next to bank", "opposite bank", "behind bank"), 1),
+            q("___ left at the lights.", listOf("Turn", "Turning", "To turn"), 0),
+            q("Go ___ down the street.", listOf("straight", "straightly", "straighten"), 0)
+        ),
+        idioms = listOf(IdiomExpression("On foot", "پیاده", "Five minutes on foot.", "پنج دقیقه پیاده.")),
+        pron = listOf(PronunciationTip("Directions", "Falling: TURN left. GO straight.")),
+        cult = listOf(CulturalNote("Asking strangers", "Start with 'Excuse me'.")),
+        mis = listOf(CommonMistake("Turn to left.", "Turn left.", "No 'to'."))
+    )
+
+    private fun rc910() = base(
+        40, "R&C 9 & 10", "مرور ۹ و ۱۰",
+        listOf("Review there is/are", "Review past continuous", "Review comparatives/superlatives"),
+        listOf(
+            v("review", "مرور", "Let's review.", "مرور کنیم.", "verb"),
+            v("exercise", "تمرین", "Do exercises.", "تمرین‌ها."),
+            v("grammar", "گرامر", "Grammar.", "گرامر."),
+            v("practice", "تمرین", "Practice.", "تمرین.", "verb"),
+            v("mistake", "اشتباه", "Fix mistakes.", "اشتباهات."),
+            v("vocabulary", "واژگان", "Vocabulary.", "واژگان.")
+        ),
+        listOf(
+            GrammarSection("There is/are", "There's a book. There are books."),
+            GrammarSection("Past continuous", "I was walking. They were driving."),
+            GrammarSection("Comparatives/superlatives", "better, the best, more expensive.")
+        ),
+        listOf(
+            d("T", "Review Files 9-10.", "مرور ۹-۱۰."),
+            d("A", "There is/are for existence.", "there is/are برای وجود."),
+            d("B", "Past continuous for actions in progress.", "حال استمراری گذشته."),
+            d("T", "Example?", "مثال؟"),
+            d("A", "I was walking when I saw him.", "در حال راه رفتن بودم که دیدمش."),
+            d("T", "Comparatives?", "مقایسه‌ای‌ها؟"),
+            d("B", "good → better → the best. bad → worse → the worst.", "good → better → the best. bad → worse → the worst."),
+            d("T", "Excellent!", "عالی!")
+        ),
+        listOf(
+            q("Existence?", listOf("there is/are", "be", "have"), 0),
+            q("Action in progress past?", listOf("past simple", "past continuous", "present"), 1),
+            q("Comparative of bad?", listOf("badder", "worse", "worst"), 1),
+            q("Superlative of good?", listOf("gooder", "better", "best"), 2)
+        ),
+        idioms = listOf(IdiomExpression("Let's review", "مرور کنیم", "Let's review.", "مرور کنیم.")),
+        pron = listOf(PronunciationTip("Was/Were", "Weak forms.")),
+        cult = listOf(CulturalNote("Review", "Essential.")),
+        mis = listOf(CommonMistake("There is many.", "There are many.", "Plural."))
+    )
+
+    // ═══════════════════ FILE 11 ═══════════════════
+
+    private fun f11A() = base(
+        41, "11A — The wrong shoes", "۱۱A — کفش اشتباه",
+        listOf("Must / mustn't", "Have to / don't have to", "Talk about rules"),
+        listOf(
+            v("rule", "قانون", "House rules.", "قوانین خانه."),
+            v("must", "باید", "You must be quiet.", "باید ساکت باشی.", "verb"),
+            v("mustn't", "نباید", "You mustn't smoke.", "نباید سیگار بکشی.", "verb"),
+            v("have to", "باید", "I have to pay.", "باید پرداخت کنم.", "verb"),
+            v("permission", "اجازه", "Ask permission.", "اجازه بگیر."),
+            v("rent", "اجاره", "Pay rent.", "اجاره بده.")
+        ),
+        listOf(
+            GrammarSection("Must / Mustn't", "Must = obligation. Mustn't = prohibition."),
+            GrammarSection("Have to / Don't have to", "Have to = external obligation. Don't have to = no obligation.")
+        ),
+        listOf(
+            d("A", "Any rules in your new flat?", "قانونی در آپارتمان جدیدت هست؟"),
+            d("B", "Yes. I have to pay rent on the 1st.", "بله. باید اول ماه اجاره بدهم."),
+            d("A", "What else?", "چیز دیگر؟"),
+            d("B", "Mustn't make noise after 10 PM.", "نباید بعد از ۱۰ شب سر و صدا کنم."),
+            d("A", "Do you have to clean?", "باید تمیز کنی؟"),
+            d("B", "Once a week. Not every day.", "هفته‌ای یک بار. نه هر روز."),
+            d("A", "Can you have guests?", "می‌توانی مهمان بیاوری؟"),
+            d("B", "Yes, but tell the landlord first.", "بله، ولی اول به صاحب‌خانه بگو.")
+        ),
+        listOf(
+            q("When pay rent?", listOf("1st", "15th", "last"), 0),
+            q("When no noise?", listOf("after 9", "after 10", "after 11"), 1),
+            q("You ___ smoke inside.", listOf("must", "mustn't", "don't have to"), 1),
+            q("I ___ work tomorrow. Holiday!", listOf("must", "mustn't", "don't have to"), 2)
+        ),
+        idioms = listOf(IdiomExpression("Move in", "اسباب‌کشی", "Moving in next week.", "هفته بعد اسباب‌کشی.")),
+        pron = listOf(PronunciationTip("Have to", "'hafta' in fast speech")),
+        cult = listOf(CulturalNote("Renting", "Tenants sign a lease.")),
+        mis = listOf(CommonMistake("I don't must work.", "I don't have to work.", "Use don't have to."))
+    )
+
+    private fun f11B() = base(
+        42, "11B — The story of the marathon", "۱۱B — داستان ماراتن",
+        listOf("Past simple review", "Sports and history", "Narrate events"),
+        listOf(
+            v("marathon", "ماراتن", "Run a marathon.", "ماراتن بدو."),
+            v("race", "مسابقه", "A long race.", "مسابقه طولانی."),
+            v("win", "بردن", "Won the race.", "مسابقه را برد.", "verb"),
+            v("run", "دویدن", "Ran very fast.", "خیلی تند دوید.", "verb"),
+            v("history", "تاریخچه", "A long history.", "تاریخچه طولانی."),
+            v("ancient", "باستانی", "Ancient Greece.", "یونان باستان.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Past simple review", "Regular and irregular verbs."),
+            GrammarSection("Narrative sequencing", "First, then, after that, finally.")
+        ),
+        listOf(
+            d("A", "Do you know the marathon story?", "داستان ماراتن را می‌دانی؟"),
+            d("B", "A little. Ancient Greece.", "کمی. یونان باستان."),
+            d("A", "Yes. A soldier ran to Athens.", "بله. سربازی به آتن دوید."),
+            d("B", "How far?", "چقدر؟"),
+            d("A", "About 40 km. Then he died.", "حدود ۴۰ کیلومتر. بعد مرد."),
+            d("B", "Wow. That's why it's a marathon.", "واو. برای همین ماراتن است."),
+            d("A", "Yes. Now millions run every year.", "بله. الان میلیون‌ها نفر هر سال می‌دوند."),
+            d("B", "Amazing history.", "تاریخچه شگفت‌انگیز.")
+        ),
+        listOf(
+            q("Where was marathon?", listOf("Rome", "Greece", "Egypt"), 1),
+            q("How far?", listOf("20 km", "40 km", "60 km"), 1),
+            q("He ___ very fast.", listOf("run", "ran", "running"), 1),
+            q("She ___ the race.", listOf("win", "won", "winning"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Ancient history", "تاریخ باستان", "Ancient Greece.", "یونان باستان.")),
+        pron = listOf(PronunciationTip("-ed past", "/t/, /d/, /ɪd/")),
+        cult = listOf(CulturalNote("Marathon", "42.195 km officially.")),
+        mis = listOf(CommonMistake("He runned.", "He ran.", "Irregular."))
+    )
+
+    private fun f11C() = base(
+        43, "11C — It's a mystery", "۱۱C — یک راز است",
+        listOf("Present perfect review", "Talk about mysteries", "Express uncertainty"),
+        listOf(
+            v("mystery", "راز", "A mystery.", "یک راز."),
+            v("clue", "سرنخ", "A clue.", "سرنخ."),
+            v("solve", "حل کردن", "Solve it.", "حلش کن.", "verb"),
+            v("disappear", "ناپدید شدن", "Disappeared suddenly.", "ناگهان ناپدید شد.", "verb"),
+            v("strange", "عجیب", "Strange story.", "داستان عجیب.", "adjective"),
+            v("maybe", "شاید", "Maybe not.", "شاید نه.", "adverb")
+        ),
+        listOf(
+            GrammarSection("Present perfect review", "Have you ever...? I've never..."),
+            GrammarSection("Uncertainty", "Maybe. I'm not sure. Perhaps.")
+        ),
+        listOf(
+            d("A", "Have you heard the mystery?", "راز را شنیدی؟"),
+            d("B", "No. What happened?", "نه. چی شد؟"),
+            d("A", "A ship disappeared in 1872.", "کشتی در ۱۸۷۲ ناپدید شد."),
+            d("B", "Strange. Any clues?", "عجیب. سرنخی؟"),
+            d("A", "Never found. It's still a mystery.", "هرگز پیدا نشد. هنوز راز است."),
+            d("B", "Have they solved it?", "حلش کرده‌اند؟"),
+            d("A", "Never. Maybe aliens!", "هرگز. شاید موجودات فضایی!"),
+            d("B", "Ha! Maybe just a storm.", "ها! شاید فقط طوفان.")
+        ),
+        listOf(
+            q("When disappeared?", listOf("1772", "1872", "1972"), 1),
+            q("Solved?", listOf("yes", "no", "maybe"), 1),
+            q("Have they ___ it?", listOf("solve", "solved", "solving"), 1),
+            q("I'm ___ sure.", listOf("no", "not", "never"), 1)
+        ),
+        idioms = listOf(IdiomExpression("A mystery", "یک راز", "Still a mystery.", "هنوز راز است.")),
+        pron = listOf(PronunciationTip("Present perfect", "I've /aɪv/")),
+        cult = listOf(CulturalNote("Mary Celeste", "Famous mystery ship.")),
+        mis = listOf(CommonMistake("Have they solve?", "Have they solved?", "Past participle."))
+    )
+
+    // ═══════════════════ FILE 12 ═══════════════════
+
+    private fun f12A() = base(
+        44, "12A — A big decision", "۱۲A — یک تصمیم بزرگ",
+        listOf("Present perfect with just/yet/already", "Talk about decisions", "Future plans"),
+        listOf(
+            v("decision", "تصمیم", "A big decision.", "تصمیم بزرگ."),
+            v("decide", "تصمیم گرفتن", "Decided to move.", "تصمیم گرفتم نقل مکان کنم.", "verb"),
+            v("quit", "رها کردن", "Quit my job.", "شغلم را رها کردم.", "verb"),
+            v("opportunity", "فرصت", "A great opportunity.", "فرصت عالی."),
+            v("advice", "توصیه", "Ask for advice.", "توصیه بخواه."),
+            v("nervous", "عصبی", "Very nervous.", "خیلی عصبی.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Just / Yet / Already", "I've just decided. Have you decided yet? I've already told them."),
+            GrammarSection("Future with going to", "I'm going to move to Canada.")
+        ),
+        listOf(
+            d("A", "You look nervous. What's up?", "عصبی به نظر می‌رسی. چی شده؟"),
+            d("B", "I've just decided to quit my job.", "همین الان تصمیم گرفتم شغلم را رها کنم."),
+            d("A", "Really? Why?", "واقعاً؟ چرا؟"),
+            d("B", "New opportunity. Going to move to Canada.", "فرصت جدید. قرار است به کانادا نقل مکان کنم."),
+            d("A", "Wow! Have you told your boss yet?", "واو! به رئیست گفتی؟"),
+            d("B", "Not yet. Tomorrow morning.", "هنوز نه. فردا صبح."),
+            d("A", "Have you told your family?", "به خانواده‌ات گفتی؟"),
+            d("B", "Already told my wife. She's excited.", "قبلاً به همسرم گفتم. هیجان‌زده است.")
+        ),
+        listOf(
+            q("What decision?", listOf("quit job", "buy house", "get married"), 0),
+            q("Where moving?", listOf("USA", "Canada", "UK"), 1),
+            q("I've ___ decided.", listOf("yet", "just", "ever"), 1),
+            q("Have you told him ___?", listOf("yet", "just", "already"), 0)
+        ),
+        idioms = listOf(IdiomExpression("What's up?", "چی شده؟", "What's up?", "چی شده؟")),
+        pron = listOf(PronunciationTip("Just/Yet", "Stress: JUST, YET")),
+        cult = listOf(CulturalNote("Big moves", "Common for career.")),
+        mis = listOf(CommonMistake("I've decided yet.", "I've just decided.", "Yet = negative/question."))
+    )
+
+    private fun f12B() = base(
+        45, "12B — The year of the snake", "۱۲B — سال مار",
+        listOf("First conditional", "Talk about possibilities", "Culture and traditions"),
+        listOf(
+            v("if", "اگر", "If you go...", "اگر بروی...", "conjunction"),
+            v("will", "خواهد", "You'll love it.", "عاشقش می‌شوی.", "verb"),
+            v("tradition", "سنت", "Old tradition.", "سنت قدیمی."),
+            v("celebrate", "جشن گرفتن", "Celebrate New Year.", "سال نو را جشن بگیر.", "verb"),
+            v("lucky", "خوش‌شانس", "Lucky year.", "سال خوش‌شانس.", "adjective"),
+            v("symbol", "نماد", "A symbol of luck.", "نماد شانس.")
+        ),
+        listOf(
+            GrammarSection("First conditional", "If + present simple, will + verb. If you go, you'll love it."),
+            GrammarSection("Possibility", "If it rains, we'll stay home.")
+        ),
+        listOf(
+            d("A", "Do you celebrate Chinese New Year?", "سال نو چینی را جشن می‌گیری؟"),
+            d("B", "Yes! This year is the Snake.", "بله! امسال مار است."),
+            d("A", "What does it mean?", "چه معنایی دارد؟"),
+            d("B", "Snake symbol is lucky. If you're born in it, good year.", "نماد مار خوش‌شانسی است. اگر در آن متولد شوی، سال خوب."),
+            d("A", "Interesting. What do you do?", "جالب. چه کار می‌کنید؟"),
+            d("B", "Family dinner. Red decorations. Fireworks.", "شام خانوادگی. تزئینات قرمز. آتش‌بازی."),
+            d("A", "If I visit, will you invite me?", "اگر بیایم، دعوتم می‌کنی؟"),
+            d("B", "Of course! You'll love it.", "البته! عاشقش می‌شوی.")
+        ),
+        listOf(
+            q("Animal this year?", listOf("dragon", "snake", "tiger"), 1),
+            q("What do they eat?", listOf("family dinner", "sushi", "pizza"), 0),
+            q("If you ___, you'll love it.", listOf("go", "went", "going"), 0),
+            q("If it ___, we'll stay home.", listOf("rain", "rains", "rained"), 1)
+        ),
+        idioms = listOf(IdiomExpression("You'll love it", "عاشقش می‌شوی", "You'll love it!", "عاشقش می‌شوی!")),
+        pron = listOf(PronunciationTip("First conditional", "Rise on if-clause, fall on main.")),
+        cult = listOf(CulturalNote("Chinese NY", "Snake is 6th animal.")),
+        mis = listOf(CommonMistake("If you will go", "If you go", "No 'will' in if-clause."))
+    )
+
+    private fun f12C() = base(
+        46, "12C — Goodbye and good luck", "۱۲C — خداحافظ و موفق باشی",
+        listOf("Review all tenses", "Say goodbye", "Talk about the future"),
+        listOf(
+            v("goodbye", "خداحافظ", "Goodbye!", "خداحافظ!", "interjection"),
+            v("good luck", "موفق باشی", "Good luck!", "موفق باشی!", "phrase"),
+            v("keep in touch", "در تماس باش", "Keep in touch.", "در تماس باش.", "verb"),
+            v("miss", "دلتنگ شدن", "I'll miss you.", "دلتنگت می‌شوم.", "verb"),
+            v("hope", "امیدوار بودن", "Hope to see you.", "امیدوارم ببینمت.", "verb"),
+            v("soon", "به‌زودی", "See you soon.", "به‌زودی می‌بینمت.", "adverb")
+        ),
+        listOf(
+            GrammarSection("Review: present, past, future", "I work / I worked / I'm going to work."),
+            GrammarSection("Saying goodbye", "Goodbye. Good luck. Keep in touch. See you soon.")
+        ),
+        listOf(
+            d("A", "Is this your last class?", "آخرین کلاسته؟"),
+            d("B", "Yes. Moving back to Spain next week.", "بله. هفته بعد به اسپانیا برمی‌گردم."),
+            d("A", "We'll miss you!", "دلتنگت می‌شویم!"),
+            d("B", "Me too. You've all been great.", "من هم. همه‌تان عالی بودید."),
+            d("A", "Keep in touch!", "در تماس باش!"),
+            d("B", "Of course. Email me anytime.", "البته. هر وقت ایمیل بزن."),
+            d("A", "Good luck with everything!", "موفق باشی در همه چیز!"),
+            d("B", "Thanks. See you soon!", "ممنون. به‌زودی می‌بینمت!")
+        ),
+        listOf(
+            q("Where is B moving?", listOf("Italy", "Spain", "France"), 1),
+            q("When?", listOf("this week", "next week", "next month"), 1),
+            q("I ___ miss you.", listOf("will", "am", "do"), 0),
+            q("Keep in ___!", listOf("touch", "talk", "contact"), 0)
         ),
         idioms = listOf(
-            IdiomExpression("On holiday","در تعطیلات","We're on holiday.","در تعطیلات هستیم."),
-            IdiomExpression("It's a small world","جهان کوچک است","It's a small world!","جهان کوچکی است!")
+            IdiomExpression("Good luck!", "موفق باشی!", "Good luck!", "موفق باشی!"),
+            IdiomExpression("Keep in touch", "در تماس باش", "Keep in touch!", "در تماس باش!")
         ),
-        pronunciation = listOf(PronunciationTip("Nationality endings","Stress shifts: GERmany → GERman, ITaly → iTALian.")),
-        culture = listOf(CulturalNote("Nationalities","Nationalities in English always start with a capital letter.")),
-        mistakes = listOf(CommonMistake("We is from Germany.","We are from Germany.","Use 'are' with we/you/they."))
+        pron = listOf(PronunciationTip("Goodbye intonation", "Rising: See you SOON ↗")),
+        cult = listOf(CulturalNote("Goodbyes", "Hug or handshake varies.")),
+        mis = listOf(CommonMistake("I will miss to you.", "I will miss you.", "No 'to'."))
     )
 
-    // ═══ 1C ═══
-    private fun file1C() = base(3, "What's your email?", "ایمیلت چیه؟",
-        listOf("Give personal information","Use possessive adjectives","Spell names","Use numbers 20-100"),
+    private fun pe6() = base(
+        47, "PE6 — On the phone", "انگلیسی کاربردی ۶ — تلفنی",
+        listOf("Make phone calls", "Leave messages", "Take messages"),
         listOf(
-            v("email","ایمیل","What's your email?","ایمیلت چیه؟"),
-            v("phone number","شماره تلفن","My phone number is...","شماره تلفنم..."),
-            v("address","آدرس","What's your address?","آدرست چیه؟"),
-            v("spell","هجی کردن","How do you spell it?","چطور هجی می‌کنی؟","verb"),
-            v("surname","نام خانوادگی","My surname is Smith.","نام خانوادگی‌ام اسمیت است."),
-            v("first name","نام کوچک","My first name is Tom.","نام کوچکم تام است."),
-            v("age","سن","What's your age?","سنت چقدره؟"),
-            v("number","شماره","What's your number?","شمارت چیه؟")
+            v("call", "تماس", "Make a call.", "تماس بگیر.", "verb"),
+            v("message", "پیام", "Leave a message.", "پیام بگذار."),
+            v("hold on", "صبر کن", "Hold on, please.", "لطفاً صبر کن.", "verb"),
+            v("wrong number", "شماره اشتباه", "Wrong number.", "شماره اشتباه."),
+            v("speak to", "صحبت کردن با", "Speak to Tom.", "با تام صحبت کن.", "verb"),
+            v("available", "در دسترس", "Not available.", "در دسترس نیست.", "adjective")
         ),
         listOf(
-            GrammarSection("Possessive adjectives","my, your, his, her. My name is... Her phone is..."),
-            GrammarSection("Wh- questions with be","What's your name? Where's your address? Who's your teacher?")
+            GrammarSection("Phone phrases", "Can I speak to...? Hold on, please. Can I take a message?"),
+            GrammarSection("Polite requests", "Could you...? Would you...?")
         ),
         listOf(
-            d("A","What's your surname?","نام خانوادگیت چیه؟"),
-            d("B","It's Kowalski. K-O-W-A-L-S-K-I.","کوالسکی. ک-و-ا-ل-س-ک-ی."),
-            d("A","Thanks. What's your first name?","ممنون. اسم کوچکت چیه؟"),
-            d("B","Maria. M-A-R-I-A.","ماریا. م-ا-ر-ی-ا."),
-            d("A","And your email?","و ایمیلت؟"),
-            d("B","It's maria.kowalski@gmail.com.","ماریا.کوالسکی@gmail.com."),
-            d("A","Sorry, can you repeat that?","ببخشید، تکرار می‌کنی؟"),
-            d("B","M-A-R-I-A dot K-O-W-A-L-S-K-I at gmail dot com.","م-ا-ر-ی-ا نقطه ک-و-ا-ل-س-ک-ی ات gmail نقطه com."),
-            d("A","Got it. And your phone number?","فهمیدم. و شماره تلفنت؟"),
-            d("B","It's 07700 900456.","۰۷۷۰۰ ۹۰۰۴۵۶.")
+            d("A", "Hello, can I speak to Tom?", "سلام، می‌توانم با تام صحبت کنم؟"),
+            d("B", "Hold on, please.", "لطفاً صبر کنید."),
+            d("B", "Sorry, not available.", "متأسفانه، در دسترس نیست."),
+            d("A", "Can I leave a message?", "می‌توانم پیام بگذارم؟"),
+            d("B", "Of course.", "البته."),
+            d("A", "Tell him Maria called. Call back.", "بگو ماریا زنگ زد. تماس بگیرد."),
+            d("B", "Got it. Anything else?", "فهمیدم. چیز دیگر؟"),
+            d("A", "No, thanks. Bye.", "نه، ممنون. خداحافظ.")
         ),
         listOf(
-            q("What's B's surname?",listOf("Maria","Kowalski","Smith"),1),
-            q("What's B's email domain?",listOf("yahoo","gmail","hotmail"),1),
-            q("This is Tom. ___ phone is new.",listOf("Her","His","My"),1),
-            q("___ is your email?",listOf("What","Who","Where"),0)
+            q("Who's calling?", listOf("Tom", "Maria", "Anna"), 1),
+            q("Is Tom available?", listOf("yes", "no", "maybe"), 1),
+            q("Can I ___ to Tom?", listOf("speak", "talk", "say"), 0),
+            q("___ on, please.", listOf("Hold", "Wait", "Stay"), 0)
         ),
-        idioms = listOf(
-            IdiomExpression("Can you repeat that?","می‌تونی تکرار کنی؟","Can you repeat that?","می‌تونی تکرار کنی؟"),
-            IdiomExpression("Got it","فهمیدم","Got it, thanks.","فهمیدم، ممنون.")
-        ),
-        pronunciation = listOf(PronunciationTip("Spelling aloud","Vowels: A /eɪ/, E /iː/, I /aɪ/, O /oʊ/, U /juː/.")),
-        culture = listOf(CulturalNote("Email addresses","'@' is 'at' and '.' is 'dot'.")),
-        mistakes = listOf(CommonMistake("How you spell?","How do you spell?","Use 'do' in questions."))
+        idioms = listOf(IdiomExpression("Hold on", "صبر کن", "Hold on, please.", "صبر کن، لطفاً.")),
+        pron = listOf(PronunciationTip("Phone", "Rise: Can I SPEAK to Tom? ↗")),
+        cult = listOf(CulturalNote("Phone", "Always ask politely.")),
+        mis = listOf(CommonMistake("I want to speak Tom.", "I want to speak to Tom.", "Use 'to'."))
     )
 
-    // ═══ 2A ═══
-    private fun file2A() = base(4, "Are you tidy or untidy?", "مرتبی یا نامرتب؟",
-        listOf("Talk about objects","Use a/an and this/that/these/those","Use singular/plural nouns","Prepositions: in, on, under"),
-        listOf(
-            v("tidy","مرتب","My desk is tidy.","میزم مرتب است.","adjective"),
-            v("untidy","نامرتب","His room is untidy.","اتاقش نامرتب است.","adjective"),
-            v("desk","میز","Books on the desk.","کتاب‌ها روی میز."),
-            v("charger","شارژر","I need my charger.","شارژرم را لازم دارم."),
-            v("umbrella","چتر","Take an umbrella.","چتر بردار."),
-            v("glasses","عینک","Where are my glasses?","عینکم کجاست؟"),
-            v("keys","کلیدها","I can't find my keys.","کلیدهایم را پیدا نمی‌کنم."),
-            v("bag","کیف","It's in my bag.","در کیسم است.")
-        ),
-        listOf(
-            GrammarSection("a / an","'a' before consonants: a book. 'an' before vowels: an umbrella."),
-            GrammarSection("this/that/these/those","this (near, sing), that (far, sing), these (near, pl), those (far, pl)."),
-            GrammarSection("Prepositions of place","in the bag, on the desk, under the chair.")
-        ),
-        listOf(
-            d("A","Are you tidy or untidy?","مرتبی یا نامرتب؟"),
-            d("B","Very untidy! My desk is a mess.","خیلی نامرتب! میزم به هم ریخته."),
-            d("A","What's on your desk?","چی روی میزته؟"),
-            d("B","Books, papers, and an old coffee cup.","کتاب، کاغذ و یک فنجان قهوه قدیمی."),
-            d("A","Where are your keys?","کلیدهایت کجا هستند؟"),
-            d("B","I don't know! Not in my bag.","نمی‌دانم! در کیسم نیستند."),
-            d("A","Are they under the papers?","زیر کاغذها هستند؟"),
-            d("B","Maybe! Oh yes, here they are.","شاید! اوه بله، ایناهاشون."),
-            d("A","You need to be more tidy!","باید مرتب‌تر باشی!"),
-            d("B","I know. My mother says that too.","می‌دانم. مادرم هم همین را می‌گوید.")
-        ),
-        listOf(
-            q("Where are B's keys?",listOf("in the bag","under the papers","on the desk"),1),
-            q("What's on B's desk?",listOf("books and papers","a laptop","shoes"),0),
-            q("There is ___ umbrella.",listOf("a","an","the"),1),
-            q("___ books are mine.",listOf("This","These","That"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("A mess","به هم ریخته","My desk is a mess.","میزم به هم ریخته است."),
-            IdiomExpression("Here they are","ایناهاشون","Here they are!","ایناهاشون!")
-        ),
-        pronunciation = listOf(PronunciationTip("Plural -s","Three sounds: /s/ (books), /z/ (keys), /ɪz/ (watches).")),
-        culture = listOf(CulturalNote("Tidiness","Attitudes to tidiness vary across cultures.")),
-        mistakes = listOf(CommonMistake("a umbrella","an umbrella","Use 'an' before vowel sounds."))
-    )
-
-    // ═══ 2B ═══
-    private fun file2B() = base(5, "Made in America", "ساخت آمریکا",
-        listOf("Use adjectives","Talk about colours","Use modifiers: very, really, quite","Talk about brands"),
-        listOf(
-            v("colour","رنگ","What colour is it?","چه رنگی است؟"),
-            v("red","قرمز","The flag is red.","پرچم قرمز است.","adjective"),
-            v("blue","آبی","A blue jacket.","یک کاپشن آبی.","adjective"),
-            v("green","سبز","Green trees.","درختان سبز.","adjective"),
-            v("black","مشکی","A black bag.","یک کیف مشکی.","adjective"),
-            v("big","بزرگ","Canada is big.","کانادا بزرگ است.","adjective"),
-            v("small","کوچک","A small world.","جهان کوچک.","adjective"),
-            v("beautiful","زیبا","A beautiful city.","شهر زیبا.","adjective")
-        ),
-        listOf(
-            GrammarSection("Adjectives","Before nouns (a big country) or after 'be' (Canada is big)."),
-            GrammarSection("Modifiers","very, really, quite. It's very big. It's really beautiful.")
-        ),
-        listOf(
-            d("A","What colour is the American flag?","پرچم آمریکا چه رنگی است؟"),
-            d("B","Red, white, and blue. Fifty stars.","قرمز، سفید و آبی. پنجاه ستاره."),
-            d("A","Are there many American products here?","محصولات آمریکایی زیادی اینجاست؟"),
-            d("B","Yes, a lot. iPhones, Coca-Cola, McDonald's...","بله، زیاد. آیفون، کوکاکولا، مک‌دونالد..."),
-            d("A","Favourite American brand?","برند آمریکایی مورد علاقه؟"),
-            d("B","I really like Apple. Their products are beautiful.","واقعاً اپل را دوست دارم. محصولاتشان زیباست."),
-            d("A","Me too. But they're quite expensive.","من هم. ولی کاملاً گران هستند."),
-            d("B","Yes, very expensive! But good quality.","بله، خیلی گران! ولی کیفیت خوب."),
-            d("A","Is Levi's American?","لیوایز آمریکایی است؟"),
-            d("B","Yes, but many jeans are made in other countries.","بله، ولی بسیاری از جین‌ها در کشورهای دیگر ساخته می‌شوند.")
-        ),
-        listOf(
-            q("Colours of the American flag?",listOf("red, white, blue","red, yellow, green","blue, white, black"),0),
-            q("Which brand does B like?",listOf("Nike","Apple","Levi's"),1),
-            q("Canada is a ___ country.",listOf("big","bigger","biggest"),0),
-            q("It's ___ beautiful city.",listOf("very","much","many"),0)
-        ),
-        idioms = listOf(
-            IdiomExpression("A lot","زیاد","Yes, a lot.","بله، زیاد."),
-            IdiomExpression("Me too","من هم","Me too!","من هم!")
-        ),
-        pronunciation = listOf(PronunciationTip("Adjective stress","Stress: a BIG country, a BEAUtiful city.")),
-        culture = listOf(CulturalNote("Global brands","Many brands are American but made worldwide.")),
-        mistakes = listOf(CommonMistake("a country big","a big country","Adjective comes before noun."))
-    )
-
-    // ═══ 2C ═══
-    private fun file2C() = base(6, "Slow down!", "آهسته‌تر!",
-        listOf("Use imperatives","Use 'let's' for suggestions","Talk about feelings","Give instructions"),
-        listOf(
-            v("slow down","آهسته‌تر","Slow down!","آهسته‌تر!","verb"),
-            v("hungry","گرسنه","I'm hungry.","گرسنه‌ام.","adjective"),
-            v("thirsty","تشنه","She's thirsty.","او تشنه است.","adjective"),
-            v("hot","گرم","It's hot.","گرم است.","adjective"),
-            v("cold","سرد","I'm cold.","سردم است.","adjective"),
-            v("tired","خسته","We're tired.","خسته‌ایم.","adjective"),
-            v("happy","خوشحال","I'm happy.","خوشحالم.","adjective"),
-            v("worried","نگران","Don't be worried.","نگران نباش.","adjective")
-        ),
-        listOf(
-            GrammarSection("Imperatives","Open the door. Don't close the window."),
-            GrammarSection("Let's + verb","Let's eat. Let's go home."),
-            GrammarSection("Feelings with be","I'm hungry. She's tired.")
-        ),
-        listOf(
-            d("A","Lisa, slow down! You're driving too fast.","لیزا، آهسته‌تر! خیلی تند رانندگی می‌کنی."),
-            d("B","Sorry! I'm tired. I want to get home.","ببخشید! خسته‌ام. می‌خواهم به خانه برسم."),
-            d("A","Are you hungry?","گرسنه‌ای؟"),
-            d("B","Yes, very hungry. And thirsty too.","بله، خیلی گرسنه. و تشنه هم."),
-            d("A","Let's stop at the next cafe.","بیا در کافه بعدی توقف کنیم."),
-            d("B","Good idea. I need a coffee.","فکر خوبی است. به یک قهوه نیاز دارم."),
-            d("A","Don't drive so fast. The baby is sleeping.","اینقدر تند رانندگی نکن. بچه خواب است."),
-            d("B","OK. You're right. I'm sorry.","باشه. حق با توست. متأسفم.")
-        ),
-        listOf(
-            q("Why is B driving fast?",listOf("happy","tired","excited"),1),
-            q("What does A suggest?",listOf("stop at a cafe","go home","drive faster"),0),
-            q("___ the window. It's hot.",listOf("Open","Close","Don't open"),0),
-            q("I'm ___. Let's eat.",listOf("thirsty","hungry","tired"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Good idea","فکر خوبی","Good idea!","فکر خوبی!"),
-            IdiomExpression("You're right","حق با توست","You're right.","حق با توست.")
-        ),
-        pronunciation = listOf(PronunciationTip("Imperative intonation","Falling: OPEN the door. SLOW down.")),
-        culture = listOf(CulturalNote("Safe driving","Driving slowly near homes is required by law.")),
-        mistakes = listOf(CommonMistake("Don't to open","Don't open","Base verb after 'don't'."))
-    )
-
-    // ═══ PE1 ═══
-    private fun practicalEnglish1() = base(7, "Practical English 1 — Checking in", "انگلیسی کاربردی ۱ — پذیرش هتل",
-        listOf("Check into a hotel","Spell names","Ask for information","Use polite requests"),
-        listOf(
-            v("reception","پذیرش","Go to reception.","به پذیرش برو."),
-            v("check in","پذیرش شدن","I'd like to check in.","می‌خواهم پذیرش شوم.","verb"),
-            v("reservation","رزرو","I have a reservation.","رزرو دارم."),
-            v("key card","کارت کلید","Here's your key card.","این کارت کلید شماست."),
-            v("room","اتاق","Room 305.","اتاق ۳۰۵."),
-            v("breakfast","صبحانه","Is breakfast included?","صبحانه شامل می‌شود؟"),
-            v("lift","آسانسور","The lift is on the left.","آسانسور سمت چپ است."),
-            v("passport","پاسپورت","Can I see your passport?","پاسپورتتان را ببینم؟")
-        ),
-        listOf(
-            GrammarSection("Polite requests","I'd like... Can I...? Could you...?"),
-            GrammarSection("Checking in","I have a reservation. My name is... Is breakfast included?")
-        ),
-        listOf(
-            d("Receptionist","Good evening. Can I help you?","عصر بخیر. کمکی کنم؟"),
-            d("Guest","Yes, I have a reservation. Kowalski.","بله، رزرو دارم. کوالسکی."),
-            d("Receptionist","How do you spell that?","چطور هجی می‌کنید؟"),
-            d("Guest","K-O-W-A-L-S-K-I.","ک-و-ا-ل-س-ک-ی."),
-            d("Receptionist","Can I see your passport?","پاسپورتتان را ببینم؟"),
-            d("Guest","Yes, here you are.","بله، بفرمایید."),
-            d("Receptionist","You're in room 305.","اتاق ۳۰۵ هستید."),
-            d("Guest","Is breakfast included?","صبحانه شامل می‌شود؟"),
-            d("Receptionist","Yes, 7 to 10. The lift is on the left.","بله، ۷ تا ۱۰. آسانسور سمت چپ."),
-            d("Guest","Thank you very much.","خیلی ممنون.")
-        ),
-        listOf(
-            q("What room is the guest in?",listOf("305","350","503"),0),
-            q("What time is breakfast?",listOf("6-9","7-10","8-11"),1),
-            q("___ I see your passport?",listOf("Can","Do","Am"),0),
-            q("I ___ like to check in.",listOf("would","will","am"),0)
-        ),
-        idioms = listOf(
-            IdiomExpression("Here you are","بفرمایید","Here you are.","بفرمایید."),
-            IdiomExpression("Enjoy your stay","اقامت خوبی داشته باشید","Enjoy your stay!","اقامت خوبی داشته باشید!")
-        ),
-        pronunciation = listOf(PronunciationTip("Polite intonation","Polite questions rise: Can I see your PASSPORT? ↗")),
-        culture = listOf(CulturalNote("Hotel check-in","You need a passport or ID to check in.")),
-        mistakes = listOf(CommonMistake("I have reservation.","I have a reservation.","Don't forget 'a'."))
-    )
-
-    // ═══ R&C 1&2 ═══
-    private fun reviseAndCheck1And2() = base(8, "Revise & Check 1 & 2", "مرور و بررسی ۱ و ۲",
-        listOf("Review verb be","Review possessives and articles","Review this/that","Review imperatives"),
-        listOf(
-            v("review","مرور","Let's review.","بیایید مرور کنیم.","verb"),
-            v("exercise","تمرین","Do the exercises.","تمرین‌ها را انجام بده."),
-            v("mistake","اشتباه","Learn from mistakes.","از اشتباهات یاد بگیر."),
-            v("correct","درست","Is this correct?","این درست است؟","adjective"),
-            v("remember","به یاد آوردن","Remember the grammar.","گرامر را به یاد بیاور.","verb"),
-            v("practice","تمرین کردن","Practice every day.","هر روز تمرین کن.","verb")
-        ),
-        listOf(
-            GrammarSection("Verb be review","I am, you are, he/she/it is, we/you/they are."),
-            GrammarSection("Articles review","a book, an umbrella, the book."),
-            GrammarSection("Possessive adjectives","my, your, his, her, its, our, their.")
-        ),
-        listOf(
-            d("Teacher","Let's review Files 1 and 2.","بیایید فایل‌های ۱ و ۲ را مرور کنیم."),
-            d("A","Verb be! I am, you are, he is...","فعل be! I am، you are، he is..."),
-            d("B","And possessive adjectives. My, your, his, her.","و صفت‌های ملکی. my، your، his، her."),
-            d("Teacher","What about a/an?","a/an چطور؟"),
-            d("A","a before consonants, an before vowels.","a قبل از صامت، an قبل از مصوت."),
-            d("B","And this/that/these/those.","و this/that/these/those."),
-            d("Teacher","Now imperatives.","حالا imperativeها."),
-            d("A","Open the door. Don't close it.","در را باز کن. نبندش."),
-            d("B","Let's go home.","بیا به خانه برویم."),
-            d("Teacher","Perfect!","عالی!")
-        ),
-        listOf(
-            q("Which form of be with 'they'?",listOf("am","is","are"),2),
-            q("Article before 'umbrella'?",listOf("a","an","the"),1),
-            q("___ is my book. (near, sing.)",listOf("This","These","Those"),0),
-            q("___ open the door!",listOf("Not","Don't","No"),1)
-        ),
-        idioms = listOf(IdiomExpression("Let's review","بیایید مرور کنیم","Let's review.","بیایید مرور کنیم.")),
-        pronunciation = listOf(PronunciationTip("Review intonation","Statements fall, questions rise.")),
-        culture = listOf(CulturalNote("Reviewing","Regular review is essential for language learning.")),
-        mistakes = listOf(CommonMistake("They is happy.","They are happy.","Use 'are' with plural."))
-    )
-
-    // ═══ 3A ═══
-    private fun file3A() = base(9, "Britain: the good and the bad", "بریتانیا: خوب و بد",
-        listOf("Present simple: positive and negative","Talk about likes/dislikes","Use verb phrases"),
-        listOf(
-            v("weather","هوا","The weather is bad.","هوا بد است."),
-            v("food","غذا","British food isn't famous.","غذای بریتانیایی معروف نیست."),
-            v("people","مردم","The people are friendly.","مردم خوش‌برخورد هستند."),
-            v("city","شهر","London is a great city.","لندن شهر بزرگی است."),
-            v("countryside","حومه","The countryside is beautiful.","حومه زیباست."),
-            v("tea","چای","British people love tea.","مردم بریتانیا عاشق چای هستند."),
-            v("pub","میخانه","Pubs are important.","میخانه‌ها مهم هستند."),
-            v("traffic","ترافیک","The traffic is terrible.","ترافیک وحشتناک است.")
-        ),
-        listOf(
-            GrammarSection("Present simple (positive)","I/you/we/they like. He/she/it likes."),
-            GrammarSection("Present simple (negative)","I don't like. He/she/it doesn't like.")
-        ),
-        listOf(
-            d("A","What do you think of Britain?","نظرت درباره بریتانیا چیست؟"),
-            d("B","The good thing is the people. Very friendly.","نکته خوبش مردم. خیلی خوش‌برخورد."),
-            d("A","And the bad thing?","و نکته بدش؟"),
-            d("B","The weather! It rains all the time.","هوا! همیشه باران می‌آید."),
-            d("A","But the countryside is beautiful.","ولی حومه زیباست."),
-            d("B","Yes, I love the countryside. And British tea.","بله، عاشق حومه‌ام. و چای بریتانیایی."),
-            d("A","Do you like British food?","غذای بریتانیایی دوست داری؟"),
-            d("B","Not really. I don't like fish and chips.","نه زیاد. ماهی و سیب‌زمینی دوست ندارم."),
-            d("A","What about London?","لندن چطور؟"),
-            d("B","Exciting but very expensive.","هیجان‌انگیز ولی خیلی گران.")
-        ),
-        listOf(
-            q("What does B like?",listOf("food","people","weather"),1),
-            q("What doesn't B like?",listOf("tea","fish and chips","countryside"),1),
-            q("I ___ fish and chips.",listOf("not like","don't like","doesn't like"),1),
-            q("She ___ British tea.",listOf("love","loves","loving"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Fish and chips","ماهی و سیب‌زمینی","Fish and chips.","ماهی و سیب‌زمینی."),
-            IdiomExpression("All the time","همیشه","It rains all the time.","همیشه باران می‌آید.")
-        ),
-        pronunciation = listOf(PronunciationTip("Third-person -s","like → likes /laɪks/, love → loves /lʌvz/.")),
-        culture = listOf(CulturalNote("Pubs","Pubs are important in British social life.")),
-        mistakes = listOf(CommonMistake("I no like tea.","I don't like tea.","Use don't/doesn't."))
-    )
-
-    // ═══ 3B ═══
-    private fun file3B() = base(10, "Love me, love my dog", "منو دوست داشته باش، سگمو هم",
-        listOf("Present simple questions","Question words","Talk about pets"),
-        listOf(
-            v("dog","سگ","I have a dog.","سگ دارم."),
-            v("cat","گربه","Two cats.","دو گربه."),
-            v("pet","حیوان خانگی","Do you have pets?","حیوان خانگی داری؟"),
-            v("walk","پیاده‌روی","I walk my dog.","سگم را پیاده‌روی می‌برم.","verb"),
-            v("feed","غذا دادن","Who feeds the cat?","چه کسی به گربه غذا می‌دهد؟","verb"),
-            v("play","بازی کردن","The dog plays.","سگ بازی می‌کند.","verb"),
-            v("sleep","خوابیدن","My cat sleeps all day.","گربه‌ام تمام روز می‌خوابد.","verb"),
-            v("animal","حیوان","I love animals.","عاشق حیواناتم.")
-        ),
-        listOf(
-            GrammarSection("Present simple questions","Do you...? Does he/she/it...? Yes, I do. / No, I don't."),
-            GrammarSection("Question words","What, Where, When, Who, Why, How.")
-        ),
-        listOf(
-            d("A","Do you have any pets?","حیوان خانگی داری؟"),
-            d("B","Yes, a dog. His name is Barry.","بله، یک سگ. اسمش بری است."),
-            d("A","What's he like?","چه جوریه؟"),
-            d("B","Very friendly. He loves people.","خیلی خوش‌برخورد. عاشق مردم است."),
-            d("A","Do you walk him every day?","هر روز پیاده‌روی می‌بری‌اش؟"),
-            d("B","Twice a day. Morning and evening.","دو بار در روز. صبح و عصر."),
-            d("A","Where do you go?","کجا می‌روید؟"),
-            d("B","To the park near my house.","به پارک نزدیک خانه‌ام."),
-            d("A","Does he like other dogs?","سگ‌های دیگر را دوست دارد؟"),
-            d("B","Most. But he doesn't like big dogs.","بیشترشان. ولی سگ‌های بزرگ را دوست ندارد."),
-            d("A","What does he eat?","چی می‌خورد؟"),
-            d("B","Dog food. Favourite is chicken.","غذای سگ. مورد علاقه‌اش مرغ.")
-        ),
-        listOf(
-            q("What pet?",listOf("cat","dog","bird"),1),
-            q("How often walk?",listOf("once","twice","three times"),1),
-            q("___ you like dogs?",listOf("Do","Does","Are"),0),
-            q("___ she have a cat?",listOf("Do","Does","Is"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Twice a day","دو بار در روز","Twice a day.","دو بار در روز."),
-            IdiomExpression("Most of them","بیشترشان","Most of them.","بیشترشان.")
-        ),
-        pronunciation = listOf(PronunciationTip("Do / Does","Weak: Do you /də jə/, Does he /dəz i/.")),
-        culture = listOf(CulturalNote("Pets","About 50% of UK households have a pet.")),
-        mistakes = listOf(CommonMistake("Does she likes?","Does she like?","Base verb after 'does'."))
-    )
-
-    // ═══ 3C ═══
-    private fun file3C() = base(11, "From morning to night", "از صبح تا شب",
-        listOf("Daily routines","Present simple with time","Adverbs of frequency","Tell the time"),
-        listOf(
-            v("wake up","بیدار شدن","I wake up at 7.","ساعت ۷ بیدار می‌شوم.","verb"),
-            v("get up","از خواب بلند شدن","She gets up early.","زود بلند می‌شود.","verb"),
-            v("have a shower","دوش گرفتن","He has a shower.","دوش می‌گیرد.","verb"),
-            v("have breakfast","صبحانه خوردن","We have breakfast at 8.","ساعت ۸ صبحانه می‌خوریم.","verb"),
-            v("go to work","به سر کار رفتن","She goes to work at 9.","ساعت ۹ به سر کار می‌رود.","verb"),
-            v("come home","به خانه آمدن","I come home at 6.","ساعت ۶ به خانه می‌آیم.","verb"),
-            v("go to bed","به رختخواب رفتن","They go to bed at 11.","ساعت ۱۱ می‌خوابند.","verb"),
-            v("early","زود","I wake up early.","زود بیدار می‌شوم.","adverb"),
-            v("late","دیر","He goes to bed late.","دیر می‌خوابد.","adverb")
-        ),
-        listOf(
-            GrammarSection("Present simple + time","I get up at 7. She has lunch at 12.30."),
-            GrammarSection("Adverbs of frequency","always, usually, often, sometimes, hardly ever, never — before main verb."),
-            GrammarSection("Telling the time","at 7 o'clock, at half past 8, at quarter to 9.")
-        ),
-        listOf(
-            d("A","What time do you get up?","چه ساعتی بیدار می‌شوی؟"),
-            d("B","Usually at 7 o'clock.","معمولاً ساعت ۷."),
-            d("A","Do you have breakfast?","صبحانه می‌خوری؟"),
-            d("B","Yes, always. Coffee and toast.","بله، همیشه. قهوه و نان تست."),
-            d("A","What time do you go to work?","چه ساعتی به سر کار می‌روی؟"),
-            d("B","I leave home at 8.30. Work starts at 9.","ساعت ۸:۳۰ از خانه. کار ۹ شروع."),
-            d("A","When do you finish?","کی تمام می‌کنی؟"),
-            d("B","At 5.30. Then the gym.","ساعت ۵:۳۰. بعد باشگاه."),
-            d("A","Dinner time?","وقت شام؟"),
-            d("B","About 8. Then TV.","حدود ساعت ۸. بعد تلویزیون."),
-            d("A","What time do you go to bed?","چه ساعتی می‌خوابی؟"),
-            d("B","Usually at 11.","معمولاً ساعت ۱۱.")
-        ),
-        listOf(
-            q("What time get up?",listOf("6","7","8"),1),
-            q("After work?",listOf("home","gym","park"),1),
-            q("I ___ get up early.",listOf("usual","usually","usualy"),1),
-            q("She has lunch ___ 12.30.",listOf("in","on","at"),2)
-        ),
-        idioms = listOf(
-            IdiomExpression("At o'clock","ساعت","At 7 o'clock.","ساعت ۷."),
-            IdiomExpression("Half past","نیم ساعت بعد","Half past 8.","ساعت ۸:۳۰.")
-        ),
-        pronunciation = listOf(PronunciationTip("Telling the time","7.15 = quarter past seven, 7.45 = quarter to eight.")),
-        culture = listOf(CulturalNote("Routines","Daily routines vary widely across cultures.")),
-        mistakes = listOf(CommonMistake("at 7 in the morning AM","at 7 in the morning","Don't use AM with 'in the morning'."))
-    )
-
-    // ═══ 4A ═══
-    private fun file4A() = base(12, "Blue Zones", "مناطق آبی",
-        listOf("Present simple review","Healthy lifestyles","Frequency expressions"),
-        listOf(
-            v("healthy","سالم","A healthy lifestyle.","سبک زندگی سالم.","adjective"),
-            v("unhealthy","ناسالم","Fast food is unhealthy.","فست‌فود ناسالم است.","adjective"),
-            v("exercise","ورزش","I exercise every day.","هر روز ورزش می‌کنم."),
-            v("diet","رژیم","Mediterranean diet is healthy.","رژیم مدیترانه‌ای سالم است."),
-            v("stress","استرس","Too much stress is bad.","استرس زیاد بد است."),
-            v("sleep","خواب","I need 8 hours of sleep.","به ۸ ساعت خواب نیاز دارم."),
-            v("vegetables","سبزیجات","Eat lots of vegetables.","سبزیجات زیادی بخور."),
-            v("fruit","میوه","Fruit is good for you.","میوه برایت خوب است.")
-        ),
-        listOf(
-            GrammarSection("Present simple review","I exercise. She doesn't smoke. Do you eat vegetables?"),
-            GrammarSection("Frequency expressions","every day, once a week, twice a month.")
-        ),
-        listOf(
-            d("A","What are Blue Zones?","مناطق آبی چیست؟"),
-            d("B","Places where people live very long lives.","جاهایی که مردم عمر طولانی دارند."),
-            d("A","Where?","کجا؟"),
-            d("B","Japan, Italy, Greece, Costa Rica, California.","ژاپن، ایتالیا، یونان، کاستاریکا، کالیفرنیا."),
-            d("A","Secret?","راز؟"),
-            d("B","Healthy lifestyle. Vegetables and fruit.","سبک سالم. سبزیجات و میوه."),
-            d("A","Do they exercise?","ورزش می‌کنند؟"),
-            d("B","Yes, but not in a gym. They walk a lot.","بله، ولی نه در باشگاه. زیاد پیاده‌روی می‌کنند."),
-            d("A","Stress?","استرس؟"),
-            d("B","Not much. They relax with family.","زیاد نه. با خانواده استراحت می‌کنند."),
-            d("A","How often meat?","چند وقت یکبار گوشت؟"),
-            d("B","Once or twice a week. Mostly vegetables.","یک یا دو بار در هفته. بیشتر سبزیجات.")
-        ),
-        listOf(
-            q("Where are Blue Zones?",listOf("Japan, Italy, Greece","China, Korea","France, Spain"),0),
-            q("How often meat?",listOf("every day","once or twice a week","never"),1),
-            q("How often ___ you exercise?",listOf("do","does","are"),0),
-            q("She ___ eat fast food.",listOf("don't","doesn't","isn't"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Long life","زندگی طولانی","Long lives.","زندگی طولانی."),
-            IdiomExpression("Spend time","وقت گذراندن","Spend time with family.","با خانواده وقت گذراندن.")
-        ),
-        pronunciation = listOf(PronunciationTip("Frequency stress","EVery day, TWICE a week.")),
-        culture = listOf(CulturalNote("Blue Zones","Regions where people live significantly longer than average.")),
-        mistakes = listOf(CommonMistake("How often you exercise?","How often do you exercise?","Use 'do'."))
-    )
-
-    // ═══ 4B ═══
-    private fun file4B() = base(13, "Vote for me!", "به من رأی بده!",
-        listOf("Can/can't for ability and permission","Adverbs of manner","Leadership"),
-        listOf(
-            v("vote","رأی دادن","Vote for me!","به من رأی بده!","verb"),
-            v("leader","رهبر","A good leader.","رهبر خوب."),
-            v("promise","قول دادن","I promise to help.","قول می‌دهم کمک کنم.","verb"),
-            v("change","تغییر","We need change.","به تغییر نیاز داریم."),
-            v("future","آینده","Think about the future.","به آینده فکر کن."),
-            v("together","با هم","Work together.","با هم کار کنید.","adverb"),
-            v("strong","قوی","She's strong.","او قوی است.","adjective"),
-            v("honest","صادق","He's honest.","او صادق است.","adjective")
-        ),
-        listOf(
-            GrammarSection("Can / Can't","I can speak three languages. She can't drive."),
-            GrammarSection("Permission","Can I go? You can't smoke here."),
-            GrammarSection("Adverbs of manner","quickly, slowly, well, badly. She speaks well.")
-        ),
-        listOf(
-            d("A","Are you going to vote?","قرار است رأی بدهی؟"),
-            d("B","Yes. But I don't know who.","بله. ولی نمی‌دانم به کی."),
-            d("A","What do you want in a leader?","از رهبر چه می‌خواهی؟"),
-            d("B","Honest and smart. Can make change.","صادق و باهوش. بتواند تغییر ایجاد کند."),
-            d("A","Can you trust politicians?","به سیاستمداران اعتماد می‌کنی؟"),
-            d("B","Not always. Some are good.","نه همیشه. بعضی خوبند."),
-            d("A","Most important things?","مهم‌ترین چیزها؟"),
-            d("B","Education and healthcare.","آموزش و بهداشت."),
-            d("A","Can government change these?","دولت می‌تواند تغییر دهد؟"),
-            d("B","Yes, but we work together.","بله، ولی با هم کار کنیم.")
-        ),
-        listOf(
-            q("What in a leader?",listOf("rich","honest and smart","famous"),1),
-            q("What is important?",listOf("education","sports","music"),0),
-            q("She ___ speak 3 languages.",listOf("can","cans","can to"),0),
-            q("He speaks English ___.",listOf("good","well","nice"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Good for you","آفرین","Good for you!","آفرین!"),
-            IdiomExpression("Every vote counts","هر رأی مهم است","Every vote counts.","هر رأی مهم است.")
-        ),
-        pronunciation = listOf(PronunciationTip("Can / Can't","British: can /kæn/ vs. can't /kɑːnt/.")),
-        culture = listOf(CulturalNote("Voting","A right and responsibility in many countries.")),
-        mistakes = listOf(CommonMistake("She cans swim.","She can swim.","Modals don't take -s."))
-    )
-
-    // ═══ 4C ═══
-    private fun file4C() = base(14, "A quiet life?", "یک زندگی آرام؟",
-        listOf("Present continuous","Present continuous vs. simple","Actions happening now"),
-        listOf(
-            v("quiet","آرام","A quiet life.","زندگی آرام.","adjective"),
-            v("noisy","پر سر و صدا","The city is noisy.","شهر پر سر و صداست.","adjective"),
-            v("busy","شلوغ","She's busy.","او شلوغ است.","adjective"),
-            v("relax","استراحت","I'm relaxing.","استراحت می‌کنم.","verb"),
-            v("enjoy","لذت بردن","Enjoying the sun.","از آفتاب لذت بردن.","verb"),
-            v("read","خواندن","Reading a book.","کتاب خواندن.","verb"),
-            v("write","نوشتن","Writing an email.","ایمیل نوشتن.","verb"),
-            v("listen","گوش دادن","Listening to music.","موسیقی گوش دادن.","verb"),
-            v("watch","تماشا کردن","Watching TV.","تلویزیون تماشا کردن.","verb"),
-            v("play","بازی کردن","Children are playing.","بچه‌ها بازی می‌کنند.","verb")
-        ),
-        listOf(
-            GrammarSection("Present continuous","am/is/are + verb-ing. I'm reading. She's writing."),
-            GrammarSection("Simple vs. continuous","I read every day (habit). I'm reading now (in progress)."),
-            GrammarSection("Questions","What are you doing? Is she reading?")
-        ),
-        listOf(
-            d("A","What are you doing?","چه کار می‌کنی؟"),
-            d("B","Relaxing at home. Reading a book.","استراحت. کتاب می‌خوانم."),
-            d("A","Good?","خوبه؟"),
-            d("B","Yes. About a quiet life in the countryside.","بله. درباره زندگی آرام در حومه."),
-            d("A","Family?","خانواده؟"),
-            d("B","Wife is cooking. Children are playing outside.","همسرم شام می‌پزد. بچه‌ها بیرون بازی می‌کنند."),
-            d("A","Playing what?","چه بازی؟"),
-            d("B","Football. They love it.","فوتبال. عاشقش هستند."),
-            d("A","Quiet evening?","عصر آرام؟"),
-            d("B","Yes. We don't like noisy places.","بله. مکان‌های پر سر و صدا دوست نداریم."),
-            d("A","Me neither.","من هم.")
-        ),
-        listOf(
-            q("What is B doing?",listOf("TV","reading","cooking"),1),
-            q("Children doing?",listOf("playing football","reading","sleeping"),0),
-            q("She ___ writing.",listOf("am","is","are"),1),
-            q("They ___ playing.",listOf("am","is","are"),2)
-        ),
-        idioms = listOf(
-            IdiomExpression("Me neither","من هم (منفی)","Me neither.","من هم."),
-            IdiomExpression("Sounds nice","خوبه","Sounds nice!","خوبه!")
-        ),
-        pronunciation = listOf(PronunciationTip("Continuous stress","I'm READing. She's WRITing.")),
-        culture = listOf(CulturalNote("Quiet evenings","Many people value quiet evenings at home.")),
-        mistakes = listOf(CommonMistake("What you are doing?","What are you doing?","Verb before subject."))
-    )
-
-    // ═══ PE2 ═══
-    private fun practicalEnglish2() = base(15, "Practical English 2 — At a restaurant", "انگلیسی کاربردی ۲ — در رستوران",
-        listOf("Order food","Ask for the bill","Polite requests"),
-        listOf(
-            v("menu","منو","Can I see the menu?","منو را ببینم؟"),
-            v("order","سفارش","Ready to order?","آماده سفارش؟","verb"),
-            v("starter","پیش‌غذا","Soup for starters.","برای پیش‌غذا سوپ."),
-            v("main course","غذای اصلی","Chicken for main.","مرغ برای اصلی."),
-            v("dessert","دسر","Would you like dessert?","دسر میل دارید؟"),
-            v("bill","صورت‌حساب","The bill, please.","صورت‌حساب لطفاً."),
-            v("tip","انعام","We left a tip.","انعام گذاشتیم."),
-            v("still water","آب بدون گاز","Still or sparkling?","بدون گاز یا گازدار؟"),
-            v("sparkling water","آب گازدار","Sparkling, please.","گازدار، لطفاً.")
-        ),
-        listOf(
-            GrammarSection("Ordering","I'll have... I'd like... Can I have...?"),
-            GrammarSection("Polite requests","Could I have...? Would you like...?")
-        ),
-        listOf(
-            d("Waiter","A table for two?","میز برای دو نفر؟"),
-            d("A","Yes. Can we see the menu?","بله. منو را ببینیم؟"),
-            d("Waiter","Here you are. Something to drink?","بفرمایید. نوشیدنی؟"),
-            d("A","Still water, please.","آب بدون گاز لطفاً."),
-            d("B","Sparkling water for me.","آب گازدار برای من."),
-            d("Waiter","Ready to order?","آماده سفارش؟"),
-            d("A","Soup for starters.","سوپ برای پیش‌غذا."),
-            d("B","Salad, please.","سالاد لطفاً."),
-            d("Waiter","Main course?","غذای اصلی؟"),
-            d("A","Chicken.","مرغ."),
-            d("B","Vegetarian? Pasta vegetarian?","گیاه‌خوار؟ پاستا گیاه‌خواره؟"),
-            d("Waiter","Yes.","بله."),
-            d("B","Pasta then.","پس پاستا."),
-            d("A","The bill, please.","صورت‌حساب لطفاً.")
-        ),
-        listOf(
-            q("B orders main?",listOf("chicken","pasta","salad"),1),
-            q("A wants water?",listOf("still","sparkling","hot"),0),
-            q("I ___ have soup.",listOf("will","am","do"),0),
-            q("Can we ___ the bill?",listOf("have","has","having"),0)
-        ),
-        idioms = listOf(
-            IdiomExpression("Here you are","بفرمایید","Here you are.","بفرمایید."),
-            IdiomExpression("Anything else?","چیز دیگری؟","Anything else?","چیز دیگری؟")
-        ),
-        pronunciation = listOf(PronunciationTip("Polite intonation","Rise: Could I have the MENU? ↗")),
-        culture = listOf(CulturalNote("Tipping","10-15% tip common in UK restaurants.")),
-        mistakes = listOf(CommonMistake("I want the chicken.","I'd like the chicken.","Use 'I'd like'."))
-    )
-
-    // ═══ R&C 3&4 ═══
-    private fun reviseAndCheck3And4() = base(16, "Revise & Check 3 & 4", "مرور و بررسی ۳ و ۴",
-        listOf("Review present simple","Review adverbs","Review can/can't","Review present continuous"),
-        listOf(
-            v("review","مرور","Let's review.","بیایید مرور کنیم.","verb"),
-            v("exercise","تمرین","Do exercises.","تمرین کن."),
-            v("grammar","گرامر","Grammar is important.","گرامر مهم است."),
-            v("vocabulary","واژگان","New vocabulary.","واژگان جدید."),
-            v("mistake","اشتباه","Correct mistakes.","اشتباهات را تصحیح کن."),
-            v("practice","تمرین","Practice daily.","هر روز تمرین کن.","verb")
-        ),
-        listOf(
-            GrammarSection("Present simple review","I work. She doesn't work. Do you work?"),
-            GrammarSection("Present continuous review","I'm working. She's reading. Are they playing?"),
-            GrammarSection("Simple vs. continuous","I work every day. I'm working now.")
-        ),
-        listOf(
-            d("Teacher","Let's review Files 3 and 4.","بیایید فایل‌های ۳ و ۴ را مرور کنیم."),
-            d("A","Present simple for habits.","حال ساده برای عادت‌ها."),
-            d("B","Continuous for actions now.","استمراری برای کارهای الان."),
-            d("Teacher","Example?","مثال؟"),
-            d("A","I usually get up at 7, but today I'm getting up at 9.","معمولاً ۷ بیدار می‌شوم، ولی امروز ۹."),
-            d("B","Perfect!","عالی!"),
-            d("Teacher","Adverbs?","قیدها؟"),
-            d("A","Always, usually, often, sometimes, never.","always، usually، often، sometimes، never."),
-            d("Teacher","can/can't?","can/can't؟"),
-            d("B","Ability or permission.","توانایی یا اجازه."),
-            d("Teacher","Very good!","خیلی خوب!")
-        ),
-        listOf(
-            q("Habits tense?",listOf("continuous","simple","past"),1),
-            q("Adverbs position?",listOf("before verb","after verb","at end"),0),
-            q("She ___ swim well.",listOf("can","cans","can to"),0),
-            q("They ___ playing now.",listOf("am","is","are"),2)
-        ),
-        idioms = listOf(IdiomExpression("Let's review","بیایید مرور کنیم","Let's review.","بیایید مرور کنیم.")),
-        pronunciation = listOf(PronunciationTip("Review intonation","Statements fall, yes/no questions rise.")),
-        culture = listOf(CulturalNote("Reviewing","Regular review is essential.")),
-        mistakes = listOf(CommonMistake("She can swims.","She can swim.","Base verb after 'can'."))
-    )
-
-    // ═══ 5A ═══
-    private fun file5A() = base(17, "Then and now", "دیروز و امروز",
-        listOf("Talk about past and present","Use was/were","Use there was/there were"),
-        listOf(
-            v("yesterday","دیروز","Yesterday I was at home.","دیروز خانه بودم."),
-            v("last week","هفته پیش","Last week we went to London.","هفته پیش به لندن رفتیم."),
-            v("ago","پیش","Two years ago.","دو سال پیش."),
-            v("child","کودک","When I was a child...","وقتی بچه بودم..."),
-            v("young","جوان","He was young.","او جوان بود.","adjective"),
-            v("old","پیر","She's old now.","او الان پیر است.","adjective"),
-            v("town","شهرستان","My town was small.","شهرستانم کوچک بود."),
-            v("building","ساختمان","There were old buildings.","ساختمان‌های قدیمی بودند.")
-        ),
-        listOf(
-            GrammarSection("Was / Were","I/he/she/it was. You/we/they were. Negative: wasn't / weren't."),
-            GrammarSection("There was / There were","There was a park. There were many shops."),
-            GrammarSection("Time expressions","yesterday, last week, two years ago, in 1990.")
-        ),
-        listOf(
-            d("A","Where were you born?","کجا متولد شدی؟"),
-            d("B","I was born in a small town.","در شهرستان کوچکی متولد شدم."),
-            d("A","Was it nice?","خوب بود؟"),
-            d("B","Yes. There was a big park. There were friendly people.","بله. پارک بزرگی بود. مردم خوش‌برخورد بودند."),
-            d("A","Is it different now?","الان متفاوت است؟"),
-            d("B","Very. There are new buildings now. It's bigger.","خیلی. الان ساختمان‌های جدید هستند. بزرگ‌تر است."),
-            d("A","Were you happy there?","آنجا خوشحال بودی؟"),
-            d("B","Yes, very happy. My family was there.","بله، خیلی. خانواده‌ام آنجا بود."),
-            d("A","When did you leave?","کی رفتی؟"),
-            d("B","Ten years ago. I was eighteen.","ده سال پیش. هجده ساله بودم.")
-        ),
-        listOf(
-            q("Where was B born?",listOf("city","small town","village"),1),
-            q("When did B leave?",listOf("5 years ago","10 years ago","15 years ago"),1),
-            q("I ___ born in London.",listOf("am","was","were"),1),
-            q("They ___ at home yesterday.",listOf("was","were","am"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Be born","متولد شدن","I was born in...","متولد شدم در..."),
-            IdiomExpression("Years ago","سال‌ها پیش","Two years ago.","دو سال پیش.")
-        ),
-        pronunciation = listOf(PronunciationTip("Was / Were","Weak: was /wəz/, were /wər/.")),
-        culture = listOf(CulturalNote("Talking about the past","Common way to know someone better.")),
-        mistakes = listOf(CommonMistake("I were tired.","I was tired.","Use 'was' with I/he/she/it."))
-    )
-
-    // ═══ 5B ═══
-    private fun file5B() = base(18, "Regular and irregular verbs", "افعال باقاعده و بی‌قاعده",
-        listOf("Simple past regular verbs","Simple past irregular verbs","Talk about past actions"),
-        listOf(
-            v("worked","کار کرد","He worked in a bank.","در بانک کار کرد.","verb"),
-            v("visited","بازدید کرد","We visited Paris.","از پاریس بازدید کردیم.","verb"),
-            v("went","رفت","I went to the beach.","به ساحل رفتم.","verb"),
-            v("saw","دید","She saw a movie.","فیلمی دید.","verb"),
-            v("had","داشت","We had dinner.","شام خوردیم.","verb"),
-            v("took","گرفت","He took a photo.","عکس گرفت.","verb"),
-            v("bought","خرید","I bought a book.","کتابی خریدم.","verb"),
-            v("met","ملاقات","We met yesterday.","دیروز ملاقات کردیم.","verb")
-        ),
-        listOf(
-            GrammarSection("Regular verbs: -ed","work → worked, visit → visited, play → played."),
-            GrammarSection("Irregular verbs","go → went, see → saw, have → had, take → took, buy → bought, meet → met.")
-        ),
-        listOf(
-            d("A","What did you do last weekend?","آخر هفته گذشته چه کار کردی؟"),
-            d("B","I went to the mountains with friends.","با دوستان به کوهستان رفتم."),
-            d("A","What did you do there?","آنجا چه کار کردید؟"),
-            d("B","We walked a lot and took photos.","زیاد پیاده‌روی کردیم و عکس گرفتیم."),
-            d("A","Did you stay overnight?","شب ماندید؟"),
-            d("B","Yes. We stayed in a small hotel.","بله. در هتل کوچکی ماندیم."),
-            d("A","What did you eat?","چی خوردید؟"),
-            d("B","We had traditional food. Delicious.","غذای سنتی خوردیم. خوشمزه."),
-            d("A","Did you buy anything?","چیزی خریدی؟"),
-            d("B","I bought a small souvenir.","یک سوغات کوچک خریدم.")
-        ),
-        listOf(
-            q("Where did B go?",listOf("beach","mountains","city"),1),
-            q("Where did B stay?",listOf("hotel","grandma","friend"),0),
-            q("We ___ to the beach.",listOf("go","went","gone"),1),
-            q("She ___ a phone last week.",listOf("buy","bought","buying"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Overnight","شب ماندن","We stayed overnight.","شب ماندیم."),
-            IdiomExpression("Last weekend","آخر هفته گذشته","Last weekend.","آخر هفته گذشته.")
-        ),
-        pronunciation = listOf(PronunciationTip("-ed endings","/t/ (walked), /d/ (stayed), /ɪd/ (visited).")),
-        culture = listOf(CulturalNote("Weekend activities","Many enjoy outdoor activities.")),
-        mistakes = listOf(CommonMistake("I goed.","I went.","'Go' is irregular."))
-    )
-
-    // ═══ 5C ═══
-    private fun file5C() = base(19, "Past simple questions", "سوالات گذشته ساده",
-        listOf("Past simple questions","Did + base verb","Short answers"),
-        listOf(
-            v("did","آیا (گذشته)","Did you go?","رفتی؟","verb"),
-            v("when","چه زمانی","When did you arrive?","چه زمانی رسیدی؟"),
-            v("where","کجا","Where did you go?","کجا رفتی؟"),
-            v("what","چه","What did you do?","چه کار کردی؟"),
-            v("who","چه کسی","Who did you meet?","با کی ملاقات کردی؟"),
-            v("why","چرا","Why did you leave?","چرا رفتی؟"),
-            v("how","چطور","How did you get there?","چطور رفتی آنجا؟"),
-            v("last night","دیشب","Last night I slept early.","دیشب زود خوابیدم.")
-        ),
-        listOf(
-            GrammarSection("Past simple questions","Did + subject + base verb. Did you go? Did she work?"),
-            GrammarSection("Wh- questions in past","Where did you go? What did she do?"),
-            GrammarSection("Short answers","Yes, I did. / No, I didn't.")
-        ),
-        listOf(
-            d("A","Did you have a good weekend?","آخر هفته خوبی داشتی؟"),
-            d("B","Yes, I did. I visited my grandmother.","بله. به دیدن مادربزرگم رفتم."),
-            d("A","Where does she live?","کجا زندگی می‌کند؟"),
-            d("B","In the countryside. It's very quiet.","در حومه. خیلی آرام."),
-            d("A","What did you do there?","آنجا چه کار کردید؟"),
-            d("B","We cooked and talked. She told old stories.","آشپزی کردیم و صحبت کردیم. او داستان‌های قدیمی گفت."),
-            d("A","Did you stay long?","زیاد ماندی؟"),
-            d("B","No, just one day. I came back last night.","نه، فقط یک روز. دیشب برگشتم."),
-            d("A","Did you enjoy it?","لذت بردی؟"),
-            d("B","Yes, very much.","بله، خیلی زیاد.")
-        ),
-        listOf(
-            q("Who did B visit?",listOf("mother","grandmother","aunt"),1),
-            q("How long did B stay?",listOf("one day","two days","a week"),0),
-            q("___ you go to the party?",listOf("Do","Did","Are"),1),
-            q("Where ___ she go?",listOf("do","did","does"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Come back","برگشتن","I came back last night.","دیشب برگشتم."),
-            IdiomExpression("Very much","خیلی زیاد","Yes, very much.","بله، خیلی زیاد.")
-        ),
-        pronunciation = listOf(PronunciationTip("Did questions","Weak 'did' /dɪd/ in fast speech.")),
-        culture = listOf(CulturalNote("Visiting family","Common weekend activity in many cultures.")),
-        mistakes = listOf(CommonMistake("Did you went?","Did you go?","Base verb after 'did'."))
-    )
-
-    // ═══ 6A ═══
-    private fun file6A() = base(20, "The story behind the photo", "داستان پشت عکس",
-        listOf("Past continuous","Describe past scenes","Combine past simple + past continuous"),
-        listOf(
-            v("photo","عکس","Look at this photo.","به این عکس نگاه کن."),
-            v("was raining","باران می‌آمد","It was raining.","باران می‌آمد.","verb"),
-            v("was walking","راه می‌رفت","She was walking.","او راه می‌رفت.","verb"),
-            v("was wearing","پوشیده بود","He was wearing a hat.","او کلاه پوشیده بود.","verb"),
-            v("while","در حالی که","While I was reading...","در حالی که می‌خواندم...","conjunction"),
-            v("suddenly","ناگهان","Suddenly it stopped.","ناگهان متوقف شد.","adverb"),
-            v("when","وقتی","When I arrived...","وقتی رسیدم...","conjunction"),
-            v("scene","صحنه","A beautiful scene.","صحنه زیبا.")
-        ),
-        listOf(
-            GrammarSection("Past continuous","was/were + verb-ing. I was reading. They were playing."),
-            GrammarSection("Past continuous + past simple","I was reading when he called. While I was walking, I saw a friend.")
-        ),
-        listOf(
-            d("A","What's this photo of?","این عکس چیست؟"),
-            d("B","It's from my holiday. It was raining that day.","از تعطیلاتم. آن روز باران می‌آمد."),
-            d("A","What were you doing?","چه کار می‌کردی؟"),
-            d("B","I was walking in the old town.","در شهر قدیمی راه می‌رفتم."),
-            d("A","Were you alone?","تنها بودی؟"),
-            d("B","No, my sister was with me. She was wearing a red coat.","نه، خواهرم با من بود. کاپشن قرمز پوشیده بود."),
-            d("A","And what happened?","و چه شد؟"),
-            d("B","While we were walking, we saw a small cafe. We went in.","در حالی که راه می‌رفتیم، کافه کوچکی دیدیم. وارد شدیم."),
-            d("A","Sounds lovely.","دلپذیر به نظر می‌رسد."),
-            d("B","Yes, we had tea and watched the rain.","بله، چای خوردیم و باران را تماشا کردیم.")
-        ),
-        listOf(
-            q("What was the weather?",listOf("sunny","raining","snowing"),1),
-            q("What was B wearing?",listOf("red coat","blue hat","black shirt"),0),
-            q("I ___ reading when he called.",listOf("am","was","were"),1),
-            q("While we ___ walking, we saw a cafe.",listOf("was","were","am"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Go in","وارد شدن","We went in.","وارد شدیم."),
-            IdiomExpression("Sounds lovely","دلپذیر به نظر می‌رسد","Sounds lovely.","دلپذیر به نظر می‌رسد.")
-        ),
-        pronunciation = listOf(PronunciationTip("Past continuous stress","Stress the -ing verb: I was WALKing.")),
-        culture = listOf(CulturalNote("Old towns","Many European cities have historic old towns worth visiting.")),
-        mistakes = listOf(CommonMistake("I was read.","I was reading.","Continuous needs -ing."))
-    )
-
-    // ═══ 6B ═══
-    private fun file6B() = base(21, "What does she look like?", "او چه شکلی است؟",
-        listOf("Describe appearance","Describe personality","Use adverbs"),
-        listOf(
-            v("tall","قدبلند","He's very tall.","خیلی قدبلند است.","adjective"),
-            v("short","کوتاه","She's quite short.","کاملاً کوتاه است.","adjective"),
-            v("fat","چاق","He's a bit fat.","کمی چاق است.","adjective"),
-            v("thin","لاغر","She's very thin.","خیلی لاغر است.","adjective"),
-            v("beard","ریش","He has a beard.","ریش دارد."),
-            v("moustache","سبیل","He has a moustache.","سبیل دارد."),
-            v("friendly","خوش‌برخورد","She's friendly.","خوش‌برخورد است.","adjective"),
-            v("shy","خجالتی","He's shy.","خجالتی است.","adjective")
-        ),
-        listOf(
-            GrammarSection("Describing appearance","He's tall. She has long hair. He wears glasses."),
-            GrammarSection("Describing personality","She's friendly. He's shy. They're kind.")
-        ),
-        listOf(
-            d("A","What does your brother look like?","برادرت چه شکلی است؟"),
-            d("B","He's tall and thin. He has short black hair.","قدبلند و لاغر. موی کوتاه مشکی."),
-            d("A","Does he wear glasses?","عینک می‌زند؟"),
-            d("B","Yes, he does. And he has a beard.","بله. و ریش دارد."),
-            d("A","What's he like?","چه جور آدمی است؟"),
-            d("B","Very friendly and funny.","خیلی خوش‌برخورد و بامزه."),
-            d("A","Is he shy?","خجالتی است؟"),
-            d("B","No, quite outgoing.","نه، کاملاً برون‌گرا."),
-            d("A","Does he look like you?","شبیه توست؟"),
-            d("B","Yes, a little. But he's taller.","بله، کمی. ولی قدبلندتر است.")
-        ),
-        listOf(
-            q("How does B's brother look?",listOf("tall, thin","short, fat","medium"),0),
-            q("Is he shy?",listOf("yes","no","sometimes"),1),
-            q("He ___ glasses.",listOf("wear","wears","wearing"),1),
-            q("She's very ___.",listOf("friend","friendly","friendlily"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Look like","شبیه بودن","He looks like me.","شبیه من است."),
-            IdiomExpression("A bit","کمی","A bit fat.","کمی چاق.")
-        ),
-        pronunciation = listOf(PronunciationTip("Adjective stress","He's TALL. She's FRIENDly.")),
-        culture = listOf(CulturalNote("Describing people","Politeness: focus on positive traits.")),
-        mistakes = listOf(CommonMistake("How is he like?","What's he like?","Use 'What' for personality."))
-    )
-
-    // ═══ 6C ═══
-    private fun file6C() = base(22, "A house with a history", "خانه‌ای با تاریخ",
-        listOf("Talk about houses","Use there was/were","Describe homes"),
-        listOf(
-            v("house","خانه","A big house.","خانه بزرگ."),
-            v("flat","آپارتمان","I live in a flat.","در آپارتمان زندگی می‌کنم."),
-            v("garden","باغ","A small garden.","باغ کوچک."),
-            v("garage","گاراژ","A two-car garage.","گاراژ دو ماشین."),
-            v("floor","طبقه","On the second floor.","طبقه دوم."),
-            v("stairs","پله‌ها","Go up the stairs.","از پله‌ها بالا برو."),
-            v("chimney","دودکش","An old chimney.","دودکش قدیمی."),
-            v("modern","مدرن","A modern house.","خانه مدرن.","adjective")
-        ),
-        listOf(
-            GrammarSection("There was / There were","There was a garden. There were three bedrooms."),
-            GrammarSection("Describing houses","It's a big house. It has a garden. It was built in 1900.")
-        ),
-        listOf(
-            d("A","Tell me about your house.","از خانه‌ات بگو."),
-            d("B","It's an old house with a history.","خانه قدیمی با تاریخ."),
-            d("A","How old?","چند ساله؟"),
-            d("B","About 150 years. There was a famous writer here.","حدود ۱۵۰ سال. یک نویسنده معروف اینجا بود."),
-            d("A","Really? What's it like?","واقعاً؟ چطور است؟"),
-            d("B","It's big. There are five bedrooms. There's a large garden.","بزرگ است. پنج اتاق خواب. باغ بزرگ."),
-            d("A","Was it always a house?","همیشه خانه بود؟"),
-            d("B","No, there was a school here in the 1900s.","نه، در دهه ۱۹۰۰ مدرسه بود."),
-            d("A","That's interesting!","جالبه!"),
-            d("B","Yes, we love it.","بله، عاشقش هستیم.")
-        ),
-        listOf(
-            q("How old is B's house?",listOf("50","150","250"),1),
-            q("What was it before?",listOf("shop","school","church"),1),
-            q("___ a big garden.",listOf("There is","There are","There was"),0),
-            q("___ three bedrooms.",listOf("There is","There are","There was"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("A house with a history","خانه‌ای با تاریخ","A house with a history.","خانه‌ای با تاریخ."),
-            IdiomExpression("Go up","بالا رفتن","Go up the stairs.","از پله‌ها بالا برو.")
-        ),
-        pronunciation = listOf(PronunciationTip("There is / There are","Linking: there_is, there_are.")),
-        culture = listOf(CulturalNote("Historic houses","Many old houses have interesting histories.")),
-        mistakes = listOf(CommonMistake("There is many rooms.","There are many rooms.","'are' for plural."))
-    )
-
-    // ═══ PE3 ═══
-    private fun practicalEnglish3() = base(23, "Practical English 3 — Shopping", "انگلیسی کاربردی ۳ — خرید",
-        listOf("Shop for clothes","Ask about prices and sizes","Try things on"),
-        listOf(
-            v("size","سایز","What size are you?","چه سایزی هستید؟"),
-            v("try on","پرو کردن","Can I try it on?","می‌توانم پرو کنم؟","verb"),
-            v("fit","اندازه بودن","It doesn't fit.","اندازه‌ام نیست.","verb"),
-            v("change","تعویض","Can I change it?","می‌توانم عوضش کنم؟","verb"),
-            v("price","قیمت","What's the price?","قیمتش چقدره؟"),
-            v("expensive","گران","Too expensive.","خیلی گران.","adjective"),
-            v("cheap","ارزان","Very cheap.","خیلی ارزان.","adjective"),
-            v("cash","نقد","Cash or card?","نقد یا کارت؟")
-        ),
-        listOf(
-            GrammarSection("Shopping language","Can I try it on? What size? How much is it?"),
-            GrammarSection("Polite requests","Could I have a bigger size? Can I pay by card?")
-        ),
-        listOf(
-            d("Assistant","Can I help you?","کمکی کنم؟"),
-            d("A","Yes, I'm looking for a shirt.","بله، دنبال پیراهن هستم."),
-            d("Assistant","What size?","چه سایزی؟"),
-            d("A","Medium. Can I try this on?","متوسط. می‌توانم این را پرو کنم؟"),
-            d("Assistant","Of course. The fitting room is over there.","البته. اتاق پرو آنجاست."),
-            d("A","It's too small. Have you got a large?","کوچک است. بزرگ دارید؟"),
-            d("Assistant","Here you are.","بفرمایید."),
-            d("A","This fits well. How much is it?","اندازه است. چقدر است؟"),
-            d("Assistant","$45.","۴۵ دلار."),
-            d("A","I'll take it. Can I pay by card?","می‌خرمش. با کارت می‌توانم پرداخت کنم؟"),
-            d("Assistant","Yes, of course.","بله، البته.")
-        ),
-        listOf(
-            q("What does A buy?",listOf("shirt","pants","jacket"),0),
-            q("How much?",listOf("$35","$45","$55"),1),
-            q("Can I ___ it on?",listOf("try","tries","trying"),0),
-            q("It doesn't ___ me.",listOf("fit","fits","fitting"),0)
-        ),
-        idioms = listOf(
-            IdiomExpression("Try on","پرو کردن","Try it on.","پرو کن."),
-            IdiomExpression("I'll take it","می‌خرمش","I'll take it.","می‌خرمش.")
-        ),
-        pronunciation = listOf(PronunciationTip("Polite requests","Could I have...? Rise at the end.")),
-        culture = listOf(CulturalNote("Sizes","Clothing sizes vary by country.")),
-        mistakes = listOf(CommonMistake("It doesn't fit me well.","It doesn't fit me.","Fit doesn't need 'well'."))
-    )
-
-    // ═══ R&C 5&6 ═══
-    private fun reviseAndCheck5And6() = base(24, "Revise & Check 5 & 6", "مرور و بررسی ۵ و ۶",
-        listOf("Review was/were","Review past simple","Review past continuous","Review descriptions"),
-        listOf(
-            v("review","مرور","Let's review.","بیایید مرور کنیم.","verb"),
-            v("was","بود","I was at home.","خانه بودم.","verb"),
-            v("went","رفت","She went to Paris.","به پاریس رفت.","verb"),
-            v("was walking","راه می‌رفت","He was walking.","او راه می‌رفت.","verb"),
-            v("tall","قدبلند","She's tall.","او قدبلند است.","adjective"),
-            v("friendly","خوش‌برخورد","He's friendly.","او خوش‌برخورد است.","adjective")
-        ),
-        listOf(
-            GrammarSection("Was / Were","I was. You were. Was he? Were they?"),
-            GrammarSection("Past simple","I went. She saw. Did you go?"),
-            GrammarSection("Past continuous","I was walking. They were playing.")
-        ),
-        listOf(
-            d("Teacher","Review Files 5 and 6.","مرور فایل‌های ۵ و ۶."),
-            d("A","Was/were for the past of 'be'.","was/were برای گذشته 'be'."),
-            d("B","Past simple for finished actions.","گذشته ساده برای کارهای تمام‌شده."),
-            d("A","Past continuous for actions in progress.","گذشته استمراری برای کارهای در حال انجام."),
-            d("Teacher","Examples?","مثال‌ها؟"),
-            d("A","I was reading when he called.","داشتم می‌خواندم که او زنگ زد."),
-            d("B","She was tall and friendly.","او قدبلند و خوش‌برخورد بود."),
-            d("Teacher","Perfect!","عالی!")
-        ),
-        listOf(
-            q("Past of 'be'?",listOf("was/were","went","had"),0),
-            q("Which is continuous?",listOf("I went","I was walking","I walk"),1),
-            q("She ___ at home yesterday.",listOf("was","were","am"),0),
-            q("They ___ playing when I arrived.",listOf("was","were","am"),1)
-        ),
-        idioms = listOf(IdiomExpression("Let's review","بیایید مرور کنیم","Let's review.","بیایید مرور کنیم.")),
-        pronunciation = listOf(PronunciationTip("Past forms","Weak forms: was /wəz/, were /wər/.")),
-        culture = listOf(CulturalNote("Reviewing","Essential for retention.")),
-        mistakes = listOf(CommonMistake("I were.","I was.","'was' with I/he/she/it."))
-    )
-
-    // ═══ 7A ═══
-    private fun file7A() = base(25, "The best in the world", "بهترین در جهان",
-        listOf("Comparatives","Superlatives","Compare places and things"),
-        listOf(
-            v("big","بزرگ","A big city.","شهر بزرگ.","adjective"),
-            v("bigger","بزرگ‌تر","Bigger than London.","بزرگ‌تر از لندن.","adjective"),
-            v("biggest","بزرگ‌ترین","The biggest city.","بزرگ‌ترین شهر.","adjective"),
-            v("good","خوب","Good food.","غذای خوب.","adjective"),
-            v("better","بهتر","Better than before.","بهتر از قبل.","adjective"),
-            v("best","بهترین","The best!","بهترین!","adjective"),
-            v("bad","بد","Bad weather.","هوای بد.","adjective"),
-            v("worse","بدتر","Worse than yesterday.","بدتر از دیروز.","adjective"),
-            v("worst","بدترین","The worst day.","بدترین روز.","adjective")
-        ),
-        listOf(
-            GrammarSection("Comparatives","-er / more + adjective. bigger, more beautiful. than"),
-            GrammarSection("Superlatives","-est / most + adjective. the biggest, the most beautiful."),
-            GrammarSection("Irregular","good → better → best. bad → worse → worst.")
-        ),
-        listOf(
-            d("A","What's the best city in your country?","بهترین شهر کشورت؟"),
-            d("B","I think it's Istanbul. It's bigger and more exciting.","فکر می‌کنم استانبول. بزرگ‌تر و هیجان‌انگیزتر."),
-            d("A","Bigger than your capital?","بزرگ‌تر از پایتختت؟"),
-            d("B","Yes, much bigger.","بله، خیلی بزرگ‌تر."),
-            d("A","What's the best food there?","بهترین غذایش؟"),
-            d("B","Seafood. It's the freshest in the country.","غذای دریایی. تازه‌ترین در کشور."),
-            d("A","And the worst thing?","و بدترین چیز؟"),
-            d("B","The traffic. It's the worst in the region.","ترافیک. بدترین در منطقه."),
-            d("A","Every big city has that problem.","هر شهر بزرگی این مشکل را دارد."),
-            d("B","Yes, you're right.","بله، حق با توست.")
-        ),
-        listOf(
-            q("Best city for B?",listOf("Ankara","Istanbul","Izmir"),1),
-            q("Worst thing?",listOf("traffic","food","people"),0),
-            q("She's ___ than me.",listOf("tall","taller","tallest"),1),
-            q("It's the ___ city.",listOf("big","bigger","biggest"),2)
-        ),
-        idioms = listOf(
-            IdiomExpression("I think","فکر می‌کنم","I think it's...","فکر می‌کنم..."),
-            IdiomExpression("You're right","حق با توست","You're right.","حق با توست.")
-        ),
-        pronunciation = listOf(PronunciationTip("Comparatives","Stress -er: CHEAper, BETter.")),
-        culture = listOf(CulturalNote("Istanbul","A major city spanning Europe and Asia.")),
-        mistakes = listOf(CommonMistake("more bigger","bigger","Don't use 'more' with -er."))
-    )
-
-    // ═══ 7B ═══
-    private fun file7B() = base(26, "Have you ever...?", "تا حالا...؟",
-        listOf("Present perfect","Ever / never","Talk about experiences"),
-        listOf(
-            v("ever","تا حالا","Have you ever been?","تا حالا بوده‌ای؟","adverb"),
-            v("never","هرگز","I've never seen it.","هرگز ندیده‌ام.","adverb"),
-            v("been","بوده","I've been to Japan.","در ژاپن بوده‌ام.","verb"),
-            v("seen","دیده","Have you seen it?","دیده‌ای؟","verb"),
-            v("eaten","خورده","I've eaten sushi.","سوشی خورده‌ام.","verb"),
-            v("visited","بازدید کرده","I've visited Paris.","از پاریس بازدید کرده‌ام.","verb"),
-            v("tried","امتحان کرده","Have you tried it?","امتحانش کرده‌ای؟","verb"),
-            v("met","ملاقات کرده","I've met her.","او را ملاقات کرده‌ام.","verb")
-        ),
-        listOf(
-            GrammarSection("Present perfect","have/has + past participle. I've been. She's seen."),
-            GrammarSection("Ever / Never","Have you ever...? I've never..."),
-            GrammarSection("Present perfect vs. past simple","I've been to India. / I went in 2019.")
-        ),
-        listOf(
-            d("A","Have you ever been abroad?","تا حالا خارج از کشور بوده‌ای؟"),
-            d("B","Yes, I've been to India.","بله، در هند بوده‌ام."),
-            d("A","Really? When did you go?","واقعاً؟ کی رفتی؟"),
-            d("B","I went in 2020. It was amazing.","سال ۲۰۲۰ رفتم. شگفت‌انگیز بود."),
-            d("A","Have you tried Indian food?","غذای هندی امتحان کردی؟"),
-            d("B","Of course. It's spicy but delicious.","البته. تند ولی خوشمزه."),
-            d("A","Have you seen the Taj Mahal?","تاج‌محل را دیدی؟"),
-            d("B","Yes. One of the most beautiful places I've ever seen.","بله. یکی از زیباترین جاهایی که دیده‌ام."),
-            d("A","Would you go again?","دوباره می‌رفتی؟"),
-            d("B","Definitely! I've never been to the south.","قطعاً! هرگز جنوب نبوده‌ام.")
-        ),
-        listOf(
-            q("Where has B been?",listOf("China","India","Japan"),1),
-            q("When did B go?",listOf("2018","2019","2020"),2),
-            q("Have you ever ___ to Paris?",listOf("be","been","being"),1),
-            q("I ___ never seen it.",listOf("have","has","am"),0)
-        ),
-        idioms = listOf(
-            IdiomExpression("Of course","البته","Of course!","البته!"),
-            IdiomExpression("Go abroad","خارج رفتن","Have you been abroad?","خارج بوده‌ای؟")
-        ),
-        pronunciation = listOf(PronunciationTip("Present perfect","Contractions: I've /aɪv/, she's /ʃiːz/.")),
-        culture = listOf(CulturalNote("Taj Mahal","A UNESCO World Heritage Site.")),
-        mistakes = listOf(CommonMistake("I've saw it.","I've seen it.","Past participle after 'have'."))
-    )
-
-    // ═══ 7C ═══
-    private fun file7C() = base(27, "Reading in English", "خواندن به انگلیسی",
-        listOf("Reading skills","Talk about books","Present perfect + yet/already"),
-        listOf(
-            v("book","کتاب","A good book.","کتاب خوب."),
-            v("novel","رمان","A famous novel.","رمان معروف."),
-            v("author","نویسنده","A famous author.","نویسنده معروف."),
-            v("story","داستان","A true story.","داستان واقعی."),
-            v("yet","هنوز","I haven't read it yet.","هنوز نخوانده‌ام.","adverb"),
-            v("already","قبلاً","I've already read it.","قبلاً خوانده‌ام.","adverb"),
-            v("just","تازه","I've just finished.","تازه تمام کرده‌ام.","adverb"),
-            v("recently","اخیراً","I've recently started.","اخیراً شروع کرده‌ام.","adverb")
-        ),
-        listOf(
-            GrammarSection("Present perfect + yet","I haven't finished yet. Have you read it yet?"),
-            GrammarSection("Present perfect + already/just","I've already read it. She's just arrived.")
-        ),
-        listOf(
-            d("A","Have you read the new novel by Ali Smith?","رمان جدید علی اسمیت را خوانده‌ای؟"),
-            d("B","Not yet. Is it good?","هنوز نه. خوب است؟"),
-            d("A","It's excellent. I've just finished it.","فوق‌العاده. تازه تمامش کرده‌ام."),
-            d("B","What's it about?","درباره چیست؟"),
-            d("A","It's about family and memory. Very moving.","درباره خانواده و خاطره. خیلی تأثیرگذار."),
-            d("B","I've already read two of her books.","من قبلاً دو کتاب از او خوانده‌ام."),
-            d("A","Then you'll love this one.","پس این را دوست خواهی داشت."),
-            d("B","I'll buy it soon.","به‌زودی می‌خرمش."),
-            d("A","You won't be disappointed.","ناامید نخواهی شد.")
-        ),
-        listOf(
-            q("Has B read the new novel?",listOf("yes","no","partly"),1),
-            q("Has A finished it?",listOf("yes","no","just started"),0),
-            q("I haven't read it ___.",listOf("already","yet","just"),1),
-            q("She's ___ arrived.",listOf("yet","already","just"),2)
-        ),
-        idioms = listOf(
-            IdiomExpression("Not yet","هنوز نه","Not yet.","هنوز نه."),
-            IdiomExpression("Be about","درباره ... بودن","What's it about?","درباره چیست؟")
-        ),
-        pronunciation = listOf(PronunciationTip("Yet / Already","'Yet' often at end: I haven't read it YET.")),
-        culture = listOf(CulturalNote("Reading","Reading in English improves vocabulary fast.")),
-        mistakes = listOf(CommonMistake("I have read it yet.","I haven't read it yet.","'Yet' in negatives."))
-    )
-
-    // ═══ 8A ═══
-    private fun file8A() = base(28, "Should I stay or should I go?", "بمانم یا بروم؟",
-        listOf("Should / shouldn't","Give advice","Talk about problems"),
-        listOf(
-            v("should","باید","You should rest.","باید استراحت کنی.","verb"),
-            v("shouldn't","نباید","You shouldn't smoke.","نباید سیگار بکشی.","verb"),
-            v("advice","توصیه","Give me advice.","به من توصیه کن."),
-            v("problem","مشکل","I have a problem.","مشکلی دارم."),
-            v("worried","نگران","Don't be worried.","نگران نباش.","adjective"),
-            v("tired","خسته","You look tired.","خسته به نظر می‌رسی.","adjective"),
-            v("rest","استراحت","You should rest.","باید استراحت کنی.","verb"),
-            v("doctor","پزشک","See a doctor.","به پزشک مراجعه کن.")
-        ),
-        listOf(
-            GrammarSection("Should / Shouldn't","You should rest. You shouldn't work so much."),
-            GrammarSection("Giving advice","I think you should... Maybe you should... Why don't you...?")
-        ),
-        listOf(
-            d("A","You look tired. Are you OK?","خسته به نظر می‌رسی. خوبی؟"),
-            d("B","Not really. I can't sleep well.","نه واقعاً. خوب نمی‌خوابم."),
-            d("A","You should see a doctor.","باید به پزشک مراجعه کنی."),
-            d("B","Maybe. But I'm very busy.","شاید. ولی خیلی سرم شلوغ است."),
-            d("A","You shouldn't work so much.","نباید اینقدر کار کنی."),
-            d("B","I know. But my job is stressful.","می‌دانم. ولی شغلم پر استرس است."),
-            d("A","Why don't you take a holiday?","چرا تعطیلات نمی‌گیری؟"),
-            d("B","That's a good idea.","فکر خوبی است."),
-            d("A","You should rest. Health is important.","باید استراحت کنی. سلامتی مهم است."),
-            d("B","You're right. Thanks.","حق با توست. ممنون.")
-        ),
-        listOf(
-            q("What's B's problem?",listOf("can't sleep","no money","no friends"),0),
-            q("What does A suggest?",listOf("see a doctor","work more","travel"),0),
-            q("You ___ rest.",listOf("should","shouldn't","are"),0),
-            q("You ___ smoke.",listOf("should","shouldn't","are"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Take a holiday","تعطیلات گرفتن","Take a holiday.","تعطیلات بگیر."),
-            IdiomExpression("You're right","حق با توست","You're right.","حق با توست.")
-        ),
-        pronunciation = listOf(PronunciationTip("Should","Often reduced: /ʃʊd/ → /ʃəd/.")),
-        culture = listOf(CulturalNote("Stress","Work stress is common worldwide.")),
-        mistakes = listOf(CommonMistake("You should to rest.","You should rest.","No 'to' after 'should'."))
-    )
-
-    // ═══ 8B ═══
-    private fun file8B() = base(29, "I've got a problem", "مشکلی دارم",
-        listOf("Talk about health problems","Give advice","Use should for health"),
-        listOf(
-            v("headache","سردرد","I have a headache.","سردرد دارم."),
-            v("stomachache","دل‌درد","She has a stomachache.","دل‌درد دارد."),
-            v("cold","سرماخوردگی","I have a cold.","سرماخورده‌ام."),
-            v("flu","آنفولانزا","He has the flu.","آنفولانزا دارد."),
-            v("temperature","تب","Do you have a temperature?","تب داری؟"),
-            v("medicine","دارو","Take this medicine.","این دارو را بخور."),
-            v("pharmacy","داروخانه","Go to the pharmacy.","به داروخانه برو."),
-            v("appointment","نوبت","Make an appointment.","نوبت بگیر.")
-        ),
-        listOf(
-            GrammarSection("Health problems","I have a headache. She's got a cold. He feels sick."),
-            GrammarSection("Advice for health","You should rest. You shouldn't eat that.")
-        ),
-        listOf(
-            d("A","What's wrong?","چی شده؟"),
-            d("B","I don't feel well. I have a headache.","حالم خوب نیست. سردرد دارم."),
-            d("A","Do you have a temperature?","تب داری؟"),
-            d("B","Yes, a little. And I'm very tired.","بله، کمی. و خیلی خسته‌ام."),
-            d("A","You should go home and rest.","باید به خانه بروی و استراحت کنی."),
-            d("B","I have a meeting at 3.","ساعت ۳ جلسه دارم."),
-            d("A","You shouldn't go. You need to rest.","نباید بروی. باید استراحت کنی."),
-            d("B","Maybe you're right.","شاید حق با توست."),
-            d("A","Take some medicine and drink water.","کمی دارو بخور و آب بنوش."),
-            d("B","Thanks. I'll go to the pharmacy.","ممنون. به داروخانه می‌روم.")
-        ),
-        listOf(
-            q("What's B's problem?",listOf("headache","stomachache","cold"),0),
-            q("What does A suggest?",listOf("work","rest","travel"),1),
-            q("You ___ rest.",listOf("should","shouldn't","are"),0),
-            q("She has ___ cold.",listOf("a","an","the"),0)
-        ),
-        idioms = listOf(
-            IdiomExpression("Feel well","حال خوب","I don't feel well.","حالم خوب نیست."),
-            IdiomExpression("What's wrong?","چی شده؟","What's wrong?","چی شده؟")
-        ),
-        pronunciation = listOf(PronunciationTip("Health words","Stress: HEADache, STOMachache.")),
-        culture = listOf(CulturalNote("Health","Rest and hydration are common advice.")),
-        mistakes = listOf(CommonMistake("I have headache.","I have a headache.","Use 'a'."))
-    )
-
-    // ═══ 8C ═══
-    private fun file8C() = base(30, "Ambitions and dreams", "آرزوها و رؤیاها",
-        listOf("Talk about future plans","Use going to","Talk about dreams"),
-        listOf(
-            v("going to","قصد داشتن","I'm going to travel.","قصد دارم سفر کنم.","verb"),
-            v("plan","برنامه","What's your plan?","برنامه‌ات چیست؟"),
-            v("dream","رؤیا","Follow your dreams.","رؤیاهایت را دنبال کن."),
-            v("ambition","جاه‌طلبی","My ambition is to...","جاه‌طلبی من ..."),
-            v("future","آینده","In the future...","در آینده..."),
-            v("hope","امیدوار بودن","I hope to...","امیدوارم...","verb"),
-            v("learn","یاد گرفتن","Learn a new language.","زبان جدید یاد بگیر.","verb"),
-            v("travel","سفر کردن","Travel the world.","جهان را سفر کن.","verb")
-        ),
-        listOf(
-            GrammarSection("Going to for plans","I'm going to travel. She's going to study. We're going to move."),
-            GrammarSection("Future time expressions","next year, next month, tomorrow, in 2025.")
-        ),
-        listOf(
-            d("A","What are your plans for the future?","برنامه‌هایت برای آینده؟"),
-            d("B","I'm going to learn Spanish.","قصد دارم اسپانیایی یاد بگیرم."),
-            d("A","Nice! Why Spanish?","خوبه! چرا اسپانیایی؟"),
-            d("B","I'm going to travel in South America next year.","سال بعد قصد دارم به آمریکای جنوبی سفر کنم."),
-            d("A","That sounds exciting!","هیجان‌انگیز به نظر می‌رسد!"),
-            d("B","Yes. My dream is to see Machu Picchu.","بله. رؤیایم دیدن ماچو پیچو است."),
-            d("A","What about work?","کار چطور؟"),
-            d("B","I'm going to work online while traveling.","قصد دارم در حین سفر آنلاین کار کنم."),
-            d("A","That's a good plan.","برنامه خوبی است."),
-            d("B","What about you?","تو چطور؟"),
-            d("A","I'm going to start my own business.","قصد دارم کسب‌وکار خودم را راه بیندازم.")
-        ),
-        listOf(
-            q("What is B going to learn?",listOf("French","Spanish","Italian"),1),
-            q("Where is B going to travel?",listOf("Asia","South America","Africa"),1),
-            q("I ___ going to travel.",listOf("am","is","are"),0),
-            q("She ___ going to study.",listOf("am","is","are"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Follow your dreams","رؤیاهایت را دنبال کن","Follow your dreams.","رؤیاهایت را دنبال کن."),
-            IdiomExpression("Start a business","کسب‌وکار راه انداختن","Start a business.","کسب‌وکار راه بینداز.")
-        ),
-        pronunciation = listOf(PronunciationTip("Going to","Often pronounced 'gonna' in casual speech.")),
-        culture = listOf(CulturalNote("Machu Picchu","An ancient Inca city in Peru.")),
-        mistakes = listOf(CommonMistake("I going to travel.","I'm going to travel.","Need 'am/is/are'."))
-    )
-
-    // ═══ PE4 ═══
-    private fun practicalEnglish4() = base(31, "Practical English 4 — At the doctor's", "انگلیسی کاربردی ۴ — نزد دکتر",
-        listOf("Describe symptoms","Make an appointment","Understand doctor's instructions"),
-        listOf(
-            v("appointment","نوبت","I'd like an appointment.","نوبت می‌خواهم."),
-            v("symptom","علامت","What are the symptoms?","علائم چیست؟"),
-            v("pain","درد","I have pain here.","اینجا درد دارم."),
-            v("prescription","نسخه","Here's your prescription.","این نسخه شماست."),
-            v("pharmacy","داروخانه","Go to the pharmacy.","به داروخانه برو."),
-            v("twice a day","دو بار در روز","Take it twice a day.","دو بار در روز مصرف کن."),
-            v("before meals","قبل از غذا","Take before meals.","قبل از غذا مصرف کن."),
-            v("allergic","حساسیت","I'm allergic to...","به ... حساسیت دارم.","adjective")
-        ),
-        listOf(
-            GrammarSection("Describing symptoms","I have a headache. I feel sick. It hurts here."),
-            GrammarSection("Doctor's instructions","Take this twice a day. Rest for two days.")
-        ),
-        listOf(
-            d("Receptionist","Good morning. Can I help you?","صبح بخیر. کمکی کنم؟"),
-            d("A","Yes, I'd like an appointment with the doctor.","بله، نوبت دکتر می‌خواهم."),
-            d("Receptionist","What's the problem?","مشکل چیست؟"),
-            d("A","I have a bad headache and a temperature.","سردرد شدید و تب دارم."),
-            d("Receptionist","Can you come at 11?","ساعت ۱۱ می‌توانید بیایید؟"),
-            d("A","Yes, thank you.","بله، ممنون."),
-            d("Doctor","What's wrong?","چی شده؟"),
-            d("A","I have a headache and I feel very tired.","سردرد دارم و خیلی خسته‌ام."),
-            d("Doctor","Do you have a temperature?","تب داری؟"),
-            d("A","Yes, since yesterday.","بله، از دیروز."),
-            d("Doctor","You have the flu. Take this medicine twice a day.","آنفولانزا دارید. این دارو را دو بار در روز مصرف کنید."),
-            d("A","Thank you, doctor.","ممنون دکتر.")
-        ),
-        listOf(
-            q("What's A's problem?",listOf("headache","stomachache","cold"),0),
-            q("What medicine does A need?",listOf("once a day","twice a day","three times"),1),
-            q("I'd like ___ appointment.",listOf("a","an","the"),1),
-            q("Take it ___ a day.",listOf("one","twice","two"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("What's wrong?","چی شده؟","What's wrong?","چی شده؟"),
-            IdiomExpression("Feel sick","حال بد","I feel sick.","حالم بد است.")
-        ),
-        pronunciation = listOf(PronunciationTip("Symptoms","Stress: HEADache, TEMperature.")),
-        culture = listOf(CulturalNote("Doctor visits","In UK, GP visits are typically free with NHS.")),
-        mistakes = listOf(CommonMistake("I have the headache.","I have a headache.","Use 'a' for symptoms."))
-    )
-
-    // ═══ R&C 7&8 ═══
-    private fun reviseAndCheck7And8() = base(32, "Revise & Check 7 & 8", "مرور و بررسی ۷ و ۸",
-        listOf("Review comparatives/superlatives","Review present perfect","Review should","Review going to"),
-        listOf(
-            v("review","مرور","Let's review.","مرور کنیم.","verb"),
-            v("better","بهتر","Better than.","بهتر از.","adjective"),
-            v("best","بهترین","The best.","بهترین.","adjective"),
-            v("been","بوده","Have you been?","بوده‌ای؟","verb"),
-            v("should","باید","You should.","باید.","verb"),
-            v("going to","قصد داشتن","I'm going to.","قصد دارم.","verb")
-        ),
-        listOf(
-            GrammarSection("Comparatives review","bigger, better, worse, more beautiful."),
-            GrammarSection("Present perfect review","Have you ever...? I've never..."),
-            GrammarSection("Modals review","should, shouldn't, going to.")
-        ),
-        listOf(
-            d("Teacher","Review Files 7 and 8.","مرور فایل‌های ۷ و ۸."),
-            d("A","Comparatives and superlatives.","مقایسه و بهترین."),
-            d("B","Present perfect for experiences.","حال کامل برای تجربه‌ها."),
-            d("A","Should for advice.","Should برای توصیه."),
-            d("B","Going to for plans.","Going to برای برنامه‌ها."),
-            d("Teacher","Examples?","مثال؟"),
-            d("A","I've been to Paris. She's the best.","در پاریس بوده‌ام. او بهترین است."),
-            d("B","You should rest. I'm going to travel.","باید استراحت کنی. قصد دارم سفر کنم."),
-            d("Teacher","Excellent!","عالی!")
-        ),
-        listOf(
-            q("Comparative of 'good'?",listOf("gooder","better","best"),1),
-            q("Advice modal?",listOf("should","can","will"),0),
-            q("I've ___ to Paris.",listOf("be","been","being"),1),
-            q("She's ___ to study.",listOf("go","going","went"),1)
-        ),
-        idioms = listOf(IdiomExpression("Let's review","بیایید مرور کنیم","Let's review.","بیایید مرور کنیم.")),
-        pronunciation = listOf(PronunciationTip("Review","Mixed intonation practice.")),
-        culture = listOf(CulturalNote("Reviewing","Essential.")),
-        mistakes = listOf(CommonMistake("She's best.","She's the best.","Need 'the' for superlatives."))
-    )
-
-    // ═══ 9A ═══
-    private fun file9A() = base(33, "What are you doing tonight?", "امشب چه کار می‌کنی؟",
-        listOf("Present continuous for future","Make arrangements","Talk about the near future"),
-        listOf(
-            v("tonight","امشب","What are you doing tonight?","امشب چه کار می‌کنی؟"),
-            v("tomorrow","فردا","See you tomorrow.","فردا می‌بینمت."),
-            v("meeting","جلسه","I have a meeting.","جلسه دارم."),
-            v("arrangement","قرار","An arrangement with friends.","قراری با دوستان."),
-            v("free","آزاد","Are you free?","آزادی؟","adjective"),
-            v("busy","شلوغ","I'm busy tonight.","امشب شلوغم.","adjective"),
-            v("invite","دعوت کردن","I'm inviting friends.","دوستان را دعوت می‌کنم.","verb"),
-            v("plan","برنامه","What's the plan?","برنامه چیست؟")
-        ),
-        listOf(
-            GrammarSection("Present continuous for future","I'm meeting Tom tomorrow. We're going to a concert tonight."),
-            GrammarSection("Arrangements","What are you doing...? I'm seeing... They're playing...")
-        ),
-        listOf(
-            d("A","What are you doing tonight?","امشب چه کار می‌کنی؟"),
-            d("B","I'm seeing some friends. We're going to a restaurant.","دوستانم را می‌بینم. به رستوران می‌رویم."),
-            d("A","Nice! What time are you meeting?","خوبه! چه ساعتی ملاقات می‌کنید؟"),
-            d("B","At 8. Are you free? Come with us!","ساعت ۸. آزادی؟ با ما بیا!"),
-            d("A","I'd love to, but I'm working late.","دوست دارم، ولی تا دیروقت کار می‌کنم."),
-            d("B","What about tomorrow?","فردا چطور؟"),
-            d("A","Tomorrow I'm playing football.","فردا فوتبال بازی می‌کنم."),
-            d("B","You're very busy!","خیلی شلوغی!"),
-            d("A","Yes. Saturday?","بله. شنبه؟"),
-            d("B","Saturday I'm free. Let's do something.","شنبه آزادم. بیا کاری بکنیم.")
-        ),
-        listOf(
-            q("What's B doing tonight?",listOf("working","seeing friends","playing football"),1),
-            q("When is A free?",listOf("tonight","tomorrow","Saturday"),2),
-            q("I ___ meeting Tom tomorrow.",listOf("am","is","are"),0),
-            q("We ___ going to a concert.",listOf("am","is","are"),2)
-        ),
-        idioms = listOf(
-            IdiomExpression("Free tonight","امشب آزاد","Are you free tonight?","امشب آزادی؟"),
-            IdiomExpression("Work late","تا دیروقت کار کردن","I'm working late.","تا دیروقت کار می‌کنم.")
-        ),
-        pronunciation = listOf(PronunciationTip("Future continuous","Stress the -ing: I'm SEEing friends.")),
-        culture = listOf(CulturalNote("Making plans","Common phrases for social arrangements.")),
-        mistakes = listOf(CommonMistake("I meet Tom tomorrow.","I'm meeting Tom tomorrow.","Use continuous for arrangements."))
-    )
-
-    // ═══ 9B ═══
-    private fun file9B() = base(34, "What's the weather like?", "هوا چطور است؟",
-        listOf("Talk about weather","Weather forecast","Future with will"),
-        listOf(
-            v("sunny","آفتابی","It's sunny.","آفتابی است.","adjective"),
-            v("rainy","بارانی","A rainy day.","روز بارانی.","adjective"),
-            v("cloudy","ابری","It's cloudy.","ابری است.","adjective"),
-            v("windy","بادی","It's windy.","بادی است.","adjective"),
-            v("snowy","برفی","Snowy weather.","هوای برفی.","adjective"),
-            v("forecast","پیش‌بینی","The forecast says rain.","پیش‌بینی می‌گوید باران."),
-            v("degree","درجه","20 degrees.","۲۰ درجه."),
-            v("will","خواهد","It will rain tomorrow.","فردا باران خواهد آمد.","verb")
-        ),
-        listOf(
-            GrammarSection("Weather","It's sunny. It's raining. It was cold."),
-            GrammarSection("Will for prediction","It will rain tomorrow. I think it'll be sunny.")
-        ),
-        listOf(
-            d("A","What's the weather like today?","امروز هوا چطور است؟"),
-            d("B","It's cloudy and a bit cold.","ابری و کمی سرد."),
-            d("A","What's the forecast for tomorrow?","پیش‌بینی فردا چیست؟"),
-            d("B","It will rain in the morning. But sunny in the afternoon.","صبح باران. ولی بعدازظهر آفتابی."),
-            d("A","Good. I'm going to the beach.","خوبه. به ساحل می‌روم."),
-            d("B","Lucky you! What's the temperature?","خوش به حالت! دما چقدره؟"),
-            d("A","About 22 degrees. Perfect.","حدود ۲۲ درجه. عالی."),
-            d("B","Sounds nice.","خوبه."),
-            d("A","Come with me!","با من بیا!"),
-            d("B","I can't. I'll be at work.","نمی‌توانم. سر کار خواهم بود.")
-        ),
-        listOf(
-            q("Today's weather?",listOf("sunny","cloudy","rainy"),1),
-            q("Tomorrow morning?",listOf("sunny","rainy","snowy"),1),
-            q("It ___ rain tomorrow.",listOf("will","is","are"),0),
-            q("It's ___ today.",listOf("cloud","cloudy","clouds"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Lucky you!","خوش به حالت!","Lucky you!","خوش به حالت!"),
-            IdiomExpression("What's the weather like?","هوا چطور است؟","What's the weather like?","هوا چطور است؟")
-        ),
-        pronunciation = listOf(PronunciationTip("Weather","/ˈweðər/ — voiced 'th'.")),
-        culture = listOf(CulturalNote("Weather small talk","Common conversation starter.")),
-        mistakes = listOf(CommonMistake("It will rains.","It will rain.","Base verb after 'will'."))
-    )
-
-    // ═══ 9C ═══
-    private fun file9C() = base(35, "A trip to London", "سفری به لندن",
-        listOf("Plan a trip","Future arrangements","Talk about travel"),
-        listOf(
-            v("trip","سفر","A trip to London.","سفری به لندن."),
-            v("flight","پرواز","My flight is at 9.","پروازم ساعت ۹ است."),
-            v("hotel","هتل","Book a hotel.","هتل رزرو کن."),
-            v("ticket","بلیت","Buy a ticket.","بلیت بخر."),
-            v("sightseeing","گشت‌وگذار","Go sightseeing.","گشت‌وگذار برو."),
-            v("museum","موزه","Visit a museum.","موزه را ببین."),
-            v("book","رزرو کردن","Book a room.","اتاق رزرو کن.","verb"),
-            v("pack","بسته‌بندی","Pack your bags.","چمدانت را ببند.","verb")
-        ),
-        listOf(
-            GrammarSection("Future arrangements","I'm flying to London. We're staying at a hotel."),
-            GrammarSection("Making plans","I'm going to visit. We're going to see.")
-        ),
-        listOf(
-            d("A","I'm going to London next week!","هفته بعد به لندن می‌روم!"),
-            d("B","Lucky you! How long are you staying?","خوش به حالت! چقدر می‌مانی؟"),
-            d("A","Four days. I'm flying on Monday.","چهار روز. دوشنبه پرواز دارم."),
-            d("B","Where are you staying?","کجا می‌مانی؟"),
-            d("A","At a small hotel near the center.","هتل کوچکی نزدیک مرکز."),
-            d("B","What are you going to do there?","آنجا چه کار می‌کنی؟"),
-            d("A","I'm going to visit the British Museum and go sightseeing.","قصد دارم موزه بریتانیا را ببینم و گشت‌وگذار کنم."),
-            d("B","Sounds great! Don't forget your umbrella.","عالی! چترت را فراموش نکن."),
-            d("A","Good idea. It always rains there!","فکر خوبی است. همیشه آنجا باران می‌آید!"),
-            d("B","Have a great trip!","سفر خوبی داشته باشی!")
-        ),
-        listOf(
-            q("When is A flying?",listOf("Monday","Tuesday","Sunday"),0),
-            q("Where is A staying?",listOf("big hotel","small hotel","hostel"),1),
-            q("I ___ flying on Monday.",listOf("am","is","are"),0),
-            q("We ___ staying at a hotel.",listOf("am","is","are"),2)
-        ),
-        idioms = listOf(
-            IdiomExpression("Lucky you!","خوش به حالت!","Lucky you!","خوش به حالت!"),
-            IdiomExpression("Sightseeing","گشت‌وگذار","Go sightseeing.","گشت‌وگذار برو.")
-        ),
-        pronunciation = listOf(PronunciationTip("Future arrangements","Stress the time: FLYing on MONday.")),
-        culture = listOf(CulturalNote("British Museum","One of the world's greatest museums.")),
-        mistakes = listOf(CommonMistake("I fly Monday.","I'm flying on Monday.","Use continuous."))
-    )
-
-    // ═══ 10A ═══
-    private fun file10A() = base(36, "Something new", "چیزی جدید",
-        listOf("Present perfect + for/since","Talk about duration","Life changes"),
-        listOf(
-            v("for","برای","I've lived here for 5 years.","۵ سال اینجا زندگی کرده‌ام.","preposition"),
-            v("since","از","I've worked here since 2019.","از ۲۰۱۹ اینجا کار کرده‌ام.","preposition"),
-            v("married","متأهل","We've been married for 10 years.","۱۰ سال است ازدواج کرده‌ایم.","adjective"),
-            v("know","شناختن","I've known her since school.","از مدرسه می‌شناسمش.","verb"),
-            v("change","تغییر","Life has changed.","زندگی تغییر کرده."),
-            v("moved","نقل مکان","We moved here in 2020.","سال ۲۰۲۰ اینجا آمدیم.","verb"),
-            v("started","شروع کرد","She started her job.","شغلش را شروع کرد.","verb"),
-            v("learned","یاد گرفت","I've learned English.","انگلیسی یاد گرفته‌ام.","verb")
-        ),
-        listOf(
-            GrammarSection("Present perfect + for/since","I've lived here for 5 years. She's worked there since 2019."),
-            GrammarSection("For vs. Since","for + period (5 years). since + point (2019).")
-        ),
-        listOf(
-            d("A","How long have you lived here?","چقدر اینجا زندگی کرده‌ای؟"),
-            d("B","For about 3 years. I moved here in 2021.","حدود ۳ سال. سال ۲۰۲۱ آمدم."),
-            d("A","Do you like it?","دوستش داری؟"),
-            d("B","Yes, very much. I've made many friends.","بله، خیلی. دوستان زیادی پیدا کرده‌ام."),
-            d("A","How long have you known them?","چقدر می‌شناسی‌شان؟"),
-            d("B","Some for 3 years. Others since last year.","بعضی ۳ سال. بعضی از سال پیش."),
-            d("A","Have you always lived in this city?","همیشه در این شهر زندگی کرده‌ای؟"),
-            d("B","No. I've lived in 3 cities.","نه. در ۳ شهر زندگی کرده‌ام."),
-            d("A","Which is your favourite?","کدام مورد علاقه‌ات است؟"),
-            d("B","This one. I've been happiest here.","همین. اینجا خوشحال‌ترین بوده‌ام.")
-        ),
-        listOf(
-            q("How long has B lived here?",listOf("1 year","3 years","5 years"),1),
-            q("How many cities?",listOf("1","2","3"),2),
-            q("I've lived here ___ 3 years.",listOf("since","for","in"),1),
-            q("I've worked here ___ 2019.",listOf("for","since","in"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("How long","چه مدت","How long have you...?","چه مدت...؟"),
-            IdiomExpression("Make friends","دوست پیدا کردن","I've made friends.","دوستان پیدا کرده‌ام.")
-        ),
-        pronunciation = listOf(PronunciationTip("For / Since","Weak 'for' /fər/, strong 'since' /sɪns/.")),
-        culture = listOf(CulturalNote("Moving","Moving cities is common for work/study.")),
-        mistakes = listOf(CommonMistake("since 3 years","for 3 years","Use 'for' with periods."))
-    )
-
-    // ═══ 10B ═══
-    private fun file10B() = base(37, "I've just seen a ghost!", "تازه یک روح دیده‌ام!",
-        listOf("Present perfect + just/already/yet","News and recent events"),
-        listOf(
-            v("just","تازه","I've just seen him.","تازه دیده‌امش.","adverb"),
-            v("already","قبلاً","She's already left.","او قبلاً رفته.","adverb"),
-            v("yet","هنوز","Have you finished yet?","هنوز تمام کرده‌ای؟","adverb"),
-            v("arrived","رسید","The train has arrived.","قطار رسیده.","verb"),
-            v("left","رفت","He's just left.","تازه رفته.","verb"),
-            v("finished","تمام کرد","I've finished.","تمام کرده‌ام.","verb"),
-            v("seen","دیده","Have you seen it?","دیده‌ای؟","verb"),
-            v("heard","شنیده","I've heard the news.","خبر را شنیده‌ام.","verb")
-        ),
-        listOf(
-            GrammarSection("Present perfect + just","I've just arrived. She's just left."),
-            GrammarSection("Present perfect + already/yet","I've already eaten. Have you eaten yet?")
-        ),
-        listOf(
-            d("A","The train has just arrived.","قطار تازه رسیده."),
-            d("B","Great! Let's go.","عالی! بیا برویم."),
-            d("A","Wait, I haven't bought the tickets yet.","صبر کن، هنوز بلیت نخریده‌ام."),
-            d("B","Hurry! I've already packed.","عجله کن! من قبلاً چمدان بسته‌ام."),
-            d("A","OK, OK. Where's the ticket office?","باشه. دفتر بلیت کجاست؟"),
-            d("B","Over there. I've just seen it.","آنجا. تازه دیده‌ام."),
-            d("A","Perfect. Two minutes!","عالی. دو دقیقه!"),
-            d("B","The train leaves in 5 minutes.","قطار در ۵ دقیقه حرکت می‌کند."),
-            d("A","I've got the tickets!","بلیت‌ها را گرفتم!"),
-            d("B","Perfect timing!","عالی شد!")
-        ),
-        listOf(
-            q("What has just arrived?",listOf("bus","train","plane"),1),
-            q("Has A bought tickets?",listOf("yes","no","maybe"),1),
-            q("I've ___ eaten.",listOf("yet","already","still"),1),
-            q("Have you finished ___?",listOf("already","yet","just"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Perfect timing","عالی شد","Perfect timing!","عالی شد!"),
-            IdiomExpression("Hurry up","عجله کن","Hurry up!","عجله کن!")
-        ),
-        pronunciation = listOf(PronunciationTip("Just / Yet","'Just' stress: I've JUST arrived.")),
-        culture = listOf(CulturalNote("Trains","Trains are common transport in the UK.")),
-        mistakes = listOf(CommonMistake("I've already eat.","I've already eaten.","Past participle."))
-    )
-
-    // ═══ 10C ═══
-    private fun file10C() = base(38, "The story of a musician", "داستان یک موسیقیدان",
-        listOf("Biographies","Present perfect + past simple","Talk about achievements"),
-        listOf(
-            v("musician","موسیقیدان","A famous musician.","موسیقیدان معروف."),
-            v("born","متولد","She was born in 1990.","سال ۱۹۹۰ متولد شد.","adjective"),
-            v("began","شروع کرد","He began playing at 5.","از ۵ سالگی شروع کرد.","verb"),
-            v("became","شد","She became famous.","معروف شد.","verb"),
-            v("won","برد","He won a prize.","جایزه برد.","verb"),
-            v("released","منتشر کرد","They released an album.","آلبومی منتشر کردند.","verb"),
-            v("toured","تور داد","She toured the world.","در جهان تور داد.","verb"),
-            v("achievement","دستاورد","A great achievement.","دستاورد بزرگ.")
-        ),
-        listOf(
-            GrammarSection("Biography + present perfect","She has released 5 albums. She released the first in 2015."),
-            GrammarSection("Present perfect vs. past simple","She has won many prizes (life). She won a prize in 2020 (specific).")
-        ),
-        listOf(
-            d("A","Tell me about your favourite musician.","از موسیقیدان مورد علاقه‌ات بگو."),
-            d("B","She's amazing. She was born in 1990 in Canada.","فوق‌العاده است. سال ۱۹۹۰ در کانادا متولد شد."),
-            d("A","When did she start music?","کی موسیقی را شروع کرد؟"),
-            d("B","She began at 5. She's played piano for 30 years.","از ۵ سالگی شروع کرد. ۳۰ سال پیانو نواخته."),
-            d("A","How many albums?","چند آلبوم؟"),
-            d("B","She's released 6 albums. The first was in 2012.","۶ آلبوم منتشر کرده. اولی ۲۰۱۲ بود."),
-            d("A","Has she won any prizes?","جایزه‌ای برده؟"),
-            d("B","Yes! She's won 3 Grammys.","بله! ۳ گرمی برده."),
-            d("A","Amazing!","شگفت‌انگیز!"),
-            d("B","She's also toured the world twice.","دو بار هم در جهان تور داده.")
-        ),
-        listOf(
-            q("Where was the musician born?",listOf("USA","Canada","UK"),1),
-            q("How many Grammys?",listOf("1","2","3"),2),
-            q("She ___ released 6 albums.",listOf("have","has","is"),1),
-            q("She ___ the first in 2012.",listOf("has released","released","release"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Tour the world","در جهان تور دادن","She toured the world.","در جهان تور داد."),
-            IdiomExpression("Release an album","آلبوم منتشر کردن","She released an album.","آلبومی منتشر کرد.")
-        ),
-        pronunciation = listOf(PronunciationTip("Present perfect","She's released /ʃiːz rɪˈliːst/.")),
-        culture = listOf(CulturalNote("Grammys","Major music awards in the US.")),
-        mistakes = listOf(CommonMistake("She has released in 2012.","She released in 2012.","Use past simple with specific time."))
-    )
-
-    // ═══ PE5 ═══
-    private fun practicalEnglish5() = base(39, "Practical English 5 — Directions", "انگلیسی کاربردی ۵ — مسیرها",
-        listOf("Ask for directions","Give directions","Use prepositions of movement"),
-        listOf(
-            v("turn left","به چپ بپیچ","Turn left.","به چپ بپیچ.","verb"),
-            v("turn right","به راست بپیچ","Turn right.","به راست بپیچ.","verb"),
-            v("go straight","مستقیم برو","Go straight.","مستقیم برو.","verb"),
-            v("corner","گوشه","At the corner.","در گوشه."),
-            v("traffic lights","چراغ راهنما","At the traffic lights.","در چراغ راهنما."),
-            v("roundabout","میدان","At the roundabout.","در میدان."),
-            v("past","از کنار","Go past the bank.","از کنار بانک رد شو.","preposition"),
-            v("opposite","روبه‌روی","Opposite the park.","روبه‌روی پارک.","preposition")
-        ),
-        listOf(
-            GrammarSection("Imperatives for directions","Turn left. Go straight. Take the first right."),
-            GrammarSection("Prepositions of movement","past, along, across, through, into.")
-        ),
-        listOf(
-            d("A","Excuse me, where's the train station?","ببخشید، ایستگاه قطار کجاست؟"),
-            d("B","Go straight down this street.","این خیابان را مستقیم برو."),
-            d("A","Straight?","مستقیم؟"),
-            d("B","Yes. Then turn left at the traffic lights.","بله. بعد در چراغ راهنما به چپ بپیچ."),
-            d("A","Left at the lights.","چپ در چراغ‌ها."),
-            d("B","Then go past the bank. It's opposite the post office.","بعد از کنار بانک رد شو. روبه‌روی اداره پست است."),
-            d("A","How far is it?","چقدر دور است؟"),
-            d("B","About 10 minutes on foot.","حدود ۱۰ دقیقه پیاده."),
-            d("A","Thank you!","ممنون!"),
-            d("B","You're welcome.","خواهش می‌کنم.")
-        ),
-        listOf(
-            q("Where does A want to go?",listOf("bank","station","park"),1),
-            q("Where to turn?",listOf("left","right","straight"),0),
-            q("Go ___ down this street.",listOf("straight","strait","stright"),0),
-            q("It's ___ the post office.",listOf("opposite","next","between"),0)
-        ),
-        idioms = listOf(
-            IdiomExpression("Excuse me","ببخشید","Excuse me.","ببخشید."),
-            IdiomExpression("On foot","پیاده","10 minutes on foot.","۱۰ دقیقه پیاده.")
-        ),
-        pronunciation = listOf(PronunciationTip("Directions","Falling intonation: TURN left. GO straight.")),
-        culture = listOf(CulturalNote("Asking directions","Start with 'Excuse me'.")),
-        mistakes = listOf(CommonMistake("Go to straight.","Go straight.","No 'to' with 'straight'."))
-    )
-
-    // ═══ R&C 9&10 ═══
-    private fun reviseAndCheck9And10() = base(40, "Revise & Check 9 & 10", "مرور و بررسی ۹ و ۱۰",
-        listOf("Review future forms","Review present perfect","Review duration"),
-        listOf(
-            v("review","مرور","Let's review.","مرور کنیم.","verb"),
-            v("tonight","امشب","Tonight I'm...","امشب..."),
-            v("for","برای","For 5 years.","برای ۵ سال.","preposition"),
-            v("since","از","Since 2019.","از ۲۰۱۹.","preposition"),
-            v("just","تازه","I've just...","تازه...","adverb"),
-            v("yet","هنوز","Not yet.","هنوز نه.","adverb")
-        ),
-        listOf(
-            GrammarSection("Future forms","Present continuous (arrangements), will (predictions), going to (plans)."),
-            GrammarSection("Present perfect + for/since","For 5 years. Since 2019."),
-            GrammarSection("Just / Already / Yet","I've just arrived. Have you eaten yet?")
-        ),
-        listOf(
-            d("Teacher","Review Files 9 and 10.","مرور فایل‌های ۹ و ۱۰."),
-            d("A","Future forms: continuous for arrangements.","فرم‌های آینده: استمراری برای قرارها."),
-            d("B","Will for predictions, going to for plans.","Will برای پیش‌بینی، going to برای برنامه."),
-            d("A","Present perfect with for/since.","حال کامل با for/since."),
-            d("B","Just, already, yet.","just، already، yet."),
-            d("Teacher","Examples?","مثال؟"),
-            d("A","I'm meeting Tom tomorrow. I've lived here for 5 years.","فردا تام را می‌بینم. ۵ سال اینجا زندگی کرده‌ام."),
-            d("B","I've just arrived. Have you finished yet?","تازه رسیده‌ام. هنوز تمام کرده‌ای؟"),
-            d("Teacher","Excellent!","عالی!")
-        ),
-        listOf(
-            q("Arrangements use?",listOf("will","present continuous","past"),1),
-            q("Duration: for or since?",listOf("for 3 years","since 3 years","in 3 years"),0),
-            q("I'm ___ Tom tomorrow.",listOf("meet","meeting","met"),1),
-            q("I've worked here ___ 2019.",listOf("for","since","in"),1)
-        ),
-        idioms = listOf(IdiomExpression("Let's review","بیایید مرور کنیم","Let's review.","بیایید مرور کنیم.")),
-        pronunciation = listOf(PronunciationTip("For/Since","Weak 'for' /fər/, strong 'since'.")),
-        culture = listOf(CulturalNote("Reviewing","Essential.")),
-        mistakes = listOf(CommonMistake("since 3 years","for 3 years","'for' + period."))
-    )
-
-    // ═══ 11A ═══
-    private fun file11A() = base(41, "Have you ever been...?", "تا حالا بوده‌ای...؟",
-        listOf("Present perfect for experiences","Talk about trips","Ever/never"),
-        listOf(
-            v("ever","تا حالا","Have you ever...?","تا حالا...؟","adverb"),
-            v("never","هرگز","I've never been.","هرگز نبوده‌ام.","adverb"),
-            v("been","بوده","I've been to...","بوده‌ام در...","verb"),
-            v("abroad","خارج","Have you been abroad?","خارج بوده‌ای؟","adverb"),
-            v("island","جزیره","A beautiful island.","جزیره زیبا."),
-            v("coast","ساحل","On the coast.","در ساحل."),
-            v("flight","پرواز","A long flight.","پرواز طولانی."),
-            v("journey","سفر","A long journey.","سفر طولانی.")
-        ),
-        listOf(
-            GrammarSection("Present perfect for experiences","Have you ever been to...? I've never been."),
-            GrammarSection("Ever in questions, never in negatives","Have you ever...? I've never...")
-        ),
-        listOf(
-            d("A","Have you ever been to Asia?","تا حالا آسیا بوده‌ای؟"),
-            d("B","Yes, I've been to Japan twice.","بله، دو بار در ژاپن بوده‌ام."),
-            d("A","Wow! Have you ever tried sushi in Japan?","واو! تا حالا سوشی در ژاپن امتحان کرده‌ای؟"),
-            d("B","Yes, of course. It's amazing there.","بله، البته. آنجا فوق‌العاده است."),
-            d("A","Have you ever been to China?","تا حالا چین بوده‌ای؟"),
-            d("B","No, never. But I want to.","نه، هرگز. ولی می‌خواهم."),
-            d("A","What about Europe?","اروپا چطور؟"),
-            d("B","I've been to France and Italy.","در فرانسه و ایتالیا بوده‌ام."),
-            d("A","Favourite?","مورد علاقه؟"),
-            d("B","Italy. I've never seen a more beautiful country.","ایتالیا. هرگز کشور زیباتری ندیده‌ام.")
-        ),
-        listOf(
-            q("Where has B been twice?",listOf("China","Japan","Italy"),1),
-            q("Has B been to China?",listOf("yes","no","maybe"),1),
-            q("Have you ___ been to Asia?",listOf("ever","never","already"),0),
-            q("I've ___ been to China.",listOf("ever","never","yet"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Of course","البته","Of course!","البته!"),
-            IdiomExpression("Twice","دو بار","Twice.","دو بار.")
-        ),
-        pronunciation = listOf(PronunciationTip("Ever / Never","Stress: EV-er, NEV-er.")),
-        culture = listOf(CulturalNote("Travel experiences","Common conversation topic.")),
-        mistakes = listOf(CommonMistake("I've ever been.","I've never been.","'Ever' in questions."))
-    )
-
-    // ═══ 11B ═══
-    private fun file11B() = base(42, "Success", "موفقیت",
-        listOf("Talk about success","Give opinions","Agree and disagree"),
-        listOf(
-            v("success","موفقیت","A big success.","موفقیت بزرگ."),
-            v("successful","موفق","A successful person.","فرد موفق.","adjective"),
-            v("hard work","کار سخت","Hard work pays.","کار سخت نتیجه می‌دهد."),
-            v("talent","استعداد","Natural talent.","استعداد طبیعی."),
-            v("luck","شانس","Good luck!","موفق باشی!"),
-            v("goal","هدف","Reach your goal.","به هدفت برس."),
-            v("achieve","دست یافتن","Achieve success.","به موفقیت دست یافتن.","verb"),
-            v("opportunity","فرصت","A great opportunity.","فرصت عالی.")
-        ),
-        listOf(
-            GrammarSection("Opinions","I think... In my opinion... I believe..."),
-            GrammarSection("Agree / Disagree","I agree. I don't agree. You're right.")
-        ),
-        listOf(
-            d("A","What do you think is the key to success?","به نظرت کلید موفقیت چیست؟"),
-            d("B","Hard work, I think. Talent helps but work is more important.","کار سخت، فکر می‌کنم. استعداد کمک می‌کند ولی کار مهم‌تر است."),
-            d("A","I don't agree. I think luck matters a lot.","موافق نیستم. فکر می‌کنم شانس خیلی مهم است."),
-            d("B","Really? Luck is not enough.","واقعاً؟ شانس کافی نیست."),
-            d("A","Maybe. But many successful people were just lucky.","شاید. ولی بسیاری از افراد موفق فقط خوش‌شانس بودند."),
-            d("B","In my opinion, luck opens doors, but hard work keeps them open.","به نظر من شانس درها را باز می‌کند، ولی کار سخت باز نگهشان می‌دارد."),
-            d("A","That's a good point.","نکته خوبی است."),
-            d("B","And having a clear goal is essential.","و داشتن هدف واضح ضروری است."),
-            d("A","I agree with that.","با آن موافقم.")
-        ),
-        listOf(
-            q("What does B think is key?",listOf("luck","hard work","talent"),1),
-            q("What does A think matters?",listOf("luck","work","money"),0),
-            q("I ___ with that.",listOf("agree","agrees","agreeing"),0),
-            q("___ my opinion, work is important.",listOf("On","In","At"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Key to success","کلید موفقیت","The key to success.","کلید موفقیت."),
-            IdiomExpression("Good point","نکته خوبی","That's a good point.","نکته خوبی است.")
-        ),
-        pronunciation = listOf(PronunciationTip("Opinions","Rise then fall: I THINK it's important.")),
-        culture = listOf(CulturalNote("Success","Culturally defined concept.")),
-        mistakes = listOf(CommonMistake("In my opinion I think...","In my opinion...","Don't mix."))
-    )
-
-    // ═══ 11C ═══
-    private fun file11C() = base(43, "Have a nice day!", "روز خوبی داشته باشی!",
-        listOf("Say goodbye","Wish people well","End conversations"),
-        listOf(
-            v("goodbye","خداحافظ","Goodbye!","خداحافظ!"),
-            v("see you","می‌بینمت","See you later.","بعداً می‌بینمت."),
-            v("take care","مراقب باش","Take care!","مراقب باش!"),
-            v("have a nice day","روز خوبی داشته باشی","Have a nice day!","روز خوبی داشته باشی!"),
-            v("good luck","موفق باشی","Good luck!","موفق باشی!"),
-            v("congratulations","تبریک","Congratulations!","تبریک!"),
-            v("cheers","سلامتی (نوشیدن)","Cheers!","سلامتی!"),
-            v("welcome","خوش آمدید","You're welcome.","خواهش می‌کنم.")
-        ),
-        listOf(
-            GrammarSection("Saying goodbye","Goodbye. See you. Take care. Have a nice day."),
-            GrammarSection("Wishing well","Good luck! Congratulations! Happy birthday!")
-        ),
-        listOf(
-            d("A","I have to go now.","باید الان بروم."),
-            d("B","OK. It was nice to see you.","باشه. از دیدنت خوشحال شدم."),
-            d("A","You too. Take care!","من هم. مراقب باش!"),
-            d("B","Thanks. Have a nice day!","ممنون. روز خوبی داشته باشی!"),
-            d("A","Good luck with your exam tomorrow.","فردا در امتحانت موفق باشی."),
-            d("B","Thank you! See you next week.","ممنون! هفته بعد می‌بینمت."),
-            d("A","See you. Bye!","می‌بینمت. خداحافظ!"),
-            d("B","Bye! Say hello to your family.","خداحافظ! به خانواده‌ات سلام برسان."),
-            d("A","I will. Thanks!","می‌رسانم. ممنون!")
-        ),
-        listOf(
-            q("What exam does B have?",listOf("math","English","none"),2),
-            q("When will they meet?",listOf("tomorrow","next week","next month"),1),
-            q("___ care!",listOf("Take","Have","Get"),0),
-            q("Have a nice ___!",listOf("day","night","time"),0)
-        ),
-        idioms = listOf(
-            IdiomExpression("Take care","مراقب باش","Take care!","مراقب باش!"),
-            IdiomExpression("Have a nice day","روز خوبی داشته باشی","Have a nice day!","روز خوبی داشته باشی!"),
-            IdiomExpression("Say hello to...","به ... سلام برسان","Say hello to your family.","به خانواده‌ات سلام برسان.")
-        ),
-        pronunciation = listOf(PronunciationTip("Farewells","Friendly intonation: Have a NICE day! ↗"))
+    private fun rc1112() = base(
+        48, "R&C 11 & 12", "مرور ۱۱ و ۱۲",
+        listOf("Review all grammar", "Review all tenses", "Final review"),
+        listOf(
+            v("review", "مرور", "Let's review.", "مرور کنیم.", "verb"),
+            v("exercise", "تمرین", "Do exercises.", "تمرین‌ها."),
+            v("grammar", "گرامر", "Grammar.", "گرامر."),
+            v("practice", "تمرین", "Practice.", "تمرین.", "verb"),
+            v("mistake", "اشتباه", "Fix mistakes.", "اشتباهات."),
+            v("vocabulary", "واژگان", "Vocabulary.", "واژگان.")
+        ),
+        listOf(
+            GrammarSection("Review: all tenses", "Present, past, future, present perfect."),
+            GrammarSection("Review: modal verbs", "Can, must, have to, should."),
+            GrammarSection("Review: conditionals", "If + present, will + verb.")
+        ),
+        listOf(
+            d("T", "Final review. Files 11-12.", "مرور نهایی. فایل‌های ۱۱-۱۲."),
+            d("A", "Must/mustn't for rules.", "must/mustn't برای قوانین."),
+            d("B", "Have to/don't have to for obligations.", "have to/don't have to برای الزامات."),
+            d("T", "First conditional?", "شرطی نوع اول؟"),
+            d("A", "If it rains, we'll stay home.", "اگر باران بیاید، خانه می‌مانیم."),
+            d("T", "Present perfect?", "حال کامل؟"),
+            d("B", "I've just decided. Have you told him yet?", "همین الان تصمیم گرفتم. به او گفتی؟"),
+            d("T", "Excellent! You've learned so much this year!", "عالی! امسال خیلی یاد گرفتید!")
+        ),
+        listOf(
+            q("Rules?", listOf("must", "have to", "will"), 0),
+            q("No obligation?", listOf("must", "mustn't", "don't have to"), 2),
+            q("If it ___, we'll stay.", listOf("rain", "rains", "rained"), 1),
+            q("I've ___ decided.", listOf("yet", "just", "ever"), 1)
+        ),
+        idioms = listOf(IdiomExpression("Let's review", "مرور کنیم", "Let's review.", "مرور کنیم.")),
+        pron = listOf(PronunciationTip("All contractions", "I'm, I've, I'll, I'd")),
+        cult = listOf(CulturalNote("End of course", "Congratulations on finishing!"))
         ,
-        culture = listOf(CulturalNote("Say hello to...","Common polite expression when leaving.")),
-        mistakes = listOf(CommonMistake("Say hello to your family from me.","Say hello to your family.","Simpler form preferred."))
-    )
-
-    // ═══ 12A ═══
-    private fun file12A() = base(44, "The man who changed the world", "مردی که جهان را تغییر داد",
-        listOf("Relative clauses: who/that","Describe people","Talk about important figures"),
-        listOf(
-            v("who","که (برای افراد)","The man who helped.","مردی که کمک کرد.","pronoun"),
-            v("that","که","The book that I read.","کتابی که خواندم.","pronoun"),
-            v("inventor","مخترع","A famous inventor.","مخترع معروف."),
-            v("scientist","دانشمند","A great scientist.","دانشمند بزرگ."),
-            v("discovered","کشف کرد","He discovered...","او کشف کرد...","verb"),
-            v("invented","اختراع کرد","She invented...","او اختراع کرد...","verb"),
-            v("changed","تغییر داد","It changed the world.","جهان را تغییر داد.","verb"),
-            v("important","مهم","An important person.","فرد مهم.","adjective")
-        ),
-        listOf(
-            GrammarSection("Relative clauses with who","The man who invented the phone. The woman who discovered..."),
-            GrammarSection("Relative clauses with that","The book that changed my life. The idea that helped.")
-        ),
-        listOf(
-            d("A","Who is the most important person in history?","مهم‌ترین فرد تاریخ کیست؟"),
-            d("B","I think it's a scientist. Someone who changed how we live.","فکر می‌کنم یک دانشمند. کسی که زندگی ما را تغییر داد."),
-            d("A","Like who?","مثل کی؟"),
-            d("B","Alexander Fleming. He's the man who discovered penicillin.","الکساندر فلمینگ. مردی که پنی‌سیلین را کشف کرد."),
-            d("A","That saved millions of lives.","که جان میلیون‌ها را نجات داد."),
-            d("B","Exactly. Or Tim Berners-Lee, who invented the web.","دقیقاً. یا تیم برنرز-لی که وب را اختراع کرد."),
-            d("A","The web changed everything.","وب همه چیز را تغییر داد."),
-            d("B","Yes. He's a man who made information free.","بله. مردی که اطلاعات را آزاد کرد."),
-            d("A","Great choices.","انتخاب‌های عالی.")
-        ),
-        listOf(
-            q("Who discovered penicillin?",listOf("Einstein","Fleming","Newton"),1),
-            q("Who invented the web?",listOf("Berners-Lee","Jobs","Gates"),0),
-            q("The man ___ discovered it.",listOf("who","which","whose"),0),
-            q("The book ___ I read.",listOf("who","that","whose"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("Change the world","جهان را تغییر دادن","It changed the world.","جهان را تغییر داد."),
-            IdiomExpression("Save lives","نجات جان","It saved lives.","جان‌ها را نجات داد.")
-        ),
-        pronunciation = listOf(PronunciationTip("Who / That","Weak: /huː/ → /hʊ/, /ðæt/ → /ðət/.")),
-        culture = listOf(CulturalNote("Penicillin","Discovered by Alexander Fleming in 1928.")),
-        mistakes = listOf(CommonMistake("The man which...","The man who...","'Who' for people."))
-    )
-
-    // ═══ 12B ═══
-    private fun file12B() = base(45, "A famous landmark", "یک نشانه معروف",
-        listOf("Describe places","Relative clauses: which/that","Talk about landmarks"),
-        listOf(
-            v("landmark","نشانه","A famous landmark.","نشانه معروف."),
-            v("which","که (برای اشیاء)","The building which...","ساختمانی که...","pronoun"),
-            v("tower","برج","The Eiffel Tower.","برج ایفل."),
-            v("bridge","پل","A famous bridge.","پل معروف."),
-            v("statue","مجسمه","A tall statue.","مجسمه بلند."),
-            v("palace","کاخ","An old palace.","کاخ قدیمی."),
-            v("designed","طراحی کرد","Designed by...","طراحی شده توسط...","verb"),
-            v("built","ساخت","Built in 1889.","در ۱۸۸۹ ساخته شد.","verb")
-        ),
-        listOf(
-            GrammarSection("Relative clauses with which/that","The bridge which connects... The palace that was built..."),
-            GrammarSection("Passive","It was built in 1889. It was designed by Eiffel.")
-        ),
-        listOf(
-            d("A","What's the most famous landmark in Paris?","معروف‌ترین نشانه پاریس چیست؟"),
-            d("B","The Eiffel Tower. It's the tower which everyone knows.","برج ایفل. برجی که همه می‌شناسند."),
-            d("A","When was it built?","کی ساخته شد؟"),
-            d("B","In 1889. It was designed by Gustave Eiffel.","در ۱۸۸۹. توسط گوستاو ایفل طراحی شد."),
-            d("A","How tall is it?","چقدر بلند است؟"),
-            d("B","About 300 meters. It was the tallest building in the world.","حدود ۳۰۰ متر. بلندترین ساختمان جهان بود."),
-            d("A","Did people like it at first?","اول مردم دوستش داشتند؟"),
-            d("B","No! Many thought it was ugly.","نه! بسیاری فکر می‌کردند زشت است."),
-            d("A","Really? Now it's iconic.","واقعاً؟ الان نمادین است."),
-            d("B","Yes. It's the symbol which represents Paris.","بله. نمادی که پاریس را نشان می‌دهد.")
-        ),
-        listOf(
-            q("When was Eiffel Tower built?",listOf("1789","1889","1989"),1),
-            q("Who designed it?",listOf("Eiffel","Gustave","Paris"),0),
-            q("It's the tower ___ is famous.",listOf("who","which","whose"),1),
-            q("It ___ built in 1889.",listOf("is","was","were"),1)
-        ),
-        idioms = listOf(
-            IdiomExpression("At first","اول","At first, no.","اول، نه."),
-            IdiomExpression("Be iconic","نمادین بودن","It's iconic.","نمادین است.")
-        ),
-        pronunciation = listOf(PronunciationTip("Which / That","Weak: which /wɪtʃ/, that /ðət/.")),
-        culture = listOf(CulturalNote("Eiffel Tower","Built for the 1889 World's Fair.")),
-        mistakes = listOf(CommonMistake("It was build.","It was built.","Past participle."))
-    )
-
-    // ═══ 12C ═══
-    private fun file12C() = base(46, "A year abroad", "یک سال در خارج",
-        listOf("Review all tenses","Talk about experiences abroad","Future plans"),
-        listOf(
-            v("abroad","خارج","A year abroad.","یک سال در خارج."),
-            v("exchange","تبادل","A student exchange.","تبادل دانشجویی."),
-            v("university","دانشگاه","A good university.","دانشگاه خوب."),
-            v("course","دوره","A language course.","دوره زبان."),
-            v("host family","خانواده میزبان","Living with a host family.","زندگی با خانواده میزبان."),
-            v("culture","فرهنگ","Learn about culture.","درباره فرهنگ یاد بگیر."),
-            v("improve","بهبود","Improve your English.","انگلیسی‌ات را بهبود بده.","verb"),
-            v("experience","تجربه","A great experience.","تجربه عالی.")
-        ),
-        listOf(
-            GrammarSection("Review all tenses","Present, past, perfect, future."),
-            GrammarSection("Talking about a year abroad","I spent a year in... I learned... I'm going to...")
-        ),
-        listOf(
-            d("A","Have you ever studied abroad?","تا حالا خارج درس خوانده‌ای؟"),
-            d("B","Yes, I spent a year in Spain.","بله، یک سال در اسپانیا گذراندم."),
-            d("A","Really? What did you do there?","واقعاً؟ آنجا چه کار کردی؟"),
-            d("B","I took a language course and lived with a host family.","دوره زبان گرفتم و با خانواده میزبان زندگی کردم."),
-            d("A","Did your Spanish improve?","اسپانیایی‌ات بهتر شد؟"),
-            d("B","A lot. I'm much more fluent now.","خیلی. الان خیلی روان‌تر هستم."),
-            d("A","What was the best part?","بهترین بخشش؟"),
-            d("B","The people. I made friends from all over the world.","مردم. از سراسر جهان دوست پیدا کردم."),
-            d("A","Would you do it again?","دوباره انجامش می‌دادی؟"),
-            d("B","Definitely. It was the best experience of my life.","قطعاً. بهترین تجربه زندگی‌ام بود."),
-            d("A","Amazing!","شگفت‌انگیز!")
-        ),
-        listOf(
-            q("Where did B study?",listOf("France","Spain","Italy"),1),
-            q("What did B improve?",listOf("English","Spanish","French"),1),
-            q("I ___ a year in Spain.",listOf("spend","spent","spending"),1),
-            q("Did your Spanish ___?",listOf("improve","improved","improving"),0)
-        ),
-        idioms = listOf(
-            IdiomExpression("All over the world","سراسر جهان","Friends from all over the world.","دوستان از سراسر جهان."),
-            IdiomExpression("Best experience","بهترین تجربه","Best experience of my life.","بهترین تجربه زندگی‌ام.")
-        ),
-        pronunciation = listOf(PronunciationTip("Tenses review","Mixed practice.")),
-        culture = listOf(CulturalNote("Exchange programs","Popular way to learn language and culture.")),
-        mistakes = listOf(CommonMistake("Did your Spanish improved?","Did your Spanish improve?","Base verb after 'did'."))
-    )
-
-    // ═══ PE6 ═══
-    private fun practicalEnglish6() = base(47, "Practical English 6 — On the phone", "انگلیسی کاربردی ۶ — تلفنی",
-        listOf("Make phone calls","Take messages","Leave a message"),
-        listOf(
-            v("phone call","تماس","Make a phone call.","تماس بگیر."),
-            v("message","پیام","Leave a message.","پیام بگذار."),
-            v("speaking","صحبت می‌کند","This is Anna speaking.","آنا صحبت می‌کند."),
-            v("hold on","صبر کن","Hold on, please.","لطفاً صبر کنید."),
-            v("call back","بعداً زنگ بزن","I'll call back.","بعداً زنگ می‌زنم.","verb"),
-            v("ring","زنگ زدن","I'll ring you.","زنگ می‌زنم.","verb"),
-            v("available","در دسترس","Is she available?","در دسترس است؟","adjective"),
-            v("engaged","مشغول","The line is engaged.","خط مشغول است.","adjective")
-        ),
-        listOf(
-            GrammarSection("Phone language","Can I speak to...? Hold on. I'll call back."),
-            GrammarSection("Taking messages","Can I take a message? I'll tell her.")
-        ),
-        listOf(
-            d("A","Hello, can I speak to Anna, please?","سلام، می‌توانم با آنا صحبت کنم؟"),
-            d("B","Anna speaking.","آنا صحبت می‌کند."),
-            d("A","Hi Anna, this is Tom.","سلام آنا، تام هستم."),
-            d("B","Oh, hi Tom! How are you?","اوه سلام تام! چطوری؟"),
-            d("A","Fine, thanks. Are you free tomorrow?","خوبم، ممنون. فردا آزادی؟"),
-            d("B","Let me check. Yes, I am.","بگذار ببینم. بله."),
-            d("A","Great. Would you like to have lunch?","عالی. ناهار می‌خواهی بخوریم؟"),
-            d("B","I'd love to. What time?","دوست دارم. چه ساعتی؟"),
-            d("A","1 PM at the Italian place?","ساعت ۱ در رستوران ایتالیایی؟"),
-            d("B","Perfect. See you tomorrow!","عالی. فردا می‌بینمت!"),
-            d("A","Bye!","خداحافظ!")
-        ),
-        listOf(
-            q("Who is speaking?",listOf("Anna","Tom","Sara"),0),
-            q("Where will they meet?",listOf("Italian","Chinese","French"),0),
-            q("Can I ___ to Anna?",listOf("speak","speaks","speaking"),0),
-            q("I'll ___ back later.",listOf("call","calls","calling"),0)
-        ),
-        idioms = listOf(
-            IdiomExpression("Hold on","صبر کن","Hold on, please.","لطفاً صبر کنید."),
-            IdiomExpression("Call back","بعداً زنگ زدن","I'll call back.","بعداً زنگ می‌زنم."),
-            IdiomExpression("This is... speaking","... صحبت می‌کند","This is Tom.","تام هستم.")
-        ),
-        pronunciation = listOf(PronunciationTip("Phone intonation","Rise at question end: Can I SPEAK to Anna? ↗")),
-        culture = listOf(CulturalNote("Phone etiquette","Identify yourself first on the phone.")),
-        mistakes = listOf(CommonMistake("I am Tom.","This is Tom.","Use 'This is' on phone."))
-    )
-
-    // ═══ R&C 11&12 ═══
-    private fun reviseAndCheck11And12() = base(48, "Revise & Check 11 & 12", "مرور و بررسی ۱۱ و ۱۲",
-        listOf("Review experiences","Review relative clauses","Review phone language"),
-        listOf(
-            v("review","مرور","Let's review.","مرور کنیم.","verb"),
-            v("ever","تا حالا","Have you ever?","تا حالا؟","adverb"),
-            v("who","که","The man who...","مردی که...","pronoun"),
-            v("which","که","The book which...","کتابی که...","pronoun"),
-            v("abroad","خارج","Been abroad.","خارج بوده.","adverb"),
-            v("message","پیام","Leave a message.","پیام بگذار.")
-        ),
-        listOf(
-            GrammarSection("Present perfect review","Have you ever...? I've never..."),
-            GrammarSection("Relative clauses","who for people, which/that for things."),
-            GrammarSection("Phone language","Can I speak to...? Hold on. Call back.")
-        ),
-        listOf(
-            d("Teacher","Review Files 11 and 12.","مرور فایل‌های ۱۱ و ۱۲."),
-            d("A","Present perfect for experiences.","حال کامل برای تجربه‌ها."),
-            d("B","Relative clauses: who and which.","بندهای موصولی: who و which."),
-            d("A","Phone language.","زبان تلفنی."),
-            d("Teacher","Examples?","مثال؟"),
-            d("A","Have you ever been abroad?","تا حالا خارج بوده‌ای؟"),
-            d("B","The man who invented it. The book which changed me.","مردی که اختراعش کرد. کتابی که مرا تغییر داد."),
-            d("A","Can I speak to Anna? Hold on.","می‌توانم با آنا صحبت کنم؟ صبر کن."),
-            d("Teacher","Excellent! You finished the book!","عالی! کتاب را تمام کردید!")
-        ),
-        listOf(
-            q("Who for?",listOf("things","people","places"),1),
-            q("Which for?",listOf("things","people","names"),0),
-            q("Have you ___ been abroad?",listOf("ever","never","yet"),0),
-            q("The man ___ helped me.",listOf("which","who","whose"),1)
-        ),
-        idioms = listOf(IdiomExpression("Let's review","بیایید مرور کنیم","Let's review.","بیایید مرور کنیم.")),
-        pronunciation = listOf(PronunciationTip("Final review","Mixed practice.")),
-        culture = listOf(CulturalNote("Congratulations!","You've finished Elementary English File!")),
-        mistakes = listOf(CommonMistake("The man which...","The man who...","'Who' for people."))
+        mis = listOf(CommonMistake("I don't must.", "I don't have to.", "Correct: don't have to."))
     )
 }
