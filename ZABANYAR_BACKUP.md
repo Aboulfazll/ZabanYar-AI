@@ -1,7 +1,7 @@
 ═══════════════════════════════════════════════════════════════
 📦 ZABANYAR_AI — BACKUP COMPLETE
 تاریخ: 1404/07/08
-وضعیت: Build موفق ✅ | داستان‌ها ۱۰۰٪ کامل ✅ | پادکست‌ها ⏳
+وضعیت: Build موفق ✅ | داستان‌ها ۱۰۰٪ کامل ✅ | کتاب‌های جدید ✅ | پادکست‌ها ⏳
 ═══════════════════════════════════════════════════════════════
 
 # 🎯 خلاصه پروژه
@@ -44,124 +44,35 @@ Repo: github.com/Aboulfazll/ZabanYar-AI
 - Group14.kt — همراه باد، بیلی باد، آمریکایی آرام (۶ فصل × ۴۰ پاراگراف) ✅ NEW
 - Group15.kt — مرگ فروشنده، انسان در جستجوی معنا، عشق در زمان وبا (۶ فصل × ۴۰ پاراگراف) ✅ NEW
 
-## 🆕 فایل‌های جدید در این سری (۸ عدد)
-1. FontSizeManager.kt
-2. DictionaryRepository.kt
-3. WordPopupDialog.kt
-4. PodcastPlayerScreen.kt
-5. BookCoverImage.kt
-6. BookCoverHelper.kt
-7. assets/dictionary.json
-8. PROJECT_STATUS.md (این فایل)
-
-## 🔄 فایل‌های ویرایش‌شده (۱۵ عدد)
-1. MainActivity.kt
-2. AppNavHost.kt
-3. LessonDetailScreen.kt
-4. ReadingModeScreen.kt
-5. PodcastScreen.kt
-6. PodcastRepository.kt
-7. SettingsScreen.kt
-8. LibraryScreen.kt
-9. BookDetailScreen.kt
-10. SimpleStoryContent.kt
-11. MainHome.kt
-12. UserManager.kt
-13. LessonContentRepository.kt (اصلاح نام‌ها برای Build)
-14. TopNotchRepository.kt (افزودن getDefaultContent)
-15. Group11.kt (intermediate) — حذف کاماهای اضافه
-
-## 🔧 فایل‌های اصلاح‌شده برای Build (۴ عدد اضافه)
-- LessonContentRepository.kt — تطبیق نام Object و تابع همه کتاب‌ها
-- TopNotchRepository.kt — افزودن getDefaultContent + import TopNotchFundamentals
-- Group11.kt (intermediate) — حذف کاماهای اضافه در پایان story31 و story32
-- Passages2.kt — افزودن overload تابع q برای پاسخ‌های کوتاه
-- Summit2.kt — افزودن overload تابع q + اصلاح یک فراخوانی معیوب
-- TopNotchFundamentals.kt — rename (حذف فاصله) + حذف کاراکتر فارسی اضافه
-
 ═══════════════════════════════════════════════════════════════
-# 📊 آمار کامل پروژه
+# 🆕 American English File 4th Edition — اضافه شد ✅
 ═══════════════════════════════════════════════════════════════
 
-## داستان‌ها (سطح مبتدی - beginner)
-| گروه | داستان‌ها | فصل | پاراگراف/فصل |
-|------|----------|------|--------------|
-| 1-15 | ۴۵ داستان کوتاه و ساده | ۴ | ۱۳-۲۰ |
+## 📚 ۶ سطح جدید (۲۸۸ درس)
 
-## داستان‌ها (سطح متوسط - intermediate)
-| گروه | داستان‌ها | فصل | پاراگراف/فصل |
-|------|----------|------|--------------|
-| 1-15 | ۴۵ داستان | ۴-۶ | ۳۰-۴۰ |
+#### 📁 Package: com.zabanyar.ai.data.books.conversation
 
-## داستان‌ها (سطح پیشرفته - advanced)
-| گروه | داستان‌ها | فصل | پاراگراف/فصل |
-|------|----------|------|--------------|
-| 1-15 | ۴۵ داستان کلاسیک جهان | ۴-۶ | ۴۰ |
+| # | فایل | سطح | تعداد درس | مکالمه |
+|---|------|------|-----------|--------|
+| 1 | AmericanEnglishFile4thStarter.kt | A1 | ۴۸ | ۸-۱۰ خط |
+| 2 | AmericanEnglishFile4thLevel1.kt | A1+ | ۶۰ | ۱۰-۱۲ خط |
+| 3 | AmericanEnglishFile4thLevel2.kt | A2 | ۶۰ | ۱۲-۱۴ خط |
+| 4 | AmericanEnglishFile4thLevel3.kt | B1 | ۴۰ | ۱۴-۱۶ خط |
+| 5 | AmericanEnglishFile4thLevel4.kt | B2 | ۴۰ | ۱۶-۱۸ خط |
+| 6 | AmericanEnglishFile4thLevel5.kt | C1 | ۴۰ | ۱۸-۲۰ خط |
 
-## مجموع کل:
-- ۱۳۵ داستان
-- ~۶۰۰ فصل
-- ~۱۰۰,۰۰۰+ پاراگراف دوزبانه
+**مجموع: ۲۸۸ درس با ۲۸۸ مکالمه کامل**
 
-## فایل‌های صوتی موجود
-- ۳۰۱ فایل MP3 (مجموعه قبلی — درس‌ها)
-- ۲۴ فایل MP3 (پادکست‌ها — هنوز آپلود نشده ⏳)
+### ساختار هر درس:
+- ✅ اهداف (Objectives)
+- ✅ واژگان (Vocabulary)
+- ✅ اصطلاحات (Idioms)
+- ✅ افعال عبارتی (Phrasal Verbs)
+- ✅ نکات تلفظ (Pronunciation)
+- ✅ نکات فرهنگی (Cultural Notes)
+- ✅ گرامر (Grammar)
+- ✅ اشتباهات رایج (Common Mistakes)
+- ✅ مکالمه (Conversation)
+- ✅ آزمون (Quiz)
 
-═══════════════════════════════════════════════════════════════
-# 🚦 کارهای باقی‌مانده
-═══════════════════════════════════════════════════════════════
-
-## 🔴 اولویت بالا (تنها بخش ناتمام پروژه — پادکست‌ها):
-- [ ] آپلود ۲۴ فایل MP3 در GitHub Release با tag: v1.0-podcasts
-      نام‌ها: p1_greetings.mp3 تا p24_future_work.mp3
-- [ ] تغییر PodcastPlayerScreen برای پخش MP3 به جای TTS
-      (استفاده از ExoPlayer + Media3)
-- [ ] افزودن کش آفلاین برای فایل‌های MP3
-- [ ] تست پخش پادکست روی دستگاه واقعی
-
-## 🟡 اولویت متوسط:
-- [ ] گسترش dictionary.json به ۵۰۰۰+ کلمه
-- [ ] افزودن تصاویر جلد برای ۱۳۵ داستان
-- [ ] بهینه‌سازی اندازه APK
-
-## 🟢 اولویت پایین:
-- [ ] انیمیشن‌های transition بین صفحات
-- [ ] حالت شب (Dark Mode) برای Reading Mode
-- [ ] Widget صفحه اصلی
-- [ ] تست روی API 24 و API 34
-
-═══════════════════════════════════════════════════════════════
-# 📝 نکات مهم برای ادامه کار
-═══════════════════════════════════════════════════════════════
-
-## ساختار صحیح Group (نمونه):
-```kotlin
-package com.zabanyar.ai.data.books.story.content.intermediate
-// یا: com.zabanyar.ai.data.books.story.content.advanced
-// یا: com.zabanyar.ai.data.books.story.content.beginner
-
-import com.zabanyar.ai.data.books.story.StoryChapter
-import com.zabanyar.ai.data.books.story.StoryContent
-import com.zabanyar.ai.data.books.story.StoryParagraph
-
-object Group13 {
-    fun getAll(): List<StoryContent> = listOf(
-        story37(),
-        story38(),
-        story39(),
-    )
-
-    private fun story37() = StoryContent(
-        storyId = "int_..._int",
-        chapters = listOf(
-            StoryChapter(
-                number = 1, title = "English Title", titlePersian = "عنوان فارسی",
-                paragraphs = listOf(
-                    StoryParagraph("English text.", "متن فارسی."),
-                    // ۴۰ پاراگراف در کل
-                )
-            ),
-            // ۴ یا ۶ فصل
-        )
-    )
-}
+### 📝 شناسه‌های BookId:
