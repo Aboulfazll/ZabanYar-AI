@@ -258,8 +258,7 @@ object AmericanEnglishFile4thLevel5 {
             CulturalNote("Language revitalization", "Māori immersion schools (Kōhanga Reo) have become a model worldwide. Welsh is now co-official in Wales.")
         ),
         mis = listOf(
-            CommonMistake("Having document the situation.", "Having documented the situation.", "Past participle after having.")
-            ,
+            CommonMistake("Having document the situation.", "Having documented the situation.", "Past participle after having."),
             CommonMistake("Languages speaking by few people.", "Languages spoken by few people.", "Passive participle.")
         )
     )
@@ -283,7 +282,6 @@ object AmericanEnglishFile4thLevel5 {
             v("replicate", "تکرار کردن", "Replicate the study.", "مطالعه را تکرار کن.", "verb"),
             v("rigorous", "دقیق", "Rigorous analysis.", "تحلیل دقیق.", "adjective"),
             v("novel", "نو", "A novel approach.", "رویکرد نو.", "adjective"),
-            v("paradigm", "پارادایم", "Scientific paradigm.", "پارادایم علمی."),
             v("plausible", "محتمل", "A plausible explanation.", "توضیح محتمل.", "adjective")
         ),
         listOf(
@@ -329,8 +327,7 @@ object AmericanEnglishFile4thLevel5 {
             CulturalNote("Academic discourse", "Peer review is the cornerstone of scholarly publishing. In some fields, preprints (arXiv, bioRxiv) are common before peer review.")
         ),
         mis = listOf(
-            CommonMistake("One might question that the sample.", "One might question whether the sample...", "Whether for yes/no alternatives.")
-            ,
+            CommonMistake("One might question that the sample.", "One might question whether the sample...", "Whether for yes/no alternatives."),
             CommonMistake("I would concede that.", "I would concede that the sample is limited.", "Complete the clause.")
         )
     )
@@ -385,8 +382,7 @@ object AmericanEnglishFile4thLevel5 {
             CulturalNote("Subjunctive usage", "The English subjunctive survives mostly in formal, academic, and legal registers. American English retains it more than British.")
         ),
         mis = listOf(
-            CommonMistake("It is essential that he is present.", "It is essential that he be present.", "Subjunctive after 'essential that'.")
-            ,
+            CommonMistake("It is essential that he is present.", "It is essential that he be present.", "Subjunctive after 'essential that'."),
             CommonMistake("Rarely we encounter.", "Rarely do we encounter.", "Inversion required.")
         )
     )
@@ -531,8 +527,7 @@ object AmericanEnglishFile4thLevel5 {
             CulturalNote("Stakeholder capitalism", "The 2019 Business Roundtable statement redefined corporate purpose. Critics argue it's symbolic without enforcement.")
         ),
         mis = listOf(
-            CommonMistake("It have been argued.", "It has been argued.", "Singular 'has'.")
-            ,
+            CommonMistake("It have been argued.", "It has been argued.", "Singular 'has'."),
             CommonMistake("Greenwashing have been documented.", "Greenwashing has been documented.", "Singular.")
         )
     )
@@ -606,8 +601,7 @@ object AmericanEnglishFile4thLevel5 {
             CulturalNote("Assisted dying", "As of 2024, it's legal in Switzerland, Netherlands, Belgium, Canada, and several US states. Regulations vary widely.")
         ),
         mis = listOf(
-            CommonMistake("They should have consult.", "They should have consulted.", "Past participle.")
-            ,
+            CommonMistake("They should have consult.", "They should have consulted.", "Past participle."),
             CommonMistake("He must have face it.", "He must have faced it.", "Past participle.")
         )
     )
@@ -676,8 +670,7 @@ object AmericanEnglishFile4thLevel5 {
             CulturalNote("Oxford-style debate", "Popular in UK and US universities. Involves a motion, a proposition, and an opposition. Audience votes before and after.")
         ),
         mis = listOf(
-            CommonMistake("Not only it would require.", "Not only would it require.", "Inversion after 'not only'.")
-            ,
+            CommonMistake("Not only it would require.", "Not only would it require.", "Inversion after 'not only'."),
             CommonMistake("It is this that our institutions were designed.", "It is precisely this that our institutions were designed for.", "Don't drop the preposition.")
         )
     )
@@ -733,673 +726,666 @@ object AmericanEnglishFile4thLevel5 {
             CommonMistake("It has been argue.", "It has been argued.", "Past participle.")
         )
     )
-}
-// ═══════════ FILE 3 — Memory and perception ═══════════
 
-private fun f3A() = base(11, "3A The nature of memory", "۳A ماهیت حافظه",
-    listOf(
-        "Use advanced passive structures",
-        "Discuss memory and perception",
-        "Express epistemic uncertainty"
-    ),
-    listOf(
-        v("ephemeral", "زودگذر", "Memories are ephemeral.", "خاطرات زودگذرند.", "adjective"),
-        v("reconstruct", "بازسازی کردن", "Memory is reconstructed.", "حافظه بازسازی می‌شود.", "verb"),
-        v("fallible", "خطاپذیر", "Human memory is fallible.", "حافظه انسانی خطاپذیر است.", "adjective"),
-        v("subjective", "ذهنی", "Subjective experience.", "تجربه ذهنی.", "adjective"),
-        v("distort", "تحریف کردن", "Distort the past.", "گذشته را تحریف کن.", "verb"),
-        v("vivid", "زنده", "A vivid recollection.", "یادآوری زنده.", "adjective"),
-        v("implicit", "ضمنی", "Implicit memory.", "حافظه ضمنی.", "adjective"),
-        v("consolidate", "تثبیت کردن", "Consolidate memories.", "خاطرات را تثبیت کن.", "verb"),
-        v("retrieval", "بازیابی", "Memory retrieval.", "بازیابی حافظه."),
-        v("facade", "ظاهر", "A facade of certainty.", "ظاهری از قطعیت."),
-        v("fabricate", "جعل کردن", "The mind fabricates memories.", "ذهن خاطرات را جعل می‌کند.", "verb"),
-        v("malleable", "شکل‌پذیر", "Memory is malleable.", "حافظه شکل‌پذیر است.", "adjective")
-    ),
-    listOf(
-        GrammarSection("Advanced passive", "Memories are said to be reconstructed. It is widely held that... The past is constantly being reinterpreted."),
-        GrammarSection("Passive with perfect infinitive", "The event is believed to have occurred. She is thought to have witnessed it."),
-        GrammarSection("Epistemic modality", "It may well be that... It's conceivable that... There's every likelihood that...")
-    ),
-    listOf(
-        d("A", "I've been reading about the neuroscience of memory. It's rather unsettling.", "درباره عصب‌شناسی حافظه می‌خواندم. نسبتاً نگران‌کننده است."),
-        d("B", "In what sense?", "از چه نظر؟"),
-        d("A", "Well, it appears that memories aren't stored like files. Rather, they're reconstructed every time we recall them.", "خب، به نظر می‌رسد خاطرات مثل فایل ذخیره نمی‌شوند. بلکه، هر بار که به یاد می‌آوریم بازسازی می‌شوند."),
-        d("B", "So each recollection subtly alters the original?", "پس هر یادآوری به طور ظریف اصل را تغییر می‌دهد؟"),
-        d("A", "Precisely. Which means what you 'remember' isn't what happened — it's what you last remembered.", "دقیقاً. یعنی آنچه 'به یاد می‌آوری' آنچه اتفاق افتاده نیست — آن چیزی‌ست که آخرین بار به یاد آوردی."),
-        d("B", "That's a rather disturbing thought. It suggests we can't truly trust our own pasts.", "فکر نسبتاً نگران‌کننده‌ای‌ست. نشان می‌دهد نمی‌توانیم واقعاً به گذشته خودمان اعتماد کنیم."),
-        d("A", "Indeed. And worse still, the mind seems to fabricate details to fill in gaps, without our being aware of it.", "همینطور. و بدتر اینکه، به نظر می‌رسد ذهن جزئیات را برای پر کردن شکاف‌ها جعل می‌کند، بدون اینکه ما آگاه باشیم."),
-        d("B", "So our sense of a coherent self is, in a sense, a fiction?", "پس حس ما از خودِ منسجم، به یک معنا، داستان است؟"),
-        d("A", "Not a fiction exactly, but a construction. The self is arguably a narrative we tell ourselves, and it's continually being revised.", "دقیقاً داستان نه، ولی ساختاری. خود قابل استدلال روایتی‌ست که به خودمان می‌گوییم، و مدام بازنگری می‌شود."),
-        d("B", "That's a profound idea. Does it trouble you?", "ایده عمیقی‌ست. نگرانت می‌کند؟"),
-        d("A", "In some ways, yes. But in others, it's liberating. If the past is revisable, so too is our relationship to it.", "از بعضی جهات، بله. ولی از جهات دیگر، آزادی‌بخش است. اگر گذشته بازنگری‌پذیر است، رابطه ما با آن هم همینطور."),
-        d("B", "You mean we can, in effect, rewrite our own histories?", "منظورت این است که در واقع می‌توانیم تاریخ‌های خودمان را بازنویسی کنیم؟"),
-        d("A", "Not the events themselves, but their meaning. And meaning, arguably, is what matters most.", "نه خود رویدادها، بلکه معنایشان. و معنا، قابل استدلال، چیزی‌ست که بیشترین اهمیت را دارد."),
-        d("B", "Hmm. I'm not sure I find that entirely comforting.", "هوم. مطمئن نیستم کاملاً آرامش‌بخش بیابمش."),
-        d("A", "Nor am I, to be honest. But it does make one more forgiving of others' recollections.", "من هم، راستش. ولی باعث می‌شود انسان بخشنده‌تر با یادآوری‌های دیگران باشد."),
-        d("B", "How so?", "چطور؟"),
-        d("A", "Because if everyone's memory is fallible, then disagreements about the past are less about honesty and more about the nature of the mind itself.", "چون اگر حافظه همه خطاپذیر باشد، اختلافات درباره گذشته کمتر درباره صداقت و بیشتر درباره ماهیت خود ذهن است."),
-        d("B", "That's rather magnanimous of you.", "نسبتاً بزرگ‌منشانه‌ست از طرف تو."),
-        d("A", "Merely pragmatic, I'd say.", "فقط عمل‌گرایانه، می‌گویم.")
-    ),
-    listOf(
-        q("How are memories stored according to A?", listOf("like files", "reconstructed", "permanently"), 1),
-        q("What does A find liberating?", listOf("past is revisable", "memory is perfect", "forgetting"), 0),
-        q("Memories ___ to be reconstructed.", listOf("are said", "is said", "was said"), 0),
-        q("The event is believed ___ occurred.", listOf("to have", "have", "having"), 0)
-    ),
-    idioms = listOf(
-        IdiomExpression("In a sense", "به یک معنا", "In a sense, it's a fiction.", "به یک معنا، داستان است."),
-        IdiomExpression("To be honest", "راستش", "To be honest, nor am I.", "راستش، من هم نه."),
-        IdiomExpression("So to speak", "به اصطلاح", "As it were, so to speak.", "به اصطلاح.")
-    ),
-    pron = listOf(
-        PronunciationTip("Advanced passive", "Stress the past participle: Memories are RECONstructed. It's widely HELD that...")
-    ),
-    cult = listOf(
-        CulturalNote("Memory research", "Elizabeth Loftus's work on false memories has profound implications for eyewitness testimony in criminal trials.")
-    ),
-    mis = listOf(
-        CommonMistake("Memories are said to reconstructed.", "Memories are said to be reconstructed.", "Don't drop 'be'."),
-        CommonMistake("It's believed that the event to have occurred.", "The event is believed to have occurred.", "Different structure.")
+    // ═══════════ FILE 3 — Memory and perception ═══════════
+
+    private fun f3A() = base(11, "3A The nature of memory", "۳A ماهیت حافظه",
+        listOf(
+            "Use advanced passive structures",
+            "Discuss memory and perception",
+            "Express epistemic uncertainty"
+        ),
+        listOf(
+            v("ephemeral", "زودگذر", "Memories are ephemeral.", "خاطرات زودگذرند.", "adjective"),
+            v("reconstruct", "بازسازی کردن", "Memory is reconstructed.", "حافظه بازسازی می‌شود.", "verb"),
+            v("fallible", "خطاپذیر", "Human memory is fallible.", "حافظه انسانی خطاپذیر است.", "adjective"),
+            v("subjective", "ذهنی", "Subjective experience.", "تجربه ذهنی.", "adjective"),
+            v("distort", "تحریف کردن", "Distort the past.", "گذشته را تحریف کن.", "verb"),
+            v("vivid", "زنده", "A vivid recollection.", "یادآوری زنده.", "adjective"),
+            v("implicit", "ضمنی", "Implicit memory.", "حافظه ضمنی.", "adjective"),
+            v("consolidate", "تثبیت کردن", "Consolidate memories.", "خاطرات را تثبیت کن.", "verb"),
+            v("retrieval", "بازیابی", "Memory retrieval.", "بازیابی حافظه."),
+            v("facade", "ظاهر", "A facade of certainty.", "ظاهری از قطعیت."),
+            v("fabricate", "جعل کردن", "The mind fabricates memories.", "ذهن خاطرات را جعل می‌کند.", "verb"),
+            v("malleable", "شکل‌پذیر", "Memory is malleable.", "حافظه شکل‌پذیر است.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Advanced passive", "Memories are said to be reconstructed. It is widely held that... The past is constantly being reinterpreted."),
+            GrammarSection("Passive with perfect infinitive", "The event is believed to have occurred. She is thought to have witnessed it."),
+            GrammarSection("Epistemic modality", "It may well be that... It's conceivable that... There's every likelihood that...")
+        ),
+        listOf(
+            d("A", "I've been reading about the neuroscience of memory. It's rather unsettling.", "درباره عصب‌شناسی حافظه می‌خواندم. نسبتاً نگران‌کننده است."),
+            d("B", "In what sense?", "از چه نظر؟"),
+            d("A", "Well, it appears that memories aren't stored like files. Rather, they're reconstructed every time we recall them.", "خب، به نظر می‌رسد خاطرات مثل فایل ذخیره نمی‌شوند. بلکه، هر بار که به یاد می‌آوریم بازسازی می‌شوند."),
+            d("B", "So each recollection subtly alters the original?", "پس هر یادآوری به طور ظریف اصل را تغییر می‌دهد؟"),
+            d("A", "Precisely. Which means what you 'remember' isn't what happened — it's what you last remembered.", "دقیقاً. یعنی آنچه 'به یاد می‌آوری' آنچه اتفاق افتاده نیست — آن چیزی‌ست که آخرین بار به یاد آوردی."),
+            d("B", "That's a rather disturbing thought. It suggests we can't truly trust our own pasts.", "فکر نسبتاً نگران‌کننده‌ای‌ست. نشان می‌دهد نمی‌توانیم واقعاً به گذشته خودمان اعتماد کنیم."),
+            d("A", "Indeed. And worse still, the mind seems to fabricate details to fill in gaps, without our being aware of it.", "همینطور. و بدتر اینکه، به نظر می‌رسد ذهن جزئیات را برای پر کردن شکاف‌ها جعل می‌کند، بدون اینکه ما آگاه باشیم."),
+            d("B", "So our sense of a coherent self is, in a sense, a fiction?", "پس حس ما از خودِ منسجم، به یک معنا، داستان است؟"),
+            d("A", "Not a fiction exactly, but a construction. The self is arguably a narrative we tell ourselves, and it's continually being revised.", "دقیقاً داستان نه، ولی ساختاری. خود قابل استدلال روایتی‌ست که به خودمان می‌گوییم، و مدام بازنگری می‌شود."),
+            d("B", "That's a profound idea. Does it trouble you?", "ایده عمیقی‌ست. نگرانت می‌کند؟"),
+            d("A", "In some ways, yes. But in others, it's liberating. If the past is revisable, so too is our relationship to it.", "از بعضی جهات، بله. ولی از جهات دیگر، آزادی‌بخش است. اگر گذشته بازنگری‌پذیر است، رابطه ما با آن هم همینطور."),
+            d("B", "You mean we can, in effect, rewrite our own histories?", "منظورت این است که در واقع می‌توانیم تاریخ‌های خودمان را بازنویسی کنیم؟"),
+            d("A", "Not the events themselves, but their meaning. And meaning, arguably, is what matters most.", "نه خود رویدادها، بلکه معنایشان. و معنا، قابل استدلال، چیزی‌ست که بیشترین اهمیت را دارد."),
+            d("B", "Hmm. I'm not sure I find that entirely comforting.", "هوم. مطمئن نیستم کاملاً آرامش‌بخش بیابمش."),
+            d("A", "Nor am I, to be honest. But it does make one more forgiving of others' recollections.", "من هم، راستش. ولی باعث می‌شود انسان بخشنده‌تر با یادآوری‌های دیگران باشد."),
+            d("B", "How so?", "چطور؟"),
+            d("A", "Because if everyone's memory is fallible, then disagreements about the past are less about honesty and more about the nature of the mind itself.", "چون اگر حافظه همه خطاپذیر باشد، اختلافات درباره گذشته کمتر درباره صداقت و بیشتر درباره ماهیت خود ذهن است."),
+            d("B", "That's rather magnanimous of you.", "نسبتاً بزرگ‌منشانه‌ست از طرف تو."),
+            d("A", "Merely pragmatic, I'd say.", "فقط عمل‌گرایانه، می‌گویم.")
+        ),
+        listOf(
+            q("How are memories stored according to A?", listOf("like files", "reconstructed", "permanently"), 1),
+            q("What does A find liberating?", listOf("past is revisable", "memory is perfect", "forgetting"), 0),
+            q("Memories ___ to be reconstructed.", listOf("are said", "is said", "was said"), 0),
+            q("The event is believed ___ occurred.", listOf("to have", "have", "having"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("In a sense", "به یک معنا", "In a sense, it's a fiction.", "به یک معنا، داستان است."),
+            IdiomExpression("To be honest", "راستش", "To be honest, nor am I.", "راستش، من هم نه."),
+            IdiomExpression("So to speak", "به اصطلاح", "As it were, so to speak.", "به اصطلاح.")
+        ),
+        pron = listOf(
+            PronunciationTip("Advanced passive", "Stress the past participle: Memories are RECONstructed. It's widely HELD that...")
+        ),
+        cult = listOf(
+            CulturalNote("Memory research", "Elizabeth Loftus's work on false memories has profound implications for eyewitness testimony in criminal trials.")
+        ),
+        mis = listOf(
+            CommonMistake("Memories are said to reconstructed.", "Memories are said to be reconstructed.", "Don't drop 'be'."),
+            CommonMistake("It's believed that the event to have occurred.", "The event is believed to have occurred.", "Different structure.")
+        )
     )
-)
 
-private fun f3B() = base(12, "3B Perception and reality", "۳B ادراک و واقعیت",
-    listOf(
-        "Use complex nominalization",
-        "Discuss perception and consciousness",
-        "Express philosophical positions"
-    ),
-    listOf(
-        v("perception", "ادراک", "Human perception is limited.", "ادراک انسانی محدود است."),
-        v("phenomenon", "پدیده", "A puzzling phenomenon.", "پدیده معماگونه."),
-        v("subjective", "ذهنی", "Subjective experience.", "تجربه ذهنی.", "adjective"),
-        v("consensus", "اجماع", "The consensus reality.", "واقعیت اجماعی."),
-        v("qualia", "کیفیات ذهنی", "Qualia are private.", "کیفیات ذهنی خصوصی‌اند."),
-        v("manifestation", "تجلی", "A manifestation of consciousness.", "تجلی آگاهی."),
-        v("perceive", "درک کردن", "Perceive reality.", "واقعیت را درک کن.", "verb"),
-        v("neurological", "عصبی", "Neurological processes.", "فرآیندهای عصبی.", "adjective"),
-        v("elusive", "گریزان", "An elusive concept.", "مفهوم گریزان.", "adjective"),
-        v("predisposition", "استعداد", "A genetic predisposition.", "استعداد ژنتیکی."),
-        v("paradigm", "پارادایم", "A paradigm shift in thinking.", "تغییر پارادایم در تفکر."),
-        v("phenomenological", "پدیدارشناختی", "Phenomenological experience.", "تجربه پدیدارشناختی.", "adjective")
-    ),
-    listOf(
-        GrammarSection("Nominalization", "The perception of reality. The manifestation of consciousness. The elusiveness of subjective experience."),
-        GrammarSection("Complex subjects", "What we perceive as reality may in fact be a construction of the brain."),
-        GrammarSection("Concessive nominal clauses", "Whatever we perceive, however we interpret it, our experience remains private.")
-    ),
-    listOf(
-        d("A", "Do you ever wonder whether we all perceive the same reality?", "هرگز فکر می‌کنی آیا همه ما واقعیت یکسانی را درک می‌کنیم؟"),
-        d("B", "Constantly. It's one of those questions that seems simple but becomes more perplexing the deeper one goes.", "مدام. یکی از آن سؤالاتی‌ست که ساده به نظر می‌رسد ولی هرچه عمیق‌تر می‌روی معماگونه‌تر می‌شود."),
-        d("A", "Take colour, for instance. Is my red the same as your red?", "مثلاً رنگ را در نظر بگیر. آیا قرمز من همان قرمز توست؟"),
-        d("B", "Nobody can know, in principle. We can both call it 'red', but the quality of the experience remains entirely private.", "در اصل هیچ‌کس نمی‌تواند بداند. هر دو می‌توانیم آن را 'قرمز' بنامیم، ولی کیفیت تجربه کاملاً خصوصی می‌ماند."),
-        d("A", "That's what philosophers call qualia, isn't it?", "این همان چیزی‌ست که فیلسوفان آن را qualia می‌نامند، نه؟"),
-        d("B", "Precisely. The subjective, ineffable aspects of conscious experience. And their existence poses a formidable challenge to materialist accounts of mind.", "دقیقاً. جنبه‌های ذهنی و ناگفتنی تجربه آگاهانه. و وجودشان چالش مهیبی برای روایت‌های مادی‌گرا از ذهن ایجاد می‌کند."),
-        d("A", "So you'd say consciousness can't be reduced to physical processes?", "پس می‌گویی آگاهی نمی‌تواند به فرآیندهای فیزیکی فروکاسته شود؟"),
-        d("B", "I wouldn't go that far. But I do think the hard problem of consciousness remains genuinely unsolved, however much progress neuroscience makes.", "اینقدر پیش نمی‌روم. ولی فکر می‌کنم مسئله سخت آگاهی واقعاً حل‌نشده می‌ماند، هرچقدر هم که علوم اعصاب پیشرفت کند."),
-        d("A", "And yet we must operate as though reality is shared. Otherwise, language itself would break down.", "و با این حال باید طوری عمل کنیم که گویی واقعیت مشترک است. وگرنه، خود زبان فرو می‌پاشد."),
-        d("B", "An excellent point. The very possibility of communication presupposes a shared world — or at least the fiction of one.", "نکته عالی‌ای‌ست. خود امکان ارتباط، جهانی مشترک را پیش‌فرض می‌گیرد — یا حداقل داستان آن را."),
-        d("A", "So we live, in effect, in a kind of pragmatic consensus?", "پس در واقع در نوعی اجماع عمل‌گرایانه زندگی می‌کنیم؟"),
-        d("B", "Something like that. We agree to treat certain perceptions as 'the real world' because doing so is useful, and perhaps necessary for survival.", "چیزی شبیه این. توافق می‌کنیم ادراکات خاصی را 'جهان واقعی' در نظر بگیریم چون این کار مفید است، و شاید برای بقا ضروری."),
-        d("A", "That's a rather deflationary view of truth.", "دیدگاه نسبتاً کاهنده‌ای درباره حقیقت است."),
-        d("B", "Perhaps. But it has the merit of humility. It acknowledges the limits of what we can know.", "شاید. ولی مزیت فروتنی را دارد. محدودیت‌های آنچه می‌توانیم بدانیم را به رسمیت می‌شناسد."),
-        d("A", "Does that trouble you?", "نگرانت می‌کند؟"),
-        d("B", "Not especially. I find it liberating, in fact. It means we should hold our convictions with a certain lightness.", "نه به خصوص. در واقع آزادی‌بخش می‌یابمش. یعنی باید اعتقاداتمان را با سبکی خاص نگه داریم."),
-        d("A", "That's a mature position.", "موضع بالغانه‌ای‌ست."),
-        d("B", "Merely an honest one, I'd like to think.", "فقط صادقانه، دوست دارم فکر کنم."),
-        d("A", "Well put.", "خوب گفتی.")
-    ),
-    listOf(
-        q("What is qualia?", listOf("physical processes", "subjective experience", "language"), 1),
-        q("What does B think of the hard problem?", listOf("solved", "unsolved", "irrelevant"), 1),
-        q("Memories ___ reconstructed each time.", listOf("are", "is", "was"), 0),
-        q("___ we perceive, our experience remains private.", listOf("Whatever", "However", "Whichever"), 0)
-    ),
-    idioms = listOf(
-        IdiomExpression("In principle", "در اصل", "Nobody can know, in principle.", "در اصل هیچ‌کس نمی‌تواند بداند."),
-        IdiomExpression("Go that far", "اینقدر پیش رفتن", "I wouldn't go that far.", "اینقدر پیش نمی‌روم."),
-        IdiomExpression("Well put", "خوب گفتی", "Well put.", "خوب گفتی.")
-    ),
-    pron = listOf(
-        PronunciationTip("Philosophical discourse", "Speak with measured pauses. Emphasise key concepts: The HARD problem. QUALia.")
-    ),
-    cult = listOf(
-        CulturalNote("Philosophy of mind", "The 'hard problem of consciousness' was articulated by David Chalmers. It remains one of philosophy's deepest mysteries.")
-    ),
-    mis = listOf(
-        CommonMistake("Whatever we perceive, however we interpret it, our experience remain private.", "Whatever we perceive, however we interpret it, our experience remains private.", "Subject-verb agreement.")
-        ,
-        CommonMistake("The qualia is subjective.", "Qualia are subjective.", "Qualia is plural.")
+    private fun f3B() = base(12, "3B Perception and reality", "۳B ادراک و واقعیت",
+        listOf(
+            "Use complex nominalization",
+            "Discuss perception and consciousness",
+            "Express philosophical positions"
+        ),
+        listOf(
+            v("perception", "ادراک", "Human perception is limited.", "ادراک انسانی محدود است."),
+            v("phenomenon", "پدیده", "A puzzling phenomenon.", "پدیده معماگونه."),
+            v("subjective", "ذهنی", "Subjective experience.", "تجربه ذهنی.", "adjective"),
+            v("consensus", "اجماع", "The consensus reality.", "واقعیت اجماعی."),
+            v("qualia", "کیفیات ذهنی", "Qualia are private.", "کیفیات ذهنی خصوصی‌اند."),
+            v("manifestation", "تجلی", "A manifestation of consciousness.", "تجلی آگاهی."),
+            v("perceive", "درک کردن", "Perceive reality.", "واقعیت را درک کن.", "verb"),
+            v("neurological", "عصبی", "Neurological processes.", "فرآیندهای عصبی.", "adjective"),
+            v("elusive", "گریزان", "An elusive concept.", "مفهوم گریزان.", "adjective"),
+            v("predisposition", "استعداد", "A genetic predisposition.", "استعداد ژنتیکی."),
+            v("paradigm", "پارادایم", "A paradigm shift in thinking.", "تغییر پارادایم در تفکر."),
+            v("phenomenological", "پدیدارشناختی", "Phenomenological experience.", "تجربه پدیدارشناختی.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Nominalization", "The perception of reality. The manifestation of consciousness. The elusiveness of subjective experience."),
+            GrammarSection("Complex subjects", "What we perceive as reality may in fact be a construction of the brain."),
+            GrammarSection("Concessive nominal clauses", "Whatever we perceive, however we interpret it, our experience remains private.")
+        ),
+        listOf(
+            d("A", "Do you ever wonder whether we all perceive the same reality?", "هرگز فکر می‌کنی آیا همه ما واقعیت یکسانی را درک می‌کنیم؟"),
+            d("B", "Constantly. It's one of those questions that seems simple but becomes more perplexing the deeper one goes.", "مدام. یکی از آن سؤالاتی‌ست که ساده به نظر می‌رسد ولی هرچه عمیق‌تر می‌روی معماگونه‌تر می‌شود."),
+            d("A", "Take colour, for instance. Is my red the same as your red?", "مثلاً رنگ را در نظر بگیر. آیا قرمز من همان قرمز توست؟"),
+            d("B", "Nobody can know, in principle. We can both call it 'red', but the quality of the experience remains entirely private.", "در اصل هیچ‌کس نمی‌تواند بداند. هر دو می‌توانیم آن را 'قرمز' بنامیم، ولی کیفیت تجربه کاملاً خصوصی می‌ماند."),
+            d("A", "That's what philosophers call qualia, isn't it?", "این همان چیزی‌ست که فیلسوفان آن را qualia می‌نامند، نه؟"),
+            d("B", "Precisely. The subjective, ineffable aspects of conscious experience. And their existence poses a formidable challenge to materialist accounts of mind.", "دقیقاً. جنبه‌های ذهنی و ناگفتنی تجربه آگاهانه. و وجودشان چالش مهیبی برای روایت‌های مادی‌گرا از ذهن ایجاد می‌کند."),
+            d("A", "So you'd say consciousness can't be reduced to physical processes?", "پس می‌گویی آگاهی نمی‌تواند به فرآیندهای فیزیکی فروکاسته شود؟"),
+            d("B", "I wouldn't go that far. But I do think the hard problem of consciousness remains genuinely unsolved, however much progress neuroscience makes.", "اینقدر پیش نمی‌روم. ولی فکر می‌کنم مسئله سخت آگاهی واقعاً حل‌نشده می‌ماند، هرچقدر هم که علوم اعصاب پیشرفت کند."),
+            d("A", "And yet we must operate as though reality is shared. Otherwise, language itself would break down.", "و با این حال باید طوری عمل کنیم که گویی واقعیت مشترک است. وگرنه، خود زبان فرو می‌پاشد."),
+            d("B", "An excellent point. The very possibility of communication presupposes a shared world — or at least the fiction of one.", "نکته عالی‌ای‌ست. خود امکان ارتباط، جهانی مشترک را پیش‌فرض می‌گیرد — یا حداقل داستان آن را."),
+            d("A", "So we live, in effect, in a kind of pragmatic consensus?", "پس در واقع در نوعی اجماع عمل‌گرایانه زندگی می‌کنیم؟"),
+            d("B", "Something like that. We agree to treat certain perceptions as 'the real world' because doing so is useful, and perhaps necessary for survival.", "چیزی شبیه این. توافق می‌کنیم ادراکات خاصی را 'جهان واقعی' در نظر بگیریم چون این کار مفید است، و شاید برای بقا ضروری."),
+            d("A", "That's a rather deflationary view of truth.", "دیدگاه نسبتاً کاهنده‌ای درباره حقیقت است."),
+            d("B", "Perhaps. But it has the merit of humility. It acknowledges the limits of what we can know.", "شاید. ولی مزیت فروتنی را دارد. محدودیت‌های آنچه می‌توانیم بدانیم را به رسمیت می‌شناسد."),
+            d("A", "Does that trouble you?", "نگرانت می‌کند؟"),
+            d("B", "Not especially. I find it liberating, in fact. It means we should hold our convictions with a certain lightness.", "نه به خصوص. در واقع آزادی‌بخش می‌یابمش. یعنی باید اعتقاداتمان را با سبکی خاص نگه داریم."),
+            d("A", "That's a mature position.", "موضع بالغانه‌ای‌ست."),
+            d("B", "Merely an honest one, I'd like to think.", "فقط صادقانه، دوست دارم فکر کنم."),
+            d("A", "Well put.", "خوب گفتی.")
+        ),
+        listOf(
+            q("What is qualia?", listOf("physical processes", "subjective experience", "language"), 1),
+            q("What does B think of the hard problem?", listOf("solved", "unsolved", "irrelevant"), 1),
+            q("Memories ___ reconstructed each time.", listOf("are", "is", "was"), 0),
+            q("___ we perceive, our experience remains private.", listOf("Whatever", "However", "Whichever"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("In principle", "در اصل", "Nobody can know, in principle.", "در اصل هیچ‌کس نمی‌تواند بداند."),
+            IdiomExpression("Go that far", "اینقدر پیش رفتن", "I wouldn't go that far.", "اینقدر پیش نمی‌روم."),
+            IdiomExpression("Well put", "خوب گفتی", "Well put.", "خوب گفتی.")
+        ),
+        pron = listOf(
+            PronunciationTip("Philosophical discourse", "Speak with measured pauses. Emphasise key concepts: The HARD problem. QUALia.")
+        ),
+        cult = listOf(
+            CulturalNote("Philosophy of mind", "The 'hard problem of consciousness' was articulated by David Chalmers. It remains one of philosophy's deepest mysteries.")
+        ),
+        mis = listOf(
+            CommonMistake("Whatever we perceive, however we interpret it, our experience remain private.", "Whatever we perceive, however we interpret it, our experience remains private.", "Subject-verb agreement."),
+            CommonMistake("The qualia is subjective.", "Qualia are subjective.", "Qualia is plural.")
+        )
     )
-)
 
-private fun f3C() = base(13, "3C Nostalgia and the past", "۳C نوستالژی و گذشته",
-    listOf(
-        "Use conditional inversion and formal structures",
-        "Discuss nostalgia and memory",
-        "Express complex emotions"
-    ),
-    listOf(
-        v("nostalgia", "نوستالژی", "A wave of nostalgia.", "موجی از نوستالژی."),
-        v("idealize", "آرمانی کردن", "Idealize the past.", "گذشته را آرمانی کن.", "verb"),
-        v("rose-tinted", "گلگون", "Rose-tinted glasses.", "عینک گلگون.", "adjective"),
-        v("sentimental", "احساسی", "A sentimental attachment.", "وابستگی احساسی.", "adjective"),
-        v("bittersweet", "تلخ و شیرین", "A bittersweet memory.", "خاطره تلخ و شیرین.", "adjective"),
-        v("reminisce", "خاطره گفتن", "Reminisce about childhood.", "از کودکی خاطره گفتن.", "verb"),
-        v("bygone", "سپری‌شده", "A bygone era.", "دوره سپری‌شده.", "adjective"),
-        v("longing", "اشتیاق", "A deep longing.", "اشتیاق عمیق."),
-        v("melancholy", "مالیخولیا", "A sense of melancholy.", "حسی از مالیخولیا."),
-        v("wistful", "حسرت‌آمیز", "A wistful smile.", "لبخند حسرت‌آمیز.", "adjective"),
-        v("evoke", "برانگیختن", "Evoke memories.", "خاطرات را برانگیز.", "verb"),
-        v("sublime", "والا", "A sublime experience.", "تجربه والا.", "adjective")
-    ),
-    listOf(
-        GrammarSection("Conditional inversion", "Had I known then what I know now... Were I to return... Should you ever visit..."),
-        GrammarSection("Formal concession", "Much as I loved that time... However much I miss it..."),
-        GrammarSection("Emotional intensification", "There's something profoundly... It's a curious thing, the way...")
-    ),
-    listOf(
-        d("A", "Do you ever find yourself nostalgic for times that were, in truth, not particularly happy?", "هرگز خودت را نوستالژیک برای زمان‌هایی می‌یابی که در حقیقت چندان شاد نبودند؟"),
-        d("B", "Frequently. And it's a curious phenomenon, isn't it? The mind has a remarkable capacity to soften the edges of the past.", "اغلب. و پدیده عجیبی‌ست، نه؟ ذهن ظرفیت قابل توجهی برای نرم کردن لبه‌های گذشته دارد."),
-        d("A", "Rose-tinted glasses, as they say.", "عینک گلگون، به قول معروف."),
-        d("B", "Precisely. Had I known at the time how difficult those years were, I'd be astonished at my own fondness for them.", "دقیقاً. اگر در آن زمان می‌دانستم آن سال‌ها چقدر سخت بودند، از دلبستگی خودم به آن‌ها شگفت‌زده می‌شدم."),
-        d("A", "What do you think is the psychological function of nostalgia?", "فکر می‌کنی کارکرد روانشناختی نوستالژی چیه؟"),
-        d("B", "Some argue it serves to bolster our sense of continuity. By idealising the past, we reassure ourselves that our lives have been meaningful.", "بعضی استدلال می‌کنند به تقویت حس تداوم ما خدمت می‌کند. با آرمانی کردن گذشته، به خودمان اطمینان می‌دهیم که زندگی‌هایمان معنا داشته‌اند."),
-        d("A", "So it's a kind of psychological comfort?", "پس نوعی آرامش روانشناختی‌ست؟"),
-        d("B", "In part. But it can also be a source of sorrow — a longing for something we know we can never return to.", "تا حدی. ولی می‌تواند منبع غم هم باشد — اشتیاقی برای چیزی که می‌دانیم هرگز نمی‌توانیم به آن بازگردیم."),
-        d("A", "A bittersweet sensation.", "احساسی تلخ و شیرین."),
-        d("B", "Exactly. There's something profoundly human about it. Were we incapable of nostalgia, we'd be poorer for it.", "دقیقاً. چیزی عمیقاً انسانی در آن هست. اگر ناتوان از نوستالژی بودیم، فقیرتر می‌بودیم."),
-        d("A", "Do you think we idealise childhood especially?", "فکر می‌کنی مخصوصاً کودکی را آرمانی می‌کنیم؟"),
-        d("B", "Inevitably. Whatever our childhoods were actually like, they take on a golden hue in recollection.", "ناگزیر. هرچه کودکی‌هایمان واقعاً بوده باشند، رنگی طلایی در یادآوری می‌گیرند."),
-        d("A", "Much as we might try to remember them objectively, we can't.", "هرچقدر هم که تلاش کنیم عیناً به یادشان آوریم، نمی‌توانیم."),
-        d("B", "No, indeed. Memory is not a recording; it's a narrative we continually reconstruct.", "نه، همینطور است. حافظه ضبط نیست؛ روایتی‌ست که مدام بازسازی می‌کنیم."),
-        d("A", "And perhaps that's for the best.", "و شاید این برای بهترین باشد."),
-        d("B", "Perhaps. Were we to see the past in all its starkness, we might find it unbearable.", "شاید. اگر گذشته را در تمام تلخی‌اش می‌دیدیم، ممکن بود غیرقابل تحمل بیابیمش."),
-        d("A", "That's a rather consoling thought.", "فکر نسبتاً تسلی‌بخشی‌ست."),
-        d("B", "I find it so. There's a certain mercy in forgetting, or at least in softening.", "من همینطور می‌یابمش. رحمتی در فراموشی هست، یا حداقل در نرم کردن."),
-        d("A", "Well, on that note, shall we open another bottle of wine?", "خب، بر این اساس، یک بطری شراب دیگر باز کنیم؟"),
-        d("B", "An excellent suggestion.", "پیشنهاد عالی‌ای‌ست.")
-    ),
-    listOf(
-        q("What does B say about past years?", listOf("accurately remembered", "softened", "forgotten"), 1),
-        q("What function does nostalgia serve?", listOf("bolster continuity", "cause depression", "nothing"), 0),
-        q("___ I known, I'd have been astonished.", listOf("Had", "Have", "Has"), 0),
-        q("___ we incapable of nostalgia, we'd be poorer.", listOf("Were", "Was", "Had"), 0)
-    ),
-    idioms = listOf(
-        IdiomExpression("Rose-tinted glasses", "عینک گلگون", "Rose-tinted glasses.", "عینک گلگون."),
-        IdiomExpression("For the best", "برای بهترین", "Perhaps that's for the best.", "شاید برای بهترین باشد."),
-        IdiomExpression("On that note", "بر این اساس", "On that note, shall we?", "بر این اساس، بیایید؟")
-    ),
-    pron = listOf(
-        PronunciationTip("Conditional inversion", "Invert formally: HAD I known. WERE we incapable. SHOULD you ever visit.")
-    ),
-    cult = listOf(
-        CulturalNote("Nostalgia", "Originally considered a medical condition (17th century), nostalgia is now studied as a complex emotion with both positive and negative aspects.")
-    ),
-    mis = listOf(
-        CommonMistake("If I had known at the time, I would be astonished.", "Had I known at the time, I'd be astonished.", "Formal inversion.")
-        ,
-        CommonMistake("Were we incapable of nostalgia, we would poorer.", "Were we incapable of nostalgia, we'd be poorer.", "Don't drop 'be'.")
+    private fun f3C() = base(13, "3C Nostalgia and the past", "۳C نوستالژی و گذشته",
+        listOf(
+            "Use conditional inversion and formal structures",
+            "Discuss nostalgia and memory",
+            "Express complex emotions"
+        ),
+        listOf(
+            v("nostalgia", "نوستالژی", "A wave of nostalgia.", "موجی از نوستالژی."),
+            v("idealize", "آرمانی کردن", "Idealize the past.", "گذشته را آرمانی کن.", "verb"),
+            v("rose-tinted", "گلگون", "Rose-tinted glasses.", "عینک گلگون.", "adjective"),
+            v("sentimental", "احساسی", "A sentimental attachment.", "وابستگی احساسی.", "adjective"),
+            v("bittersweet", "تلخ و شیرین", "A bittersweet memory.", "خاطره تلخ و شیرین.", "adjective"),
+            v("reminisce", "خاطره گفتن", "Reminisce about childhood.", "از کودکی خاطره گفتن.", "verb"),
+            v("bygone", "سپری‌شده", "A bygone era.", "دوره سپری‌شده.", "adjective"),
+            v("longing", "اشتیاق", "A deep longing.", "اشتیاق عمیق."),
+            v("melancholy", "مالیخولیا", "A sense of melancholy.", "حسی از مالیخولیا."),
+            v("wistful", "حسرت‌آمیز", "A wistful smile.", "لبخند حسرت‌آمیز.", "adjective"),
+            v("evoke", "برانگیختن", "Evoke memories.", "خاطرات را برانگیز.", "verb"),
+            v("sublime", "والا", "A sublime experience.", "تجربه والا.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Conditional inversion", "Had I known then what I know now... Were I to return... Should you ever visit..."),
+            GrammarSection("Formal concession", "Much as I loved that time... However much I miss it..."),
+            GrammarSection("Emotional intensification", "There's something profoundly... It's a curious thing, the way...")
+        ),
+        listOf(
+            d("A", "Do you ever find yourself nostalgic for times that were, in truth, not particularly happy?", "هرگز خودت را نوستالژیک برای زمان‌هایی می‌یابی که در حقیقت چندان شاد نبودند؟"),
+            d("B", "Frequently. And it's a curious phenomenon, isn't it? The mind has a remarkable capacity to soften the edges of the past.", "اغلب. و پدیده عجیبی‌ست، نه؟ ذهن ظرفیت قابل توجهی برای نرم کردن لبه‌های گذشته دارد."),
+            d("A", "Rose-tinted glasses, as they say.", "عینک گلگون، به قول معروف."),
+            d("B", "Precisely. Had I known at the time how difficult those years were, I'd be astonished at my own fondness for them.", "دقیقاً. اگر در آن زمان می‌دانستم آن سال‌ها چقدر سخت بودند، از دلبستگی خودم به آن‌ها شگفت‌زده می‌شدم."),
+            d("A", "What do you think is the psychological function of nostalgia?", "فکر می‌کنی کارکرد روانشناختی نوستالژی چیه؟"),
+            d("B", "Some argue it serves to bolster our sense of continuity. By idealising the past, we reassure ourselves that our lives have been meaningful.", "بعضی استدلال می‌کنند به تقویت حس تداوم ما خدمت می‌کند. با آرمانی کردن گذشته، به خودمان اطمینان می‌دهیم که زندگی‌هایمان معنا داشته‌اند."),
+            d("A", "So it's a kind of psychological comfort?", "پس نوعی آرامش روانشناختی‌ست؟"),
+            d("B", "In part. But it can also be a source of sorrow — a longing for something we know we can never return to.", "تا حدی. ولی می‌تواند منبع غم هم باشد — اشتیاقی برای چیزی که می‌دانیم هرگز نمی‌توانیم به آن بازگردیم."),
+            d("A", "A bittersweet sensation.", "احساسی تلخ و شیرین."),
+            d("B", "Exactly. There's something profoundly human about it. Were we incapable of nostalgia, we'd be poorer for it.", "دقیقاً. چیزی عمیقاً انسانی در آن هست. اگر ناتوان از نوستالژی بودیم، فقیرتر می‌بودیم."),
+            d("A", "Do you think we idealise childhood especially?", "فکر می‌کنی مخصوصاً کودکی را آرمانی می‌کنیم؟"),
+            d("B", "Inevitably. Whatever our childhoods were actually like, they take on a golden hue in recollection.", "ناگزیر. هرچه کودکی‌هایمان واقعاً بوده باشند، رنگی طلایی در یادآوری می‌گیرند."),
+            d("A", "Much as we might try to remember them objectively, we can't.", "هرچقدر هم که تلاش کنیم عیناً به یادشان آوریم، نمی‌توانیم."),
+            d("B", "No, indeed. Memory is not a recording; it's a narrative we continually reconstruct.", "نه، همینطور است. حافظه ضبط نیست؛ روایتی‌ست که مدام بازسازی می‌کنیم."),
+            d("A", "And perhaps that's for the best.", "و شاید این برای بهترین باشد."),
+            d("B", "Perhaps. Were we to see the past in all its starkness, we might find it unbearable.", "شاید. اگر گذشته را در تمام تلخی‌اش می‌دیدیم، ممکن بود غیرقابل تحمل بیابیمش."),
+            d("A", "That's a rather consoling thought.", "فکر نسبتاً تسلی‌بخشی‌ست."),
+            d("B", "I find it so. There's a certain mercy in forgetting, or at least in softening.", "من همینطور می‌یابمش. رحمتی در فراموشی هست، یا حداقل در نرم کردن."),
+            d("A", "Well, on that note, shall we open another bottle of wine?", "خب، بر این اساس، یک بطری شراب دیگر باز کنیم؟"),
+            d("B", "An excellent suggestion.", "پیشنهاد عالی‌ای‌ست.")
+        ),
+        listOf(
+            q("What does B say about past years?", listOf("accurately remembered", "softened", "forgotten"), 1),
+            q("What function does nostalgia serve?", listOf("bolster continuity", "cause depression", "nothing"), 0),
+            q("___ I known, I'd have been astonished.", listOf("Had", "Have", "Has"), 0),
+            q("___ we incapable of nostalgia, we'd be poorer.", listOf("Were", "Was", "Had"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("Rose-tinted glasses", "عینک گلگون", "Rose-tinted glasses.", "عینک گلگون."),
+            IdiomExpression("For the best", "برای بهترین", "Perhaps that's for the best.", "شاید برای بهترین باشد."),
+            IdiomExpression("On that note", "بر این اساس", "On that note, shall we?", "بر این اساس، بیایید؟")
+        ),
+        pron = listOf(
+            PronunciationTip("Conditional inversion", "Invert formally: HAD I known. WERE we incapable. SHOULD you ever visit.")
+        ),
+        cult = listOf(
+            CulturalNote("Nostalgia", "Originally considered a medical condition (17th century), nostalgia is now studied as a complex emotion with both positive and negative aspects.")
+        ),
+        mis = listOf(
+            CommonMistake("If I had known at the time, I would be astonished.", "Had I known at the time, I'd be astonished.", "Formal inversion."),
+            CommonMistake("Were we incapable of nostalgia, we would poorer.", "Were we incapable of nostalgia, we'd be poorer.", "Don't drop 'be'.")
+        )
     )
-)
 
-// ═══════════ PRACTICAL ENGLISH 3 ═══════════
+    // ═══════════ PRACTICAL ENGLISH 3 ═══════════
 
-private fun pe3() = base(14, "PE3 A philosophical debate", "انگلیسی کاربردی ۳ — مناظره فلسفی",
-    listOf(
-        "Argue abstract positions persuasively",
-        "Use rhetorical devices effectively",
-        "Respond to counterarguments"
-    ),
-    listOf(
-        v("premise", "مقدمه", "A flawed premise.", "مقدمه معیوب."),
-        v("inference", "استنتاج", "A logical inference.", "استنتاج منطقی."),
-        v("fallacy", "مغالطه", "A common fallacy.", "مغالطه رایج."),
-        v("premise", "فرض", "On the premise that...", "بر این فرض که..."),
-        v("cogent", "متقن", "A cogent argument.", "استدلال متقن.", "adjective"),
-        v("tenable", "قابل دفاع", "A tenable position.", "موضع قابل دفاع.", "adjective"),
-        v("refute", "رد کردن", "Refute the claim.", "ادعا را رد کن.", "verb"),
-        v("counterargument", "استدلال متقابل", "Address the counterargument.", "به استدلال متقابل بپرداز."),
-        v("concede", "اقرار کردن", "Concede the point.", "نکته را بپذیر.", "verb"),
-        v("rhetoric", "سخنوری", "Rhetorical skill.", "مهارت سخنوری."),
-        v("syllogism", "قیاس", "A classic syllogism.", "قیاس کلاسیک."),
-        v("empirical", "تجربی", "Empirical evidence.", "شواهد تجربی.", "adjective")
-    ),
-    listOf(
-        GrammarSection("Arguing from first principles", "If we accept that... it follows that... Given that... we can infer that..."),
-        GrammarSection("Concession and rebuttal", "Granted, ... Nonetheless, ... While I concede that..., I would maintain that..."),
-        GrammarSection("Hypothetical reasoning", "Suppose, for the sake of argument, that... Let us imagine that...")
-    ),
-    listOf(
-        d("A", "I'd like to propose that free will is, in fact, an illusion.", "می‌خواهم پیشنهاد کنم که اراده آزاد، در واقع، توهم است."),
-        d("B", "A bold claim. On what grounds?", "ادعای جسورانه‌ای‌ست. بر چه اساسی؟"),
-        d("A", "On the grounds that our decisions are determined by prior causes — genetics, environment, and neurochemistry — none of which we chose.", "بر این اساس که تصمیمات ما توسط علل قبلی تعیین می‌شوند — ژنتیک، محیط، و عصب‌شیمی — که هیچ‌کدام را انتخاب نکردیم."),
-        d("B", "Granted, we don't choose our initial conditions. But surely the capacity for deliberation and self-reflection introduces a kind of freedom?", "پذیرفته، شرایط اولیه‌مان را انتخاب نمی‌کنیم. ولی قطعاً ظرفیت تأمل و خوداندیشی نوعی آزادی معرفی می‌کند؟"),
-        d("A", "Does it, though? The deliberation itself is a process governed by physical laws. It's not as though some immaterial 'will' intervenes.", "آیا واقعاً؟ خود تأمل فرآیندی‌ست که قوانین فیزیکی بر آن حاکم است. گویی نوعی 'اراده' غیرمادی مداخله نمی‌کند."),
-        d("B", "Let me put a counterargument to you. If free will is an illusion, then moral responsibility collapses. We don't punish the rain for falling.", "بگذار استدلال متقابلی مطرح کنم. اگر اراده آزاد توهم باشد، مسئولیت اخلاقی فرو می‌پاشد. باران را برای باریدن مجازات نمی‌کنیم."),
-        d("A", "That's a strong point, and one I anticipated. I'd maintain that we can retain a notion of responsibility without invoking contra-causal freedom.", "نکته قوی‌ای‌ست، و یکی که پیش‌بینی کردم. استدلال می‌کنم که می‌توانیم مفهوم مسئولیت را بدون توسل به آزادی ضد-علّی حفظ کنیم."),
-        d("B", "How so?", "چطور؟"),
-        d("A", "Responsibility, on my view, is a social practice rather than a metaphysical fact. We hold people accountable because it shapes future behaviour, not because they could have done otherwise in some absolute sense.", "مسئولیت، به نظر من، عملی اجتماعی‌ست تا واقعیتی متافیزیکی. مردم را پاسخگو می‌دانیم چون رفتار آینده را شکل می‌دهد، نه چون می‌توانستند به معنای مطلق کار دیگری انجام دهند."),
-        d("B", "That's a sophisticated position, but I'm not entirely persuaded. It seems to me you're smuggling in a notion of agency under another name.", "موضع پیچیده‌ای‌ست، ولی کاملاً متقاعد نشده‌ام. به نظر من نوعی مفهوم عاملیت را زیر نام دیگری قاچاق می‌کنی."),
-        d("A", "A fair charge. Let me concede that the compatibilist position I'm defending is not without its difficulties.", "اتهام منصفانه‌ای‌ست. اقرار می‌کنم موضع سازگارگرایانه‌ای که دفاع می‌کنم بی مشکل نیست."),
-        d("B", "Well, at least you're not dogmatic about it.", "خب، حداقل جزم‌اندیش نیستی در موردش."),
-        d("A", "Dogmatism is the enemy of philosophy. But let me ask you something in return. Suppose, for the sake of argument, that we do have free will. How would we know?", "جزم‌اندیشی دشمن فلسفه است. ولی بگذار چیزی در عوض بپرسم. فرض کن، برای بحث، که اراده آزاد داریم. چطور می‌فهمیدیم؟"),
-        d("B", "An intriguing question. Perhaps we wouldn't — perhaps the experience of choosing is all we can ever have access to.", "سؤال جذابی‌ست. شاید نمی‌فهمیدیم — شاید تجربه انتخاب تنها چیزی‌ست که می‌توانیم به آن دسترسی داشته باشیم."),
-        d("A", "In which case, the debate may be, in principle, unresolvable.", "در آن صورت، بحث ممکن است، در اصل، حل‌نشدنی باشد."),
-        d("B", "That's rather unsatisfying, isn't it?", "نسبتاً نارضایت‌بخش است، نه؟"),
-        d("A", "Philosophy often is. It raises better questions rather than supplying final answers.", "فلسفه اغلب همینطور است. سؤالات بهتری مطرح می‌کند به جای ارائه پاسخ‌های نهایی."),
-        d("B", "On that we can agree.", "بر این می‌توانیم توافق کنیم.")
-    ),
-    listOf(
-        q("What does A propose?", listOf("free will is real", "free will is illusion", "no morality"), 1),
-        q("What's B's counterargument?", listOf("morality collapses", "nothing matters", "we're robots"), 0),
-        q("___ I known, I would have conceded.", listOf("Had", "Have", "Has"), 0),
-        q("___ we accept the premise, it follows that...", listOf("If", "Unless", "Though"), 0)
-    ),
-    idioms = listOf(
-        IdiomExpression("On what grounds?", "بر چه اساسی؟", "On what grounds?", "بر چه اساسی؟"),
-        IdiomExpression("For the sake of argument", "برای بحث", "Suppose, for the sake of argument.", "فرض کن، برای بحث."),
-        IdiomExpression("Smuggle in", "قاچاق کردن", "You're smuggling in agency.", "داری عاملیت را قاچاق می‌کنی.")
-    ),
-    pron = listOf(
-        PronunciationTip("Philosophical discourse", "Pause before key concepts. Stress abstract nouns: FREE WILL, MORAL REsponsibility, COMPATibilism.")
-    ),
-    cult = listOf(
-        CulturalNote("Free will debate", "Compatibilism (defended by Daniel Dennett) holds that free will and determinism are compatible. Hard determinists disagree.")
-    ),
-    mis = listOf(
-        CommonMistake("On what grounds you say that?", "On what grounds do you say that?", "Use auxiliary."),
-        CommonMistake("Suppose we have free will — how we would know?", "Suppose we have free will — how would we know?", "Inversion in question.")
+    private fun pe3() = base(14, "PE3 A philosophical debate", "انگلیسی کاربردی ۳ — مناظره فلسفی",
+        listOf(
+            "Argue abstract positions persuasively",
+            "Use rhetorical devices effectively",
+            "Respond to counterarguments"
+        ),
+        listOf(
+            v("premise", "مقدمه", "A flawed premise.", "مقدمه معیوب."),
+            v("inference", "استنتاج", "A logical inference.", "استنتاج منطقی."),
+            v("fallacy", "مغالطه", "A common fallacy.", "مغالطه رایج."),
+            v("cogent", "متقن", "A cogent argument.", "استدلال متقن.", "adjective"),
+            v("tenable", "قابل دفاع", "A tenable position.", "موضع قابل دفاع.", "adjective"),
+            v("refute", "رد کردن", "Refute the claim.", "ادعا را رد کن.", "verb"),
+            v("counterargument", "استدلال متقابل", "Address the counterargument.", "به استدلال متقابل بپرداز."),
+            v("concede", "اقرار کردن", "Concede the point.", "نکته را بپذیر.", "verb"),
+            v("rhetoric", "سخنوری", "Rhetorical skill.", "مهارت سخنوری."),
+            v("syllogism", "قیاس", "A classic syllogism.", "قیاس کلاسیک."),
+            v("empirical", "تجربی", "Empirical evidence.", "شواهد تجربی.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Arguing from first principles", "If we accept that... it follows that... Given that... we can infer that..."),
+            GrammarSection("Concession and rebuttal", "Granted, ... Nonetheless, ... While I concede that..., I would maintain that..."),
+            GrammarSection("Hypothetical reasoning", "Suppose, for the sake of argument, that... Let us imagine that...")
+        ),
+        listOf(
+            d("A", "I'd like to propose that free will is, in fact, an illusion.", "می‌خواهم پیشنهاد کنم که اراده آزاد، در واقع، توهم است."),
+            d("B", "A bold claim. On what grounds?", "ادعای جسورانه‌ای‌ست. بر چه اساسی؟"),
+            d("A", "On the grounds that our decisions are determined by prior causes — genetics, environment, and neurochemistry — none of which we chose.", "بر این اساس که تصمیمات ما توسط علل قبلی تعیین می‌شوند — ژنتیک، محیط، و عصب‌شیمی — که هیچ‌کدام را انتخاب نکردیم."),
+            d("B", "Granted, we don't choose our initial conditions. But surely the capacity for deliberation and self-reflection introduces a kind of freedom?", "پذیرفته، شرایط اولیه‌مان را انتخاب نمی‌کنیم. ولی قطعاً ظرفیت تأمل و خوداندیشی نوعی آزادی معرفی می‌کند؟"),
+            d("A", "Does it, though? The deliberation itself is a process governed by physical laws. It's not as though some immaterial 'will' intervenes.", "آیا واقعاً؟ خود تأمل فرآیندی‌ست که قوانین فیزیکی بر آن حاکم است. گویی نوعی 'اراده' غیرمادی مداخله نمی‌کند."),
+            d("B", "Let me put a counterargument to you. If free will is an illusion, then moral responsibility collapses. We don't punish the rain for falling.", "بگذار استدلال متقابلی مطرح کنم. اگر اراده آزاد توهم باشد، مسئولیت اخلاقی فرو می‌پاشد. باران را برای باریدن مجازات نمی‌کنیم."),
+            d("A", "That's a strong point, and one I anticipated. I'd maintain that we can retain a notion of responsibility without invoking contra-causal freedom.", "نکته قوی‌ای‌ست، و یکی که پیش‌بینی کردم. استدلال می‌کنم که می‌توانیم مفهوم مسئولیت را بدون توسل به آزادی ضد-علّی حفظ کنیم."),
+            d("B", "How so?", "چطور؟"),
+            d("A", "Responsibility, on my view, is a social practice rather than a metaphysical fact. We hold people accountable because it shapes future behaviour, not because they could have done otherwise in some absolute sense.", "مسئولیت، به نظر من، عملی اجتماعی‌ست تا واقعیتی متافیزیکی. مردم را پاسخگو می‌دانیم چون رفتار آینده را شکل می‌دهد، نه چون می‌توانستند به معنای مطلق کار دیگری انجام دهند."),
+            d("B", "That's a sophisticated position, but I'm not entirely persuaded. It seems to me you're smuggling in a notion of agency under another name.", "موضع پیچیده‌ای‌ست، ولی کاملاً متقاعد نشده‌ام. به نظر من نوعی مفهوم عاملیت را زیر نام دیگری قاچاق می‌کنی."),
+            d("A", "A fair charge. Let me concede that the compatibilist position I'm defending is not without its difficulties.", "اتهام منصفانه‌ای‌ست. اقرار می‌کنم موضع سازگارگرایانه‌ای که دفاع می‌کنم بی مشکل نیست."),
+            d("B", "Well, at least you're not dogmatic about it.", "خب، حداقل جزم‌اندیش نیستی در موردش."),
+            d("A", "Dogmatism is the enemy of philosophy. But let me ask you something in return. Suppose, for the sake of argument, that we do have free will. How would we know?", "جزم‌اندیشی دشمن فلسفه است. ولی بگذار چیزی در عوض بپرسم. فرض کن، برای بحث، که اراده آزاد داریم. چطور می‌فهمیدیم؟"),
+            d("B", "An intriguing question. Perhaps we wouldn't — perhaps the experience of choosing is all we can ever have access to.", "سؤال جذابی‌ست. شاید نمی‌فهمیدیم — شاید تجربه انتخاب تنها چیزی‌ست که می‌توانیم به آن دسترسی داشته باشیم."),
+            d("A", "In which case, the debate may be, in principle, unresolvable.", "در آن صورت، بحث ممکن است، در اصل، حل‌نشدنی باشد."),
+            d("B", "That's rather unsatisfying, isn't it?", "نسبتاً نارضایت‌بخش است، نه؟"),
+            d("A", "Philosophy often is. It raises better questions rather than supplying final answers.", "فلسفه اغلب همینطور است. سؤالات بهتری مطرح می‌کند به جای ارائه پاسخ‌های نهایی."),
+            d("B", "On that we can agree.", "بر این می‌توانیم توافق کنیم.")
+        ),
+        listOf(
+            q("What does A propose?", listOf("free will is real", "free will is illusion", "no morality"), 1),
+            q("What's B's counterargument?", listOf("morality collapses", "nothing matters", "we're robots"), 0),
+            q("___ I known, I would have conceded.", listOf("Had", "Have", "Has"), 0),
+            q("___ we accept the premise, it follows that...", listOf("If", "Unless", "Though"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("On what grounds?", "بر چه اساسی؟", "On what grounds?", "بر چه اساسی؟"),
+            IdiomExpression("For the sake of argument", "برای بحث", "Suppose, for the sake of argument.", "فرض کن، برای بحث."),
+            IdiomExpression("Smuggle in", "قاچاق کردن", "You're smuggling in agency.", "داری عاملیت را قاچاق می‌کنی.")
+        ),
+        pron = listOf(
+            PronunciationTip("Philosophical discourse", "Pause before key concepts. Stress abstract nouns: FREE WILL, MORAL REsponsibility, COMPATibilism.")
+        ),
+        cult = listOf(
+            CulturalNote("Free will debate", "Compatibilism (defended by Daniel Dennett) holds that free will and determinism are compatible. Hard determinists disagree.")
+        ),
+        mis = listOf(
+            CommonMistake("On what grounds you say that?", "On what grounds do you say that?", "Use auxiliary."),
+            CommonMistake("Suppose we have free will — how we would know?", "Suppose we have free will — how would we know?", "Inversion in question.")
+        )
     )
-)
 
-// ═══════════ REVIEW 3 ═══════════
+    // ═══════════ REVIEW 3 ═══════════
 
-private fun rc56() = base(15, "R&C 5&6", "مرور ۵ و ۶",
-    listOf("Review advanced passive", "Review conditional inversion", "Review nominalization"),
-    listOf(
-        v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
-        v("synthesize", "ترکیب کردن", "Synthesize your understanding.", "درکت را ترکیب کن.", "verb"),
-        v("consolidate", "تثبیت کردن", "Consolidate structures.", "ساختارها را تثبیت کن.", "verb"),
-        v("mastery", "تسلط", "Toward mastery.", "به سمت تسلط."),
-        v("nuance", "ظرافت", "Appreciate nuance.", "ظرافت را درک کن."),
-        v("precision", "دقت", "Express with precision.", "با دقت بیان کن.")
-    ),
-    listOf(
-        GrammarSection("Advanced passive", "Memories are said to be reconstructed. The event is believed to have occurred."),
-        GrammarSection("Conditional inversion", "Had I known... Were I to return... Should you ever visit..."),
-        GrammarSection("Nominalization", "The perception of reality. The manifestation of consciousness.")
-    ),
-    listOf(
-        d("T", "Let's review the advanced structures we've covered.", "بیایید ساختارهای پیشرفته‌ای که پوشش دادیم را مرور کنیم."),
-        d("A", "We studied advanced passive with perfect infinitive. The event is believed to have occurred.", "مجهول پیشرفته با مصدر کامل مطالعه کردیم. The event is believed to have occurred."),
-        d("B", "And conditional inversion. Had I known, I would have acted differently.", "و وارونگی شرطی. Had I known, I would have acted differently."),
-        d("T", "Why is inversion used here?", "چرا وارونگی اینجا استفاده می‌شود؟"),
-        d("A", "For formality and emphasis. It's common in academic writing and formal speech.", "برای رسمیت و تأکید. در نوشتار دانشگاهی و گفتار رسمی رایج است."),
-        d("T", "Nominalization?", "اسم‌سازی؟"),
-        d("B", "Turning verbs and adjectives into nouns. 'The perception of reality' instead of 'how we perceive reality'.", "تبدیل فعل و صفت به اسم. 'The perception of reality' به جای 'how we perceive reality'."),
-        d("T", "When is nominalization useful?", "کِی اسم‌سازی مفید است؟"),
-        d("A", "In formal and academic contexts. It allows for denser, more abstract expression.", "در بافت‌های رسمی و دانشگاهی. بیان متراکم‌تر و انتزاعی‌تر را ممکن می‌کند."),
-        d("T", "Excellent. You're ready for File 7.", "عالی. برای فایل ۷ آماده‌اید."),
-        d("B", "Level 5 is genuinely challenging.", "سطح ۵ واقعاً چالش‌برانگیز است."),
-        d("T", "It is. But you're handling it admirably.", "هست. ولی عالی مدیریتش می‌کنید."),
-        d("A", "Thank you. We're committed to reaching C1.", "ممنون. متعهد به رسیدن به C1 هستیم."),
-        d("T", "And you will. Perseverance is everything.", "و خواهید رسید. پشتکار همه چیز است."),
-        d("B", "Onward, then.", "پس به جلو.")
-    ),
-    listOf(
-        q("When is inversion used?", listOf("informally", "formally", "never"), 1),
-        q("What does nominalization do?", listOf("makes denser", "shortens", "changes meaning"), 0),
-        q("The event ___ to have occurred.", listOf("is believed", "believes", "believing"), 0),
-        q("___ I known, I would have acted.", listOf("Had", "Have", "Has"), 0)
-    ),
-    idioms = listOf(IdiomExpression("Onward", "به جلو", "Onward, then.", "پس به جلو.")),
-    pron = listOf(PronunciationTip("Advanced discourse", "Speak with measured pace. Pause before complex structures.")),
-    cult = listOf(CulturalNote("Advanced English", "C1 mastery involves not just accuracy but register awareness and stylistic control.")),
-    mis = listOf(
-        CommonMistake("The event believes to have occurred.", "The event is believed to have occurred.", "Passive needed."),
-        CommonMistake("Have I known, I would have acted.", "Had I known, I would have acted.", "Had, not have, in inversion.")
+    private fun rc56() = base(15, "R&C 5&6", "مرور ۵ و ۶",
+        listOf("Review advanced passive", "Review conditional inversion", "Review nominalization"),
+        listOf(
+            v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
+            v("synthesize", "ترکیب کردن", "Synthesize your understanding.", "درکت را ترکیب کن.", "verb"),
+            v("consolidate", "تثبیت کردن", "Consolidate structures.", "ساختارها را تثبیت کن.", "verb"),
+            v("mastery", "تسلط", "Toward mastery.", "به سمت تسلط."),
+            v("nuance", "ظرافت", "Appreciate nuance.", "ظرافت را درک کن."),
+            v("precision", "دقت", "Express with precision.", "با دقت بیان کن.")
+        ),
+        listOf(
+            GrammarSection("Advanced passive", "Memories are said to be reconstructed. The event is believed to have occurred."),
+            GrammarSection("Conditional inversion", "Had I known... Were I to return... Should you ever visit..."),
+            GrammarSection("Nominalization", "The perception of reality. The manifestation of consciousness.")
+        ),
+        listOf(
+            d("T", "Let's review the advanced structures we've covered.", "بیایید ساختارهای پیشرفته‌ای که پوشش دادیم را مرور کنیم."),
+            d("A", "We studied advanced passive with perfect infinitive. The event is believed to have occurred.", "مجهول پیشرفته با مصدر کامل مطالعه کردیم. The event is believed to have occurred."),
+            d("B", "And conditional inversion. Had I known, I would have acted differently.", "و وارونگی شرطی. Had I known, I would have acted differently."),
+            d("T", "Why is inversion used here?", "چرا وارونگی اینجا استفاده می‌شود؟"),
+            d("A", "For formality and emphasis. It's common in academic writing and formal speech.", "برای رسمیت و تأکید. در نوشتار دانشگاهی و گفتار رسمی رایج است."),
+            d("T", "Nominalization?", "اسم‌سازی؟"),
+            d("B", "Turning verbs and adjectives into nouns. 'The perception of reality' instead of 'how we perceive reality'.", "تبدیل فعل و صفت به اسم. 'The perception of reality' به جای 'how we perceive reality'."),
+            d("T", "When is nominalization useful?", "کِی اسم‌سازی مفید است؟"),
+            d("A", "In formal and academic contexts. It allows for denser, more abstract expression.", "در بافت‌های رسمی و دانشگاهی. بیان متراکم‌تر و انتزاعی‌تر را ممکن می‌کند."),
+            d("T", "Excellent. You're ready for File 7.", "عالی. برای فایل ۷ آماده‌اید."),
+            d("B", "Level 5 is genuinely challenging.", "سطح ۵ واقعاً چالش‌برانگیز است."),
+            d("T", "It is. But you're handling it admirably.", "هست. ولی عالی مدیریتش می‌کنید."),
+            d("A", "Thank you. We're committed to reaching C1.", "ممنون. متعهد به رسیدن به C1 هستیم."),
+            d("T", "And you will. Perseverance is everything.", "و خواهید رسید. پشتکار همه چیز است."),
+            d("B", "Onward, then.", "پس به جلو.")
+        ),
+        listOf(
+            q("When is inversion used?", listOf("informally", "formally", "never"), 1),
+            q("What does nominalization do?", listOf("makes denser", "shortens", "changes meaning"), 0),
+            q("The event ___ to have occurred.", listOf("is believed", "believes", "believing"), 0),
+            q("___ I known, I would have acted.", listOf("Had", "Have", "Has"), 0)
+        ),
+        idioms = listOf(IdiomExpression("Onward", "به جلو", "Onward, then.", "پس به جلو.")),
+        pron = listOf(PronunciationTip("Advanced discourse", "Speak with measured pace. Pause before complex structures.")),
+        cult = listOf(CulturalNote("Advanced English", "C1 mastery involves not just accuracy but register awareness and stylistic control.")),
+        mis = listOf(
+            CommonMistake("The event believes to have occurred.", "The event is believed to have occurred.", "Passive needed."),
+            CommonMistake("Have I known, I would have acted.", "Had I known, I would have acted.", "Had, not have, in inversion.")
+        )
     )
-)
 
-// ═══════════ FILE 4 — Time and existence ═══════════
+    // ═══════════ FILE 4 — Time and existence ═══════════
 
-private fun f4A() = base(16, "4A The philosophy of time", "۴A فلسفه زمان",
-    listOf(
-        "Use future in the past and complex tense structures",
-        "Discuss philosophical concepts of time",
-        "Express temporal relationships"
-    ),
-    listOf(
-        v("temporal", "زمانی", "Temporal experience.", "تجربه زمانی.", "adjective"),
-        v("simultaneous", "همزمان", "Simultaneous events.", "رویدادهای همزمان.", "adjective"),
-        v("sequential", "متوالی", "Sequential order.", "ترتیب متوالی.", "adjective"),
-        v("chronological", "گاه‌شمارانه", "Chronological narrative.", "روایت گاه‌شمارانه.", "adjective"),
-        v("eternal", "ابدی", "Eternal recurrence.", "عود ابدی.", "adjective"),
-        v("fleeting", "گذرا", "Fleeting moments.", "لحظات گذرا.", "adjective"),
-        v("duration", "مدت", "Subjective duration.", "مدت ذهنی."),
-        v("instantaneous", "آنی", "Instantaneous experience.", "تجربه آنی.", "adjective"),
-        v("anachronistic", "زمان‌ناهمگون", "Anachronistic thinking.", "تفکر زمان‌ناهمگون.", "adjective"),
-        v("precede", "مقدم بودن", "Events preceding the war.", "رویدادهای مقدم بر جنگ.", "verb"),
-        v("succeed", "پیرو بودن", "The years succeeding the war.", "سال‌های پیرو جنگ.", "verb"),
-        v("temporal paradox", "پارادوکس زمانی", "A temporal paradox.", "پارادوکس زمانی.")
-    ),
-    listOf(
-        GrammarSection("Future in the past", "He said he would arrive by noon. I thought I would have finished by then."),
-        GrammarSection("Complex tense sequencing", "By the time you read this, I will have left."),
-        GrammarSection("Time clause combinations", "Whenever I think of it, I remember that I had been warned."),
-        GrammarSection("Habitual past", "I would sit for hours, contemplating."),
-        GrammarSection("Narrative present for timeless truths", "Time flows, unceasing, indifferent to our experience of it.")
-    ),
-    listOf(
-        d("A", "Do you think time is real, or is it merely a feature of human perception?", "فکر می‌کنی زمان واقعی‌ست، یا صرفاً ویژگی ادراک انسانی‌ست؟"),
-        d("B", "A classic question. Physicists tend to say it's real — or at least, that it's woven into the fabric of the universe.", "سؤال کلاسیک. فیزیکدانان تمایل دارند بگویند واقعی‌ست — یا حداقل، در بافت جهان تنیده شده."),
-        d("A", "But our experience of it seems so subjective. An hour can feel like a moment, or an eternity.", "ولی تجربه ما از آن خیلی ذهنی به نظر می‌رسد. یک ساعت می‌تواند مثل یک لحظه، یا یک ابدیت حس شود."),
-        d("B", "Indeed. Which suggests that what we call 'time' may be two things: physical time, and psychological time. They don't always align.", "همینطور. که نشان می‌دهد آنچه 'زمان' می‌نامیم ممکن است دو چیز باشد: زمان فیزیکی، و زمان روانشناختی. همیشه هم‌راستا نیستند."),
-        d("A", "That's a useful distinction. Do you think one is more fundamental?", "تمایز مفیدی‌ست. فکر می‌کنی یکی بنیادین‌تر است؟"),
-        d("B", "Physical time, I'd argue, is more fundamental in the sense that it exists independently of observers. But psychological time is what we actually live.", "استدلال می‌کنم زمان فیزیکی بنیادین‌تر است از این نظر که مستقل از ناظران وجود دارد. ولی زمان روانشناختی چیزی‌ست که واقعاً زندگی می‌کنیم."),
-        d("A", "Would you say we're trapped in the present?", "می‌گویی در حال گیر افتاده‌ایم؟"),
-        d("B", "In a manner of speaking. We can remember the past and anticipate the future, but we can only ever inhabit the now.", "به نوعی. می‌توانیم گذشته را به یاد آوریم و آینده را پیش‌بینی کنیم، ولی فقط می‌توانیم در اکنون ساکن باشیم."),
-        d("A", "And yet we spend so much of our lives either regretting or worrying — as though we could escape the present.", "و با این حال اینقدر از زندگی‌مان را یا پشیمان یا نگران می‌گذرانیم — گویی می‌توانیم از حال فرار کنیم."),
-        d("B", "A tragic irony, when you think about it. If we had been wiser, we might have understood that the present is all we ever truly have.", "طنز غم‌انگیزی‌ست، وقتی فکر می‌کنی. اگر عاقل‌تر بودیم، ممکن بود بفهمیم که حال تمام چیزی‌ست که واقعاً داریم."),
-        d("A", "Do you think that's why mindfulness has become so popular?", "فکر می‌کنی برای همین ذهن‌آگاهی اینقدر محبوب شده؟"),
-        d("B", "Partly. It's an attempt to reclaim the present from the tyranny of past and future.", "تا حدی. تلاشی‌ست برای بازپس‌گیری حال از استبداد گذشته و آینده."),
-        d("A", "Do you practise it?", "تمرینش می‌کنی؟"),
-        d("B", "I try. When I'm walking, I remind myself to notice the present. Otherwise, my mind drifts, and I've arrived at my destination without any memory of the journey.", "سعی می‌کنم. وقتی قدم می‌زنم، به خودم یادآوری می‌کنم که حال را متوجه شوم. وگرنه، ذهنم می‌رود، و بدون هیچ خاطره‌ای از سفر به مقصد رسیده‌ام."),
-        d("A", "A common experience.", "تجربه رایجی‌ست."),
-        d("B", "And a poignant one. We miss so much of our own lives.", "و تکان‌دهنده. اینقدر از زندگی‌های خودمان را از دست می‌دهیم."),
-        d("A", "Well, on that philosophical note...", "خب، بر این اساس فلسفی..."),
-        d("B", "Shall we take a walk, and try to be present?", "قدم بزنیم و سعی کنیم حاضر باشیم؟"),
-        d("A", "An excellent suggestion.", "پیشنهاد عالی‌ای‌ست.")
-    ),
-    listOf(
-        q("How does B distinguish time?", listOf("real/imaginary", "physical/psychological", "fast/slow"), 1),
-        q("What does B say we can inhabit?", listOf("past", "future", "present"), 2),
-        q("I thought I ___ have finished by then.", listOf("would", "will", "was"), 0),
-        q("By the time you read this, I ___ have left.", listOf("will", "would", "am"), 0)
-    ),
-    idioms = listOf(
-        IdiomExpression("In a manner of speaking", "به نوعی", "In a manner of speaking.", "به نوعی."),
-        IdiomExpression("When you think about it", "وقتی فکر می‌کنی", "When you think about it.", "وقتی فکر می‌کنی."),
-        IdiomExpression("Drift", "پرسه زدن ذهن", "My mind drifts.", "ذهنم پرسه می‌زند.")
-    ),
-    pron = listOf(
-        PronunciationTip("Complex tense", "Stress the auxiliary: I thought I WOULD have finished. By the time you read this, I WILL have left.")
-    ),
-    cult = listOf(
-        CulturalNote("Philosophy of time", "Aristotle, Augustine, Kant, and Heidegger all grappled with time. Modern physics complicates the picture further.")
-    ),
-    mis = listOf(
-        CommonMistake("I thought I would finished by then.", "I thought I would have finished by then.", "Would have + past participle.")
-        ,
-        CommonMistake("By the time you read this, I will left.", "By the time you read this, I will have left.", "Future perfect needed.")
+    private fun f4A() = base(16, "4A The philosophy of time", "۴A فلسفه زمان",
+        listOf(
+            "Use future in the past and complex tense structures",
+            "Discuss philosophical concepts of time",
+            "Express temporal relationships"
+        ),
+        listOf(
+            v("temporal", "زمانی", "Temporal experience.", "تجربه زمانی.", "adjective"),
+            v("simultaneous", "همزمان", "Simultaneous events.", "رویدادهای همزمان.", "adjective"),
+            v("sequential", "متوالی", "Sequential order.", "ترتیب متوالی.", "adjective"),
+            v("chronological", "گاه‌شمارانه", "Chronological narrative.", "روایت گاه‌شمارانه.", "adjective"),
+            v("eternal", "ابدی", "Eternal recurrence.", "عود ابدی.", "adjective"),
+            v("fleeting", "گذرا", "Fleeting moments.", "لحظات گذرا.", "adjective"),
+            v("duration", "مدت", "Subjective duration.", "مدت ذهنی."),
+            v("instantaneous", "آنی", "Instantaneous experience.", "تجربه آنی.", "adjective"),
+            v("anachronistic", "زمان‌ناهمگون", "Anachronistic thinking.", "تفکر زمان‌ناهمگون.", "adjective"),
+            v("precede", "مقدم بودن", "Events preceding the war.", "رویدادهای مقدم بر جنگ.", "verb"),
+            v("succeed", "پیرو بودن", "The years succeeding the war.", "سال‌های پیرو جنگ.", "verb"),
+            v("temporal paradox", "پارادوکس زمانی", "A temporal paradox.", "پارادوکس زمانی.")
+        ),
+        listOf(
+            GrammarSection("Future in the past", "He said he would arrive by noon. I thought I would have finished by then."),
+            GrammarSection("Complex tense sequencing", "By the time you read this, I will have left."),
+            GrammarSection("Time clause combinations", "Whenever I think of it, I remember that I had been warned."),
+            GrammarSection("Habitual past", "I would sit for hours, contemplating."),
+            GrammarSection("Narrative present for timeless truths", "Time flows, unceasing, indifferent to our experience of it.")
+        ),
+        listOf(
+            d("A", "Do you think time is real, or is it merely a feature of human perception?", "فکر می‌کنی زمان واقعی‌ست، یا صرفاً ویژگی ادراک انسانی‌ست؟"),
+            d("B", "A classic question. Physicists tend to say it's real — or at least, that it's woven into the fabric of the universe.", "سؤال کلاسیک. فیزیکدانان تمایل دارند بگویند واقعی‌ست — یا حداقل، در بافت جهان تنیده شده."),
+            d("A", "But our experience of it seems so subjective. An hour can feel like a moment, or an eternity.", "ولی تجربه ما از آن خیلی ذهنی به نظر می‌رسد. یک ساعت می‌تواند مثل یک لحظه، یا یک ابدیت حس شود."),
+            d("B", "Indeed. Which suggests that what we call 'time' may be two things: physical time, and psychological time. They don't always align.", "همینطور. که نشان می‌دهد آنچه 'زمان' می‌نامیم ممکن است دو چیز باشد: زمان فیزیکی، و زمان روانشناختی. همیشه هم‌راستا نیستند."),
+            d("A", "That's a useful distinction. Do you think one is more fundamental?", "تمایز مفیدی‌ست. فکر می‌کنی یکی بنیادین‌تر است؟"),
+            d("B", "Physical time, I'd argue, is more fundamental in the sense that it exists independently of observers. But psychological time is what we actually live.", "استدلال می‌کنم زمان فیزیکی بنیادین‌تر است از این نظر که مستقل از ناظران وجود دارد. ولی زمان روانشناختی چیزی‌ست که واقعاً زندگی می‌کنیم."),
+            d("A", "Would you say we're trapped in the present?", "می‌گویی در حال گیر افتاده‌ایم؟"),
+            d("B", "In a manner of speaking. We can remember the past and anticipate the future, but we can only ever inhabit the now.", "به نوعی. می‌توانیم گذشته را به یاد آوریم و آینده را پیش‌بینی کنیم، ولی فقط می‌توانیم در اکنون ساکن باشیم."),
+            d("A", "And yet we spend so much of our lives either regretting or worrying — as though we could escape the present.", "و با این حال اینقدر از زندگی‌مان را یا پشیمان یا نگران می‌گذرانیم — گویی می‌توانیم از حال فرار کنیم."),
+            d("B", "A tragic irony, when you think about it. If we had been wiser, we might have understood that the present is all we ever truly have.", "طنز غم‌انگیزی‌ست، وقتی فکر می‌کنی. اگر عاقل‌تر بودیم، ممکن بود بفهمیم که حال تمام چیزی‌ست که واقعاً داریم."),
+            d("A", "Do you think that's why mindfulness has become so popular?", "فکر می‌کنی برای همین ذهن‌آگاهی اینقدر محبوب شده؟"),
+            d("B", "Partly. It's an attempt to reclaim the present from the tyranny of past and future.", "تا حدی. تلاشی‌ست برای بازپس‌گیری حال از استبداد گذشته و آینده."),
+            d("A", "Do you practise it?", "تمرینش می‌کنی؟"),
+            d("B", "I try. When I'm walking, I remind myself to notice the present. Otherwise, my mind drifts, and I've arrived at my destination without any memory of the journey.", "سعی می‌کنم. وقتی قدم می‌زنم، به خودم یادآوری می‌کنم که حال را متوجه شوم. وگرنه، ذهنم می‌رود، و بدون هیچ خاطره‌ای از سفر به مقصد رسیده‌ام."),
+            d("A", "A common experience.", "تجربه رایجی‌ست."),
+            d("B", "And a poignant one. We miss so much of our own lives.", "و تکان‌دهنده. اینقدر از زندگی‌های خودمان را از دست می‌دهیم."),
+            d("A", "Well, on that philosophical note...", "خب، بر این اساس فلسفی..."),
+            d("B", "Shall we take a walk, and try to be present?", "قدم بزنیم و سعی کنیم حاضر باشیم؟"),
+            d("A", "An excellent suggestion.", "پیشنهاد عالی‌ای‌ست.")
+        ),
+        listOf(
+            q("How does B distinguish time?", listOf("real/imaginary", "physical/psychological", "fast/slow"), 1),
+            q("What does B say we can inhabit?", listOf("past", "future", "present"), 2),
+            q("I thought I ___ have finished by then.", listOf("would", "will", "was"), 0),
+            q("By the time you read this, I ___ have left.", listOf("will", "would", "am"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("In a manner of speaking", "به نوعی", "In a manner of speaking.", "به نوعی."),
+            IdiomExpression("When you think about it", "وقتی فکر می‌کنی", "When you think about it.", "وقتی فکر می‌کنی."),
+            IdiomExpression("Drift", "پرسه زدن ذهن", "My mind drifts.", "ذهنم پرسه می‌زند.")
+        ),
+        pron = listOf(
+            PronunciationTip("Complex tense", "Stress the auxiliary: I thought I WOULD have finished. By the time you read this, I WILL have left.")
+        ),
+        cult = listOf(
+            CulturalNote("Philosophy of time", "Aristotle, Augustine, Kant, and Heidegger all grappled with time. Modern physics complicates the picture further.")
+        ),
+        mis = listOf(
+            CommonMistake("I thought I would finished by then.", "I thought I would have finished by then.", "Would have + past participle."),
+            CommonMistake("By the time you read this, I will left.", "By the time you read this, I will have left.", "Future perfect needed.")
+        )
     )
-)
 
-private fun f4B() = base(17, "4B Life and death", "۴B زندگی و مرگ",
-    listOf(
-        "Use philosophical registers",
-        "Discuss mortality and meaning",
-        "Express existential themes"
-    ),
-    listOf(
-        v("mortality", "مرگ‌ومیر", "Awareness of mortality.", "آگاهی از مرگ‌ومیر."),
-        v("existential", "اگزیستانسیال", "An existential crisis.", "بحران اگزیستانسیال.", "adjective"),
-        v("finitude", "محدودیت", "The finitude of life.", "محدودیت زندگی."),
-        v("transient", "گذرا", "Transient existence.", "وجود گذرا.", "adjective"),
-        v("ephemeral", "زودگذر", "Ephemeral pleasures.", "لذت‌های زودگذر.", "adjective"),
-        v("legacy", "میراث", "Leave a legacy.", "میراثی بگذار."),
-        v("mortality", "فناپذیری", "Confront mortality.", "با فناپذیری روبرو شو."),
-        v("meaning", "معنا", "The meaning of life.", "معنای زندگی."),
-        v("absurd", "پوچ", "The absurdity of existence.", "پوچی وجود.", "adjective"),
-        v("authentic", "اصیل", "An authentic existence.", "وجود اصیل.", "adjective"),
-        v("contemplate", "تعمق کردن", "Contemplate existence.", "در وجود تعمق کن.", "verb"),
-        v("sublime", "والا", "The sublime in nature.", "والایی در طبیعت.", "adjective")
-    ),
-    listOf(
-        GrammarSection("Philosophical register", "It could be contended that... One might argue... It is perhaps the case that..."),
-        GrammarSection("Concessive and adversative", "Though we may fear death, we cannot avoid it. Whereas some find meaning, others find absurdity."),
-        GrammarSection("Existential emphasis", "It is death, above all, that gives life its urgency.")
-    ),
-    listOf(
-        d("A", "Do you ever think about your own mortality?", "هرگز به فناپذیری خودت فکر می‌کنی؟"),
-        d("B", "More than I'd like to admit. It's something of a preoccupation, actually.", "بیشتر از آنچه دوست دارم اعتراف کنم. در واقع تا حدی دغدغه‌ام است."),
-        d("A", "Does it frighten you?", "می‌ترساندت؟"),
-        d("B", "Not the fact of it, so much as the finality. That there will come a moment after which I will never again think, feel, or love.", "خود واقعیت را نه، بیشتر قطعیت را. اینکه لحظه‌ای خواهد آمد که بعد از آن هرگز دیگر فکر نخواهم کرد، احساس نخواهم کرد، عشق نخواهم ورزید."),
-        d("A", "That's a heavy thought.", "فکر سنگینی‌ست."),
-        d("B", "It is. And yet, paradoxically, it's precisely that finitude which makes life meaningful. Were we to live forever, nothing would matter.", "هست. و با این حال، به طور پارادوکسیکال، دقیقاً همین محدودیت است که به زندگی معنا می‌دهد. اگر تا ابد زندگی می‌کردیم، هیچ چیز مهم نبود."),
-        d("A", "A common existentialist argument. Do you find it consoling?", "استدلال اگزیستانسیالیستی رایجی‌ست. تسلی‌بخش می‌یابیش؟"),
-        d("B", "Sometimes. Other times, I find the whole thing absurd. We strive, we love, we create — and then it all vanishes.", "گاهی. زمان‌های دیگر، کل موضوع را پوچ می‌یابم. تلاش می‌کنیم، عشق می‌ورزیم، خلق می‌کنیم — و بعد همه ناپدید می‌شود."),
-        d("A", "Yet the striving itself has value, doesn't it? The process, not just the outcome?", "و با این حال خود تلاش ارزش دارد، نه؟ فرآیند، نه فقط نتیجه؟"),
-        d("B", "I'd like to think so. Though I'm not sure the universe cares one way or the other.", "دوست دارم فکر کنم. هرچند مطمئن نیستم جهان یکی از این دو را اهمیت دهد."),
-        d("A", "Perhaps the universe's indifference is precisely what frees us. We create our own meaning, unburdened by cosmic demands.", "شاید بی‌تفاوتی جهان دقیقاً چیزی‌ست که ما را آزاد می‌کند. معنای خودمان را خلق می‌کنیم، بدون بار خواسته‌های کیهانی."),
-        d("B", "That's Camus's position, more or less. Embrace the absurd, and live fully nonetheless.", "این موضع کامو است، کمابیش. پوچی را بپذیر، و با این حال کاملاً زندگی کن."),
-        d("A", "Do you find that satisfying?", "رضایت‌بخش می‌یابیش؟"),
-        d("B", "On good days, yes. On bad days, it feels like whistling in the dark.", "در روزهای خوب، بله. در روزهای بد، مثل سوت زدن در تاریکی حس می‌شود."),
-        d("A", "That's honest.", "صادقانه است."),
-        d("B", "I've always thought that a philosophy that can't survive a bad day isn't much of a philosophy at all.", "همیشه فکر کرده‌ام فلسفه‌ای که نتواند یک روز بد را تحمل کند، اصلاً چندان فلسفه‌ای نیست."),
-        d("A", "What does survive, for you?", "چه چیزی برایت می‌ماند؟"),
-        d("B", "Connection, I think. Love, friendship, the moments of genuine presence with another person. Those are the things that redeem existence.", "ارتباط، فکر می‌کنم. عشق، دوستی، لحظات حضور واقعی با شخص دیگر. این‌ها چیزهایی هستند که وجود را نجات می‌دهند."),
-        d("A", "That's beautiful.", "قشنگه."),
-        d("B", "It's the only thing I've found that holds up.", "تنها چیزی‌ست که یافته‌ام دوام می‌آورد.")
-    ),
-    listOf(
-        q("What frightens B?", listOf("death itself", "finality", "pain"), 1),
-        q("What redeems existence for B?", listOf("success", "connection", "money"), 1),
-        q("It is death, above all, ___ gives life urgency.", listOf("that", "which", "what"), 0),
-        q("___ we may fear death, we cannot avoid it.", listOf("Though", "Because", "Since"), 0)
-    ),
-    idioms = listOf(
-        IdiomExpression("More than I'd like to admit", "بیشتر از آنچه دوست دارم اعتراف کنم", "More than I'd like to admit.", "بیشتر از آنچه دوست دارم اعتراف کنم."),
-        IdiomExpression("Whistling in the dark", "سوت زدن در تاریکی", "Like whistling in the dark.", "مثل سوت زدن در تاریکی."),
-        IdiomExpression("Hold up", "دوام آوردن", "It's the only thing that holds up.", "تنها چیزی‌ست که دوام می‌آورد.")
-    ),
-    pron = listOf(
-        PronunciationTip("Philosophical register", "Slow, measured speech. Pause for emphasis. Let gravity settle.")
-    ),
-    cult = listOf(
-        CulturalNote("Existentialism", "Kierkegaard, Nietzsche, Sartre, Camus. Existentialist thought emphasises individual freedom, choice, and the creation of meaning in an indifferent universe.")
-    ),
-    mis = listOf(
-        CommonMistake("It is death, above all, which gives life urgency.", "It is death, above all, that gives life urgency.", "Use 'that' in cleft sentences (though 'which' is sometimes accepted).")
-        ,
-        CommonMistake("Though we may fear death, but we cannot avoid it.", "Though we may fear death, we cannot avoid it.", "Don't use 'but' with 'though'.")
+    private fun f4B() = base(17, "4B Life and death", "۴B زندگی و مرگ",
+        listOf(
+            "Use philosophical registers",
+            "Discuss mortality and meaning",
+            "Express existential themes"
+        ),
+        listOf(
+            v("mortality", "مرگ‌ومیر", "Awareness of mortality.", "آگاهی از مرگ‌ومیر."),
+            v("existential", "اگزیستانسیال", "An existential crisis.", "بحران اگزیستانسیال.", "adjective"),
+            v("finitude", "محدودیت", "The finitude of life.", "محدودیت زندگی."),
+            v("transient", "گذرا", "Transient existence.", "وجود گذرا.", "adjective"),
+            v("ephemeral", "زودگذر", "Ephemeral pleasures.", "لذت‌های زودگذر.", "adjective"),
+            v("legacy", "میراث", "Leave a legacy.", "میراثی بگذار."),
+            v("mortality", "فناپذیری", "Confront mortality.", "با فناپذیری روبرو شو."),
+            v("meaning", "معنا", "The meaning of life.", "معنای زندگی."),
+            v("absurd", "پوچ", "The absurdity of existence.", "پوچی وجود.", "adjective"),
+            v("authentic", "اصیل", "An authentic existence.", "وجود اصیل.", "adjective"),
+            v("contemplate", "تعمق کردن", "Contemplate existence.", "در وجود تعمق کن.", "verb"),
+            v("sublime", "والا", "The sublime in nature.", "والایی در طبیعت.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Philosophical register", "It could be contended that... One might argue... It is perhaps the case that..."),
+            GrammarSection("Concessive and adversative", "Though we may fear death, we cannot avoid it. Whereas some find meaning, others find absurdity."),
+            GrammarSection("Existential emphasis", "It is death, above all, that gives life its urgency.")
+        ),
+        listOf(
+            d("A", "Do you ever think about your own mortality?", "هرگز به فناپذیری خودت فکر می‌کنی؟"),
+            d("B", "More than I'd like to admit. It's something of a preoccupation, actually.", "بیشتر از آنچه دوست دارم اعتراف کنم. در واقع تا حدی دغدغه‌ام است."),
+            d("A", "Does it frighten you?", "می‌ترساندت؟"),
+            d("B", "Not the fact of it, so much as the finality. That there will come a moment after which I will never again think, feel, or love.", "خود واقعیت را نه، بیشتر قطعیت را. اینکه لحظه‌ای خواهد آمد که بعد از آن هرگز دیگر فکر نخواهم کرد، احساس نخواهم کرد، عشق نخواهم ورزید."),
+            d("A", "That's a heavy thought.", "فکر سنگینی‌ست."),
+            d("B", "It is. And yet, paradoxically, it's precisely that finitude which makes life meaningful. Were we to live forever, nothing would matter.", "هست. و با این حال، به طور پارادوکسیکال، دقیقاً همین محدودیت است که به زندگی معنا می‌دهد. اگر تا ابد زندگی می‌کردیم، هیچ چیز مهم نبود."),
+            d("A", "A common existentialist argument. Do you find it consoling?", "استدلال اگزیستانسیالیستی رایجی‌ست. تسلی‌بخش می‌یابیش؟"),
+            d("B", "Sometimes. Other times, I find the whole thing absurd. We strive, we love, we create — and then it all vanishes.", "گاهی. زمان‌های دیگر، کل موضوع را پوچ می‌یابم. تلاش می‌کنیم، عشق می‌ورزیم، خلق می‌کنیم — و بعد همه ناپدید می‌شود."),
+            d("A", "Yet the striving itself has value, doesn't it? The process, not just the outcome?", "و با این حال خود تلاش ارزش دارد، نه؟ فرآیند، نه فقط نتیجه؟"),
+            d("B", "I'd like to think so. Though I'm not sure the universe cares one way or the other.", "دوست دارم فکر کنم. هرچند مطمئن نیستم جهان یکی از این دو را اهمیت دهد."),
+            d("A", "Perhaps the universe's indifference is precisely what frees us. We create our own meaning, unburdened by cosmic demands.", "شاید بی‌تفاوتی جهان دقیقاً چیزی‌ست که ما را آزاد می‌کند. معنای خودمان را خلق می‌کنیم، بدون بار خواسته‌های کیهانی."),
+            d("B", "That's Camus's position, more or less. Embrace the absurd, and live fully nonetheless.", "این موضع کامو است، کمابیش. پوچی را بپذیر، و با این حال کاملاً زندگی کن."),
+            d("A", "Do you find that satisfying?", "رضایت‌بخش می‌یابیش؟"),
+            d("B", "On good days, yes. On bad days, it feels like whistling in the dark.", "در روزهای خوب، بله. در روزهای بد، مثل سوت زدن در تاریکی حس می‌شود."),
+            d("A", "That's honest.", "صادقانه است."),
+            d("B", "I've always thought that a philosophy that can't survive a bad day isn't much of a philosophy at all.", "همیشه فکر کرده‌ام فلسفه‌ای که نتواند یک روز بد را تحمل کند، اصلاً چندان فلسفه‌ای نیست."),
+            d("A", "What does survive, for you?", "چه چیزی برایت می‌ماند؟"),
+            d("B", "Connection, I think. Love, friendship, the moments of genuine presence with another person. Those are the things that redeem existence.", "ارتباط، فکر می‌کنم. عشق، دوستی، لحظات حضور واقعی با شخص دیگر. این‌ها چیزهایی هستند که وجود را نجات می‌دهند."),
+            d("A", "That's beautiful.", "قشنگه."),
+            d("B", "It's the only thing I've found that holds up.", "تنها چیزی‌ست که یافته‌ام دوام می‌آورد.")
+        ),
+        listOf(
+            q("What frightens B?", listOf("death itself", "finality", "pain"), 1),
+            q("What redeems existence for B?", listOf("success", "connection", "money"), 1),
+            q("It is death, above all, ___ gives life urgency.", listOf("that", "which", "what"), 0),
+            q("___ we may fear death, we cannot avoid it.", listOf("Though", "Because", "Since"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("More than I'd like to admit", "بیشتر از آنچه دوست دارم اعتراف کنم", "More than I'd like to admit.", "بیشتر از آنچه دوست دارم اعتراف کنم."),
+            IdiomExpression("Whistling in the dark", "سوت زدن در تاریکی", "Like whistling in the dark.", "مثل سوت زدن در تاریکی."),
+            IdiomExpression("Hold up", "دوام آوردن", "It's the only thing that holds up.", "تنها چیزی‌ست که دوام می‌آورد.")
+        ),
+        pron = listOf(
+            PronunciationTip("Philosophical register", "Slow, measured speech. Pause for emphasis. Let gravity settle.")
+        ),
+        cult = listOf(
+            CulturalNote("Existentialism", "Kierkegaard, Nietzsche, Sartre, Camus. Existentialist thought emphasises individual freedom, choice, and the creation of meaning in an indifferent universe.")
+        ),
+        mis = listOf(
+            CommonMistake("It is death, above all, which gives life urgency.", "It is death, above all, that gives life urgency.", "Use 'that' in cleft sentences (though 'which' is sometimes accepted)."),
+            CommonMistake("Though we may fear death, but we cannot avoid it.", "Though we may fear death, we cannot avoid it.", "Don't use 'but' with 'though'.")
+        )
     )
-)
 
-private fun f4C() = base(18, "4C The meaning of life", "۴C معنای زندگی",
-    listOf(
-        "Use rhetorical and philosophical structures",
-        "Explore ultimate questions",
-        "Express nuanced philosophical positions"
-    ),
-    listOf(
-        v("teleology", "غایت‌شناسی", "Teleological arguments.", "استدلال‌های غایت‌شناختی."),
-        v("purpose", "هدف", "A sense of purpose.", "حس هدف."),
-        v("absurdity", "پوچی", "The absurdity of existence.", "پوچی وجود."),
-        v("authenticity", "اصالت", "Live with authenticity.", "با اصالت زندگی کن."),
-        v("transcendence", "تعالی", "Moments of transcendence.", "لحظات تعالی."),
-        v("immanence", "حلول", "The immanence of being.", "حلول وجود."),
-        v("existentialism", "اگزیستانسیالیسم", "Existentialist philosophy.", "فلسفه اگزیستانسیالیستی."),
-        v("nihilism", "نیهیلیسم", "Nihilism rejects meaning.", "نیهیلیسم معنا را رد می‌کند."),
-        v("sublimation", "تعالی بخشیدن", "Sublimation of desire.", "تعالی بخشیدن به میل."),
-        v("flourish", "شکوفا شدن", "Human flourishing.", "شکوفایی انسانی.", "verb"),
-        v("contemplation", "تعمق", "Deep contemplation.", "تعمق عمیق."),
-        v("reverence", "احترام", "Reverence for life.", "احترام به زندگی.")
-    ),
-    listOf(
-        GrammarSection("Philosophical questions", "What is the meaning of life? Is there any purpose to existence?"),
-        GrammarSection("Nominal clauses as subjects", "What matters most is how we treat others. Whether we find meaning is up to us."),
-        GrammarSection("Rhetorical structures", "Is it not the case that...? Who among us has not wondered...?")
-    ),
-    listOf(
-        d("A", "Do you think life has an inherent meaning, or do we create our own?", "فکر می‌کنی زندگی معنای ذاتی دارد، یا ما خودمان معنایمان را خلق می‌کنیم؟"),
-        d("B", "A question that has occupied philosophers for millennia, and to which no definitive answer has ever been given.", "سؤالی که هزاران سال فیلسوفان را مشغول کرده، و هیچ پاسخ قطعی به آن داده نشده."),
-        d("A", "Which side do you lean toward?", "به کدام سمت تمایل داری؟"),
-        d("B", "I lean toward the view that meaning is constructed, not discovered. It's something we forge in the living of our lives.", "به این دیدگاه تمایل دارم که معنا ساخته می‌شود، نه کشف. چیزی‌ست که در زیستن زندگی‌هایمان می‌سازیم."),
-        d("A", "That's a very existentialist position.", "موضع خیلی اگزیستانسیالیستی‌ست."),
-        d("B", "It is, though I wouldn't call myself an existentialist in any orthodox sense. There are elements of other traditions I find compelling too.", "هست، هرچند خودم را اگزیستانسیالیست به معنای ارتدکس نمی‌نامم. عناصری از سنت‌های دیگر هم هست که قانع‌کننده می‌یابم."),
-        d("A", "Such as?", "مثل چه؟"),
-        d("B", "Virtue ethics, for instance. The idea that we flourish by cultivating character rather than by maximising pleasure or following rules.", "مثلاً اخلاق فضیلت. ایده اینکه با پرورش شخصیت شکوفا می‌شویم نه با حداکثر کردن لذت یا پیروی از قوانین."),
-        d("A", "And yet you maintain that meaning is constructed?", "و با این حال حفظ می‌کنی که معنا ساخته می‌شود؟"),
-        d("B", "I see no contradiction. Virtues are dispositions we cultivate. What matters is that we choose to cultivate them.", "تناقضی نمی‌بینم. فضیلت‌ها تمایلاتی هستند که پرورش می‌دهیم. مهم این است که انتخاب می‌کنیم پرورششان دهیم."),
-        d("A", "Some would say that's an illusion — that we're determined by forces beyond our control.", "بعضی می‌گویند این توهم است — که توسط نیروهای فراتر از کنترل ما تعیین می‌شویم."),
-        d("B", "Perhaps. But even if determinism is true, the experience of choosing remains. And that experience is what we live.", "شاید. ولی حتی اگر جبرگرایی درست باشد، تجربه انتخاب می‌ماند. و آن تجربه چیزی‌ست که زندگی می‌کنیم."),
-        d("A", "Do you think most people find meaning, or just get by?", "فکر می‌کنی بیشتر مردم معنا پیدا می‌کنند، یا فقط سر می‌کنند؟"),
-        d("B", "I suspect most people find fragments of meaning without ever articulating them. A child's laugh, a sunset, a moment of genuine kindness.", "گمان می‌کنم بیشتر مردم تکه‌هایی از معنا را می‌یابند بدون اینکه هرگز بیانش کنند. خنده کودکی، غروبی، لحظه‌ای از مهربانی واقعی."),
-        d("A", "And that's enough?", "و این کافیه؟"),
-        d("B", "It has to be. We are, after all, transient beings. To demand eternal meaning from an ephemeral existence is to set ourselves up for despair.", "باید باشد. ما، بعد از همه، موجوداتی گذرا هستیم. خواستن معنای ابدی از وجودی زودگذر، آماده کردن خودمان برای ناامیدی‌ست."),
-        d("A", "That's a sobering but strangely consoling thought.", "فکر هوشیارکننده ولی به طور عجیبی تسلی‌بخشی‌ست."),
-        d("B", "I find it so. Were we to demand more, we'd only be disappointed.", "من همینطور می‌یابمش. اگر بیشتر می‌خواستیم، فقط ناامید می‌شدیم."),
-        d("A", "Well, on that profound note, shall we have another coffee?", "خب، بر این اساس عمیق، یک قهوه دیگر بخوریم؟"),
-        d("B", "A consummation devoutly to be wished.", "اتمامی که مؤمنانه آرزو می‌شود.")
-    ),
-    listOf(
-        q("What does B think of meaning?", listOf("inherent", "constructed", "impossible"), 1),
-        q("Which tradition does B also value?", listOf("nihilism", "virtue ethics", "materialism"), 1),
-        q("___ matters most is how we treat others.", listOf("What", "That", "Which"), 0),
-        q("Is it not the case ___ we all seek meaning?", listOf("that", "which", "what"), 0)
-    ),
-    idioms = listOf(
-        IdiomExpression("Get by", "سر کردن", "Just get by.", "فقط سر کردن."),
-        IdiomExpression("Set ourselves up", "خودمان را آماده کردن", "Set ourselves up for despair.", "خودمان را برای ناامیدی آماده کردن."),
-        IdiomExpression("On that note", "بر این اساس", "On that note, shall we?", "بر این اساس، بیایید؟")
-    ),
-    pron = listOf(
-        PronunciationTip("Philosophical register", "A measured, contemplative tone. Pause to let ideas resonate. Avoid rushing.")
-    ),
-    cult = listOf(
-        CulturalNote("Meaning of life", "From Aristotle's eudaimonia to Viktor Frankl's logotherapy, humans have sought frameworks for meaning across cultures and eras.")
-    ),
-    mis = listOf(
-        CommonMistake("What matters most it's how we treat others.", "What matters most is how we treat others.", "Use 'is', not 'it's'.")
-        ,
-        CommonMistake("We are, after all, transient beings, aren't we?", "We are, after all, transient beings.", "Fine in context; avoid unnecessary tag in formal register.")
+    private fun f4C() = base(18, "4C The meaning of life", "۴C معنای زندگی",
+        listOf(
+            "Use rhetorical and philosophical structures",
+            "Explore ultimate questions",
+            "Express nuanced philosophical positions"
+        ),
+        listOf(
+            v("teleology", "غایت‌شناسی", "Teleological arguments.", "استدلال‌های غایت‌شناختی."),
+            v("purpose", "هدف", "A sense of purpose.", "حس هدف."),
+            v("absurdity", "پوچی", "The absurdity of existence.", "پوچی وجود."),
+            v("authenticity", "اصالت", "Live with authenticity.", "با اصالت زندگی کن."),
+            v("transcendence", "تعالی", "Moments of transcendence.", "لحظات تعالی."),
+            v("immanence", "حلول", "The immanence of being.", "حلول وجود."),
+            v("existentialism", "اگزیستانسیالیسم", "Existentialist philosophy.", "فلسفه اگزیستانسیالیستی."),
+            v("nihilism", "نیهیلیسم", "Nihilism rejects meaning.", "نیهیلیسم معنا را رد می‌کند."),
+            v("sublimation", "تعالی بخشیدن", "Sublimation of desire.", "تعالی بخشیدن به میل."),
+            v("flourish", "شکوفا شدن", "Human flourishing.", "شکوفایی انسانی.", "verb"),
+            v("contemplation", "تعمق", "Deep contemplation.", "تعمق عمیق."),
+            v("reverence", "احترام", "Reverence for life.", "احترام به زندگی.")
+        ),
+        listOf(
+            GrammarSection("Philosophical questions", "What is the meaning of life? Is there any purpose to existence?"),
+            GrammarSection("Nominal clauses as subjects", "What matters most is how we treat others. Whether we find meaning is up to us."),
+            GrammarSection("Rhetorical structures", "Is it not the case that...? Who among us has not wondered...?")
+        ),
+        listOf(
+            d("A", "Do you think life has an inherent meaning, or do we create our own?", "فکر می‌کنی زندگی معنای ذاتی دارد، یا ما خودمان معنایمان را خلق می‌کنیم؟"),
+            d("B", "A question that has occupied philosophers for millennia, and to which no definitive answer has ever been given.", "سؤالی که هزاران سال فیلسوفان را مشغول کرده، و هیچ پاسخ قطعی به آن داده نشده."),
+            d("A", "Which side do you lean toward?", "به کدام سمت تمایل داری؟"),
+            d("B", "I lean toward the view that meaning is constructed, not discovered. It's something we forge in the living of our lives.", "به این دیدگاه تمایل دارم که معنا ساخته می‌شود، نه کشف. چیزی‌ست که در زیستن زندگی‌هایمان می‌سازیم."),
+            d("A", "That's a very existentialist position.", "موضع خیلی اگزیستانسیالیستی‌ست."),
+            d("B", "It is, though I wouldn't call myself an existentialist in any orthodox sense. There are elements of other traditions I find compelling too.", "هست، هرچند خودم را اگزیستانسیالیست به معنای ارتدکس نمی‌نامم. عناصری از سنت‌های دیگر هم هست که قانع‌کننده می‌یابم."),
+            d("A", "Such as?", "مثل چه؟"),
+            d("B", "Virtue ethics, for instance. The idea that we flourish by cultivating character rather than by maximising pleasure or following rules.", "مثلاً اخلاق فضیلت. ایده اینکه با پرورش شخصیت شکوفا می‌شویم نه با حداکثر کردن لذت یا پیروی از قوانین."),
+            d("A", "And yet you maintain that meaning is constructed?", "و با این حال حفظ می‌کنی که معنا ساخته می‌شود؟"),
+            d("B", "I see no contradiction. Virtues are dispositions we cultivate. What matters is that we choose to cultivate them.", "تناقضی نمی‌بینم. فضیلت‌ها تمایلاتی هستند که پرورش می‌دهیم. مهم این است که انتخاب می‌کنیم پرورششان دهیم."),
+            d("A", "Some would say that's an illusion — that we're determined by forces beyond our control.", "بعضی می‌گویند این توهم است — که توسط نیروهای فراتر از کنترل ما تعیین می‌شویم."),
+            d("B", "Perhaps. But even if determinism is true, the experience of choosing remains. And that experience is what we live.", "شاید. ولی حتی اگر جبرگرایی درست باشد، تجربه انتخاب می‌ماند. و آن تجربه چیزی‌ست که زندگی می‌کنیم."),
+            d("A", "Do you think most people find meaning, or just get by?", "فکر می‌کنی بیشتر مردم معنا پیدا می‌کنند، یا فقط سر می‌کنند؟"),
+            d("B", "I suspect most people find fragments of meaning without ever articulating them. A child's laugh, a sunset, a moment of genuine kindness.", "گمان می‌کنم بیشتر مردم تکه‌هایی از معنا را می‌یابند بدون اینکه هرگز بیانش کنند. خنده کودکی، غروبی، لحظه‌ای از مهربانی واقعی."),
+            d("A", "And that's enough?", "و این کافیه؟"),
+            d("B", "It has to be. We are, after all, transient beings. To demand eternal meaning from an ephemeral existence is to set ourselves up for despair.", "باید باشد. ما، بعد از همه، موجوداتی گذرا هستیم. خواستن معنای ابدی از وجودی زودگذر، آماده کردن خودمان برای ناامیدی‌ست."),
+            d("A", "That's a sobering but strangely consoling thought.", "فکر هوشیارکننده ولی به طور عجیبی تسلی‌بخشی‌ست."),
+            d("B", "I find it so. Were we to demand more, we'd only be disappointed.", "من همینطور می‌یابمش. اگر بیشتر می‌خواستیم، فقط ناامید می‌شدیم."),
+            d("A", "Well, on that profound note, shall we have another coffee?", "خب، بر این اساس عمیق، یک قهوه دیگر بخوریم؟"),
+            d("B", "A consummation devoutly to be wished.", "اتمامی که مؤمنانه آرزو می‌شود.")
+        ),
+        listOf(
+            q("What does B think of meaning?", listOf("inherent", "constructed", "impossible"), 1),
+            q("Which tradition does B also value?", listOf("nihilism", "virtue ethics", "materialism"), 1),
+            q("___ matters most is how we treat others.", listOf("What", "That", "Which"), 0),
+            q("Is it not the case ___ we all seek meaning?", listOf("that", "which", "what"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("Get by", "سر کردن", "Just get by.", "فقط سر کردن."),
+            IdiomExpression("Set ourselves up", "خودمان را آماده کردن", "Set ourselves up for despair.", "خودمان را برای ناامیدی آماده کردن."),
+            IdiomExpression("On that note", "بر این اساس", "On that note, shall we?", "بر این اساس، بیایید؟")
+        ),
+        pron = listOf(
+            PronunciationTip("Philosophical register", "A measured, contemplative tone. Pause to let ideas resonate. Avoid rushing.")
+        ),
+        cult = listOf(
+            CulturalNote("Meaning of life", "From Aristotle's eudaimonia to Viktor Frankl's logotherapy, humans have sought frameworks for meaning across cultures and eras.")
+        ),
+        mis = listOf(
+            CommonMistake("What matters most it's how we treat others.", "What matters most is how we treat others.", "Use 'is', not 'it's'."),
+            CommonMistake("We are, after all, transient beings, aren't we?", "We are, after all, transient beings.", "Fine in context; avoid unnecessary tag in formal register.")
+        )
     )
-)
 
-// ═══════════ PRACTICAL ENGLISH 4 ═══════════
+    // ═══════════ PRACTICAL ENGLISH 4 ═══════════
 
-private fun pe4() = base(19, "PE4 An academic seminar", "انگلیسی کاربردی ۴ — سمینار دانشگاهی",
-    listOf(
-        "Participate in academic discussion",
-        "Present research findings",
-        "Respond to critical questions"
-    ),
-    listOf(
-        v("methodology", "روش‌شناسی", "Rigorous methodology.", "روش‌شناسی دقیق."),
-        v("hypothesis", "فرضیه", "Test the hypothesis.", "فرضیه را آزمایش کن."),
-        v("empirical", "تجربی", "Empirical evidence.", "شواهد تجربی.", "adjective"),
-        v("correlation", "همبستگی", "A strong correlation.", "همبستگی قوی."),
-        v("causation", "علیت", "Correlation vs causation.", "همبستگی در برابر علیت."),
-        v("paradigm", "پارادایم", "A new paradigm.", "پارادایم جدید."),
-        v("substantiate", "اثبات کردن", "Substantiate the claim.", "ادعا را اثبات کن.", "verb"),
-        v("controversial", "بحث‌برانگیز", "A controversial thesis.", "پایان‌نامه بحث‌برانگیز.", "adjective"),
-        v("rigorous", "دقیق", "Rigorous analysis.", "تحلیل دقیق.", "adjective"),
-        v("replicate", "تکرار کردن", "Replicate the study.", "مطالعه را تکرار کن.", "verb"),
-        v("peer-reviewed", "داوری‌شده", "Peer-reviewed journal.", "مجله داوری‌شده.", "adjective"),
-        v("dissertation", "رساله", "Doctoral dissertation.", "رساله دکتری.")
-    ),
-    listOf(
-        GrammarSection("Academic hedging", "It would appear that... The evidence suggests... One might reasonably infer..."),
-        GrammarSection("Reporting findings", "The study demonstrated that... It has been shown that... Our findings indicate..."),
-        GrammarSection("Responding to criticism", "That's a valid concern, however... While I acknowledge that..., I would argue...")
-    ),
-    listOf(
-        d("A", "Thank you for that presentation. I have a few questions, if I may.", "ممنون از آن ارائه. چند سؤال دارم، اگر اجازه بدهید."),
-        d("B", "Of course. I welcome the scrutiny.", "البته. استقبال می‌کنم از بررسی دقیق."),
-        d("A", "You claim a strong correlation between social media use and declining attention spans. But how do you rule out reverse causation?", "شما همبستگی قوی بین استفاده از شبکه‌های اجتماعی و کاهش دامنه توجه ادعا می‌کنید. ولی چطور علّیت معکوس را رد می‌کنید؟"),
-        d("B", "An excellent question. We controlled for that by tracking participants longitudinally over five years. Those who initially had shorter attention spans didn't subsequently increase their social media use more than others.", "سؤال عالی‌ای‌ست. با ردیابی طولی شرکت‌کنندگان در طول پنج سال آن را کنترل کردیم. کسانی که در ابتدا دامنه توجه کوتاه‌تری داشتند، بعداً استفاده‌شان از شبکه‌های اجتماعی بیشتر از دیگران افزایش نیافت."),
-        d("A", "But longitudinal studies are notoriously subject to attrition bias. How did you address that?", "ولی مطالعات طولی به طور بدنامی در معرض سوگیری ریزش هستند. چطور به آن پرداختید؟"),
-        d("B", "We used multiple imputation for missing data. That's a standard technique. Nonetheless, I concede it's not a perfect solution.", "از imputation چندگانه برای داده‌های گمشده استفاده کردیم. تکنیک استانداردی‌ست. با این حال، اقرار می‌کنم راه‌حل کاملی نیست."),
-        d("A", "And you're confident in the effect size?", "و به اندازه اثر مطمئن هستید؟"),
-        d("B", "Reasonably. The effect was modest but statistically significant, with a p-value below 0.01.", "نسبتاً. اثر متوسط ولی از نظر آماری معنادار بود، با p-value زیر ۰٫۰۱."),
-        d("A", "Has the study been peer-reviewed?", "مطالعه داوری شده است؟"),
-        d("B", "It has. It was published in the Journal of Applied Psychology last month.", "بله. ماه پیش در مجله روانشناسی کاربردی منتشر شد."),
-        d("A", "Have others attempted to replicate it?", "دیگران تلاش کرده‌اند تکرارش کنند؟"),
-        d("B", "Two independent groups have, with broadly similar findings. That gives me more confidence.", "دو گروه مستقل، با یافته‌های تقریباً مشابه. این به من اعتماد بیشتری می‌دهد."),
-        d("A", "One final question. You've argued for policy intervention. But isn't that a leap from empirical findings to normative claims?", "یک سؤال نهایی. شما برای مداخله سیاستی استدلال کرده‌اید. ولی این جهشی از یافته‌های تجربی به ادعاهای هنجاری نیست؟"),
-        d("B", "That's a fair critique, and a classic philosophical problem. I'd maintain that if we accept harm prevention as a legitimate goal, then the inference is defensible.", "انتقاد منصفانه‌ای‌ست، و یک مسئله فلسفی کلاسیک. استدلال می‌کنم اگر جلوگیری از آسیب را به عنوان هدف مشروع بپذیریم، آنگاه استنتاج قابل دفاع است."),
-        d("A", "But that premise itself is contested.", "ولی خود آن مقدمه مورد مناقشه است."),
-        d("B", "It is. But so is every foundational premise. At some point, we must simply choose what we stand for.", "هست. ولی هر مقدمه بنیادین همینطور است. در نقطه‌ای، باید فقط انتخاب کنیم برای چه ایستاده‌ایم."),
-        d("A", "Thank you. I found that very illuminating.", "ممنون. بسیار روشنگر یافتم."),
-        d("B", "And I appreciate the challenge. It sharpens the thinking.", "و من چالش را قدردانی می‌کنم. تفکر را تیز می‌کند.")
-    ),
-    listOf(
-        q("What's A's main concern?", listOf("sample size", "reverse causation", "funding"), 1),
-        q("How does B address attrition?", listOf("imputation", "ignore", "add subjects"), 0),
-        q("The evidence ___ that social media affects attention.", listOf("suggests", "suggest", "suggesting"), 0),
-        q("While I ___ that, I would argue...", listOf("acknowledge", "acknowledging", "acknowledged"), 0)
-    ),
-    idioms = listOf(
-        IdiomExpression("Rule out", "رد کردن", "How do you rule out reverse causation?", "چطور علّیت معکوس را رد می‌کنید؟"),
-        IdiomExpression("Leap from", "جهش کردن از", "A leap from findings to claims.", "جهشی از یافته‌ها به ادعاها."),
-        IdiomExpression("At some point", "در نقطه‌ای", "At some point, we must choose.", "در نقطه‌ای، باید انتخاب کنیم.")
-    ),
-    pron = listOf(
-        PronunciationTip("Academic register", "Measured pace. Precise articulation. Pause before technical terms: reverse causation, peer-reviewed.")
-    ),
-    cult = listOf(
-        CulturalNote("Academic culture", "In Western academia, critical questioning is a sign of respect and engagement. In some cultures, it may be perceived as confrontational.")
-    ),
-    mis = listOf(
-        CommonMistake("The evidence suggest...", "The evidence suggests...", "Subject-verb agreement (evidence is singular).")
-        ,
-        CommonMistake("While I acknowledge that, but I would argue...", "While I acknowledge that, I would argue...", "No 'but' with 'while'.")
+    private fun pe4() = base(19, "PE4 An academic seminar", "انگلیسی کاربردی ۴ — سمینار دانشگاهی",
+        listOf(
+            "Participate in academic discussion",
+            "Present research findings",
+            "Respond to critical questions"
+        ),
+        listOf(
+            v("methodology", "روش‌شناسی", "Rigorous methodology.", "روش‌شناسی دقیق."),
+            v("hypothesis", "فرضیه", "Test the hypothesis.", "فرضیه را آزمایش کن."),
+            v("empirical", "تجربی", "Empirical evidence.", "شواهد تجربی.", "adjective"),
+            v("correlation", "همبستگی", "A strong correlation.", "همبستگی قوی."),
+            v("causation", "علیت", "Correlation vs causation.", "همبستگی در برابر علیت."),
+            v("paradigm", "پارادایم", "A new paradigm.", "پارادایم جدید."),
+            v("substantiate", "اثبات کردن", "Substantiate the claim.", "ادعا را اثبات کن.", "verb"),
+            v("controversial", "بحث‌برانگیز", "A controversial thesis.", "پایان‌نامه بحث‌برانگیز.", "adjective"),
+            v("rigorous", "دقیق", "Rigorous analysis.", "تحلیل دقیق.", "adjective"),
+            v("replicate", "تکرار کردن", "Replicate the study.", "مطالعه را تکرار کن.", "verb"),
+            v("peer-reviewed", "داوری‌شده", "Peer-reviewed journal.", "مجله داوری‌شده.", "adjective"),
+            v("dissertation", "رساله", "Doctoral dissertation.", "رساله دکتری.")
+        ),
+        listOf(
+            GrammarSection("Academic hedging", "It would appear that... The evidence suggests... One might reasonably infer..."),
+            GrammarSection("Reporting findings", "The study demonstrated that... It has been shown that... Our findings indicate..."),
+            GrammarSection("Responding to criticism", "That's a valid concern, however... While I acknowledge that..., I would argue...")
+        ),
+        listOf(
+            d("A", "Thank you for that presentation. I have a few questions, if I may.", "ممنون از آن ارائه. چند سؤال دارم، اگر اجازه بدهید."),
+            d("B", "Of course. I welcome the scrutiny.", "البته. استقبال می‌کنم از بررسی دقیق."),
+            d("A", "You claim a strong correlation between social media use and declining attention spans. But how do you rule out reverse causation?", "شما همبستگی قوی بین استفاده از شبکه‌های اجتماعی و کاهش دامنه توجه ادعا می‌کنید. ولی چطور علّیت معکوس را رد می‌کنید؟"),
+            d("B", "An excellent question. We controlled for that by tracking participants longitudinally over five years. Those who initially had shorter attention spans didn't subsequently increase their social media use more than others.", "سؤال عالی‌ای‌ست. با ردیابی طولی شرکت‌کنندگان در طول پنج سال آن را کنترل کردیم. کسانی که در ابتدا دامنه توجه کوتاه‌تری داشتند، بعداً استفاده‌شان از شبکه‌های اجتماعی بیشتر از دیگران افزایش نیافت."),
+            d("A", "But longitudinal studies are notoriously subject to attrition bias. How did you address that?", "ولی مطالعات طولی به طور بدنامی در معرض سوگیری ریزش هستند. چطور به آن پرداختید؟"),
+            d("B", "We used multiple imputation for missing data. That's a standard technique. Nonetheless, I concede it's not a perfect solution.", "از imputation چندگانه برای داده‌های گمشده استفاده کردیم. تکنیک استانداردی‌ست. با این حال، اقرار می‌کنم راه‌حل کاملی نیست."),
+            d("A", "And you're confident in the effect size?", "و به اندازه اثر مطمئن هستید؟"),
+            d("B", "Reasonably. The effect was modest but statistically significant, with a p-value below 0.01.", "نسبتاً. اثر متوسط ولی از نظر آماری معنادار بود، با p-value زیر ۰٫۰۱."),
+            d("A", "Has the study been peer-reviewed?", "مطالعه داوری شده است؟"),
+            d("B", "It has. It was published in the Journal of Applied Psychology last month.", "بله. ماه پیش در مجله روانشناسی کاربردی منتشر شد."),
+            d("A", "Have others attempted to replicate it?", "دیگران تلاش کرده‌اند تکرارش کنند؟"),
+            d("B", "Two independent groups have, with broadly similar findings. That gives me more confidence.", "دو گروه مستقل، با یافته‌های تقریباً مشابه. این به من اعتماد بیشتری می‌دهد."),
+            d("A", "One final question. You've argued for policy intervention. But isn't that a leap from empirical findings to normative claims?", "یک سؤال نهایی. شما برای مداخله سیاستی استدلال کرده‌اید. ولی این جهشی از یافته‌های تجربی به ادعاهای هنجاری نیست؟"),
+            d("B", "That's a fair critique, and a classic philosophical problem. I'd maintain that if we accept harm prevention as a legitimate goal, then the inference is defensible.", "انتقاد منصفانه‌ای‌ست، و یک مسئله فلسفی کلاسیک. استدلال می‌کنم اگر جلوگیری از آسیب را به عنوان هدف مشروع بپذیریم، آنگاه استنتاج قابل دفاع است."),
+            d("A", "But that premise itself is contested.", "ولی خود آن مقدمه مورد مناقشه است."),
+            d("B", "It is. But so is every foundational premise. At some point, we must simply choose what we stand for.", "هست. ولی هر مقدمه بنیادین همینطور است. در نقطه‌ای، باید فقط انتخاب کنیم برای چه ایستاده‌ایم."),
+            d("A", "Thank you. I found that very illuminating.", "ممنون. بسیار روشنگر یافتم."),
+            d("B", "And I appreciate the challenge. It sharpens the thinking.", "و من چالش را قدردانی می‌کنم. تفکر را تیز می‌کند.")
+        ),
+        listOf(
+            q("What's A's main concern?", listOf("sample size", "reverse causation", "funding"), 1),
+            q("How does B address attrition?", listOf("imputation", "ignore", "add subjects"), 0),
+            q("The evidence ___ that social media affects attention.", listOf("suggests", "suggest", "suggesting"), 0),
+            q("While I ___ that, I would argue...", listOf("acknowledge", "acknowledging", "acknowledged"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("Rule out", "رد کردن", "How do you rule out reverse causation?", "چطور علّیت معکوس را رد می‌کنید؟"),
+            IdiomExpression("Leap from", "جهش کردن از", "A leap from findings to claims.", "جهشی از یافته‌ها به ادعاها."),
+            IdiomExpression("At some point", "در نقطه‌ای", "At some point, we must choose.", "در نقطه‌ای، باید انتخاب کنیم.")
+        ),
+        pron = listOf(
+            PronunciationTip("Academic register", "Measured pace. Precise articulation. Pause before technical terms: reverse causation, peer-reviewed.")
+        ),
+        cult = listOf(
+            CulturalNote("Academic culture", "In Western academia, critical questioning is a sign of respect and engagement. In some cultures, it may be perceived as confrontational.")
+        ),
+        mis = listOf(
+            CommonMistake("The evidence suggest...", "The evidence suggests...", "Subject-verb agreement (evidence is singular)."),
+            CommonMistake("While I acknowledge that, but I would argue...", "While I acknowledge that, I would argue...", "No 'but' with 'while'.")
+        )
     )
-)
 
-// ═══════════ REVIEW 4 ═══════════
+    // ═══════════ REVIEW 4 ═══════════
 
-private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
-    listOf("Review future in the past", "Review philosophical register", "Review nominal clauses"),
-    listOf(
-        v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
-        v("synthesize", "ترکیب کردن", "Synthesize concepts.", "مفاهیم را ترکیب کن.", "verb"),
-        v("consolidate", "تثبیت کردن", "Consolidate mastery.", "تسلط را تثبیت کن.", "verb"),
-        v("nuance", "ظرافت", "Express with nuance.", "با ظرافت بیان کن."),
-        v("precision", "دقت", "Verbal precision.", "دقت کلامی."),
-        v("fluency", "روانی", "Sophisticated fluency.", "روانی پیچیده.")
-    ),
-    listOf(
-        GrammarSection("Future in the past", "He said he would arrive. I thought I would have finished."),
-        GrammarSection("Philosophical register", "It could be contended that... One might argue that..."),
-        GrammarSection("Nominal clauses", "What matters is... Whether we find meaning is...")
-    ),
-    listOf(
-        d("T", "Let's review the philosophical structures from Files 7 and 8.", "بیایید ساختارهای فلسفی فایل‌های ۷ و ۸ را مرور کنیم."),
-        d("A", "We studied future in the past. I thought I would have finished by then.", "آینده در گذشته مطالعه کردیم. I thought I would have finished by then."),
-        d("B", "And philosophical register. It could be contended that existence precedes essence.", "و لحن فلسفی. It could be contended that existence precedes essence."),
-        d("T", "Why use the passive here?", "چرا اینجا مجهول استفاده می‌شود؟"),
-        d("A", "To create distance and formality. It's common in academic and philosophical writing.", "برای ایجاد فاصله و رسمیت. در نوشتار دانشگاهی و فلسفی رایج است."),
-        d("T", "Nominal clauses?", "جملات اسمی؟"),
-        d("B", "What matters most is how we live. Whether we find meaning is up to us.", "What matters most is how we live. Whether we find meaning is up to us."),
-        d("T", "Excellent. How would you describe your level now?", "عالی. سطحتان را الان چطور توصیف می‌کنید؟"),
-        d("A", "Substantially more sophisticated. We can discuss abstract concepts with precision.", "به طور قابل توجهی پیچیده‌تر. می‌توانیم مفاهیم انتزاعی را با دقت بحث کنیم."),
-        d("B", "I feel we've moved from fluency to mastery.", "احساس می‌کنم از روانی به تسلط حرکت کرده‌ایم."),
-        d("T", "That's exactly right. You're operating at C1 level now.", "دقیقاً درست است. الان در سطح C1 کار می‌کنید."),
-        d("A", "It's been quite a journey.", "سفر قابل توجهی بوده."),
-        d("B", "Indeed. Onward to File 9.", "همینطور. به جلو به فایل ۹."),
-        d("T", "Excellent attitude. Let's continue.", "نگرش عالی. بیایید ادامه دهیم.")
-    ),
-    listOf(
-        q("Why use passive in philosophy?", listOf("informal", "formality", "clarity"), 1),
-        q("What does B say about level?", listOf("fluency to mastery", "beginner", "intermediate"), 0),
-        q("I thought I ___ have finished.", listOf("would", "will", "was"), 0),
-        q("___ matters most is how we live.", listOf("What", "That", "Which"), 0)
-    ),
-    idioms = listOf(IdiomExpression("Onward", "به جلو", "Onward to File 9.", "به جلو به فایل ۹.")),
-    pron = listOf(PronunciationTip("Formal register", "Precise articulation. Avoid contractions in the most formal contexts.")),
-    cult = listOf(CulturalNote("C1 level", "C1 users can understand a wide range of demanding texts, express ideas fluently and spontaneously, and use language flexibly.")),
-    mis = listOf(
-        CommonMistake("I thought I will have finished.", "I thought I would have finished.", "Would, not will, in reported past.")
-        ,
-        CommonMistake("That matters most is how we live.", "What matters most is how we live.", "Use 'what' as subject nominal.")
+    private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
+        listOf("Review future in the past", "Review philosophical register", "Review nominal clauses"),
+        listOf(
+            v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
+            v("synthesize", "ترکیب کردن", "Synthesize concepts.", "مفاهیم را ترکیب کن.", "verb"),
+            v("consolidate", "تثبیت کردن", "Consolidate mastery.", "تسلط را تثبیت کن.", "verb"),
+            v("nuance", "ظرافت", "Express with nuance.", "با ظرافت بیان کن."),
+            v("precision", "دقت", "Verbal precision.", "دقت کلامی."),
+            v("fluency", "روانی", "Sophisticated fluency.", "روانی پیچیده.")
+        ),
+        listOf(
+            GrammarSection("Future in the past", "He said he would arrive. I thought I would have finished."),
+            GrammarSection("Philosophical register", "It could be contended that... One might argue that..."),
+            GrammarSection("Nominal clauses", "What matters is... Whether we find meaning is...")
+        ),
+        listOf(
+            d("T", "Let's review the philosophical structures from Files 7 and 8.", "بیایید ساختارهای فلسفی فایل‌های ۷ و ۸ را مرور کنیم."),
+            d("A", "We studied future in the past. I thought I would have finished by then.", "آینده در گذشته مطالعه کردیم. I thought I would have finished by then."),
+            d("B", "And philosophical register. It could be contended that existence precedes essence.", "و لحن فلسفی. It could be contended that existence precedes essence."),
+            d("T", "Why use the passive here?", "چرا اینجا مجهول استفاده می‌شود؟"),
+            d("A", "To create distance and formality. It's common in academic and philosophical writing.", "برای ایجاد فاصله و رسمیت. در نوشتار دانشگاهی و فلسفی رایج است."),
+            d("T", "Nominal clauses?", "جملات اسمی؟"),
+            d("B", "What matters most is how we live. Whether we find meaning is up to us.", "What matters most is how we live. Whether we find meaning is up to us."),
+            d("T", "Excellent. How would you describe your level now?", "عالی. سطحتان را الان چطور توصیف می‌کنید؟"),
+            d("A", "Substantially more sophisticated. We can discuss abstract concepts with precision.", "به طور قابل توجهی پیچیده‌تر. می‌توانیم مفاهیم انتزاعی را با دقت بحث کنیم."),
+            d("B", "I feel we've moved from fluency to mastery.", "احساس می‌کنم از روانی به تسلط حرکت کرده‌ایم."),
+            d("T", "That's exactly right. You're operating at C1 level now.", "دقیقاً درست است. الان در سطح C1 کار می‌کنید."),
+            d("A", "It's been quite a journey.", "سفر قابل توجهی بوده."),
+            d("B", "Indeed. Onward to File 9.", "همینطور. به جلو به فایل ۹."),
+            d("T", "Excellent attitude. Let's continue.", "نگرش عالی. بیایید ادامه دهیم.")
+        ),
+        listOf(
+            q("Why use passive in philosophy?", listOf("informal", "formality", "clarity"), 1),
+            q("What does B say about level?", listOf("fluency to mastery", "beginner", "intermediate"), 0),
+            q("I thought I ___ have finished.", listOf("would", "will", "was"), 0),
+            q("___ matters most is how we live.", listOf("What", "That", "Which"), 0)
+        ),
+        idioms = listOf(IdiomExpression("Onward", "به جلو", "Onward to File 9.", "به جلو به فایل ۹.")),
+        pron = listOf(PronunciationTip("Formal register", "Precise articulation. Avoid contractions in the most formal contexts.")),
+        cult = listOf(CulturalNote("C1 level", "C1 users can understand a wide range of demanding texts, express ideas fluently and spontaneously, and use language flexibly.")),
+        mis = listOf(
+            CommonMistake("I thought I will have finished.", "I thought I would have finished.", "Would, not will, in reported past."),
+            CommonMistake("That matters most is how we live.", "What matters most is how we live.", "Use 'what' as subject nominal.")
+        )
     )
-)
+
     // ═══════════ FILE 5 — Art and aesthetics ═══════════
 
     private fun f5A() = base(21, "5A What is art?", "۵A هنر چیست؟",
@@ -1717,8 +1703,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Critical discourse", "Precise articulation. Emphasise abstract terms: heGEMony, legiTIMacy, SOcialStructure.")),
         cult = listOf(CulturalNote("Critical theory", "The Frankfurt School and post-structuralists (Foucault, Derrida) shaped modern critical approaches to power and knowledge.")),
         mis = listOf(
-            CommonMistake("Power is not only hold by institutions.", "Power is not only held by institutions.", "Past participle in passive.")
-            ,
+            CommonMistake("Power is not only hold by institutions.", "Power is not only held by institutions.", "Past participle in passive."),
             CommonMistake("While it's true that structures shape us, but we have agency.", "While it's true that structures shape us, we have agency.", "No 'but' with 'while'.")
         )
     )
@@ -1781,8 +1766,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Rhetorical questions", "Rhetorical questions often have a slight rise then fall. Who among us has not wondered? ↗↘")),
         cult = listOf(CulturalNote("Democratic theory", "Deliberative democracy emphasises reasoned discussion over mere aggregation of preferences. Jürgen Habermas is a key theorist.")),
         mis = listOf(
-            CommonMistake("Who among us have not wondered?", "Who among us has not wondered?", "Subject-verb agreement (who = singular here).")
-            ,
+            CommonMistake("Who among us have not wondered?", "Who among us has not wondered?", "Subject-verb agreement (who = singular here)."),
             CommonMistake("Whatever is one's political persuasion.", "Whatever one's political persuasion.", "No 'is'.")
         )
     )
@@ -1800,7 +1784,6 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
             v("systemic", "سیستمی", "Systemic change.", "تغییر سیستمی.", "adjective"),
             v("collective", "جمعی", "Collective action.", "کنش جمعی.", "adjective"),
             v("transformative", "تحول‌آفرین", "Transformative justice.", "عدالت تحول‌آفرین.", "adjective"),
-            v("grassroots", "پایه‌ای", "Grassroots organizing.", "سازمان‌دهی پایه‌ای.", "adjective"),
             v("perseverance", "پشتکار", "Relentless perseverance.", "پشتکار بی‌امان.")
         ),
         listOf(
@@ -1914,8 +1897,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Philosophical precision", "Enunciate key terms: correSPONdence, coHErence, PRAGmatism, falSIFIability.")),
         cult = listOf(CulturalNote("Philosophy of science", "Karl Popper's falsifiability criterion and Thomas Kuhn's paradigm shifts reshaped how we understand scientific progress.")),
         mis = listOf(
-            CommonMistake("Theories of truth is complicated.", "Theories of truth are complicated.", "Plural subject.")
-            ,
+            CommonMistake("Theories of truth is complicated.", "Theories of truth are complicated.", "Plural subject."),
             CommonMistake("Insofar that we accept...", "Insofar as we accept...", "Use 'as', not 'that', with 'insofar'.")
         )
     )
@@ -1978,8 +1960,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Argumentative balance", "Give equal weight to both sides. Stress key contrasts: TECHnocracy versus POPulism.")),
         cult = listOf(CulturalNote("Science-society relations", "The COVID-19 pandemic highlighted tensions between scientific advice and public compliance, varying widely across cultures.")),
         mis = listOf(
-            CommonMistake("Granted that science is fallible, but it's still valuable.", "Granted that science is fallible, it's still valuable.", "No 'but' with 'granted'.")
-            ,
+            CommonMistake("Granted that science is fallible, but it's still valuable.", "Granted that science is fallible, it's still valuable.", "No 'but' with 'granted'."),
             CommonMistake("Were we to accept this, we will be committed.", "Were we to accept this, we would be committed.", "Would, not will, in hypothetical.")
         )
     )
@@ -2003,7 +1984,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         listOf(
             GrammarSection("Philosophical distinctions", "Knowledge is a matter of... whereas wisdom involves... The one concerns facts, the other, judgment."),
             GrammarSection("Intellectual humility", "For all our learning, we remain ignorant of... The more we know, the more we realise..."),
-            GrammarSection("Paradoxical constructions", "It is precisely because... that... Only by acknowledging our limits can we..." )
+            GrammarSection("Paradoxical constructions", "It is precisely because... that... Only by acknowledging our limits can we...")
         ),
         listOf(
             d("A", "Do you think knowledge and wisdom are the same thing?", "فکر می‌کنی دانش و خرد یک چیز هستند؟"),
@@ -2042,8 +2023,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Philosophical paradox", "Emphasise the paradox: I know that I know NOTHing. Stress NOthing.")),
         cult = listOf(CulturalNote("Wisdom traditions", "Every culture has wisdom traditions. Ancient Greece, China, India, and Africa all developed sophisticated reflections on wise living.")),
         mis = listOf(
-            CommonMistake("Wisdom, after all, it's a journey.", "Wisdom, after all, is a journey.", "Subject-verb-object without double subject.")
-            ,
+            CommonMistake("Wisdom, after all, it's a journey.", "Wisdom, after all, is a journey.", "Subject-verb-object without double subject."),
             CommonMistake("Only by acknowledging our limits we can begin.", "Only by acknowledging our limits can we begin.", "Inversion after 'only by'.")
         )
     )
@@ -2107,8 +2087,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Philosophical terms", "Emphasise: utilitaRIan, deontoLOGical, consequenTIAList, BENEficence.")),
         cult = listOf(CulturalNote("Ethics", "Western moral philosophy has three main traditions: virtue ethics (Aristotle), deontology (Kant), and consequentialism (Bentham, Mill).")),
         mis = listOf(
-            CommonMistake("If we accept this principle, it follow that...", "If we accept this principle, it follows that...", "Third person singular.")
-            ,
+            CommonMistake("If we accept this principle, it follow that...", "If we accept this principle, it follows that...", "Third person singular."),
             CommonMistake("Suppose you was faced with...", "Suppose you were faced with...", "Subjunctive 'were'.")
         )
     )
@@ -2172,8 +2151,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Ethical vocabulary", "Emphasise technical terms: euthaNASia, beneficence, non-maleficence, distriBUTive justice.")),
         cult = listOf(CulturalNote("Medical ethics", "The four principles of biomedical ethics — autonomy, beneficence, non-maleficence, and justice — were formulated by Beauchamp and Childress.")),
         mis = listOf(
-            CommonMistake("I hold that position with considerable unease, don't I?", "I hold that position with considerable unease.", "Avoid tag questions in formal argument.")
-            ,
+            CommonMistake("I hold that position with considerable unease, don't I?", "I hold that position with considerable unease.", "Avoid tag questions in formal argument."),
             CommonMistake("Whether that is a tragedy or a sign of evolving ethics are contested.", "Whether that is a tragedy or a sign of evolving ethics is contested.", "Singular subject 'whether clause'.")
         )
     )
@@ -2237,9 +2215,8 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Ethical discourse", "Slow, deliberate. Emphasise key concepts: anthropoCENtric, intergenerA Tional, PREcautionary principle.")),
         cult = listOf(CulturalNote("Environmental ethics", "The field emerged in the 1970s. Key figures include Peter Singer (animal liberation), Arne Naess (deep ecology), and Hans Jonas (responsibility to future generations).")),
         mis = listOf(
-            CommonMistake("We should act even without full certainty, isn't it?", "We should act even without full certainty.", "Avoid tag questions in formal argument.")
-            ,
-            CommonMistake("The burden of proof has shifted. The overwhelming scientific consensus support urgent action.", "The burden of proof has shifted. The overwhelming scientific consensus supports urgent action.", "Subject-verb agreement (consensus is singular).")
+            CommonMistake("We should act even without full certainty, isn't it?", "We should act even without full certainty.", "Avoid tag questions in formal argument."),
+            CommonMistake("The overwhelming scientific consensus support urgent action.", "The overwhelming scientific consensus supports urgent action.", "Subject-verb agreement (consensus is singular).")
         )
     )
 
@@ -2270,7 +2247,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
             d("A", "Do you think language can be a tool of power?", "فکر می‌کنی زبان می‌تواند ابزار قدرت باشد؟"),
             d("B", "Without question. Indeed, I'd argue it's one of the most insidious forms. It operates subtly, often invisibly.", "بدون شک. در واقع، استدلال می‌کنم یکی از موذی‌ترین اشکال است. ظریف، اغلب نامرئی عمل می‌کند."),
             d("A", "Can you give an example?", "مثالی می‌زنی؟"),
-            d("B", "Consider how governments describe military action. 'Collateral damage' for civilian deaths. 'Enhanced interrogation' for torture.", "در نظر بگیر دولتها چطور اقدام نظامی را توصیف می‌کنند. 'خسارت جانبی' برای مرگ غیرنظامیان. 'بازجویی پیشرفته' برای شکنجه."),
+            d("B", "Consider how governments describe military action. 'Collateral damage' for civilian deaths. 'Enhanced interrogation' for torture.", "در نظر بگیر دولت‌ها چطور اقدام نظامی را توصیف می‌کنند. 'خسارت جانبی' برای مرگ غیرنظامیان. 'بازجویی پیشرفته' برای شکنجه."),
             d("A", "So euphemism is a form of power?", "پس به‌گویی نوعی قدرت است؟"),
             d("B", "Absolutely. By renaming, we reshape how people perceive. Language doesn't merely describe reality — it constructs it.", "قطعاً. با نام‌گذاری مجدد، درک مردم را بازشکل می‌دهیم. زبان صرفاً واقعیت را توصیف نمی‌کند — آن را می‌سازد."),
             d("A", "That's a strong claim.", "ادعای قوی‌ای‌ست."),
@@ -2302,8 +2279,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Critical analysis", "Precise articulation. Emphasise analytical terms: DIScourse, IDeology, EUPHeMism, FRAMing.")),
         cult = listOf(CulturalNote("Critical discourse analysis", "Pioneered by Norman Fairclough and Ruth Wodak. It examines how language reproduces power relations and ideologies.")),
         mis = listOf(
-            CommonMistake("Note how the passive obscure agency.", "Note how the passive obscures agency.", "Third person singular.")
-            ,
+            CommonMistake("Note how the passive obscure agency.", "Note how the passive obscures agency.", "Third person singular."),
             CommonMistake("Politicians of all stripes uses these techniques.", "Politicians of all stripes use these techniques.", "Plural subject.")
         )
     )
@@ -2367,8 +2343,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Rhetorical analysis", "Emphasise Greek terms: EEthos, PAYthos, LOGos, aNAphora, TRIcolon.")),
         cult = listOf(CulturalNote("Rhetoric", "Western rhetorical tradition begins with Aristotle's 'Rhetoric'. Its three appeals — ethos, pathos, logos — remain foundational.")),
         mis = listOf(
-            CommonMistake("The speaker employ anaphora.", "The speaker employs anaphora.", "Third person singular.")
-            ,
+            CommonMistake("The speaker employ anaphora.", "The speaker employs anaphora.", "Third person singular."),
             CommonMistake("Can we really accept this? No, isn't it?", "Can we really accept this?", "Avoid tag questions in rhetorical analysis.")
         )
     )
@@ -2377,7 +2352,6 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         listOf("Debate free speech limits", "Analyse censorship arguments", "Express principled positions"),
         listOf(
             v("censorship", "سانسور", "Government censorship.", "سانسور دولتی."),
-            v("censorship", "سانسور", "Cultural censorship.", "سانسور فرهنگی."),
             v("incitement", "تحریک", "Incitement to violence.", "تحریک به خشونت."),
             v("blasphemy", "کفرگویی", "Blasphemy laws.", "قوانین کفرگویی."),
             v("defamation", "افترا", "Defamation lawsuit.", "دعوای افترا."),
@@ -2433,8 +2407,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Ethical debate", "Balanced tone. Emphasise contrasting terms: LIBerty versus HARM.")),
         cult = listOf(CulturalNote("Free speech", "The US First Amendment is unusually protective. Germany, France, and many other democracies restrict hate speech more actively.")),
         mis = listOf(
-            CommonMistake("Speech should be restricted only when it directly harms, isn't it?", "Speech should be restricted only when it directly harms.", "Avoid tag in formal argument.")
-            ,
+            CommonMistake("Speech should be restricted only when it directly harms, isn't it?", "Speech should be restricted only when it directly harms.", "Avoid tag in formal argument."),
             CommonMistake("The health of a democracy depend on tolerance.", "The health of a democracy depends on tolerance.", "Singular subject.")
         )
     )
@@ -2450,10 +2423,8 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
             v("extinction", "انقراض", "Human extinction.", "انقراض بشر."),
             v("flourishing", "شکوفایی", "Human flourishing.", "شکوفایی بشر."),
             v("post-scarcity", "پس از کمبود", "A post-scarcity economy.", "اقتصاد پس از کمبود.", "adjective"),
-            v("existential", "وجودی", "An existential threat.", "تهدید وجودی.", "adjective"),
             v("singularity", "تکینگی", "The technological singularity.", "تکینگی فناوری."),
             v("irreversible", "برگشت‌ناپذیر", "Irreversible change.", "تغییر برگشت‌ناپذیر.", "adjective"),
-            v("existential", "اگزیستانسیال", "An existential question.", "سؤال اگزیستانسیال.", "adjective"),
             v("indefinite", "نامحدود", "Indefinite lifespans.", "طول عمر نامحدود.", "adjective"),
             v("flourish", "شکوفا شدن", "Humanity could flourish.", "بشریت می‌تواند شکوفا شود.", "verb")
         ),
@@ -2500,8 +2471,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Existential discourse", "Slow, weighty delivery. Emphasise stakes: CIVilizational collapse. IRREversible change.")),
         cult = listOf(CulturalNote("Existential risk", "The field was pioneered by Nick Bostrom and the Future of Humanity Institute. It examines risks that could permanently derail humanity's potential.")),
         mis = listOf(
-            CommonMistake("Should we fail, the consequences would be catastrophic, would they?", "Should we fail, the consequences would be catastrophic.", "Avoid tag in serious discussion.")
-            ,
+            CommonMistake("Should we fail, the consequences would be catastrophic, would they?", "Should we fail, the consequences would be catastrophic.", "Avoid tag in serious discussion."),
             CommonMistake("It's conceivable that humanity have a long future.", "It's conceivable that humanity has a long future.", "Singular subject.")
         )
     )
@@ -2518,7 +2488,6 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
             v("mortality", "مرگ‌ومیر", "Overcoming mortality.", "غلبه بر مرگ‌ومیر."),
             v("consciousness", "آگاهی", "Uploaded consciousness.", "آگاهی بارگذاری‌شده."),
             v("biological", "زیستی", "Biological limits.", "محدودیت‌های زیستی.", "adjective"),
-            v("enhancement", "ارتقاء", "Genetic enhancement.", "ارتقاء ژنتیکی."),
             v("dignity", "کرامت", "Human dignity.", "کرامت انسانی."),
             v("hubris", "تکبر", "Technological hubris.", "تکبر فناورانه.")
         ),
@@ -2566,8 +2535,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Bioethical discourse", "Precise articulation. Emphasise key distinctions: THERapy versus enHANCEment.")),
         cult = listOf(CulturalNote("Transhumanism", "Advocates include Ray Kurzweil and Nick Bostrom. Critics include Francis Fukuyama, who called it 'the world's most dangerous idea'.")),
         mis = listOf(
-            CommonMistake("There is an important distinction between therapy and enhancement, isn't there?", "There is an important distinction between therapy and enhancement.", "Avoid tag.")
-            ,
+            CommonMistake("There is an important distinction between therapy and enhancement, isn't there?", "There is an important distinction between therapy and enhancement.", "Avoid tag."),
             CommonMistake("I'd hesitate before to endorse.", "I'd hesitate before endorsing.", "Before + gerund.")
         )
     )
@@ -2632,8 +2600,7 @@ private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
         pron = listOf(PronunciationTip("Reflective register", "Warm, measured tone. Allow pauses for reflection. Let the sense of closure settle.")),
         cult = listOf(CulturalNote("Language learning", "Reaching C1 typically requires 800-1200 hours of study beyond B2. The journey from C1 to C2 is one of refinement and stylistic mastery.")),
         mis = listOf(
-            CommonMistake("If there's one thing I've learned, it's the value of persistence, isn't it?", "If there's one thing I've learned, it's the value of persistence.", "Avoid tag in reflective register.")
-            ,
+            CommonMistake("If there's one thing I've learned, it's the value of persistence, isn't it?", "If there's one thing I've learned, it's the value of persistence.", "Avoid tag in reflective register."),
             CommonMistake("A good teacher is a rare gift, no?", "A good teacher is a rare gift.", "Avoid 'no?' as tag in formal contexts.")
         )
     )
