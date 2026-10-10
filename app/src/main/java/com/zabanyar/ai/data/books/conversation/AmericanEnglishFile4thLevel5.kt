@@ -2604,4 +2604,4 @@ object AmericanEnglishFile4thLevel5 {
             CommonMistake("A good teacher is a rare gift, no?", "A good teacher is a rare gift.", "Avoid 'no?' as tag in formal contexts.")
         )
     )
-}
+}.
