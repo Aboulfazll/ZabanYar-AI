@@ -2414,8 +2414,93 @@ object AmericanEnglishFile4thLevel2 {
         ),
         idioms = listOf(IdiomExpression("Good luck!", "موفق باشی!", "Good luck!", "موفق باشی!")),
         pron = listOf(PronunciationTip("Contractions", "I've, I'll, I'm")),
-        cult = listOf(CulturalNote("End of course", "Congratulations!"))
-        ,
+        cult = listOf(CulturalNote("End of course", "Congratulations!")),
+        mis = listOf(CommonMistake("I've went.", "I've been.", "Past participle."))
+    )
+
+    // ═══════════ PE12 ═══════════
+    private fun pe12() = base(59, "PE12 Saying goodbye", "انگلیسی کاربردی ۱۲ — خداحافظی",
+        listOf("Say goodbye", "Talk about future plans", "Use farewell expressions"),
+        listOf(
+            v("goodbye", "خداحافظ", "Goodbye!", "خداحافظ!", "interjection"),
+            v("good luck", "موفق باشی", "Good luck!", "موفق باشی!", "phrase"),
+            v("keep in touch", "در تماس باش", "Keep in touch.", "در تماس باش.", "verb"),
+            v("miss", "دلتنگ شدن", "I'll miss you.", "دلتنگت می‌شوم.", "verb"),
+            v("hope", "امیدوار بودن", "I hope to see you.", "امیدوارم ببینمت.", "verb"),
+            v("soon", "به‌زودی", "See you soon!", "به‌زودی می‌بینمت!", "adverb")
+        ),
+        listOf(
+            GrammarSection("Farewell expressions", "Goodbye. Good luck. Keep in touch. See you soon."),
+            GrammarSection("Future plans", "I'm going to... I will...")
+        ),
+        listOf(
+            d("A", "Is this your last day?", "آخرین روزته؟"),
+            d("B", "Yes. I'm going home tomorrow.", "بله. فردا به خانه می‌روم."),
+            d("A", "We'll miss you!", "دلتنگت می‌شویم!"),
+            d("B", "Me too. You've all been great.", "من هم. همه‌تان عالی بودید."),
+            d("A", "Keep in touch!", "در تماس باش!"),
+            d("B", "Of course. Email me anytime.", "البته. هر وقت ایمیل بزن."),
+            d("A", "Good luck with everything!", "موفق باشی در همه چیز!"),
+            d("B", "Thanks! See you soon!", "ممنون! به‌زودی می‌بینمت!"),
+            d("A", "See you! Bye!", "می‌بینمت! خداحافظ!"),
+            d("B", "Bye! Take care!", "خداحافظ! مراقب خودت باش!"),
+            d("A", "You too!", "تو هم!"),
+            d("B", "Thanks!", "ممنون!")
+        ),
+        listOf(
+            q("When is B going home?", listOf("today", "tomorrow", "next week"), 1),
+            q("What will B do?", listOf("stay", "go home", "travel"), 1),
+            q("I'll ___ you.", listOf("miss", "missing", "missed"), 0),
+            q("Keep in ___!", listOf("touch", "talk", "contact"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("Good luck!", "موفق باشی!", "Good luck!", "موفق باشی!"),
+            IdiomExpression("Take care", "مراقب خودت باش", "Take care!", "مراقب خودت باش!")
+        ),
+        pron = listOf(PronunciationTip("Goodbye", "Rising: See you SOON ↗")),
+        cult = listOf(CulturalNote("Goodbyes", "Hug or handshake varies.")),
+        mis = listOf(CommonMistake("I'll miss to you.", "I'll miss you.", "No 'to'."))
+    )
+
+    // ═══════════ R&C 23&24 ═══════════
+    private fun rc2324() = base(60, "R&C 23&24", "مرور ۲۳ و ۲۴",
+        listOf("Review all grammar", "Review vocabulary", "Final review"),
+        listOf(
+            v("review", "مرور", "Let's review.", "مرور کنیم.", "verb"),
+            v("practice", "تمرین", "Practice.", "تمرین.", "verb"),
+            v("grammar", "گرامر", "Grammar.", "گرامر."),
+            v("vocabulary", "واژگان", "Vocabulary.", "واژگان."),
+            v("mistake", "اشتباه", "Fix mistakes.", "اشتباهات."),
+            v("progress", "پیشرفت", "Great progress.", "پیشرفت عالی.")
+        ),
+        listOf(
+            GrammarSection("All tenses", "Present, past, future, present perfect."),
+            GrammarSection("All modals", "Can, must, should, would."),
+            GrammarSection("All conditionals", "First and second.")
+        ),
+        listOf(
+            d("T", "Final review!", "مرور نهایی!"),
+            d("A", "Present: I work, I'm working.", "حال: I work، I'm working."),
+            d("B", "Past: I worked, I went.", "گذشته: I worked، I went."),
+            d("T", "Present perfect?", "حال کامل؟"),
+            d("A", "I've been, I've seen.", "I've been، I've seen."),
+            d("T", "Future?", "آینده؟"),
+            d("B", "I'll go, I'm going to travel.", "I'll go، I'm going to travel."),
+            d("T", "Modals?", "افعال کمکی؟"),
+            d("A", "Can, must, should, would.", "Can، must، should، would."),
+            d("T", "Congratulations! You've completed Level 2!", "تبریک! سطح ۲ را تمام کردید!"),
+            d("B", "Thank you! We learned so much!", "ممنون! خیلی یاد گرفتیم!"),
+            d("T", "You're ready for Level 3. Good luck!", "برای سطح ۳ آماده‌اید. موفق باشید!")
+        ),
+        listOf(
+            q("Present simple example?", listOf("I work", "I worked", "I'll work"), 0),
+            q("Present perfect example?", listOf("I work", "I've been", "I'll go"), 1),
+            q("She ___ in London.", listOf("live", "lives", "living"), 1),
+            q("I ___ working now.", listOf("am", "is", "are"), 0)
+        ),
+        idioms = listOf(IdiomExpression("Congratulations!", "تبریک!", "Congratulations!", "تبریک!")),
+        pron = listOf(PronunciationTip("Review", "All tenses practiced.")),
+        cult = listOf(CulturalNote("Level complete", "Well done!")),
         mis = listOf(CommonMistake("I've went.", "I've been.", "Past participle."))
     )
 }
