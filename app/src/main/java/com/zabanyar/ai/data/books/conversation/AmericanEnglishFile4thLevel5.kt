@@ -1577,6 +1577,68 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
+    // ═══════════ REVIEW 5 ═══════════
+
+    private fun rc910() = base(25, "R&C 9&10", "مرور ۹ و ۱۰",
+        listOf("Review aesthetic vocabulary", "Review interpretive language", "Review emotional description"),
+        listOf(
+            v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
+            v("synthesize", "ترکیب کردن", "Synthesize interpretations.", "تفسیرها را ترکیب کن.", "verb"),
+            v("consolidate", "تثبیت کردن", "Consolidate aesthetic judgment.", "قضاوت زیبایی‌شناختی را تثبیت کن.", "verb"),
+            v("aesthetic", "زیبایی‌شناختی", "Aesthetic appreciation.", "درک زیبایی‌شناختی.", "adjective"),
+            v("interpretation", "تفسیر", "Multiple interpretations.", "تفسیرهای متعدد."),
+            v("resonance", "طنین", "Emotional resonance.", "طنین احساسی.")
+        ),
+        listOf(
+            GrammarSection("Subjective vs objective language",
+                "It seems to me... In my view... Arguably... It's debatable whether..."),
+            GrammarSection("Interpretive hedging",
+                "One reading might be... It's tempting to see this as... A plausible interpretation is..."),
+            GrammarSection("Emotional description",
+                "There's something about... that... What moves me is... It never fails to...")
+        ),
+        listOf(
+            d("T", "Let us review Files 9 and 10. Beginning with aesthetic judgment.", "بیایید فایل‌های ۹ و ۱۰ را مرور کنیم. شروع با قضاوت زیبایی‌شناختی."),
+            d("A", "To some extent, aesthetic value is subjective; but we cannot dismiss objective criteria entirely.", "تا حدی، ارزش زیبایی‌شناختی ذهنی‌ست؛ ولی نمی‌توانیم معیارهای عینی را کاملاً رد کنیم."),
+            d("B", "What strikes me is the way great art resists easy categorisation.", "چیزی که متوجهام می‌کند این است که هنر بزرگ در برابر دسته‌بندی آسان مقاومت می‌کند."),
+            d("T", "Interpretive language?", "زبان تفسیری؟"),
+            d("A", "One reading of the novel might be that it's a political allegory.", "یک خوانش رمان ممکن است این باشد که تمثیل سیاسی‌ست."),
+            d("B", "It's tempting to see the protagonist as a symbol of resistance.", "وسوسه‌انگیز است که قهرمان را نماد مقاومت ببینیم."),
+            d("T", "Emotional description?", "توصیف احساسی؟"),
+            d("A", "There's something about Rachmaninoff's second movement that never fails to move me.", "چیزی در موومان دوم راخمانینوف هست که هرگز نتوانسته مرا تکان ندهد."),
+            d("B", "What moves me most is the capacity of music to bypass reason altogether.", "بیشتر از همه، ظرفیت موسیقی برای دور زدن کامل عقل مرا تکان می‌دهد."),
+            d("T", "You have integrated the aesthetic, the interpretive, and the emotional with real sophistication.", "زیبایی‌شناختی، تفسیری، و احساسی را با پیچیدگی واقعی ادغام کرده‌اید."),
+            d("A", "The journey through Level 5 has refined our sensitivity to language.", "سفر از سطح ۵ حساسیت ما به زبان را پالایش کرده."),
+            d("B", "Not only refined, but deepened. There's a certain humility that comes with mastery.", "نه تنها پالایش، بلکه عمیق‌تر. فروتنی خاصی با تسلط می‌آید."),
+            d("T", "That is precisely the mark of true learning.", "این دقیقاً نشانه یادگیری واقعی‌ست."),
+            d("A", "Thank you for guiding us.", "ممنون از هدایتتان."),
+            d("T", "The pleasure has been mine. Onward to the final files.", "لذت از آن من بوده. به جلو به فایل‌های پایانی.")
+        ),
+        listOf(
+            q("What is aesthetic value, in part?", listOf("fully objective", "subjective", "irrelevant"), 1),
+            q("What is music said to bypass?", listOf("emotion", "reason", "culture"), 1),
+            q("There's something ___ art that resists categorisation.", listOf("about", "in", "of"), 0),
+            q("It never fails ___ move me.", listOf("to", "for", "of"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("To some extent", "تا حدی", "To some extent, yes.", "تا حدی، بله."),
+            IdiomExpression("What strikes me", "چیزی که متوجهام می‌کند", "What strikes me is...", "چیزی که متوجهام می‌کند..."),
+            IdiomExpression("The pleasure has been mine", "لذت از آن من بوده", "The pleasure has been mine.", "لذت از آن من بوده.")
+        ),
+        pron = listOf(
+            PronunciationTip("Aesthetic register",
+                "Stress key aesthetic terms: aesTHETic, INterpretive, REsonance. Let emotional phrases settle.")
+        ),
+        cult = listOf(
+            CulturalNote("Integration of skills",
+                "At C1, learners integrate aesthetic judgment, interpretation, and emotional expression into coherent discourse.")
+        ),
+        mis = listOf(
+            CommonMistake("It never fails to moving me.", "It never fails to move me.", "Base verb after 'to'."),
+            CommonMistake("What strikes me it's the way...", "What strikes me is the way...", "Use 'is', not 'it's'.")
+        )
+    )
+
     // ═══════════ PRACTICAL ENGLISH 5 ═══════════
 
     private fun pe5() = base(24, "PE5 A doctoral defense", "انگلیسی کاربردی ۵ — دفاع دکتری",
@@ -2602,6 +2664,68 @@ object AmericanEnglishFile4thLevel5 {
         mis = listOf(
             CommonMistake("If there's one thing I've learned, it's the value of persistence, isn't it?", "If there's one thing I've learned, it's the value of persistence.", "Avoid tag in reflective register."),
             CommonMistake("A good teacher is a rare gift, no?", "A good teacher is a rare gift.", "Avoid 'no?' as tag in formal contexts.")
+        )
+    )
+
+    // ═══════════ REVIEW 5 ═══════════
+
+    private fun rc910() = base(25, "R&C 9&10", "مرور ۹ و ۱۰",
+        listOf("Review aesthetic vocabulary", "Review interpretive language", "Review emotional description"),
+        listOf(
+            v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
+            v("synthesize", "ترکیب کردن", "Synthesize interpretations.", "تفسیرها را ترکیب کن.", "verb"),
+            v("consolidate", "تثبیت کردن", "Consolidate aesthetic judgment.", "قضاوت زیبایی‌شناختی را تثبیت کن.", "verb"),
+            v("aesthetic", "زیبایی‌شناختی", "Aesthetic appreciation.", "درک زیبایی‌شناختی.", "adjective"),
+            v("interpretation", "تفسیر", "Multiple interpretations.", "تفسیرهای متعدد."),
+            v("resonance", "طنین", "Emotional resonance.", "طنین احساسی.")
+        ),
+        listOf(
+            GrammarSection("Subjective vs objective language",
+                "It seems to me... In my view... Arguably... It's debatable whether..."),
+            GrammarSection("Interpretive hedging",
+                "One reading might be... It's tempting to see this as... A plausible interpretation is..."),
+            GrammarSection("Emotional description",
+                "There's something about... that... What moves me is... It never fails to...")
+        ),
+        listOf(
+            d("T", "Let us review Files 9 and 10. Beginning with aesthetic judgment.", "بیایید فایل‌های ۹ و ۱۰ را مرور کنیم. شروع با قضاوت زیبایی‌شناختی."),
+            d("A", "To some extent, aesthetic value is subjective; but we cannot dismiss objective criteria entirely.", "تا حدی، ارزش زیبایی‌شناختی ذهنی‌ست؛ ولی نمی‌توانیم معیارهای عینی را کاملاً رد کنیم."),
+            d("B", "What strikes me is the way great art resists easy categorisation.", "چیزی که متوجهام می‌کند این است که هنر بزرگ در برابر دسته‌بندی آسان مقاومت می‌کند."),
+            d("T", "Interpretive language?", "زبان تفسیری؟"),
+            d("A", "One reading of the novel might be that it's a political allegory.", "یک خوانش رمان ممکن است این باشد که تمثیل سیاسی‌ست."),
+            d("B", "It's tempting to see the protagonist as a symbol of resistance.", "وسوسه‌انگیز است که قهرمان را نماد مقاومت ببینیم."),
+            d("T", "Emotional description?", "توصیف احساسی؟"),
+            d("A", "There's something about Rachmaninoff's second movement that never fails to move me.", "چیزی در موومان دوم راخمانینوف هست که هرگز نتوانسته مرا تکان ندهد."),
+            d("B", "What moves me most is the capacity of music to bypass reason altogether.", "بیشتر از همه، ظرفیت موسیقی برای دور زدن کامل عقل مرا تکان می‌دهد."),
+            d("T", "You have integrated the aesthetic, the interpretive, and the emotional with real sophistication.", "زیبایی‌شناختی، تفسیری، و احساسی را با پیچیدگی واقعی ادغام کرده‌اید."),
+            d("A", "The journey through Level 5 has refined our sensitivity to language.", "سفر از سطح ۵ حساسیت ما به زبان را پالایش کرده."),
+            d("B", "Not only refined, but deepened. There's a certain humility that comes with mastery.", "نه تنها پالایش، بلکه عمیق‌تر. فروتنی خاصی با تسلط می‌آید."),
+            d("T", "That is precisely the mark of true learning.", "این دقیقاً نشانه یادگیری واقعی‌ست."),
+            d("A", "Thank you for guiding us.", "ممنون از هدایتتان."),
+            d("T", "The pleasure has been mine. Onward to the final files.", "لذت از آن من بوده. به جلو به فایل‌های پایانی.")
+        ),
+        listOf(
+            q("What is aesthetic value, in part?", listOf("fully objective", "subjective", "irrelevant"), 1),
+            q("What is music said to bypass?", listOf("emotion", "reason", "culture"), 1),
+            q("There's something ___ art that resists categorisation.", listOf("about", "in", "of"), 0),
+            q("It never fails ___ move me.", listOf("to", "for", "of"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("To some extent", "تا حدی", "To some extent, yes.", "تا حدی، بله."),
+            IdiomExpression("What strikes me", "چیزی که متوجهام می‌کند", "What strikes me is...", "چیزی که متوجهام می‌کند..."),
+            IdiomExpression("The pleasure has been mine", "لذت از آن من بوده", "The pleasure has been mine.", "لذت از آن من بوده.")
+        ),
+        pron = listOf(
+            PronunciationTip("Aesthetic register",
+                "Stress key aesthetic terms: aesTHETic, INterpretive, REsonance. Let emotional phrases settle.")
+        ),
+        cult = listOf(
+            CulturalNote("Integration of skills",
+                "At C1, learners integrate aesthetic judgment, interpretation, and emotional expression into coherent discourse.")
+        ),
+        mis = listOf(
+            CommonMistake("It never fails to moving me.", "It never fails to move me.", "Base verb after 'to'."),
+            CommonMistake("What strikes me it's the way...", "What strikes me is the way...", "Use 'is', not 'it's'.")
         )
     )
 }
