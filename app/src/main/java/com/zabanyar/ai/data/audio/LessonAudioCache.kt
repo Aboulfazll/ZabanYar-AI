@@ -1,172 +1,150 @@
-package com.zabanyar.ai.data.audio
+package com.zabanyar.ai.data
 
 import android.content.Context
-import android.media.MediaPlayer
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileOutputStream
-import java.io.InputStream
+import java.net.HttpURLConnection
+import java.net.URL
+import java.util.zip.ZipInputStream
 
 /**
  * LessonAudioCache
- * مدیریت کش و پخش فایل‌های صوتی درس‌ها
+ * مدیریت دانلود، کش و یافتن فایل‌های صوتی درس‌ها
  */
 object LessonAudioCache {
 
-    private const val CACHE_DIR = "lesson_audio_cache"
-    private val mediaPlayers = mutableMapOf<String, MediaPlayer>()
+    private const val AUDIO_DIR = "lesson_audio"
+    private const val MARKER_FILE = ".ready"
 
-    // ─── state های Compose ───
-    private val _isPlaying = mutableStateOf(false)
-    val isPlaying: State<Boolean> get() = _isPlaying
+    // ⚠️ آدرس ZIP فایل‌های صوتی رو اینجا بذارید
+    // اگه خالی بذارید، اپ به‌صورت خودکار از TTS استفاده می‌کنه
+    private const val AUDIO_ZIP_URL = ""
 
-    private val _currentTrack = mutableStateOf<String?>(null)
-    val currentTrack: State<String?> get() = _currentTrack
+    /**
+     * آیا فایل‌های صوتی قبلاً دانلود و آماده شده‌اند؟
+     */
+    fun isReady(context: Context): Boolean {
+        val dir = File(context.filesDir, AUDIO_DIR)
+        return File(dir, MARKER_FILE).exists()
+    }
 
-    private val _progress = mutableStateOf(0f)
-    val progress: State<Float> get() = _progress
-
-    private val _duration = mutableStateOf(0)
-    val duration: State<Int> get() = _duration
-
-    private val _currentPosition = mutableStateOf(0)
-    val currentPosition: State<Int> get() = _currentPosition
-
-    // ─── پخش از res/raw ───
-    fun playFromRaw(context: Context, resId: Int, tag: String = "default") {
-        stop()
+    /**
+     * دانلود و استخراج ZIP صداها با نمایش درصد پیشرفت
+     * خروجی: true اگه موفق، false اگه ناموفق (اپ به TTS می‌رود)
+     */
+    suspend fun ensureDownloaded(
+        context: Context,
+        onProgress: (Float) -> Unit = {}
+    ): Boolean = withContext(Dispatchers.IO) {
         try {
-            val player = MediaPlayer.create(context, resId) ?: return
-            player.setOnCompletionListener {
-                _isPlaying.value = false
-                _currentTrack.value = null
-                _progress.value = 0f
+            val dir = File(context.filesDir, AUDIO_DIR)
+            if (!dir.exists()) dir.mkdirs()
+
+            // اگه قبلاً آماده شده
+            if (File(dir, MARKER_FILE).exists()) {
+                onProgress(1f)
+                return@withContext true
             }
-            player.setOnPreparedListener {
-                _duration.value = it.duration
+
+            // اگه URL تنظیم نشده، از TTS استفاده می‌شود
+            if (AUDIO_ZIP_URL.isBlank()) {
+                return@withContext false
             }
-            player.start()
-            mediaPlayers[tag] = player
-            _isPlaying.value = true
-            _currentTrack.value = tag
+
+            val conn = URL(AUDIO_ZIP_URL).openConnection() as HttpURLConnection
+            conn.connectTimeout = 15000
+            conn.readTimeout = 30000
+            conn.connect()
+
+            if (conn.responseCode !in 200..299) {
+                return@withContext false
+            }
+
+            val total = conn.contentLength.toLong()
+            val input = conn.inputStream
+            val zipFile = File(dir, "audio.zip")
+
+            FileOutputStream(zipFile).use { out ->
+                val buffer = ByteArray(8192)
+                var read: Int
+                var totalRead = 0L
+                while (input.read(buffer).also { read = it } != -1) {
+                    out.write(buffer, 0, read)
+                    totalRead += read
+                    if (total > 0) onProgress((totalRead.toFloat() / total).coerceIn(0f, 1f))
+                }
+            }
+            input.close()
+
+            // استخراج ZIP
+            ZipInputStream(zipFile.inputStream()).use { zis ->
+                var entry = zis.nextEntry
+                while (entry != null) {
+                    val outFile = File(dir, entry.name)
+                    // جلوگیری از path traversal
+                    if (!outFile.canonicalPath.startsWith(dir.canonicalPath)) {
+                        zis.closeEntry()
+                        entry = zis.nextEntry
+                        continue
+                    }
+                    if (entry.isDirectory) {
+                        outFile.mkdirs()
+                    } else {
+                        outFile.parentFile?.mkdirs()
+                        FileOutputStream(outFile).use { out -> zis.copyTo(out) }
+                    }
+                    zis.closeEntry()
+                    entry = zis.nextEntry
+                }
+            }
+            zipFile.delete()
+            File(dir, MARKER_FILE).createNewFile()
+            onProgress(1f)
+            true
         } catch (e: Exception) {
             e.printStackTrace()
-            _isPlaying.value = false
+            false
         }
     }
 
-    // ─── پخش از assets ───
-    fun playFromAssets(context: Context, assetPath: String, tag: String = "default") {
-        stop()
-        try {
-            val afd = context.assets.openFd(assetPath)
-            val player = MediaPlayer()
-            player.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
-            player.prepare()
-            player.setOnCompletionListener {
-                _isPlaying.value = false
-                _currentTrack.value = null
-                _progress.value = 0f
+    /**
+     * پیدا کردن فایل صوتی یک فصل خاص
+     */
+    fun findLessonAudio(context: Context, bookId: String, chapterNumber: Int): File? {
+        val dir = File(context.filesDir, AUDIO_DIR)
+        if (!dir.exists()) return null
+
+        // الگوهای رایج نام‌گذاری
+        val candidates = listOf(
+            "$bookId/$chapterNumber.mp3",
+            "$bookId/chapter_$chapterNumber.mp3",
+            "$bookId/chapter$chapterNumber.mp3",
+            "$bookId/${chapterNumber}_lesson.mp3",
+            "$bookId/lesson_$chapterNumber.mp3",
+            "$bookId/lesson$chapterNumber.mp3",
+            "$bookId/${bookId}_${chapterNumber}.mp3",
+            "$bookId/$bookId-$chapterNumber.mp3"
+        )
+        for (c in candidates) {
+            val f = File(dir, c)
+            if (f.exists() && f.isFile) return f
+        }
+
+        // جستجوی بازگشتی برای اطمینان
+        return dir.walkTopDown()
+            .firstOrNull {
+                it.isFile &&
+                it.extension.equals("mp3", ignoreCase = true) &&
+                it.nameWithoutExtension == chapterNumber.toString()
             }
-            player.setOnPreparedListener {
-                _duration.value = it.duration
-            }
-            player.start()
-            mediaPlayers[tag] = player
-            _isPlaying.value = true
-            _currentTrack.value = tag
-            afd.close()
-        } catch (e: Exception) {
-            e.printStackTrace()
-            _isPlaying.value = false
-        }
     }
 
-    // ─── پخش از فایل کش‌شده ───
-    fun playFromFile(context: Context, fileName: String, tag: String = "default") {
-        val file = getCachedFile(context, fileName) ?: return
-        stop()
-        try {
-            val player = MediaPlayer()
-            player.setDataSource(file.absolutePath)
-            player.prepare()
-            player.setOnCompletionListener {
-                _isPlaying.value = false
-                _currentTrack.value = null
-            }
-            player.start()
-            mediaPlayers[tag] = player
-            _isPlaying.value = true
-            _currentTrack.value = tag
-        } catch (e: Exception) {
-            e.printStackTrace()
-            _isPlaying.value = false
-        }
-    }
-
-    // ─── توقف کامل ───
-    fun stop() {
-        mediaPlayers.values.forEach { player ->
-            try {
-                if (player.isPlaying) player.stop()
-                player.release()
-            } catch (_: Exception) { }
-        }
-        mediaPlayers.clear()
-        _isPlaying.value = false
-        _currentTrack.value = null
-        _progress.value = 0f
-    }
-
-    // ─── توقف یک ترک خاص ───
-    fun stop(tag: String) {
-        mediaPlayers.remove(tag)?.let { player ->
-            try {
-                if (player.isPlaying) player.stop()
-                player.release()
-            } catch (_: Exception) { }
-        }
-        if (_currentTrack.value == tag) {
-            _isPlaying.value = false
-            _currentTrack.value = null
-        }
-    }
-
-    // ─── pause / resume ───
-    fun pause() {
-        mediaPlayers.values.forEach { player ->
-            try { if (player.isPlaying) player.pause() } catch (_: Exception) { }
-        }
-    }
-
-    fun resume() {
-        mediaPlayers.values.forEach { player ->
-            try { if (!player.isPlaying) player.start() } catch (_: Exception) { }
-        }
-    }
-
-    // ─── مدیریت کش ───
-    fun isCached(context: Context, fileName: String): Boolean {
-        val dir = File(context.cacheDir, CACHE_DIR)
-        return File(dir, fileName).exists()
-    }
-
-    fun cacheFile(context: Context, fileName: String, input: InputStream) {
-        val dir = File(context.cacheDir, CACHE_DIR).apply { if (!exists()) mkdirs() }
-        val outFile = File(dir, fileName)
-        FileOutputStream(outFile).use { out -> input.copyTo(out) }
-    }
-
-    fun getCachedFile(context: Context, fileName: String): File? {
-        val file = File(File(context.cacheDir, CACHE_DIR), fileName)
-        return if (file.exists()) file else null
-    }
-
+    /**
+     * پاک کردن کل کش صداها
+     */
     fun clear(context: Context) {
-        stop()
-        File(context.cacheDir, CACHE_DIR).deleteRecursively()
+        File(context.filesDir, AUDIO_DIR).deleteRecursively()
     }
-
-    fun clearCache(context: Context) = clear(context)
 }
