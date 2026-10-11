@@ -11,21 +11,26 @@ object AmericanEnglishFile4thLevel5 {
     const val BOOK_ID = "american_english_file_4th_level5"
 
     fun getContent(n: Int): LessonContent = when (n) {
+        // Files 1-2
         1 -> f1A(); 2 -> f1B(); 3 -> f1C()
-        4 -> pe1(); 5 -> rc12()
-        6 -> f2A(); 7 -> f2B(); 8 -> f2C()
-        9 -> pe2(); 10 -> rc34()
-        11 -> f3A(); 12 -> f3B(); 13 -> f3C()
-        14 -> pe3(); 15 -> rc56()
-        16 -> f4A(); 17 -> f4B(); 18 -> f4C()
-        19 -> pe4(); 20 -> rc78()
-        21 -> f5A(); 22 -> f5B(); 23 -> f5C()
-        24 -> pe5(); 25 -> rc910()
-        26 -> f6A(); 27 -> f6B(); 28 -> f6C()
-        29 -> f7A(); 30 -> f7B(); 31 -> f7C()
-        32 -> f8A(); 33 -> f8B(); 34 -> f8C()
-        35 -> f9A(); 36 -> f9B(); 37 -> f9C()
-        38 -> f10A(); 39 -> f10B(); 40 -> f10C()
+        4 -> f2A(); 5 -> f2B(); 6 -> f2C()
+        7 -> pe1(); 8 -> rc12()
+        // Files 3-4
+        9 -> f3A(); 10 -> f3B(); 11 -> f3C()
+        12 -> f4A(); 13 -> f4B(); 14 -> f4C()
+        15 -> pe2(); 16 -> rc34()
+        // Files 5-6
+        17 -> f5A(); 18 -> f5B(); 19 -> f5C()
+        20 -> f6A(); 21 -> f6B(); 22 -> f6C()
+        23 -> pe3(); 24 -> rc56()
+        // Files 7-8
+        25 -> f7A(); 26 -> f7B(); 27 -> f7C()
+        28 -> f8A(); 29 -> f8B(); 30 -> f8C()
+        31 -> pe4(); 32 -> rc78()
+        // Files 9-10
+        33 -> f9A(); 34 -> f9B(); 35 -> f9C()
+        36 -> f10A(); 37 -> f10B(); 38 -> f10C()
+        39 -> pe5(); 40 -> rc910()
         else -> LessonContent(BOOK_ID, n, "Coming Soon", "به‌زودی...",
             vocabulary = emptyList(), grammar = emptyList(),
             conversation = emptyList(), quiz = emptyList())
@@ -265,7 +270,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ PRACTICAL ENGLISH 1 ═══════════
 
-    private fun pe1() = base(4, "PE1 An academic conference", "انگلیسی کاربردی ۱ — کنفرانس دانشگاهی",
+    private fun pe1() = base(7, "PE1 An academic conference", "انگلیسی کاربردی ۱ — کنفرانس دانشگاهی",
         listOf(
             "Participate in academic discussions",
             "Present research formally",
@@ -334,7 +339,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ REVIEW 1 ═══════════
 
-    private fun rc12() = base(5, "R&C 1&2", "مرور ۱ و ۲",
+    private fun rc12() = base(8, "R&C 1&2", "مرور ۱ و ۲",
         listOf("Review subjunctive", "Review inversion", "Review participle clauses"),
         listOf(
             v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
@@ -389,7 +394,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ FILE 2 — Ethics and morality ═══════════
 
-    private fun f2A() = base(6, "2A Moral dilemmas", "۲A دوراهی‌های اخلاقی",
+    private fun f2A() = base(4, "2A Moral dilemmas", "۲A دوراهی‌های اخلاقی",
         listOf(
             "Use unreal past for hypotheticals",
             "Discuss ethical philosophy",
@@ -460,7 +465,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f2B() = base(7, "2B Ethical business", "۲B کسب و کار اخلاقی",
+    private fun f2B() = base(5, "2B Ethical business", "۲B کسب و کار اخلاقی",
         listOf(
             "Use formal passive constructions",
             "Analyse corporate ethics",
@@ -532,7 +537,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f2C() = base(8, "2C Bioethics", "۲C اخلاق زیستی",
+    private fun f2C() = base(6, "2C Bioethics", "۲C اخلاق زیستی",
         listOf(
             "Use modal perfect for regret and speculation",
             "Analyse bioethical dilemmas",
@@ -608,7 +613,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ PRACTICAL ENGLISH 2 ═══════════
 
-    private fun pe2() = base(9, "PE2 A policy debate", "انگلیسی کاربردی ۲ — مناظره سیاستی",
+    private fun pe2() = base(15, "PE2 A policy debate", "انگلیسی کاربردی ۲ — مناظره سیاستی",
         listOf(
             "Argue persuasively in formal debates",
             "Rebuttal and cross-examination",
@@ -677,7 +682,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ REVIEW 2 ═══════════
 
-    private fun rc34() = base(10, "R&C 3&4", "مرور ۳ و ۴",
+    private fun rc34() = base(16, "R&C 3&4", "مرور ۳ و ۴",
         listOf("Review unreal past", "Review formal passive", "Review modal perfect"),
         listOf(
             v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
@@ -729,7 +734,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ FILE 3 — Memory and perception ═══════════
 
-    private fun f3A() = base(11, "3A The nature of memory", "۳A ماهیت حافظه",
+    private fun f3A() = base(9, "3A The nature of memory", "۳A ماهیت حافظه",
         listOf(
             "Use advanced passive structures",
             "Discuss memory and perception",
@@ -798,7 +803,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f3B() = base(12, "3B Perception and reality", "۳B ادراک و واقعیت",
+    private fun f3B() = base(10, "3B Perception and reality", "۳B ادراک و واقعیت",
         listOf(
             "Use complex nominalization",
             "Discuss perception and consciousness",
@@ -867,7 +872,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f3C() = base(13, "3C Nostalgia and the past", "۳C نوستالژی و گذشته",
+    private fun f3C() = base(11, "3C Nostalgia and the past", "۳C نوستالژی و گذشته",
         listOf(
             "Use conditional inversion and formal structures",
             "Discuss nostalgia and memory",
@@ -939,7 +944,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ PRACTICAL ENGLISH 3 ═══════════
 
-    private fun pe3() = base(14, "PE3 A philosophical debate", "انگلیسی کاربردی ۳ — مناظره فلسفی",
+    private fun pe3() = base(23, "PE3 A philosophical debate", "انگلیسی کاربردی ۳ — مناظره فلسفی",
         listOf(
             "Argue abstract positions persuasively",
             "Use rhetorical devices effectively",
@@ -1008,7 +1013,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ REVIEW 3 ═══════════
 
-    private fun rc56() = base(15, "R&C 5&6", "مرور ۵ و ۶",
+    private fun rc56() = base(24, "R&C 5&6", "مرور ۵ و ۶",
         listOf("Review advanced passive", "Review conditional inversion", "Review nominalization"),
         listOf(
             v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
@@ -1057,7 +1062,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ FILE 4 — Time and existence ═══════════
 
-    private fun f4A() = base(16, "4A The philosophy of time", "۴A فلسفه زمان",
+    private fun f4A() = base(12, "4A The philosophy of time", "۴A فلسفه زمان",
         listOf(
             "Use future in the past and complex tense structures",
             "Discuss philosophical concepts of time",
@@ -1128,7 +1133,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f4B() = base(17, "4B Life and death", "۴B زندگی و مرگ",
+    private fun f4B() = base(13, "4B Life and death", "۴B زندگی و مرگ",
         listOf(
             "Use philosophical registers",
             "Discuss mortality and meaning",
@@ -1198,7 +1203,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f4C() = base(18, "4C The meaning of life", "۴C معنای زندگی",
+    private fun f4C() = base(14, "4C The meaning of life", "۴C معنای زندگی",
         listOf(
             "Use rhetorical and philosophical structures",
             "Explore ultimate questions",
@@ -1270,7 +1275,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ PRACTICAL ENGLISH 4 ═══════════
 
-    private fun pe4() = base(19, "PE4 An academic seminar", "انگلیسی کاربردی ۴ — سمینار دانشگاهی",
+    private fun pe4() = base(31, "PE4 An academic seminar", "انگلیسی کاربردی ۴ — سمینار دانشگاهی",
         listOf(
             "Participate in academic discussion",
             "Present research findings",
@@ -1340,7 +1345,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ REVIEW 4 ═══════════
 
-    private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
+    private fun rc78() = base(32, "R&C 7&8", "مرور ۷ و ۸",
         listOf("Review future in the past", "Review philosophical register", "Review nominal clauses"),
         listOf(
             v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
@@ -1388,7 +1393,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ FILE 5 — Art and aesthetics ═══════════
 
-    private fun f5A() = base(21, "5A What is art?", "۵A هنر چیست؟",
+    private fun f5A() = base(17, "5A What is art?", "۵A هنر چیست؟",
         listOf("Use aesthetic vocabulary", "Discuss the nature of art", "Express subjective judgments"),
         listOf(
             v("aesthetic", "زیبایی‌شناختی", "Aesthetic judgment.", "قضاوت زیبایی‌شناختی.", "adjective"),
@@ -1450,7 +1455,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f5B() = base(22, "5B The role of literature", "۵B نقش ادبیات",
+    private fun f5B() = base(18, "5B The role of literature", "۵B نقش ادبیات",
         listOf("Use narrative and analytical structures", "Discuss literature's function", "Express interpretive insights"),
         listOf(
             v("protagonist", "قهرمان", "The protagonist's journey.", "سفر قهرمان."),
@@ -1513,7 +1518,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f5C() = base(23, "5C Music and emotion", "۵C موسیقی و احساس",
+    private fun f5C() = base(19, "5C Music and emotion", "۵C موسیقی و احساس",
         listOf("Use abstract and aesthetic vocabulary", "Discuss music's emotional power", "Express personal responses to art"),
         listOf(
             v("harmony", "هماهنگی", "Complex harmonies.", "هارمونی‌های پیچیده."),
@@ -1579,7 +1584,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ PRACTICAL ENGLISH 5 ═══════════
 
-    private fun pe5() = base(24, "PE5 A doctoral defense", "انگلیسی کاربردی ۵ — دفاع دکتری",
+    private fun pe5() = base(39, "PE5 A doctoral defense", "انگلیسی کاربردی ۵ — دفاع دکتری",
         listOf("Defend a thesis before experts", "Respond to critical examination", "Articulate research contributions"),
         listOf(
             v("thesis", "پایان‌نامه", "Doctoral thesis.", "پایان‌نامه دکتری."),
@@ -1643,7 +1648,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ FILE 6 — Politics and power ═══════════
 
-    private fun f6A() = base(26, "6A The nature of power", "۶A ماهیت قدرت",
+    private fun f6A() = base(20, "6A The nature of power", "۶A ماهیت قدرت",
         listOf("Use advanced structures for argumentation", "Analyse political concepts", "Express critical perspectives"),
         listOf(
             v("hegemony", "هژمونی", "Cultural hegemony.", "هژمونی فرهنگی."),
@@ -1708,7 +1713,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f6B() = base(27, "6B Democracy in crisis?", "۶B دموکراسی در بحران؟",
+    private fun f6B() = base(21, "6B Democracy in crisis?", "۶B دموکراسی در بحران؟",
         listOf("Use rhetorical and analytical structures", "Debate contemporary political issues", "Maintain nuance in polarized debates"),
         listOf(
             v("polarization", "قطب‌بندی", "Political polarization.", "قطب‌بندی سیاسی."),
@@ -1771,7 +1776,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f6C() = base(28, "6C Activism and change", "۶C کنش‌گری و تغییر",
+    private fun f6C() = base(22, "6C Activism and change", "۶C کنش‌گری و تغییر",
         listOf("Use motivational and persuasive language", "Discuss social change", "Express conviction and commitment"),
         listOf(
             v("grassroots", "مردمی", "Grassroots movements.", "جنبش‌های مردمی.", "adjective"),
@@ -1836,7 +1841,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ FILE 7 — Science and truth ═══════════
 
-    private fun f7A() = base(29, "7A The nature of truth", "۷A ماهیت حقیقت",
+    private fun f7A() = base(25, "7A The nature of truth", "۷A ماهیت حقیقت",
         listOf("Use epistemological vocabulary", "Discuss theories of truth", "Express philosophical sophistication"),
         listOf(
             v("epistemology", "معرفت‌شناسی", "Epistemological questions.", "سؤالات معرفت‌شناختی."),
@@ -1902,7 +1907,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f7B() = base(30, "7B Science and society", "۷B علم و جامعه",
+    private fun f7B() = base(26, "7B Science and society", "۷B علم و جامعه",
         listOf("Use advanced argumentative structures", "Discuss science-society relations", "Balance expertise and democracy"),
         listOf(
             v("paradigm", "پارادایم", "A scientific paradigm.", "پارادایم علمی."),
@@ -1965,7 +1970,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f7C() = base(31, "7C Knowledge and wisdom", "۷C دانش و خرد",
+    private fun f7C() = base(27, "7C Knowledge and wisdom", "۷C دانش و خرد",
         listOf("Use philosophical distinctions", "Distinguish knowledge from wisdom", "Express intellectual humility"),
         listOf(
             v("wisdom", "خرد", "Ancient wisdom.", "خرد باستانی."),
@@ -2030,7 +2035,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ FILE 8 — Ethics and morality ═══════════
 
-    private fun f8A() = base(32, "8A The foundations of ethics", "۸A مبانی اخلاق",
+    private fun f8A() = base(28, "8A The foundations of ethics", "۸A مبانی اخلاق",
         listOf("Use ethical vocabulary", "Discuss moral philosophy", "Argue for ethical positions"),
         listOf(
             v("utilitarian", "سودگرا", "A utilitarian argument.", "استدلال سودگرایانه.", "adjective"),
@@ -2092,7 +2097,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f8B() = base(33, "8B Bioethics", "۸B اخلاق زیستی",
+    private fun f8B() = base(29, "8B Bioethics", "۸B اخلاق زیستی",
         listOf("Use bioethical vocabulary", "Discuss medical ethics", "Argue about life-and-death issues"),
         listOf(
             v("euthanasia", "اتانازی", "Debate on euthanasia.", "بحث در مورد اتانازی."),
@@ -2156,7 +2161,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f8C() = base(34, "8C Environmental ethics", "۸C اخلاق زیست‌محیطی",
+    private fun f8C() = base(30, "8C Environmental ethics", "۸C اخلاق زیست‌محیطی",
         listOf("Use ecological and ethical vocabulary", "Discuss environmental responsibility", "Argue for intergenerational justice"),
         listOf(
             v("anthropocentric", "انسان‌محور", "Anthropocentric worldview.", "جهان‌بینی انسان‌محور.", "adjective"),
@@ -2222,7 +2227,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ FILE 9 — Language and power ═══════════
 
-    private fun f9A() = base(35, "9A Language and power", "۹A زبان و قدرت",
+    private fun f9A() = base(33, "9A Language and power", "۹A زبان و قدرت",
         listOf("Use critical discourse analysis", "Discuss language and ideology", "Express meta-linguistic insights"),
         listOf(
             v("discourse", "گفتمان", "Political discourse.", "گفتمان سیاسی."),
@@ -2284,7 +2289,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f9B() = base(36, "9B Rhetoric and persuasion", "۹B سخنوری و متقاعدسازی",
+    private fun f9B() = base(34, "9B Rhetoric and persuasion", "۹B سخنوری و متقاعدسازی",
         listOf("Analyse rhetorical devices", "Discuss persuasion in public discourse", "Craft persuasive arguments"),
         listOf(
             v("anaphora", "تکرار آغازین", "Anaphora in speeches.", "تکرار آغازین در سخنرانی‌ها."),
@@ -2348,7 +2353,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f9C() = base(37, "9C Censorship and free speech", "۹C سانسور و آزادی بیان",
+    private fun f9C() = base(35, "9C Censorship and free speech", "۹C سانسور و آزادی بیان",
         listOf("Debate free speech limits", "Analyse censorship arguments", "Express principled positions"),
         listOf(
             v("censorship", "سانسور", "Government censorship.", "سانسور دولتی."),
@@ -2414,7 +2419,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ FILE 10 — The future of humanity ═══════════
 
-    private fun f10A() = base(38, "10A The future of humanity", "۱۰A آینده بشریت",
+    private fun f10A() = base(36, "10A The future of humanity", "۱۰A آینده بشریت",
         listOf("Use speculative language", "Discuss long-term futures", "Express epistemic caution"),
         listOf(
             v("existential", "وجودی", "Existential risk.", "خطر وجودی.", "adjective"),
@@ -2476,7 +2481,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f10B() = base(39, "10B Transhumanism", "۱۰B فراانسان‌گرایی",
+    private fun f10B() = base(37, "10B Transhumanism", "۱۰B فراانسان‌گرایی",
         listOf("Debate technological enhancement", "Discuss human nature", "Express philosophical reservations"),
         listOf(
             v("enhancement", "بهبود", "Human enhancement.", "بهبود انسانی."),
@@ -2540,7 +2545,7 @@ object AmericanEnglishFile4thLevel5 {
         )
     )
 
-    private fun f10C() = base(40, "10C Conclusion and reflection", "۱۰C نتیجه‌گیری و بازنگری",
+    private fun f10C() = base(38, "10C Conclusion and reflection", "۱۰C نتیجه‌گیری و بازنگری",
         listOf("Synthesize C1-level skills", "Reflect on the journey", "Prepare for continued mastery"),
         listOf(
             v("synthesis", "ترکیب", "A synthesis of ideas.", "ترکیبی از ایده‌ها."),
@@ -2607,7 +2612,7 @@ object AmericanEnglishFile4thLevel5 {
 
     // ═══════════ REVIEW 5 ═══════════
 
-    private fun rc910() = base(25, "R&C 9&10", "مرور ۹ و ۱۰",
+    private fun rc910() = base(40, "R&C 9&10", "مرور ۹ و ۱۰",
         listOf("Review aesthetic vocabulary", "Review interpretive language", "Review emotional description"),
         listOf(
             v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
