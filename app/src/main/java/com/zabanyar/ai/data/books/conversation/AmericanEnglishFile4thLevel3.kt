@@ -4,7 +4,7 @@ import com.zabanyar.ai.data.*
 
 /**
  * American English File 4th Edition — Level 3
- * 10 Files × 3 Lessons (A/B/C) + 5 PE + 5 R&C = 40 Lessons | B1 Intermediate
+ * 12 Files × 3 Lessons (A/B/C) + 6 PE + 6 R&C = 48 Lessons | B1 Intermediate
  * مکالمه: ۱۴-۱۶ خط
  */
 object AmericanEnglishFile4thLevel3 {
@@ -26,6 +26,9 @@ object AmericanEnglishFile4thLevel3 {
         32 -> f8A(); 33 -> f8B(); 34 -> f8C()
         35 -> f9A(); 36 -> f9B(); 37 -> f9C()
         38 -> f10A(); 39 -> f10B(); 40 -> f10C()
+        41 -> f11A(); 42 -> f11B(); 43 -> f11C()
+        44 -> pe6(); 45 -> rc1112()
+        46 -> f12A(); 47 -> f12B(); 48 -> f12C()
         else -> LessonContent(BOOK_ID, n, "Coming Soon", "به‌زودی...",
             vocabulary = emptyList(), grammar = emptyList(),
             conversation = emptyList(), quiz = emptyList())
@@ -240,11 +243,7 @@ object AmericanEnglishFile4thLevel3 {
     // ═══════════ PRACTICAL ENGLISH 1 ═══════════
 
     private fun pe1() = base(4, "PE1 Meeting the parents", "انگلیسی کاربردی ۱ — ملاقات والدین",
-        listOf(
-            "Make polite small talk",
-            "Use formal and informal language appropriately",
-            "Show respect and interest"
-        ),
+        listOf("Make polite small talk", "Use formal and informal language appropriately", "Show respect and interest"),
         listOf(
             v("pleased", "خوشحال", "Pleased to meet you.", "از آشنایی خوشحالم.", "adjective"),
             v("colleague", "همکار", "She's my colleague.", "او همکارمه."),
@@ -342,28 +341,16 @@ object AmericanEnglishFile4thLevel3 {
             q("How long ___ you been living here?", listOf("do", "have", "are"), 1),
             q("You like tea, ___ you?", listOf("do", "don't", "are"), 1)
         ),
-        idioms = listOf(
-            IdiomExpression("Keep going", "ادامه دادن", "Let's keep going.", "بیایید ادامه بدیم.")
-        ),
-        pron = listOf(
-            PronunciationTip("Tag intonation", "Rising = real question. Falling = seeking agreement.")
-        ),
-        cult = listOf(
-            CulturalNote("Review style", "Effective review alternates grammar, vocabulary, and fluency practice.")
-        ),
-        mis = listOf(
-            CommonMistake("You're British, isn't it?", "You're British, aren't you?", "Match tag to subject.")
-        )
+        idioms = listOf(IdiomExpression("Keep going", "ادامه دادن", "Let's keep going.", "بیایید ادامه بدیم.")),
+        pron = listOf(PronunciationTip("Tag intonation", "Rising = real question. Falling = seeking agreement.")),
+        cult = listOf(CulturalNote("Review style", "Effective review alternates grammar, vocabulary, and fluency practice.")),
+        mis = listOf(CommonMistake("You're British, isn't it?", "You're British, aren't you?", "Match tag to subject."))
     )
 
     // ═══════════ FILE 2 — Health ═══════════
 
     private fun f2A() = base(6, "2A Call the doctor?", "۲A به دکتر زنگ بزنم؟",
-        listOf(
-            "Use present perfect simple vs continuous",
-            "Talk about health and symptoms",
-            "Give advice about health"
-        ),
+        listOf("Use present perfect simple vs continuous", "Talk about health and symptoms", "Give advice about health"),
         listOf(
             v("symptom", "علامت", "A common symptom of flu.", "علامت شایع آنفولانزا."),
             v("prescription", "نسخه", "The doctor wrote a prescription.", "دکتر نسخه نوشت."),
@@ -408,12 +395,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("Put off", "به تعویق انداختن", "I've been putting it off.", "مدام به تعویق می‌اندازم."),
             IdiomExpression("That settles it", "این قطعی‌اش کرد", "That settles it.", "این قطعی‌اش کرد.")
         ),
-        pron = listOf(
-            PronunciationTip("Present perfect", "Contractions: I've /aɪv/, she's /ʃiːz/, they've /ðeɪv/.")
-        ),
-        cult = listOf(
-            CulturalNote("Healthcare", "In the UK, NHS provides free healthcare. In the US, health insurance is essential.")
-        ),
+        pron = listOf(PronunciationTip("Present perfect", "Contractions: I've /aɪv/, she's /ʃiːz/, they've /ðeɪv/.")),
+        cult = listOf(CulturalNote("Healthcare", "In the UK, NHS provides free healthcare. In the US, health insurance is essential.")),
         mis = listOf(
             CommonMistake("I've been feel tired.", "I've been feeling tired.", "Use -ing after 'been'."),
             CommonMistake("I've taken painkillers since two days.", "I've been taking painkillers for two days.", "For + duration, continuous for repeated action.")
@@ -421,11 +404,7 @@ object AmericanEnglishFile4thLevel3 {
     )
 
     private fun f2B() = base(7, "2B Older and wiser?", "۲B بزرگ‌تر و عاقل‌تر؟",
-        listOf(
-            "Use adjectives as nouns",
-            "Use correct adjective order",
-            "Talk about age and life stages"
-        ),
+        listOf("Use adjectives as nouns", "Use correct adjective order", "Talk about age and life stages"),
         listOf(
             v("elderly", "سالمند", "The elderly need care.", "سالمندان به مراقبت نیاز دارند.", "adjective"),
             v("wealthy", "ثروتمند", "The wealthy have influence.", "ثروتمندان نفوذ دارند.", "adjective"),
@@ -469,12 +448,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("Come with age", "با سن آمدن", "Wisdom comes with age.", "خرد با سن می‌آید."),
             IdiomExpression("Be a burden", "سربار بودن", "I don't want to be a burden.", "نمی‌خواهم سربار باشم.")
         ),
-        pron = listOf(
-            PronunciationTip("Adjective order", "Opinion, Size, Age, Shape, Color, Origin, Material (OPSHACOM).")
-        ),
-        cult = listOf(
-            CulturalNote("Elderly care", "In many Asian and Latin cultures, elderly parents live with family. In the West, nursing homes are common.")
-        ),
+        pron = listOf(PronunciationTip("Adjective order", "Opinion, Size, Age, Shape, Color, Origin, Material (OPSHACOM).")),
+        cult = listOf(CulturalNote("Elderly care", "In many Asian and Latin cultures, elderly parents live with family. In the West, nursing homes are common.")),
         mis = listOf(
             CommonMistake("The rich pays taxes.", "The rich pay taxes.", "Adjectives as nouns take plural verb."),
             CommonMistake("An old beautiful table.", "A beautiful old table.", "Opinion before age.")
@@ -482,11 +457,7 @@ object AmericanEnglishFile4thLevel3 {
     )
 
     private fun f2C() = base(8, "2C The truth about air travel", "۲C حقیقت درباره سفر هوایی",
-        listOf(
-            "Use past perfect continuous",
-            "Talk about travel experiences",
-            "Use narrative linkers"
-        ),
+        listOf("Use past perfect continuous", "Talk about travel experiences", "Use narrative linkers"),
         listOf(
             v("delay", "تأخیر", "A four-hour delay.", "چهار ساعت تأخیر."),
             v("connection", "اتصال", "I missed my connection.", "پرواز اتصالم را از دست دادم."),
@@ -532,12 +503,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("On solid ground", "روی زمین محکم", "Glad to be on solid ground.", "خوشحالم روی زمین محکم هستم."),
             IdiomExpression("Jet lag", "خستگی پرواز", "I have terrible jet lag.", "خستگی پرواز وحشتناکی دارم.")
         ),
-        pron = listOf(
-            PronunciationTip("Past perfect continuous", "Stress 'been': I had BEEN WAITing.")
-        ),
-        cult = listOf(
-            CulturalNote("Flight compensation", "In the EU, passengers can claim compensation for delays over 3 hours.")
-        ),
+        pron = listOf(PronunciationTip("Past perfect continuous", "Stress 'been': I had BEEN WAITing.")),
+        cult = listOf(CulturalNote("Flight compensation", "In the EU, passengers can claim compensation for delays over 3 hours.")),
         mis = listOf(
             CommonMistake("I had been wait for six hours.", "I had been waiting for six hours.", "Add -ing."),
             CommonMistake("By the time they fixed it, I missed my connection.", "By the time they fixed it, I had missed my connection.", "Past perfect for earlier action.")
@@ -547,11 +514,7 @@ object AmericanEnglishFile4thLevel3 {
     // ═══════════ PRACTICAL ENGLISH 2 ═══════════
 
     private fun pe2() = base(9, "PE2 A difficult celebrity", "انگلیسی کاربردی ۲ — یک سلبریتی دشوار",
-        listOf(
-            "Make polite and indirect requests",
-            "Express annoyance politely",
-            "Handle customer service situations"
-        ),
+        listOf("Make polite and indirect requests", "Express annoyance politely", "Handle customer service situations"),
         listOf(
             v("demanding", "سختگیر", "A demanding customer.", "مشتری سختگیر.", "adjective"),
             v("request", "درخواست", "A polite request.", "درخواست مؤدبانه."),
@@ -598,12 +561,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("After all", "بعد از همه چیز", "Maybe it's not so bad after all.", "شاید بعد از همه چیز اونقدر بد نیست."),
             IdiomExpression("Do our best", "نهایت تلاش را کردن", "We do our best.", "نهایت تلاشمان را می‌کنیم.")
         ),
-        pron = listOf(
-            PronunciationTip("Polite requests", "Rising intonation: Could you POSsibly... ↗")
-        ),
-        cult = listOf(
-            CulturalNote("Customer service", "In the US, 'the customer is always right' is a common motto. In the UK, service is usually more reserved.")
-        ),
+        pron = listOf(PronunciationTip("Polite requests", "Rising intonation: Could you POSsibly... ↗")),
+        cult = listOf(CulturalNote("Customer service", "In the US, 'the customer is always right' is a common motto. In the UK, service is usually more reserved.")),
         mis = listOf(
             CommonMistake("Could you tell me where is the room?", "Could you tell me where the room is?", "Indirect: subject before verb."),
             CommonMistake("Would you mind to close the door?", "Would you mind closing the door?", "Would you mind + -ing.")
@@ -649,15 +608,9 @@ object AmericanEnglishFile4thLevel3 {
             q("Could you tell me where the room ___?", listOf("is", "are", "be"), 0),
             q("I've ___ feeling tired.", listOf("be", "been", "being"), 1)
         ),
-        idioms = listOf(
-            IdiomExpression("Keep going", "ادامه دادن", "Let's keep going.", "بیایید ادامه بدیم.")
-        ),
-        pron = listOf(
-            PronunciationTip("Review intonation", "Keep questions rising, statements falling.")
-        ),
-        cult = listOf(
-            CulturalNote("Progress", "Consistency beats intensity in language learning.")
-        ),
+        idioms = listOf(IdiomExpression("Keep going", "ادامه دادن", "Let's keep going.", "بیایید ادامه بدیم.")),
+        pron = listOf(PronunciationTip("Review intonation", "Keep questions rising, statements falling.")),
+        cult = listOf(CulturalNote("Progress", "Consistency beats intensity in language learning.")),
         mis = listOf(
             CommonMistake("The rich pays.", "The rich pay.", "Plural verb."),
             CommonMistake("Could you tell me where is the station?", "Could you tell me where the station is?", "Indirect question word order.")
@@ -667,11 +620,7 @@ object AmericanEnglishFile4thLevel3 {
     // ═══════════ FILE 3 — Tales and stories ═══════════
 
     private fun f3A() = base(11, "3A The story of the Titanic", "۳A داستان تایتانیک",
-        listOf(
-            "Use narrative tenses in storytelling",
-            "Use past perfect for background events",
-            "Order past events chronologically"
-        ),
+        listOf("Use narrative tenses in storytelling", "Use past perfect for background events", "Order past events chronologically"),
         listOf(
             v("voyage", "سفر دریایی", "The maiden voyage.", "اولین سفر دریایی."),
             v("sink", "غرق شدن", "The ship sank in 1912.", "کشتی در ۱۹۱۲ غرق شد.", "verb"),
@@ -717,12 +666,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("Set sail", "حرکت کردن با کشتی", "It set sail from Southampton.", "از ساوتهمپتون حرکت کرد."),
             IdiomExpression("Go down in history", "در تاریخ ثبت شدن", "The Titanic went down in history.", "تایتانیک در تاریخ ثبت شد.")
         ),
-        pron = listOf(
-            PronunciationTip("Past perfect", "Weak forms: had /həd/ in fast speech. By the time help arrived, the ship had already sunk.")
-        ),
-        cult = listOf(
-            CulturalNote("Maritime safety", "After the Titanic, the SOLAS (Safety of Life at Sea) convention was created in 1914.")
-        ),
+        pron = listOf(PronunciationTip("Past perfect", "Weak forms: had /həd/ in fast speech.")),
+        cult = listOf(CulturalNote("Maritime safety", "After the Titanic, the SOLAS (Safety of Life at Sea) convention was created in 1914.")),
         mis = listOf(
             CommonMistake("By the time help arrived, the ship has already sunk.", "By the time help arrived, the ship had already sunk.", "Past perfect for the earlier past."),
             CommonMistake("They had ignored the warnings when they warned them.", "They had been warned, but they ignored the warnings.", "Different actions need clear tenses.")
@@ -730,11 +675,7 @@ object AmericanEnglishFile4thLevel3 {
     )
 
     private fun f3B() = base(12, "3B A tale of two cities", "۳B داستان دو شهر",
-        listOf(
-            "Use comparatives and superlatives",
-            "Compare cities and places",
-            "Express preferences about places"
-        ),
+        listOf("Use comparatives and superlatives", "Compare cities and places", "Express preferences about places"),
         listOf(
             v("crowded", "شلوغ", "A crowded city.", "شهر شلوغ.", "adjective"),
             v("peaceful", "آرام", "A peaceful village.", "روستای آرام.", "adjective"),
@@ -779,12 +720,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("A fair point", "نکته منصفانه", "That's a fair point.", "نکته منصفانه‌ای است."),
             IdiomExpression("It depends", "بستگی دارد", "It depends on what you value.", "بستگی به چیزهایی دارد که ارزش می‌گذاری.")
         ),
-        pron = listOf(
-            PronunciationTip("Comparatives", "Stress 'much/more': It's MUCH bigGER than. It's far MORE expensive.")
-        ),
-        cult = listOf(
-            CulturalNote("London vs Paris", "A historic rivalry. London is more business-focused; Paris more lifestyle-focused.")
-        ),
+        pron = listOf(PronunciationTip("Comparatives", "Stress 'much/more': It's MUCH bigGER than. It's far MORE expensive.")),
+        cult = listOf(CulturalNote("London vs Paris", "A historic rivalry. London is more business-focused; Paris more lifestyle-focused.")),
         mis = listOf(
             CommonMistake("London is more bigger.", "London is much bigger.", "No double comparative."),
             CommonMistake("Paris is more beautiful that London.", "Paris is more beautiful than London.", "Than, not that.")
@@ -792,11 +729,7 @@ object AmericanEnglishFile4thLevel3 {
     )
 
     private fun f3C() = base(13, "3C The end of the story", "۳C پایان داستان",
-        listOf(
-            "Use narrative devices",
-            "Tell a story with an unexpected ending",
-            "Use adverbs and adverbial phrases in narratives"
-        ),
+        listOf("Use narrative devices", "Tell a story with an unexpected ending", "Use adverbs and adverbial phrases in narratives"),
         listOf(
             v("plot twist", "پیچش داستان", "A surprising plot twist.", "پیچش داستانی غافلگیرکننده."),
             v("unexpected", "غیرمنتظره", "An unexpected ending.", "پایان غیرمنتظره.", "adjective"),
@@ -844,25 +777,15 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("In the end", "در پایان", "In the end, it was great.", "در پایان، عالی بود."),
             IdiomExpression("Little did I know", "نمی‌دانستم که", "Little did I know...", "نمی‌دانستم که...")
         ),
-        pron = listOf(
-            PronunciationTip("Narrative adverbs", "Stress the adverb: SUDDenly, eVENtually, aMAZingly.")
-        ),
-        cult = listOf(
-            CulturalNote("Italian hospitality", "Small guesthouses (pensioni) are common in Italy. Personal connections matter more than contracts.")
-        ),
-        mis = listOf(
-            CommonMistake("In my surprise, it was beautiful.", "To my surprise, it was beautiful.", "Use 'to my surprise'.")
-        )
+        pron = listOf(PronunciationTip("Narrative adverbs", "Stress the adverb: SUDDenly, eVENtually, aMAZingly.")),
+        cult = listOf(CulturalNote("Italian hospitality", "Small guesthouses (pensioni) are common in Italy. Personal connections matter more than contracts.")),
+        mis = listOf(CommonMistake("In my surprise, it was beautiful.", "To my surprise, it was beautiful.", "Use 'to my surprise'."))
     )
 
     // ═══════════ PRACTICAL ENGLISH 3 ═══════════
 
     private fun pe3() = base(14, "PE3 Old friends", "انگلیسی کاربردی ۳ — دوستان قدیمی",
-        listOf(
-            "Talk about memories and past habits",
-            "Use used to and would",
-            "Express nostalgia and change"
-        ),
+        listOf("Talk about memories and past habits", "Use used to and would", "Express nostalgia and change"),
         listOf(
             v("used to", "قبلاً", "I used to live here.", "قبلاً اینجا زندگی می‌کردم.", "verb"),
             v("nostalgic", "نوستالژیک", "A nostalgic feeling.", "احساس نوستالژیک.", "adjective"),
@@ -909,12 +832,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("That's a shame", "حیف شد", "That's a shame.", "حیف شد."),
             IdiomExpression("Catch up", "خبر گرفتن", "Let's catch up properly.", "بیا مفصل خبر بگیریم.")
         ),
-        pron = listOf(
-            PronunciationTip("Used to", "Weak form: used to /ˈjuːstə/ in natural speech.")
-        ),
-        cult = listOf(
-            CulturalNote("School reunions", "In the UK and US, school reunions are common. In many cultures, classmates stay in touch throughout life.")
-        ),
+        pron = listOf(PronunciationTip("Used to", "Weak form: used to /ˈjuːstə/ in natural speech.")),
+        cult = listOf(CulturalNote("School reunions", "In the UK and US, school reunions are common. In many cultures, classmates stay in touch throughout life.")),
         mis = listOf(
             CommonMistake("I use to live there.", "I used to live there.", "Past: used to."),
             CommonMistake("I would have a car.", "I used to have a car.", "Would cannot express past states.")
@@ -968,11 +887,7 @@ object AmericanEnglishFile4thLevel3 {
     // ═══════════ FILE 4 — Money and shopping ═══════════
 
     private fun f4A() = base(16, "4A The psychology of shopping", "۴A روانشناسی خرید",
-        listOf(
-            "Use gerunds and infinitives",
-            "Talk about shopping habits",
-            "Express purpose and reason"
-        ),
+        listOf("Use gerunds and infinitives", "Talk about shopping habits", "Express purpose and reason"),
         listOf(
             v("impulse", "لحظه‌ای", "Impulse buying.", "خرید لحظه‌ای.", "adjective"),
             v("bargain", "معامله خوب", "A real bargain.", "معامله واقعی."),
@@ -1018,12 +933,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("Stick to", "پایبند بودن به", "Stick to your budget.", "به بودجه‌ات پایبند باش."),
             IdiomExpression("End up", "در نهایت انجام دادن", "I end up buying more.", "در نهایت بیشتر می‌خرم.")
         ),
-        pron = listOf(
-            PronunciationTip("Gerund vs infinitive", "Listen for the different rhythm: I enjoy SHOPping vs I want to BUY.")
-        ),
-        cult = listOf(
-            CulturalNote("Shopping culture", "The US has more 'impulse buy' culture. In some European countries, shopping is more planned.")
-        ),
+        pron = listOf(PronunciationTip("Gerund vs infinitive", "Listen for the different rhythm: I enjoy SHOPping vs I want to BUY.")),
+        cult = listOf(CulturalNote("Shopping culture", "The US has more 'impulse buy' culture. In some European countries, shopping is more planned.")),
         mis = listOf(
             CommonMistake("I enjoy to shop.", "I enjoy shopping.", "Enjoy + gerund."),
             CommonMistake("I want buying a car.", "I want to buy a car.", "Want + infinitive.")
@@ -1031,11 +942,7 @@ object AmericanEnglishFile4thLevel3 {
     )
 
     private fun f4B() = base(17, "4B Money and happiness", "۴B پول و خوشبختی",
-        listOf(
-            "Use second conditional",
-            "Talk about hypothetical situations",
-            "Discuss money and values"
-        ),
+        listOf("Use second conditional", "Talk about hypothetical situations", "Discuss money and values"),
         listOf(
             v("wealthy", "ثروتمند", "A wealthy family.", "خانواده ثروتمند.", "adjective"),
             v("generous", "بخشنده", "She's very generous.", "او خیلی بخشنده است.", "adjective"),
@@ -1081,12 +988,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("Up to a point", "تا حدی", "Up to a point, yes.", "تا حدی، بله."),
             IdiomExpression("Content with", "قانع به", "Content with what I have.", "قانع به آنچه دارم.")
         ),
-        pron = listOf(
-            PronunciationTip("Second conditional", "Would is usually contracted: I'd /aɪd/, you'd /juːd/, he'd /hiːd/.")
-        ),
-        cult = listOf(
-            CulturalNote("Money and happiness", "Studies show that beyond a certain income, more money doesn't increase happiness. Relationships matter more.")
-        ),
+        pron = listOf(PronunciationTip("Second conditional", "Would is usually contracted: I'd /aɪd/, you'd /juːd/, he'd /hiːd/.")),
+        cult = listOf(CulturalNote("Money and happiness", "Studies show that beyond a certain income, more money doesn't increase happiness. Relationships matter more.")),
         mis = listOf(
             CommonMistake("If I would have money", "If I had money", "Use past simple in if-clause."),
             CommonMistake("I will buy a house if I won.", "I would buy a house if I won.", "Would in main clause.")
@@ -1094,11 +997,7 @@ object AmericanEnglishFile4thLevel3 {
     )
 
     private fun f4C() = base(18, "4C Ethical shopping", "۴C خرید اخلاقی",
-        listOf(
-            "Use relative clauses",
-            "Discuss ethical issues",
-            "Express opinions about consumerism"
-        ),
+        listOf("Use relative clauses", "Discuss ethical issues", "Express opinions about consumerism"),
         listOf(
             v("ethical", "اخلاقی", "Ethical shopping.", "خرید اخلاقی.", "adjective"),
             v("sustainable", "پایدار", "Sustainable fashion.", "مد پایدار.", "adjective"),
@@ -1144,12 +1043,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("I'd rather", "ترجیح می‌دهم", "I'd rather buy fewer things.", "ترجیح می‌دهم چیزهای کمتری بخرم."),
             IdiomExpression("Carbon footprint", "رد پای کربن", "Reduce your carbon footprint.", "رد پای کربن را کاهش بده.")
         ),
-        pron = listOf(
-            PronunciationTip("Relative clauses", "No pause in defining: The man who sells coffee. Pause in non-defining: My brother, | who lives in Paris, | is a chef.")
-        ),
-        cult = listOf(
-            CulturalNote("Ethical consumption", "Growing movement globally. Fair Trade, B Corps, and slow fashion are gaining popularity.")
-        ),
+        pron = listOf(PronunciationTip("Relative clauses", "No pause in defining. Pause in non-defining: My brother, | who lives in Paris, | is a chef.")),
+        cult = listOf(CulturalNote("Ethical consumption", "Growing movement globally. Fair Trade, B Corps, and slow fashion are gaining popularity.")),
         mis = listOf(
             CommonMistake("The man which sells coffee.", "The man who sells coffee.", "Who for people."),
             CommonMistake("The company who products I buy.", "The company whose products I buy.", "Whose for possession.")
@@ -1159,11 +1054,7 @@ object AmericanEnglishFile4thLevel3 {
     // ═══════════ PRACTICAL ENGLISH 4 ═══════════
 
     private fun pe4() = base(19, "PE4 At the bank", "انگلیسی کاربردی ۴ — در بانک",
-        listOf(
-            "Open a bank account",
-            "Discuss financial services",
-            "Understand banking vocabulary"
-        ),
+        listOf("Open a bank account", "Discuss financial services", "Understand banking vocabulary"),
         listOf(
             v("account", "حساب", "Open a bank account.", "حساب بانکی باز کن."),
             v("deposit", "واریز", "Make a deposit.", "واریز کن.", "verb"),
@@ -1211,12 +1102,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("In that case", "در آن صورت", "In that case, use this.", "در آن صورت، از این استفاده کن."),
             IdiomExpression("My pleasure", "خواهش می‌کنم", "My pleasure.", "خواهش می‌کنم.")
         ),
-        pron = listOf(
-            PronunciationTip("Polite requests", "Would you MIND FILLing in this form? ↗")
-        ),
-        cult = listOf(
-            CulturalNote("Banking in the UK", "It's common to need proof of address. Utility bills or tenancy agreements are standard.")
-        ),
+        pron = listOf(PronunciationTip("Polite requests", "Would you MIND FILLing in this form? ↗")),
+        cult = listOf(CulturalNote("Banking in the UK", "It's common to need proof of address. Utility bills or tenancy agreements are standard.")),
         mis = listOf(
             CommonMistake("I'd like opening an account.", "I'd like to open an account.", "Would like + infinitive."),
             CommonMistake("Would you mind to help me?", "Would you mind helping me?", "Would you mind + gerund.")
@@ -1274,11 +1161,7 @@ object AmericanEnglishFile4thLevel3 {
     // ═══════════ FILE 5 — Work and study ═══════════
 
     private fun f5A() = base(21, "5A The ideal job", "۵A شغل ایده‌آل",
-        listOf(
-            "Use modals for obligation and advice",
-            "Talk about careers and work",
-            "Express preferences about jobs"
-        ),
+        listOf("Use modals for obligation and advice", "Talk about careers and work", "Express preferences about jobs"),
         listOf(
             v("career", "حرفه", "A successful career.", "حرفه موفق."),
             v("salary", "حقوق", "A good salary.", "حقوق خوب."),
@@ -1326,12 +1209,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("Burn out", "فرسوده شدن", "It nearly burned me out.", "تقریباً فرسوده‌ام کرد."),
             IdiomExpression("Work to live, not live to work", "کار برای زندگی، نه زندگی برای کار", "I work to live, not live to work.", "کار می‌کنم تا زندگی کنم، نه زندگی کنم تا کار کنم.")
         ),
-        pron = listOf(
-            PronunciationTip("Must / Have to", "Must is more formal and often stressed. Have to often reduces to 'hafta' in speech.")
-        ),
-        cult = listOf(
-            CulturalNote("Work culture", "In Japan and Korea, overtime is common. In Scandinavia, work-life balance is prioritised.")
-        ),
+        pron = listOf(PronunciationTip("Must / Have to", "Must is more formal and often stressed. Have to often reduces to 'hafta' in speech.")),
+        cult = listOf(CulturalNote("Work culture", "In Japan and Korea, overtime is common. In Scandinavia, work-life balance is prioritised.")),
         mis = listOf(
             CommonMistake("You must to rest.", "You must rest.", "No 'to' after must."),
             CommonMistake("I don't must work.", "I don't have to work.", "Use 'don't have to'.")
@@ -1339,11 +1218,7 @@ object AmericanEnglishFile4thLevel3 {
     )
 
     private fun f5B() = base(22, "5B Learning for life", "۵B یادگیری برای زندگی",
-        listOf(
-            "Use gerunds and infinitives after verbs",
-            "Talk about learning and education",
-            "Express purpose"
-        ),
+        listOf("Use gerunds and infinitives after verbs", "Talk about learning and education", "Express purpose"),
         listOf(
             v("qualification", "مدرک", "A teaching qualification.", "مدرک تدریس."),
             v("degree", "مدرک دانشگاهی", "A university degree.", "مدرک دانشگاهی."),
@@ -1390,12 +1265,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("Put off", "به تعویق انداختن", "I keep putting it off.", "مدام به تعویق می‌اندازم."),
             IdiomExpression("On track", "طبق برنامه", "I'm on track.", "طبق برنامه پیش می‌روم.")
         ),
-        pron = listOf(
-            PronunciationTip("Verb patterns", "Listen to the linking: I enjoy LEARNing. I decided TO TAKE.")
-        ),
-        cult = listOf(
-            CulturalNote("Lifelong learning", "Adults increasingly change careers. Continuous learning is essential in the modern economy.")
-        ),
+        pron = listOf(PronunciationTip("Verb patterns", "Listen to the linking: I enjoy LEARNing. I decided TO TAKE.")),
+        cult = listOf(CulturalNote("Lifelong learning", "Adults increasingly change careers. Continuous learning is essential in the modern economy.")),
         mis = listOf(
             CommonMistake("I enjoy to learn.", "I enjoy learning.", "Enjoy + gerund."),
             CommonMistake("I decided taking a course.", "I decided to take a course.", "Decide + infinitive.")
@@ -1403,11 +1274,7 @@ object AmericanEnglishFile4thLevel3 {
     )
 
     private fun f5C() = base(23, "5C The future of work", "۵C آینده کار",
-        listOf(
-            "Use will/won't for predictions",
-            "Make future predictions",
-            "Discuss future trends"
-        ),
+        listOf("Use will/won't for predictions", "Make future predictions", "Discuss future trends"),
         listOf(
             v("automation", "اتوماسیون", "Automation is increasing.", "اتوماسیون در حال افزایش است."),
             v("remote", "دور", "Remote work.", "کار از راه دور.", "adjective"),
@@ -1454,12 +1321,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("Here to stay", "ماندنی", "Remote work is here to stay.", "کار از راه دور ماندنی است."),
             IdiomExpression("Human touch", "لمس انسانی", "Some things need a human touch.", "بعضی چیزها نیاز به لمس انسانی دارند.")
         ),
-        pron = listOf(
-            PronunciationTip("Contractions", "I'll /aɪl/, won't /woʊnt/, they'll /ðeɪl/.")
-        ),
-        cult = listOf(
-            CulturalNote("Future of work", "The pandemic accelerated remote work. Hybrid models are now the norm in many sectors.")
-        ),
+        pron = listOf(PronunciationTip("Contractions", "I'll /aɪl/, won't /woʊnt/, they'll /ðeɪl/.")),
+        cult = listOf(CulturalNote("Future of work", "The pandemic accelerated remote work. Hybrid models are now the norm in many sectors.")),
         mis = listOf(
             CommonMistake("I will to work remotely.", "I will work remotely.", "No 'to' after will."),
             CommonMistake("Automation will replaces jobs.", "Automation will replace jobs.", "Base verb after will.")
@@ -1469,11 +1332,7 @@ object AmericanEnglishFile4thLevel3 {
     // ═══════════ PRACTICAL ENGLISH 5 ═══════════
 
     private fun pe5() = base(24, "PE5 A job interview", "انگلیسی کاربردی ۵ — مصاحبه شغلی",
-        listOf(
-            "Prepare for a job interview",
-            "Answer common interview questions",
-            "Ask questions about the role"
-        ),
+        listOf("Prepare for a job interview", "Answer common interview questions", "Ask questions about the role"),
         listOf(
             v("interview", "مصاحبه", "A job interview.", "مصاحبه شغلی."),
             v("CV", "رزومه", "Send your CV.", "رزومه‌ات را بفرست."),
@@ -1522,12 +1381,8 @@ object AmericanEnglishFile4thLevel3 {
             IdiomExpression("Take on", "قبول کردن", "I used to take on too much.", "قبلاً بیش از حد قبول می‌کردم."),
             IdiomExpression("Win back", "بازگرداندن", "We won them back.", "آنها را بازگرداندیم.")
         ),
-        pron = listOf(
-            PronunciationTip("Interview tone", "Speak clearly, not too fast. Use pauses for emphasis. Stress key achievements.")
-        ),
-        cult = listOf(
-            CulturalNote("Job interviews", "In the US and UK, it's common to talk positively about yourself. In some cultures, this may seem boastful.")
-        ),
+        pron = listOf(PronunciationTip("Interview tone", "Speak clearly, not too fast. Use pauses for emphasis. Stress key achievements.")),
+        cult = listOf(CulturalNote("Job interviews", "In the US and UK, it's common to talk positively about yourself. In some cultures, this may seem boastful.")),
         mis = listOf(
             CommonMistake("I've work here for 5 years.", "I've worked here for 5 years.", "Past participle."),
             CommonMistake("Could you tell me about the team what I'd work with?", "Could you tell me about the team I'd work with?", "No 'what' in relative clause.")
@@ -2430,4 +2285,456 @@ object AmericanEnglishFile4thLevel3 {
             CommonMistake("I wish I have more time.", "I wish I had more time.", "Wish + past simple for present.")
         )
     )
-}   // ← ✅ پایان object
+
+    // ═══════════ FILE 11 — Food and culture ═══════════
+
+    private fun f11A() = base(41, "11A You are what you eat", "۱۱A تو همانی که می‌خوری",
+        listOf("Use reported speech", "Talk about food and eating habits", "Report what someone said"),
+        listOf(
+            v("cuisine", "آشپزی", "Italian cuisine is world-famous.", "آشپزی ایتالیایی در جهان معروف است."),
+            v("recipe", "دستور پخت", "A family recipe.", "دستور پخت خانوادگی."),
+            v("ingredient", "ماده اولیه", "Fresh ingredients.", "مواد اولیه تازه."),
+            v("flavour", "طعم", "A rich flavour.", "طعم غنی."),
+            v("spicy", "تند", "Spicy food.", "غذای تند.", "adjective"),
+            v("delicious", "خوشمزه", "Delicious meal.", "غذای خوشمزه.", "adjective"),
+            v("vegetarian", "گیاه‌خوار", "A vegetarian diet.", "رژیم گیاه‌خواری."),
+            v("cut down on", "کم کردن", "Cut down on salt.", "نمک را کم کن.", "verb"),
+            v("home-made", "خانگی", "Home-made bread.", "نان خانگی.", "adjective"),
+            v("taste", "مزه کردن", "Taste the soup.", "سوپ را مزه کن.", "verb")
+        ),
+        listOf(
+            GrammarSection("Reported statements", "Direct: I love Italian food. → Reported: She said she loved Italian food."),
+            GrammarSection("Tense backshift", "Present → Past. Will → Would. Can → Could."),
+            GrammarSection("Say vs Tell", "He said (that)... He told me (that)...")
+        ),
+        listOf(
+            d("A", "I spoke to my grandmother yesterday about her cooking.", "دیروز با مادربزرگم درباره آشپزی‌اش صحبت کردم."),
+            d("B", "Oh really? What did she say?", "واقعاً؟ چی گفت؟"),
+            d("A", "She said she had learned to cook when she was twelve.", "گفت که در دوازده سالگی آشپزی یاد گرفته بود."),
+            d("B", "That's amazing. Did she tell you any recipes?", "شگفت‌انگیزه. دستور پختی بهت داد؟"),
+            d("A", "She told me her secret was using fresh ingredients only.", "به من گفت رازش فقط استفاده از مواد اولیه تازه بوده."),
+            d("B", "Wise woman. What's your favourite dish of hers?", "زن عاقلی. غذای مورد علاقه‌ات از او چیه؟"),
+            d("A", "Her lamb stew. She said she would teach me next month.", "خورش گوسفندش. گفت ماه بعد یادم می‌دهد."),
+            d("B", "Lucky you. Do you cook much yourself?", "چقدر خوش‌شانسی. خودت زیاد آشپزی می‌کنی؟"),
+            d("A", "Not as much as I should. I usually eat out.", "به اندازه‌ای که باید نه. معمولاً بیرون غذا می‌خورم."),
+            d("B", "That gets expensive. Do you have any easy recipes?", "گران می‌شود. دستور پخت آسان داری؟"),
+            d("A", "A few. My mother told me to always keep pasta in the cupboard.", "چند تا. مادرم به من گفت همیشه ماکارونی در کابینت داشته باش."),
+            d("B", "Good advice! She sounds practical.", "توصیه خوبی! به نظر عملی میاد."),
+            d("A", "She is. She said anyone could cook if they weren't afraid to try.", "هست. گفت هر کسی می‌تواند آشپزی کند اگر نترسد امتحان کند."),
+            d("B", "I agree. Speaking of which, I'm hungry now.", "موافقم. راستی، الان گرسنه‌ام.")
+        ),
+        listOf(
+            q("When did grandmother learn to cook?", listOf("at 10", "at 12", "at 15"), 1),
+            q("What's grandmother's secret?", listOf("spices", "fresh ingredients", "slow cooking"), 1),
+            q("She said she ___ learned to cook at 12.", listOf("has", "had", "have"), 1),
+            q("She ___ me she would teach me.", listOf("said", "told", "asked"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Eat out", "بیرون غذا خوردن", "I usually eat out.", "معمولاً بیرون غذا می‌خورم."),
+            IdiomExpression("Speaking of which", "راستی همین را که گفتی", "Speaking of which...", "راستی همین را که گفتی...")
+        ),
+        pron = listOf(PronunciationTip("Reported speech", "Tense backshift: 'I love it' → she said she LOVED it.")),
+        cult = listOf(CulturalNote("Family recipes", "Passed down through generations. In Italy and Iran, recipes are family treasures.")),
+        mis = listOf(
+            CommonMistake("She said me she loved food.", "She told me she loved food.", "Tell + object. Say + no object."),
+            CommonMistake("She said she love it.", "She said she loved it.", "Backshift to past.")
+        )
+    )
+
+    private fun f11B() = base(42, "11B Food for thought", "۱۱B غذایی برای فکر",
+        listOf("Use reported questions", "Discuss food ethics", "Report questions and commands"),
+        listOf(
+            v("organic", "ارگانیک", "Organic vegetables.", "سبزیجات ارگانیک.", "adjective"),
+            v("processed", "فرآوری شده", "Processed food.", "غذای فرآوری شده.", "adjective"),
+            v("additive", "افزودنی", "Artificial additives.", "افزودنی‌های مصنوعی."),
+            v("preservative", "نگهدارنده", "Chemical preservatives.", "نگهدارنده‌های شیمیایی."),
+            v("nutrition", "تغذیه", "Good nutrition.", "تغذیه خوب."),
+            v("labelling", "برچسب‌گذاری", "Food labelling.", "برچسب‌گذاری غذا."),
+            v("consumption", "مصرف", "Reduce meat consumption.", "مصرف گوشت را کاهش بده."),
+            v("ethical", "اخلاقی", "Ethical food choices.", "انتخاب‌های غذایی اخلاقی.", "adjective"),
+            v("awareness", "آگاهی", "Raise awareness.", "آگاهی ایجاد کن."),
+            v("genetically modified", "دستکاری ژنتیکی", "GM crops.", "محصولات دستکاری‌شده ژنتیکی.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Reported questions", "Direct: Where do you buy food? → She asked me where I bought food."),
+            GrammarSection("Reported commands", "Direct: Don't eat that. → He told me not to eat that."),
+            GrammarSection("Yes/No questions", "Direct: Do you like meat? → He asked if/whether I liked meat.")
+        ),
+        listOf(
+            d("A", "The teacher asked me a difficult question today.", "امروز معلم سؤال سختی از من پرسید."),
+            d("B", "What did she ask?", "چی پرسید؟"),
+            d("A", "She asked me if I knew where my food came from.", "پرسید آیا می‌دانم غذایم از کجا می‌آید."),
+            d("B", "That's a deep question. What did you say?", "سؤال عمیقی‌ست. چی گفتی؟"),
+            d("A", "I said I usually bought whatever was cheapest.", "گفتم معمولاً هر چیز ارزان‌تری را می‌خرم."),
+            d("B", "Honest answer. Did she accept it?", "پاسخ صادقانه‌ای. قبول کرد؟"),
+            d("A", "She nodded and then told us to check food labels.", "سر تکان داد و بعد به ما گفت برچسب‌های غذا را چک کنیم."),
+            d("B", "That's useful advice. Do you check labels now?", "توصیه مفیدی‌ست. الان برچسب‌ها را چک می‌کنی؟"),
+            d("A", "I try to. She also asked whether we knew what additives were.", "سعی می‌کنم. همچنین پرسید آیا می‌دانیم افزودنی‌ها چیست."),
+            d("B", "Do you?", "می‌دانی؟"),
+            d("A", "Roughly. She said many preservatives were safe, but some were questionable.", "تقریباً. گفت بسیاری از نگهدارنده‌ها ایمن‌اند، ولی بعضی مشکوک."),
+            d("B", "I've heard the same. Did she mention organic food?", "من هم همین را شنیده‌ام. ارگانیک را ذکر کرد؟"),
+            d("A", "Yes. She told us not to believe everything on the packaging.", "بله. به ما گفت همه چیز روی بسته‌بندی را باور نکنیم."),
+            d("B", "Smart teacher. She sounds like she cares.", "معلم باهوشی. به نظر می‌رسد اهمیت می‌دهد."),
+            d("A", "She does. She asked us to write an essay on ethical eating.", "بله. از ما خواست مقاله‌ای درباره غذا خوردن اخلاقی بنویسیم."),
+            d("B", "Interesting topic. I'd like to read it when you finish.", "موضوع جالبی‌ست. وقتی تمام کردی دوست دارم بخوانم.")
+        ),
+        listOf(
+            q("What did the teacher ask first?", listOf("about nutrition", "where food came from", "about recipes"), 1),
+            q("What did the teacher tell students to check?", listOf("prices", "food labels", "recipes"), 1),
+            q("She asked me if I ___ where my food came from.", listOf("know", "knew", "knowing"), 1),
+            q("She told us ___ believe everything.", listOf("to not", "not to", "don't"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Food for thought", "غذایی برای فکر", "That's food for thought.", "این غذایی برای فکر است."),
+            IdiomExpression("Roughly", "تقریباً", "Roughly, yes.", "تقریباً، بله.")
+        ),
+        pron = listOf(PronunciationTip("Reported questions", "No auxiliary: She asked where I LIVED (not did I live).")),
+        cult = listOf(CulturalNote("Food ethics", "In the EU, GMO labelling is mandatory. In the US, it's voluntary in most states.")),
+        mis = listOf(
+            CommonMistake("She asked me where did I buy food.", "She asked me where I bought food.", "No auxiliary in reported question."),
+            CommonMistake("She told me to not eat.", "She told me not to eat.", "Not + to + verb.")
+        )
+    )
+
+    private fun f11C() = base(43, "11C A taste of the world", "۱۱C مزه‌ای از جهان",
+        listOf("Use reported speech in context", "Discuss global cuisine", "Share food memories"),
+        listOf(
+            v("fusion", "تلفیقی", "Fusion cuisine.", "آشپزی تلفیقی."),
+            v("authentic", "اصیل", "Authentic Thai food.", "غذای تایلندی اصیل.", "adjective"),
+            v("heritage", "میراث", "Culinary heritage.", "میراث آشپزی."),
+            v("tradition", "سنت", "Family tradition.", "سنت خانوادگی."),
+            v("generation", "نسل", "Passed through generations.", "از نسلی به نسل دیگر منتقل شد."),
+            v("adapt", "سازگار شدن", "Adapt recipes.", "دستورهای پخت را سازگار کن.", "verb"),
+            v("preserve", "حفظ کردن", "Preserve traditions.", "سنت‌ها را حفظ کن.", "verb"),
+            v("influence", "تأثیر", "Cultural influence.", "تأثیر فرهنگی."),
+            v("nostalgia", "نوستالژی", "A taste of nostalgia.", "طعم نوستالژی."),
+            v("comfort food", "غذای دلچسب", "Comfort food from childhood.", "غذای دلچسب کودکی.")
+        ),
+        listOf(
+            GrammarSection("Reported speech review", "Statements, questions, commands in reported form."),
+            GrammarSection("Reporting verbs", "say, tell, ask, explain, admit, promise, warn, remind."),
+            GrammarSection("Time changes", "now → then, today → that day, tomorrow → the next day.")
+        ),
+        listOf(
+            d("A", "I read an interesting article about food and memory.", "مقاله جالبی درباره غذا و حافظه خواندم."),
+            d("B", "What did it say?", "چی گفت؟"),
+            d("A", "It said that certain flavours could bring back childhood memories instantly.", "گفت که طعم‌های خاصی می‌توانند فوراً خاطرات کودکی را برگردانند."),
+            d("B", "That's so true. My grandmother's rice pudding does that for me.", "کاملاً درسته. پودینگ برنج مادربزرگم این کار را برای من می‌کند."),
+            d("A", "The article explained that smell and taste were linked to the oldest part of the brain.", "مقاله توضیح داد که بو و طعم به قدیمی‌ترین بخش مغز مرتبط هستند."),
+            d("B", "Fascinating. Did it mention any specific dishes?", "شگفت‌انگیز. غذای خاصی را ذکر کرد؟"),
+            d("A", "It mentioned that in many cultures, comfort food was the same — something soft, warm, and home-made.", "ذکر کرد که در بسیاری از فرهنگ‌ها، غذای دلچسب یکسان است — چیزی نرم، گرم و خانگی."),
+            d("B", "That makes sense. My mother always told me to eat soup when I was sad.", "منطقی‌ست. مادرم همیشه به من می‌گفت وقتی غمگین هستم سوپ بخورم."),
+            d("A", "The author promised to write a follow-up about food heritage.", "نویسنده قول داد مقاله بعدی درباره میراث غذایی بنویسد."),
+            d("B", "I'll look out for it. Do you think fusion cuisine loses authenticity?", "منتظرش می‌مانم. فکر می‌کنی آشپزی تلفیقی اصالت را از دست می‌دهد؟"),
+            d("A", "Not necessarily. The article argued that cuisines had always adapted and mixed.", "لزوماً نه. مقاله استدلال کرد که آشپزی‌ها همیشه سازگار و مخلوط شده‌اند."),
+            d("B", "That's a fair point. Italian food uses tomatoes from America, after all.", "نکته منصفانه‌ای‌ست. غذای ایتالیایی بعد از همه از گوجه‌آمریکایی استفاده می‌کند."),
+            d("A", "Exactly. The writer reminded us that food is always evolving.", "دقیقاً. نویسنده یادآوری کرد که غذا همیشه در حال تحول است."),
+            d("B", "True. But I still prefer my grandmother's cooking to any restaurant.", "درسته. ولی هنوز آشپزی مادربزرگم را به هر رستورانی ترجیح می‌دهم.")
+        ),
+        listOf(
+            q("What did the article say about flavours?", listOf("they're unhealthy", "they bring back memories", "they're genetic"), 1),
+            q("What is comfort food usually like?", listOf("cold and spicy", "soft, warm, home-made", "expensive"), 1),
+            q("The article ___ that smell was linked to the brain.", listOf("said", "told", "asked"), 0),
+            q("The author promised ___ a follow-up.", listOf("write", "writing", "to write"), 2)
+        ),
+        idioms = listOf(
+            IdiomExpression("Look out for", "منتظر بودن", "I'll look out for it.", "منتظرش می‌مانم."),
+            IdiomExpression("Comfort food", "غذای دلچسب", "Rice pudding is comfort food.", "پودینگ برنج غذای دلچسبی‌ست."),
+            IdiomExpression("After all", "بعد از همه", "After all, tomatoes came from America.", "بعد از همه، گوجه از آمریکا آمد.")
+        ),
+        pron = listOf(PronunciationTip("Reporting verbs", "Stress the reporting verb for emphasis: He INSISTED, she ADMITTED.")),
+        cult = listOf(CulturalNote("Food heritage", "UNESCO lists traditional cuisines as Intangible Cultural Heritage.")),
+        mis = listOf(
+            CommonMistake("The article said me that...", "The article said that...", "Say + no indirect object."),
+            CommonMistake("He promised writing.", "He promised to write.", "Promise + infinitive.")
+        )
+    )
+
+    // ═══════════ PRACTICAL ENGLISH 6 ═══════════
+
+    private fun pe6() = base(44, "PE6 Saying goodbye", "انگلیسی کاربردی ۶ — خداحافظی",
+        listOf("Say goodbye formally and informally", "Express gratitude", "Make future plans with friends"),
+        listOf(
+            v("farewell", "خداحافظی", "A fond farewell.", "خداحافظی محبت‌آمیز."),
+            v("gratitude", "قدردانی", "Express gratitude.", "قدردانی کن."),
+            v("keep in touch", "در تماس بودن", "Keep in touch!", "در تماس باش!", "verb"),
+            v("look forward", "منتظر بودن", "Looking forward to seeing you.", "منتظر دیدنتم.", "verb"),
+            v("promise", "قول دادن", "I promise to write.", "قول می‌دهم بنویسم.", "verb"),
+            v("grateful", "سپاسگزار", "I'm grateful for everything.", "از همه چیز سپاسگزارم.", "adjective"),
+            v("memory", "خاطره", "Great memories.", "خاطرات عالی."),
+            v("sincerely", "صمیمانه", "Sincerely yours.", "با احترام.", "adverb"),
+            v("stay in contact", "در تماس ماندن", "Let's stay in contact.", "بیایید در تماس بمانیم.", "verb"),
+            v("farewell party", "مهمانی خداحافظی", "A farewell party.", "مهمانی خداحافظی.")
+        ),
+        listOf(
+            GrammarSection("Formal farewells", "I'd like to thank you all. It's been a pleasure."),
+            GrammarSection("Informal farewells", "Take care! See you soon! Keep in touch!"),
+            GrammarSection("Future plans with friends", "Let's meet up. I'll call you. We must get together soon.")
+        ),
+        listOf(
+            d("A", "I can't believe you're leaving tomorrow.", "باور نمی‌کنم فردا می‌روی."),
+            d("B", "Neither can I. The year went so fast.", "من هم. سال خیلی سریع گذشت."),
+            d("A", "We'll miss you at work. You've been a great colleague.", "در محل کار دلمان برایت تنگ می‌شود. همکار عالی‌ای بودی."),
+            d("B", "Thank you. I've really enjoyed working with everyone.", "ممنون. واقعاً از کار با همه لذت بردم."),
+            d("A", "Have you packed everything?", "همه چیز را بسته‌بندی کرده‌ای؟"),
+            d("B", "Almost. Just a few things left. It's harder than I thought.", "تقریباً. فقط چند چیز مانده. از آنچه فکر می‌کردم سخت‌تر است."),
+            d("A", "Are you excited about the new job?", "برای شغل جدید هیجان‌زده‌ای؟"),
+            d("B", "Very. I'm nervous too, though. It's a big change.", "خیلی. هرچند مضطرب هم هستم. تغییر بزرگی‌ست."),
+            d("A", "You'll do great. Promise to keep in touch?", "عالی عمل می‌کنی. قول می‌دهی در تماس بمانی؟"),
+            d("B", "Of course. I'll message you every week at least.", "البته. حداقل هر هفته پیام می‌دهم."),
+            d("A", "Good. And if you're ever back in town, we must meet up.", "خوبه. و اگر هر وقت برگشتی به شهر، باید ملاقات کنیم."),
+            d("B", "Definitely. I'd love that.", "قطعاً. خیلی دوست دارم."),
+            d("A", "When are you coming back to visit?", "کِی برای دیدن برمی‌گردی؟"),
+            d("B", "Probably at Christmas. I'll let you know the dates.", "احتمالاً کریسمس. تاریخ‌ها را بهت می‌گویم."),
+            d("A", "Perfect. I'm looking forward to it.", "عالی. منتظرش هستم."),
+            d("B", "Me too. Thank you for everything. I mean it.", "من هم. ممنون از همه چیز. جدی می‌گویم."),
+            d("A", "The pleasure was all mine. Take care of yourself.", "لذت همه‌اش مال من بود. حواست به خودت باشد."),
+            d("B", "You too. Goodbye for now.", "تو هم. برای الان خداحافظ.")
+        ),
+        listOf(
+            q("When is B leaving?", listOf("today", "tomorrow", "next week"), 1),
+            q("When might B visit?", listOf("summer", "Christmas", "Easter"), 1),
+            q("I'll ___ you know the dates.", listOf("let", "make", "say"), 0),
+            q("I'm looking forward to ___ you.", listOf("see", "seeing", "saw"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Keep in touch", "در تماس بودن", "Keep in touch!", "در تماس باش!"),
+            IdiomExpression("Meet up", "ملاقات کردن", "We must meet up.", "باید ملاقات کنیم."),
+            IdiomExpression("Take care", "حواست باشه", "Take care of yourself.", "حواست به خودت باشد."),
+            IdiomExpression("I mean it", "جدی می‌گویم", "Thank you. I mean it.", "ممنون. جدی می‌گویم.")
+        ),
+        pron = listOf(PronunciationTip("Warm farewells", "Use rising intonation for warmth: Take CARE! ↗ See you SOON! ↗")),
+        cult = listOf(CulturalNote("Farewell customs", "In the UK, a leaving card and small gift are common. In the US, farewell parties happen at a restaurant.")),
+        mis = listOf(
+            CommonMistake("I'm looking forward to see you.", "I'm looking forward to seeing you.", "Look forward to + gerund."),
+            CommonMistake("Keep in touch with to me.", "Keep in touch with me.", "No 'to' after with.")
+        )
+    )
+
+    // ═══════════ REVIEW 11 & 12 ═══════════
+
+    private fun rc1112() = base(45, "R&C 11&12", "مرور ۱۱ و ۱۲",
+        listOf("Review reported speech", "Review future forms", "Review conditionals"),
+        listOf(
+            v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
+            v("consolidate", "تثبیت کردن", "Consolidate your learning.", "یادگیری‌ات را تثبیت کن.", "verb"),
+            v("progress", "پیشرفت", "Great progress.", "پیشرفت عالی."),
+            v("confidence", "اعتماد به نفس", "Speak with confidence.", "با اعتماد به نفس صحبت کن."),
+            v("fluency", "روانی", "Improved fluency.", "روانی بهتر."),
+            v("achievement", "دستاورد", "A great achievement.", "دستاورد بزرگ.")
+        ),
+        listOf(
+            GrammarSection("Reported speech review", "Statements, questions, commands, time changes."),
+            GrammarSection("Future forms review", "Will, going to, present continuous, future continuous, future perfect."),
+            GrammarSection("Conditionals review", "First, second, third, mixed.")
+        ),
+        listOf(
+            d("T", "Final review! Files 11 and 12. What did we cover?", "مرور نهایی! فایل‌های ۱۱ و ۱۲. چه چیزهایی پوشش دادیم؟"),
+            d("A", "Reported speech. She said she loved Italian food.", "گفتار غیرمستقیم. She said she loved Italian food."),
+            d("B", "Reported questions too. She asked me where I bought food.", "سوالات غیرمستقیم هم. She asked me where I bought food."),
+            d("T", "Excellent. Future forms?", "عالی. شکل‌های آینده؟"),
+            d("A", "By this time next year, I'll have finished Level 5.", "By this time next year, I'll have finished Level 5."),
+            d("B", "This time next week, I'll be flying to Bangkok.", "This time next week, I'll be flying to Bangkok."),
+            d("T", "Perfect. Conditionals?", "عالی. شرطی‌ها؟"),
+            d("A", "If I were president, I'd invest in education.", "If I were president, I'd invest in education."),
+            d("B", "If countries had acted, we wouldn't be in this crisis.", "If countries had acted, we wouldn't be in this crisis."),
+            d("T", "And wishes?", "و آرزوها؟"),
+            d("A", "I wish I had started earlier.", "I wish I had started earlier."),
+            d("T", "You've all made incredible progress this year.", "همه شما امسال پیشرفت باورنکردنی داشته‌اید."),
+            d("B", "Thank you. We couldn't have done it without you.", "ممنون. بدون شما نمی‌توانستیم."),
+            d("T", "Congratulations on completing Level 3! See you in Level 4.", "تبریک برای اتمام سطح ۳! در سطح ۴ می‌بینمتان."),
+            d("A", "We're ready! Let's keep going.", "آماده‌ایم! بیایید ادامه دهیم.")
+        ),
+        listOf(
+            q("Reported speech example?", listOf("She said she loved it", "She loves it", "She love it"), 0),
+            q("Future perfect example?", listOf("I'll finish", "I'll have finished", "I finish"), 1),
+            q("She said she ___ Italian food.", listOf("love", "loved", "loving"), 1),
+            q("I wish I ___ started earlier.", listOf("have", "had", "would"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Couldn't have done it", "نمی‌توانستم انجامش دهم", "We couldn't have done it without you.", "بدون تو نمی‌توانستیم انجامش دهیم."),
+            IdiomExpression("Keep going", "ادامه دادن", "Let's keep going.", "بیایید ادامه دهیم.")
+        ),
+        pron = listOf(PronunciationTip("Final review", "Focus on weak forms and contractions in fast speech.")),
+        cult = listOf(CulturalNote("Level completion", "Congratulations on completing Level 3! You're now at B1 (Intermediate) level.")),
+        mis = listOf(
+            CommonMistake("She said she love it.", "She said she loved it.", "Backshift to past."),
+            CommonMistake("I wish I have more time.", "I wish I had more time.", "Wish + past simple for present.")
+        )
+    )
+
+    // ═══════════ FILE 12 — The future ═══════════
+
+    private fun f12A() = base(46, "12A Looking ahead", "۱۲A نگاه به آینده",
+        listOf("Use future forms for predictions", "Talk about future plans", "Express hopes and intentions"),
+        listOf(
+            v("prediction", "پیش‌بینی", "A bold prediction.", "پیش‌بینی جسورانه."),
+            v("intention", "قصد", "Good intentions.", "قصدهای خوب."),
+            v("likely", "احتمالاً", "It's likely to rain.", "احتمالاً باران می‌بارد.", "adjective"),
+            v("unlikely", "بعید", "An unlikely outcome.", "نتیجه بعید.", "adjective"),
+            v("certain", "مطمئن", "I'm certain he'll come.", "مطمئنم می‌آید.", "adjective"),
+            v("doubt", "شک", "I doubt it will happen.", "شک دارم اتفاق بیفتد.", "verb"),
+            v("hope", "امیدوار بودن", "I hope to see you soon.", "امیدوارم به‌زودی ببینمت.", "verb"),
+            v("expect", "انتظار داشتن", "I expect it to work.", "انتظار دارم کار کند.", "verb"),
+            v("ambition", "جسارت", "A lifelong ambition.", "جسارت مادام‌العمر."),
+            v("goal", "هدف", "Set a goal.", "هدف تعیین کن.")
+        ),
+        listOf(
+            GrammarSection("Will / Won't", "Predictions based on belief: I think it will rain."),
+            GrammarSection("Going to", "Predictions based on evidence: Look at those clouds! It's going to rain."),
+            GrammarSection("May / Might / Could", "Possibility: It may snow tomorrow. She might come."),
+            GrammarSection("Likely / Unlikely", "He's likely to win. She's unlikely to agree.")
+        ),
+        listOf(
+            d("A", "Where do you see yourself in ten years?", "خودت را ده سال آینده کجا می‌بینی؟"),
+            d("B", "Hopefully running my own company. What about you?", "امیدوارم شرکت خودم را اداره کنم. تو چطور؟"),
+            d("A", "I expect to still be teaching. But maybe online.", "انتظار دارم هنوز درس بدهم. ولی شاید آنلاین."),
+            d("B", "Do you think AI will replace teachers?", "فکر می‌کنی هوش مصنوعی جای معلمان را می‌گیرد؟"),
+            d("A", "I doubt it. It might help, but not replace.", "شک دارم. ممکن است کمک کند، ولی جایگزین نه."),
+            d("B", "I agree. What's your biggest ambition?", "موافقم. بزرگ‌ترین جسارتت چیه؟"),
+            d("A", "To write a book. I've been planning it for years.", "نوشتن یک کتاب. سال‌هاست برنامه‌ریزی می‌کنم."),
+            d("B", "You're likely to finish it if you start now.", "احتمالاً تمامش می‌کنی اگر الان شروع کنی."),
+            d("A", "I know. I keep saying 'tomorrow'. It's a bad habit.", "می‌دانم. مدام می‌گویم 'فردا'. عادت بدی‌ست."),
+            d("B", "What will you do about it?", "چیکار می‌کنی درباره‌اش؟"),
+            d("A", "I'm going to write for thirty minutes every morning.", "قصد دارم هر صبح سی دقیقه بنویسم."),
+            d("B", "That's a smart goal. Specific and achievable.", "هدف هوشمندانه‌ایه. مشخص و قابل دستیابی."),
+            d("A", "Thanks. What about you? Any big plans?", "ممنون. تو چطور؟ برنامه بزرگی داری؟"),
+            d("B", "I'm hoping to move abroad within two years.", "امیدوارم تا دو سال دیگر خارج از کشور نقل مکان کنم."),
+            d("A", "Where to?", "کجا؟"),
+            d("B", "Probably Canada. It's likely to be easier for my career.", "احتمالاً کانادا. احتمالاً برای حرفه‌ام راحت‌تر است."),
+            d("A", "Canada is a great choice. I hope it works out.", "کانادا انتخاب عالی‌ایه. امیدوارم درست شود.")
+        ),
+        listOf(
+            q("What's A's ambition?", listOf("to travel", "to write a book", "to teach online"), 1),
+            q("Where might B move?", listOf("USA", "Canada", "Australia"), 1),
+            q("It's ___ to rain tomorrow.", listOf("likely", "probably", "maybe"), 0),
+            q("I ___ it will happen.", listOf("doubt", "hope", "expect"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("Work out", "درست شدن", "I hope it works out.", "امیدوارم درست شود."),
+            IdiomExpression("See yourself", "خودت را تصور کردن", "Where do you see yourself?", "خودت را کجا می‌بینی؟")
+        ),
+        pron = listOf(PronunciationTip("Predictions", "Stress the modal in spoken English: It MIGHT rain. He's LIKELY to win.")),
+        cult = listOf(CulturalNote("Career changes", "In the modern economy, people change careers 5-7 times. Lifelong learning is essential.")),
+        mis = listOf(
+            CommonMistake("I hope to seeing you.", "I hope to see you.", "Hope + infinitive."),
+            CommonMistake("He's likely winning.", "He's likely to win.", "Likely + to + infinitive.")
+        )
+    )
+
+    private fun f12B() = base(47, "12B If I could change the world", "۱۲B اگر می‌توانستم دنیا را تغییر دهم",
+        listOf("Use unreal conditionals", "Express wishes and regrets", "Talk about global issues"),
+        listOf(
+            v("poverty", "فقر", "End poverty.", "فقر را پایان بده."),
+            v("inequality", "نابرابری", "Social inequality.", "نابرابری اجتماعی."),
+            v("justice", "عدالت", "Social justice.", "عدالت اجتماعی."),
+            v("corruption", "فساد", "Fight corruption.", "با فساد مبارزه کن."),
+            v("hunger", "گرسنگی", "World hunger.", "گرسنگی جهانی."),
+            v("conflict", "درگیری", "Armed conflict.", "درگیری مسلحانه."),
+            v("refugee", "پناهنده", "Refugee crisis.", "بحران پناهندگان."),
+            v("sustainable", "پایدار", "Sustainable development.", "توسعه پایدار.", "adjective"),
+            v("empower", "توانمند کردن", "Empower communities.", "جوامع را توانمند کن.", "verb"),
+            v("change", "تغییر", "Be the change.", "خودت تغییر باش.")
+        ),
+        listOf(
+            GrammarSection("Second conditional for hypotheticals", "If I were president, I would invest in education."),
+            GrammarSection("Third conditional for regrets", "If I had studied medicine, I would have helped more people."),
+            GrammarSection("I wish / If only", "I wish I could help. If only there were an easier solution.")
+        ),
+        listOf(
+            d("A", "If you could change one thing in the world, what would it be?", "اگر می‌توانستی یک چیز را در دنیا تغییر دهی، چه می‌بود؟"),
+            d("B", "Poverty. If I were in charge, I'd make education free everywhere.", "فقر. اگر مسئول بودم، آموزش را همه جا رایگان می‌کردم."),
+            d("A", "That's a powerful idea. Do you think it would solve other problems?", "فکر قدرتمندی‌ست. فکر می‌کنی مشکلات دیگر را حل می‌کرد؟"),
+            d("B", "Absolutely. If everyone were educated, there would be less corruption.", "قطعاً. اگر همه تحصیل‌کرده بودند، فساد کمتر بود."),
+            d("A", "Fair point. What about climate change?", "نکته منصفانه‌ای‌ست. تغییرات اقلیمی چطور؟"),
+            d("B", "If countries had acted thirty years ago, we wouldn't be in this crisis.", "اگر کشورها سی سال پیش اقدام کرده بودند، در این بحران نبودیم."),
+            d("A", "True. Do you regret anything personally?", "درسته. شخصاً از چیزی پشیمانی؟"),
+            d("B", "I wish I had studied environmental science. I'd be doing more useful work now.", "ای کاش علوم محیطی خوانده بودم. الان کار مفیدتری می‌کردم."),
+            d("A", "It's never too late. You could still take a course.", "هیچ وقت دیر نیست. هنوز می‌توانی دوره‌ای بگیری."),
+            d("B", "You're right. If I had more free time, I'd start next month.", "حق با توست. اگر وقت آزاد بیشتری داشتم، ماه بعد شروع می‌کردم."),
+            d("A", "What stops you?", "چه چیزی مانعت می‌شود؟"),
+            d("B", "Work mostly. But I'm trying to change that.", "بیشتر کار. ولی دارم سعی می‌کنم عوضش کنم."),
+            d("A", "Small changes matter. What would you do first if you had one hour a day?", "تغییرات کوچک مهم‌اند. اگر روزی یک ساعت داشتی، اول چیکار می‌کردی؟"),
+            d("B", "I'd read about sustainability. Learn the basics before committing.", "درباره پایداری می‌خواندم. قبل از تعهد، اصول را یاد بگیرم."),
+            d("A", "Smart. What would you tell young people today?", "هوشمندانه. به جوانان امروز چه می‌گفتی؟"),
+            d("B", "I'd tell them not to wait. If you want to change something, start now.", "می‌گفتم صبر نکنند. اگر می‌خواهید چیزی را عوض کنید، الان شروع کنید."),
+            d("A", "Inspiring. I might follow that advice too.", "الهام‌بخش. من هم شاید از این توصیه پیروی کنم.")
+        ),
+        listOf(
+            q("What would B change first?", listOf("climate", "poverty", "healthcare"), 1),
+            q("What does B regret?", listOf("not traveling", "not studying science", "not investing"), 1),
+            q("If I ___ president, I'd invest in education.", listOf("am", "were", "was being"), 1),
+            q("I wish I ___ studied science.", listOf("have", "had", "would"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("In charge", "مسئول", "If I were in charge...", "اگر مسئول بودم..."),
+            IdiomExpression("Fair point", "نکته منصفانه", "Fair point.", "نکته منصفانه‌ای‌ست."),
+            IdiomExpression("Never too late", "هرگز دیر نیست", "It's never too late.", "هرگز دیر نیست.")
+        ),
+        pron = listOf(PronunciationTip("Unreal conditionals", "Weak 'were' in fast speech: If I were → /ɪf aɪ wə/.")),
+        cult = listOf(CulturalNote("Global activism", "Movements like Fridays for Future show young people are increasingly engaged with global issues.")),
+        mis = listOf(
+            CommonMistake("If I would be president...", "If I were president...", "Never 'would' in if-clause."),
+            CommonMistake("I wish I have studied.", "I wish I had studied.", "Wish + past perfect for past regrets.")
+        )
+    )
+
+    private fun f12C() = base(48, "12C The road ahead", "۱۲C جاده پیش رو",
+        listOf("Review future forms and conditionals", "Talk about life goals", "Express hopes and dreams"),
+        listOf(
+            v("journey", "سفر", "Life's journey.", "سفر زندگی."),
+            v("milestone", "نقطه عطف", "A major milestone.", "نقطه عطف مهم."),
+            v("accomplish", "به انجام رساندن", "Accomplish a dream.", "رؤیایی را محقق کن.", "verb"),
+            v("opportunity", "فرصت", "A golden opportunity.", "فرصت طلایی."),
+            v("challenge", "چالش", "Face new challenges.", "با چالش‌های جدید روبرو شو."),
+            v("fulfil", "برآورده کردن", "Fulfil your potential.", "پتانسیلت را برآورده کن.", "verb"),
+            v("purpose", "هدف", "A sense of purpose.", "حس هدفمندی."),
+            v("gratitude", "قدردانی", "Express gratitude.", "قدردانی کن."),
+            v("legacy", "میراث", "Leave a legacy.", "میراثی به جا بگذار."),
+            v("wisdom", "خرد", "Share your wisdom.", "خردت را به اشتراک بگذار.")
+        ),
+        listOf(
+            GrammarSection("Future forms review", "Will, going to, present continuous, future continuous, future perfect."),
+            GrammarSection("Conditionals review", "First, second, third, mixed."),
+            GrammarSection("Hopes and wishes", "I hope to... I wish... If only...")
+        ),
+        listOf(
+            d("A", "It's the last lesson of Level 3. How do you feel?", "آخرین درس سطح ۳ است. چه حسی داری؟"),
+            d("B", "Proud, honestly. I've learned so much in a year.", "راستش، افتخار. یک ساله خیلی چیزها یاد گرفتم."),
+            d("A", "What's been your biggest milestone?", "بزرگ‌ترین نقطه عطف‌ات چی بوده؟"),
+            d("B", "Speaking confidently in English. Six months ago I couldn't do that.", "با اعتماد به نفس انگلیسی صحبت کردن. شش ماه پیش نمی‌توانستم."),
+            d("A", "That's huge. What's next for you?", "این عالیه. قدم بعدی‌ات چیه؟"),
+            d("B", "By this time next year, I'll have finished Level 5.", "تا این موقع سال بعد، سطح ۵ را تمام کرده‌ام."),
+            d("A", "Ambitious! What will you do with English in the future?", "جاه‌طلبانه! در آینده با انگلیسی چیکار می‌کنی؟"),
+            d("B", "I'm going to work abroad. Maybe in an international company.", "قصد دارم خارج از کشور کار کنم. شاید در یک شرکت بین‌المللی."),
+            d("A", "Where would you go if you could choose anywhere?", "اگر هر جایی را می‌توانستی انتخاب کنی، کجا می‌رفتی؟"),
+            d("B", "Singapore, probably. It's dynamic and English-friendly.", "احتمالاً سنگاپور. پویاست و انگلیسی‌دوست."),
+            d("A", "Good choice. What would you tell yourself a year ago?", "انتخاب خوبی‌ست. به خودت یک سال پیش چه می‌گفتی؟"),
+            d("B", "I'd tell myself not to give up. The first months were hard.", "می‌گفتم تسلیم نشو. ماه‌های اول سخت بودند."),
+            d("A", "What kept you going?", "چه چیزی باعث شد ادامه دهی؟"),
+            d("B", "Small wins. Every conversation I had gave me more confidence.", "پیروزی‌های کوچک. هر مکالمه‌ای که داشتم اعتماد به نفسم را بیشتر کرد."),
+            d("A", "Great attitude. Any regrets?", "نگرش عالی. پشیمانی‌ای داری؟"),
+            d("B", "I wish I had started earlier. But better late than never.", "ای کاش زودتر شروع کرده بودم. ولی دیر بهتر از هرگز."),
+            d("A", "Wise words. What's your ultimate goal?", "سخنان عاقلانه‌ای. هدف نهایی‌ات چیه؟"),
+            d("B", "To speak English so well that I forget I'm speaking a foreign language.", "انگلیسی را آنقدر خوب صحبت کنم که فراموش کنم دارم به زبان خارجی صحبت می‌کنم."),
+            d("A", "That's a beautiful goal. I wish you all the best.", "هدف زیبایی‌ست. برات بهترین‌ها را آرزو می‌کنم.")
+        ),
+        listOf(
+            q("What's B's biggest milestone?", listOf("grammar", "speaking confidently", "writing"), 1),
+            q("Where would B move if possible?", listOf("Canada", "Singapore", "Australia"), 1),
+            q("By this time next year, I ___ have finished Level 5.", listOf("will", "am", "going to"), 0),
+            q("I wish I ___ started earlier.", listOf("have", "had", "would"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Better late than never", "دیر بهتر از هرگز", "Better late than never.", "دیر بهتر از هرگز."),
+            IdiomExpression("Kept me going", "باعث شد ادامه دهم", "Small wins kept me going.", "پیروزی‌های کوچک باعث شد ادامه دهم."),
+            IdiomExpression("All the best", "بهترین‌ها را آرزو می‌کنم", "I wish you all the best.", "برات بهترین‌ها را آرزو می‌کنم.")
+        ),
+        pron = listOf(PronunciationTip("Future perfect", "By this time next year, I'll have FINished. Weak 'have' /əv/.")),
+        cult = listOf(CulturalNote("Language learning", "Reaching B2 is a major milestone. Most learners need 500-600 hours from zero to B1.")),
+        mis = listOf(
+            CommonMistake("I wish I started earlier.", "I wish I had started earlier.", "Wish + past perfect for past regrets."),
+            CommonMistake("By next year I will finish Level 5.", "By next year I will have finished Level 5.", "Future perfect for completed action.")
+        )
+    )
+}
