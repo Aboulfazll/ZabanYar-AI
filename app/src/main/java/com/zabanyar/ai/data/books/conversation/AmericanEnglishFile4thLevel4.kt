@@ -4,7 +4,7 @@ import com.zabanyar.ai.data.*
 
 /**
  * American English File 4th Edition — Level 4
- * 10 Files × 3 Lessons (A/B/C) + 5 PE + 5 R&C = 40 Lessons | B2 Upper-Intermediate
+ * 12 Files × 3 Lessons (A/B/C) + 6 PE + 6 R&C = 48 Lessons | B2 Upper-Intermediate
  * مکالمه: ۱۶-۱۸ خط
  */
 object AmericanEnglishFile4thLevel4 {
@@ -26,6 +26,9 @@ object AmericanEnglishFile4thLevel4 {
         32 -> f8A(); 33 -> f8B(); 34 -> f8C()
         35 -> f9A(); 36 -> f9B(); 37 -> f9C()
         38 -> f10A(); 39 -> f10B(); 40 -> f10C()
+        41 -> f11A(); 42 -> f11B(); 43 -> f11C()
+        44 -> pe6(); 45 -> rc1112()
+        46 -> f12A(); 47 -> f12B(); 48 -> f12C()
         else -> LessonContent(BOOK_ID, n, "Coming Soon", "به‌زودی...",
             vocabulary = emptyList(), grammar = emptyList(),
             conversation = emptyList(), quiz = emptyList())
@@ -651,7 +654,7 @@ object AmericanEnglishFile4thLevel4 {
             d("T", "Excellent. Wish and if only?", "عالی. Wish و if only؟"),
             d("A", "I wish I had studied medicine. If only I could start over.", "I wish I had studied medicine. If only I could start over."),
             d("T", "Difference between them?", "تفاوتشان؟"),
-            d("B", "'Wish' is more common in speech. 'If only' is more dramatic and emphatic.", "'Wish' در گفتار رایج‌تر است. 'If only' دراماتیک‌تر و تأکیدی‌تر."),
+            d("B", "'Wish' is more common in speech. 'If only' is more dramatic and emphatic.", "'Wish' در گفتار رایج‌تر است. 'If only' دراماتیک‌تر و تأکیدی‌تر است."),
             d("T", "Perfect. Future forms?", "عالی. شکل‌های آینده؟"),
             d("A", "I'll help you. I'm going to study. This time next year, I'll be working remotely.", "I'll help you. I'm going to study. This time next year, I'll be working remotely."),
             d("B", "By 2030, I'll have retired.", "By 2030, I'll have retired."),
@@ -2714,4 +2717,529 @@ object AmericanEnglishFile4thLevel4 {
             CommonMistake("Never I have been.", "Never have I been.", "Inversion after negative.")
         )
     )
+
+    // ═══════════ FILE 11 — Culture and identity ═══════════
+
+    private fun f11A() = base(41, "11A Language and identity", "۱۱A زبان و هویت",
+        listOf(
+            "Use advanced relative clauses",
+            "Discuss language and culture",
+            "Express complex cultural ideas"
+        ),
+        listOf(
+            v("bilingual", "دوزبانه", "A bilingual household.", "خانه دوزبانه.", "adjective"),
+            v("mother tongue", "زبان مادری", "Her mother tongue is Persian.", "زبان مادری‌اش فارسی است."),
+            v("heritage language", "زبان میراثی", "Maintaining a heritage language.", "حفظ زبان میراثی."),
+            v("dialect", "لهجه", "A regional dialect.", "لهجه منطقه‌ای."),
+            v("code-switch", "تغییر زبان", "Code-switching in conversation.", "تغییر زبان در گفتگو.", "verb"),
+            v("linguistic", "زبانی", "Linguistic diversity.", "تنوع زبانی.", "adjective"),
+            v("endangered", "در خطر", "Endangered languages.", "زبان‌های در خطر.", "adjective"),
+            v("revive", "احیاء کردن", "Revive a dying language.", "زبان در حال مرگ را احیاء کن.", "verb"),
+            v("fluent", "روان", "Fluent in three languages.", "روان در سه زبان.", "adjective"),
+            v("accent", "لهجه", "A slight accent.", "لهجه خفیف."),
+            v("nuance", "ظرافت", "Cultural nuances.", "ظرافت‌های فرهنگی."),
+            v("translate", "ترجمه کردن", "Translate poetry.", "شعر را ترجمه کن.", "verb")
+        ),
+        listOf(
+            GrammarSection("Advanced relative clauses", "The language that my grandmother spoke, which is now endangered, ..."),
+            GrammarSection("Whose with abstract nouns", "A culture whose traditions are fading. A language whose speakers are few."),
+            GrammarSection("Reduced relatives", "The words spoken at home. The stories passed down.")
+        ),
+        listOf(
+            d("A", "Do you think language shapes identity?", "فکر می‌کنی زبان هویت را شکل می‌دهد؟"),
+            d("B", "Profoundly. The language you dream in, the one your parents spoke — these things define you.", "عمیقاً. زبانی که در آن خواب می‌بینی، زبانی که والدینت صحبت می‌کردند — این چیزها تو را تعریف می‌کنند."),
+            d("A", "What about people who are bilingual?", "درباره افراد دوزبانه چطور؟"),
+            d("B", "They often have dual identities. The person they are in one language isn't quite the same in another.", "اغلب هویت دوگانه دارند. فردی که در یک زبان هستند، در زبان دیگر کاملاً همان نیست."),
+            d("A", "Have you experienced that?", "خودت تجربه‌اش کرده‌ای؟"),
+            d("B", "Yes. I'm much more reserved in Persian, but more outgoing in English. I code-switch constantly.", "بله. در فارسی خیلی کم‌حرف‌ترم، ولی در انگلیسی برون‌گراتر. مدام تغییر زبان می‌دهم."),
+            d("A", "Is that exhausting?", "خسته‌کننده است؟"),
+            d("B", "Sometimes. But it's also enriching. The languages I speak, both of which I love, give me different tools for thought.", "گاهی. ولی همچنین غنی‌کننده است. زبان‌هایی که صحبت می‌کنم، که هر دو را دوست دارم، ابزارهای متفاوتی برای فکر کردن به من می‌دهند."),
+            d("A", "Do you worry about losing your mother tongue?", "نگران از دست دادن زبان مادری‌ات هستی؟"),
+            d("B", "Constantly. My children speak English fluently, but their Persian is fading.", "مدام. فرزندانم انگلیسی را روان صحبت می‌کنند، ولی فارسی‌شان در حال محو شدن است."),
+            d("A", "What can you do?", "چیکار می‌توانی بکنی؟"),
+            d("B", "We read Persian poetry together. We celebrate Nowruz. Small rituals that carry enormous weight.", "با هم شعر فارسی می‌خوانیم. نوروز را جشن می‌گیریم. آیین‌های کوچکی که وزن عظیمی حمل می‌کنند."),
+            d("A", "Do you think endangered languages can be saved?", "فکر می‌کنی زبان‌های در خطر می‌توانند نجات یابند؟"),
+            d("B", "Some, yes. Hebrew was revived, which is remarkable. But most will disappear, sadly.", "بعضی، بله. عبری احیاء شد، که قابل توجه است. ولی بیشترشان ناپدید می‌شوند، متأسفانه."),
+            d("A", "Is that a loss?", "این یک فقدان است؟"),
+            d("B", "Enormous. Each language carries unique ways of seeing the world. Losing one is losing a perspective.", "عظیم. هر زبان راه‌های منحصربه‌فردی برای دیدن جهان حمل می‌کند. از دست دادن یکی یعنی از دست دادن یک دیدگاه."),
+            d("A", "Do you think AI translation will help?", "فکر می‌کنی ترجمه هوش مصنوعی کمک می‌کند؟"),
+            d("B", "For practical purposes, maybe. But nuance and poetry — those will always need human translators.", "برای اهداف عملی، شاید. ولی ظرافت و شعر — آنها همیشه مترجم انسانی نیاز خواهند داشت."),
+            d("A", "What's your favourite word in any language?", "کلمه مورد علاقه‌ات در هر زبانی چیست؟"),
+            d("B", "In Persian, 'del'. It means heart, but it's so much more. It's courage, affection, intuition, all at once.", "در فارسی، 'دل'. یعنی قلب، ولی خیلی بیشتر از آن است. شجاعت، محبت، شهود، همه با هم."),
+            d("A", "That's beautiful.", "قشنگه."),
+            d("B", "That's what I mean about untranslatability.", "این همان چیزی‌ست که درباره ترجمه‌ناپذیری می‌گویم.")
+        ),
+        listOf(
+            q("How does B feel in Persian vs English?", listOf("same", "more reserved in Persian", "more outgoing in Persian"), 1),
+            q("What language was revived?", listOf("Latin", "Hebrew", "Sanskrit"), 1),
+            q("The language ___ my grandmother spoke is endangered.", listOf("who", "that", "whose"), 1),
+            q("A culture ___ traditions are fading.", listOf("who", "which", "whose"), 2)
+        ),
+        idioms = listOf(
+            IdiomExpression("Mother tongue", "زبان مادری", "Her mother tongue is Persian.", "زبان مادری‌اش فارسی است."),
+            IdiomExpression("Carry weight", "وزن حمل کردن", "Small rituals carry enormous weight.", "آیین‌های کوچک وزن عظیمی حمل می‌کنند."),
+            IdiomExpression("Code-switch", "تغییر زبان", "I code-switch constantly.", "مدام تغییر زبان می‌دهم.")
+        ),
+        pron = listOf(PronunciationTip("Relative clauses", "Pause for non-defining: The languages I speak, | both of which I love, | give me different tools.")),
+        cult = listOf(CulturalNote("Language loss", "UNESCO estimates that a language dies every two weeks. Half of the world's 7,000 languages may be gone by 2100.")),
+        mis = listOf(
+            CommonMistake("A culture who traditions...", "A culture whose traditions...", "Whose for possession."),
+            CommonMistake("The languages I speak, both of who I love...", "The languages I speak, both of which I love...", "Which for things.")
+        )
+    )
+
+    private fun f11B() = base(42, "11B Art and expression", "۱۱B هنر و بیان",
+        listOf(
+            "Use advanced passive structures",
+            "Discuss art and creativity",
+            "Express aesthetic judgment"
+        ),
+        listOf(
+            v("aesthetic", "زیبایی‌شناختی", "Aesthetic value.", "ارزش زیبایی‌شناختی.", "adjective"),
+            v("abstract", "انتزاعی", "Abstract art.", "هنر انتزاعی.", "adjective"),
+            v("contemporary", "معاصر", "Contemporary art.", "هنر معاصر.", "adjective"),
+            v("interpretation", "تفسیر", "Multiple interpretations.", "تفاسیر متعدد."),
+            v("installation", "چیدمان", "An art installation.", "چیدمان هنری."),
+            v("patron", "حامی", "A wealthy patron.", "حامی ثروتمند."),
+            v("commission", "سفارش دادن", "Commission a portrait.", "پرتره سفارش بده.", "verb"),
+            v("gallery", "گالری", "An art gallery.", "گالری هنری."),
+            v("exhibition", "نمایشگاه", "A retrospective exhibition.", "نمایشگاه گذشته‌نگر."),
+            v("masterpiece", "شاهکار", "A Renaissance masterpiece.", "شاهکار رنسانس."),
+            v("provocative", "چالش‌برانگیز", "Provocative art.", "هنر چالش‌برانگیز.", "adjective"),
+            v("curator", "کیوریتور", "A museum curator.", "کیوریتور موزه.")
+        ),
+        listOf(
+            GrammarSection("Causative passives", "He had his portrait painted. She got her work exhibited."),
+            GrammarSection("Complex passive", "The painting was believed to have been created in 1503. It is thought to be a forgery."),
+            GrammarSection("Passive with reporting", "The exhibition is said to be the best in years. The artist was rumoured to have refused."),
+            GrammarSection("Get-passive", "He got noticed. She got commissioned. The mural got covered up.")
+        ),
+        listOf(
+            d("A", "What makes something art?", "چه چیزی چیزی را هنر می‌کند؟"),
+            d("B", "That's the eternal question. Some say intention, others say effect on the viewer.", "این سؤال ابدی‌ست. بعضی می‌گویند قصد، دیگران می‌گویند تأثیر بر بیننده."),
+            d("A", "Where do you lean?", "کجا متمایل می‌شوی؟"),
+            d("B", "I lean toward effect. If something moves you, if it makes you see differently, it's art.", "به سمت تأثیر متمایل می‌شوم. اگر چیزی تو را تکان دهد، اگر باعث شود متفاوت ببینی، هنر است."),
+            d("A", "What about pieces that provoke no emotion?", "درباره آثاری که هیچ احساسی برنمی‌انگیزند؟"),
+            d("B", "Then they're probably not art. They might be craft, or decoration, but not art.", "پس احتمالاً هنر نیستند. ممکن است صنعت، یا دکوراسیون باشند، ولی هنر نه."),
+            d("A", "Have you ever had strong reactions to art?", "هرگز واکنش شدید به هنر داشته‌ای؟"),
+            d("B", "Yes. I once got so moved by a Rothko that I had to leave the room.", "بله. یک بار آنقدر تحت تأثیر روتکو قرار گرفتم که مجبور شدم اتاق را ترک کنم."),
+            d("A", "Really? An abstract painting?", "واقعاً؟ یک نقاشی انتزاعی؟"),
+            d("B", "It's often the abstract ones that move me most. They bypass the intellect.", "اغلب انتزاعی‌ها بیشترین تأثیر را روی من می‌گذارند. از عقل عبور می‌کنند."),
+            d("A", "What about commissioned art?", "درباره هنر سفارشی چطور؟"),
+            d("B", "Some of the greatest works were commissioned. Michelangelo's Sistine Chapel was paid for by the Pope.", "بعضی از بزرگ‌ترین آثار سفارشی بودند. کلیسای سیستین میکل‌آنژ توسط پاپ پرداخت شد."),
+            d("A", "Does that diminish the art?", "آیا این هنر را کم‌ارزش می‌کند؟"),
+            d("B", "Not at all. The patron's money doesn't determine the artist's genius.", "اصلاً. پول حامی نابغه بودن هنرمند را تعیین نمی‌کند."),
+            d("A", "Do you collect art?", "هنر جمع می‌کنی؟"),
+            d("B", "A little. Mostly prints by emerging artists. I'd love to be a proper patron someday.", "کمی. بیشتر چاپ‌هایی از هنرمندان نوظهور. دوست دارم روزی حامی واقعی باشم."),
+            d("A", "What would you commission?", "چه چیزی سفارش می‌دادی؟"),
+            d("B", "A mural for my neighbourhood. Public art, accessible to everyone.", "یک دیوارنگاری برای محله‌ام. هنر عمومی، قابل دسترس برای همه."),
+            d("A", "That's a generous vision.", "چشم‌انداز سخاوتمندانه‌ای‌ست."),
+            d("B", "Art shouldn't be locked in galleries. It belongs to everyone.", "هنر نباید در گالری‌ها قفل شود. به همه تعلق دارد.")
+        ),
+        listOf(
+            q("What does B lean toward as definition of art?", listOf("intention", "effect on viewer", "price"), 1),
+            q("What moved B deeply?", listOf("a portrait", "a Rothko", "a sculpture"), 1),
+            q("He had his portrait ___.", listOf("paint", "painting", "painted"), 2),
+            q("The painting ___ believed to be a forgery.", listOf("is", "was", "has"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("Bypass the intellect", "از عقل عبور کردن", "They bypass the intellect.", "از عقل عبور می‌کنند."),
+            IdiomExpression("Move deeply", "عمیقاً تکان دادن", "It moved me deeply.", "عمیقاً مرا تکان داد."),
+            IdiomExpression("Belong to everyone", "به همه تعلق داشتن", "Art belongs to everyone.", "هنر به همه تعلق دارد.")
+        ),
+        pron = listOf(PronunciationTip("Causative passives", "Stress the past participle: I had my portrait PAINted. She got her work EXhibited.")),
+        cult = listOf(CulturalNote("Public art", "Many cities invest in public art. Chicago's 'Cloud Gate' and London's Fourth Plinth are famous examples.")),
+        mis = listOf(
+            CommonMistake("He had his portrait paint.", "He had his portrait painted.", "Past participle in causative."),
+            CommonMistake("The painting is said to been created in 1503.", "The painting is said to have been created in 1503.", "Perfect infinitive.")
+        )
+    )
+
+    private fun f11C() = base(43, "11C Music and emotion", "۱۱C موسیقی و احساس",
+        listOf(
+            "Use perfect modals for deduction",
+            "Discuss music and feelings",
+            "Express emotional responses"
+        ),
+        listOf(
+            v("melody", "ملودی", "A haunting melody.", "ملودی ماندگار."),
+            v("harmony", "هماهنگی", "Beautiful harmony.", "هماهنگی زیبا."),
+            v("rhythm", "ریتم", "A complex rhythm.", "ریتم پیچیده."),
+            v("lyrics", "متن ترانه", "Meaningful lyrics.", "متن ترانه معنادار."),
+            v("compose", "آهنگسازی کردن", "Compose a symphony.", "سمفونی بنویس.", "verb"),
+            v("genre", "ژانر", "A popular genre.", "ژانر محبوب."),
+            v("orchestra", "ارکستر", "A symphony orchestra.", "ارکستر سمفونیک."),
+            v("acoustic", "آکوستیک", "An acoustic version.", "نسخه آکوستیک.", "adjective"),
+            v("catchy", "گوش‌نواز", "A catchy tune.", "آهنگ گوش‌نواز.", "adjective"),
+            v("haunting", "ماندگار", "A haunting voice.", "صدای ماندگار.", "adjective"),
+            v("uplifting", "روحیه‌بخش", "An uplifting song.", "آهنگ روحیه‌بخش.", "adjective"),
+            v("evoke", "برانگیختن", "Evoke strong emotions.", "احساسات قوی را برانگیز.", "verb")
+        ),
+        listOf(
+            GrammarSection("Perfect modals of deduction", "He must have been inspired. She might have composed it in a single night."),
+            GrammarSection("Perfect modals of criticism", "They shouldn't have changed the melody. He could have sung it better."),
+            GrammarSection("Speculating about past creativity", "They couldn't have known it would become a hit.")
+        ),
+        listOf(
+            d("A", "Why do you think music affects us so deeply?", "فکر می‌کنی چرا موسیقی اینقدر عمیقاً روی ما تأثیر می‌گذارد؟"),
+            d("B", "It might have been one of our first forms of communication, long before language.", "ممکن است یکی از اولین اشکال ارتباطی ما بوده باشد، خیلی قبل از زبان."),
+            d("A", "Interesting theory. Does certain music make you emotional?", "نظریه جالبی‌ست. موسیقی خاصی تو را احساسی می‌کند؟"),
+            d("B", "Absolutely. There's a piece by Arvo Pärt that must have been composed for exactly this feeling — it's haunting.", "قطعاً. یک قطعه از آروو پارت هست که باید دقیقاً برای همین حس ساخته شده باشد — ماندگار است."),
+            d("A", "What's it called?", "چه نام دارد؟"),
+            d("B", "Spiegel im Spiegel. It's incredibly simple, but it evokes something profound.", "Spiegel im Spiegel. فوق‌العاده ساده است، ولی چیزی عمیق را برمی‌انگیزد."),
+            d("A", "Have you ever cried listening to music?", "هرگز با شنیدن موسیقی گریه کرده‌ای؟"),
+            d("B", "Many times. The last time was at a live orchestra. I couldn't have held back even if I'd tried.", "بارها. آخرین بار در یک ارکستر زنده بود. نمی‌توانستم خودم را نگه دارم حتی اگر تلاش می‌کردم."),
+            d("A", "What was playing?", "چه چیزی پخش می‌شد؟"),
+            d("B", "Mahler's Adagietto. It's said to have been written as a love letter.", "Adagietto مالر. گفته می‌شود به عنوان نامه عاشقانه نوشته شده."),
+            d("A", "Do you play any instruments?", "ساز می‌نوازی؟"),
+            d("B", "Piano, poorly. I must have started too late to become really good.", "پیانو، بد. باید خیلی دیر شروع کرده باشم تا واقعاً خوب شوم."),
+            d("A", "Is it ever too late?", "هرگز دیر است؟"),
+            d("B", "For mastery, yes. But for enjoyment, never. I play for myself, not for performance.", "برای تسلط، بله. ولی برای لذت، هرگز. برای خودم می‌نوازم، نه برای اجرا."),
+            d("A", "What's your favourite genre?", "ژانر مورد علاقه‌ات چیست؟"),
+            d("B", "It changes with my mood. Classical when I need to think. Jazz when I need to feel.", "با حالم تغییر می‌کند. کلاسیک وقتی نیاز به فکر کردن دارم. جاز وقتی نیاز به احساس کردن دارم."),
+            d("A", "Do you think AI will compose music?", "فکر می‌کنی هوش مصنوعی موسیقی می‌سازد؟"),
+            d("B", "It already does. But it might never capture what humans can — that raw vulnerability.", "الان هم می‌سازد. ولی ممکن است هرگز آنچه انسان‌ها می‌توانند را ثبت نکند — آن آسیب‌پذیری خام."),
+            d("A", "That's a lovely thought.", "فکر قشنگی‌ست.")
+        ),
+        listOf(
+            q("What might music have been, per B?", listOf("recent", "first communication", "unimportant"), 1),
+            q("What did B play badly?", listOf("guitar", "piano", "violin"), 1),
+            q("He ___ have been inspired by grief.", listOf("must", "can", "will"), 0),
+            q("They couldn't ___ known it would become a hit.", listOf("have", "has", "had"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("Hold back", "خودداری کردن", "I couldn't have held back.", "نمی‌توانستم خودداری کنم."),
+            IdiomExpression("Changes with mood", "با حال تغییر کردن", "It changes with my mood.", "با حالم تغییر می‌کند."),
+            IdiomExpression("Raw vulnerability", "آسیب‌پذیری خام", "That raw vulnerability.", "آن آسیب‌پذیری خام.")
+        ),
+        pron = listOf(PronunciationTip("Perfect modals", "Stress both modal and 'have': He MUST have been inspired. They COULDN'T have known.")),
+        cult = listOf(CulturalNote("Music therapy", "Music therapy is now widely used for dementia, depression, and physical rehabilitation. The science of why music moves us remains partly mysterious.")),
+        mis = listOf(
+            CommonMistake("He must be inspired last night.", "He must have been inspired last night.", "Past modal perfect."),
+            CommonMistake("They couldn't knew.", "They couldn't have known.", "Modal + have + past participle.")
+        )
+    )
+
+    // ═══════════ PRACTICAL ENGLISH 6 ═══════════
+
+    private fun pe6() = base(44, "PE6 A media interview", "انگلیسی کاربردی ۶ — مصاحبه رسانه‌ای",
+        listOf(
+            "Handle media interviews professionally",
+            "Stay on message",
+            "Deal with difficult questions"
+        ),
+        listOf(
+            v("interview", "مصاحبه", "A live interview.", "مصاحبه زنده."),
+            v("headline", "تیتر", "The story made headlines.", "داستان تیتر شد."),
+            v("quote", "نقل قول", "A direct quote.", "نقل قول مستقیم."),
+            v("off the record", "خارج از گفتگو", "Comments off the record.", "نظرات خارج از گفتگو."),
+            v("spin", "چرخش", "Media spin.", "چرخش رسانه‌ای."),
+            v("clarify", "روشن کردن", "Clarify the position.", "موضع را روشن کن.", "verb"),
+            v("misquote", "غلط نقل کردن", "Misquoted by the press.", "توسط مطبوعات غلط نقل شد.", "verb"),
+            v("context", "زمینه", "Taken out of context.", "خارج از زمینه گرفته شد."),
+            v("statement", "بیانیه", "Issue a statement.", "بیانیه صادر کن."),
+            v("speculate", "حدس زدن", "I can't speculate.", "نمی‌توانم حدس بزنم.", "verb"),
+            v("confirm", "تأیید کردن", "Can you confirm?", "می‌توانید تأیید کنید؟", "verb"),
+            v("decline", "رد کردن", "Decline to comment.", "از اظهار نظر خودداری کن.", "verb")
+        ),
+        listOf(
+            GrammarSection("Diplomatic deflection", "I'd rather not speculate. That's a matter for the committee. I'm not in a position to say."),
+            GrammarSection("Clarifying", "Let me clarify. What I said was... To put it in context..."),
+            GrammarSection("Correcting the record", "That's not quite what I said. I think I was misquoted.")
+        ),
+        listOf(
+            d("A", "Thank you for joining us. Let's start with the controversy about the policy.", "ممنون که به ما پیوستید. بیایید با جنجال درباره سیاست شروع کنیم."),
+            d("B", "Thank you for having me. I'd like to clarify a few things right from the start.", "ممنون که دعوتم کردید. می‌خواهم از همان ابتدا چند چیز را روشن کنم."),
+            d("A", "Please do.", "بفرمایید."),
+            d("B", "The reporting has been misleading. Much of what's been said was taken out of context.", "گزارش‌ها گمراه‌کننده بوده. بسیاری از آنچه گفته شده، خارج از زمینه گرفته شده."),
+            d("A", "Are you saying the media misquoted you?", "می‌گویید رسانه‌ها غلط نقلتان کرده‌اند؟"),
+            d("B", "In some cases, yes. Let me clarify my actual position.", "در بعضی موارد، بله. اجازه بدهید موضع واقعی‌ام را روشن کنم."),
+            d("A", "Please.", "بفرمایید."),
+            d("B", "I never said the policy was a failure. I said it needed refinement. That's very different.", "من هرگز نگفتم سیاست شکست بود. گفتم به اصلاح نیاز داشت. این خیلی متفاوت است."),
+            d("A", "But sources close to the department suggest otherwise.", "ولی منابع نزدیک به وزارت خلاف این را پیشنهاد می‌کنند."),
+            d("B", "I can't speculate about anonymous sources. What I can confirm is our commitment to the programme.", "نمی‌توانم درباره منابع ناشناس حدس بزنم. چیزی که می‌توانم تأیید کنم تعهدمان به برنامه است."),
+            d("A", "Is it true you considered resigning?", "درست است که به استعفا فکر کردید؟"),
+            d("B", "That's a matter for the committee, not for public speculation. I'd rather not comment.", "این موضوع کمیته است، نه برای حدس عمومی. ترجیح می‌دهم اظهار نظر نکنم."),
+            d("A", "But surely the public deserves to know?", "ولی قطعاً مردم deserve که بدانند؟"),
+            d("B", "The public deserves facts, not speculation. And I'm not in a position to share internal discussions.", "مردم deserve حقایق را دارند، نه حدس. و من در موقعیتی نیستم که بحث‌های داخلی را به اشتراک بگذارم."),
+            d("A", "One last question. What would you say to critics?", "یک سؤال آخر. به منتقدان چه می‌گویید؟"),
+            d("B", "I'd say we're listening. I'd say we're willing to adapt. But I'd also say change takes time.", "می‌گویم گوش می‌دهیم. می‌گویم آماده‌ایم سازگار شویم. ولی همچنین می‌گویم تغییر زمان می‌برد."),
+            d("A", "Any final statement?", "بیانیه نهایی؟"),
+            d("B", "Yes. My office will issue a written statement later today. I'd ask you to quote that, not paraphrases.", "بله. دفترم بعداً امروز بیانیه کتبی صادر می‌کند. می‌خواهم آن را نقل کنید، نه بازنویسی‌ها."),
+            d("A", "Fair enough. Thank you for your time.", "منصفانه. ممنون از وقتی که گذاشتید."),
+            d("B", "Thank you.", "ممنون.")
+        ),
+        listOf(
+            q("What does B clarify first?", listOf("resignation", "misleading reporting", "budget"), 1),
+            q("What did B actually say?", listOf("policy failed", "needed refinement", "no comment"), 1),
+            q("I'd rather ___ speculate.", listOf("not", "no", "none"), 0),
+            q("I'm not ___ a position to say.", listOf("at", "in", "on"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Off the record", "خارج از گفتگو", "Off the record.", "خارج از گفتگو."),
+            IdiomExpression("Taken out of context", "خارج از زمینه گرفته شده", "It was taken out of context.", "خارج از زمینه گرفته شد."),
+            IdiomExpression("Correct the record", "رکورد را تصحیح کردن", "I'd like to correct the record.", "می‌خواهم رکورد را تصحیح کنم.")
+        ),
+        pron = listOf(PronunciationTip("Media interviews", "Speak slowly. Pause before key phrases. Stress 'clarify', 'confirm', 'context'.")),
+        cult = listOf(CulturalNote("Media training", "Public figures are often trained to stay on message, bridge to key points, and avoid speculation.")),
+        mis = listOf(
+            CommonMistake("I'd rather to not comment.", "I'd rather not comment.", "Would rather + bare infinitive."),
+            CommonMistake("In that case, I can't to say.", "In that case, I can't say.", "Modal + bare infinitive.")
+        )
+    )
+
+    // ═══════════ REVIEW 11 & 12 ═══════════
+
+    private fun rc1112() = base(45, "R&C 11&12", "مرور ۱۱ و ۱۲",
+        listOf("Review relative clauses", "Review causatives", "Review perfect modals"),
+        listOf(
+            v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
+            v("integrate", "ادغام کردن", "Integrate all skills.", "همه مهارت‌ها را ادغام کن.", "verb"),
+            v("mastery", "تسلط", "Toward mastery.", "به سمت تسلط."),
+            v("nuance", "ظرافت", "Appreciate nuance.", "ظرافت را درک کن."),
+            v("register", "لحن", "Register awareness.", "آگاهی از لحن."),
+            v("proficient", "ماهر", "A proficient user.", "کاربر ماهر.", "adjective")
+        ),
+        listOf(
+            GrammarSection("Advanced relatives", "The language that... A culture whose... The stories passed down."),
+            GrammarSection("Causative passives", "He had his portrait painted. She got her work exhibited."),
+            GrammarSection("Perfect modals", "He must have been inspired. They couldn't have known.")
+        ),
+        listOf(
+            d("T", "Final review! Files 11 and 12. Key grammar?", "مرور نهایی! فایل‌های ۱۱ و ۱۲. گرامر کلیدی؟"),
+            d("A", "Advanced relative clauses. A culture whose traditions are fading.", "بندهای موصولی پیشرفته. A culture whose traditions are fading."),
+            d("B", "Causative passives. He had his portrait painted.", "مجهول‌های سببی. He had his portrait painted."),
+            d("T", "Perfect modals?", "مودال‌های کامل؟"),
+            d("A", "He must have been inspired by grief. They couldn't have known it would become a hit.", "He must have been inspired by grief. They couldn't have known it would become a hit."),
+            d("T", "When do we use these?", "کِی از اینها استفاده می‌کنیم؟"),
+            d("B", "For past deduction or speculation. It adds sophistication to our speech.", "برای استنتاج یا حدس گذشته. به گفتارمان ظرافت اضافه می‌کند."),
+            d("T", "Excellent. You've completed Level 4.", "عالی. سطح ۴ را تکمیل کرده‌اید."),
+            d("A", "Really? That's incredible.", "واقعاً؟ باورنکردنی‌ست."),
+            d("T", "You're now at B2 Upper-Intermediate. Level 5 is C1.", "الان در B2 Upper-Intermediate هستید. سطح ۵ C1 است."),
+            d("B", "The journey continues.", "سفر ادامه دارد."),
+            d("T", "It does. Congratulations to all of you.", "ادامه دارد. تبریک به همه شما."),
+            d("A", "Thank you for your guidance.", "ممنون از راهنمایی‌تان."),
+            d("B", "We couldn't have done it without you.", "بدون شما نمی‌توانستیم انجامش دهیم.")
+        ),
+        listOf(
+            q("Which is a causative passive?", listOf("He painted", "He had it painted", "He was painted"), 1),
+            q("Perfect modal example?", listOf("He must be", "He must have been", "He might"), 1),
+            q("A culture ___ traditions are fading.", listOf("who", "which", "whose"), 2),
+            q("She got her work ___.", listOf("exhibit", "exhibiting", "exhibited"), 2)
+        ),
+        idioms = listOf(
+            IdiomExpression("The journey continues", "سفر ادامه دارد", "The journey continues.", "سفر ادامه دارد."),
+            IdiomExpression("Couldn't have done it", "نمی‌توانستم انجامش دهم", "We couldn't have done it.", "نمی‌توانستیم انجامش دهیم.")
+        ),
+        pron = listOf(PronunciationTip("Final review", "Focus on register: formal vs informal. Match tone to context.")),
+        cult = listOf(CulturalNote("Level completion", "Congratulations on completing Level 4 (B2)! You're now capable of independent, nuanced communication.")),
+        mis = listOf(
+            CommonMistake("He had his portrait paint.", "He had his portrait painted.", "Past participle in causative."),
+            CommonMistake("He must be inspired last night.", "He must have been inspired last night.", "Past modal perfect.")
+        )
+    )
+
+    // ═══════════ FILE 12 — Reflections and endings ═══════════
+
+    private fun f12A() = base(46, "12A Turning points", "۱۲A نقاط عطف",
+        listOf(
+            "Use mixed conditionals for reflection",
+            "Discuss life's turning points",
+            "Express counterfactual reflection"
+        ),
+        listOf(
+            v("turning point", "نقطه عطف", "A major turning point.", "نقطه عطف بزرگ."),
+            v("crossroads", "چهارراه", "At a crossroads.", "در چهارراه."),
+            v("leap of faith", "پرش ایمانی", "Take a leap of faith.", "پرش ایمانی کن."),
+            v("fork in the road", "دوشاخه", "A fork in the road.", "دوشاخه در راه."),
+            v("coincidence", "تصادف", "A fortunate coincidence.", "تصادف خوش‌شانسانه."),
+            v("serendipity", "خوش‌اقبالی", "Pure serendipity.", "خوش‌اقبالی محض."),
+            v("pivotal", "محوری", "A pivotal moment.", "لحظه محوری.", "adjective"),
+            v("define", "تعریف کردن", "A defining moment.", "لحظه تعیین‌کننده.", "verb"),
+            v("retrospect", "گذشته‌نگری", "In retrospect.", "با نگاه به گذشته."),
+            v("destiny", "سرنوشت", "A sense of destiny.", "حس سرنوشت."),
+            v("inevitable", "اجتناب‌ناپذیر", "Seemed inevitable.", "اجتناب‌ناپذیر به نظر می‌رسید.", "adjective"),
+            v("transform", "متحول کردن", "A transformative experience.", "تجربه متحول‌کننده.", "verb")
+        ),
+        listOf(
+            GrammarSection("Mixed conditionals", "If I hadn't taken that job, I wouldn't be living here now."),
+            GrammarSection("Reflecting on consequences", "If I had said yes, everything would have been different."),
+            GrammarSection("Counterfactual reflection", "Had I known then what I know now, I would have...")
+        ),
+        listOf(
+            d("A", "What was the biggest turning point in your life?", "بزرگ‌ترین نقطه عطف زندگی‌ات چی بوده؟"),
+            d("B", "Moving abroad, definitely. If I hadn't moved, I wouldn't be the person I am today.", "قطعاً مهاجرت. اگر مهاجرت نکرده بودم، شخصی که امروز هستم نمی‌بودم."),
+            d("A", "Was it a difficult decision?", "تصمیم سختی بود؟"),
+            d("B", "Terrifying. I was at a crossroads — stable life at home, or unknown adventure abroad.", "ترسناک. در چهارراه بودم — زندگی پایدار در خانه، یا ماجراجویی ناشناخته در خارج."),
+            d("A", "What made you decide?", "چه چیزی باعث تصمیمت شد؟"),
+            d("B", "A conversation with my father. He said, 'If not now, when?' That was pivotal.", "گفتگویی با پدرم. گفت: 'اگر الان نه، کِی؟' آن محوری بود."),
+            d("A", "Wise man.", "مرد عاقلی."),
+            d("B", "Very. If he hadn't said that, I might still be in my hometown.", "بسیار. اگر او آن را نگفته بود، ممکن بود هنوز در شهرم باشم."),
+            d("A", "Do you believe in destiny?", "به سرنوشت اعتقاد داری؟"),
+            d("B", "Not exactly. But I believe in serendipity — fortunate accidents that shape our lives.", "دقیقاً نه. ولی به خوش‌اقبالی اعتقاد دارم — تصادفات خوش‌شانسانه‌ای که زندگی‌هایمان را شکل می‌دهند."),
+            d("A", "Have there been other turning points?", "نقاط عطف دیگری هم بوده؟"),
+            d("B", "Meeting my wife. If we hadn't met, I wouldn't have stayed. She anchored me here.", "ملاقات همسرم. اگر ملاقات نکرده بودیم، نمی‌ماندم. او مرا اینجا لنگر انداخت."),
+            d("A", "Any regrets?", "پشیمانی؟"),
+            d("B", "Not really. In retrospect, every setback led somewhere useful. If things had been easier, I might have grown less.", "نه زیاد. با نگاه به گذشته، هر شکست به جایی مفید منتهی شد. اگر چیزها راحت‌تر بودند، ممکن بود کمتر رشد کنم."),
+            d("A", "That's mature.", "بالغانه‌ست."),
+            d("B", "It takes years to see it that way. At the time, everything felt chaotic.", "سال‌ها طول می‌کشد تا اینطور ببینی. آن زمان، همه چیز آشفته حس می‌شد."),
+            d("A", "What would you tell someone at a crossroads?", "به کسی در چهارراه چه می‌گفتی؟"),
+            d("B", "Take the leap. You can always come back. But you can never go back to not having tried.", "پرش کن. همیشه می‌توانی برگردی. ولی هرگز نمی‌توانی به امتحان نکرده برگردی."),
+            d("A", "That's a beautiful way to put it.", "بیان قشنگی‌ست.")
+        ),
+        listOf(
+            q("What was B's biggest turning point?", listOf("marriage", "moving abroad", "career"), 1),
+            q("Who gave B pivotal advice?", listOf("wife", "father", "friend"), 1),
+            q("If I ___ moved, I wouldn't be here now.", listOf("didn't", "hadn't", "haven't"), 1),
+            q("___ I known then, I would have acted differently.", listOf("Have", "Had", "Has"), 1)
+        ),
+        idioms = listOf(
+            IdiomExpression("Leap of faith", "پرش ایمانی", "Take the leap of faith.", "پرش ایمانی کن."),
+            IdiomExpression("If not now, when?", "اگر الان نه، کِی؟", "If not now, when?", "اگر الان نه، کِی؟"),
+            IdiomExpression("Anchor", "لنگر انداختن", "She anchored me here.", "او مرا اینجا لنگر انداخت.")
+        ),
+        pron = listOf(PronunciationTip("Mixed conditionals", "Stress both clauses: If I HADN'T moved, I WOULDN'T be here.")),
+        cult = listOf(CulturalNote("Life transitions", "Research shows people often cite 3-5 major turning points. Education, relationships, and moves are most common.")),
+        mis = listOf(
+            CommonMistake("If I would have moved.", "If I had moved.", "Never 'would have' in if-clause."),
+            CommonMistake("Have I known then...", "Had I known then...", "Inverted third conditional.")
+        )
+    )
+
+    private fun f12B() = base(47, "12B Giving back", "۱۲B بازپس دادن",
+        listOf(
+            "Use passive with modals for societal duty",
+            "Discuss philanthropy and service",
+            "Express values and purpose"
+        ),
+        listOf(
+            v("philanthropy", "بشردوستی", "Major philanthropy.", "بشردوستی بزرگ."),
+            v("donate", "اهدا کردن", "Donate to charity.", "به خیریه اهدا کن.", "verb"),
+            v("volunteer", "داوطلب", "Volunteer abroad.", "خارج داوطلب شو.", "verb"),
+            v("mentor", "منتور", "Mentor young people.", "به جوانان منتورینگ کن.", "verb"),
+            v("impact", "تأثیر", "Social impact.", "تأثیر اجتماعی."),
+            v("legacy", "میراث", "A lasting legacy.", "میراث ماندگار."),
+            v("service", "خدمت", "Community service.", "خدمت به جامعه."),
+            v("contribution", "مشارکت", "Make a contribution.", "مشارکت کن."),
+            v("purpose", "هدف", "A sense of purpose.", "حس هدفمندی."),
+            v("gratitude", "قدردانی", "Express gratitude.", "قدردانی کن."),
+            v("meaningful", "معنادار", "Meaningful work.", "کار معنادار.", "adjective"),
+            v("cause", "آرمان", "A worthy cause.", "آرمان ارزشمند.")
+        ),
+        listOf(
+            GrammarSection("Passive with modals for duty", "Those who have much should be encouraged to give. Wealth ought to be redistributed."),
+            GrammarSection("Moral obligation", "We must give back. Society should protect the vulnerable."),
+            GrammarSection("Passive with purpose", "This work was undertaken to serve others.")
+        ),
+        listOf(
+            d("A", "What does 'giving back' mean to you?", "'بازپس دادن' برایت یعنی چه؟"),
+            d("B", "It means acknowledging that success is never entirely your own. We all stand on others' shoulders.", "یعنی به رسمیت شناختن اینکه موفقیت هرگز کاملاً مال خودت نیست. همه ما روی شانه‌های دیگران ایستاده‌ایم."),
+            d("A", "Do you practice it?", "انجامش می‌دهی؟"),
+            d("B", "I try. I mentor two students. I donate a portion of my income. I volunteer monthly.", "سعی می‌کنم. به دو دانش‌آموز منتورینگ می‌دهم. بخشی از درآمدم را اهدا می‌کنم. ماهانه داوطلب می‌شوم."),
+            d("A", "What drives you?", "چه چیزی هدایتت می‌کند؟"),
+            d("B", "Gratitude, mostly. I've been extraordinarily fortunate. That fortune should be shared.", "بیشتر قدردانی. فوق‌العاده خوش‌شانس بوده‌ام. آن خوش‌شانسی باید به اشتراک گذاشته شود."),
+            d("A", "What kind of causes do you support?", "چه نوع آرمان‌هایی را حمایت می‌کنی؟"),
+            d("B", "Education, mostly. It's the most powerful lever for change. A child who learns will lift a whole family.", "بیشتر آموزش. قدرتمندترین اهرم برای تغییر است. کودکی که می‌آموزد کل خانواده را بالا می‌کشد."),
+            d("A", "Is philanthropy a moral duty?", "بشردوستی وظیفه اخلاقی است؟"),
+            d("B", "I'd argue so. If you have more than you need, and others lack basics — how could you not give?", "استدلال می‌کنم بله. اگر بیشتر از نیازت داری، و دیگران ابتدائیات را کم دارند — چطور می‌توانی ندهی؟"),
+            d("A", "Some argue charity is inefficient.", "بعضی استدلال می‌کنند خیریه ناکارآمد است."),
+            d("B", "Poorly targeted charity, yes. But well-directed giving can be transformative. Effective altruism exists for this reason.", "خیریه با هدف ضعیف، بله. ولی اهدای خوب جهت‌داده شده می‌تواند متحول‌کننده باشد. آلتروئیسم مؤثر برای همین دلیل وجود دارد."),
+            d("A", "What's your biggest contribution?", "بزرگ‌ترین مشارکتت چیه؟"),
+            d("B", "Time. It's been said that time is the most valuable thing you can give. Money is replaceable; attention isn't.", "زمان. گفته شده که زمان ارزشمندترین چیزی‌ست که می‌توانی بدهی. پول قابل جایگزینی‌ست؛ توجه نه."),
+            d("A", "What would you want your legacy to be?", "می‌خواهی میراثت چه باشد؟"),
+            d("B", "That I made someone else's path a little easier. That's enough. That's meaningful.", "اینکه راه کس دیگری را کمی آسان‌تر کرده باشم. همین کافی‌ست. همین معنادار است."),
+            d("A", "That's beautiful.", "قشنگه."),
+            d("B", "It's the only kind of legacy that lasts.", "تنها نوع میراثی‌ست که می‌ماند.")
+        ),
+        listOf(
+            q("What cause does B prioritize?", listOf("health", "education", "environment"), 1),
+            q("What does B say is the most valuable thing to give?", listOf("money", "time", "advice"), 1),
+            q("Those who have much ___ be encouraged to give.", listOf("should", "would", "can"), 0),
+            q("We ___ give back.", listOf("must", "can", "will"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("Stand on shoulders", "روی شانه‌ها ایستادن", "We stand on others' shoulders.", "روی شانه‌های دیگران ایستاده‌ایم."),
+            IdiomExpression("Give back", "بازپس دادن", "We must give back.", "باید بازپس دهیم."),
+            IdiomExpression("Make a path easier", "راه را آسان‌تر کردن", "Made someone's path easier.", "راه کسی را آسان‌تر کرد.")
+        ),
+        pron = listOf(PronunciationTip("Moral statements", "Use a measured, sincere tone. Pause before key values: We must... give back.")),
+        cult = listOf(CulturalNote("Philanthropy", "The Giving Pledge, started by Bill Gates and Warren Buffett, encourages billionaires to donate most of their wealth. Effective altruism is a growing movement.")),
+        mis = listOf(
+            CommonMistake("We must to give back.", "We must give back.", "No 'to' after must."),
+            CommonMistake("Those who have much should encouraged to give.", "Those who have much should be encouraged to give.", "Passive with modal.")
+        )
+    )
+
+    private fun f12C() = base(48, "12C The road ahead", "۱۲C جاده پیش رو",
+        listOf(
+            "Integrate advanced grammar",
+            "Reflect on life's journey",
+            "Prepare for C1 level"
+        ),
+        listOf(
+            v("journey", "سفر", "Life's journey.", "سفر زندگی."),
+            v("milestone", "نقطه عطف", "A major milestone.", "نقطه عطف بزرگ."),
+            v("accomplish", "به انجام رساندن", "Accomplish a dream.", "رؤیایی را محقق کن.", "verb"),
+            v("opportunity", "فرصت", "A golden opportunity.", "فرصت طلایی."),
+            v("challenge", "چالش", "Face new challenges.", "با چالش‌های جدید روبرو شو."),
+            v("fulfil", "برآورده کردن", "Fulfil your potential.", "پتانسیلت را برآورده کن.", "verb"),
+            v("purpose", "هدف", "A sense of purpose.", "حس هدفمندی."),
+            v("gratitude", "قدردانی", "Express gratitude.", "قدردانی کن."),
+            v("legacy", "میراث", "Leave a legacy.", "میراثی به جا بگذار."),
+            v("wisdom", "خرد", "Share your wisdom.", "خردت را به اشتراک بگذار."),
+            v("resilience", "تاب‌آوری", "Build resilience.", "تاب‌آوری بساز."),
+            v("mindset", "ذهنیت", "A growth mindset.", "ذهنیت رشد.")
+        ),
+        listOf(
+            GrammarSection("Integration of advanced structures", "Passive, conditionals, inversion, cleft, modals, relative clauses."),
+            GrammarSection("Reflective discourse", "Cohesion, coherence, evaluative language."),
+            GrammarSection("Future forms and hopes", "I hope to... I wish... If only...")
+        ),
+        listOf(
+            d("A", "We've reached the end of Level 4. How do you feel?", "به پایان سطح ۴ رسیده‌ایم. چه حسی داری؟"),
+            d("B", "Remarkably different from when we started. Looking back, I can't believe how much we've learned.", "به طور قابل توجهی متفاوت از وقتی شروع کردیم. به عقب نگاه می‌کنم، باور نمی‌کنم چقدر یاد گرفته‌ایم."),
+            d("A", "What stands out most?", "بیشتر چه چیزی برجسته است؟"),
+            d("B", "It's not just grammar. It's the ability to express complex ideas with nuance.", "فقط گرامر نیست. توانایی بیان ایده‌های پیچیده با ظرافت است."),
+            d("A", "Give me an example.", "مثالی بزن."),
+            d("B", "A year ago, I might have said 'This is bad.' Now I might say 'It could be argued that this has troubling implications.'", "یک سال پیش ممکن بود بگویم 'این بده.' الان ممکن است بگویم 'می‌توان استدلال کرد که این پیامدهای نگران‌کننده دارد.'"),
+            d("A", "That's a huge leap.", "جهش بزرگی‌ست."),
+            d("B", "It feels that way. What I've noticed most is that I now think in English, not translate.", "همینطور حس می‌شود. چیزی که بیشتر متوجه شده‌ام این است که الان به انگلیسی فکر می‌کنم، نه ترجمه."),
+            d("A", "That's the biggest milestone.", "بزرگ‌ترین نقطه عطف است."),
+            d("B", "Yes. It means the language has become part of me, not something external.", "بله. یعنی زبان بخشی از من شده، نه چیزی بیرونی."),
+            d("A", "What will you work on next?", "بعدش روی چه چیزی کار می‌کنی؟"),
+            d("B", "Idiomatic fluency and register control. I want to sound natural across all contexts.", "روانی اصطلاحی و کنترل لحن. می‌خواهم در همه زمینه‌ها طبیعی به نظر برسم."),
+            d("A", "What about accents?", "لهجه چطور؟"),
+            d("B", "Less important than clarity. I don't need to sound native, just be understood.", "کمتر از وضوح مهم است. نیازی ندارم بومی به نظر برسم، فقط فهمیده شوم."),
+            d("A", "Wise. Any regrets?", "عاقلانه. پشیمانی؟"),
+            d("B", "Only that I didn't start sooner. If I had begun ten years ago, I'd be fluent by now.", "فقط اینکه زودتر شروع نکردم. اگر ده سال پیش شروع کرده بودم، الان روان بودم."),
+            d("A", "But you're here now. That's what matters.", "ولی الان اینجایی. این چیزی‌ست که مهم است."),
+            d("B", "Absolutely. Never have I been more committed to anything.", "قطعاً. هرگز به چیزی متعهدتر نبوده‌ام."),
+            d("A", "Ready for Level 5?", "برای سطح ۵ آماده‌ای؟"),
+            d("B", "More than ready. It's what drives me forward.", "بیشتر از آماده. چیزی‌ست که مرا به جلو می‌راند."),
+            d("A", "Let's continue the journey.", "بیایید سفر را ادامه دهیم."),
+            d("B", "With pleasure. This is just the beginning.", "با کمال میل. این فقط شروع است.")
+        ),
+        listOf(
+            q("What does B now do instead of translating?", listOf("guessing", "thinking in English", "miming"), 1),
+            q("What will B work on next?", listOf("grammar", "idiomatic fluency", "writing"), 1),
+            q("If I ___ begun ten years ago, I'd be fluent.", listOf("have", "had", "has"), 1),
+            q("Never ___ I been more committed.", listOf("have", "had", "did"), 0)
+        ),
+        idioms = listOf(
+            IdiomExpression("That's a huge leap", "جهش بزرگی‌ست", "That's a huge leap.", "جهش بزرگی‌ست."),
+            IdiomExpression("With pleasure", "با کمال میل", "With pleasure.", "با کمال میل."),
+            IdiomExpression("Just the beginning", "فقط شروع", "This is just the beginning.", "این فقط شروع است.")
+        ),
+        pron = listOf(
+            PronunciationTip("Reflective tone", "Speak slowly with warmth. Pause after key reflections.")
+        ),
+        cult = listOf(
+            CulturalNote("Language journey", "C1 is the threshold for academic and professional fluency. It typically takes 800-1000 hours of study from B2.")
+        ),
+        mis = listOf(
+            CommonMistake("If I would have begun.", "If I had begun.", "Never 'would have' in if-clause."),
+            CommonMistake("Never I have been.", "Never have I been.", "Inversion after negative.")
+        )
+    )
+
 }   // ← ✅ پایان object
