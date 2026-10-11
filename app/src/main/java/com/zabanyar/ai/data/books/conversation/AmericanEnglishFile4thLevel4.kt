@@ -11,24 +11,30 @@ object AmericanEnglishFile4thLevel4 {
     const val BOOK_ID = "american_english_file_4th_level4"
 
     fun getContent(n: Int): LessonContent = when (n) {
+        // Files 1-2
         1 -> f1A(); 2 -> f1B(); 3 -> f1C()
-        4 -> pe1(); 5 -> rc12()
-        6 -> f2A(); 7 -> f2B(); 8 -> f2C()
-        9 -> pe2(); 10 -> rc34()
-        11 -> f3A(); 12 -> f3B(); 13 -> f3C()
-        14 -> pe3(); 15 -> rc56()
-        16 -> f4A(); 17 -> f4B(); 18 -> f4C()
-        19 -> pe4(); 20 -> rc78()
-        21 -> f5A(); 22 -> f5B(); 23 -> f5C()
-        24 -> pe5(); 25 -> rc910()
-        26 -> f6A(); 27 -> f6B(); 28 -> f6C()
-        29 -> f7A(); 30 -> f7B(); 31 -> f7C()
-        32 -> f8A(); 33 -> f8B(); 34 -> f8C()
-        35 -> f9A(); 36 -> f9B(); 37 -> f9C()
-        38 -> f10A(); 39 -> f10B(); 40 -> f10C()
+        4 -> f2A(); 5 -> f2B(); 6 -> f2C()
+        7 -> pe1(); 8 -> rc12()
+        // Files 3-4
+        9 -> f3A(); 10 -> f3B(); 11 -> f3C()
+        12 -> f4A(); 13 -> f4B(); 14 -> f4C()
+        15 -> pe2(); 16 -> rc34()
+        // Files 5-6
+        17 -> f5A(); 18 -> f5B(); 19 -> f5C()
+        20 -> f6A(); 21 -> f6B(); 22 -> f6C()
+        23 -> pe3(); 24 -> rc56()
+        // Files 7-8
+        25 -> f7A(); 26 -> f7B(); 27 -> f7C()
+        28 -> f8A(); 29 -> f8B(); 30 -> f8C()
+        31 -> pe4(); 32 -> rc78()
+        // Files 9-10
+        33 -> f9A(); 34 -> f9B(); 35 -> f9C()
+        36 -> f10A(); 37 -> f10B(); 38 -> f10C()
+        39 -> pe5(); 40 -> rc910()
+        // Files 11-12
         41 -> f11A(); 42 -> f11B(); 43 -> f11C()
-        44 -> pe6(); 45 -> rc1112()
-        46 -> f12A(); 47 -> f12B(); 48 -> f12C()
+        44 -> f12A(); 45 -> f12B(); 46 -> f12C()
+        47 -> pe6(); 48 -> rc1112()
         else -> LessonContent(BOOK_ID, n, "Coming Soon", "به‌زودی...",
             vocabulary = emptyList(), grammar = emptyList(),
             conversation = emptyList(), quiz = emptyList())
@@ -254,7 +260,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ PRACTICAL ENGLISH 1 ═══════════
 
-    private fun pe1() = base(4, "PE1 A job interview", "انگلیسی کاربردی ۱ — مصاحبه شغلی",
+    private fun pe1() = base(7, "PE1 A job interview", "انگلیسی کاربردی ۱ — مصاحبه شغلی",
         listOf(
             "Handle a professional job interview",
             "Answer competency-based questions",
@@ -323,7 +329,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ REVIEW 1 ═══════════
 
-    private fun rc12() = base(5, "R&C 1&2", "مرور ۱ و ۲",
+    private fun rc12() = base(8, "R&C 1&2", "مرور ۱ و ۲",
         listOf("Review question forms", "Review modifiers", "Review narrative devices"),
         listOf(
             v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
@@ -372,7 +378,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ FILE 2 — Work and success ═══════════
 
-    private fun f2A() = base(6, "2A The meaning of success", "۲A معنای موفقیت",
+    private fun f2A() = base(4, "2A The meaning of success", "۲A معنای موفقیت",
         listOf(
             "Use passive voice with modals",
             "Discuss success and achievement",
@@ -436,7 +442,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f2B() = base(7, "2B Work-life balance", "۲B تعادل کار و زندگی",
+    private fun f2B() = base(5, "2B Work-life balance", "۲B تعادل کار و زندگی",
         listOf(
             "Use future forms for plans and predictions",
             "Discuss career and lifestyle choices",
@@ -500,7 +506,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f2C() = base(8, "2C Changing careers", "۲C تغییر شغل",
+    private fun f2C() = base(6, "2C Changing careers", "۲C تغییر شغل",
         listOf(
             "Use wish / if only for regrets",
             "Talk about career changes",
@@ -564,7 +570,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ PRACTICAL ENGLISH 2 ═══════════
 
-    private fun pe2() = base(9, "PE2 A business meeting", "انگلیسی کاربردی ۲ — جلسه کاری",
+    private fun pe2() = base(15, "PE2 A business meeting", "انگلیسی کاربردی ۲ — جلسه کاری",
         listOf(
             "Participate effectively in business meetings",
             "Disagree diplomatically",
@@ -632,7 +638,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ REVIEW 2 ═══════════
 
-    private fun rc34() = base(10, "R&C 3&4", "مرور ۳ و ۴",
+    private fun rc34() = base(16, "R&C 3&4", "مرور ۳ و ۴",
         listOf("Review passive voice", "Review wish/if only", "Review future forms"),
         listOf(
             v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
@@ -681,7 +687,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ FILE 3 — Media and news ═══════════
 
-    private fun f3A() = base(11, "3A Fake news", "۳A اخبار جعلی",
+    private fun f3A() = base(9, "3A Fake news", "۳A اخبار جعلی",
         listOf(
             "Use reporting verbs",
             "Discuss media and misinformation",
@@ -750,7 +756,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f3B() = base(12, "3B Advertising and persuasion", "۳B تبلیغات و متقاعدسازی",
+    private fun f3B() = base(10, "3B Advertising and persuasion", "۳B تبلیغات و متقاعدسازی",
         listOf(
             "Use persuasive language",
             "Analyse advertising techniques",
@@ -818,7 +824,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f3C() = base(13, "3C Journalism today", "۳C روزنامه‌نگاری امروز",
+    private fun f3C() = base(11, "3C Journalism today", "۳C روزنامه‌نگاری امروز",
         listOf(
             "Use complex passive structures",
             "Discuss the future of journalism",
@@ -890,7 +896,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ PRACTICAL ENGLISH 3 ═══════════
 
-    private fun pe3() = base(14, "PE3 A difficult client", "انگلیسی کاربردی ۳ — مشتری دشوار",
+    private fun pe3() = base(23, "PE3 A difficult client", "انگلیسی کاربردی ۳ — مشتری دشوار",
         listOf(
             "Handle difficult customers",
             "Use diplomatic language",
@@ -957,7 +963,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ REVIEW 3 ═══════════
 
-    private fun rc56() = base(15, "R&C 5&6", "مرور ۵ و ۶",
+    private fun rc56() = base(24, "R&C 5&6", "مرور ۵ و ۶",
         listOf("Review reporting verbs", "Review persuasive language", "Review complex passives"),
         listOf(
             v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
@@ -1007,7 +1013,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ FILE 4 — Society and change ═══════════
 
-    private fun f4A() = base(16, "4A Social inequality", "۴A نابرابری اجتماعی",
+    private fun f4A() = base(12, "4A Social inequality", "۴A نابرابری اجتماعی",
         listOf(
             "Use relative clauses with quantifiers",
             "Discuss social issues",
@@ -1072,7 +1078,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f4B() = base(17, "4B Migration and identity", "۴B مهاجرت و هویت",
+    private fun f4B() = base(13, "4B Migration and identity", "۴B مهاجرت و هویت",
         listOf(
             "Use participle clauses",
             "Discuss identity and belonging",
@@ -1144,7 +1150,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f4C() = base(18, "4C Protest and activism", "۴C اعتراض و کنش‌گری",
+    private fun f4C() = base(14, "4C Protest and activism", "۴C اعتراض و کنش‌گری",
         listOf(
             "Use inversion for emphasis",
             "Discuss social movements",
@@ -1216,7 +1222,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ PRACTICAL ENGLISH 4 ═══════════
 
-    private fun pe4() = base(19, "PE4 A medical emergency", "انگلیسی کاربردی ۴ — اورژانس پزشکی",
+    private fun pe4() = base(31, "PE4 A medical emergency", "انگلیسی کاربردی ۴ — اورژانس پزشکی",
         listOf(
             "Handle medical emergencies",
             "Describe symptoms clearly",
@@ -1288,7 +1294,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ REVIEW 4 ═══════════
 
-    private fun rc78() = base(20, "R&C 7&8", "مرور ۷ و ۸",
+    private fun rc78() = base(32, "R&C 7&8", "مرور ۷ و ۸",
         listOf("Review relative clauses", "Review participle clauses", "Review inversion"),
         listOf(
             v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
@@ -1337,7 +1343,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ FILE 5 — Science and innovation ═══════════
 
-    private fun f5A() = base(21, "5A Scientific discoveries", "۵A کشف‌های علمی",
+    private fun f5A() = base(17, "5A Scientific discoveries", "۵A کشف‌های علمی",
         listOf(
             "Use passive voice in formal writing",
             "Discuss scientific breakthroughs",
@@ -1408,7 +1414,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f5B() = base(22, "5B Technology and ethics", "۵B فناوری و اخلاق",
+    private fun f5B() = base(18, "5B Technology and ethics", "۵B فناوری و اخلاق",
         listOf(
             "Use complex conditionals",
             "Discuss ethical dilemmas",
@@ -1477,7 +1483,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f5C() = base(23, "5C Innovation and creativity", "۵C نوآوری و خلاقیت",
+    private fun f5C() = base(19, "5C Innovation and creativity", "۵C نوآوری و خلاقیت",
         listOf(
             "Use cleft sentences",
             "Discuss creativity and innovation",
@@ -1547,7 +1553,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ PRACTICAL ENGLISH 5 ═══════════
 
-    private fun pe5() = base(24, "PE5 A conference presentation", "انگلیسی کاربردی ۵ — ارائه در کنفرانس",
+    private fun pe5() = base(39, "PE5 A conference presentation", "انگلیسی کاربردی ۵ — ارائه در کنفرانس",
         listOf(
             "Deliver a professional presentation",
             "Handle questions from the audience",
@@ -1617,7 +1623,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ REVIEW 5 ═══════════
 
-    private fun rc910() = base(25, "R&C 9&10", "مرور ۹ و ۱۰",
+    private fun rc910() = base(40, "R&C 9&10", "مرور ۹ و ۱۰",
         listOf("Review passive in formal writing", "Review mixed conditionals", "Review cleft sentences"),
         listOf(
             v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
@@ -1667,7 +1673,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ FILE 6 — Emotions and psychology ═══════════
 
-    private fun f6A() = base(26, "6A Understanding emotions", "۶A درک احساسات",
+    private fun f6A() = base(20, "6A Understanding emotions", "۶A درک احساسات",
         listOf(
             "Use adverbs with adjectives",
             "Discuss emotional intelligence",
@@ -1736,7 +1742,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f6B() = base(27, "6B Memory and the brain", "۶B حافظه و مغز",
+    private fun f6B() = base(21, "6B Memory and the brain", "۶B حافظه و مغز",
         listOf(
             "Use passive voice with complex structures",
             "Discuss memory and cognition",
@@ -1806,7 +1812,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f6C() = base(28, "6C Dreams and the subconscious", "۶C رؤیا و ناخودآگاه",
+    private fun f6C() = base(22, "6C Dreams and the subconscious", "۶C رؤیا و ناخودآگاه",
         listOf(
             "Use speculation and deduction",
             "Discuss dreams and the mind",
@@ -1879,7 +1885,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ FILE 7 — History and memory ═══════════
 
-    private fun f7A() = base(29, "7A Historical events", "۷A رویدادهای تاریخی",
+    private fun f7A() = base(25, "7A Historical events", "۷A رویدادهای تاریخی",
         listOf(
             "Use passive voice for historical narration",
             "Discuss historical events",
@@ -1947,7 +1953,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f7B() = base(30, "7B Family history", "۷B تاریخچه خانوادگی",
+    private fun f7B() = base(26, "7B Family history", "۷B تاریخچه خانوادگی",
         listOf(
             "Use past modals for speculation",
             "Discuss ancestry and heritage",
@@ -2016,7 +2022,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f7C() = base(31, "7C Monuments and memory", "۷C بناها و حافظه",
+    private fun f7C() = base(27, "7C Monuments and memory", "۷C بناها و حافظه",
         listOf(
             "Use relative clauses for complex description",
             "Discuss monuments and public memory",
@@ -2088,7 +2094,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ FILE 8 — Globalization ═══════════
 
-    private fun f8A() = base(32, "8A Global culture", "۸A فرهنگ جهانی",
+    private fun f8A() = base(28, "8A Global culture", "۸A فرهنگ جهانی",
         listOf(
             "Use hedging language",
             "Discuss globalization and culture",
@@ -2158,7 +2164,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f8B() = base(33, "8B Global economy", "۸B اقتصاد جهانی",
+    private fun f8B() = base(29, "8B Global economy", "۸B اقتصاد جهانی",
         listOf(
             "Use complex cause and effect structures",
             "Discuss economic issues",
@@ -2229,7 +2235,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f8C() = base(34, "8C Global challenges", "۸C چالش‌های جهانی",
+    private fun f8C() = base(30, "8C Global challenges", "۸C چالش‌های جهانی",
         listOf(
             "Use discourse markers",
             "Discuss global problems",
@@ -2300,7 +2306,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ FILE 9 — Justice and law ═══════════
 
-    private fun f9A() = base(35, "9A Crime and punishment", "۹A جرم و مجازات",
+    private fun f9A() = base(33, "9A Crime and punishment", "۹A جرم و مجازات",
         listOf(
             "Use passive voice with legal language",
             "Discuss crime and justice",
@@ -2369,7 +2375,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f9B() = base(36, "9B Human rights", "۹B حقوق بشر",
+    private fun f9B() = base(34, "9B Human rights", "۹B حقوق بشر",
         listOf(
             "Use concessive and contrastive structures",
             "Discuss human rights issues",
@@ -2437,7 +2443,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f9C() = base(37, "9C Civil liberties", "۹C آزادی‌های مدنی",
+    private fun f9C() = base(35, "9C Civil liberties", "۹C آزادی‌های مدنی",
         listOf(
             "Use modal perfect structures",
             "Discuss freedom and privacy",
@@ -2509,7 +2515,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ FILE 10 — The future ═══════════
 
-    private fun f10A() = base(38, "10A Future technologies", "۱۰A فناوری‌های آینده",
+    private fun f10A() = base(36, "10A Future technologies", "۱۰A فناوری‌های آینده",
         listOf(
             "Use advanced future forms",
             "Speculate about future technologies",
@@ -2579,7 +2585,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f10B() = base(39, "10B Alternative futures", "۱۰B آینده‌های جایگزین",
+    private fun f10B() = base(37, "10B Alternative futures", "۱۰B آینده‌های جایگزین",
         listOf(
             "Use hypothetical structures",
             "Explore possible futures",
@@ -2646,7 +2652,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f10C() = base(40, "10C Review and reflection", "۱۰C مرور و بازنگری",
+    private fun f10C() = base(38, "10C Review and reflection", "۱۰C مرور و بازنگری",
         listOf(
             "Integrate advanced grammar",
             "Reflect on learning journey",
@@ -2922,7 +2928,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ PRACTICAL ENGLISH 6 ═══════════
 
-    private fun pe6() = base(44, "PE6 A media interview", "انگلیسی کاربردی ۶ — مصاحبه رسانه‌ای",
+    private fun pe6() = base(47, "PE6 A media interview", "انگلیسی کاربردی ۶ — مصاحبه رسانه‌ای",
         listOf(
             "Handle media interviews professionally",
             "Stay on message",
@@ -2960,8 +2966,8 @@ object AmericanEnglishFile4thLevel4 {
             d("B", "I can't speculate about anonymous sources. What I can confirm is our commitment to the programme.", "نمی‌توانم درباره منابع ناشناس حدس بزنم. چیزی که می‌توانم تأیید کنم تعهدمان به برنامه است."),
             d("A", "Is it true you considered resigning?", "درست است که به استعفا فکر کردید؟"),
             d("B", "That's a matter for the committee, not for public speculation. I'd rather not comment.", "این موضوع کمیته است، نه برای حدس عمومی. ترجیح می‌دهم اظهار نظر نکنم."),
-            d("A", "But surely the public deserves to know?", "ولی قطعاً مردم deserve که بدانند؟"),
-            d("B", "The public deserves facts, not speculation. And I'm not in a position to share internal discussions.", "مردم deserve حقایق را دارند، نه حدس. و من در موقعیتی نیستم که بحث‌های داخلی را به اشتراک بگذارم."),
+            d("A", "But surely the public deserves to know?", "ولی قطعاً مردم حق دارند که بدانند؟"),
+            d("B", "The public deserves facts, not speculation. And I'm not in a position to share internal discussions.", "مردم حق دارند حقایق را بدانند، نه حدس. و من در موقعیتی نیستم که بحث‌های داخلی را به اشتراک بگذارم."),
             d("A", "One last question. What would you say to critics?", "یک سؤال آخر. به منتقدان چه می‌گویید؟"),
             d("B", "I'd say we're listening. I'd say we're willing to adapt. But I'd also say change takes time.", "می‌گویم گوش می‌دهیم. می‌گویم آماده‌ایم سازگار شویم. ولی همچنین می‌گویم تغییر زمان می‌برد."),
             d("A", "Any final statement?", "بیانیه نهایی؟"),
@@ -2990,7 +2996,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ REVIEW 11 & 12 ═══════════
 
-    private fun rc1112() = base(45, "R&C 11&12", "مرور ۱۱ و ۱۲",
+    private fun rc1112() = base(48, "R&C 11&12", "مرور ۱۱ و ۱۲",
         listOf("Review relative clauses", "Review causatives", "Review perfect modals"),
         listOf(
             v("review", "مرور", "Let's review.", "بیایید مرور کنیم.", "verb"),
@@ -3041,7 +3047,7 @@ object AmericanEnglishFile4thLevel4 {
 
     // ═══════════ FILE 12 — Reflections and endings ═══════════
 
-    private fun f12A() = base(46, "12A Turning points", "۱۲A نقاط عطف",
+    private fun f12A() = base(44, "12A Turning points", "۱۲A نقاط عطف",
         listOf(
             "Use mixed conditionals for reflection",
             "Discuss life's turning points",
@@ -3106,7 +3112,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f12B() = base(47, "12B Giving back", "۱۲B بازپس دادن",
+    private fun f12B() = base(45, "12B Giving back", "۱۲B بازپس دادن",
         listOf(
             "Use passive with modals for societal duty",
             "Discuss philanthropy and service",
@@ -3170,7 +3176,7 @@ object AmericanEnglishFile4thLevel4 {
         )
     )
 
-    private fun f12C() = base(48, "12C The road ahead", "۱۲C جاده پیش رو",
+    private fun f12C() = base(46, "12C The road ahead", "۱۲C جاده پیش رو",
         listOf(
             "Integrate advanced grammar",
             "Reflect on life's journey",
