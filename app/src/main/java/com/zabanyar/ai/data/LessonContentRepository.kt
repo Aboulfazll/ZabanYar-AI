@@ -21,7 +21,7 @@ object LessonContentRepository {
             // ✨ American English File 4th Edition (NEW)
             "american_english_file_4th_starter",
             "american_english_file_4th_level1",
-            "american_english_file_4th_level2",
+            // "american_english_file_4th_level2",  // موقتاً غیرفعال - منتظر نسخه جدید
             "american_english_file_4th_level3",
             "american_english_file_4th_level4",
             "american_english_file_4th_level5"
@@ -58,7 +58,7 @@ object LessonContentRepository {
             // ==================== ✨ American English File 4th Edition (NEW) ====================
             "american_english_file_4th_starter" -> AmericanEnglishFile4thStarter.getContent(chapterNumber)
             "american_english_file_4th_level1" -> AmericanEnglishFile4thLevel1.getContent(chapterNumber)
-            "american_english_file_4th_level2" -> AmericanEnglishFile4thLevel2.getContent(chapterNumber)
+            // "american_english_file_4th_level2" -> AmericanEnglishFile4thLevel2.getContent(chapterNumber)  // موقتاً غیرفعال - منتظر نسخه جدید
             "american_english_file_4th_level3" -> AmericanEnglishFile4thLevel3.getContent(chapterNumber)
             "american_english_file_4th_level4" -> AmericanEnglishFile4thLevel4.getContent(chapterNumber)
             "american_english_file_4th_level5" -> AmericanEnglishFile4thLevel5.getContent(chapterNumber)
