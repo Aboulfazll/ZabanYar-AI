@@ -1,0 +1,296 @@
+package com.zabanyar.ai.data.books.story.content.advanced
+
+import com.zabanyar.ai.data.books.story.StoryChapter
+import com.zabanyar.ai.data.books.story.StoryContent
+import com.zabanyar.ai.data.books.story.StoryParagraph
+
+/**
+ * ۹. باقی‌مانده روز — کازوئو ایشی‌گورو
+ */
+object Story9 {
+
+    fun get(): StoryContent = StoryContent(
+        storyId = "adv_remains_day",
+        chapters = listOf(
+            chapter1(),
+            chapter2(),
+            chapter3(),
+            chapter4(),
+            chapter5(),
+            chapter6(),
+        )
+    )
+
+    // ─────────── فصل ۱: سفر سرپیشخدمت ───────────
+    private fun chapter1() = StoryChapter(
+        number = 1, title = "The Butler's Journey", titlePersian = "سفر سرپیشخدمت",
+        paragraphs = listOf(
+            StoryParagraph("Mr. Stevens was an English butler, and he had served at Darlington Hall for over thirty years.", "آقای استیونز سرپیشخدمت انگلیسی بود و بیش از سی سال در تالار دارلینگتون خدمت کرده بود."),
+            StoryParagraph("The year was 1956, and much had changed since the great days of the house.", "سال ۱۹۵۶ بود و از روزهای بزرگ خانه چیزهای بسیاری تغییر کرده بود."),
+            StoryParagraph("His former master, Lord Darlington, had died some years before, and the house had been sold.", "ارباب پیشینش، لرد دارلینگتون، چند سال پیش مرده بود و خانه فروخته شده بود."),
+            StoryParagraph("An American gentleman, Mr. Farraday, was the new owner, and he was not quite what Stevens was used to.", "جنتلمنی آمریکایی، آقای فارادی، مالک جدید بود و آنچنان که استیونز به آن عادت داشت نبود."),
+            StoryParagraph("Mr. Farraday was informal, casual, and prone to jokes that Stevens did not always understand.", "آقای فارادی غیررسمی بود، خودمانی و مستعد شوخی‌هایی که استیونز همیشه نمی‌فهمید."),
+            StoryParagraph("One day, Mr. Farraday suggested that Stevens take a holiday, that he borrow the car and drive through the countryside.", "یک روز، آقای فارادی پیشنهاد کرد استیونز مرخصی بگیرد، ماشین را قرض بگیرد و در حومه رانندگی کند."),
+            StoryParagraph("'You fellows work too hard,' Mr. Farraday said. 'Take a few days. See the country. Enjoy yourself.'", "آقای فارادی گفت: «شما بچه‌ها زیادی کار می‌کنید. چند روزی برو. کشور را ببین. لذت ببر.»"),
+            StoryParagraph("Stevens was uncertain; he did not quite know what it meant to 'enjoy himself.'", "استیونز مطمئن نبود؛ کاملاً نمی‌دانست «لذت بردن» یعنی چه."),
+            StoryParagraph("But he agreed, and he began to plan a journey.", "اما موافقت کرد و شروع کرد به برنامه‌ریزی سفری."),
+            StoryParagraph("The journey would take him through the west of England, through countryside he had not seen in years.", "سفر او را از غرب انگلستان می‌برد، از میان حومه‌ای که سال‌ها ندیده بود."),
+            StoryParagraph("And there was another reason for the journey, a reason he did not quite admit to himself.", "و دلیل دیگری هم برای سفر بود، دلیلی که کاملاً به خودش اقرار نمی‌کرد."),
+            StoryParagraph("Miss Kenton, the former housekeeper of Darlington Hall, lived somewhere in the west country.", "میس کنتون، خانه‌دار پیشین تالار دارلینگتون، جایی در غرب کشور زندگی می‌کرد."),
+            StoryParagraph("She had left Darlington Hall over twenty years ago to be married, and Stevens had not seen her since.", "او بیش از بیست سال پیش تالار دارلینگتون را برای ازدواج ترک کرده بود و استیونز از آن زمان ندیده بودش."),
+            StoryParagraph("But she had written to him recently, and her letter had been strange, melancholy, hinting at troubles in her marriage.", "اما اخیراً برایش نامه نوشته بود و نامه‌اش عجیب بود، مالیخولیایی، اشاره‌ای به مشکلاتی در ازدواجش."),
+            StoryParagraph("Stevens told himself that he was going to see her on professional business.", "استیونز به خودش گفت برای کار حرفه‌ای به دیدنش می‌رود."),
+            StoryParagraph("The house needed a housekeeper, and Miss Kenton might be persuaded to return.", "خانه به خانه‌دار نیاز داشت و شاید بتوان میس کنتون را راضی به بازگشت کرد."),
+            StoryParagraph("But this was not quite the truth, and Stevens knew it was not quite the truth.", "اما این کاملاً حقیقت نبود و استیونز می‌دانست کاملاً حقیقت نیست."),
+            StoryParagraph("He was going because he wanted to see her; because he had thought about her for twenty years; because he had something to say to her.", "می‌رفت چون می‌خواست ببیندش؛ چون بیست سال به او فکر کرده بود؛ چون چیزی برای گفتن به او داشت."),
+            StoryParagraph("But he did not know what that something was, and he suspected he never would.", "اما نمی‌دانست آن چیز چیست و گمان می‌کرد هرگز نخواهد دانست."),
+            StoryParagraph("On a bright morning in July, he set off from Darlington Hall in Mr. Farraday's Ford.", "در صبحی روشن از ژوئیه، از تالار دارلینگتون با فورد آقای فارادی راه افتاد."),
+            StoryParagraph("The house receded behind him, and the English countryside opened up before him.", "خانه از پشت سرش دور شد و حومه انگلستان پیش رویش گشوده شد."),
+            StoryParagraph("He drove slowly, carefully, the way he did everything.", "آهسته راند، با احتیاط، همانطور که همه کارها را می‌کرد."),
+            StoryParagraph("The hedgerows, the villages, the old churches—all of it was familiar and strange at once.", "پرچین‌ها، دهکده‌ها، کلیساهای کهن—همه آشنایی و غریبگی همزمان."),
+            StoryParagraph("He had not traveled much in his life; he had been content to remain at Darlington Hall.", "در زندگی‌اش زیاد سفر نکرده بود؛ راضی بود در تالار دارلینگتون بماند."),
+            StoryParagraph("The house had been his world, his purpose, his everything.", "خانه جهانش بوده، هدفش، همه چیز."),
+            StoryParagraph("And now, driving through the countryside, he began to wonder whether that had been the right choice.", "و حالا، در حین رانندگی در حومه، شروع کرد به حیرت کردن که آیا انتخاب درستی بوده."),
+            StoryParagraph("But such thoughts were unworthy of a butler, and he pushed them aside.", "اما چنین افکاری شایسته سرپیشخدمت نبود و کنارشان زد."),
+            StoryParagraph("He stopped for tea at a small inn, and he sat alone at a table, watching the other guests.", "برای چای در مسافرخانه کوچکی ایستاد و تنها پشت میزی نشست، تماشای مهمانان دیگر."),
+            StoryParagraph("They were ordinary people, living ordinary lives, and Stevens wondered what it would be like to be one of them.", "مردم معمولی بودند، زندگی‌های معمولی، و استیونز حیران شد یکی از آن‌ها بودن چه حسی دارد."),
+            StoryParagraph("But he was not one of them; he was a butler, and a butler had no ordinary life.", "اما یکی از آن‌ها نبود؛ سرپیشخدمت بود و سرپیشخدمت زندگی معمولی نداشت."),
+            StoryParagraph("A butler had only duty, only service, only the satisfaction of a job well done.", "سرپیشخدمت تنها وظیفه داشت، تنها خدمت، تنها رضایت کاری که خوب انجام شده."),
+            StoryParagraph("He finished his tea and resumed his journey.", "چایش را تمام کرد و سفرش را از سر گرفت."),
+            StoryParagraph("The afternoon sun was warm, and the road stretched on before him.", "آفتاب بعدازظهر گرم بود و جاده پیش رویش کشیده شده بود."),
+            StoryParagraph("He thought about Miss Kenton, about the years they had worked together, about the things they had never said.", "به میس کنتون فکر کرد، به سال‌هایی که با هم کار کرده بودند، به چیزهایی که هرگز نگفته بودند."),
+            StoryParagraph("He wondered if she still remembered him, if she still thought about the house, if she still regretted leaving.", "حیران شد آیا هنوز به یادش می‌آورد، آیا هنوز به خانه فکر می‌کند، آیا هنوز از رفتنش پشیمان است."),
+            StoryParagraph("He would find out soon enough, he told himself; he would see her, and he would know.", "به خودش گفت به‌زودی می‌فهمد؛ می‌بیندش و می‌داند."),
+            StoryParagraph("But he was afraid, and he knew he was afraid, and he did not know how to admit it.", "اما ترسیده بود و می‌دانست ترسیده و نمی‌دانست چطور اقرار کند."),
+            StoryParagraph("For thirty years, he had kept his feelings hidden, even from himself.", "سی سال احساساتش را پنهان کرده بود، حتی از خودش."),
+            StoryParagraph("And now, driving toward Miss Kenton, he was not sure he could do it anymore.", "و حالا، در رانندگی به سمت میس کنتون، مطمئن نبود دیگر می‌تواند."),
+            StoryParagraph("But he would go on, because that was what he did; he would go on, and he would see, and he would know.", "اما ادامه می‌داد، چون کاری بود که می‌کرد؛ ادامه می‌داد و می‌دید و می‌فهمید."),
+            StoryParagraph("And so the first day of his journey ended, and the second began, and he drove on through the English countryside.", "و اینگونه روز نخست سفرش پایان یافت و دومی آغاز شد و در حومه انگلستان راند."),
+            StoryParagraph("The past was behind him, the future was before him, and the present was a long road leading to a woman he had loved and lost.", "گذشته پشت سرش بود، آینده پیش رویش و حال جاده‌ای طولانی که به زنی می‌رسید که دوستش داشته و از دست داده.")
+        )
+    )
+
+    // ─────────── فصل ۲: خاطرات دارلینگتون هال ───────────
+    private fun chapter2() = StoryChapter(
+        number = 2, title = "Memories of Darlington Hall", titlePersian = "خاطرات تالار دارلینگتون",
+        paragraphs = listOf(
+            StoryParagraph("As Stevens drove, his mind drifted back to the past, to the great days of Darlington Hall.", "همانطور که استیونز می‌راند، ذهنش به گذشته می‌رفت، به روزهای بزرگ تالار دارلینگتون."),
+            StoryParagraph("He had come to the house as a young man, eager to serve, eager to prove himself.", "او به‌عنوان مردی جوان به خانه آمده بود، مشتاق خدمت، مشتاق اثبات خود."),
+            StoryParagraph("His father had been a butler, too—a great butler, a man who had served with dignity and honor.", "پدرش هم سرپیشخدمت بوده—سرپیشخدمت بزرگی، مردی که با وقار و افتخار خدمت کرده بود."),
+            StoryParagraph("From his father, Stevens had learned the principles of his profession: dignity, loyalty, and above all, service.", "از پدرش اصول حرفه‌اش را آموخته بود: وقار، وفاداری و بیش از همه، خدمت."),
+            StoryParagraph("A great butler, his father had said, is one who can maintain his dignity no matter what happens around him.", "پدرش گفته بود سرپیشخدمت بزرگ کسی است که می‌تواند وقارش را حفظ کند هر چه اطرافش اتفاق بیفتد."),
+            StoryParagraph("Stevens had taken this lesson to heart, and he had tried to live by it all his life.", "استیونز این درس را به دل گرفته بود و تمام عمرش تلاش کرد طبق آن زندگی کند."),
+            StoryParagraph("And so, over the years, he had become a butler of great reputation, a butler worthy of Darlington Hall.", "و اینگونه، در طول سال‌ها، به سرپیشخدمتی با آبروی فراوان تبدیل شده بود، سرپیشخدمتی شایسته تالار دارلینگتون."),
+            StoryParagraph("Lord Darlington had been a great gentleman, a man of principle and honor, a man who believed in peace and justice.", "لرد دارلینگتون جنتلمنی بزرگ بوده، مردی از اصول و افتخار، مردی که به صلح و عدالت باور داشت."),
+            StoryParagraph("After the First World War, Lord Darlington had tried to prevent another war, had tried to bring Germany back into the community of nations.", "پس از جنگ جهانی اول، لرد دارلینگتون تلاش کرده بود از جنگی دیگر جلوگیری کند، تلاش کرده بود آلمان را به جامعه ملل بازگرداند."),
+            StoryParagraph("He had hosted many important conferences at Darlington Hall, had brought together statesmen and diplomats from all over the world.", "او کنفرانس‌های مهم بسیاری در تالار دارلینگتون برگزار کرده بود، دولتمردان و دیپلمات‌ها را از سراسر جهان گرد آورده بود."),
+            StoryParagraph("Stevens had been proud to serve such a man, had been proud to be part of such great events.", "استیونز به خدمت به چنین مردی افتخار کرده بود، به بخشی از چنین رویدادهای بزرگی بودن افتخار کرده بود."),
+            StoryParagraph("He had believed, in those days, that he was serving not just a man but a cause, not just a house but a civilization.", "در آن روزها باور داشت نه تنها به یک مرد خدمت می‌کند بلکه به آرمانی، نه تنها به یک خانه بلکه به یک تمدن."),
+            StoryParagraph("But later, much later, he had come to understand that Lord Darlington's actions had been misguided.", "اما بعدها، خیلی بعدتر، شروع کرده بود به فهمیدن اینکه اقدامات لرد دارلینگتون گمراه‌کننده بوده."),
+            StoryParagraph("Lord Darlington had been sympathetic to Germany, had believed in appeasement, had been friendly with men who would become Nazis.", "لرد دارلینگتون به آلمان همدلی داشت، به مماشات باور داشت، با مردانی دوست بود که نازی می‌شدند."),
+            StoryParagraph("And when the truth came out, after the war, Lord Darlington was disgraced, and his reputation was destroyed.", "و وقتی حقیقت پس از جنگ آشکار شد، لرد دارلینگتون بی‌آبرو شد و آبرویش نابود شد."),
+            StoryParagraph("Stevens had been shocked, had been wounded, had been forced to confront the possibility that he had devoted his life to a mistaken man.", "استیونز شوکه شده بود، زخمی شده بود، مجبور شده بود با این احتمال روبرو شود که عمرش را به مردی اشتباه اختصاص داده."),
+            StoryParagraph("But he had not allowed himself to think such thoughts; a butler did not question his master.", "اما به خودش اجازه نداده بود چنین افکاری بکند؛ سرپیشخدمت از اربابش سؤال نمی‌کرد."),
+            StoryParagraph("A butler served, and that was all; the master's judgment was not the butler's concern.", "سرپیشخدمت خدمت می‌کرد و همین؛ قضاوت ارباب نگرانی سرپیشخدمت نبود."),
+            StoryParagraph("And so Stevens had continued to serve, had continued to believe, had continued to maintain his dignity.", "و اینگونه استیونز به خدمت ادامه داده بود، به باور، به حفظ وقارش."),
+            StoryParagraph("He had watched Lord Darlington age, had watched him decline, had watched him die a broken man.", "تماشا کرده بود که لرد دارلینگتون پیر می‌شود، افت می‌کند، به‌عنوان مردی شکسته می‌میرد."),
+            StoryParagraph("And he had never said a word, had never expressed a doubt, had never betrayed a feeling.", "و هرگز کلمه‌ای نگفته بود، هرگز شکی بیان نکرده بود، هرگز احساسی را افشا نکرده بود."),
+            StoryParagraph("For that, he told himself, was dignity; and dignity was what made a butler great.", "زیرا این، به خودش می‌گفت، وقار بود؛ و وقار چیزی بود که سرپیشخدمت را بزرگ می‌کرد."),
+            StoryParagraph("But as he drove through the countryside, he began to wonder whether dignity was really the same as honor.", "اما همانطور که در حومه می‌راند، شروع کرد به حیرت کردن که آیا وقار واقعاً همان افتخار است."),
+            StoryParagraph("He began to wonder whether loyalty was really the same as wisdom.", "شروع کرد به حیرت کردن که آیا وفاداری واقعاً همان خرد است."),
+            StoryParagraph("He began to wonder whether service was really the same as meaning.", "شروع کرد به حیرت کردن که آیا خدمت واقعاً همان معناست."),
+            StoryParagraph("But such thoughts were dangerous, and he pushed them away.", "اما چنین افکاری خطرناک بودند و دورشان می‌کرد."),
+            StoryParagraph("He stopped for the night at a small inn, and he sat in his room, thinking about his life.", "شب را در مسافرخانه کوچکی ماند و در اتاقش نشست و به زندگی‌اش فکر کرد."),
+            StoryParagraph("He had given everything to Darlington Hall, had sacrificed everything for his profession, had become a perfect butler.", "همه چیز را به تالار دارلینگتون داده بود، همه چیز را برای حرفه‌اش قربانی کرده بود، سرپیشخدمت کاملی شده بود."),
+            StoryParagraph("But had he become a perfect man?", "اما آیا مرد کاملی شده بود؟"),
+            StoryParagraph("He had never married, had never had children, had never known love—or at least, he had never admitted to knowing it.", "هرگز ازدواج نکرده بود، هرگز بچه‌دار نشده بود، هرگز عشق را نشناخته بود—یا دست‌کم، هرگز اقرار نکرده بود که می‌شناسد."),
+            StoryParagraph("There had been Miss Kenton, of course; there had always been Miss Kenton.", "البته میس کنتون بوده؛ همیشه میس کنتون بوده."),
+            StoryParagraph("But he had not allowed himself to love her, had not allowed himself to feel what he felt.", "اما به خودش اجازه نداده بود دوستش بدارد، اجازه نداده بود آنچه حس می‌کرد حس کند."),
+            StoryParagraph("For love, he had believed, was not for a butler; love was a distraction, a weakness, a failure of duty.", "زیرا باور داشت عشق برای سرپیشخدمت نیست؛ عشق حواس‌پرتی است، ضعفی است، شکستی در وظیفه."),
+            StoryParagraph("And so he had let her go, had watched her marry another man, had said nothing.", "و اینگونه رهایش کرده بود، تماشا کرده بود که با مرد دیگری ازدواج کند، چیزی نگفته بود."),
+            StoryParagraph("And now, driving toward her, he wondered if he had made the greatest mistake of his life.", "و حالا، در رانندگی به سمتش، حیران بود که آیا بزرگ‌ترین اشتباه عمرش را کرده."),
+            StoryParagraph("But he did not know, could not know, would never know; for he had never allowed himself to find out.", "اما نمی‌دانست، نمی‌توانست بداند، هرگز نمی‌دانست؛ زیرا هرگز به خودش اجازه نداده بود بفهمد.")
+        )
+    )
+
+    // ─────────── فصل ۳: میس کنتون ───────────
+    private fun chapter3() = StoryChapter(
+        number = 3, title = "Miss Kenton", titlePersian = "میس کنتون",
+        paragraphs = listOf(
+            StoryParagraph("Stevens remembered the day Miss Kenton had arrived at Darlington Hall.", "استیونز روزی که میس کنتون به تالار دارلینگتون رسید را به یاد آورد."),
+            StoryParagraph("It was 1922, and she was young, perhaps twenty-four or twenty-five, with red hair and a lively manner.", "سال ۱۹۲۲ بود و او جوان، شاید بیست‌وچهار یا بیست‌وپنج ساله، با موهایی سرخ و رفتاری سرزنده."),
+            StoryParagraph("She had been hired as the housekeeper, and she had come highly recommended.", "به‌عنوان خانه‌دار استخدام شده بود و توصیه‌های فراوانی داشت."),
+            StoryParagraph("But from the very beginning, Stevens had found her difficult, challenging, unsettling.", "اما از همان آغاز، استیونز او را دشوار یافته بود، چالش‌گر، نگران‌کننده."),
+            StoryParagraph("She did not defer to him as other staff did; she spoke her mind, argued her case, challenged his authority.", "مثل دیگر کارکنان به او سر فرود نمی‌آورد؛ نظر خود را می‌گفت، استدلال می‌کرد، اختیارش را به چالش می‌کشید."),
+            StoryParagraph("Stevens had found this irritating, but also, in a way he did not admit, refreshing.", "استیونز این را آزاردهنده یافته بود، اما به شیوه‌ای که اقرار نمی‌کرد، طراوت‌بخش."),
+            StoryParagraph("They had argued about small things—about the arrangement of flowers, about the discipline of the maids, about the schedule of the staff.", "درباره چیزهای کوچکی بحث کرده بودند—درباره چیدمان گل‌ها، درباره انضباط خدمتکاران، درباره برنامه کارکنان."),
+            StoryParagraph("But slowly, over the months, they had come to respect each other, to work together, to become, in a strange way, friends.", "اما آرام‌آرام، در طول ماه‌ها، به احترام متقابل رسیده بودند، به همکاری، به دوستی، به شیوه‌ای عجیب."),
+            StoryParagraph("They had taken tea together in the evenings, when the house was quiet and the day's work was done.", "عصرها با هم چای خورده بودند، وقتی خانه ساکت بود و کار روز تمام."),
+            StoryParagraph("They had talked about the house, about their work, about their lives, about their hopes and dreams.", "از خانه صحبت کرده بودند، از کارشان، از زندگی‌شان، از امیدها و رؤیاهایشان."),
+            StoryParagraph("And slowly, imperceptibly, Miss Kenton had begun to fall in love with Stevens.", "و آرام‌آرام، نامحسوس، میس کنتون شروع کرده بود به عاشق شدن استیونز."),
+            StoryParagraph("She had tried to show him, in small ways, in small gestures; she had brought him flowers for his pantry.", "تلاش کرده بود نشانش دهد، به شیوه‌های کوچک، در اشاراتی کوچک؛ برای انبارش گل آورده بود."),
+            StoryParagraph("She had asked him questions about his past, about his family, about his feelings.", "سؤال‌هایی درباره گذشته‌اش پرسیده بود، درباره خانواده‌اش، درباره احساساتش."),
+            StoryParagraph("She had stood a little closer than necessary, had held his gaze a little longer than usual.", "کمی نزدیک‌تر از حد لازم ایستاده بود، نگاهش را کمی بیشتر از معمول نگه داشته بود."),
+            StoryParagraph("But Stevens had not responded; he had not understood, or rather, he had refused to understand.", "اما استیونز پاسخ نداده بود؛ نفهمیده بود، یا بهتر، از فهمیدن امتناع کرده بود."),
+            StoryParagraph("He had believed that such things were not for him, that a butler must not have such feelings, such attachments.", "باور داشت چنین چیزهایی برایش نبود، سرپیشخدمت نباید چنین احساساتی داشته باشد، چنین دلبستگی‌هایی."),
+            StoryParagraph("And so he had kept his distance, had maintained his dignity, had remained a butler first and a man second.", "و اینگونه فاصله‌اش را نگه داشته بود، وقارش را حفظ کرده بود، سرپیشخدمت اول و مرد دوم مانده بود."),
+            StoryParagraph("One evening, Miss Kenton had come to his pantry with some flowers, and she had asked him about his book.", "یک عصر، میس کنتون با گل‌هایی به انبارش آمده بود و درباره کتابش پرسیده بود."),
+            StoryParagraph("He had been embarrassed, and he had tried to hide the book, and he had been rather cold with her.", "او خجالت کشیده بود و تلاش کرده بود کتاب را پنهان کند و با او نسبتاً سرد بوده بود."),
+            StoryParagraph("She had been hurt, but she had not shown it, and she had left him alone.", "او زخمی شده بود اما نشان نداده بود و تنهایش گذاشته بود."),
+            StoryParagraph("Later, Stevens had regretted his coldness, but he had not apologized; a butler did not apologize.", "بعداً، استیونز از سردی‌اش پشیمان شده بود اما عذرخواهی نکرده بود؛ سرپیشخدمت عذرخواهی نمی‌کرد."),
+            StoryParagraph("And so the years had passed, and their friendship had deepened, and their love—if it was love—had remained unspoken.", "و اینگونه سال‌ها گذشت و دوستی‌شان عمیق‌تر شد و عشقشان—اگر عشق بود—ناخوانده ماند."),
+            StoryParagraph("There had been a night, a terrible night, when Stevens' father had died in an attic room, and Stevens had continued to serve at a great conference below.", "شبی بوده، شبی هولناک، که پدر استیونز در اتاق زیرشیروانی مرده بود و استیونز به خدمت در کنفرانس بزرگی در پایین ادامه داده بود."),
+            StoryParagraph("Miss Kenton had come to him, had tried to comfort him, had told him his father was dying.", "میس کنتون به سراغش آمده بود، تلاش کرده بود دلداری‌اش دهد، گفته بود پدرش در حال مرگ است."),
+            StoryParagraph("But Stevens had continued to serve, had maintained his composure, had not allowed himself to break.", "اما استیونز به خدمت ادامه داده بود، خونسردی‌اش را حفظ کرده بود، به خودش اجازه شکستن نداده بود."),
+            StoryParagraph("Later, when he saw his father's body, he had said only: 'He was a good father, a good butler.'", "بعداً، وقتی پیکر پدرش را دید، تنها گفته بود: «پدر خوبی بود، سرپیشخدمت خوبی.»"),
+            StoryParagraph("He had not wept, had not grieved, had not allowed himself to feel anything.", "گریه نکرده بود، عزاداری نکرده بود، به خودش اجازه نداده بود چیزی حس کند."),
+            StoryParagraph("And Miss Kenton, watching him, had begun to understand the depth of his self-control.", "و میس کنتون، در تماشایش، شروع کرده بود به فهمیدن عمق خودکنترلی‌اش."),
+            StoryParagraph("And she had also begun to understand that this self-control was also a kind of prison.", "و شروع کرده بود به فهمیدن که این خودکنترلی نوعی زندان هم هست."),
+            StoryParagraph("For Stevens could not allow himself to feel; he could only allow himself to serve.", "زیرا استیونز نمی‌توانست به خودش اجازه احساس دادن بدهد؛ تنها می‌توانست به خودش اجازه خدمت بدهد."),
+            StoryParagraph("And this, Miss Kenton realized, was both his greatness and his tragedy.", "و این، میس کنتون دریافت، هم عظمت او بود و هم تراژدی‌اش."),
+            StoryParagraph("She had tried, in the years that followed, to reach him, to break through his walls.", "در سال‌های بعد تلاش کرده بود به او برسد، از دیوارهایش عبور کند."),
+            StoryParagraph("But Stevens had remained behind his walls, had remained the perfect butler, had remained untouched.", "اما استیونز پشت دیوارهایش مانده بود، سرپیشخدمت کامل مانده بود، دست‌نخورده مانده بود."),
+            StoryParagraph("And so, at last, Miss Kenton had given up; she had accepted a proposal of marriage from a man named Mr. Benn.", "و اینگونه، سرانجام، میس کنتون رها کرده بود؛ خواستگاری مردی به نام آقای بن را پذیرفته بود."),
+            StoryParagraph("She had told Stevens of her decision, hoping he would object, hoping he would say something.", "به استیونز از تصمیمش گفته بود، به امید اینکه مخالفت کند، به امید اینکه چیزی بگوید."),
+            StoryParagraph("But Stevens had only congratulated her, had wished her well, had helped her pack her things.", "اما استیونز تنها تبریکش گفته بود، آرزوی خوبی برایش کرده بود، کمک کرده بود وسایلش را ببندد."),
+            StoryParagraph("And when she left, he had gone back to his work, as if nothing had happened.", "و وقتی رفت، به کارش بازگشته بود، گویی هیچ اتفاقی نیفتاده."),
+            StoryParagraph("That was the last time he had seen her; and now, driving toward her, he wondered if he could bear to see her again.", "آن آخرین بار بود که دیده بودش؛ و حالا، در رانندگی به سمتش، حیران بود آیا می‌تواند تحمل کند دوباره ببیندش.")
+        )
+    )
+
+    // ─────────── فصل ۴: ملاقات ───────────
+    private fun chapter4() = StoryChapter(
+        number = 4, title = "The Meeting", titlePersian = "ملاقات",
+        paragraphs = listOf(
+            StoryParagraph("Stevens arrived in the town of Little Compton on the afternoon of the fourth day of his journey.", "استیونز بعدازظهر چهارمین روز سفرش به شهرک لیتل کامپتون رسید."),
+            StoryParagraph("He found a small hotel, took a room, and changed into his best suit.", "هتلی کوچک یافت، اتاقی گرفت و بهترین کتش را پوشید."),
+            StoryParagraph("Then he walked to the address Miss Kenton had given him in her letter.", "بعد به آدرسی رفت که میس کنتون در نامه‌اش داده بود."),
+            StoryParagraph("It was a small house at the end of a quiet street, a modest house, but well-kept.", "خانه‌ای کوچک در انتهای خیابانی آرام بود، خانه‌ای متواضع اما مرتب."),
+            StoryParagraph("He knocked on the door, and after a moment, it opened.", "در زد و بعد از لحظه‌ای، باز شد."),
+            StoryParagraph("And there she was, after twenty-seven years, Miss Kenton—though of course, she was now Mrs. Benn.", "و آنجا بود، پس از بیست‌و‌هفت سال، میس کنتون—هرچند البته حالا خانم بن بود."),
+            StoryParagraph("She was older, of course, grayer, wearier; but her eyes were the same.", "البته پیرتر بود، خاکستری‌تر، خسته‌تر؛ اما چشمانش همان بودند."),
+            StoryParagraph("'Mr. Stevens,' she said, and there was surprise in her voice, and also something else, something that he could not quite name.", "گفت: «آقای استیونز.» و در صدایش حیرت بود و چیز دیگری هم، چیزی که کاملاً نمی‌توانست نامش را ببرد."),
+            StoryParagraph("'Miss Kenton,' he said, and he bowed slightly, the way a butler was expected to bow. 'I hope I am not intruding.'", "گفت: «میس کنتون.» و کمی تعظیم کرد، همانطور که از سرپیشخدمت انتظار می‌رفت. «امیدوارم مزاحم نباشم.»"),
+            StoryParagraph("'Of course not,' she said, and she smiled, and the smile was warm and genuine and slightly sad. 'Please, come in.'", "گفت: «البته که نیستید.» و لبخند زد و لبخندش گرم و اصیل و کمی غمگین بود. «خواهش می‌کنم، بیایید داخل.»"),
+            StoryParagraph("He followed her into a small sitting room, modest but comfortable, with photographs on the walls and flowers on the table.", "دنبالش به نشیمن کوچکی رفت، متواضع اما راحت، با عکس‌هایی روی دیوارها و گل‌هایی روی میز."),
+            StoryParagraph("'I was so surprised to get your letter,' she said. 'I had not expected to hear from you.'", "گفت: «از دریافت نامه‌تان خیلی حیرت کردم. انتظار نداشتم از شما خبری بشنوم.»"),
+            StoryParagraph("'I wrote to tell you about the house,' he said, seating himself stiffly on the edge of a chair. 'Mr. Farraday is the new owner, and he is looking for a housekeeper.'", "گفت: «نوشتم تا درباره خانه به شما بگویم.» و خودش را خشک روی لبه صندلی نشاند. «آقای فارادی مالک جدید است و به دنبال خانه‌دار می‌گردد.»"),
+            StoryParagraph("'Oh,' she said, and there was a pause. 'I see.'", "گفت: «اوه.» و مکثی شد. «می‌بینم.»"),
+            StoryParagraph("There was another pause, longer this time, and Stevens found himself studying the pattern on the carpet, unable to meet her eyes.", "مکث دیگری شد، این بار طولانی‌تر و استیونز خودش را در حال مطالعه نقش فرش یافت، ناتوان از رسیدن به چشمانش."),
+            StoryParagraph("'How have you been, Miss Kenton?' he asked, at last. 'Your letter suggested that you were not entirely happy.'", "سرانجام پرسید: «چطور بوده‌اید، میس کنتون؟ نامه‌تان اشاره می‌کرد کاملاً خوشحال نیستید.»"),
+            StoryParagraph("She was quiet for a moment, and then she sighed, a long, weary sigh.", "لحظه‌ای ساکت بود و بعد آهی کشید، آهی طولانی و خسته."),
+            StoryParagraph("'My marriage,' she said, 'has not been what I hoped. Mr. Benn is not a bad man, but he is not... he is not what I imagined.'", "گفت: «ازدواجم آنچه امید داشتم نبوده. آقای بن مرد بدی نیست اما... آنچه تصور کرده بودم نیست.»"),
+            StoryParagraph("'I am sorry to hear that,' said Stevens.", "استیونز گفت: «متأسفم که می‌شنوم.»"),
+            StoryParagraph("'My daughter is grown now,' she continued, 'and she has her own life. And I find myself, at this age, wondering what I have done with my time.'", "ادامه داد: «دخترم حالا بزرگ شده و زندگی خودش را دارد. و خودم را در این سن می‌یابم در حیرت اینکه با وقتم چه کرده‌ام.»"),
+            StoryParagraph("Stevens nodded, but he did not know what to say.", "استیونز سر تکان داد اما نمی‌دانست چه بگوید."),
+            StoryParagraph("'And you, Mr. Stevens?' she asked. 'Have you been happy?'", "پرسید: «و شما، آقای استیونز؟ خوشحال بوده‌اید؟»"),
+            StoryParagraph("The question took him by surprise, and for a moment, he did not know how to answer.", "پرسش غافلگیرش کرد و لحظه‌ای نمی‌دانست چطور پاسخ دهد."),
+            StoryParagraph("'I have been... occupied,' he said, at last. 'I have been of service. I believe that is what matters.'", "سرانجام گفت: «مشغول بوده‌ام. در خدمت بوده‌ام. باور دارم این چیزی است که مهم است.»"),
+            StoryParagraph("Miss Kenton looked at him for a long moment, and there was something in her eyes that he could not read.", "میس کنتون مدت طولانی نگاهش کرد و چیزی در چشمانش بود که نمی‌توانست بخواند."),
+            StoryParagraph("'Oh, Mr. Stevens,' she said, quietly. 'You have been of service. But have you been alive?'", "آرام گفت: «اوه، آقای استیونز. شما در خدمت بوده‌اید. اما زنده بوده‌اید؟»"),
+            StoryParagraph("The question hung in the air, unanswered, unanswerable.", "پرسش در هوا معلق ماند، بی‌پاسخ، پاسخ‌ناپذیر."),
+            StoryParagraph("They talked for a while longer, about ordinary things—about the house, about the old days, about the people they had known.", "مدتی بیشتر صحبت کردند، از چیزهای معمولی—از خانه، از روزهای قدیم، از مردمی که شناخته بودند."),
+            StoryParagraph("But there was a sadness in the conversation, a sense of things unsaid, of opportunities missed.", "اما اندوهی در گفتگو بود، حسی از چیزهای ناگفته، از فرصت‌های از دست رفته."),
+            StoryParagraph("And when Stevens finally said goodbye, when he walked back to his hotel through the dark streets, he felt, for the first time in years, something like sorrow.", "و هنگامی که استیونز سرانجام خداحافظی کرد، وقتی در خیابان‌های تاریک به هتلش برگشت، برای نخستین بار در سال‌ها چیزی شبیه اندوه حس کرد."),
+            StoryParagraph("He had loved her, he realized; he had loved her all along, and he had never told her, and now it was too late.", "او را دوست داشته، دریافته بود؛ همیشه دوستش داشته و هرگز به او نگفته و حالا خیلی دیر است."),
+            StoryParagraph("And that, he understood, was the tragedy of his life: not that he had failed in his profession, but that he had failed in his humanity.", "و این، فهمید، تراژدی زندگی‌اش بود: نه اینکه در حرفه‌اش شکست خورده، بلکه در انسانیتش شکست خورده."),
+            StoryParagraph("He had been a perfect butler; but he had not been a complete man.", "سرپیشخدمت کاملی بوده؛ اما مرد کاملی نبوده."),
+            StoryParagraph("And now, at the end of his life, at the end of his journey, there was nothing to do but accept it.", "و حالا، در پایان زندگی‌اش، در پایان سفرش، کاری نبود جز پذیرشش."),
+            StoryParagraph("Or so he thought; but perhaps, he reflected, there was still time for something else.", "یا اینطور فکر می‌کرد؛ اما شاید، تأمل کرد، هنوز زمانی برای چیز دیگری بود."),
+            StoryParagraph("Perhaps there was still time to make the best of what remained.", "شاید هنوز زمانی بود برای بهترین استفاده از آنچه باقی مانده.")
+        )
+    )
+
+    // ─────────── فصل ۵: خداحافظی ───────────
+    private fun chapter5() = StoryChapter(
+        number = 5, title = "The Farewell", titlePersian = "خداحافظی",
+        paragraphs = listOf(
+            StoryParagraph("The next morning, Stevens returned to Miss Kenton's house to say goodbye.", "صبح روز بعد، استیونز به خانه میس کنتون بازگشت تا خداحافظی کند."),
+            StoryParagraph("She had asked him to come for breakfast, and she had prepared a simple meal.", "از او خواسته بود برای صبحانه بیاید و او غذای ساده‌ای آماده کرده بود."),
+            StoryParagraph("They sat together at the small kitchen table, and they talked about small things.", "با هم پشت میز کوچک آشپزخانه نشستند و از چیزهای کوچک صحبت کردند."),
+            StoryParagraph("But both of them knew that the real conversation was not yet over.", "اما هر دو می‌دانستند گفتگوی واقعی هنوز تمام نشده."),
+            StoryParagraph("'Will you come back to Darlington Hall?' Stevens asked, at last. 'Mr. Farraday would be very pleased to have you.'", "سرانجام استیونز پرسید: «به تالار دارلینگتون بازمی‌گردید؟ آقای فارادی از داشتن شما خیلی خوشحال می‌شود.»"),
+            StoryParagraph("Miss Kenton was quiet for a long moment, and then she shook her head.", "میس کنتون لحظه‌ای طولانی ساکت بود و بعد سر تکان داد."),
+            StoryParagraph("'I cannot,' she said. 'I have a daughter here, and I have my husband, and I have my life. Such as it is.'", "گفت: «نمی‌توانم. اینجا دختری دارم و شوهرم را و زندگی‌ام را. هر چه هست.»"),
+            StoryParagraph("'I understand,' said Stevens, but he did not understand; he did not want to understand.", "استیونز گفت: «می‌فهمم.» اما نمی‌فهمید؛ نمی‌خواست بفهمد."),
+            StoryParagraph("'But I am glad you came,' she said. 'I am glad we had this time together.'", "گفت: «اما خوشحالم که آمدید. خوشحالم که این وقت را با هم داشتیم.»"),
+            StoryParagraph("'As am I,' said Stevens.", "استیونز گفت: «من هم.»"),
+            StoryParagraph("They finished their breakfast, and then Miss Kenton walked him to the door.", "صبحانه‌شان را تمام کردند و بعد میس کنتون تا در همراهش رفت."),
+            StoryParagraph("'Mr. Stevens,' she said, as he was about to leave. 'I want to tell you something. Something I should have told you long ago.'", "هنگامی که می‌خواست برود گفت: «آقای استیونز. می‌خواهم چیزی بگویم. چیزی که باید مدت‌ها پیش می‌گفتم.»"),
+            StoryParagraph("He turned to look at her, and his heart was beating faster than it should have been.", "برگشت که نگاهش کند و قلبش تندتر از آنچه باید می‌تپید."),
+            StoryParagraph("'I loved you,' she said, quietly. 'I loved you, Mr. Stevens, and I thought you might love me too.'", "آرام گفت: «دوستتان داشتم. دوستتان داشتم، آقای استیونز و فکر کردم شاید شما هم دوستم داشته باشید.»"),
+            StoryParagraph("Stevens stood there, in the doorway, and for a moment, he did not know what to say.", "استیونز آنجا در درگاه ایستاد و لحظه‌ای نمی‌دانست چه بگوید."),
+            StoryParagraph("'I...' he began, and then he stopped. 'I...'", "شروع کرد: «من...» و بعد ایستاد. «من...»"),
+            StoryParagraph("But the words would not come; they had never come; they would never come.", "اما کلمات نمی‌آمدند؛ هرگز نیامده بودند؛ هرگز نمی‌آمدند."),
+            StoryParagraph("'I know,' said Miss Kenton, and she smiled, and the smile was sad but also kind. 'I know. You do not have to say anything.'", "میس کنتون گفت: «می‌دانم.» و لبخند زد و لبخند غمگین اما مهربان بود. «می‌دانم. لازم نیست چیزی بگویید.»"),
+            StoryParagraph("And so Stevens left, and he drove away, and he did not look back.", "و اینگونه استیونز رفت و دور شد و به عقب نگاه نکرد."),
+            StoryParagraph("He drove for hours, through the English countryside, and he thought about what she had said.", "ساعت‌ها راند، در حومه انگلستان و به آنچه گفته بود فکر کرد."),
+            StoryParagraph("She had loved him; she had loved him, and he had loved her, and they had never spoken of it.", "او دوستش داشته؛ دوستش داشته و او هم دوستش داشته و هرگز از آن صحبت نکرده بودند."),
+            StoryParagraph("Twenty-seven years, and neither of them had spoken of it.", "بیست‌و‌هفت سال و هیچ‌کدام از آن صحبت نکرده بودند."),
+            StoryParagraph("He wondered, briefly, what might have been, if he had said something then, if he had been braver, if he had not been so afraid.", "لحظه‌ای حیران شد چه می‌توانست باشد، اگر آن موقع چیزی گفته بود، اگر شجاع‌تر بود، اگر اینقدر نمی‌ترسید."),
+            StoryParagraph("But such thoughts were useless, and he pushed them away.", "اما چنین افکاری بی‌فایده بودند و دورشان می‌کرد."),
+            StoryParagraph("The past could not be changed; only the future remained.", "گذشته را نمی‌شد تغییر داد؛ تنها آینده مانده بود."),
+            StoryParagraph("And the future, he decided, would be different.", "و آینده، تصمیم گرفت، متفاوت می‌بود."),
+            StoryParagraph("He would go back to Darlington Hall, and he would serve Mr. Farraday, and he would continue to be a butler.", "به تالار دارلینگتون بازمی‌گشت و به آقای فارادی خدمت می‌کرد و به سرپیشخدمت بودن ادامه می‌داد."),
+            StoryParagraph("But he would also try to be, for the first time, a man.", "اما تلاش می‌کرد، برای نخستین بار، مرد هم باشد."),
+            StoryParagraph("He would allow himself to feel; he would allow himself to love; he would allow himself to live.", "به خودش اجازه می‌داد احساس کند؛ به خودش اجازه می‌داد عشق بورزد؛ به خودش اجازه می‌داد زندگی کند."),
+            StoryParagraph("He did not know if he could do it, did not know if it was possible, did not know if it was too late.", "نمی‌دانست می‌تواند، نمی‌دانست ممکن است، نمی‌دانست خیلی دیر است."),
+            StoryParagraph("But he would try; and trying, he told himself, was what mattered.", "اما تلاش می‌کرد؛ و تلاش، به خودش می‌گفت، چیزی بود که اهمیت داشت."),
+            StoryParagraph("He drove on through the English countryside, and the sun was setting before him.", "در حومه انگلستان راند و خورشید پیش رویش غروب می‌کرد."),
+            StoryParagraph("He felt, for the first time in years, a kind of peace.", "برای نخستین بار در سال‌ها نوعی آرامش حس کرد."),
+            StoryParagraph("It was not the peace of a man who had achieved his goals; it was the peace of a man who had accepted his life.", "آرامش مردی نبود که به اهدافش رسیده؛ آرامش مردی بود که زندگی‌اش را پذیرفته بود."),
+            StoryParagraph("And perhaps, he reflected, that was the better peace; perhaps that was the only peace available to us.", "و شاید، تأمل کرد، آن آرامش بهتر بود؛ شاید تنها آرامش موجود برای ما بود."),
+            StoryParagraph("The peace of accepting the life we have lived, and the life we have not lived, and the people we have loved, and the people we have lost.", "آرامش پذیرش زندگی‌ای که زیسته‌ایم، و زندگی‌ای که نزیسته‌ایم، و کسانی که دوستشان داشته‌ایم و کسانی که از دست داده‌ایم."),
+            StoryParagraph("And so Stevens drove on, toward the remains of his day, and toward whatever might come next.", "و اینگونه استیونز راند، به سمت باقی‌مانده روزش و به سمت هر چه ممکن بود بعد بیاید.")
+        )
+    )
+
+    // ─────────── فصل ۶: باقی‌مانده روز ───────────
+    private fun chapter6() = StoryChapter(
+        number = 6, title = "The Remains of the Day", titlePersian = "باقی‌مانده روز",
+        paragraphs = listOf(
+            StoryParagraph("The Remains of the Day, published in 1989, is the most famous novel by Kazuo Ishiguro, the British writer born in Japan.", "باقی‌مانده روز، منتشرشده در ۱۹۸۹، مشهورترین رمان کازوئو ایشی‌گورو است، نویسنده انگلیسی زاده ژاپن."),
+            StoryParagraph("The novel won the Booker Prize and established Ishiguro as one of the greatest writers of his generation; he would later win the Nobel Prize in Literature.", "رمان جایزه بوکر را برد و ایشی‌گورو را به‌عنوان یکی از بزرگ‌ترین نویسندگان نسلش تثبیت کرد؛ بعدها جایزه نوبل ادبیات را هم برد."),
+            StoryParagraph("The novel is written as the diary of Stevens, an English butler, as he takes a motoring holiday through the West Country.", "رمان به‌عنوان دفتر خاطرات استیونز نوشته شده، سرپیشخدمت انگلیسی، در حین تعطیلات رانندگی‌اش در غرب کشور."),
+            StoryParagraph("But the diary is not really about the journey; it is about the past, about memory, about the things we remember and the things we choose to forget.", "اما دفتر واقعاً درباره سفر نیست؛ درباره گذشته است، درباره خاطره، درباره چیزهایی که به یاد می‌آوریم و چیزهایی که انتخاب می‌کنیم فراموش کنیم."),
+            StoryParagraph("Stevens has spent his life in service, has sacrificed everything for his profession, has become a perfect butler.", "استیونز عمرش را در خدمت گذرانده، همه چیز را برای حرفه‌اش فدا کرده، سرپیشخدمت کاملی شده."),
+            StoryParagraph("But as he drives through the countryside, he begins to question whether his life has been well-lived.", "اما همانطور که در حومه می‌راند، شروع می‌کند به زیر سؤال بردن اینکه زندگی‌اش خوب زیسته شده."),
+            StoryParagraph("He remembers the great conferences at Darlington Hall, the famous men who came, the causes he served.", "کنفرانس‌های بزرگ تالار دارلینگتون را به یاد می‌آورد، مردان مشهوری که آمدند، آرمان‌هایی که خدمت کرد."),
+            StoryParagraph("But he also remembers, or half-remembers, the darker side of those years: Lord Darlington's sympathy for the Nazis, the appeasement, the disgrace.", "اما نیمه‌یاد می‌آورد هم، طرف تاریک آن سال‌ها را: همدلی لرد دارلینگتون با نازی‌ها، مماشات، رسوایی."),
+            StoryParagraph("And he remembers Miss Kenton, the housekeeper he loved and never told.", "و میس کنتون را به یاد می‌آورد، خانه‌داری که دوستش داشت و هرگز نگفت."),
+            StoryParagraph("He remembers the small moments, the small gestures, the small words that passed between them.", "لحظه‌های کوچک را به یاد می‌آورد، اشاره‌های کوچک، کلمات کوچکی که بینشان رد و بدل شد."),
+            StoryParagraph("And he remembers, most painfully, the things he did not say, the feelings he did not express, the love he did not admit.", "و به‌دردناک‌ترین شکل، چیزهایی را به یاد می‌آورد که نگفت، احساساتی که بیان نکرد، عشقی که اقرار نکرد."),
+            StoryParagraph("The novel is, in many ways, a meditation on what it means to live a life.", "رمان، از بسیاری جهات، تأملی است درباره معنای زیستن یک زندگی."),
+            StoryParagraph("Is it better to devote oneself to a cause, to a profession, to a service, and to give up everything else?", "آیا بهتر است خود را وقف آرمانی، حرفه‌ای، خدمتی کرد و هر چیز دیگری را رها کرد؟"),
+            StoryParagraph("Or is it better to allow oneself to feel, to love, to live—even at the cost of being less perfect, less disciplined, less 'dignified'?", "یا بهتر است به خود اجازه داد احساس کند، عشق بورزد، زندگی کند—حتی به بهای کمتر کامل بودن، کمتر منظم بودن، کمتر «باوقار» بودن؟"),
+            StoryParagraph("Stevens has chosen the first path; and now, at the end of his life, he wonders if he has chosen wrong.", "استیونز راه نخست را انتخاب کرده؛ و حالا، در پایان زندگی‌اش، حیران است آیا اشتباه انتخاب کرده."),
+            StoryParagraph("Miss Kenton has chosen the second path; and she too has suffered, has too wondered, has too questioned.", "میس کنتون راه دوم را انتخاب کرده؛ و او هم رنج کشیده، حیران بوده، زیر سؤال برده."),
+            StoryParagraph("Neither path has led to happiness; neither path has led to fulfillment; neither path has led to peace.", "هیچ‌یک از دو راه به خوشبختی نرسیده؛ نه به کمال، نه به آرامش."),
+            StoryParagraph("And perhaps, Ishiguro suggests, this is the human condition: that we must choose, and that every choice involves loss.", "و شاید، ایشی‌گورو پیشنهاد می‌دهد، این همان وضعیت بشری است: باید انتخاب کنیم و هر انتخابی مستلزم فقدان است."),
+            StoryParagraph("There is no perfect life, no ideal existence, no way to have everything.", "زندگی کامل وجود ندارد، وجود آرمانی نه، راهی برای داشتن همه چیز نه."),
+            StoryParagraph("We must choose, and we must live with our choices, and we must accept the consequences.", "باید انتخاب کنیم و با انتخاب‌هایمان زندگی کنیم و پیامدها را بپذیریم."),
+            StoryParagraph("And at the end, if we are wise, we accept what we have done and what we have not done, and we make peace with it.", "و در پایان، اگر فرزانه باشیم، آنچه کرده‌ایم و آنچه نکرده‌ایم را می‌پذیریم و با آن صلح می‌کنیم."),
+            StoryParagraph("The novel ends with Stevens sitting on a bench by the sea, watching the evening come.", "رمان با استیونز نشسته روی نیمکتی کنار دریا پایان می‌یابد، تماشای آمدن عصر."),
+            StoryParagraph("A stranger sits beside him, and they talk about the evening, about the end of the day.", "غریبه‌ای کنارش می‌نشیند و از عصر صحبت می‌کنند، از پایان روز."),
+            StoryParagraph("The stranger says that the evening is the best part of the day, the time when we can rest, when we can reflect, when we can prepare for what comes next.", "غریبه می‌گوید عصر بهترین بخش روز است، زمانی که می‌توانیم بیارامیم، فکر کنیم، آماده شویم برای آنچه بعد می‌آید."),
+            StoryParagraph("And Stevens, listening, understands that his own evening has come.", "و استیونز، در شنیدن، می‌فهمد که عصر خودش آمده."),
+            StoryParagraph("He has reached the end of his day, the end of his service, the end of his life as he has known it.", "به پایان روزش رسیده، پایان خدمتش، پایان زندگی‌اش آن‌طور که شناخته بود."),
+            StoryParagraph("And now, in the remains of the day, he must decide how to live.", "و حالا، در باقی‌مانده روز، باید تصمیم بگیرد چطور زندگی کند."),
+            StoryParagraph("He decides to go back, to serve Mr. Farraday, to continue being a butler.", "تصمیم می‌گیرد بازگردد، به آقای فارادی خدمت کند، سرپیشخدمت بودن را ادامه دهد."),
+            StoryParagraph("But he also decides to try to learn, to grow, to become a different kind of man.", "اما همچنین تصمیم می‌گیرد تلاش کند بیاموزد، رشد کند، نوع دیگری از مرد شود."),
+            StoryParagraph("He does not know if he will succeed; but he will try; and trying, he believes, is what matters.", "نمی‌داند موفق می‌شود یا نه؛ اما تلاش می‌کند؛ و معتقد است تلاش چیزی است که اهمیت دارد."),
+            StoryParagraph("For the remains of the day are not merely the end; they are also the beginning of something new.", "زیرا باقی‌مانده روز تنها پایان نیست؛ آغازی هم هست برای چیز جدید."),
+            StoryParagraph("The novel is a masterpiece of understatement, of subtlety, of restraint.", "رمان شاهکاری است از کم‌گویی، از ظرافت، از خودداری."),
+            StoryParagraph("Ishiguro tells the story through what Stevens does not say, what he does not admit, what he cannot allow himself to feel.", "ایشی‌گورو داستان را از طریق آنچه استیونز نمی‌گوید تعریف می‌کند، آنچه اقرار نمی‌کند، آنچه به خودش اجازه احساس دادنش نمی‌دهد."),
+            StoryParagraph("And in that silence, in that restraint, in that dignity that is also a prison, we see the tragedy of a life lived for others.", "و در آن سکوت، در آن خودداری، در آن وقاری که زندان هم هست، تراژدی زندگی‌ای که برای دیگران زیسته شده را می‌بینیم."),
+            StoryParagraph("And we ask ourselves, as Stevens asks himself, whether such a life is worth living.", "و از خودمان می‌پرسیم، همانطور که استیونز از خودش می‌پرسد، آیا چنین زندگی‌ای ارزش زیستن دارد."),
+            StoryParagraph("The novel does not answer the question; it leaves it to us.", "رمان به پرسش پاسخ نمی‌دهد؛ به ما می‌سپاردش."),
+            StoryParagraph("And that, perhaps, is the greatest gift that literature can give: not answers, but questions; not certainty, but doubt; not comfort, but understanding.", "و این، شاید، بزرگ‌ترین هدیه‌ای است که ادبیات می‌تواند بدهد: نه پاسخ، بلکه پرسش؛ نه یقین، بلکه شک؛ نه تسلی، بلکه فهم."),
+            StoryParagraph("For understanding, however painful, is better than ignorance; and the truth, however terrible, is better than illusion.", "زیرا فهم، هر چقدر دردناک، از نادانی بهتر است؛ و حقیقت، هر چقدر هولناک، از توهم بهتر."),
+            StoryParagraph("And so the remains of the day are not just a time of ending, but a time of reckoning.", "و اینگونه باقی‌مانده روز تنها زمانی برای پایان نیست، زمانی برای محاسبه هم هست."),
+            StoryParagraph("The end.", "پایان."),
+            StoryParagraph("And the beginning.", "و آغاز."),
+            StoryParagraph("For every reader who finishes the novel, the journey begins anew.", "زیرا هر خواننده‌ای که رمان را تمام می‌کند، سفر از نو آغاز می‌شود.")
+        )
+    )
+}
