@@ -4,15 +4,15 @@ import com.zabanyar.ai.data.books.story.StoryContent
 
 /**
  * 📚 گروه ۱۲ — پیشرفته — ادبیات معاصر
- *  ۱۲. هرگز رهایم مکن (کازوئو ایشی‌گورو)
- *  ۱۳. ...
- *  ۱۴. ...
+ *  ۳۴. بادبادک‌باز (خالد حسینی)
+ *  ۳۵. هزار خورشید تابان (خالد حسینی)
+ *  ۳۶. زندگی پی (یان مارتل)
  */
 object Group12 {
 
     fun getAll(): List<StoryContent> = listOf(
-        Story12.get(),
-        Story13.get(),
-        Story14.get(),
+        Story34.get(),
+        Story35.get(),
+        Story36.get(),
     )
 }
